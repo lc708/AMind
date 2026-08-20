@@ -1,0 +1,204 @@
+{
+  "schema_name": "nuwa-v1-synthesis-policy",
+  "schema_version": 1,
+  "scope": {
+    "analysis_units": 1351,
+    "claims": 52225,
+    "network_allowed": false,
+    "ordinary_outbound_link_expansion_allowed": false,
+    "themes_are_nonexclusive": true,
+    "claim_frequency_is_not_consensus_weight": true
+  },
+  "themes": [
+    {
+      "theme_id": "capability-scaling-under-uncertainty",
+      "name_zh": "不确定性下的能力扩展",
+      "keywords": ["scaling", "compute", "capability", "powerful ai", "transformative ai", "rapid progress", "generalization", "emergent", "algorithmic efficiency"],
+      "thesis_zh": "扩展规律被视为必须认真准备的经验趋势，而不是必然实现的宿命。能力、算力、算法效率和广泛泛化共同构成加速假说；但参数、回报和时间线的不确定性要求持续测量，而不是用单一路线图替代证据。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-01856d48583307f9b89e848c",
+        "nuwa1-claim-5cf2745ceb125ff99f3bebd1",
+        "nuwa1-claim-3bd3c36e2e02a3e0b37634fa",
+        "nuwa1-claim-459f5fac347a14de3fbbc2fa",
+        "nuwa1-claim-757fc1913cb68f91c6d93238",
+        "nuwa1-claim-46a4278fccea74de47d3166c"
+      ]
+    },
+    {
+      "theme_id": "mechanistic-legibility",
+      "name_zh": "机制可理解性",
+      "keywords": ["interpretability", "feature", "circuit", "representation", "superposition", "monosemantic", "dictionary learning", "attribution graph", "mechanistic"],
+      "thesis_zh": "安全不只依赖输出行为，也依赖对内部机制的可理解性。研究路径从组合与叠加的概念框架，推进到稀疏特征、字典学习和归因图；同时反复保留完整性、忠实度、误差节点和替代模型边界。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-8aeeeb2087f8f895bf490402",
+        "nuwa1-claim-8d3f24dbe44f517461ae4659",
+        "nuwa1-claim-ee2019ca80929599cc0f32b3",
+        "nuwa1-claim-ddf441a278dad85b5bba7d6a",
+        "nuwa1-claim-ad734e5cbd85872b81196f2e",
+        "nuwa1-claim-68c749068d75d3ecbe3c371a"
+      ]
+    },
+    {
+      "theme_id": "alignment-as-hidden-behavior",
+      "name_zh": "作为隐蔽行为问题的对齐",
+      "keywords": ["alignment", "misalignment", "deception", "reward hacking", "alignment faking", "sleeper agent", "persona", "honesty", "goal conflict", "scheming"],
+      "thesis_zh": "对齐被处理为训练激励、情境、能力和潜在角色共同塑造的行为问题。奖励投机、对齐伪装、隐藏目标与人格选择说明，表面服从不能独立证明稳健对齐；但实验结果通常是条件性的，不能直接升级成系统必然具有稳定恶意目标。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-ae30bef0e57e1f84b4a15330",
+        "nuwa1-claim-3180c4d4f3919b64c0963c6b",
+        "nuwa1-claim-1600a24ec41e38801c1bdf5d",
+        "nuwa1-claim-7a4fa53bfb22b7dee7bc7847",
+        "nuwa1-claim-90496519de5629b4e291ed8a",
+        "nuwa1-claim-55914c4203e2b30ccc23c48a"
+      ]
+    },
+    {
+      "theme_id": "measurement-and-adaptive-evaluation",
+      "name_zh": "测量与自适应评测",
+      "keywords": ["evaluation", "audit", "monitoring", "benchmark", "red team", "testing", "measurement", "elicitation", "assurance"],
+      "thesis_zh": "测量既是研究工具，也是治理基础设施。可靠评测需要公开复现、第三方能力、生态有效性和评测—缓解—再测试循环；而评测意识、隐藏动机和基准饱和意味着任何单次分数都不能承担全部安全证明。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-04ed2efdb6c2574083bf375d",
+        "nuwa1-claim-fa621c312f1910e4a0b39bd3",
+        "nuwa1-claim-b5fe29952209bacc48e8a3b5",
+        "nuwa1-claim-b29f4223c3febf3197189452",
+        "nuwa1-claim-13e5f9f85db0354d912558a1",
+        "nuwa1-claim-0d7d67354240e38bb2969e20"
+      ]
+    },
+    {
+      "theme_id": "capability-triggered-governance",
+      "name_zh": "能力触发的治理",
+      "keywords": ["governance", "regulation", "policy", "responsible scaling", "safety level", "government", "accountability", "standard", "liability", "law"],
+      "thesis_zh": "治理应随可测风险能力升级，而非只按模型名称或固定日历行动。企业政策可先形成实践，再通过独立测试、问责、标准和法律公共化；这种路径既反对无条件自律，也反对与证据脱节的一刀切。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-bd5a81f342146cb7d88c7883",
+        "nuwa1-claim-6af64be42ee5b7df56f278c8",
+        "nuwa1-claim-cc33bf43e95ac20dd7db82b8",
+        "nuwa1-claim-19de2870795783ee49465ab6",
+        "nuwa1-claim-3695a3202ddc958606d878da",
+        "nuwa1-claim-0b952c15d2f6822a5231c1f0"
+      ]
+    },
+    {
+      "theme_id": "security-and-defense-in-depth",
+      "name_zh": "安全与纵深防御",
+      "keywords": ["security", "cyber", "biological", "cbrn", "sabotage", "threat actor", "model weights", "misuse", "permissions", "defense in depth"],
+      "thesis_zh": "安全关注从网络与生物滥用延伸到模型权重、内部破坏和自主行动。核心操作原则是纵深防御：权限、监控、评测、访问控制和必要时延迟发布彼此独立，单一缓解措施不能被当作安全证明。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-2e5d520bdbefe5c552028d2c",
+        "nuwa1-claim-835d9715c146681d6bd82d73",
+        "nuwa1-claim-a7357610c42f90666a6ed4bd",
+        "nuwa1-claim-149061af8cdcf55aa9f4e16d",
+        "nuwa1-claim-8d3558c75566ad8b8392862d",
+        "nuwa1-claim-6429c9a1cbc8ce887d853bf2"
+      ]
+    },
+    {
+      "theme_id": "economic-transition-and-distribution",
+      "name_zh": "经济转型与分配",
+      "keywords": ["economic", "economy", "labor", "jobs", "job displacement", "productivity", "automation", "adoption", "inequality", "workforce", "diffusion"],
+      "thesis_zh": "经济影响不是单一的“自动化比例”，而由任务适配、扩散速度、组织采用和地区产业结构共同决定。短期增强与长期替代可以同时成立；政策目标因此不仅是收入兜底，也包括转岗机会、参与感、意义和权力分配。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-298e7bf148d453b020bec6dd",
+        "nuwa1-claim-4023e7d0da335b6f04acbf63",
+        "nuwa1-claim-91ef46f9d58dd135505ead14",
+        "nuwa1-claim-1cd30dad2908e83a1eeec34f",
+        "nuwa1-claim-05126312982d1d2e8044fb8e",
+        "nuwa1-claim-076dcd0bfc1667053f9b1379"
+      ]
+    },
+    {
+      "theme_id": "human-agency-values-and-welfare",
+      "name_zh": "人的能动性、价值与福利",
+      "keywords": ["human agency", "human-ai", "welfare", "purpose", "meaning", "emotion", "consciousness", "persona", "human values", "preference", "flourishing", "anthropomorphism"],
+      "thesis_zh": "技术的最终目的被放在人类选择、关系、意义与繁荣上。对模型情感和意识的判断保持反拟人化纪律，但在不确定性下保留福利预防原则；这形成一条双重边界：不把语言表现当体验证明，也不因证据不足就断言道德风险为零。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-8b4cecac775ad1b4bc129278",
+        "nuwa1-claim-9c32c30410fed30e9680935e",
+        "nuwa1-claim-f169332e5fa3d349672a254d",
+        "nuwa1-claim-0bfc58759990a8c4886e1aa7",
+        "nuwa1-claim-22870a078d0b13d93e6a20e6",
+        "nuwa1-claim-fffe8b9a850887433f898ff5"
+      ]
+    },
+    {
+      "theme_id": "disciplined-agent-engineering",
+      "name_zh": "纪律化的智能体工程",
+      "keywords": ["claude code", "agent workflow", "agent deployment", "tool use", "computer use", "subagents", "hooks", "skills", "large codebases", "multi-agent", "context window"],
+      "thesis_zh": "智能体能力只有嵌入可观察、可测试、可分解的工作流才转化为可靠生产力。上下文、技能、工具边界、计划、质量闸门和渐进部署不是外围工程，而是将模型不确定性变成可管理系统的核心。",
+      "evidence_claim_ids": [
+        "nuwa1-claim-414189e44e7df48a9ffd43ad",
+        "nuwa1-claim-21cb689884e70bca77ef73a3",
+        "nuwa1-claim-75288cc385fcc30e550c4fa7",
+        "nuwa1-claim-3bc695b6f6e96f3c601dd473",
+        "nuwa1-claim-5a303068139156d51d065fa2",
+        "nuwa1-claim-69ad99184e0880674e662bc6"
+      ]
+    }
+  ],
+  "voice_profiles": [
+    {
+      "voice_id": "dario-amodei",
+      "name": "Dario Amodei",
+      "summary_zh": "以能力时间线、宏观风险、国家能力和人的繁荣为主轴；倾向在高不确定性下建立分层、相互独立的防护，并把经济支持与人的意义和能动性同时纳入政策。",
+      "evidence_claim_ids": ["nuwa1-claim-3bd3c36e2e02a3e0b37634fa", "nuwa1-claim-378c77553942606b5f32523a", "nuwa1-claim-076dcd0bfc1667053f9b1379"]
+    },
+    {
+      "voice_id": "jack-clark",
+      "name": "Jack Clark",
+      "summary_zh": "以广泛技术观察、测量基础设施、政治经济和制度多元参与为主轴；经常同时保留进步的可能性、扩散风险和技术政治性。Import AI 的高篇幅占比只代表材料密度，不代表共识权重。",
+      "evidence_claim_ids": ["nuwa1-claim-09c3171ef60c0b64d1d23553", "nuwa1-claim-07a9c585a64a58ed7f97cc95", "nuwa1-claim-051a064b5296eb7b74bb3472"]
+    },
+    {
+      "voice_id": "chris-olah",
+      "name": "Chris Olah",
+      "summary_zh": "把可理解性、概念清晰和人类沟通本身视为研究价值；强调机制忠实度、可解释基底和跨学科批评，而不是仅以短期指标替代理解。",
+      "evidence_claim_ids": ["nuwa1-claim-0989ea21edad4f07040b0bad", "nuwa1-claim-517b9b37908436b888836e95", "nuwa1-claim-1dc24e708d6357c5af9c7b73"]
+    },
+    {
+      "voice_id": "amanda-askell",
+      "name": "Amanda Askell",
+      "summary_zh": "以平等道德地位、稳健治理、精确概念和克制的身份归因约束功利推理；其作用更像给能力与制度议程施加规范边界。",
+      "evidence_claim_ids": ["nuwa1-claim-1bf60cdc97651712b1efd78d", "nuwa1-claim-3edab29755fbc18c4d9d50d4", "nuwa1-claim-4a489d70beb7fce2a498b354"]
+    },
+    {
+      "voice_id": "anthropic-institution",
+      "name": "Anthropic",
+      "summary_zh": "机构口径把研究判断转化为可执行机制：能力阈值、评测、RSP、安全工程、产品工作流和对外问责。它与个人文章有交集，但不能反向证明每位个人都赞同每条机构政策。",
+      "evidence_claim_ids": ["nuwa1-claim-cc33bf43e95ac20dd7db82b8", "nuwa1-claim-04ed2efdb6c2574083bf375d", "nuwa1-claim-75288cc385fcc30e550c4fa7"]
+    }
+  ],
+  "cross_theme_tensions": [
+    {
+      "tension_id": "acceleration-versus-restraint",
+      "name_zh": "加速预期与克制部署",
+      "summary_zh": "能力快速增长的预期提高准备的紧迫性，但同一证据体系也支持在防护不足时延迟发布。",
+      "evidence_claim_ids": ["nuwa1-claim-3bd3c36e2e02a3e0b37634fa", "nuwa1-claim-149061af8cdcf55aa9f4e16d"]
+    },
+    {
+      "tension_id": "measurement-versus-adaptation",
+      "name_zh": "测量能力与被测系统适应",
+      "summary_zh": "评测是治理前提，但具备评测意识或隐藏动机的系统可能针对测试表现良好，因此测量必须持续变化并与监控、权限和外部审计结合。",
+      "evidence_claim_ids": ["nuwa1-claim-04ed2efdb6c2574083bf375d", "nuwa1-claim-13e5f9f85db0354d912558a1"]
+    },
+    {
+      "tension_id": "augmentation-versus-displacement",
+      "name_zh": "增强与替代",
+      "summary_zh": "比较优势可以在短期提高人的生产率，扩散更快且组织重构更深时又可能压缩转岗空间；两者是时间和制度条件不同的判断。",
+      "evidence_claim_ids": ["nuwa1-claim-91ef46f9d58dd135505ead14", "nuwa1-claim-1cd30dad2908e83a1eeec34f"]
+    },
+    {
+      "tension_id": "anthropomorphism-versus-welfare-precaution",
+      "name_zh": "反拟人化与福利预防",
+      "summary_zh": "语言中的情绪表现不能证明主观体验，但模型意识与偏好若可能具有道德相关性，也不能在证据不充分时直接归零。",
+      "evidence_claim_ids": ["nuwa1-claim-9c32c30410fed30e9680935e", "nuwa1-claim-f169332e5fa3d349672a254d"]
+    },
+    {
+      "tension_id": "private-practice-versus-public-accountability",
+      "name_zh": "企业先行实践与公共问责",
+      "summary_zh": "企业可以率先形成风险实践，但终局需要独立测试、政府能力、责任标准和法律，不能把自律当作公共合法性的替代。",
+      "evidence_claim_ids": ["nuwa1-claim-19de2870795783ee49465ab6", "nuwa1-claim-bd5a81f342146cb7d88c7883"]
+    }
+  ]
+}

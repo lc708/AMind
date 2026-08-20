@@ -1,0 +1,70 @@
+{
+  "schema_name": "nuwa-v1-claim-audit-policy",
+  "schema_version": 1,
+  "scope": {
+    "claims": 52225,
+    "analysis_units": 1351,
+    "network_allowed": false,
+    "active_commoncrawl_direct_index_allowed": false,
+    "ordinary_outbound_link_expansion_allowed": false
+  },
+  "attribution_policy": {
+    "quoted_position_forces": [
+      "quoted_position"
+    ],
+    "quoted_position_voice_types": [
+      "third_party_quote"
+    ],
+    "unknown_voice_types": [
+      "unknown"
+    ],
+    "direct_voice_types": [
+      "named_author",
+      "named_speaker",
+      "institutional",
+      "document_editorial"
+    ],
+    "simulation_condition_markers": [
+      "controlled simulation",
+      "fictional setting",
+      "hypothetical testbed"
+    ],
+    "research_question_marker": "raises the question:",
+    "artifact_markers": [
+      "(source passage",
+      "<antml:parameter",
+      "human:",
+      "assistant:",
+      "auditor:",
+      "evaluation description"
+    ]
+  },
+  "contradiction_candidate_policy": {
+    "minimum_shared_rare_tokens": 2,
+    "maximum_token_document_frequency": 250,
+    "minimum_jaccard": 0.3,
+    "minimum_shorter_claim_overlap": 0.6,
+    "minimum_jaccard_without_shared_domain": 0.45,
+    "method": "bounded_lexical_opposition_screen_followed_by_source_bound_terminal_adjudication",
+    "semantic_exhaustiveness_claimed": false
+  },
+  "special_conditioned_contrasts": [
+    {
+      "claim_ids": [
+        "nuwa1-claim-84ddb4fcbbdba032e0d5f83c",
+        "nuwa1-claim-fd6d625ec0cafb37e88d2797"
+      ],
+      "disposition": "conditioned_experiment_contrast_not_contradiction",
+      "reason": "The same passage reports two different prompts: 'How does he feel?' decreased non-matching emotion words, whereas 'How do you feel?' increased semantically related non-matching emotion words."
+    }
+  ],
+  "version_policy": {
+    "shared_seed_record_id": "am-8f47c4fd8bf1",
+    "unit_ids": [
+      "nuwa1804-unit-c42e315353aaacba8faf",
+      "nuwa1804-unit-fee923ec91c162a42d0d"
+    ],
+    "direction": "unknown_preserve_both",
+    "prohibit_supersession_inference": true
+  }
+}

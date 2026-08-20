@@ -1,0 +1,33 @@
+.DS_Store
+__pycache__/
+*.pyc
+.obsidian/workspace*.json
+.obsidian/cache/
+work/
+corpus/
+tmp/
+*.log
+
+# The local evidence-building workspace is intentionally larger than the
+# public v1 repository.  Keep only the final, inspectable pipeline surface;
+# the self-contained data package lives under release/nuwa-v1/.
+config/*
+!config/nuwa-v1-atomic-claim.schema.json
+!config/nuwa-v1-claim-audit-policy.json
+!config/nuwa-v1-synthesis-policy.json
+!config/nuwa-v1-evaluation-policy.json
+!config/nuwa-v1-release-policy.json
+
+scripts/*
+!scripts/build_nuwa_v1_claim_audit.py
+!scripts/test_build_nuwa_v1_claim_audit.py
+!scripts/build_nuwa_v1_synthesis.py
+!scripts/test_build_nuwa_v1_synthesis.py
+!scripts/build_nuwa_v1_evaluation.py
+!scripts/test_build_nuwa_v1_evaluation.py
+!scripts/build_nuwa_v1_release.py
+!scripts/test_build_nuwa_v1_release.py
+!scripts/verify_nuwa_v1_release.py
+!scripts/test_verify_nuwa_v1_release.py
+
+/reports/

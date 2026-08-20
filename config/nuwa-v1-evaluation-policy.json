@@ -1,0 +1,35 @@
+{
+  "schema_name": "nuwa-v1-evaluation-policy",
+  "schema_version": 1,
+  "scope": {
+    "analysis_units": 1351,
+    "body_units": 1348,
+    "bounded_unavailable_units": 3,
+    "claims": 52225,
+    "representative_evidence_rows": 54,
+    "network_allowed": false,
+    "ordinary_outbound_link_expansion_allowed": false,
+    "active_commoncrawl_direct_index_allowed": false
+  },
+  "representative_review_attestation": {
+    "reviewed_artifact": "corpus/nuwa-v1-synthesis-evidence.jsonl",
+    "reviewed_artifact_sha256": "80af36b4b2edc2d1e11f17403eb4a6ae542cf70c91fa6b5c94494dd050ad3a5c",
+    "reviewed_rows": 54,
+    "reviewed_at": "2026-08-21",
+    "review_method": "human_review_of_each_proposition_exact_quote_and_full_bound_passage",
+    "pass_criterion": "the proposition is supported by the exact quote alone or by the full source-bound passage without changing attribution, modality, condition, or temporal scope"
+  },
+  "deterministic_sample": {
+    "salt": "nuwa-v1-evaluation-sample-v1",
+    "rows_per_nonempty_attribution_class_and_claim_type_stratum": 4,
+    "purpose": "reproducible_structural_traceability_sample_for_future_external_or_human_calibration",
+    "semantic_accuracy_estimate_claimed": false
+  },
+  "release_boundary": {
+    "full_population_semantic_human_review_claimed": false,
+    "semantic_contradiction_exhaustiveness_claimed": false,
+    "theme_exhaustiveness_claimed": false,
+    "claim_frequency_interpreted_as_consensus_weight": false,
+    "reference_repository_used_to_generate_conclusions": false
+  }
+}

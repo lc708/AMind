@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lc708/AMind/schema/nuwa-v1-atomic-claim.json",
+  "title": "Nuwa v1 source-bound atomic claim",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_name",
+    "schema_version",
+    "claim_id",
+    "proposition",
+    "claim_type",
+    "epistemic_force",
+    "voice",
+    "domains",
+    "conditions",
+    "temporal_scope",
+    "evidence",
+    "invalidation_conditions",
+    "claim_status",
+    "provenance"
+  ],
+  "properties": {
+    "schema_name": {"const": "nuwa-v1-atomic-claim"},
+    "schema_version": {"const": 1},
+    "claim_id": {"type": "string", "pattern": "^nuwa1-claim-[0-9a-f]{24}$"},
+    "proposition": {"type": "string", "minLength": 1},
+    "claim_type": {
+      "enum": [
+        "descriptive",
+        "causal",
+        "normative",
+        "forecast",
+        "policy",
+        "strategy",
+        "definition",
+        "methodological",
+        "self_description"
+      ]
+    },
+    "epistemic_force": {
+      "enum": [
+        "asserted",
+        "qualified",
+        "hypothesized",
+        "observed_result",
+        "forecast",
+        "quoted_position"
+      ]
+    },
+    "voice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["voice_type", "name", "person_id", "organization", "role_at_time", "attribution_basis"],
+      "properties": {
+        "voice_type": {
+          "enum": [
+            "institutional",
+            "named_author",
+            "named_speaker",
+            "document_editorial",
+            "third_party_quote",
+            "unknown"
+          ]
+        },
+        "name": {"type": "string"},
+        "person_id": {"type": "string"},
+        "organization": {"type": "string"},
+        "role_at_time": {"type": "string"},
+        "attribution_basis": {"type": "string", "minLength": 1}
+      }
+    },
+    "domains": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "conditions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "temporal_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["valid_from", "valid_through", "basis"],
+      "properties": {
+        "valid_from": {"type": "string"},
+        "valid_through": {"type": "string"},
+        "basis": {"type": "string"}
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relation",
+          "analysis_unit_id",
+          "passage_id",
+          "work_id",
+          "edition_id",
+          "source_record_ids",
+          "exact_quote",
+          "exact_quote_sha256",
+          "source_char_start",
+          "source_char_end",
+          "source_line_start",
+          "source_line_end",
+          "text_file_sha256",
+          "body_sha256"
+        ],
+        "properties": {
+          "relation": {"enum": ["supports", "contradicts", "qualifies", "supersedes"]},
+          "analysis_unit_id": {"type": "string", "pattern": "^nuwa1804-unit-[0-9a-f]{20}$"},
+          "passage_id": {"type": "string", "pattern": "^nuwa1-passage-[0-9a-f]{24}$"},
+          "work_id": {"type": "string", "minLength": 1},
+          "edition_id": {"type": "string", "minLength": 1},
+          "source_record_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true},
+          "exact_quote": {"type": "string", "minLength": 1, "maxLength": 320},
+          "exact_quote_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "source_char_start": {"type": "integer", "minimum": 0},
+          "source_char_end": {"type": "integer", "minimum": 1},
+          "source_line_start": {"type": "integer", "minimum": 1},
+          "source_line_end": {"type": "integer", "minimum": 1},
+          "text_file_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "body_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "invalidation_conditions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "claim_status": {"enum": ["extracted", "reviewed", "rejected", "superseded"]},
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["extraction_method", "extractor_version", "extracted_at", "review_state"],
+      "properties": {
+        "extraction_method": {"type": "string", "minLength": 1},
+        "extractor_version": {"type": "string", "minLength": 1},
+        "extracted_at": {"type": "string"},
+        "review_state": {"enum": ["unreviewed", "machine_checked", "human_reviewed"]}
+      }
+    }
+  }
+}
