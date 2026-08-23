@@ -31,5 +31,7 @@ scripts/*
 !scripts/test_verify_amind_v1_release.py
 !scripts/amind_v1.py
 !scripts/test_amind_v1.py
+!scripts/build_amind_skill.py
+!scripts/test_amind_skill.py
 
 /reports/
