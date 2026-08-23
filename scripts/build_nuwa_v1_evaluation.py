@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the bounded Nuwa v1 traceability and representative-evidence evaluation."""
+"""Build the bounded AMind v1 traceability and representative-evidence evaluation."""
 
 from __future__ import annotations
 
@@ -232,11 +232,11 @@ def build() -> tuple[dict[Path, bytes], dict[str, Any]]:
     representative_payload = b"".join(canonical_json(row) for row in representative_rows)
     sample_payload = b"".join(canonical_json(row) for row in sample_rows)
     report_lines = [
-        "# Nuwa v1 评测报告",
+        "# AMind v1 评测报告",
         "",
         "## 结论",
         "",
-        "Nuwa v1 已通过发布前的两层评测：52,225 条原子主张全部能逐条回连到冻结分析单位、作品、版本、正文段落和原文引句；综合报告使用的 54 条代表证据已逐条阅读完整绑定段落，未发现改变归属、语气、条件或时间范围的失真。",
+        "AMind v1 已通过发布前的两层评测：52,225 条原子主张全部能逐条回连到冻结分析单位、作品、版本、正文段落和原文引句；综合报告使用的 54 条代表证据已逐条阅读完整绑定段落，未发现改变归属、语气、条件或时间范围的失真。",
         "",
         "这项 PASS 是一个**来源追溯与代表证据质量**结论，不是对 52,225 条主张逐条人工语义复核后的总体准确率估计。随机/分层样本只作为未来外部校准的稳定入口，不被包装成精度分数。",
         "",

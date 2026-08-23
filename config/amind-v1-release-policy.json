@@ -1,0 +1,52 @@
+{
+  "schema_name": "amind-v1-release-policy",
+  "schema_version": 1,
+  "release_id": "amind-v1",
+  "release_name": "AMind v1",
+  "release_date": "2026-08-23",
+  "scope": {
+    "analysis_units": 1351,
+    "body_units": 1348,
+    "bounded_unavailable_units": 3,
+    "passages": 13436,
+    "claims": 52225,
+    "themes": 9,
+    "representative_evidence_rows": 54,
+    "network_allowed": false,
+    "active_commoncrawl_direct_index_allowed": false
+  },
+  "artifacts": [
+    {"source":"corpus/nuwa-v1-analysis-units.jsonl","published":"release/amind-v1/data/analysis-units.jsonl.gz","compression":"gzip"},
+    {"source":"corpus/nuwa-v1-passages.jsonl","published":"release/amind-v1/data/passages.jsonl.gz","compression":"gzip"},
+    {"source":"corpus/nuwa-v1-production-atomic-claims.jsonl","published":"release/amind-v1/data/atomic-claims.jsonl.gz","compression":"gzip"},
+    {"source":"corpus/nuwa-v1-claim-attribution-audit.jsonl","published":"release/amind-v1/data/claim-attribution-audit.jsonl.gz","compression":"gzip"},
+    {"source":"corpus/nuwa-v1-claim-equivalence-components.jsonl","published":"release/amind-v1/data/claim-equivalence-components.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-version-audit.jsonl","published":"release/amind-v1/data/version-audit.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-contradiction-candidates.jsonl","published":"release/amind-v1/data/contradiction-candidates.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-theme-membership.jsonl","published":"release/amind-v1/data/theme-membership.jsonl.gz","compression":"gzip"},
+    {"source":"corpus/nuwa-v1-theme-catalog.jsonl","published":"release/amind-v1/data/theme-catalog.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-synthesis-evidence.jsonl","published":"release/amind-v1/data/synthesis-evidence.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-voice-profiles.jsonl","published":"release/amind-v1/data/voice-profiles.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-synthesis-tensions.jsonl","published":"release/amind-v1/data/synthesis-tensions.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-representative-evidence-review.jsonl","published":"release/amind-v1/data/representative-evidence-review.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-evaluation-sample.jsonl","published":"release/amind-v1/data/evaluation-sample.jsonl","compression":"none"},
+    {"source":"corpus/nuwa-v1-claim-audit.json","published":"release/amind-v1/audits/claim-audit.json","compression":"none"},
+    {"source":"corpus/nuwa-v1-synthesis-audit.json","published":"release/amind-v1/audits/synthesis-audit.json","compression":"none"},
+    {"source":"corpus/nuwa-v1-evaluation-audit.json","published":"release/amind-v1/audits/evaluation-audit.json","compression":"none"},
+    {"source":"reports/nuwa-v1-synthesis.zh-CN.md","published":"release/amind-v1/reports/synthesis.zh-CN.md","compression":"none"},
+    {"source":"reports/nuwa-v1-evaluation.zh-CN.md","published":"release/amind-v1/reports/evaluation.zh-CN.md","compression":"none"},
+    {"source":"config/amind-v1-atomic-claim.schema.json","published":"release/amind-v1/schemas/atomic-claim.schema.json","compression":"none","expected_source_sha256":"add984181dc2b38deb50ab8cd0e52d9d95b3315f75d647a8fb233c55783d417f"},
+    {"source":"scripts/amind_v1.py","published":"release/amind-v1/amind.py","compression":"none","expected_source_sha256":"eb595560a018d582ab6a24594e95258c485fc6e3578446ab4d635c7fd468245b"}
+  ],
+  "publication_boundary": {
+    "full_local_evidence_vault_included": false,
+    "release_contains_source_bound_passages_and_claims": true,
+    "raw_capture_blobs_included": false,
+    "full_population_semantic_human_review_claimed": false,
+    "ordinary_outbound_link_expansion_included": false,
+    "reference_repository_used_to_generate_conclusions": false,
+    "installation_required": false,
+    "codex_skill_required": false,
+    "legacy_internal_identifier_namespace_retained": true
+  }
+}

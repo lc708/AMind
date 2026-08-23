@@ -10,13 +10,13 @@ tmp/
 
 # The local evidence-building workspace is intentionally larger than the
 # public v1 repository.  Keep only the final, inspectable pipeline surface;
-# the self-contained data package lives under release/nuwa-v1/.
+# the self-contained data package lives under release/amind-v1/.
 config/*
-!config/nuwa-v1-atomic-claim.schema.json
+!config/amind-v1-atomic-claim.schema.json
 !config/nuwa-v1-claim-audit-policy.json
 !config/nuwa-v1-synthesis-policy.json
 !config/nuwa-v1-evaluation-policy.json
-!config/nuwa-v1-release-policy.json
+!config/amind-v1-release-policy.json
 
 scripts/*
 !scripts/build_nuwa_v1_claim_audit.py
@@ -25,9 +25,11 @@ scripts/*
 !scripts/test_build_nuwa_v1_synthesis.py
 !scripts/build_nuwa_v1_evaluation.py
 !scripts/test_build_nuwa_v1_evaluation.py
-!scripts/build_nuwa_v1_release.py
-!scripts/test_build_nuwa_v1_release.py
-!scripts/verify_nuwa_v1_release.py
-!scripts/test_verify_nuwa_v1_release.py
+!scripts/build_amind_v1_release.py
+!scripts/test_build_amind_v1_release.py
+!scripts/verify_amind_v1_release.py
+!scripts/test_verify_amind_v1_release.py
+!scripts/amind_v1.py
+!scripts/test_amind_v1.py
 
 /reports/

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the first source-bound Nuwa synthesis after claim extraction and audit."""
+"""Build the first source-bound AMind synthesis after claim extraction and audit."""
 
 from __future__ import annotations
 
@@ -264,7 +264,7 @@ def build() -> tuple[dict[Path, bytes], dict[str, Any]]:
     tension_payload = b"".join(canonical_json(row) for row in tension_rows)
 
     report_lines = [
-        "# Nuwa v1：Anthropic 思想结构（首版）",
+        "# AMind v1：Anthropic 思想结构（首版）",
         "",
         "## 结论",
         "",
