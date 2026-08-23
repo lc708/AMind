@@ -1,6 +1,6 @@
 # AMind
 
-### 戴上 Anthropic 的思考帽。
+## 戴上 Anthropic 的思考帽。
 
 AMind 把 Anthropic 的公开思考方式带给每个人——帮你分析情况、给出建议、审查方案、解释立场、比较不同声音，并把推理回链到证据；但它不会冒充 Anthropic。
 

@@ -25,15 +25,15 @@ Do not restrict AMind to decision reviews. When the user asks what Anthropic mig
 
 ## Retrieve before generalizing
 
-Use the local evidence kernel before describing a public position or recurring framework. Resolve all paths from the directory containing this `SKILL.md`; do not assume the user's working directory is the skill directory:
+Use the local evidence kernel before describing a public position or recurring framework. First resolve the absolute directory containing this `SKILL.md`. In every example below, replace `/absolute/path/to/amind` with that directory; do not assume the user's working directory is the skill directory:
 
 ```bash
-python3 scripts/query.py summary
-python3 scripts/query.py search "evaluation governance" --limit 8 --json
-python3 scripts/query.py themes --json
-python3 scripts/query.py tensions --json
-python3 scripts/query.py voices --json
-python3 scripts/query.py show <claim-id> --json
+python3 "/absolute/path/to/amind/scripts/query.py" summary
+python3 "/absolute/path/to/amind/scripts/query.py" search "evaluation governance" --limit 8 --json
+python3 "/absolute/path/to/amind/scripts/query.py" themes --json
+python3 "/absolute/path/to/amind/scripts/query.py" tensions --json
+python3 "/absolute/path/to/amind/scripts/query.py" voices --json
+python3 "/absolute/path/to/amind/scripts/query.py" show <claim-id> --json
 ```
 
 Search with two or three short concept phrases, including likely counterarguments. Prefer evidence from more than one work before calling a pattern stable. For exhaustive research, tell the user that the repository's full AMind v1 release contains 52,225 source-linked claims; the installed skill intentionally carries only the 54-row human-reviewed evidence kernel.

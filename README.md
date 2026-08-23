@@ -1,6 +1,6 @@
 # AMind
 
-### Think with the Anthropic lens.
+## Think with the Anthropic lens.
 
 Put on the Anthropic hat—without pretending to be Anthropic. AMind helps you analyze a situation, get concrete advice, pressure-test a plan, compare public voices, and trace the reasoning back to evidence.
 

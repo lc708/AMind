@@ -13,6 +13,20 @@ from typing import Any, Iterable
 SKILL_ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = SKILL_ROOT / "data"
 
+MANIFEST_COUNT_FIELDS = (
+    "full_release_atomic_claims",
+    "full_release_analysis_units",
+    "human_reviewed_evidence_rows",
+    "human_reviewed_evidence_rows_per_theme",
+    "preserved_tensions",
+    "themes",
+    "voice_profiles",
+)
+WELFARE_TENSION_ID = "anthropomorphism-versus-welfare-precaution"
+WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID = "nuwa1-claim-9c32c30410fed30e9680935e"
+WELFARE_AGENDA_CLAIM_ID = "nuwa1-claim-f169332e5fa3d349672a254d"
+WELFARE_PRECAUTION_CLAIM_ID = "nuwa1-claim-0bfc58759990a8c4886e1aa7"
+
 
 class VerifyError(RuntimeError):
     pass
@@ -68,8 +82,13 @@ def main() -> int:
     require("does not imply affiliation" in notice_text, "missing trademark and affiliation notice")
     manifest = read_json(DATA_ROOT / "manifest.json")
     require(manifest.get("schema_name") == "amind-skill-evidence-manifest", "invalid manifest schema")
+    require(manifest.get("schema_version") == 1, "unsupported manifest schema version")
     require(manifest.get("skill_id") == "amind", "invalid skill identity")
     require(manifest.get("release_id") == "amind-v1", "invalid release identity")
+    counts = manifest.get("counts")
+    require(isinstance(counts, dict), "missing counts")
+    for field in MANIFEST_COUNT_FIELDS:
+        require(type(counts.get(field)) is int and counts[field] >= 0, f"invalid manifest count: {field}")
 
     artifacts = manifest.get("artifacts")
     require(isinstance(artifacts, list) and len(artifacts) == 4, "expected four evidence artifacts")
@@ -88,8 +107,6 @@ def main() -> int:
         require(len(rows) == artifact.get("rows"), f"row count mismatch: {relative}")
         rows_by_path[relative] = rows
 
-    counts = manifest.get("counts")
-    require(isinstance(counts, dict), "missing counts")
     evidence = rows_by_path["evidence-kernel.jsonl"]
     themes = rows_by_path["theme-catalog.jsonl"]
     voices = rows_by_path["voice-profiles.jsonl"]
@@ -101,6 +118,7 @@ def main() -> int:
 
     claim_ids = {row.get("claim_id") for row in evidence}
     require(None not in claim_ids and len(claim_ids) == len(evidence), "duplicate or missing claim ID")
+    evidence_by_claim = {row["claim_id"]: row for row in evidence}
     theme_ids = {row.get("theme_id") for row in themes}
     require(None not in theme_ids and len(theme_ids) == len(themes), "duplicate or missing theme ID")
     for row in evidence:
@@ -114,6 +132,49 @@ def main() -> int:
     require(expected_per_theme == 6, "invalid per-theme evidence count")
     for theme_id in theme_ids:
         require(sum(1 for row in evidence if row.get("theme_id") == theme_id) == expected_per_theme, f"evidence coverage mismatch: {theme_id}")
+
+    tension_ids = {row.get("tension_id") for row in tensions}
+    require(None not in tension_ids and len(tension_ids) == len(tensions), "duplicate or missing tension ID")
+    for tension in tensions:
+        tension_claim_ids = tension.get("evidence_claim_ids")
+        require(
+            isinstance(tension_claim_ids, list)
+            and tension_claim_ids
+            and all(isinstance(claim_id, str) for claim_id in tension_claim_ids)
+            and len(set(tension_claim_ids)) == len(tension_claim_ids),
+            f"invalid tension evidence: {tension.get('tension_id')}",
+        )
+        require(
+            set(tension_claim_ids).issubset(claim_ids),
+            f"unknown tension evidence: {tension.get('tension_id')}",
+        )
+
+    welfare_tensions = [row for row in tensions if row.get("tension_id") == WELFARE_TENSION_ID]
+    require(len(welfare_tensions) == 1, "missing welfare tension")
+    welfare_tension = welfare_tensions[0]
+    expected_welfare_claims = [
+        WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID,
+        WELFARE_PRECAUTION_CLAIM_ID,
+    ]
+    require(welfare_tension.get("evidence_claim_ids") == expected_welfare_claims, "invalid welfare tension evidence")
+    for claim_id in expected_welfare_claims:
+        row = evidence_by_claim[claim_id]
+        require(row.get("attribution_class") == "direct_source_position", f"indirect welfare tension evidence: {claim_id}")
+        require((row.get("review") or {}).get("agenda_is_not_answer") is False, f"agenda-only welfare tension evidence: {claim_id}")
+
+    require(
+        manifest.get("evidence_adjustments")
+        == [
+            {
+                "artifact": "synthesis-tensions.jsonl",
+                "reason": "replace an agenda-only research question with reviewed direct evidence of welfare precaution",
+                "replaced_claim_id": WELFARE_AGENDA_CLAIM_ID,
+                "replacement_claim_id": WELFARE_PRECAUTION_CLAIM_ID,
+                "tension_id": WELFARE_TENSION_ID,
+            }
+        ],
+        "invalid evidence adjustment provenance",
+    )
 
     boundary = manifest.get("evidence_boundary")
     require(isinstance(boundary, dict), "missing evidence boundary")

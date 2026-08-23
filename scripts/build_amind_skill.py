@@ -25,6 +25,11 @@ THEMES = RELEASE_ROOT / "data/theme-catalog.jsonl"
 VOICES = RELEASE_ROOT / "data/voice-profiles.jsonl"
 TENSIONS = RELEASE_ROOT / "data/synthesis-tensions.jsonl"
 
+WELFARE_TENSION_ID = "anthropomorphism-versus-welfare-precaution"
+WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID = "nuwa1-claim-9c32c30410fed30e9680935e"
+WELFARE_AGENDA_CLAIM_ID = "nuwa1-claim-f169332e5fa3d349672a254d"
+WELFARE_PRECAUTION_CLAIM_ID = "nuwa1-claim-0bfc58759990a8c4886e1aa7"
+
 
 class BuildError(RuntimeError):
     pass
@@ -161,16 +166,46 @@ def build_payloads() -> dict[Path, bytes]:
         )
 
     kernel_rows.sort(key=lambda row: (row["theme_id"], row["claim_id"]))
+    kernel_by_claim = {row["claim_id"]: row for row in kernel_rows}
     evidence_by_theme = {
         theme_id: sum(1 for row in kernel_rows if row["theme_id"] == theme_id)
         for theme_id in sorted(theme_ids)
     }
     require(set(evidence_by_theme.values()) == {6}, "expected six reviewed evidence rows per theme")
+
+    compact_tension_rows: list[dict[str, Any]] = []
+    welfare_adjustments = 0
+    for source_row in tension_rows:
+        row = dict(source_row)
+        if row.get("tension_id") == WELFARE_TENSION_ID:
+            require(
+                row.get("evidence_claim_ids")
+                == [WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID, WELFARE_AGENDA_CLAIM_ID],
+                "unexpected source evidence for welfare tension",
+            )
+            replacement = kernel_by_claim.get(WELFARE_PRECAUTION_CLAIM_ID)
+            require(replacement is not None, "missing direct welfare-precaution evidence")
+            require(
+                replacement.get("attribution_class") == "direct_source_position",
+                "welfare-precaution replacement is not a direct source position",
+            )
+            require(
+                (replacement.get("review") or {}).get("agenda_is_not_answer") is False,
+                "welfare-precaution replacement is agenda-only evidence",
+            )
+            row["evidence_claim_ids"] = [
+                WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID,
+                WELFARE_PRECAUTION_CLAIM_ID,
+            ]
+            welfare_adjustments += 1
+        compact_tension_rows.append(row)
+    require(welfare_adjustments == 1, "expected one welfare tension evidence adjustment")
+
     data_payloads: dict[str, bytes] = {
         "evidence-kernel.jsonl": canonical_jsonl(kernel_rows),
         "theme-catalog.jsonl": THEMES.read_bytes(),
         "voice-profiles.jsonl": VOICES.read_bytes(),
-        "synthesis-tensions.jsonl": TENSIONS.read_bytes(),
+        "synthesis-tensions.jsonl": canonical_jsonl(compact_tension_rows),
     }
     row_counts = {
         "evidence-kernel.jsonl": len(kernel_rows),
@@ -206,6 +241,15 @@ def build_payloads() -> dict[Path, bytes]:
             "human_review_claim_limited_to_kernel": True,
             "private_anthropic_information_claimed": False,
         },
+        "evidence_adjustments": [
+            {
+                "artifact": "synthesis-tensions.jsonl",
+                "reason": "replace an agenda-only research question with reviewed direct evidence of welfare precaution",
+                "replaced_claim_id": WELFARE_AGENDA_CLAIM_ID,
+                "replacement_claim_id": WELFARE_PRECAUTION_CLAIM_ID,
+                "tension_id": WELFARE_TENSION_ID,
+            }
+        ],
         "release_id": "amind-v1",
         "schema_name": "amind-skill-evidence-manifest",
         "schema_version": 1,

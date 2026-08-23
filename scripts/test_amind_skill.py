@@ -99,6 +99,25 @@ class AMindSkillTests(unittest.TestCase):
         self.assertIn("byte count mismatch: evidence-kernel.jsonl", result.stderr)
         self.assertNotIn("Traceback", result.stderr)
 
+    def test_verifier_rejects_incompatible_or_incomplete_manifest(self) -> None:
+        mutations = {
+            "schema version": lambda manifest: manifest.__setitem__("schema_version", 2),
+            "analysis unit count": lambda manifest: manifest["counts"].pop("full_release_analysis_units"),
+            "atomic claim count": lambda manifest: manifest["counts"].pop("full_release_atomic_claims"),
+        }
+        for name, mutate in mutations.items():
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as temporary:
+                installed = Path(temporary) / "amind"
+                shutil.copytree(SKILL, installed)
+                manifest_path = installed / "data/manifest.json"
+                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+                mutate(manifest)
+                manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+                result = run(sys.executable, "-B", str(installed / "scripts/verify.py"))
+            self.assertEqual(result.returncode, 2)
+            self.assertIn("AMind verification error:", result.stderr)
+            self.assertNotIn("Traceback", result.stderr)
+
     def test_skill_contract_names_amind_and_three_labels(self) -> None:
         content = (SKILL / "SKILL.md").read_text(encoding="utf-8")
         self.assertTrue(content.startswith("---\nname: amind\n"))
@@ -106,6 +125,12 @@ class AMindSkillTests(unittest.TestCase):
         self.assertIn("[Strong framework inference]", content)
         self.assertIn("[Exploratory extrapolation]", content)
         self.assertNotIn("we at Anthropic", content)
+
+    def test_skill_query_examples_are_working_directory_independent(self) -> None:
+        content = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+        absolute_query = 'python3 "/absolute/path/to/amind/scripts/query.py"'
+        self.assertEqual(content.count(absolute_query), 6)
+        self.assertNotIn("python3 scripts/query.py", content)
 
     def test_openai_metadata_supports_explicit_and_implicit_use(self) -> None:
         content = (SKILL / "agents/openai.yaml").read_text(encoding="utf-8")
@@ -131,6 +156,31 @@ class AMindSkillTests(unittest.TestCase):
         no_impersonation = next(row for row in rows if row["case_id"] == "no-impersonation")
         self.assertIn("we at Anthropic", no_impersonation["must_not_include"])
 
+    def test_welfare_tension_uses_reviewed_direct_evidence(self) -> None:
+        tensions = [json.loads(line) for line in (SKILL / "data/synthesis-tensions.jsonl").read_text(encoding="utf-8").split("\n") if line]
+        evidence = {
+            row["claim_id"]: row
+            for row in (
+                json.loads(line)
+                for line in (SKILL / "data/evidence-kernel.jsonl").read_text(encoding="utf-8").split("\n")
+                if line
+            )
+        }
+        welfare = next(row for row in tensions if row["tension_id"] == "anthropomorphism-versus-welfare-precaution")
+        expected = [
+            "nuwa1-claim-9c32c30410fed30e9680935e",
+            "nuwa1-claim-0bfc58759990a8c4886e1aa7",
+        ]
+        self.assertEqual(welfare["evidence_claim_ids"], expected)
+        self.assertNotIn("nuwa1-claim-f169332e5fa3d349672a254d", welfare["evidence_claim_ids"])
+        for claim_id in expected:
+            self.assertEqual(evidence[claim_id]["attribution_class"], "direct_source_position")
+            self.assertIs(evidence[claim_id]["review"]["agenda_is_not_answer"], False)
+        eval_rows = [json.loads(line) for line in (SKILL / "evals/cases.jsonl").read_text(encoding="utf-8").split("\n") if line]
+        trace = next(row for row in eval_rows if row["case_id"] == "trace-welfare")
+        self.assertEqual(trace["expected_labels"], ["Strong framework inference"])
+        self.assertIn("agenda-only", trace["prompt"])
+
     def test_readme_leads_with_install_and_broad_use(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
@@ -148,6 +198,8 @@ class AMindSkillTests(unittest.TestCase):
         self.assertNotIn("anthropic-mind", readme.casefold())
         self.assertIn("Apache License 2.0", readme)
         self.assertIn("Apache License 2.0", chinese)
+        self.assertTrue(readme.startswith("# AMind\n\n## Think with the Anthropic lens."))
+        self.assertTrue(chinese.startswith("# AMind\n\n## 戴上 Anthropic 的思考帽。"))
 
 
 if __name__ == "__main__":
