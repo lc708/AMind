@@ -17,6 +17,19 @@ DEFAULT_RELEASE = (
     if (SCRIPT.parent / "manifest.json").is_file()
     else SCRIPT.parents[1] / "release/amind-v1"
 )
+MANIFEST_SCHEMA_NAME = "amind-v1-release-manifest"
+MANIFEST_SCHEMA_VERSION = 1
+RELEASE_ID = "amind-v1"
+RELEASE_NAME = "AMind v1"
+SUMMARY_COUNT_FIELDS = (
+    "analysis_units",
+    "body_units",
+    "bounded_unavailable_units",
+    "passages",
+    "claims",
+    "themes",
+    "representative_evidence_rows",
+)
 
 
 class AMindError(RuntimeError):
@@ -30,9 +43,39 @@ def require(condition: bool, message: str) -> None:
 
 def read_json(path: Path) -> dict[str, Any]:
     require(path.is_file(), f"missing file: {path}")
-    value = json.loads(path.read_text(encoding="utf-8"))
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        details = f"{error.msg} (line {error.lineno}, column {error.colno})"
+        raise AMindError(f"invalid JSON at {path}: {details}") from error
     require(isinstance(value, dict), f"expected JSON object: {path}")
     return value
+
+
+def validate_manifest(manifest: dict[str, Any], path: Path) -> dict[str, Any]:
+    require(manifest.get("schema_name") == MANIFEST_SCHEMA_NAME, f"invalid AMind manifest schema: {path}")
+    require(
+        type(manifest.get("schema_version")) is int
+        and manifest["schema_version"] == MANIFEST_SCHEMA_VERSION,
+        f"invalid AMind manifest schema version: {path}",
+    )
+    require(manifest.get("release_id") == RELEASE_ID, f"invalid AMind release ID: {path}")
+    require(manifest.get("release_name") == RELEASE_NAME, f"invalid AMind release name: {path}")
+    release_date = manifest.get("release_date")
+    require(isinstance(release_date, str) and bool(release_date.strip()), f"missing or invalid release_date: {path}")
+    counts = manifest.get("counts")
+    require(isinstance(counts, dict), f"missing or invalid manifest counts: {path}")
+    for field in SUMMARY_COUNT_FIELDS:
+        value = counts.get(field)
+        require(
+            type(value) is int and value >= 0,
+            f"missing or invalid manifest count {field}: {path}",
+        )
+    return manifest
+
+
+def load_manifest(path: Path) -> dict[str, Any]:
+    return validate_manifest(read_json(path), path)
 
 
 def iter_jsonl(path: Path) -> Iterable[dict[str, Any]]:
@@ -106,10 +149,15 @@ def print_claim(row: dict[str, Any]) -> None:
     print(f"引句：{row['exact_quote']}")
 
 
-def command_summary(release_root: Path, _args: argparse.Namespace) -> int:
-    manifest = read_json(release_root / "manifest.json")
+def command_summary(release_root: Path, args: argparse.Namespace) -> int:
+    manifest_path = release_root / "manifest.json"
+    manifest = getattr(args, "manifest", None)
+    if manifest is None:
+        manifest = load_manifest(manifest_path)
+    else:
+        manifest = validate_manifest(manifest, manifest_path)
     counts = manifest["counts"]
-    print(f"{manifest.get('release_name', 'AMind v1')} ({manifest['release_date']})")
+    print(f"{manifest['release_name']} ({manifest['release_date']})")
     print(f"分析单位：{counts['analysis_units']}（正文 {counts['body_units']}，有界 unavailable {counts['bounded_unavailable_units']}）")
     print(f"证据段：{counts['passages']}")
     print(f"原子主张：{counts['claims']}")
@@ -202,7 +250,9 @@ def parser() -> argparse.ArgumentParser:
 def main() -> int:
     args = parser().parse_args()
     release_root = args.release_root.resolve()
-    require((release_root / "manifest.json").is_file(), f"not an AMind v1 release: {release_root}")
+    manifest_path = release_root / "manifest.json"
+    require(manifest_path.is_file(), f"not an AMind v1 release: {release_root}")
+    args.manifest = load_manifest(manifest_path)
     return args.handler(release_root, args)
 
 

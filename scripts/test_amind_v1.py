@@ -8,6 +8,7 @@ import io
 import json
 import subprocess
 import sys
+import tempfile
 import unittest
 from contextlib import redirect_stdout
 from pathlib import Path
@@ -23,6 +24,22 @@ RELEASE = ROOT / "release/amind-v1"
 
 
 class AMindV1Tests(unittest.TestCase):
+    def run_cli(self, release_root: Path, command: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            [sys.executable, "-B", str(CLI), "--release-root", str(release_root), command],
+            cwd=ROOT,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+
+    def write_manifest(self, release_root: Path, manifest: object) -> None:
+        release_root.mkdir(parents=True)
+        (release_root / "manifest.json").write_text(
+            json.dumps(manifest, ensure_ascii=False),
+            encoding="utf-8",
+        )
+
     def test_summary_uses_frozen_counts(self) -> None:
         stream = io.StringIO()
         with redirect_stdout(stream):
@@ -78,6 +95,49 @@ class AMindV1Tests(unittest.TestCase):
         )
         self.assertEqual(result.returncode, 1)
         self.assertIn("未找到主张", result.stderr)
+
+    def test_invalid_manifest_json_is_a_controlled_error(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            release_root = Path(temporary) / "release"
+            release_root.mkdir()
+            manifest_path = release_root / "manifest.json"
+            manifest_path.write_text("{not-json", encoding="utf-8")
+            result = self.run_cli(release_root, "summary")
+        self.assertEqual(result.returncode, 2)
+        self.assertIn(f"invalid JSON at {manifest_path.resolve()}", result.stderr)
+        self.assertIn("line 1, column 2", result.stderr)
+        self.assertNotIn("Traceback", result.stderr)
+
+    def test_dispatch_rejects_invalid_manifest_schema(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            release_root = Path(temporary) / "release"
+            manifest = json.loads((RELEASE / "manifest.json").read_text(encoding="utf-8"))
+            manifest["schema_name"] = "untrusted-schema"
+            self.write_manifest(release_root, manifest)
+            result = self.run_cli(release_root, "themes")
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("invalid AMind manifest schema", result.stderr)
+        self.assertNotIn("missing file", result.stderr)
+
+    def test_dispatch_rejects_invalid_release_identity(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            release_root = Path(temporary) / "release"
+            manifest = json.loads((RELEASE / "manifest.json").read_text(encoding="utf-8"))
+            manifest["release_id"] = "not-amind-v1"
+            self.write_manifest(release_root, manifest)
+            result = self.run_cli(release_root, "summary")
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("invalid AMind release ID", result.stderr)
+
+    def test_summary_rejects_incomplete_counts(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            release_root = Path(temporary) / "release"
+            manifest = json.loads((RELEASE / "manifest.json").read_text(encoding="utf-8"))
+            del manifest["counts"]["claims"]
+            self.write_manifest(release_root, manifest)
+            result = self.run_cli(release_root, "summary")
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("missing or invalid manifest count claims", result.stderr)
 
 
 if __name__ == "__main__":

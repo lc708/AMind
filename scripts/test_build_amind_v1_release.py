@@ -69,6 +69,8 @@ class AMindV1ReleaseTests(unittest.TestCase):
         self.assertIn("不是模型、应用或 Codex 技能", readme)
         self.assertIn("不需要安装第三方依赖", readme)
         self.assertIn("python3 -B amind.py search", readme)
+        self.assertEqual(readme.count("data/representative-evidence-review.jsonl"), 2)
+        self.assertNotIn("data/synthesis-evidence.jsonl", readme)
         self.assertNotIn("Nuwa v1", readme)
         compatibility = self.manifest["compatibility"]
         self.assertIn("nuwa1-", compatibility["legacy_internal_identifier_prefixes"])

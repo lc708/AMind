@@ -36,7 +36,7 @@
     {"source":"reports/nuwa-v1-synthesis.zh-CN.md","published":"release/amind-v1/reports/synthesis.zh-CN.md","compression":"none"},
     {"source":"reports/nuwa-v1-evaluation.zh-CN.md","published":"release/amind-v1/reports/evaluation.zh-CN.md","compression":"none"},
     {"source":"config/amind-v1-atomic-claim.schema.json","published":"release/amind-v1/schemas/atomic-claim.schema.json","compression":"none","expected_source_sha256":"add984181dc2b38deb50ab8cd0e52d9d95b3315f75d647a8fb233c55783d417f"},
-    {"source":"scripts/amind_v1.py","published":"release/amind-v1/amind.py","compression":"none","expected_source_sha256":"fe322566b77c3889b7895503d3333b2807a5e4d87ccdf7e31f71d5690497f536"}
+    {"source":"scripts/amind_v1.py","published":"release/amind-v1/amind.py","compression":"none","expected_source_sha256":"eb595560a018d582ab6a24594e95258c485fc6e3578446ab4d635c7fd468245b"}
   ],
   "publication_boundary": {
     "full_local_evidence_vault_included": false,

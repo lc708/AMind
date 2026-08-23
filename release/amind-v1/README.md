@@ -15,7 +15,7 @@ AMind v1 是一份从冻结证据中归纳 Anthropic 思想结构的可复算研
 
 1. 阅读 `reports/synthesis.zh-CN.md` 获取首版结论；
 2. 阅读 `reports/evaluation.zh-CN.md` 了解评测与限制；
-3. 用 `data/synthesis-evidence.jsonl` 回查代表证据；
+3. 用 `data/representative-evidence-review.jsonl` 回查代表证据；
 4. 在本目录运行 `python3 -B amind.py summary` 查看概览；
 5. 运行 `python3 -B amind.py search "alignment faking" --limit 5` 检索来源绑定主张；
 6. 用 `manifest.json` 和仓库根目录的独立校验器核验每个文件的 SHA-256。
@@ -33,7 +33,7 @@ python3 -B amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 
 ## 给 AI 与 RAG 系统
 
-不需要安装技能。小规模问答优先读取 `reports/synthesis.zh-CN.md` 与 `data/synthesis-evidence.jsonl`；需要全量检索时，流式读取 `data/atomic-claims.jsonl.gz`，再以 `analysis_unit_id` 连接 `data/analysis-units.jsonl.gz`。回答时应同时保留 claim ID、逐字引句、来源标题和 canonical URL。
+不需要安装技能。小规模问答优先读取 `reports/synthesis.zh-CN.md` 与 `data/representative-evidence-review.jsonl`；需要全量检索时，流式读取 `data/atomic-claims.jsonl.gz`，再以 `analysis_unit_id` 连接 `data/analysis-units.jsonl.gz`。回答时应同时保留 claim ID、逐字引句、来源标题和 canonical URL。
 
 gzip 文件使用确定性压缩（mtime=0），解压后字节哈希记录在 manifest 中。
 
