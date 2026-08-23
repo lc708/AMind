@@ -79,3 +79,14 @@ Conclusion
 ```
 
 When asked for exhaustive tracing, explain that the compact skill kernel is representative and route to the full AMind v1 release.
+
+## Closing synthesis
+
+When an answer develops across multiple branches or requires substantial detail, end by bringing the result back to the user's job. Choose the form that fits the mode:
+
+- **Think** — the working model and the question that matters next.
+- **Advise** — the recommendation and its governing condition.
+- **Critique** — the central weakness and the repair that matters most.
+- **Explain** — the core position and its most important evidence boundary.
+- **Compare** — the most consequential difference and why it matters.
+- **Trace** — normally let the evidence chain complete the answer; add a synthesis only when it materially helps interpret the evidence.
