@@ -1,0 +1,7 @@
+interface:
+  display_name: "AMind"
+  short_description: "Think with the Anthropic lens, with evidence"
+  brand_color: "#D97757"
+  default_prompt: "Use $amind to think through this situation with the Anthropic lens, then give advice, failure conditions, and sources."
+policy:
+  allow_implicit_invocation: true

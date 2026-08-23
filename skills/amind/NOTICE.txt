@@ -1,0 +1,17 @@
+AMind
+Copyright 2026 AMind contributors
+
+The software, original documentation, build logic, and original Skill
+instructions in this repository are licensed under the Apache License,
+Version 2.0.
+
+The evidence datasets and research reports include limited quotations and
+factual metadata from publicly available third-party works. Rights in those
+quoted source materials remain with their respective authors and publishers.
+Those third-party materials are not relicensed under the Apache License,
+Version 2.0. Canonical source URLs and stable evidence identifiers are retained
+for attribution, verification, and research use.
+
+Anthropic, Claude, and related names and marks are the property of their
+respective owners. Their descriptive use in AMind does not imply affiliation,
+sponsorship, or endorsement. AMind is an independent public-research project.

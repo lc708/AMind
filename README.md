@@ -1,105 +1,157 @@
 # AMind
 
-AMind 用可追溯证据重建 Anthropic 的思想结构：先冻结来源、正文、作品与版本边界，再抽取原子主张，最后进行跨文归纳。
+### Think with the Anthropic lens.
 
-## AMind v1
+Put on the Anthropic hat—without pretending to be Anthropic. AMind helps you analyze a situation, get concrete advice, pressure-test a plan, compare public voices, and trace the reasoning back to evidence.
 
-AMind v1 是一份**可验证的研究报告与证据数据包**。它不是模型、聊天应用或 Codex 技能，也不要求安装 Python 包。
+It is built from **1,351 public analysis units, 52,225 source-linked claims, and 54 human-reviewed representative evidence rows**—not from a persona prompt.
 
-截至 2026-08-23，首版发布闸门已经通过：
+[简体中文](README.zh-CN.md) · [Read the research synthesis](release/amind-v1/reports/synthesis.zh-CN.md) · [Inspect reviewed evidence](release/amind-v1/data/representative-evidence-review.jsonl)
 
-- 原始权威人口：1,804 个候选；
-- 去重后分析人口：1,351 个单位，其中 1,348 个有正文、3 个是有证据边界的 unavailable 例外；
-- 证据段：13,436 个；
-- 原子主张：52,225 条，全部带逐字引句、passage、work、edition、正文与文件哈希；
-- 归属审计：52,225/52,225 恰好一条；
-- 等价组件：189 个；显式版本组件：1 个，两个版本均保留；
-- 有界词汇对立候选：56 个，全部完成来源上下文裁决；
-- 归纳主题：9 个；代表证据：54 条，全部逐条阅读完整绑定段落；
-- 发布前分层校准样本：126 条；
-- evaluation 与 release gate 均为 PASS。
+## Install in Codex
 
-首版的总体判断是：在这份有界语料中，Anthropic 的思想结构表现为一种制度化的谨慎——认真对待能力快速增长，提高机制和行为的可测性，让治理强度随证据与能力升级，并用相互独立的防线降低单点失败；最终仍以人的能动性、福利和社会分配约束技术目标。
+Paste this into **Codex chat** (not a terminal):
 
-## 怎么用
+```text
+$skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind
+```
 
-### 1. 只想看结论
+Restart Codex after installation. Then ask:
 
-直接阅读：
+```text
+Use $amind to think through this situation with the Anthropic lens: [describe your situation]
+```
 
-- [AMind v1 综合报告](release/amind-v1/reports/synthesis.zh-CN.md)
-- [评测报告与诚实边界](release/amind-v1/reports/evaluation.zh-CN.md)
+You can also ask naturally—AMind supports automatic invocation when your question calls for an Anthropic-informed perspective.
 
-不需要克隆仓库，也不需要安装任何东西。
+## What you can ask
 
-### 2. 想搜索具体观点或证据
+AMind is not limited to decision review:
 
-克隆仓库后，使用自带的零依赖工具：
+```text
+Think:    How would the Anthropic lens frame our autonomous-agent rollout?
+Advise:   Should we open-source this model? Give a recommendation and stop conditions.
+Critique: Pressure-test this AI safety policy. What would it miss?
+Explain:  How does Anthropic's public reasoning treat scaling uncertainty?
+Compare:  Compare the institutional voice with Dario Amodei and Jack Clark on governance.
+Trace:    Show the evidence behind this conclusion, including quotes and claim IDs.
+```
+
+For a novel case, it still gives advice. It simply tells you how far that advice travels beyond direct public precedent.
+
+## What an answer looks like
+
+> **Recommendation**
+>
+> Stage the deployment. Expand autonomy only after the system passes task-realistic evaluations and independent monitoring; keep a reversible fallback until the failure modes are observable.
+>
+> **[Strong framework inference]** Across Anthropic's public materials, uncertainty is usually converted into measurement, staged commitment, and multiple independent defenses—not into either blind acceleration or indefinite paralysis.
+>
+> **[Exploratory extrapolation]** For your rollout, that implies capability-based promotion gates and a kill path owned outside the shipping team.
+>
+> **What could change the answer**
+>
+> Strong evidence that the agent cannot take irreversible actions, or that monitoring reliably catches policy violations, would justify faster expansion.
+>
+> **Source example**
+>
+> *Auditing language models for hidden objectives* — 2025-03-13 — [source](https://www.anthropic.com/research/auditing-hidden-objectives) — `nuwa1-claim-04ed2efdb6c2574083bf375d`
+
+AMind marks the evidence distance of every material conclusion:
+
+- **[Public position]** — directly supported by a cited public source.
+- **[Strong framework inference]** — reconstructed from repeated, source-linked patterns.
+- **[Exploratory extrapolation]** — useful advice for a new situation beyond exact precedent.
+
+The rule is simple: **bold in advice, explicit about provenance**.
+
+## Why this is more than a prompt
+
+AMind uses an internal distillation method called **Nuwa**:
+
+```text
+bound public corpus
+  → source-linked atomic claims
+  → voice and version boundaries
+  → recurring mechanisms and tensions
+  → stress-tested advice for a new situation
+```
+
+The method keeps institutional positions separate from named people, preserves explicit revisions, retains counterevidence, and refuses to turn research questions into settled answers.
+
+The public product is **AMind**. Nuwa is only the construction methodology.
+
+## What ships inside the Skill
+
+The installable package at [`skills/amind`](skills/amind) is deliberately compact and works offline:
+
+- 54 human-reviewed, source-bound evidence rows;
+- 9 recurring themes in Anthropic's public reasoning;
+- 5 bounded voice profiles;
+- 5 recurring tensions that should not be flattened;
+- a zero-dependency query tool and integrity verifier;
+- answer patterns and evidence rules for Think, Advise, Critique, Explain, Compare, and Trace.
+
+Try the evidence tools directly:
+
+```bash
+python3 -B skills/amind/scripts/query.py summary
+python3 -B skills/amind/scripts/query.py search "alignment faking" --limit 5
+python3 -B skills/amind/scripts/query.py tensions
+python3 -B skills/amind/scripts/verify.py
+```
+
+They use only the Python standard library, make no network requests, and do not modify the evidence package.
+
+## Full AMind v1 evidence release
+
+The compact Skill is the reasoning interface. The full release at [`release/amind-v1`](release/amind-v1) is the audit and research layer:
+
+- 1,804 authoritative candidates;
+- 1,351 deduplicated analysis units: 1,348 with primary bodies and 3 bounded unavailable exceptions;
+- 13,436 evidence passages;
+- 52,225 atomic claims with exact quotes, work and edition identities, and file hashes;
+- 9 synthesis themes and 54 fully reviewed representative evidence rows;
+- attribution, version, contradiction, synthesis, evaluation, and release audits.
+
+Search the full release:
 
 ```bash
 git clone https://github.com/lc708/AMind.git
 cd AMind
 
 python3 -B release/amind-v1/amind.py summary
-python3 -B release/amind-v1/amind.py themes
-python3 -B release/amind-v1/amind.py search "alignment faking" --limit 5
+python3 -B release/amind-v1/amind.py search "model welfare" --limit 5
 python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 ```
 
-工具只使用 Python 标准库，不联网，也不会修改发布数据。`search` 可以检索主张、逐字引句、来源标题、canonical URL 与声部；加上 `--json` 可输出适合其他程序读取的 JSON/JSONL。
+For lightweight RAG, start with [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl). For exhaustive retrieval, stream [`atomic-claims.jsonl.gz`](release/amind-v1/data/atomic-claims.jsonl.gz) and join it to [`analysis-units.jsonl.gz`](release/amind-v1/data/analysis-units.jsonl.gz).
 
-### 3. 想接入 AI、RAG 或研究流程
+## Other Agent Skills-compatible clients
 
-不需要安装技能。推荐按用途选择数据层：
+The Skill is a self-contained folder. If your client supports Agent Skills, copy or install [`skills/amind`](skills/amind) into that client's skills directory and invoke `amind`. Directory locations and invocation syntax vary by client; the evidence tools themselves require only Python 3.
 
-- 小规模问答：读取 [`synthesis-evidence.jsonl`](release/amind-v1/data/synthesis-evidence.jsonl)，其中包含 54 条代表证据；
-- 全量主张检索：流式读取 [`atomic-claims.jsonl.gz`](release/amind-v1/data/atomic-claims.jsonl.gz)；
-- 补充来源信息：用 `analysis_unit_id` 连接 [`analysis-units.jsonl.gz`](release/amind-v1/data/analysis-units.jsonl.gz)；
-- 回看上下文：用 `passage_id` 连接 [`passages.jsonl.gz`](release/amind-v1/data/passages.jsonl.gz)；
-- 做主题过滤：连接 [`theme-membership.jsonl.gz`](release/amind-v1/data/theme-membership.jsonl.gz) 与 [`theme-catalog.jsonl`](release/amind-v1/data/theme-catalog.jsonl)。
-
-AI 输出应保留 claim ID、逐字引句、来源标题和 canonical URL，不能只给脱离来源的总结。若未来提供 Codex/Claude 等平台的技能，它应只是这一数据接口的可选适配层，不是 AMind v1 的唯一使用方式。
-
-### 4. 想验证发布包
-
-只需 Python 标准库：
+## Verify or develop
 
 ```bash
+python3 -B scripts/build_amind_skill.py --check
+python3 -B scripts/test_amind_skill.py
 python3 -B scripts/verify_amind_v1_release.py
 ```
 
-该命令逐项验证发布清单、字节数、SHA-256、JSONL 行数与确定性 gzip 回放。
+The compact evidence kernel is deterministically generated from the frozen AMind v1 release. Every packaged data artifact carries a SHA-256 digest and row count.
 
-## 发布包内容
+## License
 
-发布包位于 [`release/amind-v1`](release/amind-v1)：
+AMind's software, original documentation, build logic, and Skill instructions are licensed under the [Apache License 2.0](LICENSE). Public-source quotations and third-party factual metadata remain with their respective authors and publishers and are not relicensed; see [NOTICE](NOTICE) for the evidence and trademark boundary.
 
-- `README.md`：包内快速使用说明；
-- `amind.py`：零依赖浏览与检索工具；
-- `reports/`：综合报告和评测报告；
-- `data/`：分析单位、证据段、原子主张、主题、归属、版本和矛盾审计；
-- `schemas/`：机器可读 schema；
-- `manifest.json`：源文件和发布文件的 SHA-256、字节数与行数；
-- `release-audit.json`：发布闸门及完整输出指纹。
+## Boundaries
 
-## 兼容性命名
+- AMind reconstructs public reasoning; it has no access to Anthropic's private deliberations.
+- It never speaks in Anthropic's first person or invents an unpublished decision.
+- Theme frequency measures corpus coverage, not organizational consensus or personal influence.
+- Institutional material is not automatically attributed to an individual, and individual writing is not automatically institutional policy.
+- The compact Skill is representative, not exhaustive. Use the full release for completeness-sensitive research.
+- AMind is an independent public-research project and is not affiliated with or endorsed by Anthropic.
 
-机器数据中的 `nuwa1-*`、`nuwa1804-*` 和 `nuwa-v1-*` 是首轮构建阶段形成的稳定内部 ID/schema 前缀。为避免破坏跨文件外键与审计哈希，AMind v1 保留这些兼容性标识；它们不是产品名，也不表示需要安装名为 Nuwa 的组件。
-
-## 方法边界
-
-- 普通引用、related links、导航、代码仓库和任意二跳外链不扩张原始 1,804 人口。
-- 同一 URL、抓取记录、manifestation、edition 和 work 分开建模；标题、slug、模糊相似度或单独的正文 hash 不能擅自跨版本合并。
-- 主题互不排斥；主张频次表示语料覆盖，不表示组织共识或作者权重。
-- 机构口径不自动等同于个人观点；研究问题不当作已经得到的答案。
-- 54 条报告代表证据经过完整段落语义复核；不声称 52,225 条主张全部经过逐条人工语义复核。
-- 矛盾筛查是有界发现机制，不声称语义完备。
-- GitHub 发布包不含约 13GB 的本地原始抓取与历史证据库；它包含复核首版结论所需的来源绑定段落、主张与哈希链。
-
-## 维护者入口
-
-- `release/amind-v1/`：可直接发布、检索和验证的数据包；
-- `scripts/amind_v1.py`：包内检索工具的源文件；
-- `scripts/verify_amind_v1_release.py`：独立发布校验器；
-- `scripts/build_amind_v1_release.py`：公开发布包构建器；
-- `corpus/` 与 `reports/`：本地完整证据和构建历史，不进入精简 GitHub 发布。
+If AMind gives you a useful new lens, **star the repository** and share one question where the answer became better because the evidence distance was visible.
