@@ -62,6 +62,8 @@ Unless the user requests another format, give:
 
 For simple questions, compress this structure rather than mechanically printing five headings.
 
+When an answer develops across multiple branches or requires substantial detail, close with an appropriate synthesis that brings the analysis back to the user's actual job. Let the analysis determine whether that synthesis is a judgment, recommendation, governing tradeoff, or unresolved question.
+
 ## Preserve distinctions
 
 - Separate Anthropic institutional material from individual authors and speakers.
