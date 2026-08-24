@@ -69,6 +69,23 @@ def iter_jsonl(path: Path) -> Iterable[dict[str, Any]]:
             yield value
 
 
+def validated_passage_ids(path: Path) -> set[str]:
+    passage_ids: set[str] = set()
+    for row in iter_jsonl(path):
+        passage_id = row.get("passage_id")
+        require(isinstance(passage_id, str) and bool(passage_id.strip()), f"missing passage ID in {path}")
+        require(passage_id not in passage_ids, f"duplicate passage ID: {passage_id}")
+        passage_ids.add(passage_id)
+    return passage_ids
+
+
+def validated_claim_passage_id(claim_id: str, evidence: dict[str, Any], passage_ids: set[str]) -> str:
+    passage_id = evidence.get("passage_id")
+    require(isinstance(passage_id, str) and bool(passage_id.strip()), f"missing claim passage ID: {claim_id}")
+    require(passage_id in passage_ids, f"unknown claim passage: {claim_id}/{passage_id}")
+    return passage_id
+
+
 def canonical_json(value: Any) -> str:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
@@ -179,7 +196,8 @@ def build_index_file(path: Path) -> dict[str, int]:
             require(claim_id not in equivalence_by_claim, f"claim appears in multiple equivalence components: {claim_id}")
             equivalence_by_claim[claim_id] = (component_id, representative)
 
-    passage_count = sum(1 for _ in iter_jsonl(PASSAGES))
+    passage_ids = validated_passage_ids(PASSAGES)
+    passage_count = len(passage_ids)
     require(len(units) == 1351, "expected 1,351 analysis units")
     require(len(claims) == 52225, "expected 52,225 atomic claims")
     require(len(attribution_by_claim) == len(claims), "attribution population mismatch")
@@ -271,6 +289,7 @@ def build_index_file(path: Path) -> dict[str, int]:
             evidence_rows = claim.get("evidence") or []
             require(len(evidence_rows) == 1, f"claim must bind exactly one evidence row: {claim_id}")
             evidence = evidence_rows[0]
+            passage_id = validated_claim_passage_id(claim_id, evidence, passage_ids)
             unit_id = evidence["analysis_unit_id"]
             require(unit_id in unit_by_id, f"unknown analysis unit: {claim_id}/{unit_id}")
             require(claim_id in attribution_by_claim, f"missing attribution audit: {claim_id}")
@@ -300,7 +319,7 @@ def build_index_file(path: Path) -> dict[str, int]:
                 "exact_quote": evidence.get("exact_quote") or "",
                 "exact_quote_sha256": evidence.get("exact_quote_sha256") or "",
                 "invalidation_conditions": claim.get("invalidation_conditions") or [],
-                "passage_id": evidence.get("passage_id") or "",
+                "passage_id": passage_id,
                 "proposition": claim.get("proposition") or "",
                 "temporal_scope": temporal_scope,
                 "theme_ids": membership.get("theme_ids") or [],

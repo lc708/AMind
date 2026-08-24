@@ -48,9 +48,11 @@ Use the full index for recall and the gold kernel for calibration. A full-index 
 
 ## Silence and conflicts
 
-If the full local index has no relevant evidence:
+Before treating bounded evidence as silent, check relevant broader retrieval scopes with `--include-reported` and `--include-agenda`. Preserve those rows as reported positions or research questions rather than upgrading them to source beliefs or answers.
 
-1. Say the bounded evidence is silent.
+If no answer-eligible evidence remains within the attribution and agenda scopes searched:
+
+1. State the scopes searched and say the bounded evidence is silent.
 2. Do not call the absence a negative position.
 3. Offer an exploratory extrapolation if it is useful.
 4. Identify what evidence would upgrade or reverse it.

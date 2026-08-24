@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import shutil
 import subprocess
@@ -20,6 +21,10 @@ QUERY = SKILL / "scripts/query.py"
 VERIFY = SKILL / "scripts/verify.py"
 BUILDER = ROOT / "scripts/build_amind_skill.py"
 INDEX_BUILDER = ROOT / "scripts/build_amind_skill_index.py"
+INDEX_BUILDER_SPEC = importlib.util.spec_from_file_location("build_amind_skill_index", INDEX_BUILDER)
+assert INDEX_BUILDER_SPEC and INDEX_BUILDER_SPEC.loader
+INDEX_BUILDER_MODULE = importlib.util.module_from_spec(INDEX_BUILDER_SPEC)
+INDEX_BUILDER_SPEC.loader.exec_module(INDEX_BUILDER_MODULE)
 
 
 def run(*args: str) -> subprocess.CompletedProcess[str]:
@@ -45,6 +50,23 @@ class AMindSkillTests(unittest.TestCase):
         index_result = run(sys.executable, "-B", str(INDEX_BUILDER), "--check")
         self.assertEqual(index_result.returncode, 0, index_result.stdout + index_result.stderr)
         self.assertIn("52,225 claims", index_result.stdout)
+
+    def test_index_builder_rejects_duplicate_passage_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "passages.jsonl"
+            path.write_text('{"passage_id":"passage-1"}\n{"passage_id":"passage-1"}\n', encoding="utf-8")
+            with self.assertRaisesRegex(INDEX_BUILDER_MODULE.IndexBuildError, "duplicate passage ID: passage-1"):
+                INDEX_BUILDER_MODULE.validated_passage_ids(path)
+
+    def test_index_builder_rejects_missing_or_unknown_claim_passage_ids(self) -> None:
+        passage_ids = {"passage-1"}
+        cases = (
+            ({}, "missing claim passage ID: claim-1"),
+            ({"passage_id": "passage-2"}, "unknown claim passage: claim-1/passage-2"),
+        )
+        for evidence, message in cases:
+            with self.subTest(message=message), self.assertRaisesRegex(INDEX_BUILDER_MODULE.IndexBuildError, message):
+                INDEX_BUILDER_MODULE.validated_claim_passage_id("claim-1", evidence, passage_ids)
 
     def test_self_contained_verifier_passes(self) -> None:
         result = run(sys.executable, "-B", str(VERIFY))
