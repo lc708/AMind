@@ -25,13 +25,13 @@
 
 ## 60 秒开始
 
-把下面一行粘贴到 **Codex 对话框**，不是终端：
+把下面一行发给你正在使用的 **Agent**：
 
 ```text
 $skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind
 ```
 
-重启一次 Codex，然后拿一个真实问题来试：
+安装完成后，如有需要就重新加载 Agent 或开启新会话，然后拿一个真实问题来试：
 
 ```text
 用 $amind 压力测试我们的自主智能体上线方案。
@@ -170,9 +170,9 @@ python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 
 小型高可信评测优先读取 [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl)；自定义全量检索则流式读取 [`atomic-claims.jsonl.gz`](release/amind-v1/data/atomic-claims.jsonl.gz)，并连接 [`analysis-units.jsonl.gz`](release/amind-v1/data/analysis-units.jsonl.gz)。
 
-## 不只支持 Codex
+## 跨 Agent 使用
 
-[`skills/amind`](skills/amind) 是一个自包含的 Agent Skill。只要客户端支持 Agent Skills 文件夹格式，就可以把它复制或安装到对应 skills 目录，然后调用 `amind`。不同客户端的目录和调用语法不同；证据工具本身只需要 Python 3。
+[`skills/amind`](skills/amind) 是一个自包含的 Agent Skill。有能力的 Agent 可以按照自己的约定完成安装；支持 Agent Skills 文件夹格式的客户端，也可以把该目录复制或安装到对应的 skills 目录，然后调用 `amind`。不同客户端的目录和调用语法不同；证据工具本身只需要 Python 3。
 
 ## 验证或开发
 
