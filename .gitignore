@@ -1,6 +1,7 @@
 .DS_Store
 __pycache__/
 *.pyc
+/.agents/
 .obsidian/workspace*.json
 .obsidian/cache/
 work/
@@ -32,6 +33,7 @@ scripts/*
 !scripts/amind_v1.py
 !scripts/test_amind_v1.py
 !scripts/build_amind_skill.py
+!scripts/build_amind_skill_index.py
 !scripts/test_amind_skill.py
 
 /reports/

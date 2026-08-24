@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import hashlib
+import gzip
 import json
+import sqlite3
 import sys
 from pathlib import Path
 from typing import Any, Iterable
@@ -14,6 +16,10 @@ SKILL_ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = SKILL_ROOT / "data"
 
 MANIFEST_COUNT_FIELDS = (
+    "full_index_analysis_units",
+    "full_index_atomic_claims",
+    "full_index_equivalence_components",
+    "full_index_passages",
     "full_release_atomic_claims",
     "full_release_analysis_units",
     "human_reviewed_evidence_rows",
@@ -22,6 +28,14 @@ MANIFEST_COUNT_FIELDS = (
     "themes",
     "voice_profiles",
 )
+EXPECTED_ARTIFACTS = {
+    "amind-full-index.sqlite3": "sqlite3-fts5",
+    "evidence-kernel.jsonl": "jsonl",
+    "passages.jsonl.gz": "jsonl-gzip",
+    "synthesis-tensions.jsonl": "jsonl",
+    "theme-catalog.jsonl": "jsonl",
+    "voice-profiles.jsonl": "jsonl",
+}
 WELFARE_TENSION_ID = "anthropomorphism-versus-welfare-precaution"
 WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID = "nuwa1-claim-9c32c30410fed30e9680935e"
 WELFARE_AGENDA_CLAIM_ID = "nuwa1-claim-f169332e5fa3d349672a254d"
@@ -49,7 +63,8 @@ def read_json(path: Path) -> dict[str, Any]:
 
 def iter_jsonl(path: Path) -> Iterable[dict[str, Any]]:
     require(path.is_file(), f"missing file: {path}")
-    with path.open("r", encoding="utf-8", newline="") as handle:
+    opener = gzip.open if path.suffix == ".gz" else open
+    with opener(path, "rt", encoding="utf-8", newline="") as handle:
         for line_number, line in enumerate(handle, start=1):
             if not line.strip():
                 continue
@@ -91,7 +106,7 @@ def main() -> int:
         require(type(counts.get(field)) is int and counts[field] >= 0, f"invalid manifest count: {field}")
 
     artifacts = manifest.get("artifacts")
-    require(isinstance(artifacts, list) and len(artifacts) == 4, "expected four evidence artifacts")
+    require(isinstance(artifacts, list) and len(artifacts) == len(EXPECTED_ARTIFACTS), "unexpected evidence artifact count")
     seen_paths: set[str] = set()
     rows_by_path: dict[str, list[dict[str, Any]]] = {}
     for artifact in artifacts:
@@ -103,9 +118,36 @@ def main() -> int:
         payload = path.read_bytes()
         require(len(payload) == artifact.get("bytes"), f"byte count mismatch: {relative}")
         require(sha256(payload) == artifact.get("sha256"), f"SHA-256 mismatch: {relative}")
-        rows = list(iter_jsonl(path))
-        require(len(rows) == artifact.get("rows"), f"row count mismatch: {relative}")
-        rows_by_path[relative] = rows
+        artifact_format = artifact.get("format")
+        require(artifact_format == EXPECTED_ARTIFACTS.get(relative), f"invalid artifact format: {relative}")
+        if artifact_format == "jsonl":
+            rows = list(iter_jsonl(path))
+            require(len(rows) == artifact.get("rows"), f"row count mismatch: {relative}")
+            rows_by_path[relative] = rows
+        elif artifact_format == "jsonl-gzip":
+            require(sum(1 for _ in iter_jsonl(path)) == artifact.get("rows"), f"row count mismatch: {relative}")
+    require(seen_paths == set(EXPECTED_ARTIFACTS), "missing or unexpected evidence artifacts")
+
+    index_path = safe_artifact_path("amind-full-index.sqlite3")
+    try:
+        connection = sqlite3.connect(index_path.resolve().as_uri() + "?mode=ro&immutable=1", uri=True)
+        metadata = {key: json.loads(value) for key, value in connection.execute("SELECT key, value FROM metadata")}
+        require(connection.execute("PRAGMA quick_check").fetchone()[0] == "ok", "full index quick check failed")
+        require(metadata.get("schema_name") == "amind-full-evidence-index", "invalid full index schema")
+        require(metadata.get("schema_version") == 1, "unsupported full index schema")
+        require(metadata.get("release_id") == "amind-v1", "full index release mismatch")
+        require(connection.execute("SELECT count(*) FROM claims").fetchone()[0] == counts["full_index_atomic_claims"] == 52225, "full index claim count mismatch")
+        require(connection.execute("SELECT count(*) FROM claims_fts").fetchone()[0] == 52225, "full index FTS count mismatch")
+        require(connection.execute("SELECT count(*) FROM sources").fetchone()[0] == counts["full_index_analysis_units"] == 1351, "full index source count mismatch")
+        require(connection.execute("SELECT count(*) FROM claims WHERE is_reviewed_kernel = 1").fetchone()[0] == 54, "full index gold count mismatch")
+        require(connection.execute("SELECT count(*) FROM claims WHERE synthesis_disposition = 'eligible_for_source_level_synthesis'").fetchone()[0] == 45941, "full index direct-position count mismatch")
+    except (json.JSONDecodeError, sqlite3.Error) as error:
+        raise VerifyError(f"invalid full SQLite index: {error}") from error
+    finally:
+        if "connection" in locals():
+            connection.close()
+
+    require(counts["full_index_passages"] == 13436, "bundled passage count mismatch")
 
     evidence = rows_by_path["evidence-kernel.jsonl"]
     themes = rows_by_path["theme-catalog.jsonl"]
@@ -178,9 +220,11 @@ def main() -> int:
 
     boundary = manifest.get("evidence_boundary")
     require(isinstance(boundary, dict), "missing evidence boundary")
-    require(boundary.get("full_release_bundled") is False, "compact skill must not claim full release")
+    require(boundary.get("full_release_bundled") is False, "indexed skill must not claim every raw release artifact")
+    require(boundary.get("full_claim_index_bundled") is True, "skill must bundle the full claim index")
+    require(boundary.get("full_passage_context_bundled") is True, "skill must bundle passage context")
     require(boundary.get("private_anthropic_information_claimed") is False, "skill must not claim private evidence")
-    print("AMind skill verification PASS: 54 reviewed evidence rows, 9 themes, 5 voices, 5 tensions")
+    print("AMind skill verification PASS: 52,225 indexed claims, 13,436 passages, 54 reviewed gold rows")
     return 0
 
 

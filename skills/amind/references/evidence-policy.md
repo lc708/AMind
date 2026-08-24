@@ -37,17 +37,22 @@ For a source-dependent claim, include:
 
 Never invent missing metadata. If a source date is unavailable, omit it or say “date unavailable.”
 
-## Core versus full release
+## Gold kernel versus full index
 
-The installed skill contains 54 human-reviewed evidence rows: six representatives for each of nine themes. This is an evidence kernel for reasoning, not an exhaustive search index.
+The installed skill contains two evidence tiers:
 
-The full repository release contains 1,351 analysis units and 52,225 source-linked atomic claims. When a question requires exhaustive attribution, niche named-person coverage, or a completeness claim, direct the user to the full release rather than pretending the compact kernel is exhaustive.
+- **Gold kernel:** 54 evidence rows, six representatives for each of nine themes, individually reviewed in full passage context.
+- **Full local index:** all 52,225 source-linked atomic claims across 1,351 analysis units, structurally and attribution audited but not individually human reviewed. The 13,436 bound passages are bundled for local context inspection.
+
+Use the full index for recall and the gold kernel for calibration. A full-index hit becomes suitable evidence only after checking its attribution class, epistemic force, conditions, source identity, and bound passage. Do not describe all 52,225 rows as human reviewed.
 
 ## Silence and conflicts
 
-If the kernel has no relevant evidence:
+Before treating bounded evidence as silent, check relevant broader retrieval scopes with `--include-reported` and `--include-agenda`. Preserve those rows as reported positions or research questions rather than upgrading them to source beliefs or answers.
 
-1. Say the bounded evidence is silent.
+If no answer-eligible evidence remains within the attribution and agenda scopes searched:
+
+1. State the scopes searched and say the bounded evidence is silent.
 2. Do not call the absence a negative position.
 3. Offer an exploratory extrapolation if it is useful.
 4. Identify what evidence would upgrade or reverse it.
