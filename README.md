@@ -25,13 +25,13 @@ Generic persona prompts blur facts and inference. AMind makes the distance visib
 
 ## Start in 60 seconds
 
-Paste this into **Codex chat**—not a terminal:
+Send this to whichever **Agent** you use:
 
 ```text
 $skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind
 ```
 
-Restart Codex once, then ask a real question:
+Once installation finishes, reload the Agent or start a new session if needed, then ask a real question:
 
 ```text
 Use $amind to pressure-test our autonomous-agent rollout.
@@ -170,9 +170,9 @@ python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 
 For a small high-trust evaluation, start with [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl). For custom exhaustive retrieval, stream [`atomic-claims.jsonl.gz`](release/amind-v1/data/atomic-claims.jsonl.gz) and join it to [`analysis-units.jsonl.gz`](release/amind-v1/data/analysis-units.jsonl.gz).
 
-## Works beyond Codex
+## Works across Agents
 
-The installable package at [`skills/amind`](skills/amind) is a self-contained Agent Skill. If your client supports the Agent Skills folder format, copy or install that folder into its skills directory and invoke `amind`. Client directory locations and invocation syntax vary; the evidence tools themselves require only Python 3.
+The installable package at [`skills/amind`](skills/amind) is a self-contained Agent Skill. A capable Agent can install it using its own conventions; clients that support the Agent Skills folder format can also copy or install that folder into their skills directory and invoke `amind`. Client directory locations and invocation syntax vary; the evidence tools themselves require only Python 3.
 
 ## Verify or develop
 
