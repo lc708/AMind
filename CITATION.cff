@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If AMind supports your research, please cite the software and include the stable claim IDs used in your analysis."
+title: "AMind: An evidence-grounded Anthropic lens"
+abstract: "An installable Agent Skill and auditable public-reasoning corpus that distinguishes public positions, strong framework inferences, and exploratory extrapolations."
+type: software
+authors:
+  - name: "lc708"
+repository-code: "https://github.com/lc708/AMind"
+url: "https://github.com/lc708/AMind"
+version: "1.0.0"
+license: "Apache-2.0"
+keywords:
+  - "agent skills"
+  - "Anthropic"
+  - "AI safety"
+  - "AI governance"
+  - "decision support"
+  - "evidence provenance"

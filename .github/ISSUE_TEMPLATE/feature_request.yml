@@ -1,0 +1,47 @@
+name: Use case or feature request
+description: Propose a realistic question, answer pattern, integration, or usability improvement.
+title: "[Idea] "
+body:
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Real use case
+      description: What are you trying to decide, explain, compare, critique, or trace?
+      placeholder: When I ask AMind to…, I need…
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current gap
+      description: What happens today, or what is unnecessarily difficult?
+    validations:
+      required: true
+  - type: textarea
+    id: desired_outcome
+    attributes:
+      label: Desired outcome
+      description: Describe the useful result, not only the implementation.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Think / Advise / Critique
+        - Explain / Compare / Trace
+        - Evidence retrieval or audit
+        - Agent Skills compatibility
+        - Documentation or onboarding
+        - Evaluation
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundaries
+    attributes:
+      label: Project boundaries
+      options:
+        - label: This request does not require private Anthropic information or imply official endorsement.
+          required: true

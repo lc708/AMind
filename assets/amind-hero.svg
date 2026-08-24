@@ -1,0 +1,93 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AMind — Think with the Anthropic lens</title>
+  <desc id="desc">A visual showing a question transformed into an answer with three visible evidence-distance labels and source traceability.</desc>
+  <defs>
+    <linearGradient id="background" x1="52" y1="28" x2="1205" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151923"/>
+      <stop offset="0.52" stop-color="#0D1119"/>
+      <stop offset="1" stop-color="#17121C"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="112" y1="118" x2="492" y2="432" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4A261"/>
+      <stop offset="1" stop-color="#D97757"/>
+    </linearGradient>
+    <linearGradient id="lens" x1="736" y1="82" x2="1138" y2="556" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4A261" stop-opacity="0.24"/>
+      <stop offset="0.48" stop-color="#B989E8" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#71C4A5" stop-opacity="0.18"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="14" stdDeviation="22" flood-color="#000000" flood-opacity="0.30"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="28" fill="url(#background)"/>
+  <path d="M0 488C238 390 403 550 633 472C862 394 992 258 1280 328V640H0V488Z" fill="#D97757" fill-opacity="0.035"/>
+  <circle cx="1018" cy="251" r="223" stroke="url(#lens)" stroke-width="2"/>
+  <circle cx="1018" cy="251" r="166" stroke="#F4A261" stroke-opacity="0.09"/>
+  <circle cx="1018" cy="251" r="108" fill="#D97757" fill-opacity="0.035"/>
+
+  <g transform="translate(72 62)">
+    <rect width="188" height="34" rx="17" fill="#F4A261" fill-opacity="0.11" stroke="#F4A261" stroke-opacity="0.32"/>
+    <circle cx="18" cy="17" r="5" fill="#F4A261"/>
+    <text x="33" y="22" fill="#F8C9A9" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">OPEN SOURCE SKILL</text>
+  </g>
+
+  <g transform="translate(72 130)">
+    <text fill="#F7F2EC" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="78" font-weight="760" letter-spacing="-3.2">
+      <tspan x="0" y="70">Think with the</tspan>
+      <tspan x="0" y="154" fill="url(#accent)">Anthropic lens.</tspan>
+    </text>
+    <text x="2" y="211" fill="#B8BEC9" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="24" font-weight="450" letter-spacing="-0.25">Useful judgment. Visible evidence distance.</text>
+    <text x="2" y="246" fill="#747D8C" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="17">Without pretending to be Anthropic.</text>
+  </g>
+
+  <g transform="translate(72 474)">
+    <text x="0" y="0" fill="#F7F2EC" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="20" font-weight="750">52,225</text>
+    <text x="0" y="25" fill="#747D8C" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13">source-linked claims</text>
+    <rect x="190" y="-17" width="1" height="48" fill="#343A46"/>
+    <text x="222" y="0" fill="#F7F2EC" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="20" font-weight="750">1,351</text>
+    <text x="222" y="25" fill="#747D8C" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13">analysis units</text>
+    <rect x="382" y="-17" width="1" height="48" fill="#343A46"/>
+    <text x="414" y="0" fill="#F7F2EC" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="20" font-weight="750">54</text>
+    <text x="414" y="25" fill="#747D8C" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13">human-reviewed rows</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="696" y="86" width="512" height="468" rx="24" fill="#151A24" stroke="#343A46"/>
+    <rect x="720" y="110" width="464" height="82" rx="16" fill="#0E121A" stroke="#2C323E"/>
+    <circle cx="745" cy="135" r="7" fill="#D97757"/>
+    <text x="762" y="140" fill="#8D96A5" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" letter-spacing="1.1">YOUR QUESTION</text>
+    <text x="744" y="171" fill="#F1ECE6" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="17" font-weight="600">Should we open-source this model?</text>
+
+    <path d="M952 204V226" stroke="#4B5361" stroke-width="2" stroke-linecap="round"/>
+    <path d="M946 221L952 227L958 221" stroke="#4B5361" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="720" y="240" width="464" height="202" rx="16" fill="#10151E" stroke="#2C323E"/>
+    <text x="744" y="272" fill="#F1ECE6" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="750" letter-spacing="0.8">AMIND ANSWER</text>
+
+    <rect x="744" y="291" width="145" height="28" rx="14" fill="#71C4A5" fill-opacity="0.12" stroke="#71C4A5" stroke-opacity="0.45"/>
+    <circle cx="760" cy="305" r="4" fill="#71C4A5"/>
+    <text x="771" y="309" fill="#9EDBC4" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">PUBLIC POSITION</text>
+
+    <rect x="744" y="329" width="224" height="28" rx="14" fill="#F4A261" fill-opacity="0.12" stroke="#F4A261" stroke-opacity="0.45"/>
+    <circle cx="760" cy="343" r="4" fill="#F4A261"/>
+    <text x="771" y="347" fill="#F8C9A9" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">STRONG FRAMEWORK INFERENCE</text>
+
+    <rect x="744" y="367" width="190" height="28" rx="14" fill="#B989E8" fill-opacity="0.12" stroke="#B989E8" stroke-opacity="0.45"/>
+    <circle cx="760" cy="381" r="4" fill="#B989E8"/>
+    <text x="771" y="385" fill="#D4B3F2" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700">EXPLORATORY EXTRAPOLATION</text>
+
+    <text x="744" y="421" fill="#7E8796" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="12">A recommendation, its stop conditions, and how far it travels.</text>
+
+    <rect x="720" y="458" width="464" height="72" rx="16" fill="#0E121A" stroke="#2C323E"/>
+    <path d="M745 481H757C764 481 770 487 770 494C770 501 764 507 757 507H745" stroke="#8D96A5" stroke-width="2" stroke-linecap="round"/>
+    <path d="M754 488H742C735 488 729 494 729 501" stroke="#8D96A5" stroke-width="2" stroke-linecap="round"/>
+    <text x="786" y="486" fill="#8D96A5" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" letter-spacing="1">TRACEABLE SOURCE</text>
+    <text x="786" y="510" fill="#D5D9E0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13">Exact quote · URL · date · stable claim ID</text>
+  </g>
+
+  <text x="72" y="596" fill="#D9DEE6" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" letter-spacing="0.2">AMind</text>
+  <text x="132" y="596" fill="#4D5665" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14">·</text>
+  <text x="147" y="596" fill="#6F7887" font-family="Inter, ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13">Independent public-research project</text>
+</svg>
