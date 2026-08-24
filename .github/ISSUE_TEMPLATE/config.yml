@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/lc708/AMind/security/advisories/new
+    about: Report vulnerabilities privately through GitHub Security Advisories.
+  - name: Read the AMind boundaries
+    url: https://github.com/lc708/AMind#boundaries
+    about: Check what AMind does and does not claim before opening an issue.

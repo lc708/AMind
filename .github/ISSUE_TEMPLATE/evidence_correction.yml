@@ -1,0 +1,58 @@
+name: Evidence correction
+description: Report a source, quote, date, attribution, version, or claim-boundary problem.
+title: "[Evidence] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping keep AMind traceable. Please provide public, independently checkable evidence and enough context to evaluate the correction.
+  - type: input
+    id: affected_item
+    attributes:
+      label: Affected claim or file
+      description: Include a stable claim ID, theme/voice ID, or repository path.
+      placeholder: nuwa1-claim-… or release/amind-v1/data/…
+    validations:
+      required: true
+  - type: dropdown
+    id: problem_type
+    attributes:
+      label: Problem type
+      options:
+        - Source or canonical URL
+        - Exact quote or surrounding context
+        - Publication date or version
+        - Institutional versus individual attribution
+        - Public position versus inference boundary
+        - Duplicate, contradiction, or theme assignment
+        - Other evidence issue
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Canonical public source
+      placeholder: https://…
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and context
+      description: Quote only what is necessary, then explain what the full passage supports.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: Describe the smallest accurate change.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Evidence boundary
+      options:
+        - label: I used public material and did not include leaked, private, or sensitive information.
+          required: true
