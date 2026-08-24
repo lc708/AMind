@@ -25,20 +25,25 @@ Do not restrict AMind to decision reviews. When the user asks what Anthropic mig
 
 ## Retrieve before generalizing
 
-Use the local evidence kernel before describing a public position or recurring framework. First resolve the absolute directory containing this `SKILL.md`. In every example below, replace `/absolute/path/to/amind` with that directory; do not assume the user's working directory is the skill directory:
+Use the full local evidence index before describing a public position or recurring framework. The 54-row reviewed kernel is a gold calibration layer, not the retrieval ceiling. First resolve the absolute directory containing this `SKILL.md`. In every example below, replace `/absolute/path/to/amind` with that directory; do not assume the user's working directory is the skill directory:
 
 ```bash
 python3 "/absolute/path/to/amind/scripts/query.py" summary
 python3 "/absolute/path/to/amind/scripts/query.py" search "evaluation governance" --limit 8 --json
+python3 "/absolute/path/to/amind/scripts/query.py" search "latest responsible scaling policy" --current --limit 8 --json
+python3 "/absolute/path/to/amind/scripts/query.py" kernel-search "evaluation governance" --limit 5 --json
+python3 "/absolute/path/to/amind/scripts/query.py" show <claim-id> [<claim-id> ...] --passage --json
+python3 "/absolute/path/to/amind/scripts/query.py" stats --json
 python3 "/absolute/path/to/amind/scripts/query.py" themes --json
 python3 "/absolute/path/to/amind/scripts/query.py" tensions --json
 python3 "/absolute/path/to/amind/scripts/query.py" voices --json
-python3 "/absolute/path/to/amind/scripts/query.py" show <claim-id> --json
 ```
 
-Search with two or three short concept phrases, including likely counterarguments. Prefer evidence from more than one work before calling a pattern stable. For exhaustive research, tell the user that the repository's full AMind v1 release contains 52,225 source-linked claims; the installed skill intentionally carries only the 54-row human-reviewed evidence kernel.
+Search with two or three short concept phrases, including likely counterarguments. Default search covers all 52,225 local claims while collapsing audited equivalents, excluding merely reported positions, and diversifying works, voices, and source hosts. Use `--current` when recency or the latest version matters; use `--voice` only when the user asks for a named voice.
 
-Read [references/evidence-policy.md](references/evidence-policy.md) whenever making claims about Anthropic or named people. Read [references/method.md](references/method.md) for synthesis, and [references/answer-patterns.md](references/answer-patterns.md) when choosing an output shape.
+Treat a full-index result as a machine-checked candidate, not as individually human-reviewed evidence. Before relying on a material result, inspect its bound passage with `show --passage`; corroborate across more than one work before calling a pattern stable. Prefer a reviewed gold row when it directly supports the same claim, but do not force an unrelated gold row into the answer.
+
+Read [references/evidence-policy.md](references/evidence-policy.md) whenever making claims about Anthropic or named people. Read [references/retrieval.md](references/retrieval.md) for search boundaries and evidence tiers, [references/method.md](references/method.md) for synthesis, and [references/answer-patterns.md](references/answer-patterns.md) when choosing an output shape.
 
 ## Mark the evidence distance
 
@@ -78,7 +83,7 @@ When an answer develops across multiple branches or requires substantial detail,
 - Say “AMind's reconstruction suggests…” or “Across Anthropic's public materials…”; never speak as Anthropic in the first person.
 - Do not claim access to internal deliberations, private intentions, or a decision Anthropic has not published.
 - Do not fabricate a source, quote, date, claim ID, or consensus.
-- If the evidence kernel is silent, say so and use **[Exploratory extrapolation]** or decline the Anthropic-specific claim.
+- If the full local index is silent, say so and use **[Exploratory extrapolation]** or decline the Anthropic-specific claim.
 - Do not turn research questions or caveated forecasts into settled findings.
 - Do not use the theme catalog itself as a public citation; cite the underlying evidence rows.
 

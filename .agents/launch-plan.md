@@ -175,7 +175,7 @@ Decision rules:
 
 > AMind v1.0.0 turns a bounded reconstruction of Anthropic's public reasoning into an installable Agent Skill for Think, Advise, Critique, Explain, Compare, and Trace.
 >
-> The Skill ships a compact 54-row human-reviewed evidence kernel across 9 themes, 5 voices, and 5 preserved tensions. The full audit release contains 1,351 analysis units, 13,436 passages, and 52,225 source-linked atomic claims.
+> The Skill searches all 52,225 source-linked claims through a complete offline index and carries all 13,436 bound passages for context checks. A separate 54-row gold kernel is individually human reviewed across 9 themes, 5 voices, and 5 preserved tensions.
 >
 > Install in Codex chat:
 >
@@ -189,7 +189,7 @@ Decision rules:
 >
 > AMind is an open-source Agent Skill that makes that distance explicit. It labels material conclusions as a public position, strong framework inference, or exploratory extrapolation, then links the reasoning back to exact quotes, URLs, dates, and stable claim IDs.
 >
-> The installable Skill ships a compact 54-row human-reviewed evidence kernel. The full audit release contains 1,351 analysis units and 52,225 source-linked atomic claims. It is independent, uses only public material, and does not claim to speak for Anthropic.
+> The installable Skill ships a complete offline index of 52,225 source-linked claims, all 13,436 bound passages, and a 54-row human-reviewed gold kernel. It is independent, uses only public material, and does not claim to speak for Anthropic.
 >
 > I would especially value hard questions, evidence corrections, and feedback on whether the three labels make the answer more useful—not just more cautious.
 
@@ -227,4 +227,4 @@ Decision rules:
 
 ### Directory submission
 
-> **AMind** — An evidence-grounded Agent Skill for applying Anthropic's public reasoning to AI decisions. Supports Think, Advise, Critique, Explain, Compare, and Trace; distinguishes public positions from inference and exploratory extrapolation; ships an offline reviewed evidence kernel and a full auditable corpus. Independent and not affiliated with Anthropic.
+> **AMind** — An evidence-grounded Agent Skill for applying Anthropic's public reasoning to AI decisions. Supports Think, Advise, Critique, Explain, Compare, and Trace; distinguishes public positions from inference and exploratory extrapolation; ships a complete offline index, reviewed gold kernel, and auditable corpus. Independent and not affiliated with Anthropic.

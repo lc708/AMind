@@ -7,7 +7,7 @@
 
 **One-liner:** AMind is an evidence-grounded Agent Skill that applies Anthropic's public reasoning to real decisions while showing the evidence distance behind every material conclusion.
 
-**What it does:** AMind helps people think through, advise on, critique, explain, compare, and trace questions using a bounded reconstruction of Anthropic's public reasoning. It combines an installable, offline evidence kernel with a full auditable research release and explicitly separates public positions, strong framework inferences, and exploratory extrapolations.
+**What it does:** AMind helps people think through, advise on, critique, explain, compare, and trace questions using a bounded reconstruction of Anthropic's public reasoning. It combines an installable full offline index, a 54-row reviewed gold kernel, and an auditable research release while explicitly separating public positions, strong framework inferences, and exploratory extrapolations.
 
 **Product category:** Evidence-grounded Agent Skill; AI decision-support and public-reasoning research corpus.
 
@@ -28,7 +28,7 @@
 - Pressure-test an AI product, deployment, safety, governance, or research decision.
 - Reconstruct and compare public positions across the Anthropic institution and named voices.
 - Trace a conclusion back to exact public evidence, source URLs, dates, and stable claim IDs.
-- Reuse a compact reviewed evidence kernel or the full release in an agent or RAG workflow.
+- Reuse the full local index, reviewed gold kernel, or raw release in an agent or RAG workflow.
 
 **Use cases:**
 
@@ -44,7 +44,7 @@
 |---------|-------------|-----------|------------------|
 | AI product or agent lead | Shipping useful systems without hiding risk | Generic advice is confident but hard to audit | Concrete recommendations, stop conditions, and visible inference distance |
 | Safety or governance practitioner | Accurate public positions and defensible policy reasoning | Sources, versions, and institutional versus individual voices get flattened | Bounded voices, preserved tensions, and claim-level traceability |
-| Researcher or RAG builder | Reusable structured evidence | Manual corpus work is slow and ordinary search lacks synthesis boundaries | A compact reviewed kernel plus a full, deterministic, auditable release |
+| Researcher or RAG builder | Reusable structured evidence | Manual corpus work is slow and ordinary search lacks synthesis boundaries | A complete local index, reviewed gold kernel, and deterministic audit release |
 | Curious technical user | A better lens on a difficult AI question | Persona prompts feel plausible but offer no provenance | A 60-second install and answers that distinguish fact from inference |
 
 ## Problems & Pain Points
@@ -76,7 +76,7 @@
 
 - Three explicit evidence-distance labels: Public position, Strong framework inference, and Exploratory extrapolation.
 - 52,225 source-linked atomic claims across 1,351 deduplicated analysis units in the full release.
-- A compact kernel of 54 human-reviewed evidence rows spanning 9 themes, 5 voices, and 5 preserved tensions.
+- A complete local index of all 52,225 claims plus a 54-row human-reviewed gold kernel spanning 9 themes, 5 voices, and 5 preserved tensions.
 - Institution, named-author, version, contradiction, and attribution boundaries are preserved.
 - Offline, zero-third-party-dependency evidence query and integrity tools.
 - Deterministic manifests, hashes, audits, and stable claim IDs.
@@ -91,7 +91,7 @@
 
 | Objection | Response |
 |-----------|----------|
-| "Is this just a clever persona prompt?" | No. The Skill ships a reviewed evidence kernel, retrieval rules, answer patterns, and a full source-linked audit release. |
+| "Is this just a clever persona prompt?" | No. The Skill ships a complete offline index, reviewed gold kernel, retrieval rules, answer patterns, and a full source-linked audit release. |
 | "Does this speak for Anthropic?" | No. AMind is independent, uses only public material, never claims private deliberations, and marks inference explicitly. |
 | "Is a frozen corpus current enough?" | AMind v1 is a bounded research release, not live search. Source dates and version boundaries are preserved; time-sensitive claims should be checked against newer primary sources. |
 | "Were all 52,225 claims manually reviewed?" | No. The human-review claim is limited to the 54-row representative kernel; the full corpus is machine-structured and extensively audited, not individually human-reviewed. |
@@ -132,7 +132,7 @@
 | Strong framework inference | A conclusion reconstructed from repeated, source-linked patterns |
 | Exploratory extrapolation | Advice applying public principles to a new case beyond exact precedent |
 | Analysis unit | A deduplicated, version-bounded unit in the public corpus |
-| Evidence kernel | The compact 54-row reviewed evidence package shipped with the Skill |
+| Gold evidence kernel | The 54-row individually reviewed calibration layer shipped beside the full local index |
 | Nuwa | AMind's internal corpus-distillation and synthesis methodology, not the public product name |
 
 ## Brand Voice
@@ -166,7 +166,7 @@
 | Useful judgment | Think, Advise, Critique, Explain, Compare, and Trace modes |
 | Visible provenance | Three evidence-distance labels, source URLs, exact quotes, and stable claim IDs |
 | Inspectability | Full corpus, schemas, audits, manifests, and deterministic hashes are public |
-| Low-friction use | Installable Agent Skill; compact evidence tools use only the Python standard library |
+| Low-friction use | Installable Agent Skill; the offline index and evidence tools use only the Python standard library |
 
 ## Goals
 

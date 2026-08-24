@@ -10,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from collections import Counter
 from pathlib import Path
 
 
@@ -18,6 +19,7 @@ SKILL = ROOT / "skills/amind"
 QUERY = SKILL / "scripts/query.py"
 VERIFY = SKILL / "scripts/verify.py"
 BUILDER = ROOT / "scripts/build_amind_skill.py"
+INDEX_BUILDER = ROOT / "scripts/build_amind_skill_index.py"
 
 
 def run(*args: str) -> subprocess.CompletedProcess[str]:
@@ -30,30 +32,48 @@ def run(*args: str) -> subprocess.CompletedProcess[str]:
     )
 
 
+def json_lines(payload: str) -> list[dict]:
+    return [json.loads(line) for line in payload.splitlines() if line]
+
+
 class AMindSkillTests(unittest.TestCase):
     def test_generated_evidence_is_current(self) -> None:
         result = run(sys.executable, "-B", str(BUILDER), "--check")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("PASS", result.stdout)
 
+        index_result = run(sys.executable, "-B", str(INDEX_BUILDER), "--check")
+        self.assertEqual(index_result.returncode, 0, index_result.stdout + index_result.stderr)
+        self.assertIn("52,225 claims", index_result.stdout)
+
     def test_self_contained_verifier_passes(self) -> None:
         result = run(sys.executable, "-B", str(VERIFY))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("54 reviewed evidence rows", result.stdout)
+        self.assertIn("52,225 indexed claims", result.stdout)
+        self.assertIn("54 reviewed gold rows", result.stdout)
 
     def test_query_summary_reports_compact_and_full_counts(self) -> None:
         result = run(sys.executable, "-B", str(QUERY), "summary")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Human-reviewed evidence rows: 54", result.stdout)
-        self.assertIn("1351 analysis units / 52225 atomic claims", result.stdout)
+        self.assertIn("Searchable atomic claims: 52225", result.stdout)
+        self.assertIn("Indexed analysis units: 1351", result.stdout)
+        self.assertIn("Bundled passage contexts: 13436", result.stdout)
+        self.assertIn("Human-reviewed gold rows: 54", result.stdout)
 
-    def test_search_returns_source_bound_reviewed_evidence(self) -> None:
+    def test_search_returns_source_bound_full_index_evidence(self) -> None:
         result = run(sys.executable, "-B", str(QUERY), "search", "alignment faking", "--limit", "2", "--json")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        rows = [json.loads(line) for line in result.stdout.split("\n") if line]
+        rows = json_lines(result.stdout)
         self.assertGreaterEqual(len(rows), 1)
         for row in rows:
-            self.assertEqual(row["review"]["semantic_status"], "passage_context_supported")
+            self.assertIn(row["evidence_tier"], {"gold_human_reviewed", "full_release_machine_checked"})
+            self.assertIn(
+                row["review"]["semantic_status"],
+                {"passage_context_supported", "machine_checked_not_human_reviewed"},
+            )
+            self.assertEqual(row["synthesis_disposition"], "eligible_for_source_level_synthesis")
+            self.assertEqual(row["retrieval"]["relevance_tier"], "strong")
+            self.assertEqual(set(row["retrieval"]["matched_query_terms"]), {"alignment", "faking"})
             self.assertTrue(row["claim_id"].startswith("nuwa1-claim-"))
             self.assertTrue(row["source_canonical"].startswith("http"))
             self.assertTrue(row["exact_quote"])
@@ -66,12 +86,79 @@ class AMindSkillTests(unittest.TestCase):
         self.assertEqual(row["claim_id"], claim_id)
         self.assertEqual(row["source_title"], "Exploring model welfare")
 
+    def test_show_returns_bound_passage_context(self) -> None:
+        claim_id = "nuwa1-claim-f169332e5fa3d349672a254d"
+        result = run(sys.executable, "-B", str(QUERY), "show", claim_id, "--passage", "--json")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        row = json.loads(result.stdout)
+        self.assertEqual(row["evidence_tier"], "gold_human_reviewed")
+        self.assertGreater(len(row["passage"]["text"]), 1000)
+        self.assertIn(row["exact_quote"], row["passage"]["text"])
+        self.assertEqual(len(row["passage"]["text_sha256"]), 64)
+
     def test_search_supports_chinese_theme_terms(self) -> None:
         result = run(sys.executable, "-B", str(QUERY), "search", "治理", "--limit", "2", "--json")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        rows = [json.loads(line) for line in result.stdout.split("\n") if line]
+        rows = json_lines(result.stdout)
         self.assertTrue(rows)
-        self.assertIn("capability-triggered-governance", {row["theme_id"] for row in rows})
+        self.assertTrue(all("capability-triggered-governance" in row["theme_ids"] for row in rows))
+        self.assertTrue(all(row["retrieval"]["relevance_tier"] == "theme_routed" for row in rows))
+
+    def test_attribution_filter_precedes_equivalence_collapse(self) -> None:
+        result = run(
+            sys.executable,
+            "-B",
+            str(QUERY),
+            "search",
+            "seven hour autonomous Rakuten refactoring",
+            "--limit",
+            "3",
+            "--json",
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        rows = json_lines(result.stdout)
+        claim = next(row for row in rows if row["claim_id"] == "nuwa1-claim-fac7615b8bec3d3241603dcd")
+        self.assertEqual(claim["synthesis_disposition"], "eligible_for_source_level_synthesis")
+        self.assertEqual(claim["equivalence"]["component_id"], "nuwa1-equivalence-0982c66b7cb5f9f2e2de")
+        self.assertEqual(
+            claim["equivalence"]["representative_claim_id"],
+            "nuwa1-claim-747ac9f8510e0f00e4027327",
+        )
+        components = [row["equivalence"]["component_id"] for row in rows if row["equivalence"]["component_id"]]
+        self.assertEqual(len(components), len(set(components)))
+
+    def test_stats_exposes_corpus_concentration_without_treating_it_as_weight(self) -> None:
+        result = run(sys.executable, "-B", str(QUERY), "stats", "--json")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        stats = json.loads(result.stdout)
+        self.assertEqual(stats["total_claims"], 52225)
+        self.assertEqual(stats["total_sources"], 1351)
+        self.assertEqual(stats["source_level_direct_claims"], 45941)
+        self.assertEqual(stats["equivalence_extra_rows"], 217)
+        jack = next(row for row in stats["voices"] if row["name"] == "Jack Clark")
+        self.assertEqual(
+            jack,
+            {
+                "agenda_claims": 1,
+                "claims": 10835,
+                "direct_claims": 7532,
+                "name": "Jack Clark",
+                "reported_claims": 3302,
+                "sources": 480,
+            },
+        )
+        hosts = {row["host"]: row for row in stats["source_hosts"]}
+        self.assertEqual(hosts["jack-clark.net"]["claims"], 11168)
+        self.assertEqual(hosts["transformer-circuits.pub"]["claims"], 12248)
+        self.assertEqual(hosts["transformer-circuits.pub"]["claims_per_source"], 240.16)
+
+    def test_gold_kernel_distribution_explains_old_jack_repetition(self) -> None:
+        rows = json_lines((SKILL / "data/evidence-kernel.jsonl").read_text(encoding="utf-8"))
+        jack = [row for row in rows if (row.get("voice") or {}).get("name") == "Jack Clark"]
+        self.assertEqual(len(jack), 11)
+        self.assertEqual(len({row["theme_id"] for row in jack}), 6)
+        scaling = [row for row in jack if row["theme_id"] == "capability-scaling-under-uncertainty"]
+        self.assertEqual(len(scaling), 3)
 
     def test_invalid_manifest_is_a_controlled_error(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -104,6 +191,8 @@ class AMindSkillTests(unittest.TestCase):
             "schema version": lambda manifest: manifest.__setitem__("schema_version", 2),
             "analysis unit count": lambda manifest: manifest["counts"].pop("full_release_analysis_units"),
             "atomic claim count": lambda manifest: manifest["counts"].pop("full_release_atomic_claims"),
+            "indexed claim count": lambda manifest: manifest["counts"].pop("full_index_atomic_claims"),
+            "passage count": lambda manifest: manifest["counts"].pop("full_index_passages"),
         }
         for name, mutate in mutations.items():
             with self.subTest(name=name), tempfile.TemporaryDirectory() as temporary:
@@ -129,7 +218,7 @@ class AMindSkillTests(unittest.TestCase):
     def test_skill_query_examples_are_working_directory_independent(self) -> None:
         content = (SKILL / "SKILL.md").read_text(encoding="utf-8")
         absolute_query = 'python3 "/absolute/path/to/amind/scripts/query.py"'
-        self.assertEqual(content.count(absolute_query), 6)
+        self.assertEqual(content.count(absolute_query), 9)
         self.assertNotIn("python3 scripts/query.py", content)
 
     def test_openai_metadata_supports_explicit_and_implicit_use(self) -> None:
@@ -155,6 +244,69 @@ class AMindSkillTests(unittest.TestCase):
         self.assertEqual(labels, {"Public position", "Strong framework inference", "Exploratory extrapolation"})
         no_impersonation = next(row for row in rows if row["case_id"] == "no-impersonation")
         self.assertIn("we at Anthropic", no_impersonation["must_not_include"])
+
+    def test_retrieval_eval_suite(self) -> None:
+        cases = [
+            json.loads(line)
+            for line in (SKILL / "evals/retrieval-cases.jsonl").read_text(encoding="utf-8").splitlines()
+            if line
+        ]
+        self.assertEqual(len(cases), 4)
+        for case in cases:
+            with self.subTest(case_id=case["case_id"]):
+                result = run(
+                    sys.executable,
+                    "-B",
+                    str(QUERY),
+                    "search",
+                    case["query"],
+                    *case["arguments"],
+                    "--json",
+                )
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                rows = json_lines(result.stdout)
+                self.assertTrue(rows)
+                expected = case["expected"]
+                if "top_source_title" in expected:
+                    self.assertEqual(rows[0]["source_title"], expected["top_source_title"])
+                if "minimum_strong_results" in expected:
+                    self.assertGreaterEqual(
+                        sum(row["retrieval"]["relevance_tier"] == "strong" for row in rows),
+                        expected["minimum_strong_results"],
+                    )
+                if "required_relevance_tier" in expected:
+                    self.assertTrue(
+                        all(row["retrieval"]["relevance_tier"] == expected["required_relevance_tier"] for row in rows)
+                    )
+                if "minimum_unique_works" in expected:
+                    self.assertGreaterEqual(len({row["work_id"] for row in rows}), expected["minimum_unique_works"])
+                if "maximum_per_voice" in expected:
+                    voices = Counter(
+                        row["voice"].get("name") or row["voice"].get("organization") or "Unattributed source voice"
+                        for row in rows
+                    )
+                    self.assertLessEqual(max(voices.values()), expected["maximum_per_voice"])
+                if "maximum_per_host" in expected:
+                    hosts = Counter(row["source_host"] for row in rows)
+                    self.assertLessEqual(max(hosts.values()), expected["maximum_per_host"])
+                if "required_detected_theme_id" in expected:
+                    self.assertTrue(
+                        all(
+                            expected["required_detected_theme_id"] in row["retrieval"]["detected_theme_ids"]
+                            for row in rows
+                        )
+                    )
+                if "required_result_theme_id" in expected:
+                    self.assertTrue(
+                        all(expected["required_result_theme_id"] in row["theme_ids"] for row in rows)
+                    )
+                if "excluded_source_titles" in expected:
+                    self.assertTrue(set(expected["excluded_source_titles"]).isdisjoint({row["source_title"] for row in rows}))
+                if "required_query_terms" in expected:
+                    required = set(expected["required_query_terms"])
+                    self.assertTrue(
+                        all(required.issubset(row["retrieval"]["matched_query_terms"]) for row in rows)
+                    )
 
     def test_welfare_tension_uses_reviewed_direct_evidence(self) -> None:
         tensions = [json.loads(line) for line in (SKILL / "data/synthesis-tensions.jsonl").read_text(encoding="utf-8").split("\n") if line]

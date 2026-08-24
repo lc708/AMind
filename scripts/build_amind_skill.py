@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the compact, source-bound evidence kernel shipped with the AMind skill."""
+"""Build the full local index and reviewed gold layer shipped with the AMind skill."""
 
 from __future__ import annotations
 
@@ -11,6 +11,8 @@ import os
 import tempfile
 from pathlib import Path
 from typing import Any, Iterable
+
+from build_amind_skill_index import INDEX_SCHEMA_NAME, build_index_bytes
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -24,6 +26,12 @@ REVIEW_EVIDENCE = RELEASE_ROOT / "data/representative-evidence-review.jsonl"
 THEMES = RELEASE_ROOT / "data/theme-catalog.jsonl"
 VOICES = RELEASE_ROOT / "data/voice-profiles.jsonl"
 TENSIONS = RELEASE_ROOT / "data/synthesis-tensions.jsonl"
+PASSAGES = RELEASE_ROOT / "data/passages.jsonl.gz"
+ATOMIC_CLAIMS = RELEASE_ROOT / "data/atomic-claims.jsonl.gz"
+ANALYSIS_UNITS = RELEASE_ROOT / "data/analysis-units.jsonl.gz"
+ATTRIBUTION_AUDIT = RELEASE_ROOT / "data/claim-attribution-audit.jsonl.gz"
+EQUIVALENCE_COMPONENTS = RELEASE_ROOT / "data/claim-equivalence-components.jsonl"
+THEME_MEMBERSHIP = RELEASE_ROOT / "data/theme-membership.jsonl.gz"
 
 WELFARE_TENSION_ID = "anthropomorphism-versus-welfare-precaution"
 WELFARE_ANTI_ANTHROPOMORPHISM_CLAIM_ID = "nuwa1-claim-9c32c30410fed30e9680935e"
@@ -86,9 +94,10 @@ def canonical_jsonl(rows: Iterable[dict[str, Any]]) -> bytes:
     return b"".join(canonical_json(row) for row in rows)
 
 
-def artifact_entry(path: str, payload: bytes, rows: int | None, schema_name: str) -> dict[str, Any]:
+def artifact_entry(path: str, payload: bytes, rows: int | None, schema_name: str, artifact_format: str) -> dict[str, Any]:
     return {
         "bytes": len(payload),
+        "format": artifact_format,
         "path": path,
         "rows": rows,
         "schema_name": schema_name,
@@ -201,26 +210,45 @@ def build_payloads() -> dict[Path, bytes]:
         compact_tension_rows.append(row)
     require(welfare_adjustments == 1, "expected one welfare tension evidence adjustment")
 
+    full_index_payload, index_counts = build_index_bytes()
+    require(index_counts["atomic_claims"] == release_manifest["counts"]["claims"], "full-index claim count mismatch")
+    require(index_counts["analysis_units"] == release_manifest["counts"]["analysis_units"], "full-index source count mismatch")
+    require(index_counts["passages"] == release_manifest["counts"]["passages"], "full-index passage count mismatch")
+
     data_payloads: dict[str, bytes] = {
+        "amind-full-index.sqlite3": full_index_payload,
         "evidence-kernel.jsonl": canonical_jsonl(kernel_rows),
+        "passages.jsonl.gz": PASSAGES.read_bytes(),
         "theme-catalog.jsonl": THEMES.read_bytes(),
         "voice-profiles.jsonl": VOICES.read_bytes(),
         "synthesis-tensions.jsonl": canonical_jsonl(compact_tension_rows),
     }
     row_counts = {
+        "amind-full-index.sqlite3": index_counts["atomic_claims"],
         "evidence-kernel.jsonl": len(kernel_rows),
+        "passages.jsonl.gz": index_counts["passages"],
         "theme-catalog.jsonl": len(theme_rows),
         "voice-profiles.jsonl": len(voice_rows),
         "synthesis-tensions.jsonl": len(tension_rows),
     }
     schemas = {
+        "amind-full-index.sqlite3": INDEX_SCHEMA_NAME,
         "evidence-kernel.jsonl": "amind-skill-evidence-kernel-row",
+        "passages.jsonl.gz": "nuwa-v1-passage",
         "theme-catalog.jsonl": "nuwa-v1-theme",
         "voice-profiles.jsonl": "nuwa-v1-voice-profile",
         "synthesis-tensions.jsonl": "nuwa-v1-synthesis-tension",
     }
+    formats = {
+        "amind-full-index.sqlite3": "sqlite3-fts5",
+        "evidence-kernel.jsonl": "jsonl",
+        "passages.jsonl.gz": "jsonl-gzip",
+        "theme-catalog.jsonl": "jsonl",
+        "voice-profiles.jsonl": "jsonl",
+        "synthesis-tensions.jsonl": "jsonl",
+    }
     artifacts = [
-        artifact_entry(name, data_payloads[name], row_counts[name], schemas[name])
+        artifact_entry(name, data_payloads[name], row_counts[name], schemas[name], formats[name])
         for name in sorted(data_payloads)
     ]
     manifest = {
@@ -228,6 +256,10 @@ def build_payloads() -> dict[Path, bytes]:
         "counts": {
             "full_release_atomic_claims": release_manifest["counts"]["claims"],
             "full_release_analysis_units": release_manifest["counts"]["analysis_units"],
+            "full_index_atomic_claims": index_counts["atomic_claims"],
+            "full_index_analysis_units": index_counts["analysis_units"],
+            "full_index_passages": index_counts["passages"],
+            "full_index_equivalence_components": index_counts["equivalence_components"],
             "human_reviewed_evidence_rows": len(kernel_rows),
             "human_reviewed_evidence_rows_per_theme": 6,
             "preserved_tensions": len(tension_rows),
@@ -238,6 +270,8 @@ def build_payloads() -> dict[Path, bytes]:
             "advice_without_exact_precedent_allowed": True,
             "exploratory_extrapolation_must_be_labeled": True,
             "full_release_bundled": False,
+            "full_claim_index_bundled": True,
+            "full_passage_context_bundled": True,
             "human_review_claim_limited_to_kernel": True,
             "private_anthropic_information_claimed": False,
         },
@@ -254,7 +288,7 @@ def build_payloads() -> dict[Path, bytes]:
         "schema_name": "amind-skill-evidence-manifest",
         "schema_version": 1,
         "skill_id": "amind",
-        "skill_version": "1.0.0",
+        "skill_version": "1.1.0",
         "sources": [
             {"path": "release/amind-v1/manifest.json", "sha256": sha256_file(RELEASE_MANIFEST)},
             {"path": "release/amind-v1/data/synthesis-evidence.jsonl", "sha256": sha256_file(SYNTHESIS_EVIDENCE)},
@@ -262,6 +296,12 @@ def build_payloads() -> dict[Path, bytes]:
             {"path": "release/amind-v1/data/theme-catalog.jsonl", "sha256": sha256_file(THEMES)},
             {"path": "release/amind-v1/data/voice-profiles.jsonl", "sha256": sha256_file(VOICES)},
             {"path": "release/amind-v1/data/synthesis-tensions.jsonl", "sha256": sha256_file(TENSIONS)},
+            {"path": "release/amind-v1/data/analysis-units.jsonl.gz", "sha256": sha256_file(ANALYSIS_UNITS)},
+            {"path": "release/amind-v1/data/atomic-claims.jsonl.gz", "sha256": sha256_file(ATOMIC_CLAIMS)},
+            {"path": "release/amind-v1/data/claim-attribution-audit.jsonl.gz", "sha256": sha256_file(ATTRIBUTION_AUDIT)},
+            {"path": "release/amind-v1/data/claim-equivalence-components.jsonl", "sha256": sha256_file(EQUIVALENCE_COMPONENTS)},
+            {"path": "release/amind-v1/data/passages.jsonl.gz", "sha256": sha256_file(PASSAGES)},
+            {"path": "release/amind-v1/data/theme-membership.jsonl.gz", "sha256": sha256_file(THEME_MEMBERSHIP)},
         ],
     }
 
@@ -277,6 +317,7 @@ def atomic_write(path: Path, payload: bytes) -> None:
         handle.flush()
         os.fsync(handle.fileno())
         temporary = Path(handle.name)
+    temporary.chmod(0o644)
     os.replace(temporary, path)
 
 
@@ -294,7 +335,7 @@ def main() -> int:
 
     for path, payload in outputs.items():
         atomic_write(path, payload)
-    print(f"Built AMind skill evidence kernel: {len(outputs)} files")
+    print(f"Built AMind skill evidence package: {len(outputs)} files")
     return 0
 
 

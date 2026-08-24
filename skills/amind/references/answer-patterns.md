@@ -78,7 +78,7 @@ Conclusion
   -> claim ID
 ```
 
-When asked for exhaustive tracing, explain that the compact skill kernel is representative and route to the full AMind v1 release.
+When asked for exhaustive tracing, search the full local index, inspect the bound passages for the material claims, and explain that only the 54-row gold kernel was individually human reviewed. Route to the raw AMind v1 release when the user needs custom corpus analysis or audit artifacts beyond the installed index.
 
 ## Closing synthesis
 
