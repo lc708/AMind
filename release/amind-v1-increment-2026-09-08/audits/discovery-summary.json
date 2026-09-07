@@ -1,0 +1,37 @@
+{
+  "completed_at": "2026-09-07T16:55:09.994916+00:00",
+  "configured_sources": 86,
+  "urls": 4942,
+  "new_urls": 179,
+  "new_classes": {
+    "external-reference": 2,
+    "alignment-publication": 5,
+    "other-anthropic-page": 13,
+    "institutional-material": 1,
+    "event-or-session": 1,
+    "legal-or-operational-material": 2,
+    "anthropic-news": 5,
+    "anthropic-research": 4,
+    "research-team-index": 1,
+    "core-person-external-reference": 4,
+    "other-claude-page": 68,
+    "claude-blog": 24,
+    "jack-clark-primary": 4,
+    "developer-doc-reference": 25,
+    "transformer-circuits-publication": 1,
+    "document-attachment": 1,
+    "spoken-material-reference": 18
+  },
+  "failed_sources": [
+    "anthropic-webinars-0",
+    "dario-archive",
+    "ethan-perez-bottom-sitemap",
+    "ethan-perez-feed",
+    "ethan-perez-page-sitemap",
+    "ethan-perez-personal-index",
+    "ethan-perez-post-sitemap",
+    "ethan-perez-research-sitemap",
+    "jared-kaplan-publications"
+  ],
+  "archive_reenumeration": "not repeated; historical recovery is targeted to failed required works"
+}

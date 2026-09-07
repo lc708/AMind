@@ -25,6 +25,9 @@ INDEX_BUILDER_SPEC = importlib.util.spec_from_file_location("build_amind_skill_i
 assert INDEX_BUILDER_SPEC and INDEX_BUILDER_SPEC.loader
 INDEX_BUILDER_MODULE = importlib.util.module_from_spec(INDEX_BUILDER_SPEC)
 INDEX_BUILDER_SPEC.loader.exec_module(INDEX_BUILDER_MODULE)
+MANIFEST = json.loads((SKILL / 'data/manifest.json').read_text())
+COUNTS = MANIFEST['counts']
+IS_INCREMENT = MANIFEST['release_id'] != 'amind-v1'
 
 
 def run(*args: str) -> subprocess.CompletedProcess[str]:
@@ -43,6 +46,11 @@ def json_lines(payload: str) -> list[dict]:
 
 class AMindSkillTests(unittest.TestCase):
     def test_generated_evidence_is_current(self) -> None:
+        if IS_INCREMENT:
+            result = run(sys.executable, '-B', str(ROOT / 'scripts/verify_amind_increment.py'))
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('PASS', result.stdout)
+            return
         result = run(sys.executable, "-B", str(BUILDER), "--check")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("PASS", result.stdout)
@@ -71,15 +79,15 @@ class AMindSkillTests(unittest.TestCase):
     def test_self_contained_verifier_passes(self) -> None:
         result = run(sys.executable, "-B", str(VERIFY))
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("52,225 indexed claims", result.stdout)
+        self.assertIn(f"{COUNTS['full_index_atomic_claims']:,} indexed claims", result.stdout)
         self.assertIn("54 reviewed gold rows", result.stdout)
 
     def test_query_summary_reports_compact_and_full_counts(self) -> None:
         result = run(sys.executable, "-B", str(QUERY), "summary")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("Searchable atomic claims: 52225", result.stdout)
-        self.assertIn("Indexed analysis units: 1351", result.stdout)
-        self.assertIn("Bundled passage contexts: 13436", result.stdout)
+        self.assertIn(f"Searchable atomic claims: {COUNTS['full_index_atomic_claims']}", result.stdout)
+        self.assertIn(f"Indexed analysis units: {COUNTS['full_index_analysis_units']}", result.stdout)
+        self.assertIn(f"Bundled passage contexts: {COUNTS['full_index_passages']}", result.stdout)
         self.assertIn("Human-reviewed gold rows: 54", result.stdout)
 
     def test_search_returns_source_bound_full_index_evidence(self) -> None:
@@ -153,26 +161,26 @@ class AMindSkillTests(unittest.TestCase):
         result = run(sys.executable, "-B", str(QUERY), "stats", "--json")
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         stats = json.loads(result.stdout)
-        self.assertEqual(stats["total_claims"], 52225)
-        self.assertEqual(stats["total_sources"], 1351)
-        self.assertEqual(stats["source_level_direct_claims"], 45941)
+        self.assertEqual(stats["total_claims"], COUNTS['full_index_atomic_claims'])
+        self.assertEqual(stats["total_sources"], COUNTS['full_index_analysis_units'])
+        self.assertEqual(stats["source_level_direct_claims"], COUNTS.get('full_index_direct_claims', 45941))
         self.assertEqual(stats["equivalence_extra_rows"], 217)
         jack = next(row for row in stats["voices"] if row["name"] == "Jack Clark")
         self.assertEqual(
             jack,
             {
                 "agenda_claims": 1,
-                "claims": 10835,
+                "claims": 11223 if IS_INCREMENT else 10835,
                 "direct_claims": 7532,
                 "name": "Jack Clark",
-                "reported_claims": 3302,
-                "sources": 480,
+                "reported_claims": 3690 if IS_INCREMENT else 3302,
+                "sources": 484 if IS_INCREMENT else 480,
             },
         )
         hosts = {row["host"]: row for row in stats["source_hosts"]}
-        self.assertEqual(hosts["jack-clark.net"]["claims"], 11168)
-        self.assertEqual(hosts["transformer-circuits.pub"]["claims"], 12248)
-        self.assertEqual(hosts["transformer-circuits.pub"]["claims_per_source"], 240.16)
+        self.assertEqual(hosts["jack-clark.net"]["claims"], 11556 if IS_INCREMENT else 11168)
+        self.assertEqual(hosts["transformer-circuits.pub"]["claims"], 12693 if IS_INCREMENT else 12248)
+        self.assertEqual(hosts["transformer-circuits.pub"]["claims_per_source"], 244.1 if IS_INCREMENT else 240.16)
 
     def test_gold_kernel_distribution_explains_old_jack_repetition(self) -> None:
         rows = json_lines((SKILL / "data/evidence-kernel.jsonl").read_text(encoding="utf-8"))
@@ -273,7 +281,12 @@ class AMindSkillTests(unittest.TestCase):
             for line in (SKILL / "evals/retrieval-cases.jsonl").read_text(encoding="utf-8").splitlines()
             if line
         ]
-        self.assertEqual(len(cases), 4)
+        case_ids = {case['case_id'] for case in cases}
+        self.assertEqual(len(case_ids), len(cases), 'duplicate retrieval case IDs')
+        self.assertTrue({
+            'current-worker-retraining', 'diverse-scaling-uncertainty',
+            'chinese-governance-risk', 'alignment-faking-precision',
+        }.issubset(case_ids))
         for case in cases:
             with self.subTest(case_id=case["case_id"]):
                 result = run(
@@ -291,6 +304,14 @@ class AMindSkillTests(unittest.TestCase):
                 expected = case["expected"]
                 if "top_source_title" in expected:
                     self.assertEqual(rows[0]["source_title"], expected["top_source_title"])
+                if "required_claim_ids" in expected:
+                    self.assertTrue(set(expected["required_claim_ids"]).issubset({row["claim_id"] for row in rows}))
+                if "conditioned_claim_ids" in expected:
+                    by_id = {row["claim_id"]: row for row in rows}
+                    for claim_id in expected["conditioned_claim_ids"]:
+                        self.assertTrue(by_id[claim_id]["conditions"], f'missing scope conditions: {claim_id}')
+                if "required_attribution_class" in expected:
+                    self.assertTrue(all(row["attribution_class"] == expected["required_attribution_class"] for row in rows))
                 if "minimum_strong_results" in expected:
                     self.assertGreaterEqual(
                         sum(row["retrieval"]["relevance_tier"] == "strong" for row in rows),

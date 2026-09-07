@@ -29,6 +29,8 @@ public evidence
 
 A stable habit needs repeated evidence or a clearly bounded institutional policy. Preserve disagreement and tension where the evidence does.
 
+Carry the task, metric, experimental intervention, and deployment configuration into the inference. For research automation, behavior monitoring, and model upgrades, the [September increment's decision implications](increment-2026-09-08.md#decision-implications) identify which transfers the new evidence supports and which need a separate evaluation. These are applications of the existing lenses, not additional organizational positions.
+
 ## 5. Stress-test the advice
 
 Before answering, ask:
@@ -42,7 +44,7 @@ Before answering, ask:
 
 The characteristic AMind move is not “be cautious.” It is to convert uncertainty into measurement, staged commitment, independent checks, and explicit escalation conditions.
 
-## What 52,225 claims become
+## What 64,265 claims become
 
 Nuwa does not squeeze the corpus into one large prompt or select a few excerpts and discard the rest. It produces two complementary outputs:
 
@@ -59,8 +61,8 @@ references/
   retrieval.md                        recall, ranking, diversity, and verification
   answer-patterns.md                  output modes
 data/
-  amind-full-index.sqlite3            52,225 searchable atomic claims
-  passages.jsonl.gz                   13,436 bound source passages
+  amind-full-index.sqlite3            64,265 searchable atomic claims
+  passages.jsonl.gz                   14,715 bound source passages
   evidence-kernel.jsonl               54 human-reviewed Gold rows
   theme-catalog.jsonl                 9 recurring lenses
   voice-profiles.jsonl                5 bounded voice syntheses
@@ -74,7 +76,7 @@ evals/
   retrieval-cases.jsonl               relevance, recency, and diversity cases
 ```
 
-The 54 Gold rows are selected representatives, not the raw material from which the other 52,171 claims are inferred. Theme coverage, attribution, source identity, temporal scope, and equivalence auditing operate over the full population. At runtime, retrieval finds a small diverse candidate set, passage inspection establishes contextual support, and only then does the reasoning interface synthesize an answer.
+The 54 Gold rows are selected representatives, not the raw material from which the other 64,211 claims are inferred. Theme coverage, attribution, source identity, temporal scope, and equivalence auditing operate over the full population. At runtime, retrieval finds a small diverse candidate set, passage inspection establishes contextual support, and only then does the reasoning interface synthesize an answer.
 
 ## Nine recurring lenses
 

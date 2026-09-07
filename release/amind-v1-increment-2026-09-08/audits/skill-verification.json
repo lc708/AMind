@@ -1,0 +1,30 @@
+{
+  "skill_version": "1.2.1",
+  "validated_at": "2026-09-07T18:31:43.753028+00:00",
+  "automated_checks": {
+    "test_methods_passed": 31,
+    "retrieval_cases_passed": 11,
+    "exported_git_index_checkout": "31 tests passed without private capture files",
+    "project_and_installed_quick_validate": "PASS",
+    "installed_retrieval_from_unrelated_cwd": "11 cases passed",
+    "same_runtime_rebuild": "two builds byte-identical; logical records equal checked-in index across runtime versions"
+  },
+  "reasoning_eval_catalog": {
+    "existing_cases_preserved": 8,
+    "added_cases": 5,
+    "all_13_behavior_runs_claimed": false
+  },
+  "independent_trial": {
+    "tested_state": "intermediate 1.2.0 guidance draft",
+    "answers_saved": 4,
+    "reviewed_cases_meeting_core_rubric": 3,
+    "case_with_label_issue": "reward-seeker model-organism case",
+    "issue": "same-experiment scope judgment labeled Strong framework inference without a cross-work mechanism",
+    "correction": "explicitly distinguish one-experiment findings from cross-work synthesis in evidence policy; add the distinction to the scenario rubric",
+    "post_fix_independent_rerun": false,
+    "post_fix_rerun_limit": "delegated agent usage limit",
+    "artifact": "audits/skill-forward-check.md",
+    "original_local_artifact_sha256": "2fa1aa451034dda6dc764a84d4d2a0bc6b60cf4a2822c1e5dd9b09f791c94dce"
+  },
+  "review_boundary": "AI scenario review is not human evidence review and does not promote any new gold rows"
+}

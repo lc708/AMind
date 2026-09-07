@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/lc708/AMind/stargazers"><img src="https://img.shields.io/github/stars/lc708/AMind?style=flat-square&color=D97757" alt="GitHub stars"></a>
   <a href="skills/amind"><img src="https://img.shields.io/badge/Agent%20Skill-AMind-D97757?style=flat-square" alt="AMind Agent Skill"></a>
-  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/52%2C225%20claims-offline%20index-71C4A5?style=flat-square" alt="离线完整证据索引"></a>
+  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/64%2C265%20claims-offline%20index-71C4A5?style=flat-square" alt="离线完整证据索引"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-8D96A5?style=flat-square" alt="Apache License 2.0"></a>
 </p>
 
@@ -24,6 +24,8 @@
 ![AMind 把一个问题转化为带证据距离标签和可追溯来源的建议](assets/amind-hero.svg)
 
 ## 60 秒开始
+
+AMind **1.2.1** 已纳入 **2026-09-08 单次增量资料**及对应的判断规则。新增资料、旧文修订和抓取缺口见[更新报告](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)。
 
 把下面一行发给你正在使用的 **Agent**：
 
@@ -132,16 +134,16 @@ AMind 用一套内部提炼方法把公开材料变成可用判断：
 
 | 数据层 | 数量 |
 |---|---:|
-| 权威候选 | 1,804 |
-| 去重分析单位 | 1,351（1,348 个有正文，3 个有边界的 unavailable 例外） |
-| 来源绑定证据段 | 13,436 |
-| 带逐字引句、来源身份且可本地检索的原子主张 | 52,225 |
+| v1 基线权威候选 | 1,804 |
+| 去重分析单位 | 1,419（1,416 个有正文，3 个有边界的 unavailable 例外） |
+| 来源绑定证据段 | 14,715 |
+| 带逐字引句、来源身份且可本地检索的原子主张 | 64,265 |
 | 人工复核的代表证据 | 54 |
 | 反复出现的主题 | 9 |
 | 有边界的声部画像 | 5 |
 | 保留的核心张力 | 5 |
 
-这里对“人工复核”的表述是刻意收紧的：54 条 Gold 证据全部在完整段落语境中逐条复核；其余索引主张经过结构化、来源绑定和归属审计，但没有声称全部由人逐条复核。Skill 同时携带全部 13,436 个段落，供使用前检查上下文。
+这里对“人工复核”的表述是刻意收紧的：54 条 Gold 证据全部在完整段落语境中逐条复核；其余索引主张经过结构化、来源绑定和归属审计，但没有声称全部由人逐条复核。Skill 同时携带全部 14,715 个段落，供使用前检查上下文。
 
 ### 检查带索引的 Skill
 
@@ -155,7 +157,7 @@ python3 -B skills/amind/scripts/query.py tensions
 python3 -B skills/amind/scripts/verify.py
 ```
 
-默认查询覆盖全部 52,225 条主张，并折叠已审计等价项、排除来源仅仅转述的观点、分散文章/作者/域名占比。引用机器检查结果前，可用 `show <claim-id> --passage` 检查完整绑定段落。
+默认查询覆盖全部 64,265 条主张，并折叠已审计等价项、排除来源仅仅转述的观点、分散文章/作者/域名占比。引用机器检查结果前，可用 `show <claim-id> --passage` 检查完整绑定段落。
 
 ### 审计原始发布包
 
@@ -177,12 +179,13 @@ python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 ## 验证或开发
 
 ```bash
-python3 -B scripts/build_amind_skill.py --check
-python3 -B scripts/test_amind_skill.py
+python3 -B skills/amind/scripts/verify.py
+python3 -B scripts/verify_amind_increment.py
+python3 -B -m unittest scripts.test_amind_skill scripts.test_amind_increment
 python3 -B scripts/verify_amind_v1_release.py
 ```
 
-完整 SQLite 索引、绑定段落和 Gold 证据内核都由冻结的 AMind v1 确定性生成，每个数据文件都有 SHA-256 和行数清单。
+完整 SQLite 索引已合并冻结的 AMind v1 与 2026-09-08 单次增量；54 条 Gold 证据保持原样。每个数据文件都有 SHA-256 和行数清单。
 
 ## 边界
 
@@ -207,11 +210,11 @@ python3 -B scripts/verify_amind_v1_release.py
 
 ### Skill 里是不是只有 54 条证据？
 
-不是。Skill 可在本地检索全部 52,225 条原子主张，并携带全部 13,436 个绑定段落。54 条只是经过人工逐条复核、用于校准与评测的 Gold 层。
+不是。Skill 可在本地检索全部 64,265 条原子主张，并携带全部 14,715 个绑定段落。54 条只是经过人工逐条复核、用于校准与评测的 Gold 层。
 
 ### 为什么 Jack Clark 经常出现？
 
-冻结语料收录了 480 期 Import AI，而部分长篇技术论文又会被拆成数百条主张。Jack Clark 声部共有 10,835 条，并不是两万多条；其中 3,302 条是他转述或引用的他人观点。默认检索会排除这些转述，并限制同一文章、声部和域名的结果数量。详见[检索规范](skills/amind/references/retrieval.md#distribution-audit)。
+合并后的语料收录了 484 期 Import AI，而部分长篇技术论文又会被拆成数百条主张。Jack Clark 声部共有 11,223 条，并不是两万多条；其中 3,690 条是他转述或引用的他人观点。默认检索会排除这些转述，并限制同一文章、声部和域名的结果数量。详见[检索规范](skills/amind/references/retrieval.md#distribution-audit)。
 
 ### 它会声称还原 Anthropic 的内部思考吗？
 

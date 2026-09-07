@@ -178,7 +178,8 @@ def create_schema(connection: sqlite3.Connection) -> None:
     )
 
 
-def build_index_file(path: Path) -> dict[str, int]:
+def build_index_file(path: Path, *, release_id: str = 'amind-v1', expected: dict[str, int] | None = None,
+                     version_relations: list[dict[str, Any]] | None = None) -> dict[str, int]:
     require(not path.exists(), f"refusing to overwrite temporary index: {path}")
 
     units = sorted(iter_jsonl(ANALYSIS_UNITS), key=lambda row: row["analysis_unit_id"])
@@ -198,12 +199,13 @@ def build_index_file(path: Path) -> dict[str, int]:
 
     passage_ids = validated_passage_ids(PASSAGES)
     passage_count = len(passage_ids)
-    require(len(units) == 1351, "expected 1,351 analysis units")
-    require(len(claims) == 52225, "expected 52,225 atomic claims")
+    expected = expected or {'analysis_units': 1351, 'atomic_claims': 52225, 'passages': 13436, 'reviewed_kernel_claims': 54}
+    require(len(units) == expected['analysis_units'], 'analysis-unit population mismatch')
+    require(len(claims) == expected['atomic_claims'], 'atomic-claim population mismatch')
     require(len(attribution_by_claim) == len(claims), "attribution population mismatch")
     require(len(themes_by_claim) == len(claims), "theme population mismatch")
-    require(len(kernel_claim_ids) == 54, "reviewed-kernel population mismatch")
-    require(passage_count == 13436, "expected 13,436 passages")
+    require(len(kernel_claim_ids) == expected['reviewed_kernel_claims'], "reviewed-kernel population mismatch")
+    require(passage_count == expected['passages'], 'passage population mismatch')
 
     unit_by_id = {row["analysis_unit_id"]: row for row in units}
     source_id_by_unit = {row["analysis_unit_id"]: index for index, row in enumerate(units, start=1)}
@@ -229,7 +231,7 @@ def build_index_file(path: Path) -> dict[str, int]:
             "atomic_claims": len(claims),
             "equivalence_components": len(equivalence_components),
             "passages_external": passage_count,
-            "release_id": "amind-v1",
+            "release_id": release_id,
             "reviewed_kernel_claims": len(kernel_claim_ids),
             "schema_name": INDEX_SCHEMA_NAME,
             "schema_version": INDEX_SCHEMA_VERSION,
@@ -241,6 +243,8 @@ def build_index_file(path: Path) -> dict[str, int]:
         for key, value in sorted(metadata.items()):
             connection.execute("INSERT INTO metadata(key, value) VALUES(?, ?)", (key, canonical_json(value)))
 
+        later_by_unit = {v['prior_analysis_unit_id']: v['new_analysis_unit_id'] for v in (version_relations or []) if v.get('prior_analysis_unit_id')}
+        prior_by_unit = {v['new_analysis_unit_id']: v for v in (version_relations or [])}
         for source_id, unit in enumerate(units, start=1):
             published_at = str(unit.get("published_at") or "")
             payload = {
@@ -253,6 +257,11 @@ def build_index_file(path: Path) -> dict[str, int]:
                 "text_file_sha256": unit.get("text_file_sha256") or "",
                 "unit_status": unit.get("unit_status") or "",
             }
+            if release_id != 'amind-v1':
+                payload.update({'observed_at': unit.get('observed_at') or '',
+                                'publication_date_basis': unit.get('publication_date_basis') or 'baseline source metadata',
+                                'later_observed_revision': later_by_unit.get(unit['analysis_unit_id']),
+                                'version_relation': prior_by_unit.get(unit['analysis_unit_id'])})
             connection.execute(
                 """
                 INSERT INTO sources(

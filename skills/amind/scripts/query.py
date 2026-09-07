@@ -132,7 +132,7 @@ def load_manifest(data_root: Path) -> dict[str, Any]:
     require(manifest.get("schema_name") == MANIFEST_SCHEMA, "invalid AMind skill manifest schema")
     require(manifest.get("schema_version") == 1, "unsupported AMind skill manifest version")
     require(manifest.get("skill_id") == "amind", "invalid AMind skill identity")
-    require(manifest.get("release_id") == "amind-v1", "invalid AMind release identity")
+    require(manifest.get("release_id") in {"amind-v1", "amind-v1-increment-2026-09-08"}, "invalid AMind release identity")
     counts = manifest.get("counts")
     require(isinstance(counts, dict), "missing AMind skill counts")
     for field in (
@@ -184,7 +184,7 @@ def open_index(data_root: Path) -> sqlite3.Connection:
         raise AMindSkillError(f"cannot open full evidence index: {error}") from error
     require(metadata.get("schema_name") == INDEX_SCHEMA, "invalid full evidence index schema")
     require(metadata.get("schema_version") == 1, "unsupported full evidence index version")
-    require(metadata.get("release_id") == "amind-v1", "full evidence index release mismatch")
+    require(metadata.get("release_id") == load_manifest(data_root)['release_id'], "full evidence index release mismatch")
     return connection
 
 
@@ -397,6 +397,10 @@ def enriched_row(row: sqlite3.Row, reviewed: dict[str, dict[str, Any]]) -> dict[
         "source_canonical": row["canonical"],
         "source_host": row["source_host"],
         "source_published_at": row["published_at"],
+        "source_observed_at": source.get('observed_at') or '',
+        "publication_date_basis": source.get('publication_date_basis') or 'baseline source metadata',
+        "later_observed_revision": source.get('later_observed_revision'),
+        "version_relation": source.get('version_relation'),
         "source_record_ids": source.get("source_record_ids") or [],
         "source_title": row["title"],
         "synthesis_disposition": row["synthesis_disposition"],
@@ -427,6 +431,8 @@ def search_candidates(connection: sqlite3.Connection, expression: str, args: arg
         dispositions.append(REPORTED_DISPOSITION)
     if args.include_agenda:
         dispositions.append(AGENDA_DISPOSITION)
+    if getattr(args, 'include_simulated', False):
+        dispositions.append('preserve_with_simulation_scope')
     placeholders = ",".join("?" for _ in dispositions)
     where = [
         "claims_fts MATCH ?",
@@ -608,7 +614,9 @@ def command_summary(data_root: Path, args: argparse.Namespace) -> int:
     del args
     manifest = load_manifest(data_root)
     counts = manifest["counts"]
-    print(f"AMind skill {manifest['skill_version']} — full local index from AMind v1")
+    print(f"AMind skill {manifest['skill_version']} — {manifest['release_id']}")
+    if manifest.get('source_observation_cutoff'):
+        print(f"Source observation cutoff: {manifest['source_observation_cutoff']} (bounded collection; see update report for gaps)")
     print(f"Searchable atomic claims: {counts['full_index_atomic_claims']}")
     print(f"Indexed analysis units: {counts['full_index_analysis_units']}")
     print(f"Bundled passage contexts: {counts['full_index_passages']}")
@@ -636,6 +644,8 @@ def command_search(data_root: Path, args: argparse.Namespace) -> int:
         results = [enriched_row(row, reviewed) for row in raw]
     finally:
         connection.close()
+    if current_mode(query, args.current):
+        results = [row for row in results if not row.get('later_observed_revision')]
     if args.theme:
         results = [row for row in results if args.theme in (row.get("theme_ids") or [])]
     pure_cjk_theme_route = bool(detected) and not any(token.isascii() for token in original_tokens)
@@ -890,6 +900,7 @@ def add_search_boundaries(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--current", action="store_true", help="boost recent sources after relevance matching")
     parser.add_argument("--include-agenda", action="store_true", help="include research questions while preserving their attribution label")
     parser.add_argument("--include-reported", action="store_true", help="include positions merely reported or quoted by the source")
+    parser.add_argument('--include-simulated', action='store_true', help='include bounded simulation evidence while preserving its experimental conditions')
     parser.add_argument("--max-per-host", type=int, default=3)
     parser.add_argument("--max-per-voice", type=int, default=2)
     parser.add_argument("--max-per-work", type=int, default=1)
@@ -908,7 +919,7 @@ def parser() -> argparse.ArgumentParser:
     summary = commands.add_parser("summary", help="show full-index and gold-kernel counts")
     summary.set_defaults(handler=command_summary)
 
-    search = commands.add_parser("search", help="search all 52,225 local claims with attribution and diversity controls")
+    search = commands.add_parser("search", help="search the bundled local claims with attribution and diversity controls")
     search.add_argument("query")
     search.add_argument("--limit", type=int, default=8)
     search.add_argument("--json", action="store_true")

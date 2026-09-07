@@ -5,8 +5,8 @@ AMind separates recall from trust. The full index finds candidates; the gold ker
 ## Evidence layers
 
 ```text
-52,225 machine-checked atomic claims  -> full local FTS recall
-13,436 source-bound passages          -> context verification
+64,265 machine-checked atomic claims  -> full local FTS recall
+14,715 source-bound passages          -> context verification
 54 human-reviewed representative rows -> gold calibration
 9 themes / 5 voices / 5 tensions      -> synthesis navigation
 ```
@@ -25,13 +25,15 @@ The themes, voice profiles, and tensions are derived navigation aids. They are n
 
 If a narrow query cannot fill the requested limit under the voice or host caps, retrieval may relax those two caps after the strict diversity pass. It never relaxes the one-result-per-work boundary unless the caller explicitly changes it.
 
+Bounded simulation findings require `--include-simulated` and retain their experimental conditions. In the increment, routine PDF and newsletter extraction is conservatively reported; only individually context-reviewed PDF findings enter the direct-source scope.
+
 Merely reported or quoted positions are excluded by default. Add `--include-reported` only when the distinction itself matters. Research questions are excluded unless `--include-agenda` is supplied; they remain questions, not answers.
 
 Attribution filtering happens before equivalence collapse. If an equivalence component's canonical representative is a reported position but an eligible direct-source member remains, search keeps one eligible member instead of dropping the component.
 
 ## Recency and named voices
 
-Use `--current` when the user asks about the latest policy, current practice, recent research, or a versioned document. Recency is a boost after lexical relevance, not a replacement for relevance.
+Use `--current` when the user asks about the latest policy, current practice, recent research, or a versioned document. It excludes a prior edition when this increment records a later observed revision; historical evidence remains accessible with `show`. Recency is a boost after lexical relevance, not a replacement for relevance.
 
 Use `--voice "Name"` when the user explicitly asks about a named person. This relaxes voice and host diversity caps because concentration is then intentional. Without an explicit named-person request, do not center one author merely because that author occupies a large share of the corpus.
 
@@ -46,6 +48,8 @@ Use `--voice "Name"` when the user explicitly asks about a named person. This re
 `gold_human_reviewed` means the representative row was individually reviewed in passage context. `full_release_machine_checked` means the row passed structural, source-binding, and attribution audits but still requires contextual inspection before material use.
 
 ## Corpus-distribution caveat
+
+The distribution audit below describes the frozen v1 baseline. Current counts come from `query.py stats`: the one-off increment adds 4 Import AI issues and 1 Transformer Circuits article; Jack Clark now has 11,223 claims (3,690 reported), and Transformer Circuits has 12,693 claims across 52 units. No frequency is an influence weight.
 
 Claim counts measure corpus coverage and extraction density, not influence. The frozen source population includes 480 Import AI issues, so Jack Clark has 10,835 extracted claims; 3,302 of those are reported or quoted positions rather than Clark's own source-level position. Long technical works create a different distortion: 51 transformer-circuits documents produce 12,248 claims because some papers are atomized very densely.
 

@@ -1,0 +1,23 @@
+{
+  "baseline_files_unchanged": 32,
+  "baseline_index_rebuild": "frozen claim set and input fingerprints preserved; SQLite file layout is runtime-dependent",
+  "counts": {
+    "analysis_units": 1419,
+    "atomic_claims": 64265,
+    "equivalence_components": 189,
+    "lexical_opposition_candidates": 23,
+    "new_claims": 12040,
+    "new_passages": 1279,
+    "new_units": 68,
+    "passages": 14715,
+    "reviewed_kernel_claims": 54
+  },
+  "new_claims_json_schema_validated": 12040,
+  "new_claims_quote_verified": 12040,
+  "new_human_gold_rows": 0,
+  "new_passages_processed": 1279,
+  "regression_tests_passed": 31,
+  "same_runtime_index_rebuild": "byte-identical",
+  "validated_at": "2026-09-07T17:47:37.850803+00:00",
+  "verdict": "PASS"
+}

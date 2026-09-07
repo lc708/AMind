@@ -35,5 +35,9 @@ scripts/*
 !scripts/build_amind_skill.py
 !scripts/build_amind_skill_index.py
 !scripts/test_amind_skill.py
+!scripts/run_amind_increment.py
+!scripts/build_amind_increment.py
+!scripts/verify_amind_increment.py
+!scripts/test_amind_increment.py
 
 /reports/

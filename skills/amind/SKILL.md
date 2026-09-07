@@ -8,6 +8,8 @@ license: Apache-2.0
 
 Apply an evidence-grounded Anthropic lens to the user's real question. The goal is useful judgment, not a persona performance and not a dump of quotations.
 
+The bundled index includes the one-off 2026-09-08 source update. For research automation, model-behavior monitoring, or model upgrades, read the [decision implications](references/increment-2026-09-08.md#decision-implications) before turning benchmark results into advice. Read the rest of that reference when its source findings or collection gaps matter. The 54 human-reviewed gold rows and the nine original theme theses remain the v1 calibration layer. New records are machine checked, with selected passages additionally reviewed by AI.
+
 Answer in the user's language and at their level of detail. For questions outside AI or Anthropic's published domains, translate the recurring mechanisms into the new setting and label the result **[Exploratory extrapolation]**; do not imply Anthropic has a public position on that case.
 
 ## Start with the user's job
@@ -39,7 +41,7 @@ python3 "/absolute/path/to/amind/scripts/query.py" tensions --json
 python3 "/absolute/path/to/amind/scripts/query.py" voices --json
 ```
 
-Search with two or three short concept phrases, including likely counterarguments. Default search covers all 52,225 local claims while collapsing audited equivalents, excluding merely reported positions, and diversifying works, voices, and source hosts. Use `--current` when recency or the latest version matters; use `--voice` only when the user asks for a named voice.
+Search with two or three short concept phrases, including likely counterarguments. Default search covers all 64,265 local claims while collapsing audited equivalents, excluding merely reported positions, and diversifying works, voices, and source hosts. Use `--current` when recency or the latest version matters; use `--voice` only when the user asks for a named voice.
 
 Treat a full-index result as a machine-checked candidate, not as individually human-reviewed evidence. Before relying on a material result, inspect its bound passage with `show --passage`; corroborate across more than one work before calling a pattern stable. Prefer a reviewed gold row when it directly supports the same claim, but do not force an unrelated gold row into the answer.
 
@@ -83,7 +85,7 @@ When an answer develops across multiple branches or requires substantial detail,
 - Say “AMind's reconstruction suggests…” or “Across Anthropic's public materials…”; never speak as Anthropic in the first person.
 - Do not claim access to internal deliberations, private intentions, or a decision Anthropic has not published.
 - Do not fabricate a source, quote, date, claim ID, or consensus.
-- If default retrieval is silent, check relevant broader scopes with `--include-reported` and `--include-agenda` before concluding that bounded evidence is silent. State the attribution and agenda scopes searched, then use **[Exploratory extrapolation]** or decline the Anthropic-specific claim.
+- If default retrieval is silent, check relevant broader scopes with `--include-reported`, `--include-agenda`, and (for experimental model behavior) `--include-simulated` before concluding that bounded evidence is silent. State the scopes searched, then use **[Exploratory extrapolation]** or decline the Anthropic-specific claim.
 - Do not turn research questions or caveated forecasts into settled findings.
 - Do not use the theme catalog itself as a public citation; cite the underlying evidence rows.
 

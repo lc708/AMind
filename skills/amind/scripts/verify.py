@@ -99,7 +99,7 @@ def main() -> int:
     require(manifest.get("schema_name") == "amind-skill-evidence-manifest", "invalid manifest schema")
     require(manifest.get("schema_version") == 1, "unsupported manifest schema version")
     require(manifest.get("skill_id") == "amind", "invalid skill identity")
-    require(manifest.get("release_id") == "amind-v1", "invalid release identity")
+    require(manifest.get("release_id") in {"amind-v1", "amind-v1-increment-2026-09-08"}, "invalid release identity")
     counts = manifest.get("counts")
     require(isinstance(counts, dict), "missing counts")
     for field in MANIFEST_COUNT_FIELDS:
@@ -135,19 +135,22 @@ def main() -> int:
         require(connection.execute("PRAGMA quick_check").fetchone()[0] == "ok", "full index quick check failed")
         require(metadata.get("schema_name") == "amind-full-evidence-index", "invalid full index schema")
         require(metadata.get("schema_version") == 1, "unsupported full index schema")
-        require(metadata.get("release_id") == "amind-v1", "full index release mismatch")
-        require(connection.execute("SELECT count(*) FROM claims").fetchone()[0] == counts["full_index_atomic_claims"] == 52225, "full index claim count mismatch")
-        require(connection.execute("SELECT count(*) FROM claims_fts").fetchone()[0] == 52225, "full index FTS count mismatch")
-        require(connection.execute("SELECT count(*) FROM sources").fetchone()[0] == counts["full_index_analysis_units"] == 1351, "full index source count mismatch")
+        require(metadata.get("release_id") == manifest['release_id'], "full index release mismatch")
+        require(connection.execute("SELECT count(*) FROM claims").fetchone()[0] == counts["full_index_atomic_claims"] == metadata['atomic_claims'], "full index claim count mismatch")
+        require(connection.execute("SELECT count(*) FROM claims_fts").fetchone()[0] == counts['full_index_atomic_claims'], "full index FTS count mismatch")
+        require(connection.execute("SELECT count(*) FROM sources").fetchone()[0] == counts["full_index_analysis_units"] == metadata['analysis_units'], "full index source count mismatch")
         require(connection.execute("SELECT count(*) FROM claims WHERE is_reviewed_kernel = 1").fetchone()[0] == 54, "full index gold count mismatch")
-        require(connection.execute("SELECT count(*) FROM claims WHERE synthesis_disposition = 'eligible_for_source_level_synthesis'").fetchone()[0] == 45941, "full index direct-position count mismatch")
+        require(connection.execute("SELECT count(*) FROM claims WHERE synthesis_disposition = 'eligible_for_source_level_synthesis'").fetchone()[0] == counts.get('full_index_direct_claims', 45941), "full index direct-position count mismatch")
     except (json.JSONDecodeError, sqlite3.Error) as error:
         raise VerifyError(f"invalid full SQLite index: {error}") from error
     finally:
         if "connection" in locals():
             connection.close()
 
-    require(counts["full_index_passages"] == 13436, "bundled passage count mismatch")
+    require(counts["full_index_passages"] == metadata['passages_external'], "bundled passage count mismatch")
+    require(counts['full_release_atomic_claims'] == counts['full_index_atomic_claims'], 'release/index claim population mismatch')
+    require(counts['full_release_analysis_units'] == counts['full_index_analysis_units'], 'release/index unit population mismatch')
+    require(next(a['rows'] for a in artifacts if a['path']=='passages.jsonl.gz') == counts['full_index_passages'], 'manifest passage row mismatch')
 
     evidence = rows_by_path["evidence-kernel.jsonl"]
     themes = rows_by_path["theme-catalog.jsonl"]
@@ -224,7 +227,7 @@ def main() -> int:
     require(boundary.get("full_claim_index_bundled") is True, "skill must bundle the full claim index")
     require(boundary.get("full_passage_context_bundled") is True, "skill must bundle passage context")
     require(boundary.get("private_anthropic_information_claimed") is False, "skill must not claim private evidence")
-    print("AMind skill verification PASS: 52,225 indexed claims, 13,436 passages, 54 reviewed gold rows")
+    print(f"AMind skill verification PASS: {counts['full_index_atomic_claims']:,} indexed claims, {counts['full_index_passages']:,} passages, 54 reviewed gold rows")
     return 0
 
 

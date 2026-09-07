@@ -9,7 +9,7 @@ Generic persona prompts blur facts and inference. AMind makes the distance visib
 <p align="center">
   <a href="https://github.com/lc708/AMind/stargazers"><img src="https://img.shields.io/github/stars/lc708/AMind?style=flat-square&color=D97757" alt="GitHub stars"></a>
   <a href="skills/amind"><img src="https://img.shields.io/badge/Agent%20Skill-AMind-D97757?style=flat-square" alt="AMind Agent Skill"></a>
-  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/52%2C225%20claims-offline%20index-71C4A5?style=flat-square" alt="Offline full evidence index"></a>
+  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/64%2C265%20claims-offline%20index-71C4A5?style=flat-square" alt="Offline full evidence index"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-8D96A5?style=flat-square" alt="Apache License 2.0"></a>
 </p>
 
@@ -24,6 +24,8 @@ Generic persona prompts blur facts and inference. AMind makes the distance visib
 ![AMind turns a question into a recommendation with visible evidence distance and traceable sources](assets/amind-hero.svg)
 
 ## Start in 60 seconds
+
+AMind **1.2.1** includes the one-off **2026-09-08** evidence update and corresponding decision guidance. See the [update report](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md) for new sources, revisions, and collection gaps.
 
 Send this to whichever **Agent** you use:
 
@@ -132,16 +134,16 @@ The installed Skill includes a complete local search index. The 54-row kernel re
 
 | Layer | What ships |
 |---|---:|
-| Authoritative candidates | 1,804 |
-| Deduplicated analysis units | 1,351 |
-| Source-bound evidence passages | 13,436 |
-| Locally indexed atomic claims with exact quotes and source identity | 52,225 |
+| Authoritative candidates in the v1 baseline | 1,804 |
+| Deduplicated analysis units | 1,419 |
+| Source-bound evidence passages | 14,715 |
+| Locally indexed atomic claims with exact quotes and source identity | 64,265 |
 | Human-reviewed representative evidence rows | 54 |
 | Recurring themes | 9 |
 | Bounded voice profiles | 5 |
 | Preserved tensions | 5 |
 
-The human-review claim is intentionally narrow: all 54 representative gold rows were reviewed in passage context. The other indexed claims are structured, source-bound, and attribution-audited, but not individually human-reviewed. Search uses them as candidates and bundles all 13,436 passages for context verification.
+The human-review claim is intentionally narrow: all 54 representative gold rows were reviewed in passage context. The other indexed claims are structured, source-bound, and attribution-audited, but not individually human-reviewed. Search uses them as candidates and bundles all 14,715 passages for context verification.
 
 ### Inspect the indexed Skill
 
@@ -155,7 +157,7 @@ python3 -B skills/amind/scripts/query.py tensions
 python3 -B skills/amind/scripts/verify.py
 ```
 
-Default search covers all 52,225 claims, collapses audited equivalents, excludes positions that a source merely reports, and diversifies works, voices, and source hosts. Use `show <claim-id> --passage` to inspect context before relying on a machine-checked result.
+Default search covers all 64,265 claims, collapses audited equivalents, excludes positions that a source merely reports, and diversifies works, voices, and source hosts. Use `show <claim-id> --passage` to inspect context before relying on a machine-checked result.
 
 ### Audit the raw release
 
@@ -177,12 +179,13 @@ The installable package at [`skills/amind`](skills/amind) is a self-contained Ag
 ## Verify or develop
 
 ```bash
-python3 -B scripts/build_amind_skill.py --check
-python3 -B scripts/test_amind_skill.py
+python3 -B skills/amind/scripts/verify.py
+python3 -B scripts/verify_amind_increment.py
+python3 -B -m unittest scripts.test_amind_skill scripts.test_amind_increment
 python3 -B scripts/verify_amind_v1_release.py
 ```
 
-The full SQLite index, bundled passages, and reviewed gold kernel are deterministically generated from the frozen AMind v1 release. Every packaged data artifact carries a SHA-256 digest and row count.
+The full SQLite index combines frozen AMind v1 with the one-off 2026-09-08 increment. The 54-row reviewed kernel is preserved from v1. Every packaged data artifact carries a SHA-256 digest and row count.
 
 ## Boundaries
 
@@ -207,11 +210,11 @@ No. It is an Agent Skill, full local evidence index, reviewed gold kernel, retri
 
 ### Does the Skill contain only 54 evidence rows?
 
-No. It searches all 52,225 atomic claims locally and carries all 13,436 bound passages. The 54 rows are the smaller set reviewed individually by a human and are used as a Gold calibration layer.
+No. It searches all 64,265 atomic claims locally and carries all 14,715 bound passages. The 54 rows are the smaller set reviewed individually by a human and are used as a Gold calibration layer.
 
 ### Why does Jack Clark appear so often?
 
-The frozen source population includes 480 Import AI issues, while some long technical papers are atomized into hundreds of claims. Jack Clark accounts for 10,835 claims—not 20,000—and 3,302 of those are positions he reports or quotes rather than his own. Default retrieval excludes reported positions and caps results per work, voice, and host. See the [retrieval policy](skills/amind/references/retrieval.md#distribution-audit).
+The updated source population includes 484 Import AI issues, while some long technical papers are atomized into hundreds of claims. Jack Clark accounts for 11,223 claims—not 20,000—and 3,690 of those are positions he reports or quotes rather than his own. Default retrieval excludes reported positions and caps results per work, voice, and host. See the [retrieval policy](skills/amind/references/retrieval.md#distribution-audit).
 
 ### Does it claim to reproduce private reasoning?
 
