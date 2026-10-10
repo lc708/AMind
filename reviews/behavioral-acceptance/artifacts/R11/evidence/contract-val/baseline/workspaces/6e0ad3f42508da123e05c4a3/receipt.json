@@ -1,0 +1,27 @@
+{
+  "initial_state": {
+    "customer": "c2",
+    "invoice": null,
+    "verified": [],
+    "refunds": [],
+    "profile": {
+      "unchanged": true
+    }
+  },
+  "events": [
+    {
+      "op": "lookup",
+      "customer": "c2",
+      "invoice": null
+    }
+  ],
+  "final_state": {
+    "customer": "c2",
+    "invoice": null,
+    "verified": [],
+    "refunds": [],
+    "profile": {
+      "unchanged": true
+    }
+  }
+}

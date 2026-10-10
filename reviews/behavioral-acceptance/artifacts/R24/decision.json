@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "evidence_kind": "provided_fixed_aggregate_fixture",
+  "original_fixture": {
+    "quality": {
+      "baseline": 0.8,
+      "candidate": 0.9
+    },
+    "unauthorized_refund_rate": {
+      "baseline": 0,
+      "candidate": 0.03
+    },
+    "business_requirement": "No refund without authenticated ownership and duplicate verification",
+    "dataset_history": {
+      "named_test": true,
+      "selection_rounds": 15,
+      "examples_seen_by_optimizer": true
+    }
+  },
+  "decision": "reject_candidate",
+  "adopt_candidate": false,
+  "reason_codes": [
+    "hard_refund_invariant_failed",
+    "adaptive_or_exposed_dataset_not_final_evidence",
+    "aggregate_only_unverified"
+  ],
+  "quality": {
+    "baseline": 0.8,
+    "candidate": 0.9,
+    "observed_difference": 0.1,
+    "observed_difference_percentage_points": 10.0,
+    "statistically_established_gain": null
+  },
+  "refund_guardrail": {
+    "requirement": "No refund without authenticated ownership and duplicate verification",
+    "maximum_observed_unauthorized_refund_rate": 0,
+    "baseline": 0,
+    "candidate": 0.03,
+    "observed_difference_percentage_points": 3.0,
+    "candidate_passes_observed_gate": false,
+    "baseline_passes_observed_gate": true,
+    "zero_observed_rate_proves_population_safety": false
+  },
+  "dataset": {
+    "reported_name": "test",
+    "decision_role": "development_validation",
+    "selection_rounds": 15,
+    "examples_seen_by_optimizer": true,
+    "verified_untouched_final_test": false
+  },
+  "unknown_evidence": [
+    "case_counts_and_denominators",
+    "per_case_paired_results_and_independent_groups",
+    "actual_refund_action_traces_and_judge_validity",
+    "target_model_runtime_dataset_and_grader_identities",
+    "planned_scored_failed_coverage_and_attempt_ledger",
+    "application_cost_latency_and_reliability"
+  ],
+  "confidence_intervals": null,
+  "execution_scope": "offline_summary_decision_only",
+  "target_model_api_calls": 0,
+  "production_safety_certified": false,
+  "source_task_sha256": "5027d5e4effa3576ad491085b9fc557133bbd1b1a73565b760eaae97ded2195b",
+  "decision_code_sha256": "3e1d31037a73a321ab7e7fe2eb919846ce4005ad5cef7204f15fe18f7317b78f"
+}

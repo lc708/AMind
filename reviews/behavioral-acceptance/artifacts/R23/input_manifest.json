@@ -1,0 +1,9 @@
+{
+  "task_sha256": "096c981a8c77c7c662eaf9ee3ebe7cb38f6a1c10decdfcc2610ae7fd2cd2dc55",
+  "target": "current configured model, preserve provider",
+  "actual_tools": [
+    "lookup_payment",
+    "charge_once"
+  ],
+  "prompt_sha256": "855d4c3dce3ad04e8126875b912224b42639ff4a2fc5e0230882594efbd7a351"
+}

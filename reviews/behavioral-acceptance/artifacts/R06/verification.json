@@ -1,0 +1,53 @@
+{
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "commands": [
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "compare.py",
+        "--input",
+        "task.json",
+        "--output",
+        "comparison.json"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R06",
+      "exit_code": 0,
+      "stdout": "{\n  \"decision\": \"INSUFFICIENT_COMPARABLE_EVIDENCE\",\n  \"candidate_superiority_established\": false,\n  \"input_sha256\": \"5c669345041382ba8c1fa07f3393ddd48b61d40fdfab9ee401d6652c59d3cc9c\",\n  \"descriptive_delta_percentage_points\": 20.0,\n  \"unique_cases\": 2,\n  \"distinct_source_group_count\": 1\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_compare.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R06",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_changing_version_label_alone_cannot_approve (test_compare.ComparisonTests) ... ok\ntest_drift_blocks_winner (test_compare.ComparisonTests) ... ok\ntest_input_unmodified_and_hash_matches (test_compare.ComparisonTests) ... ok\ntest_invalid_counts_fail_loudly (test_compare.ComparisonTests) ... ok\ntest_malformed_file_never_becomes_zero_score (test_compare.ComparisonTests) ... ok\ntest_missing_group_and_duplicate_id_fail (test_compare.ComparisonTests) ... ok\ntest_no_invalid_significance_or_interval (test_compare.ComparisonTests) ... ok\ntest_offline_and_deterministic (test_compare.ComparisonTests) ... ok\ntest_perfect_candidate_aggregate_cannot_remove_blockers (test_compare.ComparisonTests) ... ok\ntest_raw_arithmetic_is_descriptive (test_compare.ComparisonTests) ... ok\ntest_repetitions_do_not_create_documents (test_compare.ComparisonTests) ... ok\ntest_sensitivity_can_reverse_raw_order (test_compare.ComparisonTests) ... ok\ntest_sensitivity_obeys_algebra_for_every_case (test_compare.ComparisonTests) ... ok\ntest_zero_repetitions_fail (test_compare.ComparisonTests) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.003s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "compare.py",
+        "--input",
+        "task.json",
+        "--output",
+        "comparison.json"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R06",
+      "purpose": "deterministic rerun",
+      "exit_code": 0,
+      "stdout": "{\n  \"decision\": \"INSUFFICIENT_COMPARABLE_EVIDENCE\",\n  \"candidate_superiority_established\": false,\n  \"input_sha256\": \"5c669345041382ba8c1fa07f3393ddd48b61d40fdfab9ee401d6652c59d3cc9c\",\n  \"descriptive_delta_percentage_points\": 20.0,\n  \"unique_cases\": 2,\n  \"distinct_source_group_count\": 1\n}\n",
+      "stderr": ""
+    }
+  ],
+  "checks": {
+    "commands_passed": true,
+    "task_json_unchanged": true,
+    "comparison_byte_identical_on_rerun": true
+  },
+  "input_sha256": "5c669345041382ba8c1fa07f3393ddd48b61d40fdfab9ee401d6652c59d3cc9c"
+}

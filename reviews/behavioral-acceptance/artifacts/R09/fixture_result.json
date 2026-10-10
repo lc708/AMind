@@ -1,0 +1,91 @@
+{
+  "batch": {
+    "all_transport_success": false,
+    "counts": {
+      "batch_error": 1,
+      "completed": 1,
+      "missing": 1
+    },
+    "errors": [
+      "b"
+    ],
+    "missing": [
+      "c"
+    ],
+    "ordered": [
+      {
+        "custom_id": "a",
+        "raw": {
+          "custom_id": "a",
+          "response": {
+            "body": {
+              "status": "completed"
+            },
+            "status_code": 200
+          }
+        },
+        "response": {
+          "error": null,
+          "function_calls": [],
+          "incomplete_details": null,
+          "raw_response": {
+            "status": "completed"
+          },
+          "refusals": [],
+          "status": "completed",
+          "text": "",
+          "transport_success": true,
+          "usage": null
+        },
+        "status": "completed",
+        "status_code": 200,
+        "transport_success": true
+      },
+      {
+        "custom_id": "b",
+        "error": {
+          "code": "expired"
+        },
+        "raw": {
+          "custom_id": "b",
+          "error": {
+            "code": "expired"
+          }
+        },
+        "status": "batch_error",
+        "transport_success": false
+      },
+      {
+        "custom_id": "c",
+        "raw": null,
+        "status": "missing",
+        "transport_success": false
+      }
+    ],
+    "requested_count": 3,
+    "returned_count": 2
+  },
+  "evidence": "offline_fixed_fixture",
+  "stream": {
+    "display_deltas": "Done",
+    "error": null,
+    "function_calls": [],
+    "incomplete_details": null,
+    "raw_events": [
+      {
+        "type": "response.created"
+      },
+      {
+        "delta": "Done",
+        "type": "response.output_text.delta"
+      }
+    ],
+    "raw_response": null,
+    "refusals": [],
+    "status": "disconnected",
+    "text": null,
+    "transport_success": false,
+    "usage": null
+  },
+  "task_id": "G04"
+}

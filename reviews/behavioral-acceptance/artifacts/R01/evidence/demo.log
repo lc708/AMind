@@ -1,0 +1,120 @@
+{
+  "evidence_kind": "fixed local mock; real subprocess exit and SQLite restart",
+  "worker_exit": 73,
+  "before_recovery": {
+    "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+    "request": {
+      "action": "charge",
+      "amount": 20,
+      "call_id": "c1",
+      "task": "job1",
+      "tenant": "t1"
+    },
+    "state": "unknown",
+    "cancel_requested": false,
+    "writes": 1,
+    "remote_calls": 1,
+    "next_at": 101.0,
+    "error": null,
+    "result": null,
+    "evidence": null,
+    "retryable": true,
+    "manual_review": false
+  },
+  "recovered": {
+    "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+    "request": {
+      "action": "charge",
+      "amount": 20,
+      "call_id": "c1",
+      "task": "job1",
+      "tenant": "t1"
+    },
+    "state": "succeeded",
+    "cancel_requested": false,
+    "writes": 1,
+    "remote_calls": 2,
+    "next_at": null,
+    "error": null,
+    "result": {
+      "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+      "operation_id": "op1",
+      "request": {
+        "action": "charge",
+        "amount": 20,
+        "call_id": "c1",
+        "task": "job1",
+        "tenant": "t1"
+      },
+      "state": "succeeded"
+    },
+    "evidence": {
+      "observed_at": 102.0,
+      "receipt": {
+        "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+        "operation_id": "op1",
+        "request": {
+          "action": "charge",
+          "amount": 20,
+          "call_id": "c1",
+          "task": "job1",
+          "tenant": "t1"
+        },
+        "state": "succeeded"
+      },
+      "source": "lookup_operation"
+    },
+    "retryable": false,
+    "manual_review": false
+  },
+  "replayed": {
+    "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+    "request": {
+      "action": "charge",
+      "amount": 20,
+      "call_id": "c1",
+      "task": "job1",
+      "tenant": "t1"
+    },
+    "state": "succeeded",
+    "cancel_requested": false,
+    "writes": 1,
+    "remote_calls": 2,
+    "next_at": null,
+    "error": null,
+    "result": {
+      "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+      "operation_id": "op1",
+      "request": {
+        "action": "charge",
+        "amount": 20,
+        "call_id": "c1",
+        "task": "job1",
+        "tenant": "t1"
+      },
+      "state": "succeeded"
+    },
+    "evidence": {
+      "observed_at": 102.0,
+      "receipt": {
+        "key": "912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf",
+        "operation_id": "op1",
+        "request": {
+          "action": "charge",
+          "amount": 20,
+          "call_id": "c1",
+          "task": "job1",
+          "tenant": "t1"
+        },
+        "state": "succeeded"
+      },
+      "source": "lookup_operation"
+    },
+    "retryable": false,
+    "manual_review": false
+  },
+  "remote_effect_count": 1,
+  "recovery_charge_requests": 0,
+  "recovery_lookup_requests": 1
+}
+

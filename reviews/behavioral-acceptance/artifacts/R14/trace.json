@@ -1,0 +1,144 @@
+{
+  "evidence": "offline fixed fixture; no model, SDK, or infrastructure run",
+  "unchecked_webhook": {
+    "accepted": false,
+    "reason": "signature_unverified",
+    "enqueued": 0
+  },
+  "trusted_domain_replay": [
+    {
+      "event": {
+        "id": "e1",
+        "kind": "environment_connection_required",
+        "session": "s1"
+      },
+      "decision": "mock_machine_created",
+      "phase": "running",
+      "machines": 1,
+      "artifacts": 1,
+      "mock_writes": 0
+    },
+    {
+      "event": {
+        "id": "e1",
+        "kind": "environment_connection_required",
+        "session": "s1"
+      },
+      "decision": "duplicate",
+      "original": "mock_machine_created",
+      "phase": "running",
+      "machines": 1,
+      "artifacts": 1,
+      "mock_writes": 0
+    },
+    {
+      "event": {
+        "id": "e2",
+        "kind": "environment_disconnected",
+        "session": "s1"
+      },
+      "decision": "disconnected_artifacts_retained",
+      "phase": "running",
+      "machines": 1,
+      "artifacts": 1,
+      "mock_writes": 0
+    },
+    {
+      "event": {
+        "id": "e3",
+        "kind": "cancel_requested",
+        "session": "s1"
+      },
+      "decision": "cancellation_fenced",
+      "phase": "cancelling",
+      "machines": 1,
+      "artifacts": 1,
+      "mock_writes": 0
+    },
+    {
+      "event": {
+        "id": "e4",
+        "kind": "effect_started",
+        "session": "s1",
+        "key": "write1"
+      },
+      "decision": "late_effect_after_cancel_requires_reconciliation",
+      "phase": "needs_reconciliation",
+      "machines": 1,
+      "artifacts": 1,
+      "mock_writes": 0
+    }
+  ],
+  "memory": {
+    "allowed": false,
+    "reasons": [
+      "tenant_mismatch",
+      "expired_or_missing_expiry"
+    ]
+  },
+  "post_cancel_dispatch": "blocked",
+  "cleanup": "retained",
+  "final": {
+    "id": "s1",
+    "tenant": "t1",
+    "phase": "needs_reconciliation",
+    "connected": 0,
+    "cancelled": 1,
+    "epoch": 1,
+    "cancel_ack": 0,
+    "terminal_at": null,
+    "agent_id": "fixture-agent",
+    "agent_version": 1,
+    "machines": [
+      {
+        "session": "s1",
+        "id": "mock-machine-e8bc163c82ee"
+      }
+    ],
+    "effects": [
+      {
+        "session": "s1",
+        "key": "write1",
+        "state": "observed_unknown",
+        "epoch": 1,
+        "payload": "{\"source_event\":\"e4\"}"
+      }
+    ],
+    "mock_writes": [],
+    "artifacts": [
+      {
+        "session": "s1",
+        "name": "checkpoint.txt",
+        "content": "fixed local checkpoint",
+        "archived": 0
+      }
+    ],
+    "archives": [],
+    "receipts": [
+      {
+        "session": "s1",
+        "id": "e1",
+        "body": "{\"id\":\"e1\",\"kind\":\"environment_connection_required\",\"session\":\"s1\"}",
+        "decision": "mock_machine_created"
+      },
+      {
+        "session": "s1",
+        "id": "e2",
+        "body": "{\"id\":\"e2\",\"kind\":\"environment_disconnected\",\"session\":\"s1\"}",
+        "decision": "disconnected_artifacts_retained"
+      },
+      {
+        "session": "s1",
+        "id": "e3",
+        "body": "{\"id\":\"e3\",\"kind\":\"cancel_requested\",\"session\":\"s1\"}",
+        "decision": "cancellation_fenced"
+      },
+      {
+        "session": "s1",
+        "id": "e4",
+        "body": "{\"id\":\"e4\",\"key\":\"write1\",\"kind\":\"effect_started\",\"session\":\"s1\"}",
+        "decision": "late_effect_after_cancel_requires_reconciliation"
+      }
+    ]
+  }
+}

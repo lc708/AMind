@@ -1,0 +1,8 @@
+{"id":"fixture-bootstrap","kind":"task_started","task_id":"s1","tenant_id":"t1"}
+{"id":"fixture-webhook","kind":"webhook_received","signature_verified":false,"task_id":"s1","tenant_id":"t1"}
+{"at":1,"expires_at":0,"id":"fixture-memory","kind":"memory_read","memory_tenant_id":"t2","task_id":"s1","tenant_id":"t1"}
+{"id":"e1","kind":"environment_connection_required","session":"s1","task_id":"s1","tenant_id":"t1"}
+{"id":"e1","kind":"environment_connection_required","session":"s1","task_id":"s1","tenant_id":"t1"}
+{"id":"e2","kind":"environment_disconnected","session":"s1","task_id":"s1","tenant_id":"t1"}
+{"id":"e3","kind":"cancel_requested","session":"s1","task_id":"s1","tenant_id":"t1"}
+{"id":"e4","idempotency_key":"write1","key":"write1","kind":"effect_started","session":"s1","task_id":"s1","tenant_id":"t1"}

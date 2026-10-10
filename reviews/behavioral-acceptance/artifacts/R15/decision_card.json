@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "proposal_not_registered",
+  "quality_metric": "task acceptance score normalized to [0,1]; actual rubric must be bound before registration",
+  "max_quality_loss": 0.02,
+  "min_relative_useful_task_cost_saving": 0.1,
+  "max_error_rate_increase": 0.005,
+  "max_p95_latency_relative_increase": 0.1,
+  "max_repeat_quality_sd_increase": 0.01,
+  "required_slices": ["easy", "hard", "rare_failure"],
+  "workload_weights": null,
+  "amortization_horizon_completed_useful_tasks": 1000,
+  "minimum_paired_memory_rebuilds": 3,
+  "simultaneous_confidence": 0.95,
+  "hard_invariant_failures_allowed": 0,
+  "current_model_api_budget_usd": 0,
+  "future_model_api_budget_usd": null,
+  "future_budget_status": "not_authorized_by_this_plan",
+  "search_limit": {"validation_candidate_comparisons": 12, "final_candidates": 1},
+  "notes": "All numeric margins and the amortization horizon are explicit proposals, not facts inferred from the pilots. Register actual metric, weights, independent groups, precision/sample size and future run/spend limits before gathering decision evidence."
+}

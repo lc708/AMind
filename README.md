@@ -25,6 +25,8 @@ Generic persona prompts blur facts and inference. AMind makes the distance visib
 
 ## Start in 60 seconds
 
+AMind also includes an **AI engineering and evaluation skill series**: [`amind-engineering`](skills/amind-engineering/SKILL.md) for prompt audits, cost optimization, migrations and agent development, plus [`eval-improve`](skills/eval-improve/SKILL.md) for runnable application/grader evaluations, strict comparisons, cost search and measured iteration. They work with AI products regardless of whether those products use a Codex harness; neither requires Claude. See [installation, usage and migration coverage](AMIND-SERIES.md). The knowledge skill below retains its own version and evidence boundary.
+
 AMind **1.2.1** includes the one-off **2026-09-08** evidence update and corresponding decision guidance. See the [update report](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md) for new sources, revisions, and collection gaps.
 
 Send this to whichever **Agent** you use:

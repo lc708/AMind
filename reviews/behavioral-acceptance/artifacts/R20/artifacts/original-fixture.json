@@ -1,0 +1,42 @@
+{
+  "previous_response": {
+    "id": "r1",
+    "output": [
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "commentary",
+        "content": "Working"
+      },
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "read",
+        "arguments": "{}"
+      }
+    ]
+  },
+  "next_request": {
+    "previous_response_id": "r1",
+    "input": [
+      {
+        "role": "user",
+        "content": "Find invoice"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "content": "Working"
+      },
+      {
+        "type": "function_call_output",
+        "call_id": "wrong",
+        "output": "invoice"
+      }
+    ]
+  },
+  "later_compaction": {
+    "type": "compaction",
+    "encrypted_content": "opaque-2"
+  }
+}

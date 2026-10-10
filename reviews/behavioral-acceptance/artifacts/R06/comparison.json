@@ -1,0 +1,571 @@
+{
+  "schema_version": 1,
+  "task_id": "E03",
+  "input_sha256": "5c669345041382ba8c1fa07f3393ddd48b61d40fdfab9ee401d6652c59d3cc9c",
+  "evidence_kind": "user_supplied_fixed_aggregate_fixture",
+  "model_or_service_run": false,
+  "raw_rows_reconstructed": false,
+  "decision": "INSUFFICIENT_COMPARABLE_EVIDENCE",
+  "candidate_superiority_established": false,
+  "equivalence_or_inferiority_established": false,
+  "descriptive_only": {
+    "baseline": {
+      "grader_version": "1",
+      "correct": 35,
+      "observations": 60,
+      "rate": 0.5833333333333334,
+      "rate_exact": {
+        "numerator": 7,
+        "denominator": 12
+      }
+    },
+    "candidate": {
+      "grader_version": "2",
+      "correct": 47,
+      "observations": 60,
+      "rate": 0.7833333333333333,
+      "rate_exact": {
+        "numerator": 47,
+        "denominator": 60
+      }
+    },
+    "extra_recorded_passes": 12,
+    "delta_percentage_points": 20.0,
+    "delta_exact": {
+      "numerator": 1,
+      "denominator": 5
+    }
+  },
+  "sampling": {
+    "unique_cases": 2,
+    "repetitions_per_case": 30,
+    "observations_per_variant": 60,
+    "source_groups": {
+      "document-1": 2
+    },
+    "distinct_source_group_count": 1,
+    "independent_observation_count": null,
+    "note": "Dependence and within-case trial independence are unknown; 60 is not a verified independent sample size."
+  },
+  "blockers": [
+    {
+      "code": "GRADER_VERSION_MISMATCH",
+      "evidence": "baseline=1; candidate=2",
+      "impact": "The two observed rates use different measurement rules."
+    },
+    {
+      "code": "GRADER_DEFINITION_CHANGED",
+      "evidence": "v2 now accepts an unsupported citation style",
+      "impact": "Changed acceptance criteria confound the comparison; do not relax the original requirement."
+    },
+    {
+      "code": "AGGREGATES_ONLY",
+      "evidence": "No outputs, grader code, rubric, or per-case/per-repetition grades were supplied.",
+      "impact": "Cannot reconstruct paired outcomes, verify the totals, or regrade both variants consistently."
+    },
+    {
+      "code": "ONE_SOURCE_GROUP",
+      "evidence": {
+        "document-1": 2
+      },
+      "impact": "Repeated trials do not provide between-document replication or a population-level interval."
+    }
+  ],
+  "inference": {
+    "paired_test": null,
+    "p_value": null,
+    "confidence_interval": null,
+    "reason": "Different grading rules, missing paired rows, and one source group prevent the requested superiority inference."
+  },
+  "conditional_sensitivity": {
+    "is_observed_data": false,
+    "assumptions": [
+      "v1 implements the original requirements correctly (not verified)",
+      "v2 differs only by additional acceptances, with no newly rejected passes",
+      "baseline's recorded total remains 35 under the validated original rule for this fixture"
+    ],
+    "warning": "This explains non-identifiability, not how many grades actually change.",
+    "scenarios": [
+      {
+        "hypothetical_extra_accepts": 0,
+        "hypothetical_candidate_correct_under_original_rule": 47,
+        "delta_percentage_points": 20.0,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 5
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 1,
+        "hypothetical_candidate_correct_under_original_rule": 46,
+        "delta_percentage_points": 18.333333333333332,
+        "delta_exact": {
+          "numerator": 11,
+          "denominator": 60
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 2,
+        "hypothetical_candidate_correct_under_original_rule": 45,
+        "delta_percentage_points": 16.666666666666668,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 6
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 3,
+        "hypothetical_candidate_correct_under_original_rule": 44,
+        "delta_percentage_points": 15.0,
+        "delta_exact": {
+          "numerator": 3,
+          "denominator": 20
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 4,
+        "hypothetical_candidate_correct_under_original_rule": 43,
+        "delta_percentage_points": 13.333333333333334,
+        "delta_exact": {
+          "numerator": 2,
+          "denominator": 15
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 5,
+        "hypothetical_candidate_correct_under_original_rule": 42,
+        "delta_percentage_points": 11.666666666666666,
+        "delta_exact": {
+          "numerator": 7,
+          "denominator": 60
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 6,
+        "hypothetical_candidate_correct_under_original_rule": 41,
+        "delta_percentage_points": 10.0,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 10
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 7,
+        "hypothetical_candidate_correct_under_original_rule": 40,
+        "delta_percentage_points": 8.333333333333334,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 12
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 8,
+        "hypothetical_candidate_correct_under_original_rule": 39,
+        "delta_percentage_points": 6.666666666666667,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 15
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 9,
+        "hypothetical_candidate_correct_under_original_rule": 38,
+        "delta_percentage_points": 5.0,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 20
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 10,
+        "hypothetical_candidate_correct_under_original_rule": 37,
+        "delta_percentage_points": 3.3333333333333335,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 30
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 11,
+        "hypothetical_candidate_correct_under_original_rule": 36,
+        "delta_percentage_points": 1.6666666666666667,
+        "delta_exact": {
+          "numerator": 1,
+          "denominator": 60
+        },
+        "descriptive_order": "higher"
+      },
+      {
+        "hypothetical_extra_accepts": 12,
+        "hypothetical_candidate_correct_under_original_rule": 35,
+        "delta_percentage_points": 0.0,
+        "delta_exact": {
+          "numerator": 0,
+          "denominator": 1
+        },
+        "descriptive_order": "equal"
+      },
+      {
+        "hypothetical_extra_accepts": 13,
+        "hypothetical_candidate_correct_under_original_rule": 34,
+        "delta_percentage_points": -1.6666666666666667,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 14,
+        "hypothetical_candidate_correct_under_original_rule": 33,
+        "delta_percentage_points": -3.3333333333333335,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 30
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 15,
+        "hypothetical_candidate_correct_under_original_rule": 32,
+        "delta_percentage_points": -5.0,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 20
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 16,
+        "hypothetical_candidate_correct_under_original_rule": 31,
+        "delta_percentage_points": -6.666666666666667,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 15
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 17,
+        "hypothetical_candidate_correct_under_original_rule": 30,
+        "delta_percentage_points": -8.333333333333334,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 12
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 18,
+        "hypothetical_candidate_correct_under_original_rule": 29,
+        "delta_percentage_points": -10.0,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 10
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 19,
+        "hypothetical_candidate_correct_under_original_rule": 28,
+        "delta_percentage_points": -11.666666666666666,
+        "delta_exact": {
+          "numerator": -7,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 20,
+        "hypothetical_candidate_correct_under_original_rule": 27,
+        "delta_percentage_points": -13.333333333333334,
+        "delta_exact": {
+          "numerator": -2,
+          "denominator": 15
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 21,
+        "hypothetical_candidate_correct_under_original_rule": 26,
+        "delta_percentage_points": -15.0,
+        "delta_exact": {
+          "numerator": -3,
+          "denominator": 20
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 22,
+        "hypothetical_candidate_correct_under_original_rule": 25,
+        "delta_percentage_points": -16.666666666666668,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 6
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 23,
+        "hypothetical_candidate_correct_under_original_rule": 24,
+        "delta_percentage_points": -18.333333333333332,
+        "delta_exact": {
+          "numerator": -11,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 24,
+        "hypothetical_candidate_correct_under_original_rule": 23,
+        "delta_percentage_points": -20.0,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 5
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 25,
+        "hypothetical_candidate_correct_under_original_rule": 22,
+        "delta_percentage_points": -21.666666666666668,
+        "delta_exact": {
+          "numerator": -13,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 26,
+        "hypothetical_candidate_correct_under_original_rule": 21,
+        "delta_percentage_points": -23.333333333333332,
+        "delta_exact": {
+          "numerator": -7,
+          "denominator": 30
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 27,
+        "hypothetical_candidate_correct_under_original_rule": 20,
+        "delta_percentage_points": -25.0,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 4
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 28,
+        "hypothetical_candidate_correct_under_original_rule": 19,
+        "delta_percentage_points": -26.666666666666668,
+        "delta_exact": {
+          "numerator": -4,
+          "denominator": 15
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 29,
+        "hypothetical_candidate_correct_under_original_rule": 18,
+        "delta_percentage_points": -28.333333333333332,
+        "delta_exact": {
+          "numerator": -17,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 30,
+        "hypothetical_candidate_correct_under_original_rule": 17,
+        "delta_percentage_points": -30.0,
+        "delta_exact": {
+          "numerator": -3,
+          "denominator": 10
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 31,
+        "hypothetical_candidate_correct_under_original_rule": 16,
+        "delta_percentage_points": -31.666666666666668,
+        "delta_exact": {
+          "numerator": -19,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 32,
+        "hypothetical_candidate_correct_under_original_rule": 15,
+        "delta_percentage_points": -33.333333333333336,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 3
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 33,
+        "hypothetical_candidate_correct_under_original_rule": 14,
+        "delta_percentage_points": -35.0,
+        "delta_exact": {
+          "numerator": -7,
+          "denominator": 20
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 34,
+        "hypothetical_candidate_correct_under_original_rule": 13,
+        "delta_percentage_points": -36.666666666666664,
+        "delta_exact": {
+          "numerator": -11,
+          "denominator": 30
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 35,
+        "hypothetical_candidate_correct_under_original_rule": 12,
+        "delta_percentage_points": -38.333333333333336,
+        "delta_exact": {
+          "numerator": -23,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 36,
+        "hypothetical_candidate_correct_under_original_rule": 11,
+        "delta_percentage_points": -40.0,
+        "delta_exact": {
+          "numerator": -2,
+          "denominator": 5
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 37,
+        "hypothetical_candidate_correct_under_original_rule": 10,
+        "delta_percentage_points": -41.666666666666664,
+        "delta_exact": {
+          "numerator": -5,
+          "denominator": 12
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 38,
+        "hypothetical_candidate_correct_under_original_rule": 9,
+        "delta_percentage_points": -43.333333333333336,
+        "delta_exact": {
+          "numerator": -13,
+          "denominator": 30
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 39,
+        "hypothetical_candidate_correct_under_original_rule": 8,
+        "delta_percentage_points": -45.0,
+        "delta_exact": {
+          "numerator": -9,
+          "denominator": 20
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 40,
+        "hypothetical_candidate_correct_under_original_rule": 7,
+        "delta_percentage_points": -46.666666666666664,
+        "delta_exact": {
+          "numerator": -7,
+          "denominator": 15
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 41,
+        "hypothetical_candidate_correct_under_original_rule": 6,
+        "delta_percentage_points": -48.333333333333336,
+        "delta_exact": {
+          "numerator": -29,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 42,
+        "hypothetical_candidate_correct_under_original_rule": 5,
+        "delta_percentage_points": -50.0,
+        "delta_exact": {
+          "numerator": -1,
+          "denominator": 2
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 43,
+        "hypothetical_candidate_correct_under_original_rule": 4,
+        "delta_percentage_points": -51.666666666666664,
+        "delta_exact": {
+          "numerator": -31,
+          "denominator": 60
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 44,
+        "hypothetical_candidate_correct_under_original_rule": 3,
+        "delta_percentage_points": -53.333333333333336,
+        "delta_exact": {
+          "numerator": -8,
+          "denominator": 15
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 45,
+        "hypothetical_candidate_correct_under_original_rule": 2,
+        "delta_percentage_points": -55.0,
+        "delta_exact": {
+          "numerator": -11,
+          "denominator": 20
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 46,
+        "hypothetical_candidate_correct_under_original_rule": 1,
+        "delta_percentage_points": -56.666666666666664,
+        "delta_exact": {
+          "numerator": -17,
+          "denominator": 30
+        },
+        "descriptive_order": "lower"
+      },
+      {
+        "hypothetical_extra_accepts": 47,
+        "hypothetical_candidate_correct_under_original_rule": 0,
+        "delta_percentage_points": -58.333333333333336,
+        "delta_exact": {
+          "numerator": -7,
+          "denominator": 12
+        },
+        "descriptive_order": "lower"
+      }
+    ]
+  }
+}

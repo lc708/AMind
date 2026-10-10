@@ -1,0 +1,108 @@
+{
+  "task_id": "G04",
+  "run_id": "R09",
+  "evidence_level": "offline_fixed_fixtures",
+  "runtime": "Python 3.9.6",
+  "files_read": [
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/SKILL.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/response-recipes.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/platform-operations.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/scripts/response_contract.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/task.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/response_contract.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/test_contracts.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/fixture_result.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/verification.log",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/deliverable.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/execution.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/validate_delivery.py"
+  ],
+  "files_read_note": "Includes source imports and the final local artifact validation; standard-library runtime files are not individually enumerated.",
+  "commands_executed": [
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/SKILL.md",
+      "exit_code": 0
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09/task.json",
+      "exit_code": 0
+    },
+    {
+      "command": "rg --files -g 'AGENTS.md' -g '*' /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09",
+      "exit_code": 0,
+      "result": "Only task.json existed; no task-directory AGENTS.md was present."
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/response-recipes.md /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/platform-operations.md /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/scripts/response_contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 --version",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09",
+      "exit_code": 0,
+      "result": "Python 3.9.6"
+    },
+    {
+      "command": "python3 -m unittest -v",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09",
+      "exit_code": 0,
+      "result": "26 tests passed in 0.051 seconds"
+    },
+    {
+      "command": "python3 response_contract.py task.json --output fixture_result.json",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09",
+      "exit_code": 0,
+      "result": "Disconnected stream; a completed, b batch_error/expired, c missing."
+    },
+    {
+      "command": "python3 validate_delivery.py",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R09",
+      "exit_code": 0,
+      "result": "Artifact audit passed; original task content is intact."
+    }
+  ],
+  "subprocesses_in_tests": [
+    "python3 response_contract.py <absolute task.json path>",
+    "python3 response_contract.py <absolute task.json path> --output <same absolute task.json path> (expected refusal, exit 2)"
+  ],
+  "files_written": [
+    "response_contract.py",
+    "test_contracts.py",
+    "fixture_result.json",
+    "verification.log",
+    "deliverable.md",
+    "execution.json",
+    "validate_delivery.py"
+  ],
+  "generated_runtime_files": [
+    "__pycache__ (Python-generated local bytecode cache)"
+  ],
+  "self_reported_tool_call_count": 18,
+  "tool_call_count_definition": "7 functions.exec wrapper calls plus 11 nested tool invocations, including final artifact validation; test subprocesses are commands, not additional tool calls.",
+  "tool_calls_by_kind": {
+    "functions.exec": 7,
+    "exec_command": 8,
+    "apply_patch": 3
+  },
+  "constraints": {
+    "task_json_modified": false,
+    "skill_sources_modified": false,
+    "only_assigned_task_and_skill_sources_inspected": true,
+    "network_calls": 0,
+    "target_model_or_api_calls": 0,
+    "credentials_accessed": false,
+    "external_side_effects": false,
+    "deployments": false,
+    "additional_agents": 0,
+    "actual_model_evaluation": false,
+    "constraint_unmet": false,
+    "unmet_constraints": []
+  },
+  "material_limits": [
+    "Only offline, already-decoded finite fixtures were evaluated.",
+    "No original application source was provided; implementation is a standalone importable adapter.",
+    "Live transport deadlines, cancellation, provider compatibility and service behavior remain unverified.",
+    "Transport completion does not establish answer quality or application task success."
+  ],
+  "task_json_sha256": "c48441c111b35b9810ddb539e97ff4d42548dd254f38db8fb97fefb22cc06023"
+}

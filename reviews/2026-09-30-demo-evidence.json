@@ -1,0 +1,206 @@
+{
+  "synthetic_only": true,
+  "root": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7",
+  "commands": [
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/run_eval.py",
+        "--card",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/assets/offline-demo/experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation",
+        "--variant",
+        "baseline",
+        "--split",
+        "val",
+        "--execute"
+      ],
+      "result": {
+        "status": "complete",
+        "completed_cases": 4,
+        "attempts": 4,
+        "known_cost_usd": 0.0,
+        "unknown_cost_attempts": 0
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/run_eval.py",
+        "--card",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/assets/offline-demo/experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation",
+        "--variant",
+        "v1",
+        "--split",
+        "val",
+        "--execute"
+      ],
+      "result": {
+        "status": "complete",
+        "completed_cases": 4,
+        "attempts": 4,
+        "known_cost_usd": 0.0,
+        "unknown_cost_attempts": 0
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/compare_runs.py",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation",
+        "--candidate",
+        "v1",
+        "--split",
+        "val",
+        "--all-metrics",
+        "--reps",
+        "1"
+      ],
+      "result": {
+        "candidate": "v1",
+        "split": "val",
+        "decision": "gates_passed",
+        "evidence_use": "selection_only",
+        "metrics": [
+          {
+            "candidate": "v1",
+            "split": "val",
+            "metric": "quality",
+            "direction": "higher",
+            "planned_cases": 4,
+            "complete_pairs": 4,
+            "reps": 1,
+            "minimum_improvement": 0.0,
+            "problems": [],
+            "alpha": 0.05,
+            "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+            "bootstrap_samples": 4000,
+            "seed": 42,
+            "identity_verified": true,
+            "comparison_hash": "09e1e362db19d3df902dd4aecafcb30f7e3c5c3a8af4a69eab66bd6e78566002",
+            "independent_groups": 4,
+            "verdict": "improvement_clears_threshold",
+            "baseline_mean": 0.25,
+            "candidate_mean": 1.0,
+            "delta_candidate_minus_baseline": 0.75,
+            "improvement": 0.75,
+            "improvement_interval": [
+              0.25,
+              1.0
+            ],
+            "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+            "improvement_ci95": [
+              0.25,
+              1.0
+            ],
+            "role": "objective",
+            "margin": 0,
+            "gate_passed": true
+          }
+        ],
+        "limits": "Familywise intervals cover registered metrics, not repeated peeking or many candidate searches. Operational, cost and mechanism gates remain separate."
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/seal_selection.py",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation",
+        "--candidate",
+        "v1",
+        "--output",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/selection.json",
+        "--rationale",
+        "Synthetic demonstration: freeze uppercase treatment before test"
+      ],
+      "result": {
+        "schema_version": 2,
+        "candidate": "v1",
+        "validation_comparison_hash": "09e1e362db19d3df902dd4aecafcb30f7e3c5c3a8af4a69eab66bd6e78566002",
+        "contract_fingerprint": "b498ffc45d21c465034119b533b8ee9af4d1ed3348def1c286f5c3db2ee829b1",
+        "treatments": {
+          "baseline": "a71b1cf30f1166ae880d0dd52988bf8b9c01577b4fb14bee3936469aabf853c4",
+          "v1": "814e1b3af229b8de04ebf45ebe42562f807a34b1d34d50a7e38d0b3d57e1142a"
+        },
+        "validation_results": {
+          "baseline": "8a540bcee46a98816d6060af28d06e69228ed3771bd622ea74028a730706e373",
+          "v1": "64a4a0c7a1583e6e2122cff5c8d61787fe63223628c8ae4cc40e421c3e2f91a4"
+        },
+        "rationale": "Synthetic demonstration: freeze uppercase treatment before test",
+        "meaning": "Selection frozen; this is not evidence that the selected candidate improved",
+        "certificate_hash": "73a3859c40fdd715cf0ea88859409eb7962536b3f090a5c1ac1d2b19e29a4397"
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/run_eval.py",
+        "--card",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/assets/offline-demo/experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/final-test",
+        "--variant",
+        "baseline",
+        "--split",
+        "test",
+        "--selection",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/selection.json",
+        "--execute"
+      ],
+      "result": {
+        "status": "complete",
+        "completed_cases": 2,
+        "attempts": 2,
+        "known_cost_usd": 0.0,
+        "unknown_cost_attempts": 0
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/run_eval.py",
+        "--card",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/assets/offline-demo/experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/final-test",
+        "--variant",
+        "v1",
+        "--split",
+        "test",
+        "--selection",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/selection.json",
+        "--execute"
+      ],
+      "result": {
+        "status": "complete",
+        "completed_cases": 2,
+        "attempts": 2,
+        "known_cost_usd": 0.0,
+        "unknown_cost_attempts": 0
+      }
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation"
+      ],
+      "result": {
+        "report": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation/report-full.html",
+        "data": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation/report-data.json",
+        "variants": 2
+      }
+    }
+  ],
+  "report": {
+    "report": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation/report-full.html",
+    "data": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-kernel-demo-odmok8y7/validation/report-data.json",
+    "variants": 2
+  },
+  "meaning": "End-to-end runner, grader, comparison, selection, final-test and report plumbing; not a model benchmark"
+}

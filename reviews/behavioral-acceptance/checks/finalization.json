@@ -1,0 +1,9 @@
+{
+  "checked_utc": "2026-09-29T22:13:30.347698+00:00",
+  "report_local_links_valid": true,
+  "all_24_scores_arithmetic_valid": true,
+  "all_24_archived_deliverables_reproduced": true,
+  "installed_packages_match_84_test_manifest": true,
+  "git_diff_check_exit_code": 0,
+  "overall_superiority_criterion_met": false
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "AMind Engineering"
+  short_description: "Engineer, diagnose and measure AI applications"
+  default_prompt: "Use $amind-engineering to implement or improve this AI application and verify the result."

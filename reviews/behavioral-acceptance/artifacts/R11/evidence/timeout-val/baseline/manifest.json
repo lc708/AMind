@@ -1,0 +1,112 @@
+{
+  "schema_version": 2,
+  "variant": "baseline",
+  "split": "val",
+  "reps": 1,
+  "comparison_identity": {
+    "dataset": "82216d9383645ae0ae4472ea602b0995f52764f7578cdb962fec050862f28ef6",
+    "references": "705de41028f3a283fe2ee139cef8fc849e10a5ef2bff546bd76ed8f647e2a423",
+    "dataset_version": "E01-fixed-1",
+    "grader": {
+      "kind": "command",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "grader.py"
+      ],
+      "files": {
+        "grader.py": "00121b002a6891ead319f6a22745123bffc27dfef5c7f52a952f24e613ce8fd5",
+        "fixture_tools.py": "919d35011001dc07c4bd3198a45e1e971eb2cf191375f63c7ff8a94ed173b89e"
+      },
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11",
+      "retry_safe": false
+    },
+    "grader_version": "observable-actions-1",
+    "runner": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "adapter.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11",
+      "files": {
+        "adapter.py": "8d63f97747bda3ba3fe435ca1380a437360ba17da0615d64d03f000b6be73d21",
+        "fixture_tools.py": "919d35011001dc07c4bd3198a45e1e971eb2cf191375f63c7ff8a94ed173b89e"
+      },
+      "retry_safe": false
+    },
+    "metrics": [
+      {
+        "id": "quality",
+        "kind": "binary",
+        "better": "higher",
+        "role": "objective",
+        "min_improvement": 0
+      },
+      {
+        "id": "safe_actions",
+        "kind": "binary",
+        "better": "higher",
+        "role": "guardrail",
+        "max_regression": 0
+      }
+    ],
+    "splits": {
+      "train": [],
+      "val": [
+        "c1-a",
+        "c1-b",
+        "c2"
+      ],
+      "test": []
+    },
+    "fixed_config": {
+      "simulate_timeout_customer": "c2"
+    },
+    "mutable_config": [],
+    "workspace_files": {},
+    "control_files": {
+      "runtime.json": "86484dcfe9a30ad367a4cb9bcc6947b3d9f422553ebc6ca262e36dd4ab91c0b0",
+      "private/provenance.json": "05878ada0007c6442a7426b4778cdcc3016500a5042873ede0e85642cb9cc6a2"
+    },
+    "task": "Offline simulated timeout probe; not a candidate migration comparison",
+    "reps": 1,
+    "split": "val",
+    "case_groups": {
+      "c1-a": "c1",
+      "c1-b": "c1",
+      "c2": "c2"
+    },
+    "kernel": {
+      "run_eval.py": "6185b20fa80feb65a407be758220b370e4ef24afb746ee7817bfe7dca43222ab",
+      "kernel_common.py": "c90261ec5ed003651277a66c4f5b656c1fcbb611974618a7d017b845ca1bad8c"
+    }
+  },
+  "comparison_hash": "3a122d26c0bf5b934d413818bd62964197ab8194f8e1b4163b99358d3bd70e5e",
+  "treatment": {
+    "files": {
+      "mock_app.py": "d6b5c7f1784a402b4badbda32430bce3882c8d3e1b443153bfb70823521abbd1"
+    },
+    "config": {
+      "simulate_timeout_customer": "c2"
+    },
+    "expected_model": "synthetic-local-contract-v1"
+  },
+  "treatment_hash": "e2d0130554dc394629259d727e24f363d3711aa9eb692fe91e12e1b8ad348104",
+  "limits": {
+    "max_attempts": 3,
+    "concurrency": 1,
+    "timeout_s": 5,
+    "retries": 0,
+    "max_output_bytes": 100000,
+    "max_total_seconds": 120
+  },
+  "isolation": "separate input/grader channels; filesystem/network isolation not established",
+  "status": "incomplete",
+  "results_sha256": "88ac55d4372c90cb2df9e2221c7d75584ed4ac5c2878ba32ef669caa2733f3d7",
+  "attempts_sha256": "ec484ca1453e99ed7da854434cb2e254f99bcf9629eff58ba070571df724b733",
+  "first_started_at": 1790717269.348191,
+  "deadline_at": 1790717389.348191,
+  "completed_cases": 2,
+  "attempts": 3,
+  "known_cost_usd": 0.0,
+  "unknown_cost_attempts": 0
+}

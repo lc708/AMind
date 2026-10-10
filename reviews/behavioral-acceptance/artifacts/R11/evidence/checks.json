@@ -1,0 +1,113 @@
+[
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "-m",
+      "unittest",
+      "-v",
+      "test_evaluation.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "test_all_original_cases_pass_fixed_contract (test_evaluation.EvaluationTests) ... ok\ntest_application_gets_only_public_fields (test_evaluation.EvaluationTests) ... ok\ntest_broken_dependency_fails (test_evaluation.EvaluationTests) ... ok\ntest_correct_different_phrase_passes (test_evaluation.EvaluationTests) ... ok\ntest_duplicate_refund_call_rejected_even_if_idempotent (test_evaluation.EvaluationTests) ... ok\ntest_forbidden_mutation_fails (test_evaluation.EvaluationTests) ... ok\ntest_group_split_and_measurement_identity (test_evaluation.EvaluationTests) ... ok\ntest_historical_denominator_keeps_timeout (test_evaluation.EvaluationTests) ... ok\ntest_invalid_score_type_rejected (test_evaluation.EvaluationTests) ... ok\ntest_isolation_limit_is_explicitly_reproduced (test_evaluation.EvaluationTests) ... ok\ntest_missing_and_duplicate_attempts_are_not_silently_dropped (test_evaluation.EvaluationTests) ... ok\ntest_missing_artifact_fails_even_with_correct_claim (test_evaluation.EvaluationTests) ... ok\ntest_negative_constant_empty_fluent_wrong_and_injection (test_evaluation.EvaluationTests) ... ok\ntest_no_final_holdout_claim (test_evaluation.EvaluationTests) ... ok\ntest_original_inputs_and_answers_preserved (test_evaluation.EvaluationTests) ... ok\ntest_refund_before_verification_fails (test_evaluation.EvaluationTests) ... ok\ntest_state_is_reset_between_cases_and_case_order (test_evaluation.EvaluationTests) ... ok\ntest_timeout_is_classified_unscored (test_evaluation.EvaluationTests) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.009s\n\nOK\n"
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "audit.py"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"evidence\": \"historical supplied scores; action correctness unverified\",\n  \"planned\": 3,\n  \"recorded_attempts\": 3,\n  \"scored\": 2,\n  \"missing_case_ids\": [],\n  \"errors\": [\n    {\n      \"id\": \"c2\",\n      \"status\": \"timeout\"\n    }\n  ],\n  \"conditional_quality\": 1.0,\n  \"scored_coverage\": 0.6666666666666666,\n  \"observed_success_over_planned\": 0.6666666666666666,\n  \"quality_identification_bounds\": [\n    0.6666666666666666,\n    1.0\n  ],\n  \"customer_groups\": 2,\n  \"cross_split_customers\": {\n    \"c1\": [\n      \"test\",\n      \"train\"\n    ]\n  },\n  \"cost_usd\": null,\n  \"latency_s\": null,\n  \"migration_eligible\": false,\n  \"reason\": \"Answer leakage, contaminated split, missing timeout outcome and no baseline/candidate identity or trace.\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "--card",
+      "experiment.json",
+      "--flow",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val",
+      "--variant",
+      "baseline",
+      "--split",
+      "val"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"mode\": \"plan\",\n  \"runs\": 3,\n  \"manifest\": {\n    \"schema_version\": 2,\n    \"variant\": \"baseline\",\n    \"split\": \"val\",\n    \"reps\": 1,\n    \"comparison_identity\": {\n      \"dataset\": \"82216d9383645ae0ae4472ea602b0995f52764f7578cdb962fec050862f28ef6\",\n      \"references\": \"705de41028f3a283fe2ee139cef8fc849e10a5ef2bff546bd76ed8f647e2a423\",\n      \"dataset_version\": \"E01-fixed-1\",\n      \"grader\": {\n        \"kind\": \"command\",\n        \"command\": [\n          \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n          \"grader.py\"\n        ],\n        \"files\": {\n          \"grader.py\": \"00121b002a6891ead319f6a22745123bffc27dfef5c7f52a952f24e613ce8fd5\",\n          \"fixture_tools.py\": \"919d35011001dc07c4bd3198a45e1e971eb2cf191375f63c7ff8a94ed173b89e\"\n        },\n        \"cwd\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11\",\n        \"retry_safe\": false\n      },\n      \"grader_version\": \"observable-actions-1\",\n      \"runner\": {\n        \"command\": [\n          \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n          \"adapter.py\"\n        ],\n        \"cwd\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11\",\n        \"files\": {\n          \"adapter.py\": \"8d63f97747bda3ba3fe435ca1380a437360ba17da0615d64d03f000b6be73d21\",\n          \"fixture_tools.py\": \"919d35011001dc07c4bd3198a45e1e971eb2cf191375f63c7ff8a94ed173b89e\"\n        },\n        \"retry_safe\": false\n      },\n      \"metrics\": [\n        {\n          \"id\": \"quality\",\n          \"kind\": \"binary\",\n          \"better\": \"higher\",\n          \"role\": \"objective\",\n          \"min_improvement\": 0\n        },\n        {\n          \"id\": \"safe_actions\",\n          \"kind\": \"binary\",\n          \"better\": \"higher\",\n          \"role\": \"guardrail\",\n          \"max_regression\": 0\n        }\n      ],\n      \"splits\": {\n        \"train\": [],\n        \"val\": [\n          \"c1-a\",\n          \"c1-b\",\n          \"c2\"\n        ],\n        \"test\": []\n      },\n      \"fixed_config\": {\n        \"simulate_timeout_customer\": null\n      },\n      \"mutable_config\": [],\n      \"workspace_files\": {},\n      \"control_files\": {\n        \"runtime.json\": \"86484dcfe9a30ad367a4cb9bcc6947b3d9f422553ebc6ca262e36dd4ab91c0b0\",\n        \"private/provenance.json\": \"05878ada0007c6442a7426b4778cdcc3016500a5042873ede0e85642cb9cc6a2\"\n      },\n      \"task\": \"Offline support evaluation contract; mock handle_ticket only, no migration inference\",\n      \"reps\": 1,\n      \"split\": \"val\",\n      \"case_groups\": {\n        \"c1-a\": \"c1\",\n        \"c1-b\": \"c1\",\n        \"c2\": \"c2\"\n      },\n      \"kernel\": {\n        \"run_eval.py\": \"6185b20fa80feb65a407be758220b370e4ef24afb746ee7817bfe7dca43222ab\",\n        \"kernel_common.py\": \"c90261ec5ed003651277a66c4f5b656c1fcbb611974618a7d017b845ca1bad8c\"\n      }\n    },\n    \"comparison_hash\": \"61f3112e0f52155eb3d7d9115cb1b3aeb314cc20ce270951c5d7ecdc4a9b7dad\",\n    \"treatment\": {\n      \"files\": {\n        \"mock_app.py\": \"d6b5c7f1784a402b4badbda32430bce3882c8d3e1b443153bfb70823521abbd1\"\n      },\n      \"config\": {\n        \"simulate_timeout_customer\": null\n      },\n      \"expected_model\": \"synthetic-local-contract-v1\"\n    },\n    \"treatment_hash\": \"8449ae47943488ffcebd5492f31608cf9fd3fdec65efe2f5fc692f379805d553\",\n    \"limits\": {\n      \"max_attempts\": 3,\n      \"concurrency\": 1,\n      \"timeout_s\": 5,\n      \"retries\": 0,\n      \"max_output_bytes\": 100000,\n      \"max_total_seconds\": 120\n    },\n    \"isolation\": \"separate input/grader channels; filesystem/network isolation not established\",\n    \"status\": \"planned\",\n    \"results_sha256\": null\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "--card",
+      "experiment.json",
+      "--flow",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val",
+      "--variant",
+      "baseline",
+      "--split",
+      "val",
+      "--execute"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"status\": \"complete\",\n  \"completed_cases\": 3,\n  \"attempts\": 3,\n  \"known_cost_usd\": 0,\n  \"unknown_cost_attempts\": 0\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val"
+    ],
+    "returncode": 0,
+    "stdout": "{\"report\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val/report-full.html\", \"data\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val/report-data.json\", \"variants\": 1}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "--card",
+      "timeout-experiment.json",
+      "--flow",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val",
+      "--variant",
+      "baseline",
+      "--split",
+      "val"
+    ],
+    "returncode": 0,
+    "stdout": "{\n  \"mode\": \"plan\",\n  \"runs\": 3,\n  \"manifest\": {\n    \"schema_version\": 2,\n    \"variant\": \"baseline\",\n    \"split\": \"val\",\n    \"reps\": 1,\n    \"comparison_identity\": {\n      \"dataset\": \"82216d9383645ae0ae4472ea602b0995f52764f7578cdb962fec050862f28ef6\",\n      \"references\": \"705de41028f3a283fe2ee139cef8fc849e10a5ef2bff546bd76ed8f647e2a423\",\n      \"dataset_version\": \"E01-fixed-1\",\n      \"grader\": {\n        \"kind\": \"command\",\n        \"command\": [\n          \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n          \"grader.py\"\n        ],\n        \"files\": {\n          \"grader.py\": \"00121b002a6891ead319f6a22745123bffc27dfef5c7f52a952f24e613ce8fd5\",\n          \"fixture_tools.py\": \"919d35011001dc07c4bd3198a45e1e971eb2cf191375f63c7ff8a94ed173b89e\"\n        },\n        \"cwd\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11\",\n        \"retry_safe\": false\n      },\n      \"grader_version\": \"observable-actions-1\",\n      \"runner\": {\n        \"command\": [\n          \"/Library/Developer/CommandLineTools/usr/bin/python3\",\n          \"adapter.py\"\n        ],\n        \"cwd\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11\",\n        \"files\": {\n          \"adapter.py\": \"8d63f97747bda3ba3fe435ca1380a437360ba17da0615d64d03f000b6be73d21\",\n          \"fixture_tools.py\": \"919d35011001dc07c4bd3198a45e1e971eb2cf191375f63c7ff8a94ed173b89e\"\n        },\n        \"retry_safe\": false\n      },\n      \"metrics\": [\n        {\n          \"id\": \"quality\",\n          \"kind\": \"binary\",\n          \"better\": \"higher\",\n          \"role\": \"objective\",\n          \"min_improvement\": 0\n        },\n        {\n          \"id\": \"safe_actions\",\n          \"kind\": \"binary\",\n          \"better\": \"higher\",\n          \"role\": \"guardrail\",\n          \"max_regression\": 0\n        }\n      ],\n      \"splits\": {\n        \"train\": [],\n        \"val\": [\n          \"c1-a\",\n          \"c1-b\",\n          \"c2\"\n        ],\n        \"test\": []\n      },\n      \"fixed_config\": {\n        \"simulate_timeout_customer\": \"c2\"\n      },\n      \"mutable_config\": [],\n      \"workspace_files\": {},\n      \"control_files\": {\n        \"runtime.json\": \"86484dcfe9a30ad367a4cb9bcc6947b3d9f422553ebc6ca262e36dd4ab91c0b0\",\n        \"private/provenance.json\": \"05878ada0007c6442a7426b4778cdcc3016500a5042873ede0e85642cb9cc6a2\"\n      },\n      \"task\": \"Offline simulated timeout probe; not a candidate migration comparison\",\n      \"reps\": 1,\n      \"split\": \"val\",\n      \"case_groups\": {\n        \"c1-a\": \"c1\",\n        \"c1-b\": \"c1\",\n        \"c2\": \"c2\"\n      },\n      \"kernel\": {\n        \"run_eval.py\": \"6185b20fa80feb65a407be758220b370e4ef24afb746ee7817bfe7dca43222ab\",\n        \"kernel_common.py\": \"c90261ec5ed003651277a66c4f5b656c1fcbb611974618a7d017b845ca1bad8c\"\n      }\n    },\n    \"comparison_hash\": \"3a122d26c0bf5b934d413818bd62964197ab8194f8e1b4163b99358d3bd70e5e\",\n    \"treatment\": {\n      \"files\": {\n        \"mock_app.py\": \"d6b5c7f1784a402b4badbda32430bce3882c8d3e1b443153bfb70823521abbd1\"\n      },\n      \"config\": {\n        \"simulate_timeout_customer\": \"c2\"\n      },\n      \"expected_model\": \"synthetic-local-contract-v1\"\n    },\n    \"treatment_hash\": \"e2d0130554dc394629259d727e24f363d3711aa9eb692fe91e12e1b8ad348104\",\n    \"limits\": {\n      \"max_attempts\": 3,\n      \"concurrency\": 1,\n      \"timeout_s\": 5,\n      \"retries\": 0,\n      \"max_output_bytes\": 100000,\n      \"max_total_seconds\": 120\n    },\n    \"isolation\": \"separate input/grader channels; filesystem/network isolation not established\",\n    \"status\": \"planned\",\n    \"results_sha256\": null\n  }\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "--card",
+      "timeout-experiment.json",
+      "--flow",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val",
+      "--variant",
+      "baseline",
+      "--split",
+      "val",
+      "--execute"
+    ],
+    "returncode": 2,
+    "stdout": "{\n  \"status\": \"incomplete\",\n  \"completed_cases\": 2,\n  \"attempts\": 3,\n  \"known_cost_usd\": 0.0,\n  \"unknown_cost_attempts\": 0\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val"
+    ],
+    "returncode": 0,
+    "stdout": "{\"report\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val/report-full.html\", \"data\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val/report-data.json\", \"variants\": 1}\n",
+    "stderr": ""
+  }
+]

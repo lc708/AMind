@@ -1,0 +1,26 @@
+test_authorization_rechecked_on_replay_and_cancel (test_recovery.RecoveryTests) ... ok
+test_cancel_after_crash_still_reconciles (test_recovery.RecoveryTests) ... ok
+test_cancel_before_dispatch_is_durable (test_recovery.RecoveryTests) ... ok
+test_cancel_between_lookup_and_retry_prevents_write (test_recovery.RecoveryTests) ... ok
+test_cancel_during_remote_effect_keeps_success (test_recovery.RecoveryTests) ... ok
+test_cancel_unknown_not_found_never_claims_rollback (test_recovery.RecoveryTests) ... ok
+test_cancelled_unknown_can_be_reconciled_read_only_later (test_recovery.RecoveryTests) ... ok
+test_crash_after_remote_success_reconciles_op1 (test_recovery.RecoveryTests) ... ok
+test_invalid_and_unauthorized_never_dispatch (test_recovery.RecoveryTests) ... ok
+test_lookup_failure_does_not_trigger_charge (test_recovery.RecoveryTests) ... ok
+test_manual_review_read_budget_is_durable (test_recovery.RecoveryTests) ... ok
+test_payload_conflict_rejected (test_recovery.RecoveryTests) ... ok
+test_permanent_rejection_not_retried (test_recovery.RecoveryTests) ... ok
+test_real_process_crash_and_restart_entrypoint (test_recovery.RecoveryTests) ... ok
+test_review_cannot_bypass_normal_backoff (test_recovery.RecoveryTests) ... ok
+test_stale_absence_retry_reuses_remote_key (test_recovery.RecoveryTests) ... ok
+test_success_and_repeated_delivery (test_recovery.RecoveryTests) ... ok
+test_tenant_task_and_call_are_separate_scopes (test_recovery.RecoveryTests) ... ok
+test_timeout_after_success_recovers_without_new_write (test_recovery.RecoveryTests) ... ok
+test_unbounded_exception_retry_removed (test_recovery.RecoveryTests) ... ok
+test_wrong_receipt_cannot_complete_pending_effect (test_recovery.RecoveryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 0.188s
+
+OK

@@ -1,0 +1,31 @@
+test_all_completed_batch (test_contracts.BatchContracts) ... ok
+test_duplicate_requested_id_rejected (test_contracts.BatchContracts) ... ok
+test_duplicate_returned_id_rejected (test_contracts.BatchContracts) ... ok
+test_every_result_permutation_matches_ids (test_contracts.BatchContracts) ... ok
+test_http_200_requires_completed_body (test_contracts.BatchContracts) ... ok
+test_http_error_is_not_success (test_contracts.BatchContracts) ... ok
+test_malformed_records_fail_closed (test_contracts.BatchContracts) ... ok
+test_missing_body_status_cannot_succeed (test_contracts.BatchContracts) ... ok
+test_no_returned_rows_are_all_missing (test_contracts.BatchContracts) ... ok
+test_raw_rows_preserved_without_mutating_input (test_contracts.BatchContracts) ... ok
+test_unknown_id_rejected (test_contracts.BatchContracts) ... ok
+test_cli_cannot_overwrite_input (test_contracts.OriginalFixtureAndCLI) ... ok
+test_original_fixture_and_legacy_regression (test_contracts.OriginalFixtureAndCLI) ... ok
+test_public_cli (test_contracts.OriginalFixtureAndCLI) ... ok
+test_completed_uses_final_response_not_provisional_deltas (test_contracts.StreamContracts) ... ok
+test_completion_without_deltas_can_succeed (test_contracts.StreamContracts) ... ok
+test_empty_stream_is_disconnected (test_contracts.StreamContracts) ... ok
+test_error_after_delta_is_failure (test_contracts.StreamContracts) ... ok
+test_events_after_terminal_or_error_rejected (test_contracts.StreamContracts) ... ok
+test_failed_and_incomplete_preserve_partial_usage_and_reason (test_contracts.StreamContracts) ... ok
+test_malformed_events_rejected (test_contracts.StreamContracts) ... ok
+test_missing_terminal_body_rejected (test_contracts.StreamContracts) ... ok
+test_refusal_tools_and_opaque_items_are_preserved (test_contracts.StreamContracts) ... ok
+test_terminal_event_status_mismatch_rejected (test_contracts.StreamContracts) ... ok
+test_text_then_eof_is_disconnected (test_contracts.StreamContracts) ... ok
+test_unknown_events_do_not_imply_success (test_contracts.StreamContracts) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.051s
+
+OK

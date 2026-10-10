@@ -1,0 +1,115 @@
+{
+  "task_id": "E05",
+  "evidence": "local fixed fixture; no live model measurement",
+  "policy": {
+    "input_includes_cache": true,
+    "output_includes_reasoning": true,
+    "reported_cost_overrides_usage": true,
+    "unknown_is_zero": false
+  },
+  "rates_source": "task.json.fixture.rates_usd_per_million",
+  "baseline": {
+    "rows": [
+      {
+        "attempt_index": 1,
+        "stage": "application",
+        "status": "rate_limit",
+        "cost_usd": "0.001",
+        "source": "reported",
+        "components_usd": null
+      },
+      {
+        "attempt_index": 2,
+        "stage": "application",
+        "status": "ok",
+        "cost_usd": "0.0039",
+        "source": "token_usage",
+        "components_usd": {
+          "uncached_input": "0.001",
+          "cached_input": "0.0009",
+          "output": "0.002"
+        }
+      },
+      {
+        "attempt_index": 3,
+        "stage": "judge",
+        "status": "ok",
+        "cost_usd": "0.002",
+        "source": "reported",
+        "components_usd": null
+      },
+      {
+        "attempt_index": 4,
+        "stage": "judge",
+        "status": "timeout",
+        "cost_usd": null,
+        "source": "unknown",
+        "components_usd": null
+      }
+    ],
+    "stages": {
+      "application": {
+        "known_cost_usd": "0.0049",
+        "unknown_attempts": 0,
+        "attempts": 2,
+        "ok_attempts": 1
+      },
+      "judge": {
+        "known_cost_usd": "0.002",
+        "unknown_attempts": 1,
+        "attempts": 2,
+        "ok_attempts": 1
+      }
+    },
+    "known_cost_usd": "0.0069",
+    "unknown_attempts": 1,
+    "complete": false,
+    "total_cost_usd": null,
+    "cost_interval_usd": {
+      "lower_inclusive": "0.0069",
+      "upper_inclusive": null
+    }
+  },
+  "candidate_cost_usd": null,
+  "cost_per_completed_task_usd": null,
+  "denominator_note": "No task IDs, task count, or task completion labels supplied; attempt status is not task success.",
+  "decision": {
+    "absolute_quality_loss": "0.01",
+    "quality_point_gate": true,
+    "relative_saving": null,
+    "saving_point_gate": null,
+    "point_verdict": "indeterminate",
+    "confidence_bounds_pass": null,
+    "promotion": "insufficient_evidence"
+  },
+  "token_semantics_sensitivity": [
+    {
+      "input_includes_cache": true,
+      "output_includes_reasoning": true,
+      "known_cost_usd": "0.0069",
+      "unknown_attempts": 1
+    },
+    {
+      "input_includes_cache": true,
+      "output_includes_reasoning": false,
+      "known_cost_usd": "0.0085",
+      "unknown_attempts": 1
+    },
+    {
+      "input_includes_cache": false,
+      "output_includes_reasoning": true,
+      "known_cost_usd": "0.0159",
+      "unknown_attempts": 1
+    },
+    {
+      "input_includes_cache": false,
+      "output_includes_reasoning": false,
+      "known_cost_usd": "0.0175",
+      "unknown_attempts": 1
+    }
+  ],
+  "minimum_quality": "0.88",
+  "conditional_zero_unknown_cost_candidate_ceiling_usd": "0.005865",
+  "conditional_ceiling_note": "Arithmetic scenario only: assumes missing baseline charge is zero and matched task counts. Not an observed saving.",
+  "task_sha256": "c4fb5112a812369c21390508520e1c870843f67c3c20327ec26ce4aba758995a"
+}

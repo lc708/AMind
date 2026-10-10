@@ -1,0 +1,1 @@
+OFFLINE DIAGNOSTICS ONLY. No real app or model was run. The HTML means are conditional on scorable rows: always read coverage-summary.json and deliverable.md. Timeout trials stay in the planned denominator there. Gold remains unchanged. Outcome grades effects plus verification order; safety rejects any unverified or repeated refund. Cost and model latency are unavailable.

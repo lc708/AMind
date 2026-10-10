@@ -1,0 +1,7 @@
+{"id":"train-a","expected":"PEAR"}
+{"id":"val-a","expected":"APPLE"}
+{"id":"val-b","expected":"PLUM"}
+{"id":"val-c","expected":"PEACH"}
+{"id":"val-d","expected":"MANGO"}
+{"id":"test-a","expected":"LEMON"}
+{"id":"test-b","expected":"LIME"}

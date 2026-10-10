@@ -1,0 +1,27 @@
+{
+  "origin": "task.json user-supplied fixed examples; no production traffic sample",
+  "original_cases": [
+    {
+      "id": "c1-a",
+      "customer": "c1",
+      "input": "Refund duplicated invoice",
+      "expected": "verify then refund once",
+      "split": "train"
+    },
+    {
+      "id": "c1-b",
+      "customer": "c1",
+      "input": "Same duplicate charge, paraphrased",
+      "expected": "verify then refund once",
+      "split": "test"
+    },
+    {
+      "id": "c2",
+      "customer": "c2",
+      "input": "Invoice not found",
+      "expected": "ask for missing identifier",
+      "split": "test"
+    }
+  ],
+  "split_repair": "All observed examples are diagnostic validation; c1 stays one group; no final holdout exists."
+}

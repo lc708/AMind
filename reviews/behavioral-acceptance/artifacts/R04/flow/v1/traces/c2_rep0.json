@@ -1,0 +1,23 @@
+[
+  {
+    "role": "system",
+    "content": "OFFLINE FIXTURE: no real app or model."
+  },
+  {
+    "role": "user",
+    "content": "{\"customer\":\"c2\",\"input\":\"Invoice not found\"}"
+  },
+  {
+    "role": "tool_call",
+    "name": "verify",
+    "content": "{\"customer\":\"c2\"}"
+  },
+  {
+    "role": "tool_result",
+    "content": "null"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"kind\":\"request_identifier\",\"field\":\"invoice_id\",\"message\":\"Please provide the invoice identifier.\"}"
+  }
+]

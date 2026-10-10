@@ -1,0 +1,114 @@
+{
+  "evidence_kind": "offline fixed fixture; no target or judge executed",
+  "costs": {
+    "rows": [
+      {
+        "id": "fixture-01",
+        "stage": "application",
+        "model": "fixture-text-model",
+        "status": "reported",
+        "cost_usd": 0.001,
+        "basis": "task.json reported_cost_usd; fixture, not reconciled invoice",
+        "attempt_status": "rate_limit"
+      },
+      {
+        "id": "fixture-02",
+        "stage": "application",
+        "model": "fixture-text-model",
+        "status": "estimated_partial",
+        "cost_usd": 0.0039,
+        "components": {
+          "uncached_input": 0.001,
+          "cached_input": 0.0009,
+          "output_including_reasoning": 0.002,
+          "external_known": 0
+        },
+        "rate_card_version": "E05-fixture-v1",
+        "rate_card_sha256": "be05a72afd01c8c24fd83337c857c809e0bb915f4ecb2346e414ba01c1fa33d9",
+        "warning": "Tools, storage, sandbox, retries or other charges may be absent; not total task cost",
+        "attempt_status": "ok"
+      },
+      {
+        "id": "fixture-03",
+        "stage": "judge",
+        "model": "fixture-text-model",
+        "status": "reported",
+        "cost_usd": 0.002,
+        "basis": "task.json reported_cost_usd; fixture, not reconciled invoice",
+        "attempt_status": "ok"
+      },
+      {
+        "id": "fixture-04",
+        "stage": "judge",
+        "model": "fixture-text-model",
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "missing rate or usage",
+        "attempt_status": "timeout"
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 0.0069,
+    "unknown_events": 1,
+    "partial_events": 1,
+    "total_cost_usd": null,
+    "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+  },
+  "stage_subtotals": {
+    "application": {
+      "attempts": 2,
+      "known_or_estimated_subtotal_usd": 0.0049,
+      "unknown_events": 0,
+      "partial_events": 1
+    },
+    "judge": {
+      "attempts": 2,
+      "known_or_estimated_subtotal_usd": 0.002,
+      "unknown_events": 1,
+      "partial_events": 0
+    }
+  },
+  "quality": {
+    "baseline": 0.9,
+    "candidate": 0.89,
+    "candidate_minus_baseline": -0.01,
+    "maximum_absolute_quality_loss": 0.02,
+    "point_estimate_within_margin": true,
+    "paired_interval": null,
+    "noninferiority_demonstrated": false,
+    "reason": "No per-case scores, independent groups, repetitions, coverage, or interval supplied."
+  },
+  "candidate_total_cost_usd": null,
+  "measured_relative_saving": null,
+  "cost_per_completed_useful_task_usd": null,
+  "unit_cost_limit": "Task/retry lineage and completed useful task count are not supplied.",
+  "cache_only_sensitivity": {
+    "kind": "arithmetic counterfactual, not observed improvement",
+    "assumptions": [
+      "Only the remaining 100 uncached input tokens become cache hits.",
+      "Output, task usefulness, all other attempts, and unknown charges stay identical.",
+      "Unknown/additional charges are nonnegative."
+    ],
+    "maximum_known_saving_usd": 0.0009,
+    "known_subtotal_after_usd": 0.006,
+    "maximum_relative_saving_over_known_subtotal": 0.13043478260869565,
+    "passes_15_percent_even_under_these_assumptions": false
+  },
+  "adoption": {
+    "adopt": false,
+    "decision": "not_demonstrated",
+    "reasons": [
+      "paired_identity_verified: missing or failed",
+      "coverage_complete: missing or failed",
+      "cost_accounting_complete: missing or failed",
+      "mechanism_confirmed: missing or failed",
+      "hard_invariants_passed: missing or failed",
+      "slice_gates_passed: missing or failed",
+      "operations_passed: missing or failed",
+      "final_selection_frozen: missing or failed",
+      "independent_final_test_complete: missing or failed",
+      "simultaneous_intervals_verified: missing or failed",
+      "quality_difference_lower_bound: no finite interval bound",
+      "relative_saving_lower_bound: no finite interval bound"
+    ]
+  }
+}

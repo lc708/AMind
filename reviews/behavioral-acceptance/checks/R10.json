@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-09-29T21:34:27.077444+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_cached_and_reasoning_tokens_not_double_charged (test_costs.CostTests) ... ok\ntest_failures_with_reported_cost_are_charged (test_costs.CostTests) ... ok\ntest_fixture_exact_ledger_and_unknown_total (test_costs.CostTests) ... ok\ntest_invalid_meters_rejected (test_costs.CostTests) ... ok\ntest_null_is_unknown_but_explicit_zero_is_known (test_costs.CostTests) ... ok\ntest_offline_execution_and_input_unchanged (test_costs.CostTests) ... ok\ntest_partial_usage_is_unknown (test_costs.CostTests) ... ok\ntest_reported_cost_not_added_to_usage_cost (test_costs.CostTests) ... ok\ntest_semantics_sensitivity_is_explicit (test_costs.CostTests) ... ok\ntest_exact_boundaries_inclusive (test_costs.GateTests) ... ok\ntest_point_pass_without_uncertainty_not_promotion (test_costs.GateTests) ... ok\ntest_quality_loss_over_two_points_rejected (test_costs.GateTests) ... ok\ntest_savings_below_required_rejected (test_costs.GateTests) ... ok\ntest_uncertain_quality_or_savings_blocks_promotion (test_costs.GateTests) ... ok\ntest_unknown_cost_or_unmatched_denominator_blocks_savings (test_costs.GateTests) ... ok\ntest_zero_baseline_cannot_define_relative_saving (test_costs.GateTests) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "analyze_costs.py",
+        "--task",
+        "task.json",
+        "--output",
+        "results.json"
+      ],
+      "exit_code": 0,
+      "stdout": "known_cost_usd=0.0069; unknown_attempts=1; promotion=insufficient_evidence\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

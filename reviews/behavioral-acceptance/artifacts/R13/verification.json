@@ -1,0 +1,108 @@
+{
+  "evidence_type": "local fixed fixture; no API requests or model behavior measured",
+  "assumption": "Find invoice is the initial turn already represented by r1. If it is new, use fresh_user_variant.",
+  "tool_output_provenance": "Rebound by a local mock execution of call c1 with fixed output invoice. The corrupted wrong result is rejected, not auto-renamed.",
+  "before_findings": [
+    {
+      "code": "PHASE_CHANGED_OR_LOST",
+      "location": "input[1].phase",
+      "detail": "Expected original phase 'commentary'; got None."
+    },
+    {
+      "code": "REPLAY_WITH_REFERENCE",
+      "location": "input[1]",
+      "detail": "Prior output appears again alongside its state reference; use one ownership mode."
+    },
+    {
+      "code": "UNKNOWN_CALL_ID",
+      "location": "tool_results[0].call_id",
+      "detail": "'wrong' has no matching pending call."
+    },
+    {
+      "code": "MISSING_RESULT",
+      "location": "input",
+      "detail": "Pending call 'c1' has no matching result."
+    }
+  ],
+  "after_findings": {
+    "stateful": [],
+    "manual": [],
+    "fresh_user_variant": []
+  },
+  "stateful": {
+    "previous_response_id": "r1",
+    "input": [
+      {
+        "type": "function_call_output",
+        "call_id": "c1",
+        "output": "invoice"
+      }
+    ]
+  },
+  "manual": {
+    "input": [
+      {
+        "role": "user",
+        "content": "Find invoice"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "commentary",
+        "content": "Working"
+      },
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "read",
+        "arguments": "{}"
+      },
+      {
+        "type": "function_call_output",
+        "call_id": "c1",
+        "output": "invoice"
+      }
+    ]
+  },
+  "fresh_user_variant": {
+    "previous_response_id": "r1",
+    "input": [
+      {
+        "type": "function_call_output",
+        "call_id": "c1",
+        "output": "invoice"
+      },
+      {
+        "role": "user",
+        "content": "Find invoice"
+      }
+    ]
+  },
+  "later_history_with_compaction": [
+    {
+      "role": "user",
+      "content": "Find invoice"
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "phase": "commentary",
+      "content": "Working"
+    },
+    {
+      "type": "function_call",
+      "call_id": "c1",
+      "name": "read",
+      "arguments": "{}"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "c1",
+      "output": "invoice"
+    },
+    {
+      "type": "compaction",
+      "encrypted_content": "opaque-2"
+    }
+  ]
+}

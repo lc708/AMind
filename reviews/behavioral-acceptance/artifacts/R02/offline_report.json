@@ -1,0 +1,250 @@
+{
+  "evidence_level": "static patch verification and synthetic trace/protocol oracle checks",
+  "target_policy": "current configured model, preserve provider",
+  "model_calls": 0,
+  "target_model_latency_seconds": null,
+  "target_model_quality": null,
+  "token_cost": null,
+  "local_check_duration_seconds": 0.0006917920000000001,
+  "identities": {
+    "task.json": "096c981a8c77c7c662eaf9ee3ebe7cb38f6a1c10decdfcc2610ae7fd2cd2dc55",
+    "baseline.prompt.txt": "855d4c3dce3ad04e8126875b912224b42639ff4a2fc5e0230882594efbd7a351",
+    "candidate.prompt.txt": "ce592223a8771fd89012b6bcd1693a03cd302d4aaf70ef900687ae9ce2a8bfbc",
+    "fixtures.json": "df6d0770df20a06e4ded9bbc5b1248402b450c4772383e518b5c6dfffa490b97",
+    "local_contract.py": "55390fb0949f67d7684fbc16daec210eb12bb3652a9b4260a1214765b7c756bc",
+    "test_local_contract.py": "e99447a4593bb31a179e6e9ea72edbcd5d1a19f813b51feb2b3ec212884a6ef7"
+  },
+  "static_findings": {
+    "baseline_tool_claim_conflicts_with_fixture": true,
+    "candidate_has_only_authorized_sentence_change": true
+  },
+  "case_count": 31,
+  "accepted_positive_cases": 12,
+  "rejected_negative_cases": 19,
+  "oracle_mismatches": 0,
+  "cases": [
+    {
+      "id": "ordinary_first_charge",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "incident_already_paid",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "retry_confirmed_unpaid",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "pending_defer",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "unknown_defer",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "lookup_error_defer",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "lookup_timeout_defer",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "missing_lookup",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "paid_then_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "pending_then_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "unknown_then_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "error_then_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "timeout_then_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "duplicate_confirmed_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "changed_idempotency_key",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "stale_lookup_after_timeout",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "uncertain_charge_reconciled_paid",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "uncertain_charge_reconciled_unpaid",
+      "kind": "trajectory",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "wrong_payment_lookup",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "wrong_payment_charge",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "missing_idempotency_key",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "unknown_tool",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "malformed_arguments",
+      "kind": "trajectory",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "ordinary",
+      "kind": "output_protocol",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "already_paid",
+      "kind": "output_protocol",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "uncertain",
+      "kind": "output_protocol",
+      "expected_allowed": true,
+      "actual_allowed": true,
+      "oracle_matches": true
+    },
+    {
+      "id": "missing_prefix",
+      "kind": "output_protocol",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "wrong_case",
+      "kind": "output_protocol",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "leading_space",
+      "kind": "output_protocol",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "two_sentences",
+      "kind": "output_protocol",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    },
+    {
+      "id": "four_sentences",
+      "kind": "output_protocol",
+      "expected_allowed": false,
+      "actual_allowed": false,
+      "oracle_matches": true
+    }
+  ],
+  "limits": [
+    "No real application entry point, parser code, tool schemas, model or service was supplied.",
+    "Fixtures are authored contract examples, not observed model responses or held-out quality measurements.",
+    "These checks do not prove model compliance or backend idempotency.",
+    "Only the prompt wording changes; actual integration must be checked separately before rollout."
+  ]
+}

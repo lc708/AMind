@@ -1,0 +1,5406 @@
+{
+  "source_commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+  "source_commit_date": "2026-09-29T02:20:03Z",
+  "reviewed_on": "2026-09-30",
+  "source_file_count": 81,
+  "meaning": "Exhaustive source-file and section locator map, not a line-by-line equivalence proof or measured universal superiority.",
+  "entries": [
+    {
+      "path": "LICENSE.txt",
+      "bytes": 11345,
+      "sha256": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+      "group": "source",
+      "capability": "Attribution, immutable upstream pin and task-specific primary-source refresh",
+      "resources": [
+        "sources.md",
+        "../LICENSE.txt",
+        "../NOTICE.txt"
+      ],
+      "evidence_level": "attributed",
+      "sections": [],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 101724,
+      "sha256": "9aac10d9ffb8778c5b7c0b9ec612b3915e83065feb92763c8231469e9fbc29c9",
+      "group": "entry",
+      "capability": "Task routing, target selection, execution contract and evidence boundaries",
+      "resources": [
+        "../SKILL.md",
+        "api-implementation.md",
+        "sources.md"
+      ],
+      "evidence_level": "documented",
+      "sections": [
+        {
+          "line": 10,
+          "heading": "Building LLM-Powered Applications with Claude"
+        },
+        {
+          "line": 14,
+          "heading": "Before You Start"
+        },
+        {
+          "line": 18,
+          "heading": "Output Requirement"
+        },
+        {
+          "line": 31,
+          "heading": "Defaults"
+        },
+        {
+          "line": 37,
+          "heading": "Warning: API Drift - Your Training Prior May Be Stale"
+        },
+        {
+          "line": 53,
+          "heading": "Subcommands"
+        },
+        {
+          "line": 69,
+          "heading": "Language Detection"
+        },
+        {
+          "line": 103,
+          "heading": "Language-Specific Feature Support"
+        },
+        {
+          "line": 111,
+          "heading": "Which Surface Should I Use?"
+        },
+        {
+          "line": 131,
+          "heading": "Building an Agent: Four Approaches"
+        },
+        {
+          "line": 152,
+          "heading": "Should I Build an Agent?"
+        },
+        {
+          "line": 165,
+          "heading": "Architecture"
+        },
+        {
+          "line": 179,
+          "heading": "Current Models (cached: 2026-09-25)"
+        },
+        {
+          "line": 200,
+          "heading": "Claude Fable 5.1 (`claude-fable-5-1`) - most capable widely released model"
+        },
+        {
+          "line": 213,
+          "heading": "Claude Opus 5.5 (`claude-opus-5-5`) - the current Opus and the default model"
+        },
+        {
+          "line": 217,
+          "heading": "Claude Sonnet 5.5 (`claude-sonnet-5-5`) - the current Sonnet: speed and capability for everyday coding, agent, and enterprise work (Claude Opus 5.5 stays the default)"
+        },
+        {
+          "line": 227,
+          "heading": "Authentication (Quick Reference)"
+        },
+        {
+          "line": 242,
+          "heading": "Thinking & Effort (Quick Reference)"
+        },
+        {
+          "line": 266,
+          "heading": "Compaction (Quick Reference)"
+        },
+        {
+          "line": 276,
+          "heading": "Prompt Caching (Quick Reference)"
+        },
+        {
+          "line": 290,
+          "heading": "Fast Mode (Quick Reference)"
+        },
+        {
+          "line": 318,
+          "heading": "Task Budgets (Quick Reference)"
+        },
+        {
+          "line": 338,
+          "heading": "Provider Clients (Quick Reference)"
+        },
+        {
+          "line": 342,
+          "heading": "Amazon Bedrock"
+        },
+        {
+          "line": 358,
+          "heading": "Microsoft Foundry"
+        },
+        {
+          "line": 370,
+          "heading": "Google Cloud Vertex AI"
+        },
+        {
+          "line": 386,
+          "heading": "Context Editing (Quick Reference)"
+        },
+        {
+          "line": 403,
+          "heading": "Mid-Conversation System Messages (Quick Reference)"
+        },
+        {
+          "line": 409,
+          "heading": "Managed Agents (Beta)"
+        },
+        {
+          "line": 441,
+          "heading": "Server Tools (Quick Reference)"
+        },
+        {
+          "line": 455,
+          "heading": "Document & File Input (Quick Reference)"
+        },
+        {
+          "line": 463,
+          "heading": "Tool Use Patterns (Quick Reference)"
+        },
+        {
+          "line": 473,
+          "heading": "Other API Surfaces (Quick Reference)"
+        },
+        {
+          "line": 485,
+          "heading": "Workload Identity Federation (Quick Reference)"
+        },
+        {
+          "line": 491,
+          "heading": "Reading Guide"
+        },
+        {
+          "line": 499,
+          "heading": "Quick Task Reference"
+        },
+        {
+          "line": 564,
+          "heading": "When to Use WebFetch"
+        },
+        {
+          "line": 574,
+          "heading": "Common Pitfalls"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "csharp/claude-api/README.md",
+      "bytes": 18915,
+      "sha256": "5504328ce794dffe46ec2572113098271363c80e911022be0eb889f453f6e902",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - C#"
+        },
+        {
+          "line": 5,
+          "heading": "Namespace Reference"
+        },
+        {
+          "line": 23,
+          "heading": "Key types per feature"
+        },
+        {
+          "line": 40,
+          "heading": "Discovering type and member names"
+        },
+        {
+          "line": 46,
+          "heading": "Minimal working skeleton"
+        },
+        {
+          "line": 92,
+          "heading": "Common C# compile errors"
+        },
+        {
+          "line": 97,
+          "heading": "Installation"
+        },
+        {
+          "line": 103,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 119,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 143,
+          "heading": "Thinking"
+        },
+        {
+          "line": 187,
+          "heading": "Context Editing / Compaction (Beta)"
+        },
+        {
+          "line": 259,
+          "heading": "Effort Parameter"
+        },
+        {
+          "line": 271,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 290,
+          "heading": "Token Counting"
+        },
+        {
+          "line": 304,
+          "heading": "PDF / Document Input"
+        },
+        {
+          "line": 320,
+          "heading": "Fast Mode (Beta)"
+        },
+        {
+          "line": 331,
+          "heading": "Models API"
+        },
+        {
+          "line": 339,
+          "heading": "Long Output (128k) + Prefill"
+        },
+        {
+          "line": 345,
+          "heading": "Stop Details"
+        },
+        {
+          "line": 361,
+          "heading": "Managed Agents (Beta)"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "csharp/claude-api/batches.md",
+      "bytes": 413,
+      "sha256": "ec276fccf21757ed00803dfa4bc35f14f334138629fa53c77a025d718eda96a1",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Message Batches - C#"
+        },
+        {
+          "line": 3,
+          "heading": "Message Batches API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "csharp/claude-api/files-api.md",
+      "bytes": 900,
+      "sha256": "766ccf5dca9ef3caba8cefeddde10f6d171a7bd2ff4c97689462fad2d0d18e4b",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Files API - C#"
+        },
+        {
+          "line": 3,
+          "heading": "Files API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "csharp/claude-api/streaming.md",
+      "bytes": 787,
+      "sha256": "bc0100e50b3495e869901bcfb231870cb3483b936534af5fd3dddb5d07e4531e",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - C#"
+        },
+        {
+          "line": 3,
+          "heading": "Streaming"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "csharp/claude-api/tool-use.md",
+      "bytes": 5998,
+      "sha256": "d3d5e7f309316414d698146d0ea1e234642c957940e1c4e9bcf9176994c2176d",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - C#"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Use"
+        },
+        {
+          "line": 7,
+          "heading": "Defining a tool"
+        },
+        {
+          "line": 39,
+          "heading": "Converting response content to the follow-up assistant message"
+        },
+        {
+          "line": 104,
+          "heading": "Structured Output"
+        },
+        {
+          "line": 123,
+          "heading": "Anthropic-Defined Tools"
+        },
+        {
+          "line": 140,
+          "heading": "Tool Runner (Beta)"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "curl/examples.md",
+      "bytes": 9714,
+      "sha256": "4520e447d37924e62fe982923f3eceea5338dbf3b3a0d25d0f914272c16b90a0",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - cURL / Raw HTTP"
+        },
+        {
+          "line": 5,
+          "heading": "Setup"
+        },
+        {
+          "line": 13,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 29,
+          "heading": "Parsing the response"
+        },
+        {
+          "line": 60,
+          "heading": "Streaming (SSE)"
+        },
+        {
+          "line": 99,
+          "heading": "Tool Use"
+        },
+        {
+          "line": 160,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 183,
+          "heading": "Extended Thinking"
+        },
+        {
+          "line": 212,
+          "heading": "Refusal Fallbacks (Claude Fable 5.1) - opt in by default"
+        },
+        {
+          "line": 250,
+          "heading": "Required Headers"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "curl/managed-agents.md",
+      "bytes": 8618,
+      "sha256": "0039b221a33b7b62462c18f3b68808ea15fec5501b64bc46009021dbbdf1fa2c",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - cURL / Raw HTTP"
+        },
+        {
+          "line": 5,
+          "heading": "Setup"
+        },
+        {
+          "line": 21,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 35,
+          "heading": "With restricted networking"
+        },
+        {
+          "line": 56,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 60,
+          "heading": "Minimal"
+        },
+        {
+          "line": 84,
+          "heading": "With system prompt, custom tools, and GitHub repo"
+        },
+        {
+          "line": 130,
+          "heading": "With a session budget"
+        },
+        {
+          "line": 162,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 179,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 201,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 215,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 235,
+          "heading": "Interrupt a Running Session"
+        },
+        {
+          "line": 251,
+          "heading": "Get Session Details"
+        },
+        {
+          "line": 260,
+          "heading": "List Sessions"
+        },
+        {
+          "line": 269,
+          "heading": "Delete a Session"
+        },
+        {
+          "line": 278,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 290,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 310,
+          "heading": "List Agents"
+        },
+        {
+          "line": 319,
+          "heading": "MCP Server Integration"
+        },
+        {
+          "line": 351,
+          "heading": "Tool Configuration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "go/claude-api/README.md",
+      "bytes": 8477,
+      "sha256": "a8e78588e8f11ef4d8f2dd1729739952ca79aefd7b1ebf07c411ee58c05d8231",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - Go"
+        },
+        {
+          "line": 5,
+          "heading": "Installation"
+        },
+        {
+          "line": 11,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 30,
+          "heading": "Model IDs"
+        },
+        {
+          "line": 38,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 61,
+          "heading": "Thinking"
+        },
+        {
+          "line": 108,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 125,
+          "heading": "Stop Details"
+        },
+        {
+          "line": 140,
+          "heading": "PDF / Document Input"
+        },
+        {
+          "line": 157,
+          "heading": "Context Editing / Compaction (Beta)"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "go/claude-api/files-api.md",
+      "bytes": 936,
+      "sha256": "7bf67ece5e4d18b1fb07085a55b680420cc7bd4de94a1fb2bb73cb23f39c20f0",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Files API - Go"
+        },
+        {
+          "line": 3,
+          "heading": "Files API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "go/claude-api/streaming.md",
+      "bytes": 1026,
+      "sha256": "a523e992e438309ca1bbc075ded2b652eb257242fd0ce521afd3b8ea024ed94d",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - Go"
+        },
+        {
+          "line": 3,
+          "heading": "Streaming"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "go/claude-api/tool-use.md",
+      "bytes": 8393,
+      "sha256": "2053c347e13691b3785189b13e6bc7c41d577e893004e9c0f67817effdc91ef5",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - Go"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Use"
+        },
+        {
+          "line": 7,
+          "heading": "Tool Runner (Beta - Recommended)"
+        },
+        {
+          "line": 82,
+          "heading": "Manual Loop"
+        },
+        {
+          "line": 186,
+          "heading": "Anthropic-Defined Tools"
+        },
+        {
+          "line": 201,
+          "heading": "Advisor tool (beta)"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "go/managed-agents/README.md",
+      "bytes": 18939,
+      "sha256": "811570bde7e34d7326f9b83673aa4eac79f3b401518d41fd657e969b3ea0cb18",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Go"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 13,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 36,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 57,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 61,
+          "heading": "Minimal"
+        },
+        {
+          "line": 101,
+          "heading": "Updating an Agent"
+        },
+        {
+          "line": 134,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 159,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 203,
+          "heading": "Reconnecting and Tailing"
+        },
+        {
+          "line": 245,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 251,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 267,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 303,
+          "heading": "Add and Manage Resources on an Existing Session"
+        },
+        {
+          "line": 337,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 343,
+          "heading": "Session Management"
+        },
+        {
+          "line": 379,
+          "heading": "MCP Server Integration"
+        },
+        {
+          "line": 433,
+          "heading": "Vaults"
+        },
+        {
+          "line": 500,
+          "heading": "GitHub Repository Integration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "java/claude-api/README.md",
+      "bytes": 11946,
+      "sha256": "cb6d395dc1d930371f828290132681541eff7f1a7e2739bb4c6655ebbb3b8c7f",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - Java"
+        },
+        {
+          "line": 5,
+          "heading": "Package Reference"
+        },
+        {
+          "line": 21,
+          "heading": "Key types per feature"
+        },
+        {
+          "line": 38,
+          "heading": "Discovering type and member names"
+        },
+        {
+          "line": 42,
+          "heading": "Installation"
+        },
+        {
+          "line": 60,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 77,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 97,
+          "heading": "Thinking"
+        },
+        {
+          "line": 129,
+          "heading": "Effort Parameter"
+        },
+        {
+          "line": 145,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 168,
+          "heading": "Token Counting"
+        },
+        {
+          "line": 183,
+          "heading": "PDF / Document Input"
+        },
+        {
+          "line": 209,
+          "heading": "Stop Details"
+        },
+        {
+          "line": 224,
+          "heading": "Error Type"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "java/claude-api/files-api.md",
+      "bytes": 1198,
+      "sha256": "1c792f3421de32f42a56235327f87807a5579340726bba677ec13e05f9b493c7",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Files API - Java"
+        },
+        {
+          "line": 3,
+          "heading": "Files API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "java/claude-api/streaming.md",
+      "bytes": 655,
+      "sha256": "de13bc9573b37edb5af69606853c4fde3d494ee10ff47d1a030ecef9cc17463b",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - Java"
+        },
+        {
+          "line": 3,
+          "heading": "Streaming"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "java/claude-api/tool-use.md",
+      "bytes": 9509,
+      "sha256": "58240638a66d67fee542978301841929fbefe7317487e12b86734281f6b649d6",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - Java"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Use (Beta)"
+        },
+        {
+          "line": 9,
+          "heading": "Tool Runner (automatic loop)"
+        },
+        {
+          "line": 44,
+          "heading": "Memory Tool"
+        },
+        {
+          "line": 79,
+          "heading": "Non-Beta Tool Declaration (manual JSON schema)"
+        },
+        {
+          "line": 108,
+          "heading": "Building `MessageParam` with Content Blocks (Tool Result Round-Trip)"
+        },
+        {
+          "line": 132,
+          "heading": "Structured Output"
+        },
+        {
+          "line": 161,
+          "heading": "Anthropic-Defined Tools"
+        },
+        {
+          "line": 182,
+          "heading": "Beta namespace (MCP, compaction)"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "java/managed-agents/README.md",
+      "bytes": 16944,
+      "sha256": "5757f9b485ca073650b24bc8fd7e3efa9c9709d23ccd8444c38a380081720435",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Java"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 16,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 27,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 45,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 49,
+          "heading": "Minimal"
+        },
+        {
+          "line": 81,
+          "heading": "Updating an Agent"
+        },
+        {
+          "line": 106,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 124,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 153,
+          "heading": "Reconnecting and Tailing"
+        },
+        {
+          "line": 186,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 192,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 202,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 228,
+          "heading": "Add and Manage Resources on an Existing Session"
+        },
+        {
+          "line": 263,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 269,
+          "heading": "Session Management"
+        },
+        {
+          "line": 290,
+          "heading": "MCP Server Integration"
+        },
+        {
+          "line": 330,
+          "heading": "Vaults"
+        },
+        {
+          "line": 391,
+          "heading": "GitHub Repository Integration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "php/claude-api/README.md",
+      "bytes": 6554,
+      "sha256": "00e2e88f3ea9a6cce812d3e6ae9e035bc36f88828a09e518bb73af91097a9d66",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - PHP"
+        },
+        {
+          "line": 5,
+          "heading": "Installation"
+        },
+        {
+          "line": 11,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 20,
+          "heading": "Amazon Bedrock"
+        },
+        {
+          "line": 31,
+          "heading": "Google Vertex AI"
+        },
+        {
+          "line": 43,
+          "heading": "Anthropic Foundry"
+        },
+        {
+          "line": 57,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 92,
+          "heading": "Extended Thinking"
+        },
+        {
+          "line": 129,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 150,
+          "heading": "Stop Details"
+        },
+        {
+          "line": 165,
+          "heading": "Error Type"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "php/claude-api/batches.md",
+      "bytes": 447,
+      "sha256": "6f82a29f718ff6e6b02aaaee3cfd6cda2feb82aca57d945f11a2c021214a699d",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Message Batches - PHP"
+        },
+        {
+          "line": 3,
+          "heading": "Message Batches API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "php/claude-api/files-api.md",
+      "bytes": 476,
+      "sha256": "0715a0d4cce88fd885f57bd33b4654071a9068d5f8a892143b062c78fe51afc9",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Files API - PHP"
+        },
+        {
+          "line": 3,
+          "heading": "Files API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "php/claude-api/streaming.md",
+      "bytes": 682,
+      "sha256": "3b8ac667b21f17750eb3c1fc7dc166fd7b1f57a1d8b11e74489de4432e21d31d",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - PHP"
+        },
+        {
+          "line": 3,
+          "heading": "Streaming"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "php/claude-api/tool-use.md",
+      "bytes": 8097,
+      "sha256": "319e8ecfe18c54770b697936c095dbfdfbb0c0987360151f10eaf48fed18c9c5",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - PHP"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Use"
+        },
+        {
+          "line": 7,
+          "heading": "Tool Runner (Beta)"
+        },
+        {
+          "line": 47,
+          "heading": "Manual Loop"
+        },
+        {
+          "line": 118,
+          "heading": "Structured Outputs"
+        },
+        {
+          "line": 120,
+          "heading": "Using StructuredOutputModel (Recommended)"
+        },
+        {
+          "line": 154,
+          "heading": "Raw Schema"
+        },
+        {
+          "line": 189,
+          "heading": "Beta Features & Anthropic-Defined Tools"
+        },
+        {
+          "line": 210,
+          "heading": "Task budgets"
+        },
+        {
+          "line": 223,
+          "heading": "Cache diagnostics"
+        },
+        {
+          "line": 238,
+          "heading": "Tool search (non-beta, server-side)"
+        },
+        {
+          "line": 248,
+          "heading": "Memory tool (non-beta, client-executed)"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "php/managed-agents/README.md",
+      "bytes": 13513,
+      "sha256": "9bb9d9ca5d7c328c7203e9de63189a6118d4ed5f9046f4d0f9ec79673ee48060",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - PHP"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 13,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 27,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 39,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 43,
+          "heading": "Minimal"
+        },
+        {
+          "line": 70,
+          "heading": "Updating an Agent"
+        },
+        {
+          "line": 94,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 112,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 151,
+          "heading": "Reconnecting and Tailing"
+        },
+        {
+          "line": 189,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 195,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 205,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 242,
+          "heading": "Add and Manage Resources on an Existing Session"
+        },
+        {
+          "line": 265,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 278,
+          "heading": "Session Management"
+        },
+        {
+          "line": 299,
+          "heading": "MCP Server Integration"
+        },
+        {
+          "line": 343,
+          "heading": "Vaults"
+        },
+        {
+          "line": 393,
+          "heading": "GitHub Repository Integration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/claude-api/README.md",
+      "bytes": 20491,
+      "sha256": "9ff90530827950140ff6c707374fc0d95a94de437ffbc2340b78a54140508c95",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - Python"
+        },
+        {
+          "line": 3,
+          "heading": "Installation"
+        },
+        {
+          "line": 9,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 28,
+          "heading": "Client Configuration"
+        },
+        {
+          "line": 30,
+          "heading": "Per-request overrides"
+        },
+        {
+          "line": 42,
+          "heading": "Timeouts"
+        },
+        {
+          "line": 55,
+          "heading": "Retries"
+        },
+        {
+          "line": 59,
+          "heading": "Async performance (aiohttp backend)"
+        },
+        {
+          "line": 70,
+          "heading": "Custom HTTP client (proxy, base URL)"
+        },
+        {
+          "line": 83,
+          "heading": "Logging"
+        },
+        {
+          "line": 89,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 108,
+          "heading": "System Prompts"
+        },
+        {
+          "line": 119,
+          "heading": "Mid-conversation system messages (model-gated)"
+        },
+        {
+          "line": 137,
+          "heading": "Vision (Images)"
+        },
+        {
+          "line": 139,
+          "heading": "Base64"
+        },
+        {
+          "line": 167,
+          "heading": "URL"
+        },
+        {
+          "line": 191,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 195,
+          "heading": "Automatic Caching (Recommended)"
+        },
+        {
+          "line": 209,
+          "heading": "Manual Cache Control"
+        },
+        {
+          "line": 238,
+          "heading": "Verifying Cache Hits"
+        },
+        {
+          "line": 250,
+          "heading": "Extended Thinking"
+        },
+        {
+          "line": 277,
+          "heading": "Error Handling"
+        },
+        {
+          "line": 306,
+          "heading": "Response Helpers"
+        },
+        {
+          "line": 331,
+          "heading": "Multi-Turn Conversations"
+        },
+        {
+          "line": 383,
+          "heading": "Compaction (long conversations)"
+        },
+        {
+          "line": 419,
+          "heading": "Stop Reasons"
+        },
+        {
+          "line": 432,
+          "heading": "Structured Stop Details"
+        },
+        {
+          "line": 442,
+          "heading": "Refusal Fallbacks (Claude Fable 5.1) - opt in by default"
+        },
+        {
+          "line": 473,
+          "heading": "Cost Optimization Strategies"
+        },
+        {
+          "line": 475,
+          "heading": "1. Use Prompt Caching for Repeated Context"
+        },
+        {
+          "line": 491,
+          "heading": "2. Choose the Right Model"
+        },
+        {
+          "line": 516,
+          "heading": "3. Use Token Counting Before Requests"
+        },
+        {
+          "line": 531,
+          "heading": "Retry with Exponential Backoff"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/claude-api/batches.md",
+      "bytes": 5588,
+      "sha256": "15d480b44e07b237a33eac50a5ae4d7c46b5c94c4462c992346f2b0818964f57",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Message Batches API - Python"
+        },
+        {
+          "line": 5,
+          "heading": "Key Facts"
+        },
+        {
+          "line": 15,
+          "heading": "Create a Batch"
+        },
+        {
+          "line": 51,
+          "heading": "Poll for Completion"
+        },
+        {
+          "line": 70,
+          "heading": "Retrieve Results"
+        },
+        {
+          "line": 94,
+          "heading": "Cancel a Batch"
+        },
+        {
+          "line": 103,
+          "heading": "List Batches (auto-pagination)"
+        },
+        {
+          "line": 116,
+          "heading": "Batch with Prompt Caching"
+        },
+        {
+          "line": 146,
+          "heading": "Full End-to-End Example"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/claude-api/files-api.md",
+      "bytes": 4499,
+      "sha256": "2aa142978660d9ae3200d21a4d333531ca101898706f620834304e8a7d534580",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Files API - Python"
+        },
+        {
+          "line": 7,
+          "heading": "Key Facts"
+        },
+        {
+          "line": 17,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 37,
+          "heading": "Use a File in Messages"
+        },
+        {
+          "line": 39,
+          "heading": "PDF / Text Document"
+        },
+        {
+          "line": 64,
+          "heading": "Image"
+        },
+        {
+          "line": 90,
+          "heading": "Manage Files"
+        },
+        {
+          "line": 92,
+          "heading": "List Files"
+        },
+        {
+          "line": 101,
+          "heading": "Get File Metadata"
+        },
+        {
+          "line": 109,
+          "heading": "Delete a File"
+        },
+        {
+          "line": 115,
+          "heading": "Download a File"
+        },
+        {
+          "line": 126,
+          "heading": "Full End-to-End Example"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/claude-api/sdk-upgrade.md",
+      "bytes": 28741,
+      "sha256": "408bdcabdd05aceca3765320b03684a00e1bd22f6da2d057db5c24b48804bef8",
+      "group": "migration",
+      "capability": "Call-site classification, breaking/silent-default changes, protocol-native replacements, fixtures and behavioral verification",
+      "resources": [
+        "migration.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Upgrading the `anthropic` Python SDK: 0.x -> 1.x"
+        },
+        {
+          "line": 12,
+          "heading": "Step 0: Confirm scope, current version, and target"
+        },
+        {
+          "line": 22,
+          "heading": "Step 1: Inventory the call sites"
+        },
+        {
+          "line": 47,
+          "heading": "Step 2: Environment - Python >= 3.10 and the dependency pins"
+        },
+        {
+          "line": 56,
+          "heading": "Step 3: `httpx` -> `httpx2`, only where objects cross the SDK boundary"
+        },
+        {
+          "line": 113,
+          "heading": "Step 4: `.with_raw_response` returns `APIResponse` / `AsyncAPIResponse`"
+        },
+        {
+          "line": 143,
+          "heading": "Step 5: Text Completions -> Messages (the one non-mechanical change)"
+        },
+        {
+          "line": 174,
+          "heading": "Step 6: Removed request parameters"
+        },
+        {
+          "line": 197,
+          "heading": "Step 7: Renamed and removed names (pure renames)"
+        },
+        {
+          "line": 208,
+          "heading": "Step 8: Removed helper arguments and behaviour"
+        },
+        {
+          "line": 249,
+          "heading": "Step 9: Header names are matched case-insensitively"
+        },
+        {
+          "line": 253,
+          "heading": "Step 10: Bedrock - a region is required"
+        },
+        {
+          "line": 259,
+          "heading": "Step 11: Verify"
+        },
+        {
+          "line": 265,
+          "heading": "Step 12: Report"
+        },
+        {
+          "line": 274,
+          "heading": "Checklist"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/claude-api/streaming.md",
+      "bytes": 11940,
+      "sha256": "8f73a54dbbb5e82c2c7690d7d866f17ad8c72f662a2be6dd788b5c0956714026",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - Python"
+        },
+        {
+          "line": 3,
+          "heading": "Quick Start"
+        },
+        {
+          "line": 15,
+          "heading": "Async"
+        },
+        {
+          "line": 27,
+          "heading": "Low-level: `stream=True`"
+        },
+        {
+          "line": 45,
+          "heading": "Handling Different Content Types"
+        },
+        {
+          "line": 74,
+          "heading": "Streaming with Tool Use"
+        },
+        {
+          "line": 170,
+          "heading": "Getting the Final Message"
+        },
+        {
+          "line": 188,
+          "heading": "Streaming with Progress Updates"
+        },
+        {
+          "line": 216,
+          "heading": "Error Handling in Streams"
+        },
+        {
+          "line": 237,
+          "heading": "Stream Event Types"
+        },
+        {
+          "line": 248,
+          "heading": "Best Practices"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/claude-api/tool-use.md",
+      "bytes": 19786,
+      "sha256": "133934c24555f2e20297ff331c1e3303b14b1dc4824d2ec336e418caf162927f",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - Python"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Runner (Recommended)"
+        },
+        {
+          "line": 50,
+          "heading": "Server tools with the tool runner"
+        },
+        {
+          "line": 89,
+          "heading": "MCP Tool Conversion Helpers"
+        },
+        {
+          "line": 95,
+          "heading": "MCP Tools with Tool Runner"
+        },
+        {
+          "line": 123,
+          "heading": "MCP Prompts"
+        },
+        {
+          "line": 136,
+          "heading": "MCP Resources as Content"
+        },
+        {
+          "line": 155,
+          "heading": "Upload MCP Resources as Files"
+        },
+        {
+          "line": 168,
+          "heading": "Manual Agentic Loop"
+        },
+        {
+          "line": 227,
+          "heading": "Handling Tool Results"
+        },
+        {
+          "line": 266,
+          "heading": "Multiple Tool Calls"
+        },
+        {
+          "line": 296,
+          "heading": "Error Handling in Tool Results"
+        },
+        {
+          "line": 309,
+          "heading": "Tool Choice"
+        },
+        {
+          "line": 325,
+          "heading": "Code Execution"
+        },
+        {
+          "line": 327,
+          "heading": "Basic Usage"
+        },
+        {
+          "line": 354,
+          "heading": "Upload Files for Analysis"
+        },
+        {
+          "line": 375,
+          "heading": "Retrieve Generated Files"
+        },
+        {
+          "line": 401,
+          "heading": "Container Reuse"
+        },
+        {
+          "line": 425,
+          "heading": "Response Structure"
+        },
+        {
+          "line": 448,
+          "heading": "Memory Tool"
+        },
+        {
+          "line": 450,
+          "heading": "Basic Usage"
+        },
+        {
+          "line": 465,
+          "heading": "SDK Memory Helper"
+        },
+        {
+          "line": 500,
+          "heading": "Structured Outputs"
+        },
+        {
+          "line": 502,
+          "heading": "JSON Outputs (Pydantic - Recommended)"
+        },
+        {
+          "line": 534,
+          "heading": "Raw Schema"
+        },
+        {
+          "line": 568,
+          "heading": "Strict Tool Use"
+        },
+        {
+          "line": 593,
+          "heading": "Using Both Together"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "python/managed-agents/README.md",
+      "bytes": 11518,
+      "sha256": "c33922db0214431c858e50a8e60ab7b7b617411acfd2c338f23cf90ef4ad4696",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Python"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 13,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 29,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 44,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 48,
+          "heading": "Minimal"
+        },
+        {
+          "line": 67,
+          "heading": "With system prompt and custom tools"
+        },
+        {
+          "line": 111,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 129,
+          "heading": "Define an Outcome (default kickoff for deliverables)"
+        },
+        {
+          "line": 157,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 196,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 213,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 227,
+          "heading": "Full Streaming Loop with Custom Tools"
+        },
+        {
+          "line": 281,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 299,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 320,
+          "heading": "Session Management"
+        },
+        {
+          "line": 339,
+          "heading": "MCP Server Integration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "ruby/claude-api/README.md",
+      "bytes": 4843,
+      "sha256": "c7de89d236f22bc0b44a091a45ee186ec057caa021a71acd4d3849599cbf3b36",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - Ruby"
+        },
+        {
+          "line": 5,
+          "heading": "Installation"
+        },
+        {
+          "line": 11,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 25,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 45,
+          "heading": "Extended Thinking"
+        },
+        {
+          "line": 70,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 91,
+          "heading": "Stop Details"
+        },
+        {
+          "line": 106,
+          "heading": "Beta Features"
+        },
+        {
+          "line": 110,
+          "heading": "Task budgets"
+        },
+        {
+          "line": 125,
+          "heading": "Error Type"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "ruby/claude-api/streaming.md",
+      "bytes": 235,
+      "sha256": "09b784f2ab0a5fd17e0589225408c618d26c6dd3cd601364ff92f409d5b104a0",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - Ruby"
+        },
+        {
+          "line": 3,
+          "heading": "Streaming"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "ruby/claude-api/tool-use.md",
+      "bytes": 1063,
+      "sha256": "9d4290be5e263eaee485f5d36e0ce8b87cafed19ed30fc045c484757efe29a22",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - Ruby"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Use"
+        },
+        {
+          "line": 9,
+          "heading": "Tool Runner (Beta)"
+        },
+        {
+          "line": 36,
+          "heading": "Manual Loop"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "ruby/managed-agents/README.md",
+      "bytes": 10452,
+      "sha256": "022a5ea193d4864947bd4e3c6f41f160a6bebd1f7b29a9419df200b227dc2fd5",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Ruby"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 13,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 29,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 44,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 48,
+          "heading": "Minimal"
+        },
+        {
+          "line": 69,
+          "heading": "Updating an Agent"
+        },
+        {
+          "line": 93,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 109,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 142,
+          "heading": "Reconnecting and Tailing"
+        },
+        {
+          "line": 172,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 178,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 188,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 210,
+          "heading": "Add and Manage Resources on an Existing Session"
+        },
+        {
+          "line": 231,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 241,
+          "heading": "Session Management"
+        },
+        {
+          "line": 262,
+          "heading": "MCP Server Integration"
+        },
+        {
+          "line": 294,
+          "heading": "Vaults"
+        },
+        {
+          "line": 344,
+          "heading": "GitHub Repository Integration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/admin-api.md",
+      "bytes": 11606,
+      "sha256": "a69c53817391fca50c0a1848f46de9debf71fa3681298fccb0a6435b760bac2d",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Admin API (Organization Management)"
+        },
+        {
+          "line": 7,
+          "heading": "Authentication"
+        },
+        {
+          "line": 41,
+          "heading": "Endpoint Coverage"
+        },
+        {
+          "line": 64,
+          "heading": "Per-Language Naming & Pagination"
+        },
+        {
+          "line": 94,
+          "heading": "Examples"
+        },
+        {
+          "line": 153,
+          "heading": "Organization Roles"
+        },
+        {
+          "line": 165,
+          "heading": "Platform Restrictions"
+        },
+        {
+          "line": 170,
+          "heading": "Live Docs"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/agent-design.md",
+      "bytes": 8736,
+      "sha256": "9960728faf6976a2ddfceed02ed72af122d3b2558af573a9a0ea207b3adec2bc",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Agent Design Patterns"
+        },
+        {
+          "line": 7,
+          "heading": "Model Parameters"
+        },
+        {
+          "line": 18,
+          "heading": "Designing Your Tool Surface"
+        },
+        {
+          "line": 20,
+          "heading": "Bash vs. dedicated tools"
+        },
+        {
+          "line": 37,
+          "heading": "Anthropic-Provided Tools"
+        },
+        {
+          "line": 52,
+          "heading": "Composing Tool Calls: Programmatic Tool Calling"
+        },
+        {
+          "line": 64,
+          "heading": "Scaling the Tool and Instruction Set"
+        },
+        {
+          "line": 75,
+          "heading": "Long-Running Agents: Managing Context"
+        },
+        {
+          "line": 87,
+          "heading": "Caching for Agents"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/anthropic-cli.md",
+      "bytes": 22235,
+      "sha256": "87418d20c4ad3e59062698a2f4220618269d27210fd46571c9c148c79450a142",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Anthropic CLI (`ant`)"
+        },
+        {
+          "line": 5,
+          "heading": "When to use the CLI vs the SDK"
+        },
+        {
+          "line": 16,
+          "heading": "Install and auth"
+        },
+        {
+          "line": 75,
+          "heading": "Command structure"
+        },
+        {
+          "line": 92,
+          "heading": "Global flags"
+        },
+        {
+          "line": 104,
+          "heading": "Output - `--transform` + `--format`"
+        },
+        {
+          "line": 119,
+          "heading": "Input - flags, stdin, `@file`"
+        },
+        {
+          "line": 159,
+          "heading": "Version-controlled Managed Agents resources (`ant apply`)"
+        },
+        {
+          "line": 218,
+          "heading": "Attach a terminal to a session (`ant beta:sessions connect`)"
+        },
+        {
+          "line": 241,
+          "heading": "Interactive session loop (stream-before-send)"
+        },
+        {
+          "line": 279,
+          "heading": "Scripting patterns"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/claude-platform-on-aws.md",
+      "bytes": 4420,
+      "sha256": "dec03193c61909167846c0526a4feacf011578b5e7ee29f76378141315cf97f5",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude Platform on AWS"
+        },
+        {
+          "line": 9,
+          "heading": "Client & install"
+        },
+        {
+          "line": 36,
+          "heading": "Required configuration"
+        },
+        {
+          "line": 47,
+          "heading": "Authentication"
+        },
+        {
+          "line": 55,
+          "heading": "What to tell users"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/cost-optimization.md",
+      "bytes": 57453,
+      "sha256": "1d996afeae295a698eab5df16ff9385054d8beedb3a6d74ff331ef1abb6f8702",
+      "group": "cost",
+      "capability": "Whole-task profiling, caching/context/loop/output/batch/model search, quality and mechanism gates",
+      "resources": [
+        "cost-optimization.md",
+        "platform-operations.md"
+      ],
+      "evidence_level": "documented_and_companion_tools",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Cost Optimization - Cutting Spend per Completed Task"
+        },
+        {
+          "line": 18,
+          "heading": "Step 0: Establish scope, quality bar, and baseline"
+        },
+        {
+          "line": 32,
+          "heading": "Step 1: Profile where the tokens go"
+        },
+        {
+          "line": 36,
+          "heading": "Measure it - the Usage and Cost Admin API (preferred)"
+        },
+        {
+          "line": 47,
+          "heading": "Estimate it from the code"
+        },
+        {
+          "line": 64,
+          "heading": "Ask for the app's own usage logs first"
+        },
+        {
+          "line": 70,
+          "heading": "Rank the levers"
+        },
+        {
+          "line": 93,
+          "heading": "Step 2: Work the levers in order"
+        },
+        {
+          "line": 99,
+          "heading": "2.1 Prompt caching - first, and it stays on"
+        },
+        {
+          "line": 116,
+          "heading": "2.2 Input tokens - progressive disclosure"
+        },
+        {
+          "line": 133,
+          "heading": "2.3 Agent-loop hygiene - keep long loops from compounding"
+        },
+        {
+          "line": 142,
+          "heading": "2.4 Output tokens"
+        },
+        {
+          "line": 148,
+          "heading": "2.5 Batch processing"
+        },
+        {
+          "line": 156,
+          "heading": "2.6 Effort and budgets - the first tradeoffs"
+        },
+        {
+          "line": 177,
+          "heading": "2.7 Model selection - last, deliberately"
+        },
+        {
+          "line": 189,
+          "heading": "Step 3: Apply, measure, keep or revert - one lever at a time"
+        },
+        {
+          "line": 204,
+          "heading": "Workload shape -> lever"
+        },
+        {
+          "line": 222,
+          "heading": "Step 4: Deliverables"
+        },
+        {
+          "line": 236,
+          "heading": "Sources and live references"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/error-codes.md",
+      "bytes": 19845,
+      "sha256": "9345972e355af8e50717e3e5b757d051972687192142223321a05e3588a13205",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "HTTP Error Codes Reference"
+        },
+        {
+          "line": 5,
+          "heading": "Error Code Summary"
+        },
+        {
+          "line": 19,
+          "heading": "Detailed Error Information"
+        },
+        {
+          "line": 21,
+          "heading": "400 Bad Request"
+        },
+        {
+          "line": 53,
+          "heading": "401 Unauthorized"
+        },
+        {
+          "line": 67,
+          "heading": "403 Forbidden"
+        },
+        {
+          "line": 81,
+          "heading": "404 Not Found"
+        },
+        {
+          "line": 96,
+          "heading": "413 Request Too Large"
+        },
+        {
+          "line": 108,
+          "heading": "400 Validation Errors"
+        },
+        {
+          "line": 141,
+          "heading": "429 Rate Limited"
+        },
+        {
+          "line": 159,
+          "heading": "500 Internal Server Error"
+        },
+        {
+          "line": 170,
+          "heading": "529 Overloaded"
+        },
+        {
+          "line": 181,
+          "heading": "Common Mistakes and Fixes"
+        },
+        {
+          "line": 203,
+          "heading": "Typed Exceptions in SDKs"
+        },
+        {
+          "line": 207,
+          "heading": "Exception class names by language"
+        },
+        {
+          "line": 223,
+          "heading": "Catch most-specific first, in a chain"
+        },
+        {
+          "line": 242,
+          "heading": "Go - `errors.As` then branch on status"
+        },
+        {
+          "line": 265,
+          "heading": "Error `.type` Field"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/build-eval.md",
+      "bytes": 54819,
+      "sha256": "50e3381b55b7bb913f84c2645a409802084c5caf01bab2d271d6bef0090dbd6c",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Building an Eval for a Claude-Powered Application"
+        },
+        {
+          "line": 19,
+          "heading": "Step 0: Understand what's being evaluated"
+        },
+        {
+          "line": 39,
+          "heading": "Step 1: Find or build the input set"
+        },
+        {
+          "line": 56,
+          "heading": "Get the inputs approved"
+        },
+        {
+          "line": 68,
+          "heading": "Step 2: Decide how to grade"
+        },
+        {
+          "line": 93,
+          "heading": "Get the grading method approved"
+        },
+        {
+          "line": 103,
+          "heading": "Step 3: Make it runnable"
+        },
+        {
+          "line": 173,
+          "heading": "Before the first paid call"
+        },
+        {
+          "line": 193,
+          "heading": "Step 4: Hand it over"
+        },
+        {
+          "line": 209,
+          "heading": "Make it durable"
+        },
+        {
+          "line": 221,
+          "heading": "Failure modes to avoid"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/cost-hillclimb.md",
+      "bytes": 31574,
+      "sha256": "fe15b3bcce81613a98c80b309ddfba7881d5778e339dbb19e95aded5ca84283a",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Cost-reduction search: how to structure it"
+        },
+        {
+          "line": 16,
+          "heading": "The search order"
+        },
+        {
+          "line": 328,
+          "heading": "Adoption gates - register before round 1"
+        },
+        {
+          "line": 348,
+          "heading": "Measurement discipline"
+        },
+        {
+          "line": 391,
+          "heading": "What drives prompt cost (measured mechanics)"
+        },
+        {
+          "line": 426,
+          "heading": "Stopping rules"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/eval-audit.md",
+      "bytes": 27892,
+      "sha256": "a013f8eb0452c51c5a31860df0fb47219dcdb4da507092fc98867225095026ba",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Eval health checklist"
+        },
+        {
+          "line": 11,
+          "heading": "1. Task design"
+        },
+        {
+          "line": 15,
+          "heading": "Auditing case sets at scale"
+        },
+        {
+          "line": 91,
+          "heading": "2. Harness design"
+        },
+        {
+          "line": 125,
+          "heading": "3. Metrics hygiene"
+        },
+        {
+          "line": 141,
+          "heading": "4. Grader design"
+        },
+        {
+          "line": 171,
+          "heading": "When the grader is an LLM judge"
+        },
+        {
+          "line": 181,
+          "heading": "5. Can it detect the change you're after?"
+        },
+        {
+          "line": 193,
+          "heading": "6. Reporting findings to the user"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/eval-hillclimb.md",
+      "bytes": 68773,
+      "sha256": "6e2c829294c6bfcc0b544352bca66d5e4c10e8de5a63b66d5e0ac9a861de8710",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Hill-Climbing on an Eval"
+        },
+        {
+          "line": 17,
+          "heading": "Step 0: Confirm there's a runnable eval"
+        },
+        {
+          "line": 31,
+          "heading": "Step 0.5: Prove the eval can be climbed"
+        },
+        {
+          "line": 53,
+          "heading": "Step 1: Agree on the goal, what to change, and how it's wired in"
+        },
+        {
+          "line": 86,
+          "heading": "Step 2: Agree on a stopping condition (and a budget, if cost matters)"
+        },
+        {
+          "line": 112,
+          "heading": "Get the plan approved"
+        },
+        {
+          "line": 124,
+          "heading": "Step 3: Set up state, split the data, and take a baseline"
+        },
+        {
+          "line": 223,
+          "heading": "Step 4: The loop"
+        },
+        {
+          "line": 279,
+          "heading": "Step 4.5: When the loop stalls, categorize before grinding"
+        },
+        {
+          "line": 304,
+          "heading": "Step 5: Report and hand back"
+        },
+        {
+          "line": 322,
+          "heading": "Failure modes to avoid"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/report/SCHEMA.md",
+      "bytes": 16121,
+      "sha256": "9a83404a9b3c413113df39d9bdf08e003ff4d6a75386f4010887da3298766687",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Hillclimb state schema (v2)"
+        },
+        {
+          "line": 19,
+          "heading": "Top level"
+        },
+        {
+          "line": 68,
+          "heading": "`Metric`"
+        },
+        {
+          "line": 86,
+          "heading": "`PerfField`"
+        },
+        {
+          "line": 99,
+          "heading": "`Variant`"
+        },
+        {
+          "line": 132,
+          "heading": "`PairedDelta`"
+        },
+        {
+          "line": 150,
+          "heading": "`Example`"
+        },
+        {
+          "line": 168,
+          "heading": "`Attachment`"
+        },
+        {
+          "line": 186,
+          "heading": "`RepResult`"
+        },
+        {
+          "line": 201,
+          "heading": "`Turn`"
+        },
+        {
+          "line": 221,
+          "heading": "`SplitScore`"
+        },
+        {
+          "line": 233,
+          "heading": "Rendering rules"
+        },
+        {
+          "line": 247,
+          "heading": "Writing your own adapter"
+        },
+        {
+          "line": 255,
+          "heading": "Pages beyond `report.html`"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/report/build-report-lite.mjs",
+      "bytes": 27329,
+      "sha256": "af79ca5fa5f06747dbcaa1d40017c8c8e81e0aa11cb8e32b848043893cdb03c7",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/evals/report/runner-scaffold.mjs",
+      "bytes": 33142,
+      "sha256": "c3a87ba4b94b3018b83c075d5148ba7760580aa447699d513d45ab55b82a531a",
+      "group": "eval",
+      "capability": "Companion eval-improve: task/data/grading/audit, runner, search, comparisons, selection, accounting and reports",
+      "resources": [
+        "capability-map.md"
+      ],
+      "evidence_level": "implemented_in_companion",
+      "sections": [],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/live-sources.md",
+      "bytes": 22989,
+      "sha256": "f042911ea9ad57fdbb7340975d56edf47f1c4ceefc9ae72def7888d6950f570a",
+      "group": "source",
+      "capability": "Attribution, immutable upstream pin and task-specific primary-source refresh",
+      "resources": [
+        "sources.md",
+        "../LICENSE.txt",
+        "../NOTICE.txt"
+      ],
+      "evidence_level": "attributed",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Live Documentation Sources"
+        },
+        {
+          "line": 5,
+          "heading": "When to Use WebFetch"
+        },
+        {
+          "line": 12,
+          "heading": "Claude API Documentation URLs"
+        },
+        {
+          "line": 14,
+          "heading": "Models & Pricing"
+        },
+        {
+          "line": 24,
+          "heading": "Core Features"
+        },
+        {
+          "line": 35,
+          "heading": "Media & Files"
+        },
+        {
+          "line": 42,
+          "heading": "API Operations"
+        },
+        {
+          "line": 56,
+          "heading": "Admin API (Organization Management)"
+        },
+        {
+          "line": 67,
+          "heading": "Tools"
+        },
+        {
+          "line": 81,
+          "heading": "Advanced Features"
+        },
+        {
+          "line": 91,
+          "heading": "Managed Agents"
+        },
+        {
+          "line": 121,
+          "heading": "Anthropic CLI"
+        },
+        {
+          "line": 135,
+          "heading": "Claude API SDK Repositories"
+        },
+        {
+          "line": 151,
+          "heading": "SDK major-version upgrade guides"
+        },
+        {
+          "line": 161,
+          "heading": "Fallback Strategy"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-api-reference.md",
+      "bytes": 34401,
+      "sha256": "1e7762835f6fc83e5cb704daa08eda6201d4afd141ed789fde9d24dbec6ae098",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Endpoint Reference"
+        },
+        {
+          "line": 7,
+          "heading": "Beta Headers"
+        },
+        {
+          "line": 17,
+          "heading": "SDK Method Reference"
+        },
+        {
+          "line": 51,
+          "heading": "Agents"
+        },
+        {
+          "line": 64,
+          "heading": "Sessions"
+        },
+        {
+          "line": 75,
+          "heading": "Events"
+        },
+        {
+          "line": 83,
+          "heading": "Session Threads"
+        },
+        {
+          "line": 95,
+          "heading": "Session Resources"
+        },
+        {
+          "line": 105,
+          "heading": "Environments"
+        },
+        {
+          "line": 120,
+          "heading": "Deployments"
+        },
+        {
+          "line": 133,
+          "heading": "Deployment Runs"
+        },
+        {
+          "line": 142,
+          "heading": "Vaults"
+        },
+        {
+          "line": 155,
+          "heading": "Credentials"
+        },
+        {
+          "line": 169,
+          "heading": "Memory Stores"
+        },
+        {
+          "line": 182,
+          "heading": "Memories"
+        },
+        {
+          "line": 194,
+          "heading": "Memory Versions"
+        },
+        {
+          "line": 204,
+          "heading": "Files"
+        },
+        {
+          "line": 214,
+          "heading": "Skills"
+        },
+        {
+          "line": 229,
+          "heading": "Request/Response Schema Quick Reference"
+        },
+        {
+          "line": 231,
+          "heading": "CreateAgent Request Body"
+        },
+        {
+          "line": 271,
+          "heading": "CreateSession Request Body"
+        },
+        {
+          "line": 309,
+          "heading": "CreateEnvironment Request Body"
+        },
+        {
+          "line": 326,
+          "heading": "CreateDeployment Request Body"
+        },
+        {
+          "line": 346,
+          "heading": "SendEvents Request Body"
+        },
+        {
+          "line": 366,
+          "heading": "Define Outcome Event"
+        },
+        {
+          "line": 379,
+          "heading": "Tool Result Event"
+        },
+        {
+          "line": 392,
+          "heading": "Error Handling"
+        },
+        {
+          "line": 425,
+          "heading": "Pagination"
+        },
+        {
+          "line": 443,
+          "heading": "Rate Limits"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-client-patterns.md",
+      "bytes": 12043,
+      "sha256": "f3d752675e225892f97da4d7bffbefd430841d6655b2c53a926f212121759d55",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Common Client Patterns"
+        },
+        {
+          "line": 9,
+          "heading": "1. Lossless stream reconnect"
+        },
+        {
+          "line": 40,
+          "heading": "2. `processed_at` - queued vs processed"
+        },
+        {
+          "line": 59,
+          "heading": "3. Interrupt a running session"
+        },
+        {
+          "line": 82,
+          "heading": "4. `tool_confirmation` round-trip"
+        },
+        {
+          "line": 112,
+          "heading": "5. Correct idle-break gate"
+        },
+        {
+          "line": 135,
+          "heading": "6. Post-idle status-write race"
+        },
+        {
+          "line": 155,
+          "heading": "7. Stream-first, then send"
+        },
+        {
+          "line": 171,
+          "heading": "8. File-mount gotchas"
+        },
+        {
+          "line": 189,
+          "heading": "9. Secrets for non-MCP APIs and CLIs - keep them host-side via custom tools"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-core.md",
+      "bytes": 32852,
+      "sha256": "1d2e548fcdbf5291d20dde57a5463cbfbf7db22ce9ac1bb307af98c5d302451b",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Core Concepts"
+        },
+        {
+          "line": 3,
+          "heading": "Architecture"
+        },
+        {
+          "line": 33,
+          "heading": "Session Lifecycle"
+        },
+        {
+          "line": 52,
+          "heading": "Built-in session features"
+        },
+        {
+          "line": 58,
+          "heading": "Session operations"
+        },
+        {
+          "line": 79,
+          "heading": "Sessions"
+        },
+        {
+          "line": 83,
+          "heading": "Session Object"
+        },
+        {
+          "line": 104,
+          "heading": "Creating a session"
+        },
+        {
+          "line": 144,
+          "heading": "Seeding a session with `initial_events`"
+        },
+        {
+          "line": 180,
+          "heading": "Session budgets"
+        },
+        {
+          "line": 210,
+          "heading": "Agents"
+        },
+        {
+          "line": 214,
+          "heading": "Agent Object"
+        },
+        {
+          "line": 230,
+          "heading": "Lifecycle: create once, run many, update in place"
+        },
+        {
+          "line": 246,
+          "heading": "Effort on the agent model"
+        },
+        {
+          "line": 254,
+          "heading": "Pinning inference geography (`inference_geo`)"
+        },
+        {
+          "line": 264,
+          "heading": "Versioning"
+        },
+        {
+          "line": 288,
+          "heading": "Agent Endpoints"
+        },
+        {
+          "line": 300,
+          "heading": "Using an Agent in a Session"
+        },
+        {
+          "line": 318,
+          "heading": "Override agent configuration for a session"
+        },
+        {
+          "line": 341,
+          "heading": "Updating the agent configuration mid-session"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-environments.md",
+      "bytes": 12823,
+      "sha256": "1b8aa55f0edfacf7066d79299bfc3107800d4f4a66916f3d3a8325bd3b8c5a7e",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Environments & Resources"
+        },
+        {
+          "line": 3,
+          "heading": "Environments"
+        },
+        {
+          "line": 9,
+          "heading": "Networking"
+        },
+        {
+          "line": 35,
+          "heading": "Creating an environment"
+        },
+        {
+          "line": 49,
+          "heading": "Self-hosted sandboxes"
+        },
+        {
+          "line": 53,
+          "heading": "Environment CRUD"
+        },
+        {
+          "line": 66,
+          "heading": "Resources"
+        },
+        {
+          "line": 70,
+          "heading": "File Uploads (input - host -> agent)"
+        },
+        {
+          "line": 93,
+          "heading": "Session outputs (output - agent -> host)"
+        },
+        {
+          "line": 120,
+          "heading": "GitHub Repositories"
+        },
+        {
+          "line": 214,
+          "heading": "Files API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-events.md",
+      "bytes": 25029,
+      "sha256": "c3c4bde5dbc8ae5d283ed9df86a87871ec098f6cd60a27ff384df0d685eeb767",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Events & Steering"
+        },
+        {
+          "line": 3,
+          "heading": "Events"
+        },
+        {
+          "line": 5,
+          "heading": "Sending Events"
+        },
+        {
+          "line": 18,
+          "heading": "Adding system context mid-session (`system.message`)"
+        },
+        {
+          "line": 42,
+          "heading": "Receiving Events"
+        },
+        {
+          "line": 58,
+          "heading": "Event Types (Received)"
+        },
+        {
+          "line": 92,
+          "heading": "Live previews"
+        },
+        {
+          "line": 136,
+          "heading": "Steering Patterns"
+        },
+        {
+          "line": 140,
+          "heading": "Stream-first ordering"
+        },
+        {
+          "line": 158,
+          "heading": "Reconnecting after a dropped stream"
+        },
+        {
+          "line": 185,
+          "heading": "Message queuing"
+        },
+        {
+          "line": 199,
+          "heading": "Interrupt"
+        },
+        {
+          "line": 219,
+          "heading": "Reaching a session budget"
+        },
+        {
+          "line": 233,
+          "heading": "Event payloads"
+        },
+        {
+          "line": 280,
+          "heading": "Archive"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-memory.md",
+      "bytes": 11362,
+      "sha256": "0dec5641630f97629ea75bbbe5c2bced861f9c16b0572a68c901849ea4d00bcb",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Memory Stores"
+        },
+        {
+          "line": 11,
+          "heading": "Object model"
+        },
+        {
+          "line": 19,
+          "heading": "Create a store"
+        },
+        {
+          "line": 35,
+          "heading": "Seed with content (optional)"
+        },
+        {
+          "line": 47,
+          "heading": "Attach to a session"
+        },
+        {
+          "line": 75,
+          "heading": "How the agent sees it (FUSE mount)"
+        },
+        {
+          "line": 83,
+          "heading": "Manage memories directly (host-side)"
+        },
+        {
+          "line": 87,
+          "heading": "List"
+        },
+        {
+          "line": 99,
+          "heading": "Read"
+        },
+        {
+          "line": 108,
+          "heading": "Create vs. update"
+        },
+        {
+          "line": 129,
+          "heading": "Optimistic concurrency (precondition on `update`)"
+        },
+        {
+          "line": 142,
+          "heading": "Delete"
+        },
+        {
+          "line": 150,
+          "heading": "Audit and rollback - memory versions"
+        },
+        {
+          "line": 162,
+          "heading": "List versions"
+        },
+        {
+          "line": 171,
+          "heading": "Retrieve a version"
+        },
+        {
+          "line": 180,
+          "heading": "Redact a version"
+        },
+        {
+          "line": 188,
+          "heading": "Endpoint reference"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-multiagent.md",
+      "bytes": 26250,
+      "sha256": "11da64cd20c3e2fd53cd6e437c3b1ee5472bd19d7e388814cf7f0dc78b6bc778",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Multiagent Sessions"
+        },
+        {
+          "line": 9,
+          "heading": "When to use it - start with `self`, then add cheaper workers"
+        },
+        {
+          "line": 94,
+          "heading": "Declare the roster on the coordinator"
+        },
+        {
+          "line": 132,
+          "heading": "Threads"
+        },
+        {
+          "line": 150,
+          "heading": "Multiagent events (on the session stream)"
+        },
+        {
+          "line": 166,
+          "heading": "Previewing a subagent's text"
+        },
+        {
+          "line": 180,
+          "heading": "Advisor"
+        },
+        {
+          "line": 223,
+          "heading": "Tool permissions and custom tools from subagent threads"
+        },
+        {
+          "line": 246,
+          "heading": "Interrupting and archiving threads"
+        },
+        {
+          "line": 254,
+          "heading": "Pitfalls"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-onboarding.md",
+      "bytes": 13154,
+      "sha256": "8c3a7c084dcc8c2e64461bc9d1d085eee37f09336a81cd63809544bf4b2de89a",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Onboarding Flow"
+        },
+        {
+          "line": 11,
+          "heading": "1. Describe the task"
+        },
+        {
+          "line": 19,
+          "heading": "2. Configure the agent - propose, don't interrogate"
+        },
+        {
+          "line": 33,
+          "heading": "3. Environment"
+        },
+        {
+          "line": 41,
+          "heading": "4. Session - auth, then test run"
+        },
+        {
+          "line": 54,
+          "heading": "5. Integrate - emit the code"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-outcomes.md",
+      "bytes": 7918,
+      "sha256": "cc387b0d3f326acde20d571bd778cc3bd3e94ec4dfed39c514232c6a036c4265",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Outcomes"
+        },
+        {
+          "line": 11,
+          "heading": "The `user.define_outcome` event"
+        },
+        {
+          "line": 51,
+          "heading": "Outcome-specific events"
+        },
+        {
+          "line": 61,
+          "heading": "`span.outcome_evaluation_end.result`"
+        },
+        {
+          "line": 87,
+          "heading": "Checking status & retrieving deliverables"
+        },
+        {
+          "line": 101,
+          "heading": "Interaction rules & pitfalls"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-overview.md",
+      "bytes": 13341,
+      "sha256": "d19da7375c7565818f1521566b7a376d8c4b76d930fe79147523017617acfd3e",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Overview"
+        },
+        {
+          "line": 5,
+          "heading": "Warning: THE MANDATORY FLOW: Agent (once) -> Session (every run)"
+        },
+        {
+          "line": 22,
+          "heading": "Beta Headers"
+        },
+        {
+          "line": 34,
+          "heading": "Reading Guide"
+        },
+        {
+          "line": 65,
+          "heading": "Common Pitfalls"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-scheduled-deployments.md",
+      "bytes": 9068,
+      "sha256": "eb1c8a1a6f428b3db634e6d37162fd8952c3d853920b7414be32a4943b70f227",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Scheduled Deployments"
+        },
+        {
+          "line": 7,
+          "heading": "Create a deployment"
+        },
+        {
+          "line": 76,
+          "heading": "Cron and timezone semantics"
+        },
+        {
+          "line": 84,
+          "heading": "Deployment budgets"
+        },
+        {
+          "line": 94,
+          "heading": "Deployment runs"
+        },
+        {
+          "line": 138,
+          "heading": "Lifecycle: pause / unpause / archive"
+        },
+        {
+          "line": 148,
+          "heading": "Failure behavior"
+        },
+        {
+          "line": 154,
+          "heading": "Manual runs"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-self-hosted-sandboxes.md",
+      "bytes": 27847,
+      "sha256": "3228ab72afbe3ab1a0ac0f5a41995e1764c947cf17ce22a858b41b67262b71ee",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Self-Hosted Sandboxes"
+        },
+        {
+          "line": 5,
+          "heading": "Flow"
+        },
+        {
+          "line": 14,
+          "heading": "Create the environment"
+        },
+        {
+          "line": 26,
+          "heading": "Run a worker - SDK (primary path)"
+        },
+        {
+          "line": 92,
+          "heading": "Run a worker - `ant` CLI (fixed tools)"
+        },
+        {
+          "line": 112,
+          "heading": "Webhook-driven wake (instead of always-on)"
+        },
+        {
+          "line": 156,
+          "heading": "Container orchestration (mid-level)"
+        },
+        {
+          "line": 171,
+          "heading": "Memory stores"
+        },
+        {
+          "line": 250,
+          "heading": "Monitoring & control"
+        },
+        {
+          "line": 259,
+          "heading": "What changes vs `cloud`"
+        },
+        {
+          "line": 272,
+          "heading": "Credentials"
+        },
+        {
+          "line": 280,
+          "heading": "Security - what you own"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-tools.md",
+      "bytes": 35673,
+      "sha256": "17672bb414c3cccd0f5b040e1ab1c08f8b3d1de648615d9840b34c856be6c00b",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Tools & Skills"
+        },
+        {
+          "line": 3,
+          "heading": "Tools"
+        },
+        {
+          "line": 5,
+          "heading": "Server tools vs client tools"
+        },
+        {
+          "line": 17,
+          "heading": "Agent Toolset"
+        },
+        {
+          "line": 42,
+          "heading": "Per-Tool Configuration"
+        },
+        {
+          "line": 68,
+          "heading": "Permission Policies"
+        },
+        {
+          "line": 100,
+          "heading": "`auto` - let the server evaluate each call"
+        },
+        {
+          "line": 136,
+          "heading": "`evaluated_permission` and `evaluation` - see how each call was evaluated"
+        },
+        {
+          "line": 186,
+          "heading": "Web search & web fetch settings (domain filters)"
+        },
+        {
+          "line": 234,
+          "heading": "Custom Tools (Client-Side)"
+        },
+        {
+          "line": 265,
+          "heading": "MCP Servers"
+        },
+        {
+          "line": 313,
+          "heading": "Vaults - the credential store"
+        },
+        {
+          "line": 322,
+          "heading": "Credentials and the sandbox"
+        },
+        {
+          "line": 424,
+          "heading": "Skills"
+        },
+        {
+          "line": 437,
+          "heading": "Enabling skills on a session"
+        },
+        {
+          "line": 479,
+          "heading": "Skills from a GitHub repository"
+        },
+        {
+          "line": 492,
+          "heading": "Skills API"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/managed-agents-webhooks.md",
+      "bytes": 11321,
+      "sha256": "38746f77a3ee971f9b1f7d47cec9e753131bf271fd795aed5c3da1764c9a6ac1",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - Webhooks"
+        },
+        {
+          "line": 9,
+          "heading": "Register an endpoint (Console only)"
+        },
+        {
+          "line": 21,
+          "heading": "Verify the signature"
+        },
+        {
+          "line": 61,
+          "heading": "Payload envelope"
+        },
+        {
+          "line": 83,
+          "heading": "Supported `data.type` values"
+        },
+        {
+          "line": 132,
+          "heading": "Delivery behavior & pitfalls"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/model-migration.md",
+      "bytes": 316954,
+      "sha256": "2accac3b1c1cd5c47a81d16e456cd3ebaac3139d3d86e92200f6e810c7a4cda8",
+      "group": "migration",
+      "capability": "Call-site classification, breaking/silent-default changes, protocol-native replacements, fixtures and behavioral verification",
+      "resources": [
+        "migration.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Model Migration Guide"
+        },
+        {
+          "line": 41,
+          "heading": "Step 0: Confirm the migration scope"
+        },
+        {
+          "line": 74,
+          "heading": "Step 1: Classify each file"
+        },
+        {
+          "line": 98,
+          "heading": "Per-SDK Syntax Reference"
+        },
+        {
+          "line": 105,
+          "heading": "`thinking` - `budget_tokens` -> adaptive"
+        },
+        {
+          "line": 117,
+          "heading": "Sampling parameters - `temperature` / `top_p` / `top_k`"
+        },
+        {
+          "line": 131,
+          "heading": "Prefill replacement - structured outputs via `output_config.format`"
+        },
+        {
+          "line": 143,
+          "heading": "`thinking.display` - opt back into summarized reasoning (Opus 4.7)"
+        },
+        {
+          "line": 159,
+          "heading": "Explain every change you make"
+        },
+        {
+          "line": 173,
+          "heading": "Before You Migrate"
+        },
+        {
+          "line": 189,
+          "heading": "Destination Models (recommended targets)"
+        },
+        {
+          "line": 210,
+          "heading": "Retired Model Replacements"
+        },
+        {
+          "line": 224,
+          "heading": "Deprecated Models (retiring soon)"
+        },
+        {
+          "line": 234,
+          "heading": "Breaking Changes by Source Model"
+        },
+        {
+          "line": 236,
+          "heading": "Migrating from Sonnet 4.5 to Sonnet 4.6 (effort default change)"
+        },
+        {
+          "line": 264,
+          "heading": "Migrating to Opus 4.6 / Sonnet 4.6 (from any older model)"
+        },
+        {
+          "line": 314,
+          "heading": "Migrating to the 4.6 family (Opus 4.6 and Sonnet 4.6)"
+        },
+        {
+          "line": 358,
+          "heading": "All models"
+        },
+        {
+          "line": 366,
+          "heading": "Beta Headers to Remove on 4.6"
+        },
+        {
+          "line": 399,
+          "heading": "Additional Changes When Coming from 3.x / 4.0 / 4.1 -> 4.6"
+        },
+        {
+          "line": 466,
+          "heading": "Prompt-Behavior Changes (Opus 4.5 / 4.6, Sonnet 4.6)"
+        },
+        {
+          "line": 494,
+          "heading": "Model-ID Rename Quick Reference"
+        },
+        {
+          "line": 515,
+          "heading": "Amazon Bedrock model IDs"
+        },
+        {
+          "line": 538,
+          "heading": "Claude Platform on AWS"
+        },
+        {
+          "line": 544,
+          "heading": "Migration Checklist"
+        },
+        {
+          "line": 579,
+          "heading": "Migrating to Opus 4.7"
+        },
+        {
+          "line": 587,
+          "heading": "Breaking changes (will 400 on Opus 4.7)"
+        },
+        {
+          "line": 631,
+          "heading": "Choosing an effort level on Opus 4.7"
+        },
+        {
+          "line": 643,
+          "heading": "Silent default changes (no error, but behavior differs)"
+        },
+        {
+          "line": 669,
+          "heading": "New feature: Task Budgets (beta)"
+        },
+        {
+          "line": 693,
+          "heading": "Capability improvements"
+        },
+        {
+          "line": 709,
+          "heading": "Real-time cybersecurity safeguards"
+        },
+        {
+          "line": 713,
+          "heading": "Fast Mode: Claude Opus 5.5 / Claude Opus 5 / Opus 4.8 only"
+        },
+        {
+          "line": 730,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 796,
+          "heading": "Opus 4.7 Migration Checklist"
+        },
+        {
+          "line": 826,
+          "heading": "Migrating to Opus 4.8"
+        },
+        {
+          "line": 836,
+          "heading": "No new API breaking changes (inherited from 4.7)"
+        },
+        {
+          "line": 847,
+          "heading": "New API feature: mid-session system prompts"
+        },
+        {
+          "line": 860,
+          "heading": "Capability improvements"
+        },
+        {
+          "line": 870,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 902,
+          "heading": "Opus 4.8 Migration Checklist"
+        },
+        {
+          "line": 922,
+          "heading": "Migrating to Claude Opus 5"
+        },
+        {
+          "line": 938,
+          "heading": "Breaking change 1: thinking is on by default"
+        },
+        {
+          "line": 946,
+          "heading": "Breaking change 2: disabling thinking is capped at `high` effort"
+        },
+        {
+          "line": 967,
+          "heading": "Two failure modes when thinking is disabled"
+        },
+        {
+          "line": 986,
+          "heading": "New API features"
+        },
+        {
+          "line": 1020,
+          "heading": "Capability improvements"
+        },
+        {
+          "line": 1045,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 1135,
+          "heading": "Claude Opus 5 Migration Checklist"
+        },
+        {
+          "line": 1164,
+          "heading": "Migrating to Claude Sonnet 5"
+        },
+        {
+          "line": 1172,
+          "heading": "Breaking changes (will 400 on Claude Sonnet 5)"
+        },
+        {
+          "line": 1205,
+          "heading": "Silent default change: adaptive thinking on when `thinking` is omitted"
+        },
+        {
+          "line": 1209,
+          "heading": "Silent default change: `thinking.display` defaults to `\"omitted\"`"
+        },
+        {
+          "line": 1213,
+          "heading": "New tokenizer (~30% more tokens)"
+        },
+        {
+          "line": 1217,
+          "heading": "Choosing an effort level on Claude Sonnet 5"
+        },
+        {
+          "line": 1237,
+          "heading": "Adaptive vs. disabled thinking"
+        },
+        {
+          "line": 1247,
+          "heading": "Capability improvements"
+        },
+        {
+          "line": 1255,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 1289,
+          "heading": "Claude Sonnet 5 Migration Checklist"
+        },
+        {
+          "line": 1315,
+          "heading": "Migrating to Claude Fable 5.1"
+        },
+        {
+          "line": 1323,
+          "heading": "Breaking changes (vs Opus-tier and Mythos Preview)"
+        },
+        {
+          "line": 1351,
+          "heading": "Thinking output on Claude Fable 5.1 and Claude Mythos 5.1"
+        },
+        {
+          "line": 1361,
+          "heading": "Tokenizer - unchanged from Opus 4.8"
+        },
+        {
+          "line": 1370,
+          "heading": "`refusal` stop reason - handle before reading content"
+        },
+        {
+          "line": 1455,
+          "heading": "Data retention requirement"
+        },
+        {
+          "line": 1459,
+          "heading": "What carries over unchanged"
+        },
+        {
+          "line": 1463,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 1511,
+          "heading": "Long-running agent recommendations"
+        },
+        {
+          "line": 1534,
+          "heading": "Claude Fable 5.1 Migration Checklist"
+        },
+        {
+          "line": 1552,
+          "heading": "Migrating to Claude Fable 5.1 from Claude Fable 5"
+        },
+        {
+          "line": 1562,
+          "heading": "Breaking change 1: forced tool use is rejected"
+        },
+        {
+          "line": 1600,
+          "heading": "Breaking change 2: thinking blocks are preserved only for the model that produced them, or a newer one"
+        },
+        {
+          "line": 1608,
+          "heading": "Breaking change 3: thinking blocks are preserved only in the conversation that produced them"
+        },
+        {
+          "line": 1675,
+          "heading": "What carries over unchanged from Claude Fable 5"
+        },
+        {
+          "line": 1688,
+          "heading": "New API features"
+        },
+        {
+          "line": 1745,
+          "heading": "Coming from Claude Opus 5"
+        },
+        {
+          "line": 1751,
+          "heading": "Claude Mythos 5.1"
+        },
+        {
+          "line": 1755,
+          "heading": "Capability improvements versus Claude Fable 5"
+        },
+        {
+          "line": 1759,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 1849,
+          "heading": "Claude Fable 5.1 from Claude Fable 5 Migration Checklist"
+        },
+        {
+          "line": 1867,
+          "heading": "Migrating to Claude Opus 5.5"
+        },
+        {
+          "line": 1877,
+          "heading": "Breaking change 1: thinking can't be disabled"
+        },
+        {
+          "line": 1912,
+          "heading": "Breaking change 2: forced tool use is rejected"
+        },
+        {
+          "line": 1941,
+          "heading": "Breaking change 3: thinking blocks are tied to the model and the conversation"
+        },
+        {
+          "line": 1957,
+          "heading": "Breaking change 4: computer use only through the computer toolset"
+        },
+        {
+          "line": 1988,
+          "heading": "Text between tool calls comes back in thinking blocks"
+        },
+        {
+          "line": 2008,
+          "heading": "Choosing an effort level - the default is `medium`, and the levels don't map 1:1 from Claude Opus 5"
+        },
+        {
+          "line": 2017,
+          "heading": "Safeguards - a broader classifier set than Claude Opus 5"
+        },
+        {
+          "line": 2025,
+          "heading": "What carries over unchanged from Claude Opus 5 - and what to re-check"
+        },
+        {
+          "line": 2035,
+          "heading": "Capability improvements versus Claude Opus 5"
+        },
+        {
+          "line": 2044,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 2055,
+          "heading": "Claude Opus 5.5 Migration Checklist"
+        },
+        {
+          "line": 2072,
+          "heading": "Migrating to Claude Sonnet 5.5"
+        },
+        {
+          "line": 2082,
+          "heading": "Breaking change 1: `disabled` thinking returns a 400 - turn thinking off with `between_tools`"
+        },
+        {
+          "line": 2134,
+          "heading": "Breaking change 2: forced tool use is rejected"
+        },
+        {
+          "line": 2141,
+          "heading": "Breaking change 3: thinking blocks are tied to the model and the conversation"
+        },
+        {
+          "line": 2147,
+          "heading": "Breaking change 4: computer use needs the toolset on the Claude API and Google Cloud"
+        },
+        {
+          "line": 2158,
+          "heading": "Breaking change 5: the advisor tool accepts fewer advisors"
+        },
+        {
+          "line": 2162,
+          "heading": "Text between tool calls comes back in thinking blocks"
+        },
+        {
+          "line": 2174,
+          "heading": "Choosing an effort level - recalibrated levels, default still `high`"
+        },
+        {
+          "line": 2183,
+          "heading": "Safeguards and fallback"
+        },
+        {
+          "line": 2187,
+          "heading": "What carries over, and what is new versus Claude Sonnet 5"
+        },
+        {
+          "line": 2195,
+          "heading": "Behavioral shifts (prompt-tunable)"
+        },
+        {
+          "line": 2207,
+          "heading": "Claude Sonnet 5.5 Migration Checklist"
+        },
+        {
+          "line": 2226,
+          "heading": "Verify the Migration"
+        },
+        {
+          "line": 2250,
+          "heading": "Ground the migration with an eval"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/models.md",
+      "bytes": 15969,
+      "sha256": "cffa80f693b484518d507bc7ac7f061aa41f5a73d7ae761e238ac7f829f79a52",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude Model Catalog"
+        },
+        {
+          "line": 5,
+          "heading": "Programmatic Model Discovery"
+        },
+        {
+          "line": 32,
+          "heading": "Raw HTTP"
+        },
+        {
+          "line": 56,
+          "heading": "Current Models (recommended)"
+        },
+        {
+          "line": 74,
+          "heading": "Model Descriptions"
+        },
+        {
+          "line": 88,
+          "heading": "Legacy Models (still active)"
+        },
+        {
+          "line": 96,
+          "heading": "Deprecated Models (retiring soon)"
+        },
+        {
+          "line": 104,
+          "heading": "Retired Models (no longer available)"
+        },
+        {
+          "line": 117,
+          "heading": "Resolving User Requests"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/platform-availability.md",
+      "bytes": 7415,
+      "sha256": "607997bc16de403970cb32c1dc1fa63e68f7f02328728be59397e7cefb2efed4",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Platform Availability"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/preserved-thinking-migration.md",
+      "bytes": 63994,
+      "sha256": "479996bf10ba0a12c1a134a81f530afd85b8e35b6e7ee65d04b86ce3d7fd0d8e",
+      "group": "context",
+      "capability": "Prefix/history diagnosis, tool pairing, state ownership, phase and opaque compaction; isolated ablation procedure",
+      "resources": [
+        "context-state.md",
+        "../scripts/context_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Preserved Thinking - Keeping Earlier Reasoning Valid Across a Conversation"
+        },
+        {
+          "line": 18,
+          "heading": "Severity tiers - one-off vs. recurring"
+        },
+        {
+          "line": 32,
+          "heading": "Step 0: Establish scope, quality bar, and baseline"
+        },
+        {
+          "line": 44,
+          "heading": "Step 0.5: Prove the mechanism is wired"
+        },
+        {
+          "line": 57,
+          "heading": "Step 1: Find the edits"
+        },
+        {
+          "line": 61,
+          "heading": "1.1 Capture what the harness actually sends"
+        },
+        {
+          "line": 71,
+          "heading": "1.2 Diff consecutive pairs"
+        },
+        {
+          "line": 90,
+          "heading": "1.3 Read the code"
+        },
+        {
+          "line": 110,
+          "heading": "1.4 Name each edit and decide whether it is deliberate"
+        },
+        {
+          "line": 114,
+          "heading": "Step 2: Measure with `drop_block` on a test slice"
+        },
+        {
+          "line": 118,
+          "heading": "2.1 The request shape"
+        },
+        {
+          "line": 139,
+          "heading": "2.2 What the response tells you"
+        },
+        {
+          "line": 153,
+          "heading": "2.3 Run the slice"
+        },
+        {
+          "line": 172,
+          "heading": "2.4 The three-arm protocol (validation against the eval)"
+        },
+        {
+          "line": 176,
+          "heading": "2.5 Caveats that change what the measurement means"
+        },
+        {
+          "line": 185,
+          "heading": "Step 3: Fix one cause per diff, re-measure, keep or revert"
+        },
+        {
+          "line": 223,
+          "heading": "Step 4: Deliverables"
+        },
+        {
+          "line": 239,
+          "heading": "Sources and live references"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/preserved-thinking-migration/causes.md",
+      "bytes": 37879,
+      "sha256": "f463aed849879c02f7105e11855fc65deb2a9b1bfbdca303b045825c1c68a0c9",
+      "group": "context",
+      "capability": "Prefix/history diagnosis, tool pairing, state ownership, phase and opaque compaction; isolated ablation procedure",
+      "resources": [
+        "context-state.md",
+        "../scripts/context_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Preserved Thinking - Causes, Fixes, and the Keep List"
+        },
+        {
+          "line": 5,
+          "heading": "Switching models mid-conversation"
+        },
+        {
+          "line": 28,
+          "heading": "Cause -> detection -> fix"
+        },
+        {
+          "line": 57,
+          "heading": "Append-only forms under newer betas"
+        },
+        {
+          "line": 67,
+          "heading": "Keep list - what never to flag"
+        },
+        {
+          "line": 81,
+          "heading": "Failure modes to avoid"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/preserved-thinking-migration/drop_block_probe.py",
+      "bytes": 64338,
+      "sha256": "de9f874ad4d57cdf12b4143cc5626d48d18b904f4c79c56c440cf0982e4823e9",
+      "group": "context",
+      "capability": "Prefix/history diagnosis, tool pairing, state ownership, phase and opaque compaction; isolated ablation procedure",
+      "resources": [
+        "context-state.md",
+        "../scripts/context_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks",
+      "sections": [],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/preserved-thinking-migration/prefix_diff.py",
+      "bytes": 94008,
+      "sha256": "734934b81b5f26e9ed2f8f51f44fed6554233de4f37b22a8845ae4ffcb622ac0",
+      "group": "context",
+      "capability": "Prefix/history diagnosis, tool pairing, state ownership, phase and opaque compaction; isolated ablation procedure",
+      "resources": [
+        "context-state.md",
+        "../scripts/context_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks",
+      "sections": [],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/prompt-audit.md",
+      "bytes": 48983,
+      "sha256": "c33200da181e10f1f31bd4625059cd30bc6922940aac49017d8ab0c2721878f2",
+      "group": "prompt",
+      "capability": "Effective prompt inventory, provenance, line classification, coupled replacements, keep list and regression hypothesis",
+      "resources": [
+        "prompt-audit.md",
+        "../scripts/prompt_inventory.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Prompt Audit - Finding and Removing Dated Prompting Patterns"
+        },
+        {
+          "line": 20,
+          "heading": "Step 0: Establish scope and target model"
+        },
+        {
+          "line": 27,
+          "heading": "Step 1: Inventory the prompt surface"
+        },
+        {
+          "line": 39,
+          "heading": "Step 2: Establish provenance"
+        },
+        {
+          "line": 45,
+          "heading": "Step 3: Classify every line - the deletion rule"
+        },
+        {
+          "line": 54,
+          "heading": "Step 4: Scan for the anti-pattern groups"
+        },
+        {
+          "line": 58,
+          "heading": "Group 1 - Dated prompt text"
+        },
+        {
+          "line": 60,
+          "heading": "1a. Pressure language - say exactly what you mean, at normal volume"
+        },
+        {
+          "line": 77,
+          "heading": "1b. Scaffolds replaced by API features - replace, don't rewrite"
+        },
+        {
+          "line": 95,
+          "heading": "1c. Over-specification - describe the goal, not the method"
+        },
+        {
+          "line": 109,
+          "heading": "1d. Fossils - text that outlived its model"
+        },
+        {
+          "line": 127,
+          "heading": "1e. Prohibition clusters - judge by provenance, not by whether the model \"needs it\""
+        },
+        {
+          "line": 133,
+          "heading": "1f. Output-shaping choreography - one pattern, remove every limb"
+        },
+        {
+          "line": 137,
+          "heading": "Group 2 - Brittle skill and configuration files"
+        },
+        {
+          "line": 154,
+          "heading": "Group 3 - Tool descriptions"
+        },
+        {
+          "line": 171,
+          "heading": "Group 4 - Request config and architecture"
+        },
+        {
+          "line": 187,
+          "heading": "What not to flag - the keep list"
+        },
+        {
+          "line": 205,
+          "heading": "Step 5: Produce the audit report"
+        },
+        {
+          "line": 222,
+          "heading": "Step 6: Produce the proposed diff"
+        },
+        {
+          "line": 231,
+          "heading": "Step 7: Verify - removal is a hypothesis, not a conclusion"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/prompt-caching.md",
+      "bytes": 33021,
+      "sha256": "92c0904c031831594187840231628d5986c4fd9e0e3415e41ac06bf9220e5c60",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Prompt Caching - Design & Optimization"
+        },
+        {
+          "line": 5,
+          "heading": "The one invariant everything follows from"
+        },
+        {
+          "line": 17,
+          "heading": "Workflow for optimizing existing code"
+        },
+        {
+          "line": 33,
+          "heading": "Placement patterns"
+        },
+        {
+          "line": 35,
+          "heading": "Large system prompt shared across many requests"
+        },
+        {
+          "line": 45,
+          "heading": "Multi-turn conversations"
+        },
+        {
+          "line": 54,
+          "heading": "Shared prefix, varying suffix"
+        },
+        {
+          "line": 65,
+          "heading": "Mid-conversation system messages"
+        },
+        {
+          "line": 85,
+          "heading": "Prompts that change from the beginning every time"
+        },
+        {
+          "line": 91,
+          "heading": "Architectural guidance"
+        },
+        {
+          "line": 103,
+          "heading": "Silent invalidators"
+        },
+        {
+          "line": 120,
+          "heading": "API reference"
+        },
+        {
+          "line": 146,
+          "heading": "Choosing the TTL"
+        },
+        {
+          "line": 162,
+          "heading": "Automatic vs explicit breakpoints"
+        },
+        {
+          "line": 180,
+          "heading": "Verifying cache hits"
+        },
+        {
+          "line": 212,
+          "heading": "Invalidation hierarchy"
+        },
+        {
+          "line": 244,
+          "heading": "20-block lookback window"
+        },
+        {
+          "line": 252,
+          "heading": "Concurrent-request timing"
+        },
+        {
+          "line": 260,
+          "heading": "Pre-warming the cache"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/token-counting.md",
+      "bytes": 1603,
+      "sha256": "8674e246c165decdc13106a4861a254ededb0421caf7fa4015ed0fb36e6c60dc",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Token Counting"
+        },
+        {
+          "line": 12,
+          "heading": "Count a file or string"
+        },
+        {
+          "line": 28,
+          "heading": "CLI"
+        },
+        {
+          "line": 36,
+          "heading": "Diffing a file across two versions"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "shared/tool-use-concepts.md",
+      "bytes": 44242,
+      "sha256": "bc5364fed0fe2a196a9f81cddf943d210adde53e3ad5be9b84057093fc8b28f5",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use Concepts"
+        },
+        {
+          "line": 5,
+          "heading": "User-Defined Tools"
+        },
+        {
+          "line": 7,
+          "heading": "Tool Definition Structure"
+        },
+        {
+          "line": 45,
+          "heading": "Eager input streaming (default for streaming requests with client tools)"
+        },
+        {
+          "line": 93,
+          "heading": "Tool Choice Options"
+        },
+        {
+          "line": 110,
+          "heading": "Tool Runner vs Manual Loop"
+        },
+        {
+          "line": 155,
+          "heading": "Handling Tool Results"
+        },
+        {
+          "line": 169,
+          "heading": "Server-Side Tools: Code Execution"
+        },
+        {
+          "line": 173,
+          "heading": "Key Facts"
+        },
+        {
+          "line": 181,
+          "heading": "Tool Definition"
+        },
+        {
+          "line": 194,
+          "heading": "Pre-installed Python Libraries"
+        },
+        {
+          "line": 204,
+          "heading": "Supported File Types for Upload"
+        },
+        {
+          "line": 212,
+          "heading": "Container Reuse"
+        },
+        {
+          "line": 216,
+          "heading": "Response Structure"
+        },
+        {
+          "line": 229,
+          "heading": "Server-Side Tools: Web Search and Web Fetch"
+        },
+        {
+          "line": 233,
+          "heading": "Tool Definitions"
+        },
+        {
+          "line": 242,
+          "heading": "Dynamic Filtering (Claude Opus 5.5 / Claude Opus 5 / Fable 5 / Opus 4.8 / Opus 4.7 / Opus 4.6 / Claude Sonnet 5.5 / Sonnet 5 / Sonnet 4.6)"
+        },
+        {
+          "line": 261,
+          "heading": "Server-Side Tools: Programmatic Tool Calling"
+        },
+        {
+          "line": 273,
+          "heading": "Server-Side Tools: Tool Search"
+        },
+        {
+          "line": 283,
+          "heading": "Mid-conversation tool changes (Beta)"
+        },
+        {
+          "line": 323,
+          "heading": "Agent Skills (Messages API)"
+        },
+        {
+          "line": 349,
+          "heading": "MCP Connector (Beta)"
+        },
+        {
+          "line": 376,
+          "heading": "Tool Use Examples"
+        },
+        {
+          "line": 386,
+          "heading": "Client-Side Tools: Computer Use"
+        },
+        {
+          "line": 398,
+          "heading": "Context Editing"
+        },
+        {
+          "line": 410,
+          "heading": "Server-Side Tools: Advisor (Beta)"
+        },
+        {
+          "line": 414,
+          "heading": "Tool Definition"
+        },
+        {
+          "line": 458,
+          "heading": "Client-Side Tools: Memory"
+        },
+        {
+          "line": 462,
+          "heading": "Key Facts"
+        },
+        {
+          "line": 477,
+          "heading": "Client-Side Tools: Bash and Text Editor"
+        },
+        {
+          "line": 483,
+          "heading": "Bash tool declaration"
+        },
+        {
+          "line": 501,
+          "heading": "Text editor tool declaration"
+        },
+        {
+          "line": 524,
+          "heading": "Structured Outputs"
+        },
+        {
+          "line": 537,
+          "heading": "JSON Schema Limitations"
+        },
+        {
+          "line": 556,
+          "heading": "Important Notes"
+        },
+        {
+          "line": 566,
+          "heading": "Tips for Effective Tool Use"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "typescript/claude-api/README.md",
+      "bytes": 15739,
+      "sha256": "e1477b7d759734ba7189d094e002c171a68749f3e56f0aa5a4326ecac6825bd4",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Claude API - TypeScript"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 15,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 31,
+          "heading": "Basic Message Request"
+        },
+        {
+          "line": 50,
+          "heading": "System Prompts"
+        },
+        {
+          "line": 62,
+          "heading": "Mid-conversation system messages (model-gated)"
+        },
+        {
+          "line": 84,
+          "heading": "Vision (Images)"
+        },
+        {
+          "line": 86,
+          "heading": "URL"
+        },
+        {
+          "line": 107,
+          "heading": "Base64"
+        },
+        {
+          "line": 134,
+          "heading": "Prompt Caching"
+        },
+        {
+          "line": 138,
+          "heading": "Automatic Caching (Recommended)"
+        },
+        {
+          "line": 152,
+          "heading": "Manual Cache Control"
+        },
+        {
+          "line": 185,
+          "heading": "Verifying Cache Hits"
+        },
+        {
+          "line": 197,
+          "heading": "Extended Thinking"
+        },
+        {
+          "line": 227,
+          "heading": "Error Handling"
+        },
+        {
+          "line": 253,
+          "heading": "Multi-Turn Conversations"
+        },
+        {
+          "line": 279,
+          "heading": "Compaction (long conversations)"
+        },
+        {
+          "line": 319,
+          "heading": "Stop Reasons"
+        },
+        {
+          "line": 332,
+          "heading": "Structured Stop Details"
+        },
+        {
+          "line": 343,
+          "heading": "Refusal Fallbacks (Claude Fable 5.1) - opt in by default"
+        },
+        {
+          "line": 377,
+          "heading": "Cost Optimization Strategies"
+        },
+        {
+          "line": 379,
+          "heading": "1. Use Prompt Caching for Repeated Context"
+        },
+        {
+          "line": 395,
+          "heading": "2. Use Token Counting Before Requests"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "typescript/claude-api/batches.md",
+      "bytes": 2594,
+      "sha256": "acc33bb981acd48b6ee9a6b2c2afeef9487c42ef2b117225da3949dc61efb464",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Message Batches API - TypeScript"
+        },
+        {
+          "line": 5,
+          "heading": "Key Facts"
+        },
+        {
+          "line": 15,
+          "heading": "Create a Batch"
+        },
+        {
+          "line": 53,
+          "heading": "Poll for Completion"
+        },
+        {
+          "line": 73,
+          "heading": "Retrieve Results"
+        },
+        {
+          "line": 101,
+          "heading": "Cancel a Batch"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "typescript/claude-api/files-api.md",
+      "bytes": 2384,
+      "sha256": "df8e4e433a4ded6d4c3eb40de9bc0782cf77aaa8e3e331a539aec1cff55d1316",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Files API - TypeScript"
+        },
+        {
+          "line": 7,
+          "heading": "Key Facts"
+        },
+        {
+          "line": 17,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 38,
+          "heading": "Use a File in Messages"
+        },
+        {
+          "line": 40,
+          "heading": "PDF / Text Document"
+        },
+        {
+          "line": 68,
+          "heading": "Manage Files"
+        },
+        {
+          "line": 70,
+          "heading": "List Files"
+        },
+        {
+          "line": 81,
+          "heading": "Delete a File"
+        },
+        {
+          "line": 89,
+          "heading": "Download a File"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "typescript/claude-api/streaming.md",
+      "bytes": 9514,
+      "sha256": "09db982effb0b7d14e29eddd5425b00040debfedccf3dd0db9af73f7d2da3e79",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Streaming - TypeScript"
+        },
+        {
+          "line": 3,
+          "heading": "Quick Start"
+        },
+        {
+          "line": 24,
+          "heading": "Handling Different Content Types"
+        },
+        {
+          "line": 64,
+          "heading": "Streaming with Tool Use (Tool Runner)"
+        },
+        {
+          "line": 159,
+          "heading": "Getting the Final Message"
+        },
+        {
+          "line": 178,
+          "heading": "Stream Event Types"
+        },
+        {
+          "line": 189,
+          "heading": "Best Practices"
+        },
+        {
+          "line": 199,
+          "heading": "Raw SSE Format"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "typescript/claude-api/tool-use.md",
+      "bytes": 22670,
+      "sha256": "fdc6b6aa9cc076206d284cbe0844db4650b23d10dbb6a2b0b036fc802054ce9d",
+      "group": "api",
+      "capability": "Native request/response, language-specific integration, streaming, tools, files/media, batching, usage/errors and platform contracts",
+      "resources": [
+        "api-implementation.md",
+        "response-recipes.md",
+        "language-adapters.md",
+        "platform-operations.md",
+        "../scripts/response_contract.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Tool Use - TypeScript"
+        },
+        {
+          "line": 5,
+          "heading": "Tool Runner (Recommended)"
+        },
+        {
+          "line": 51,
+          "heading": "Server tools with the tool runner"
+        },
+        {
+          "line": 90,
+          "heading": "Manual Agentic Loop"
+        },
+        {
+          "line": 139,
+          "heading": "Streaming Manual Loop"
+        },
+        {
+          "line": 266,
+          "heading": "Handling Tool Results"
+        },
+        {
+          "line": 301,
+          "heading": "Tool Choice"
+        },
+        {
+          "line": 317,
+          "heading": "Anthropic-Defined Tools"
+        },
+        {
+          "line": 356,
+          "heading": "Code Execution"
+        },
+        {
+          "line": 358,
+          "heading": "Basic Usage"
+        },
+        {
+          "line": 379,
+          "heading": "Reading Local Files (ESM note)"
+        },
+        {
+          "line": 394,
+          "heading": "Upload Files for Analysis"
+        },
+        {
+          "line": 431,
+          "heading": "Retrieve Generated Files"
+        },
+        {
+          "line": 466,
+          "heading": "Container Reuse"
+        },
+        {
+          "line": 502,
+          "heading": "Memory Tool"
+        },
+        {
+          "line": 504,
+          "heading": "Basic Usage"
+        },
+        {
+          "line": 520,
+          "heading": "SDK Memory Helper"
+        },
+        {
+          "line": 559,
+          "heading": "Structured Outputs"
+        },
+        {
+          "line": 561,
+          "heading": "JSON Outputs (Zod - Recommended)"
+        },
+        {
+          "line": 597,
+          "heading": "Strict Tool Use"
+        },
+        {
+          "line": 634,
+          "heading": "Agent Skills"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    },
+    {
+      "path": "typescript/managed-agents/README.md",
+      "bytes": 10989,
+      "sha256": "32a7123bb7f8462864c47b01f2bc8489ffd0841a05685747cd14858a4ae4049a",
+      "group": "agent",
+      "capability": "Architecture, durable tools/effects, sessions/events, environments, memory, children, outcomes, schedules, callbacks and recovery",
+      "resources": [
+        "agent-build.md",
+        "agent-lifecycle.md",
+        "../scripts/tool_loop.py",
+        "../scripts/lifecycle_audit.py"
+      ],
+      "evidence_level": "implemented_with_offline_checks_and_live_recipes",
+      "sections": [
+        {
+          "line": 1,
+          "heading": "Managed Agents - TypeScript"
+        },
+        {
+          "line": 7,
+          "heading": "Installation"
+        },
+        {
+          "line": 13,
+          "heading": "Client Initialization"
+        },
+        {
+          "line": 29,
+          "heading": "Create an Environment"
+        },
+        {
+          "line": 46,
+          "heading": "Create an Agent (required first step)"
+        },
+        {
+          "line": 50,
+          "heading": "Minimal"
+        },
+        {
+          "line": 73,
+          "heading": "With system prompt and custom tools"
+        },
+        {
+          "line": 119,
+          "heading": "Send a User Message"
+        },
+        {
+          "line": 139,
+          "heading": "Define an Outcome (default kickoff for deliverables)"
+        },
+        {
+          "line": 169,
+          "heading": "Stream Events (SSE)"
+        },
+        {
+          "line": 212,
+          "heading": "Provide Custom Tool Result"
+        },
+        {
+          "line": 231,
+          "heading": "Poll Events"
+        },
+        {
+          "line": 244,
+          "heading": "Full Streaming Loop with Custom Tools"
+        },
+        {
+          "line": 298,
+          "heading": "Upload a File"
+        },
+        {
+          "line": 320,
+          "heading": "List and Download Session Files"
+        },
+        {
+          "line": 346,
+          "heading": "Session Management"
+        },
+        {
+          "line": 365,
+          "heading": "MCP Server Integration"
+        }
+      ],
+      "scope_note": "Provider-specific names, model claims, prices, credentials and wire protocols are replaced with verified destination contracts, not asserted equivalent."
+    }
+  ]
+}

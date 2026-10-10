@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-09-29T22:06:36.100235+00:00",
+  "repairs": [
+    {
+      "id": "K01",
+      "source": "root held-out kernel probe",
+      "finding": "Remote idempotency key omitted tenant although local DB included it",
+      "fix": "Tenant/task/call-scoped remote key plus resolver for persisted legacy keys",
+      "before": "failed",
+      "after": "passed"
+    },
+    {
+      "id": "K02",
+      "source": "root held-out kernel probe",
+      "finding": "Cancellation during authorization was only checked after a new effect",
+      "fix": "Checkpoint after authorization and immediately before actual dispatch",
+      "before": "failed",
+      "after": "passed"
+    },
+    {
+      "id": "K03",
+      "source": "root held-out kernel probe",
+      "finding": "HTTP-success batch with incomplete body omitted from error classification",
+      "fix": "Preserve errors/incomplete/unknown statuses and usage",
+      "before": "failed",
+      "after": "passed"
+    },
+    {
+      "id": "K04",
+      "source": "root held-out kernel probe",
+      "finding": "Text normalizer exposed aggregate text without separate commentary/final projections",
+      "fix": "Add phase-specific text and response-level answer_complete; preserve full output and compatibility text",
+      "before": "failed capability requirement",
+      "after": "passed"
+    },
+    {
+      "id": "K05",
+      "source": "R09 implementation review and reproduced local probe",
+      "finding": "Contradictory completed+error response could be classified as completed",
+      "fix": "Reject contradictory response envelope",
+      "before": "failed",
+      "after": "passed"
+    },
+    {
+      "id": "K06",
+      "source": "R09 implementation review and reproduced local probe",
+      "finding": "Interrupted stream discarded raw nonterminal usage evidence",
+      "fix": "Retain raw_events/raw_response while leaving final usage unknown",
+      "before": "failed capability requirement",
+      "after": "passed"
+    },
+    {
+      "id": "K07",
+      "source": "root follow-up of K05 across batch entry point",
+      "finding": "Batch path bypassed completed-plus-error rejection and omitted contradictory body from errors",
+      "fix": "Classify any non-null batch row/body error as an error, including HTTP 200 with completed status; preserve raw body and usage",
+      "before": "failed",
+      "after": "passed"
+    },
+    {
+      "id": "K08",
+      "source": "R17 (claude-api arm) implementation review plus reproduced kernel probe",
+      "finding": "Completed response carrying non-null incomplete_details could be accepted by normal and batch paths",
+      "fix": "Reject contradictory incomplete details on both paths; retain partial usage as raw evidence",
+      "before": "failed on both paths",
+      "after": "passed"
+    },
+    {
+      "id": "K09",
+      "source": "R20 implementation review and reproduced root kernel probe",
+      "finding": "Exact-item hash replay detection missed an assistant item with lost phase in response-ID chaining",
+      "fix": "Hash-only possible-phase-drift warning; equal content alone does not justify automatic deletion and fresh user text is excluded",
+      "before": "failed",
+      "after": "passed"
+    }
+  ],
+  "evidence": [
+    "kernel-before.json",
+    "kernel-after.json",
+    "kernel-followup-before.json",
+    "kernel-batch-before.json",
+    "kernel-incomplete-details-before.json",
+    "kernel-context-before.json"
+  ],
+  "skill_version_after": "amind-engineering 0.2.1",
+  "behavioral_source_unchanged": "Independent agents continue against frozen amind-engineering 0.2.0 / eval-improve 0.3.0",
+  "claim_limit": "These are root-authored offline regression checks, not independent retesting of a revised skill.",
+  "additional_regression": "Legacy persisted remote key is reused for an unresolved operation; changing the key cannot silently redispatch. Added after the four original failing probes."
+}

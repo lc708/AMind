@@ -1,0 +1,18 @@
+{
+  "mode": "apply",
+  "skills": [
+    {
+      "name": "amind-engineering",
+      "action": "replace",
+      "destination": "/Users/damonalbarn/.codex/skills/amind-engineering"
+    },
+    {
+      "name": "eval-improve",
+      "action": "unchanged",
+      "destination": "/Users/damonalbarn/.codex/skills/eval-improve"
+    }
+  ],
+  "backup": "/Users/damonalbarn/.codex/skill-backups/amind-series-77jmvdkq",
+  "verified": true,
+  "matches_tested_package_hashes": true
+}

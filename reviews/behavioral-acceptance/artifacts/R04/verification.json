@@ -1,0 +1,51 @@
+[
+  {
+    "command": "node --test test-eval.mjs",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "stdout": "✔ App input excludes expected, split, id and arbitrary future metadata (1.073625ms)\n✔ Customer paraphrase leakage is quarantined without editing raw cases (0.475708ms)\n✔ Manifest rejects changed case sets (0.07825ms)\n✔ Recorded headline retains timeout in planned denominator (0.161166ms)\n✔ All missing or failed trials never become 100% or a negative answer (0.058166ms)\n✔ Duplicate and unknown trial rows fail loudly (0.05875ms)\n✔ Oracle passes each original requirement through handle_ticket (0.383209ms)\n✔ Null and success claims without an actual refund fail (0.101333ms)\n✔ Unverified, repeated and wrong-amount refunds fail independently (0.154375ms)\n✔ Fresh state and ledger make case ordering/repetitions independent (0.2145ms)\n✔ Timeout preserves evidence and cannot be graded as a model answer (0.180208ms)\n✔ No-op tool ablation fails even with a success response (0.068041ms)\n✔ Wording changes do not change an otherwise valid result (0.050459ms)\n✔ Even perfect mock results cannot approve migration (0.088833ms)\nℹ tests 14\nℹ suites 0\nℹ pass 14\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 74.298\n",
+    "stderr": ""
+  },
+  {
+    "command": "node run-eval.mjs --flow flow --model fixture-recorded --reps 2",
+    "expected_exit": 2,
+    "actual_exit": 2,
+    "stdout": "",
+    "stderr": "note: no lockfile beside the runner or in the current directory - dependency changes are outside the harness sha\nno approved harness sha in flow/_state.json (computed d6af5116b647 over: eval-core.mjs, manifest.json, mock-app.mjs, run-eval.mjs, task.json).\nReview the harness, then run once with --approve-harness to record it.\n"
+  },
+  {
+    "command": "node run-eval.mjs --flow flow --variant baseline --model fixture-recorded --reps 2 --timeout-s 1 --approve-harness",
+    "expected_exit": 1,
+    "actual_exit": 1,
+    "stdout": "",
+    "stderr": "note: no lockfile beside the runner or in the current directory - dependency changes are outside the harness sha\nharness approved: sha256 d6af5116b647 over 5 file(s) recorded in flow/_state.json\n[baseline] 6 of 6 (id,rep) to run\n  [baseline] c2 rep0 FAILED: Fixed timeout fixture; no request was made\n  [baseline] c2 rep1 FAILED: Fixed timeout fixture; no request was made\n[baseline] 6/6 done (4 ok, 2 failed), 0s elapsed, ~0s left\n[baseline] done - 4 ok, 2 failed -> flow/baseline/results.jsonl\n"
+  },
+  {
+    "command": "node run-eval.mjs --flow flow --variant v1 --model fixture-oracle --reps 2 --timeout-s 1",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": "[v1] 6 of 6 (id,rep) to run\n[v1] 6/6 done (6 ok, 0 failed), 0s elapsed, ~0s left\n[v1] done - 6 ok, 0 failed -> flow/v1/results.jsonl\n"
+  },
+  {
+    "command": "node run-eval.mjs --flow flow --variant v2 --model fixture-null --reps 2 --timeout-s 1",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": "[v2] 6 of 6 (id,rep) to run\n[v2] 6/6 done (6 ok, 0 failed), 0s elapsed, ~0s left\n[v2] done - 6 ok, 0 failed -> flow/v2/results.jsonl\n"
+  },
+  {
+    "command": "node run-eval.mjs --flow flow --variant v1 --model fixture-oracle --reps 2 --timeout-s 1",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": "[v1] 0 of 6 (id,rep) to run\n[v1] 0/0 done (0 ok, 0 failed), 0s elapsed\n[v1] done - 0 ok, 0 failed -> flow/v1/results.jsonl\n"
+  },
+  {
+    "command": "node /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/Q/shared/evals/report/build-report-lite.mjs flow",
+    "expected_exit": 0,
+    "actual_exit": 0,
+    "stdout": "",
+    "stderr": "wrote /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R04/flow/report.html (3 variants, 3 cases) and trajectory/scores.tsv\n"
+  }
+]

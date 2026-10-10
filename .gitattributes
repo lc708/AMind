@@ -1,0 +1,3 @@
+# Archived evidence and the reversible patch retain their recorded bytes.
+reviews/behavioral-acceptance/artifacts/** -whitespace
+reviews/behavioral-acceptance/skill-repair.patch -whitespace

@@ -1,0 +1,307 @@
+{
+  "evidence": "offline fixed fixtures only; no model or network calls",
+  "baseline": {
+    "exception": "KeyError",
+    "detail": "'content'"
+  },
+  "first": {
+    "raw_response": {
+      "status": "completed",
+      "output": [
+        {
+          "type": "reasoning",
+          "encrypted_content": "opaque-1"
+        },
+        {
+          "type": "message",
+          "role": "assistant",
+          "phase": "commentary",
+          "content": [
+            {
+              "type": "output_text",
+              "text": "Working"
+            }
+          ]
+        },
+        {
+          "type": "function_call",
+          "call_id": "c1",
+          "name": "lookup",
+          "arguments": "{}"
+        }
+      ]
+    },
+    "output_items": [
+      {
+        "type": "reasoning",
+        "encrypted_content": "opaque-1"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "commentary",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Working"
+          }
+        ]
+      },
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "lookup",
+        "arguments": "{}"
+      }
+    ],
+    "status": "completed",
+    "outcome": "tool_required",
+    "task_complete": false,
+    "display_text": "Working",
+    "commentary_text": "Working",
+    "final_text": null,
+    "refusals": [],
+    "function_calls": [
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "lookup",
+        "arguments": "{}"
+      }
+    ],
+    "usage": null,
+    "incomplete_details": null,
+    "error": null
+  },
+  "continuation_request": {
+    "instructions": "offline fixed fixture; preserve task behavior",
+    "max_output_tokens": 100,
+    "input": [
+      {
+        "role": "user",
+        "content": "Run the fixed local lookup fixture."
+      },
+      {
+        "type": "reasoning",
+        "encrypted_content": "opaque-1"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "commentary",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Working"
+          }
+        ]
+      },
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "lookup",
+        "arguments": "{}"
+      },
+      {
+        "type": "function_call_output",
+        "call_id": "c1",
+        "output": "{\"ok\": true, \"source\": \"local mock\", \"value\": \"fixed-lookup-result\"}"
+      }
+    ]
+  },
+  "final": {
+    "raw_response": {
+      "status": "completed",
+      "output": [
+        {
+          "type": "message",
+          "role": "assistant",
+          "phase": "final_answer",
+          "content": [
+            {
+              "type": "output_text",
+              "text": "Lookup complete."
+            }
+          ]
+        }
+      ]
+    },
+    "output_items": [
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "final_answer",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Lookup complete."
+          }
+        ]
+      }
+    ],
+    "status": "completed",
+    "outcome": "final",
+    "task_complete": true,
+    "display_text": "Lookup complete.",
+    "commentary_text": "",
+    "final_text": "Lookup complete.",
+    "refusals": [],
+    "function_calls": [],
+    "usage": null,
+    "incomplete_details": null,
+    "error": null
+  },
+  "failure": {
+    "raw_response": {
+      "status": "incomplete",
+      "output": [],
+      "usage": {
+        "output_tokens": 100
+      },
+      "incomplete_details": {
+        "reason": "max_output_tokens"
+      }
+    },
+    "output_items": [],
+    "status": "incomplete",
+    "outcome": "incomplete",
+    "task_complete": false,
+    "display_text": "",
+    "commentary_text": "",
+    "final_text": null,
+    "refusals": [],
+    "function_calls": [],
+    "usage": {
+      "output_tokens": 100
+    },
+    "incomplete_details": {
+      "reason": "max_output_tokens"
+    },
+    "error": null
+  },
+  "failure_snapshot": {
+    "version": 1,
+    "state_owner": "client",
+    "scope": "fixture:G02:failure",
+    "config": {
+      "instructions": "offline fixed fixture; preserve task behavior",
+      "max_output_tokens": 100
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "Run the fixed local lookup fixture."
+      }
+    ],
+    "responses": {
+      "failure-1": {
+        "status": "incomplete",
+        "output": [],
+        "usage": {
+          "output_tokens": 100
+        },
+        "incomplete_details": {
+          "reason": "max_output_tokens"
+        }
+      }
+    },
+    "blocked": "incomplete"
+  },
+  "snapshot": {
+    "version": 1,
+    "state_owner": "client",
+    "scope": "fixture:G02",
+    "config": {
+      "instructions": "offline fixed fixture; preserve task behavior",
+      "max_output_tokens": 100
+    },
+    "history": [
+      {
+        "role": "user",
+        "content": "Run the fixed local lookup fixture."
+      },
+      {
+        "type": "reasoning",
+        "encrypted_content": "opaque-1"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "commentary",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Working"
+          }
+        ]
+      },
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "lookup",
+        "arguments": "{}"
+      },
+      {
+        "type": "function_call_output",
+        "call_id": "c1",
+        "output": "{\"ok\": true, \"source\": \"local mock\", \"value\": \"fixed-lookup-result\"}"
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "final_answer",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Lookup complete."
+          }
+        ]
+      }
+    ],
+    "responses": {
+      "turn-1": {
+        "status": "completed",
+        "output": [
+          {
+            "type": "reasoning",
+            "encrypted_content": "opaque-1"
+          },
+          {
+            "type": "message",
+            "role": "assistant",
+            "phase": "commentary",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "Working"
+              }
+            ]
+          },
+          {
+            "type": "function_call",
+            "call_id": "c1",
+            "name": "lookup",
+            "arguments": "{}"
+          }
+        ]
+      },
+      "turn-2": {
+        "status": "completed",
+        "output": [
+          {
+            "type": "message",
+            "role": "assistant",
+            "phase": "final_answer",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "Lookup complete."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "blocked": null
+  }
+}

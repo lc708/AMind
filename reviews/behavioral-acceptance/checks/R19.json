@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-09-29T21:55:58.032691+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_all_known_and_complete_control (test_analyze.AccountingTests) ... ok\ntest_analysis_no_savings_claim (test_analyze.AccountingTests) ... ok\ntest_cached_and_reasoning_tokens_are_subsets (test_analyze.AccountingTests) ... ok\ntest_explicit_zero_differs_from_missing (test_analyze.AccountingTests) ... ok\ntest_external_charges_included (test_analyze.AccountingTests) ... ok\ntest_failed_spend_and_unknown_timeout_preserved (test_analyze.AccountingTests) ... ok\ntest_invalid_reported_cost_rejected (test_analyze.AccountingTests) ... ok\ntest_invalid_token_counts_rejected (test_analyze.AccountingTests) ... ok\ntest_missing_cache_counter_is_unknown (test_analyze.AccountingTests) ... ok\ntest_original_input_unchanged (test_analyze.AccountingTests) ... ok\ntest_subset_violations_rejected (test_analyze.AccountingTests) ... ok\ntest_each_missing_or_failed_gate_blocks (test_analyze.DecisionTests) ... ok\ntest_exact_registered_boundaries_pass_complete_mock (test_analyze.DecisionTests) ... ok\ntest_nonfinite_bool_and_missing_bounds_block (test_analyze.DecisionTests) ... ok\ntest_point_means_alone_never_pass (test_analyze.DecisionTests) ... ok\ntest_unacceptable_loss_and_saving_block (test_analyze.DecisionTests) ... ok\n\n----------------------------------------------------------------------\nRan 16 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "analyze.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"known_or_estimated_subtotal_usd\": 0.0069,\n  \"total_cost_usd\": null,\n  \"unknown_events\": 1,\n  \"partial_events\": 1,\n  \"quality_difference\": -0.01,\n  \"adoption\": \"not_demonstrated\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

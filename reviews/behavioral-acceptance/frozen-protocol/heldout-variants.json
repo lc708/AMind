@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-09-29T20:58:16.212924+00:00",
+  "scope": "Root reviewer local contract probes and repair regression; no new agent execution. Not independent behavioral retesting.",
+  "variants": [
+    {
+      "id": "G05-tenants",
+      "request": "Two authenticated tenants use the same task_id and call_id against one idempotency-keyed remote mock. Distinct authorized operations must receive distinct remote keys."
+    },
+    {
+      "id": "G05-cancel-during-authorization",
+      "request": "Authorization callback observes a cancellation before dispatch. No new remote side effect should begin after this checkpoint."
+    },
+    {
+      "id": "G04-incomplete-http-200",
+      "request": "Batch response HTTP 200 has body status incomplete/failed; account for it separately from completed and preserve usage."
+    },
+    {
+      "id": "G02-commentary-only",
+      "request": "Completed transport contains commentary and a function call, without final answer; projections must not represent commentary as final answer."
+    },
+    {
+      "id": "E02-heldout-grader",
+      "request": "Check unsupported citation, negation, wrong total plus right number elsewhere, and a correct paraphrase. Distinguish narrow deterministic pattern rules from trusted general judge."
+    },
+    {
+      "id": "E05-missing-counter",
+      "request": "Usage omits cache or output counter; retain unknown information and distinguish measured from estimated."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "skill_root": "/Users/damonalbarn/Work/AMind/skills/amind-engineering",
+  "tests": [
+    {
+      "test": "__main__.HeldoutContracts.test_batch_http_success_does_not_hide_incomplete_body",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_cancellation_during_authorization_prevents_dispatch",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_contradictory_completed_error_is_not_accepted",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/Work/AMind/scripts/test_amind_behavior_regressions.py\", line 29, in test_contradictory_completed_error_is_not_accepted\n    response.normalize({'status': 'completed', 'output': [], 'error': {'code': 'failed'}})\nAssertionError: ValueError not raised\n"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_interrupted_stream_preserves_raw_usage_evidence",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/Work/AMind/scripts/test_amind_behavior_regressions.py\", line 36, in test_interrupted_stream_preserves_raw_usage_evidence\n    self.assertEqual(result.get('raw_events'), events)\nAssertionError: None != [{'type': 'response.in_progress', 'respon[94 chars]al'}]\n"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_legacy_remote_key_is_reused_for_pending_operation",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_remote_key_scopes_tenant_even_when_task_and_call_ids_match",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_text_projection_distinguishes_commentary_and_final",
+      "status": "passed"
+    }
+  ],
+  "passed": false,
+  "scope": "offline kernel contracts, not agent behavior"
+}

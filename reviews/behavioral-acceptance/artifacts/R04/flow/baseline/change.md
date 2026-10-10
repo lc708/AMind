@@ -1,0 +1,1 @@
+OFFLINE CONTROL ONLY: Fixed status-pattern control; confirmed success 4/6 (66.7%); scorable 4/6; two timeouts; conditional outcome 100%. Mean outcome is CONDITIONAL quality. Migration HOLD. No production model was run.

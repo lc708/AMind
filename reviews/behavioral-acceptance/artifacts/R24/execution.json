@@ -1,0 +1,123 @@
+{
+  "task_id": "E04",
+  "run_id": "R24",
+  "work_directory": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24",
+  "assigned_skill": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/SKILL.md",
+  "workflow": "Existing-results report and adoption audit; relevant controlled-improvement final-selection guidance.",
+  "files_read": [
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/SKILL.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/artifacts.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/eval-audit.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/hillclimb.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/task.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/decision.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/test_decision.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/decision.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/deliverable.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/verification.txt",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/execution.json"
+  ],
+  "files_created": [
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/decision.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/test_decision.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/decision.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/deliverable.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/verification.txt",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/execution.json"
+  ],
+  "commands_executed": [
+    {
+      "command": "cat '/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/SKILL.md'\ncat '/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/task.json'",
+      "exit_code": 0,
+      "result": "Read full assigned skill and original task."
+    },
+    {
+      "command": "cat '/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/artifacts.md'",
+      "exit_code": 0,
+      "result": "Read report/comparison contract."
+    },
+    {
+      "command": "cat '/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/eval-audit.md'\ncat '/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/hillclimb.md'\nrg --files .",
+      "exit_code": 0,
+      "result": "Read audit and selection workflow; task directory initially contained task.json only."
+    },
+    {
+      "command": "pwd\npython3 --version",
+      "exit_code": 0,
+      "result": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24; Python 3.9.6"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v test_decision.py",
+      "exit_code": 0,
+      "result": "Ran 12 tests in 0.028s; OK."
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 decision.py --task task.json --output decision.json",
+      "exit_code": 0,
+      "result": "Generated fixed-summary decision artifact; no stdout/stderr."
+    },
+    {
+      "command": "cat decision.json",
+      "exit_code": 0,
+      "result": "Inspected reject_candidate, adopt_candidate=false, +10pp quality, +3pp unauthorized refunds, development_validation role."
+    },
+    {
+      "origin": "Child subprocess within test_cli_refuses_to_overwrite_original",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/decision.py",
+        "--task",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/task.json",
+        "--output",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R24/task.json"
+      ],
+      "exit_code": 2,
+      "result": "Expected argument rejection: output must not overwrite the original task; original bytes unchanged."
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 - <<'PY'\nimport hashlib\nimport json\nfrom pathlib import Path\nimport sys\nfrom decision import assess_summary\nroot = Path.cwd()\nrecord_path = root / 'execution.json'\nrecord = json.loads(record_path.read_text(encoding='utf-8'))\ntry:\n    raw = (root / 'task.json').read_bytes()\n    task = json.loads(raw)\n    result = json.loads((root / 'decision.json').read_text(encoding='utf-8'))\n    assert hashlib.sha256(raw).hexdigest() == '5027d5e4effa3576ad491085b9fc557133bbd1b1a73565b760eaae97ded2195b'\n    assert result['source_task_sha256'] == hashlib.sha256(raw).hexdigest()\n    assert result['decision_code_sha256'] == hashlib.sha256((root / 'decision.py').read_bytes()).hexdigest()\n    expected = assess_summary(task)\n    assert all(result[key] == value for key, value in expected.items())\n    assert result['decision'] == 'reject_candidate'\n    assert result['adopt_candidate'] is False\n    files = ['decision.py', 'test_decision.py', 'decision.json', 'deliverable.md', 'verification.txt']\n    hashes = {}\n    for name in files:\n        content = (root / name).read_bytes()\n        assert content, name\n        hashes[name] = hashlib.sha256(content).hexdigest()\n    record['artifact_sha256'] = hashes\n    record['runtime']['python_executable'] = sys.executable\n    record['commands_executed'][-2]['argv'][0] = sys.executable\n    record['commands_executed'][-1].update(exit_code=0, status='passed', result='Input unchanged; source and result hashes match; all deliverables present; decision reproducible.')\n    record['constraints_unmet'] = []\nexcept Exception as exc:\n    record['commands_executed'][-1].update(exit_code=1, status='failed', result=str(exc))\n    record_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\\n', encoding='utf-8')\n    raise\nrecord_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\\n', encoding='utf-8')\nprint('PASS: input unchanged, source/result hashes verified, local decision reproduced, delivery complete.')\nprint('Recorded 8 functions.exec calls and 11 nested tool calls (19 total); no constraint unmet.')\nPY",
+      "exit_code": 0,
+      "status": "passed",
+      "result": "Input unchanged; source and result hashes match; all deliverables present; decision reproducible."
+    }
+  ],
+  "runtime": {
+    "python_version": "3.9.6",
+    "python_executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "dependencies": "Python standard library only"
+  },
+  "self_reported_tool_calls": {
+    "functions_exec": 8,
+    "nested_exec_command": 8,
+    "nested_apply_patch": 3,
+    "nested_tools_total": 11,
+    "combined_outer_and_nested": 19,
+    "limit": 50,
+    "note": "Counts include the final verification call; each functions.exec wrapper and its nested tool calls are reported separately. No other tool categories used."
+  },
+  "constraints": {
+    "offline_only": true,
+    "target_model_api_calls": 0,
+    "network_calls": 0,
+    "additional_agents": 0,
+    "credentials_accessed": false,
+    "deployment_or_external_side_effects": false,
+    "original_task_modified": false,
+    "skill_source_modified": false,
+    "only_task_and_assigned_skill_evidence_accessed": true
+  },
+  "constraints_unmet": [],
+  "material_limits": [
+    "Only supplied aggregate fixed data; no raw cases, denominators, true action traces or verified historical identities.",
+    "Unit tests exercise local decision policy, not a real model or application entry point.",
+    "No confidence interval, production safety proof, cost/latency measurement or untouched final-test result is claimed.",
+    "Future genuine application/model verification remains unexecuted under the offline-only constraint."
+  ],
+  "artifact_sha256": {
+    "decision.py": "3e1d31037a73a321ab7e7fe2eb919846ce4005ad5cef7204f15fe18f7317b78f",
+    "test_decision.py": "5994df4b135634c37e23b7d86718e49d19c4f1cd8e412ee6c2d69d71ccc251c9",
+    "decision.json": "1aec26b8bb253c07c0153d441cb36b03f1f8e1687635af02e1c58000632d1c07",
+    "deliverable.md": "bd35b021fd171196042c90eed3f6b583d78b2eec86ff5a656747f1e36ee0a11a",
+    "verification.txt": "a1b46a5a64789fbaf9503cea98031181296432b539e5f5678f2beb48f376996f"
+  }
+}

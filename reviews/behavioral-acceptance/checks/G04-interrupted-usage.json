@@ -1,0 +1,60 @@
+{
+  "scope": "Root-authored local probe, same input on original artifacts; partial usage is evidence, not a final bill",
+  "input": [
+    {
+      "type": "response.in_progress",
+      "response": {
+        "usage": {
+          "output_tokens": 17
+        }
+      }
+    },
+    {
+      "type": "response.output_text.delta",
+      "delta": "partial"
+    }
+  ],
+  "outcomes": {
+    "R09": {
+      "output": {
+        "status": "disconnected",
+        "transport_success": false,
+        "text": null,
+        "refusals": [],
+        "function_calls": [],
+        "usage": null,
+        "incomplete_details": null,
+        "error": null,
+        "raw_response": null,
+        "display_deltas": "partial",
+        "raw_events": [
+          {
+            "type": "response.in_progress",
+            "response": {
+              "usage": {
+                "output_tokens": 17
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "delta": "partial"
+          }
+        ]
+      },
+      "retained_available_usage": true
+    },
+    "R17": {
+      "output": {
+        "status": "incomplete",
+        "success": false,
+        "reason": "missing_terminal_event",
+        "partial_text": "partial",
+        "terminal_event": null,
+        "events_seen": 2,
+        "final_response": null
+      },
+      "retained_available_usage": false
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "upstream_commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+  "upstream_runner_sha256": "c3a87ba4b94b3018b83c075d5148ba7760580aa447699d513d45ab55b82a531a",
+  "fixture": "same two public inputs and synthetic outcomes; only the three documented upstream TODO hooks filled",
+  "observations": [
+    {
+      "scenario": "normal_resume",
+      "upstream": {
+        "exit_code": 0,
+        "scored_rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "grades": [
+          {
+            "quality": 1
+          },
+          {
+            "quality": 1
+          }
+        ],
+        "calls": 2,
+        "resume_exit": 0,
+        "calls_after_resume": 2
+      },
+      "amind": {
+        "exit_code": 0,
+        "scored_rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "failure_classes": [],
+        "calls": 2,
+        "resume_exit": 0,
+        "calls_after_resume": 2
+      }
+    },
+    {
+      "scenario": "casefold_collision",
+      "upstream": {
+        "exit_code": 2,
+        "scored_rows": 0,
+        "statuses": [],
+        "grades": [],
+        "calls": 0
+      },
+      "amind": {
+        "exit_code": 2,
+        "scored_rows": 0,
+        "statuses": [],
+        "failure_classes": [],
+        "calls": 0
+      }
+    },
+    {
+      "scenario": "missing_served_model",
+      "upstream": {
+        "exit_code": 0,
+        "scored_rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "grades": [
+          {
+            "quality": 1
+          },
+          {
+            "quality": 1
+          }
+        ],
+        "calls": 2
+      },
+      "amind": {
+        "exit_code": 2,
+        "scored_rows": 0,
+        "statuses": [],
+        "failure_classes": [
+          "serving_substitution",
+          "serving_substitution"
+        ],
+        "calls": 2
+      }
+    },
+    {
+      "scenario": "invalid_grade",
+      "upstream": {
+        "exit_code": 0,
+        "scored_rows": 2,
+        "statuses": [
+          "ok",
+          "ok"
+        ],
+        "grades": [
+          {
+            "quality": "not-a-score"
+          },
+          {
+            "quality": "not-a-score"
+          }
+        ],
+        "calls": 2
+      },
+      "amind": {
+        "exit_code": 2,
+        "scored_rows": 0,
+        "statuses": [],
+        "failure_classes": [
+          "grader_schema",
+          "grader_schema"
+        ],
+        "calls": 2
+      }
+    }
+  ],
+  "limits": "Selected deterministic runner contracts only. No live model, independent agent, eight-language runtime or overall skill superiority claim."
+}

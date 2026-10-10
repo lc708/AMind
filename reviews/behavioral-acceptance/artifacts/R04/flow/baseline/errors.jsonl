@@ -1,0 +1,2 @@
+{"prompt_id":"c2","rep":0,"failure_class":"timeout","error":"Fixed timeout fixture; no request was made","retries":0,"judge_retries":0,"latency_s":0.001}
+{"prompt_id":"c2","rep":1,"failure_class":"timeout","error":"Fixed timeout fixture; no request was made","retries":0,"judge_retries":0,"latency_s":0.001}

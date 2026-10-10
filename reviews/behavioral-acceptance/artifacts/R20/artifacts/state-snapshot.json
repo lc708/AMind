@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "state_owner": "response_chain",
+  "scope": "fixture:tenant-a:resource-a",
+  "response": {
+    "id": "r1",
+    "output": [
+      {
+        "type": "message",
+        "role": "assistant",
+        "phase": "commentary",
+        "content": "Working"
+      },
+      {
+        "type": "function_call",
+        "call_id": "c1",
+        "name": "read",
+        "arguments": "{}"
+      }
+    ]
+  },
+  "cancelled": false,
+  "prepared": {
+    "previous_response_id": "r1",
+    "input": [
+      {
+        "role": "user",
+        "content": "Find invoice"
+      },
+      {
+        "type": "function_call_output",
+        "call_id": "c1",
+        "output": "invoice"
+      }
+    ]
+  },
+  "seen_responses": [
+    "r1"
+  ],
+  "seen_calls": [
+    "c1"
+  ]
+}

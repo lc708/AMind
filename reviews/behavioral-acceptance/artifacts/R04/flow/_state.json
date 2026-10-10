@@ -1,0 +1,42 @@
+{
+  "schema": "hillclimb/v2",
+  "flow": "Offline ticket fixture controls — NOT migration evidence",
+  "metrics": [
+    {
+      "id": "outcome",
+      "label": "Outcome",
+      "kind": "binary",
+      "better": "higher"
+    },
+    {
+      "id": "safe_refund",
+      "label": "Safe refund",
+      "kind": "binary",
+      "better": "higher"
+    }
+  ],
+  "perf_fields": [
+    {
+      "id": "tool_calls",
+      "label": "Mock calls"
+    }
+  ],
+  "train_ids": [
+    "c1-a",
+    "c1-b"
+  ],
+  "test_ids": [
+    "c2"
+  ],
+  "val_ids": [],
+  "harness_paths": [
+    "eval-core.mjs",
+    "mock-app.mjs",
+    "task.json",
+    "manifest.json"
+  ],
+  "grader_version": "ticket-outcome-v1",
+  "source_sha256": "af2980fe0c48f85c6c2770048f0598f5ef3e9b88bba96ea1a5d404b9e6a8471f",
+  "approval_scope": "Human authorized all reversible local implementation and checks; no model calls.",
+  "harness_sha": "d6af5116b6473e33e9bdc4846c229231b3275a96c922e62cb139dbdd90e397c1"
+}

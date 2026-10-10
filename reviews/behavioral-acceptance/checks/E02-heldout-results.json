@@ -1,0 +1,139 @@
+{
+  "scope": "Local deterministic graders only; no model or held-out population calibration",
+  "outcomes": {
+    "R08": [
+      {
+        "id": "unsupported_citation",
+        "result": {
+          "rubric_version": "invoice-rubric-1.0",
+          "source": "local_deterministic_checker",
+          "status": "scored",
+          "score": 0,
+          "criteria": {
+            "answers_total": true,
+            "factually_correct": true,
+            "citation_supported": false
+          },
+          "evidence": [
+            {
+              "answer_quote": "Total is $90, supported by row 7",
+              "reference_quote": "row 4 total is $90",
+              "claimed_total": "90",
+              "expected_total": "90"
+            }
+          ],
+          "ignored_scoring_directives": 0,
+          "reason": "unsupported row citation"
+        },
+        "passed": true
+      },
+      {
+        "id": "negation",
+        "result": {
+          "rubric_version": "invoice-rubric-1.0",
+          "source": "local_deterministic_checker",
+          "status": "needs_review",
+          "score": null,
+          "criteria": {
+            "answers_total": null,
+            "factually_correct": null,
+            "citation_supported": null
+          },
+          "evidence": [],
+          "ignored_scoring_directives": 0,
+          "reason": "no supported total assertion syntax"
+        },
+        "passed": true
+      },
+      {
+        "id": "wrong_with_right_number",
+        "result": {
+          "rubric_version": "invoice-rubric-1.0",
+          "source": "local_deterministic_checker",
+          "status": "needs_review",
+          "score": null,
+          "criteria": {
+            "answers_total": null,
+            "factually_correct": null,
+            "citation_supported": null
+          },
+          "evidence": [],
+          "ignored_scoring_directives": 0,
+          "reason": "additional or unsupported text"
+        },
+        "passed": true
+      },
+      {
+        "id": "correct_paraphrase",
+        "result": {
+          "rubric_version": "invoice-rubric-1.0",
+          "source": "local_deterministic_checker",
+          "status": "scored",
+          "score": 1,
+          "criteria": {
+            "answers_total": true,
+            "factually_correct": true,
+            "citation_supported": true
+          },
+          "evidence": [
+            {
+              "answer_quote": "The invoice total is $90",
+              "reference_quote": "row 4 total is $90",
+              "claimed_total": "90",
+              "expected_total": "90"
+            }
+          ],
+          "ignored_scoring_directives": 0,
+          "reason": "supported answer"
+        },
+        "passed": true
+      }
+    ],
+    "R18": [
+      {
+        "id": "unsupported_citation",
+        "result": {
+          "status": "ok",
+          "grade": 0,
+          "reason": "unsupported_row_citation",
+          "answer_evidence": "Total is $90, supported by row 7.",
+          "reference_evidence": "row 4 total is $90"
+        },
+        "passed": true
+      },
+      {
+        "id": "negation",
+        "result": {
+          "status": "needs_review",
+          "grade": null,
+          "reason": "outside_supported_grammar",
+          "answer_evidence": "The total is not $90.",
+          "reference_evidence": "row 4 total is $90"
+        },
+        "passed": true
+      },
+      {
+        "id": "wrong_with_right_number",
+        "result": {
+          "status": "needs_review",
+          "grade": null,
+          "reason": "outside_supported_grammar",
+          "answer_evidence": "Total is $190. The reference mentions $90.",
+          "reference_evidence": "row 4 total is $90"
+        },
+        "passed": true
+      },
+      {
+        "id": "correct_paraphrase",
+        "result": {
+          "status": "ok",
+          "grade": 1,
+          "reason": "correct_total_and_supported_citation_if_any",
+          "answer_evidence": "The invoice total is $90.",
+          "reference_evidence": "row 4 total is $90"
+        },
+        "passed": true
+      }
+    ]
+  }
+}

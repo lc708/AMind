@@ -31,15 +31,19 @@ If a proposed row cannot preserve those boundaries, it should remain a research 
 
 ## Development checks
 
-AMind uses only the Python standard library. From the repository root, run:
+AMind's evidence tools use only the Python standard library. From the repository root, run:
 
 ```bash
-python3 -B scripts/build_amind_skill.py --check
 python3 -B scripts/test_amind_skill.py
+python3 -B scripts/verify_amind_increment.py
 python3 -B scripts/verify_amind_v1_release.py
 ```
 
 Changes to the compact Skill data must remain deterministically generated from the frozen release and keep the manifest hashes and row counts current.
+
+The current knowledge package includes the 2026-09-08 increment. Its regression suite selects the matching evidence verifier. `build_amind_skill.py --check` targets the original `amind-v1` package and should only be used when checking that original version; it is not a check of the incremented package.
+
+For the application skills (`amind-engineering` and `eval-improve`), run `python3 -B scripts/test_amind_app_skills.py`, `python3 -B scripts/test_amind_capability_kernel.py`, `python3 -B scripts/test_amind_behavior_regressions.py` and `python3 -B scripts/check_amind_capability_map.py`. `verify_amind_application_skills.py --output <evidence.json>` runs the three test suites and records package hashes. These checks need Python 3.9+ and Node.js 18+, use synthetic fixtures, and make no live model calls. Keep licenses/source pins current and distinguish local helper checks from actual behavioral evaluation. Maintain application skill sources in this repository and use `scripts/install_amind_series.py --apply --replace` to update personal copies with backups. See [AMind series](AMIND-SERIES.md) for the independent version boundaries.
 
 ## Pull request checklist
 

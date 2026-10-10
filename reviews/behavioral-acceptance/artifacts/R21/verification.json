@@ -1,0 +1,27 @@
+{
+  "evidence": "Offline fixed-fixture audit checks; no target or grader model was invoked.",
+  "runtime": "Python 3.9.6",
+  "commands": [
+    {
+      "name": "unit-tests",
+      "result": {
+        "chunk_id": "5e6972",
+        "wall_time_seconds": 0.000006792,
+        "exit_code": 0,
+        "original_token_count": 311,
+        "output": "test_analysis_does_not_mutate_source (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_cli_is_deterministic_and_records_input_hash (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_cli_refuses_to_overwrite_task (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_duplicate_case_ids_are_rejected (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_invalid_counts_are_rejected (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_matching_aggregate_counts_do_not_certify_coverage (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_mismatched_count_is_explicit (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_missing_group_is_rejected (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_more_repetitions_do_not_create_independent_groups (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_no_confidence_claim_from_one_group (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_original_fixture_is_blocked_with_correct_descriptive_arithmetic (test_compare_fixture.ComparisonAuditTests) ... ok\ntest_relabeling_grader_version_cannot_unlock_comparison (test_compare_fixture.ComparisonAuditTests) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.075s\n\nOK\n"
+      }
+    },
+    {
+      "name": "fixture-audit",
+      "result": {
+        "chunk_id": "37795d",
+        "wall_time_seconds": 0.000006125,
+        "exit_code": 2,
+        "original_token_count": 14,
+        "output": "comparison_blocked: report written to comparison.json\n"
+      }
+    }
+  ]
+}
+

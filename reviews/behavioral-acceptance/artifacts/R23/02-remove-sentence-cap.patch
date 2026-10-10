@@ -1,0 +1,5 @@
+--- 01_tools_corrected.txt
++++ candidate_prompt.txt
+@@ -1 +1 @@
+-IMPORTANT: always check payment status before retrying. NEVER charge twice. Begin every answer with RESULT: and output exactly three sentences.
++IMPORTANT: always check payment status before retrying. NEVER charge twice. Begin every answer with RESULT:

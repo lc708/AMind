@@ -1,0 +1,18 @@
+{
+  "schema_version":2,
+  "task":"Synthetic uppercase adapter demonstration; no model-quality evidence",
+  "dataset_version":"synthetic-1",
+  "grader_version":"exact-1",
+  "cases":"cases.jsonl",
+  "references":"references.jsonl",
+  "splits":{"train":["train-a"],"val":["val-a","val-b","val-c","val-d"],"test":["test-a","test-b"]},
+  "metrics":[{"id":"quality","kind":"binary","better":"higher","role":"objective","min_improvement":0}],
+  "runner":{"command":["python3","app.py"],"files":["app.py"],"retry_safe":true},
+  "grader":{"kind":"exact"},
+  "mutable_config":["uppercase"],
+  "variants":{
+    "baseline":{"files":["app.py"],"config":{"uppercase":false},"expected_model":"synthetic-fixture"},
+    "v1":{"files":["app.py"],"config":{"uppercase":true},"expected_model":"synthetic-fixture"}
+  },
+  "limits":{"max_attempts":12,"concurrency":2,"timeout_s":5,"max_total_seconds":300,"retries":1}
+}

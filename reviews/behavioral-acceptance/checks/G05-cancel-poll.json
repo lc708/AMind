@@ -1,0 +1,21 @@
+{
+  "scope": "Local reviewer probe of original artifacts, after initial tasks; not new agent work",
+  "results": {
+    "R01": {
+      "poll_invocations": 12,
+      "charge_calls": 1,
+      "lookup_calls": 1,
+      "effects": 0,
+      "state": "unknown",
+      "automatic_halted": true
+    },
+    "R05": {
+      "poll_invocations": 12,
+      "charge_calls": 1,
+      "lookup_calls": 12,
+      "effects": 0,
+      "state": "unknown",
+      "automatic_halted": false
+    }
+  }
+}

@@ -1,0 +1,214 @@
+--- frozen/amind-engineering/SKILL.md
++++ repaired/amind-engineering/SKILL.md
+@@ -3,7 +3,7 @@
+ description: Build and improve LLM applications, agents, prompts, and skills through concrete engineering contracts, executable diagnostics and measured experiments. Use for prompt audits, measured cost optimization, model or API migration, SDK upgrades, conversation-state migration, agent implementation, and routing evaluation or hillclimbing work to AMind Eval Improve. Use this AMind application skill for engineering work, not for retrieving Anthropic's public positions or ordinary non-AI code changes.
+ license: Apache-2.0; see LICENSE.txt and NOTICE.txt
+ metadata:
+-  version: "0.2.0"
++  version: "0.2.1"
+   series: "AMind"
+ ---
+ 
+--- frozen/amind-engineering/references/agent-build.md
++++ repaired/amind-engineering/references/agent-build.md
+@@ -33,7 +33,9 @@
+ 
+ The bundled `scripts/tool_loop.py` is an injectable synchronous reference kernel. It has no provider client: supply `model_call(request)` using the product's existing client, plus validators, authorization and handlers. It preserves full output items, handles multiple function calls, correlates results, bounds rounds/tool calls/time, and stops on cancellation or non-completed provider states.
+ 
+-Each registered tool supplies `schema`, `validate(args)`, `handler(args,idempotency_key)` and `side_effect`. `EffectLedger` records dispatch before a side effect in SQLite, returns a recorded completed result on replay, rejects a changed request under the same key, and leaves interrupted effects pending until externally reconciled. Use `reconcile` only with evidence from the external system. Tenant-scoped keys and task/call identity prevent unrelated operations from colliding.
++Each registered tool supplies `schema`, `validate(args)`, `handler(args,idempotency_key)` and `side_effect`. `EffectLedger` records dispatch before a side effect in SQLite, returns a recorded completed result on replay, rejects a changed request under the same key, and leaves interrupted effects pending until externally reconciled. Use `reconcile` only with evidence from the external system. Include authenticated tenant, task and call identity in the remote key as well as the local ledger scope. Recheck cancellation/deadline after validation/authorization and immediately before dispatch; this closes observable local gaps but cannot atomically cancel an already-started remote write.
++
++When migrating an existing ledger, preserve each operation's stored remote key. The current `operation_key` includes tenant identity; `run_loop(..., operation_key_for=...)` can resolve persisted legacy keys. Do not derive a new key for an unresolved old operation: reconcile it using its original key first.
+ 
+ This avoids a blind second dispatch; it does not make a remote action exactly-once. The downstream service should accept a stable idempotency key or support querying the operation. A crash between remote success and local commit is an unknown outcome, not a failure that is safe to replay. Production multi-worker systems need a durable shared store/transaction strategy suited to their deployment.
+ 
+--- frozen/amind-engineering/references/context-state.md
++++ repaired/amind-engineering/references/context-state.md
+@@ -31,6 +31,8 @@
+ 
+ The audit reports JSON pointers and hashes instead of raw prompt contents. It detects replay drift, mixed owners, unknown chain references, duplicate server history, call/result problems, malformed function arguments, non-success statuses and changed compaction items. It is a normalized diagnostic, not a complete provider protocol validator.
+ 
++For response-ID chaining, an assistant item that matches prior output except for a lost or changed `phase` produces `possible_phase_drift_replay`. This is a warning to inspect trusted event provenance, not proof of duplicate identity or permission to delete input. Fresh user messages with the same text are not treated as assistant replays.
++
+ For a legitimate history edit, record `intentional_changes:{"/1/content":"user-requested correction"}` in the trusted diagnostic input; this annotates the difference, not proof that the edit is safe. For a deliberate compaction transition set `compaction_boundary:true` and the saved item's `expected_compaction_hash`. For a trace starting mid-chain, declare known `external_response_ids`. Do not suppress unexplained findings as intentional changes.
+ 
+ ## Root-cause map
+--- frozen/amind-engineering/references/response-recipes.md
++++ repaired/amind-engineering/references/response-recipes.md
+@@ -31,6 +31,10 @@
+ ```
+ 
+ `output` is a heterogeneous array. Do not assume the first item is final assistant text. `output_text` is a convenient text projection, not full state. Preserve message `phase`, tool calls, reasoning/compaction items, refusal content, status and usage. `scripts/response_contract.py` supplies offline tested normalization, terminal stream handling and batch result matching. It treats a refusal as an observable outcome for the task rubric, not automatically as an infrastructure failure.
++
++The normalizer exposes `commentary_text`, `final_text` and `answer_complete` separately. Its legacy `text` field includes all text for display, while `scorable_transport` means only that the provider response completed. Neither proves product-task success. Pending function calls still require execution; preserve unknown phases in `output_items`. Batch HTTP success also needs the body outcome checked: the matcher retains `errors`, `incomplete`, `unknown_status` and missing IDs without discarding usage.
++
++Preserve `raw_response` and `raw_events` for diagnosis, including partial usage observed before a disconnect. Partial counters are evidence, not a finalized total. A response that simultaneously declares completion and carries an error or non-null incomplete details is contradictory and must fail validation, including inside an HTTP-success batch row.
+ 
+ ## Structured output
+ 
+--- frozen/amind-engineering/scripts/context_audit.py
++++ repaired/amind-engineering/scripts/context_audit.py
+@@ -66,8 +66,23 @@
+                     code='intentional_history_change' if isinstance(reason,str) and reason.strip() else 'history_drift'
+                     add(n,code,change,'info' if code.startswith('intentional') else 'error')
+         if pointer in responses:
+-            old_hashes={digest(x) for x in responses[pointer].get('output',[])}
++            old_output=responses[pointer].get('output',[])
++            old_hashes={digest(x) for x in old_output}
+             if any(digest(x) in old_hashes for x in incoming): add(n,'duplicated_server_history','new input repeats the previous response output','warning')
++            # A phase-lost projection evades exact hashes. Equal assistant content
++            # is only a diagnostic candidate, never authority to delete input.
++            for i,item in enumerate(incoming):
++                if not isinstance(item,dict) or item.get('role')!='assistant': continue
++                projected=digest({k:v for k,v in item.items() if k!='phase'})
++                for j,old in enumerate(old_output):
++                    if not isinstance(old,dict) or old.get('role')!='assistant': continue
++                    if digest(item)==digest(old): continue
++                    if projected==digest({k:v for k,v in old.items() if k!='phase'}):
++                        add(n,'possible_phase_drift_replay',{
++                            'input_index':i,'previous_output_index':j,
++                            'differences':differences(old,item),
++                            'interpretation':'Possible replay with changed phase; verify trusted event provenance before changing input'},'warning')
++                        break
+         for item in incoming+output:
+             if not isinstance(item,dict): raise ValueError('each normalized item must be an object')
+             kind=item.get('type')
+--- frozen/amind-engineering/scripts/response_contract.py
++++ repaired/amind-engineering/scripts/response_contract.py
+@@ -8,7 +8,7 @@
+     if not isinstance(response,dict): raise ValueError('response must be a dictionary')
+     output=response.get('output',[])
+     if not isinstance(output,list): raise ValueError('output must be an item array')
+-    text=[]; refusals=[]; calls=[]
++    text=[]; final_text=[]; commentary_text=[]; refusals=[]; final_refusals=[]; calls=[]
+     for item in output:
+         if not isinstance(item,dict): raise ValueError('output item must be an object')
+         if item.get('type')=='function_call': calls.append(copy.deepcopy(item))
+@@ -17,31 +17,41 @@
+         if not isinstance(contents,list): raise ValueError('message content must be an item array')
+         for content in contents:
+             if not isinstance(content,dict): raise ValueError('content item must be an object')
+-            if content.get('type')=='output_text': text.append(content.get('text',''))
+-            elif content.get('type')=='refusal': refusals.append(content.get('refusal',''))
++            if content.get('type')=='output_text':
++                value=content.get('text',''); text.append(value)
++                if item.get('phase')=='commentary': commentary_text.append(value)
++                elif item.get('phase') in (None,'final_answer'): final_text.append(value)
++            elif content.get('type')=='refusal':
++                value=content.get('refusal',''); refusals.append(value)
++                if item.get('phase') in (None,'final_answer'): final_refusals.append(value)
+     status=response.get('status','unknown')
++    if status=='completed' and (response.get('error') is not None or response.get('incomplete_details') is not None):
++        raise ValueError('completed response contains an error or incomplete details')
+     return {'status':status,'scorable_transport':status=='completed','text':''.join(text),
++            'final_text':''.join(final_text),'commentary_text':''.join(commentary_text),
++            'answer_complete':status=='completed' and not calls and bool(final_text or final_refusals),
+             'refusals':refusals,'function_calls':calls,'output_items':copy.deepcopy(output),
+             'model':response.get('model'),'usage':copy.deepcopy(response.get('usage')),
+             'response_id':response.get('id'),'incomplete_details':copy.deepcopy(response.get('incomplete_details')),
+-            'error':copy.deepcopy(response.get('error'))}
++            'error':copy.deepcopy(response.get('error')),'raw_response':copy.deepcopy(response)}
+ 
+ 
+ def terminal_stream(events):
+     """Partial text and an open/idle stream never substitute for a terminal response."""
+-    terminal=None; failure=None; text_deltas=[]
++    terminal=None; failure=None; text_deltas=[]; raw_events=[]
+     for event in events:
+         kind=event.get('type')
+         if terminal is not None or failure is not None: raise ValueError('event after terminal outcome')
++        raw_events.append(copy.deepcopy(event))
+         if kind=='response.output_text.delta': text_deltas.append(event.get('delta',''))
+         elif kind in ('response.completed','response.failed','response.incomplete'):
+             terminal=event.get('response')
+             expected=kind.split('.')[-1]
+             if not isinstance(terminal,dict) or terminal.get('status')!=expected: raise ValueError('terminal event/status mismatch')
+         elif kind=='error': failure=copy.deepcopy(event)
+-    if terminal is not None: return {**normalize(terminal),'display_deltas':''.join(text_deltas)}
++    if terminal is not None: return {**normalize(terminal),'display_deltas':''.join(text_deltas),'raw_events':raw_events}
+     return {'status':'stream_error' if failure else 'disconnected','scorable_transport':False,
+-            'display_deltas':''.join(text_deltas),'error':failure,'usage':None}
++            'display_deltas':''.join(text_deltas),'error':failure,'usage':None,'raw_events':raw_events}
+ 
+ 
+ def match_batch(request_ids, results):
+@@ -52,5 +62,18 @@
+         if key not in expected: raise ValueError('unknown batch custom_id')
+         if key in indexed: raise ValueError('duplicate batch custom_id')
+         indexed[key]=row
+-    return {'ordered':[indexed.get(key) for key in request_ids],'missing':[key for key in request_ids if key not in indexed],
+-            'errors':[key for key,row in indexed.items() if row.get('error') or not (200<=row.get('response',{}).get('status_code',0)<300)]}
++    errors=[]; incomplete=[]; unknown=[]
++    for key,row in indexed.items():
++        result=row.get('response') or {}; code=result.get('status_code')
++        body=result.get('body') or {}; status=body.get('status') if isinstance(body,dict) else None
++        if (row.get('error') is not None or not isinstance(code,int) or isinstance(code,bool)
++                or not 200<=code<300 or (isinstance(body,dict) and (body.get('error') is not None
++                or (status=='completed' and body.get('incomplete_details') is not None)))):
++            errors.append(key)
++        elif status in ('failed','incomplete','cancelled'):
++            errors.append(key)
++            if status=='incomplete': incomplete.append(key)
++        elif status!='completed': unknown.append(key)
++    return {'ordered':[copy.deepcopy(indexed.get(key)) for key in request_ids],
++            'missing':[key for key in request_ids if key not in indexed],
++            'errors':errors,'incomplete':incomplete,'unknown_status':unknown}
+--- frozen/amind-engineering/scripts/tool_loop.py
++++ repaired/amind-engineering/scripts/tool_loop.py
+@@ -13,6 +13,17 @@
+ 
+ 
+ def canonical(value): return json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False)
++
++
++def operation_key(tenant, task_id, call_id):
++    """Remote deduplication scope must include tenant, not just the local DB key.
++
++    Retain persisted remote keys for in-flight operations when upgrading an existing
++    integration; changing an unresolved operation's key can duplicate the effect.
++    """
++    if any(not isinstance(x,str) or not x for x in (tenant,task_id,call_id)):
++        raise ValueError('nonempty trusted tenant, task and call identity required')
++    return hashlib.sha256(canonical(['amind-effect-v2',tenant,task_id,call_id]).encode()).hexdigest()
+ 
+ 
+ class EffectLedger:
+@@ -55,12 +66,14 @@
+ 
+ 
+ def run_loop(model_call, input_items, tools, tenant, task_id, ledger, authorize,
+-             max_rounds=8, max_tool_calls=24, timeout_s=120, cancelled=lambda:False):
++             max_rounds=8, max_tool_calls=24, timeout_s=120, cancelled=lambda:False,
++             operation_key_for=operation_key):
+     """Each tool has schema, validate(args), handler(args, key), side_effect boolean.
+ 
+     model_call receives {input, tools}; it must set the user's chosen model/settings,
+     enforce a transport deadline, and return the full provider output-item dictionaries.
+     validate and authorize raise on failure. No dispatch occurs before both succeed.
++    operation_key_for may resolve an already-persisted remote key during migration.
+     """
+     if not tenant or not task_id or max_rounds<1 or max_tool_calls<0 or timeout_s<=0: raise ValueError('invalid loop contract')
+     history=list(input_items); dispatches=0; seen={}; started=time.monotonic()
+@@ -85,14 +98,19 @@
+             tool=tools[name]; args=json.loads(call['arguments']) if isinstance(call.get('arguments'),str) else call.get('arguments')
+             if not isinstance(args,dict): raise ValueError('tool arguments must be an object')
+             tool['validate'](args); authorize(tenant,name,args)
++            checkpoint()  # Validation/authorization may block or observe cancellation.
+             fingerprint=canonical({'name':name,'args':args})
+             if call_id in seen and seen[call_id][0]!=fingerprint: raise ValueError('call_id changed payload')
+             # Stable scope is supplied by the caller; do not use untrusted args as tenant/task identity.
+-            key=hashlib.sha256(canonical([task_id,call_id]).encode()).hexdigest()
++            key=operation_key_for(tenant,task_id,call_id)
++            if not isinstance(key,str) or not key: raise ValueError('invalid durable operation key')
++            def dispatch(k):
++                checkpoint()  # A ledger lock wait must not bypass cancellation/deadline.
++                return tool['handler'](args,k)
+             if call_id in seen: result=seen[call_id][1]
+             elif tool.get('side_effect'):
+-                result=ledger.perform(tenant,key,{'task':task_id,'name':name,'args':args},lambda k:tool['handler'](args,k))
+-            else: result=tool['handler'](args,key)
++                result=ledger.perform(tenant,key,{'task':task_id,'name':name,'args':args},dispatch)
++            else: result=dispatch(key)
+             dispatches+=1; seen[call_id]=(fingerprint,result)
+             checkpoint()
+             history.append({'type':'function_call_output','call_id':call_id,'output':canonical(result)})

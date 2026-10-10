@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-09-29T21:15:49.873330+00:00",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "prepare.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"original_conditional_quality\":1,\"corrected_confirmed_success_rate\":0.6666666666666666,\"completion_rate\":0.6666666666666666,\"decision\":\"HOLD\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "verify.mjs"
+      ],
+      "exit_code": 0,
+      "stdout": "node --test test-eval.mjs -> 0\nnode run-eval.mjs --flow flow --model fixture-recorded --reps 2 -> 2\nnode run-eval.mjs --flow flow --variant baseline --model fixture-recorded --reps 2 --timeout-s 1 --approve-harness -> 1\nnode run-eval.mjs --flow flow --variant v1 --model fixture-oracle --reps 2 --timeout-s 1 -> 0\nnode run-eval.mjs --flow flow --variant v2 --model fixture-null --reps 2 --timeout-s 1 -> 0\nnode run-eval.mjs --flow flow --variant v1 --model fixture-oracle --reps 2 --timeout-s 1 -> 0\nnode /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/Q/shared/evals/report/build-report-lite.mjs flow -> 0\n{\"unit_tests\":14,\"resume_unchanged\":true,\"report_markers_and_trace_links\":true,\"control_confirmed_success\":{\"baseline\":0.6666666666666666,\"v1\":1,\"v2\":0},\"decision\":\"HOLD\"}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

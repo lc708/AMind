@@ -1,0 +1,13 @@
+{
+  "baseline_codes": [
+    "assistant_in_chain_input",
+    "phase_drift",
+    "orphan_tool_result",
+    "unresolved_tool_calls"
+  ],
+  "fixed_findings": [],
+  "baseline_audit_errors": 1,
+  "fixed_audit_errors": 0,
+  "original_unchanged": true,
+  "output_directory": "artifacts"
+}

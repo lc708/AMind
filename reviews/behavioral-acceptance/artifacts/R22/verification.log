@@ -1,0 +1,21 @@
+test_actual_fixture_rejects_candidate (test_assess.AdoptionGateTests) ... ok
+test_any_positive_violation_fails_gate (test_assess.AdoptionGateTests) ... ok
+test_example_exposure_alone_uses_up_final_test (test_assess.AdoptionGateTests) ... ok
+test_fresh_metadata_does_not_invent_raw_evidence (test_assess.AdoptionGateTests) ... ok
+test_improvement_over_unsafe_baseline_still_fails (test_assess.AdoptionGateTests) ... ok
+test_input_not_mutated_by_assessment (test_assess.AdoptionGateTests) ... ok
+test_invalid_history_fails_closed (test_assess.AdoptionGateTests) ... ok
+test_invalid_rates_fail_closed (test_assess.AdoptionGateTests) ... ok
+test_missing_evidence_fails_closed (test_assess.AdoptionGateTests) ... ok
+test_named_test_is_not_an_independent_test (test_assess.AdoptionGateTests) ... ok
+test_original_input_is_unchanged (test_assess.AdoptionGateTests) ... ok
+test_quality_cannot_compensate_for_violation (test_assess.AdoptionGateTests) ... ok
+test_quality_regression_is_not_an_adoption (test_assess.AdoptionGateTests) ... ok
+test_rule_cannot_be_relaxed (test_assess.AdoptionGateTests) ... ok
+test_selection_alone_uses_up_final_test (test_assess.AdoptionGateTests) ... ok
+test_zero_observed_violations_does_not_prove_safety (test_assess.AdoptionGateTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.002s
+
+OK

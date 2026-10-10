@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "id": "E01",
+      "path": "E01/task.json",
+      "sha256": "1c1e771284ccc11074e6c4840ab15e916994f19850ceeecad145d2ebc66d92f2"
+    },
+    {
+      "id": "E02",
+      "path": "E02/task.json",
+      "sha256": "af223b4684ac8733106d39651e60f6a218aab6f8ce9667c070a121fbfd20b38a"
+    },
+    {
+      "id": "E03",
+      "path": "E03/task.json",
+      "sha256": "5c669345041382ba8c1fa07f3393ddd48b61d40fdfab9ee401d6652c59d3cc9c"
+    },
+    {
+      "id": "E04",
+      "path": "E04/task.json",
+      "sha256": "5027d5e4effa3576ad491085b9fc557133bbd1b1a73565b760eaae97ded2195b"
+    },
+    {
+      "id": "E05",
+      "path": "E05/task.json",
+      "sha256": "c4fb5112a812369c21390508520e1c870843f67c3c20327ec26ce4aba758995a"
+    },
+    {
+      "id": "E06",
+      "path": "E06/task.json",
+      "sha256": "9decc8ac4c8232bf14414f3789eb7b264d4d9232a8a156afe14ed12bd8a0daef"
+    },
+    {
+      "id": "G01",
+      "path": "G01/task.json",
+      "sha256": "096c981a8c77c7c662eaf9ee3ebe7cb38f6a1c10decdfcc2610ae7fd2cd2dc55"
+    },
+    {
+      "id": "G02",
+      "path": "G02/task.json",
+      "sha256": "587ff68caa0136412dfc0d83ab35a950152c2f469cf5f66735bb6b1f4635e6d3"
+    },
+    {
+      "id": "G03",
+      "path": "G03/task.json",
+      "sha256": "7044074843610eb034c310af31c47396cfdfb6105a809e71eb881ce27df82ddc"
+    },
+    {
+      "id": "G04",
+      "path": "G04/task.json",
+      "sha256": "c48441c111b35b9810ddb539e97ff4d42548dd254f38db8fb97fefb22cc06023"
+    },
+    {
+      "id": "G05",
+      "path": "G05/task.json",
+      "sha256": "b698e0b454c6ff98cc74a7a34238130f3fffeb1c271674bbfc81237004a46ad2"
+    },
+    {
+      "id": "G06",
+      "path": "G06/task.json",
+      "sha256": "d384023c45ad00b162994cf1fc30df8fb7ea6c960e4d90e183d138252ec3f37e"
+    }
+  ],
+  "status": "executed_and_reviewed_overall_superiority_not_met",
+  "plan": "../2026-09-30-behavioral-acceptance-plan.zh-CN.md",
+  "results": "../2026-09-30-behavioral-acceptance-results.zh-CN.md",
+  "summary": "summary.json",
+  "execution_ledger": "execution-ledger.json",
+  "frozen_pre_execution_manifest": "frozen-protocol/manifest.json"
+}

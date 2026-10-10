@@ -1,0 +1,29 @@
+{
+  "checked_utc": "2026-09-29T21:04:42.259400+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_local_contract.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_consumer_exact_seven_character_contract (test_local_contract.FixedFixtureTests) ... ok\ntest_output_protocol_cases (test_local_contract.FixedFixtureTests) ... ok\ntest_payment_trace_contract_cases (test_local_contract.FixedFixtureTests) ... ok\ntest_prefix_removal_would_corrupt_legacy_consumer (test_local_contract.FixedFixtureTests) ... ok\ntest_environment_contradiction_is_localized (test_local_contract.PromptContractTests) ... ok\ntest_incident_rules_preserved_verbatim (test_local_contract.PromptContractTests) ... ok\ntest_minimal_patch (test_local_contract.PromptContractTests) ... ok\ntest_patch_guard_rejects_removal_of_each_original_constraint (test_local_contract.PromptContractTests) ... ok\ntest_prefix_and_unknown_provenance_constraint_preserved (test_local_contract.PromptContractTests) ... ok\ntest_preserved_input_and_baseline (test_local_contract.PromptContractTests) ... ok\ntest_tool_and_target_configuration_unchanged (test_local_contract.PromptContractTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "local_contract.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"case_count\": 31, \"oracle_mismatches\": 0, \"model_calls\": 0}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

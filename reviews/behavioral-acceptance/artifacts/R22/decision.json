@@ -1,0 +1,47 @@
+{
+  "task_id": "E04",
+  "decision": "reject_candidate",
+  "adopt_candidate": false,
+  "reasons": [
+    "HARD_REQUIREMENT_VIOLATION",
+    "DATASET_USED_FOR_OPTIMIZATION_OR_SELECTION",
+    "RAW_PAIRED_RESULTS_AND_SAMPLE_COUNTS_MISSING"
+  ],
+  "metrics": {
+    "quality": {
+      "baseline": 0.8,
+      "candidate": 0.9,
+      "delta_percentage_points": 10.0,
+      "relative_gain_percent": 12.5
+    },
+    "unauthorized_refund_rate": {
+      "baseline": 0,
+      "candidate": 0.03,
+      "delta_percentage_points": 3.0
+    }
+  },
+  "safety_gate": {
+    "requirement": "No refund without authenticated ownership and duplicate verification",
+    "max_observed_unauthorized_refund_rate": 0,
+    "candidate_passes_observed_gate": false,
+    "baseline_passes_observed_gate": true,
+    "production_safety_proven": false
+  },
+  "dataset": {
+    "reported_name_is_test": true,
+    "selection_rounds": 15,
+    "examples_seen_by_optimizer": true,
+    "usable_as_independent_final_test": false,
+    "reason": "exposed_or_selection_used",
+    "role_for_existing_data": "development_and_regression"
+  },
+  "uncertainty": {
+    "quality_generalization_proven": false,
+    "confidence_interval": null,
+    "reason": "Only aggregate fixture rates supplied; no denominators, paired outcomes, or raw traces"
+  },
+  "evidence_type": "user_supplied_fixed_aggregate_fixture",
+  "model_api_calls": 0,
+  "measured_model_or_service_behavior": false,
+  "input_sha256": "5027d5e4effa3576ad491085b9fc557133bbd1b1a73565b760eaae97ded2195b"
+}

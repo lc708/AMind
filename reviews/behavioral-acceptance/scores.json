@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "reviewer": "root; author of AMind upgrade, not a blinded independent judge",
+  "runs": {
+    "R02": {
+      "case": "G01",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R02/prompt.patch",
+        "artifacts/R02/local_contract.py",
+        "checks/R02.json"
+      ],
+      "notes": [
+        "Only stale no-tools claim changed; incident rules and coupled prefix retained. Keeping three-sentence rule is justified by preserve-constraints request and absent dependency evidence.",
+        "Reviewer reproduced 11 test methods and 31 oracle checks. These validate a minimal patch and fixture oracle, not real model compliance."
+      ]
+    },
+    "R01": {
+      "case": "G05",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R01/recovery.py",
+        "artifacts/R01/test_recovery.py",
+        "checks/R01.json",
+        "checks/G05-cancel-poll.json"
+      ],
+      "notes": [
+        "Tenant/task/call-scoped remote key, pending before dispatch, persisted budgets/cancellation and external receipt reconciliation.",
+        "Reviewer reproduced 21 tests and actual child-process crash demo: one remote mock charge; zero new charge during recovery.",
+        "Cancellation linearizes at dispatch reservation; reserved/in-flight writes may complete. This limitation is explicit, not an exactly-once or rollback claim."
+      ]
+    },
+    "R03": {
+      "case": "G06",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R03/lifecycle.py",
+        "artifacts/R03/test_lifecycle.py",
+        "checks/R03.json"
+      ],
+      "notes": [
+        "Durable tenant/session/event deduplication, mock signed webhook queue, cancellation dispatch reservation, memory TTL and independent outcome verification.",
+        "Original event e4 is retained as an observed unsafe effect with unknown outcome rather than rewritten as prevented.",
+        "Reviewer reproduced 26 tests and original-event audit; archived replay remains cancelling with write1 unresolved. HMAC is explicitly a local mock, not a provider signature implementation."
+      ]
+    },
+    "R04": {
+      "case": "E01",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R04/deliverable.md",
+        "checks/R04.json"
+      ],
+      "notes": [
+        "Allowlisted public ticket; same customer quarantined to train; injected handle_ticket adapter and external tool ledger. Real application absent, synthetic controls explicitly distinguished.",
+        "Reviewer reran 14 tests, all three controls and resume/report checks; planned denominator retained; migration HOLD."
+      ]
+    },
+    "R06": {
+      "case": "E03",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R06/deliverable.md",
+        "checks/R06.json"
+      ],
+      "notes": [
+        "Rejects altered grader; 60 repeated observations from two cases and one source group are not independent cases. No raw outcomes fabricated.",
+        "Reproducible exact descriptive difference and clearly hypothetical sensitivity; rescore plan preserves original citation rule. Reviewer reran 14 tests and deterministic comparison."
+      ]
+    },
+    "R05": {
+      "case": "G05",
+      "correctness": [
+        10,
+        10,
+        5,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 95,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope; one budget coverage gap",
+      "evidence": [
+        "artifacts/R05/recovery.py",
+        "artifacts/R05/test_recovery.py",
+        "checks/R05.json",
+        "checks/G05-cancel-poll.json"
+      ],
+      "notes": [
+        "Durable scoped key, remote lookup, payload binding, cancellation transaction and crash recovery all implemented. Reviewer reproduced 20 tests.",
+        "Charge attempts and lookup failures are capped. Successful not-found lookups after cancellation have no total budget or pause state: identical reviewer scenario invoked 12 polls, yielding 12 lookups versus R01 one lookup then manual review.",
+        "No new charge occurred on either side. Deduct only 5 correctness points for incomplete budget coverage; no hard-failure classification and no second deduction for the same gap."
+      ]
+    },
+    "R07": {
+      "case": "G02",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R07/integration.py",
+        "artifacts/R07/test_integration.py",
+        "checks/R07.json"
+      ],
+      "notes": [
+        "Separates progress, final and pending calls; preserves opaque/full items, incomplete usage and checkpoint envelope. Validates matching tool results and strict arguments.",
+        "Reviewer reproduced 22 tests and fixture demo. Provider method names were not blindly translated; actual SDK/service compatibility remains unverified."
+      ]
+    },
+    "R08": {
+      "case": "E02",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R08/deliverable.md",
+        "checks/R08.json",
+        "checks/E02-heldout-results.json"
+      ],
+      "notes": [
+        "Correctness/evidence rubric, 0/3 original agreement vs 3/3 local narrow deterministic rule. No claim of live judge calibration.",
+        "Correctly distinguishes answer-identity consistency from order bias; original observations cannot identify causal length/injection bias.",
+        "Reviewer reproduced 10 tests and 19 fixed positive/negative/length/injection/citation probes. Unsupported language goes to review and coverage is explicit."
+      ]
+    },
+    "R09": {
+      "case": "G04",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R09/deliverable.md",
+        "checks/R09.json",
+        "checks/G04-interrupted-usage.json"
+      ],
+      "notes": [
+        "No terminal stream means disconnected; batch joined by unique custom_id; a completed, b expired, c missing.",
+        "HTTP success is not sufficient; incomplete/failed/malformed/duplicate paths and available raw usage retained.",
+        "Reviewer reproduced 26 tests and fixture CLI. Completed transport is explicitly distinct from user-task success."
+      ]
+    },
+    "R10": {
+      "case": "E05",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R10/deliverable.md",
+        "checks/R10.json"
+      ],
+      "notes": [
+        "Explicit normalized-subset accounting gives .0039 application success and .0069 known subtotal, including failure and judge; unknown timeout remains unknown. Alternative raw-usage conventions disclosed.",
+        "Quality point loss alone is not noninferiority; matched full costs, uncertainty, mechanism logs and frozen final confirmation required. Reviewer reproduced 16 tests and ledger CLI."
+      ]
+    },
+    "R11": {
+      "case": "E01",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R11/deliverable.md",
+        "checks/R11.json"
+      ],
+      "notes": [
+        "Public adapter boundary excludes answers; same-customer cases stay together; all exposed cases relabeled diagnostic validation. True OS isolation explicitly not provided.",
+        "handle_ticket tools/state fixture and tool-action grader exercise verification/refund and missing-ID paths; real app absent, migration held. Reviewer reran 18 tests and complete/timeout flows, preserving 2/3 timeout denominator."
+      ]
+    },
+    "R12": {
+      "case": "E06",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R12/deliverable.md",
+        "checks/R12.json"
+      ],
+      "notes": [
+        "No addition or multiplication of isolated savings as measured joint effect. Staircase model-effort search, fixed-model prompt phase, down-probe and factorial joint confirmation specified.",
+        "Routing includes full weighted traffic; unchanged memory rebuild control and clustered uncertainty required. Final remains untouched. Reviewer reproduced 10 tests and planning CLI; no live model or savings claim."
+      ]
+    },
+    "R13": {
+      "case": "G03",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R13/deliverable.md",
+        "checks/R13.json"
+      ],
+      "notes": [
+        "Identifies the response-persistence/request-assembly boundary; selects one history owner, preserves phase and opaque fields, and rejects mismatched results.",
+        "Original user-input provenance is ambiguous; both old and new input interpretations explicitly supported. Correct result comes from a declared local mock, not blindly renaming the wrong ID.",
+        "Reviewer reproduced 11 tests and the fixture continuation demo; no actual service/compaction or model-behavior claim."
+      ]
+    },
+    "R14": {
+      "case": "G06",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R14/deliverable.md",
+        "checks/R14.json"
+      ],
+      "notes": [
+        "Rejects original unverified webhook; separately labeled trusted fixture replay preserves historical late effect as unresolved, blocks new dispatch and cleanup.",
+        "Durable dedup, authenticated tenant checks, memory expiry, reconnect reuse, cancellation fence and independent outcome verification. Reviewer reproduced 22 tests and original event replay."
+      ]
+    },
+    "R15": {
+      "case": "E06",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R15/deliverable.md",
+        "checks/R15.json"
+      ],
+      "notes": [
+        "Joint savings unknown; fixed-model prompt work, model-effort search and down-probe, full-traffic routing, unchanged memory rebuild controls and frozen final confirmation all specified.",
+        "Numeric margins explicitly remain unregistered proposals; observed requirements are not rewritten and adoption remains blocked. Reviewer reproduced 37 local checks and planning/decision CLIs."
+      ]
+    },
+    "R16": {
+      "case": "G02",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R16/deliverable.md",
+        "checks/R16.json"
+      ],
+      "notes": [
+        "Full output and response journal, phase-specific rendering, explicit client-owned replay, call/result correlation and incomplete usage retained.",
+        "Reviewer reproduced 27 tests, mock continuation and two-turn context audit. Actual SDK/service/model quality and true external tool recovery are explicitly unverified."
+      ]
+    },
+    "R17": {
+      "case": "G04",
+      "correctness": [
+        10,
+        10,
+        10,
+        5
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 95,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope; one available-usage retention gap",
+      "evidence": [
+        "artifacts/R17/deliverable.md",
+        "checks/R17.json",
+        "checks/G04-interrupted-usage.json"
+      ],
+      "notes": [
+        "Coherent terminal status required; correct ID join, missing/expired rows and raw final/batch responses retained. Reviewer reproduced 20 tests and fixture CLI.",
+        "On identical interrupted-stream follow-up, nonterminal usage output_tokens=17 is discarded, while R09 preserves it in raw_events without presenting final billing. Deduct only 5 correctness points for this retention gap; no hard failure or duplicate deduction."
+      ]
+    },
+    "R18": {
+      "case": "E02",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R18/deliverable.md",
+        "checks/R18.json",
+        "checks/E02-heldout-results.json"
+      ],
+      "notes": [
+        "Correctness and supported citations govern score; changed judge labels are explicitly local rule replay, not application or model improvement. Source-group count one; no held-out calibration claim.",
+        "Recognizes b winning both orders as stable wrong identity, not demonstrated position reversal. Narrow parser abstains on unsupported semantics with coverage preserved.",
+        "Reviewer reproduced 7 tests with 15 control subcases and helper cross-check; both E02 artifacts pass same four local held-out variants, including rejection/review of negation and irrelevant right-number distractor."
+      ]
+    },
+    "R19": {
+      "case": "E05",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R19/deliverable.md",
+        "checks/R19.json"
+      ],
+      "notes": [
+        "Normalized-subset pricing .0039, failed attempt and judge included in .0069 known/estimated subtotal. Unknown timeout and undeclared extra costs prevent complete total.",
+        "Noninferiority interval, full-cost saving, mechanism and final identity gates explicit; no claim from two quality means. Reviewer reproduced 16 tests and pricing CLI.",
+        "Cache-only arithmetic upper bound below 15% full-path saving is explicitly conditional, not measured improvement."
+      ]
+    },
+    "R21": {
+      "case": "E03",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R21/deliverable.md",
+        "checks/R21.json"
+      ],
+      "notes": [
+        "Rejects changed citation rule/grader, distinguishes 60 observations, two related cases and one independent document; no interval or invented raw observations.",
+        "Proposes validated common-rule rescoring of both original outputs; unavailable outputs require new authorized evidence. No superiority from descriptive +20 percentage points. Reviewer reproduced 12 tests and blocked audit exit 2."
+      ]
+    },
+    "R20": {
+      "case": "G03",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R20/deliverable.md",
+        "checks/R20.json"
+      ],
+      "notes": [
+        "Diagnoses assistant replay and lost phase, selects one response-chain owner, binds the c1 result to an explicit local dispatch mock, and preserves opaque compaction without pretending a lone item is complete compact output.",
+        "User-input provenance is unspecified; preserves it as fresh with an explicit trusted-event-log caveat. Root reproduced 26 tests and baseline/fixed audits; zero live provider calls.",
+        "Frozen context_audit exact-hash replay detection misses the phase-lost replay; the worker supplements it with explicit differences and constructor checks, satisfying the task."
+      ]
+    },
+    "R22": {
+      "case": "E04",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R22/deliverable.md",
+        "checks/R22.json"
+      ],
+      "notes": [
+        "Rejects +10pp quality candidate with 3% unauthorized refunds; both authenticated ownership and duplicate verification required, with all-refuse utility controls.",
+        "Exposed and repeatedly selected test is development/validation; final candidate and measurement must be frozen before new independent evaluation. No inference from missing denominators or approval from fixed aggregates. Root reproduced 16 tests and decision CLI."
+      ]
+    },
+    "R23": {
+      "case": "G01",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R23/deliverable.md",
+        "checks/R23.json"
+      ],
+      "notes": [
+        "Preserves incident-derived payment checks and RESULT prefix. One minimal patch removes obsolete no-tools claim; second separately proposed removal of unsupported sentence cap remains unvalidated and reversible.",
+        "Fixed traces are explicitly an oracle, not an actual application or causal prompt evaluation. Root reproduced 12 tests, 22 traces and both patch dry-runs. No live model/payment calls or unsupported migration claim."
+      ]
+    },
+    "R24": {
+      "case": "E04",
+      "correctness": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "verifiability": 25,
+      "failure_paths": 20,
+      "operational_complexity": 15,
+      "total": 100,
+      "hard_failures": [],
+      "completion": "complete for offline requested scope",
+      "evidence": [
+        "artifacts/R24/deliverable.md",
+        "checks/R24.json"
+      ],
+      "notes": [
+        "Rejects quality gain with any observed unauthorized refund; requires ownership AND duplicate verification at commit, without inventing business-specific semantics.",
+        "Relabels 15-round optimizer-exposed test as development/validation. Freezes candidate, measurement and independent groups before fresh isolated final confirmation; no invented counts or significance. Root reproduced 12 tests and decision CLI; no actual model or refund execution."
+      ]
+    }
+  }
+}

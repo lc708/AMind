@@ -1,0 +1,6 @@
+{"attempt_id":1,"event":"started","prompt_id":"c1-a","rep":0,"reserved_usd":0.0,"time":1790717269.0713012}
+{"app_cost_usd":0,"attempt_id":1,"cost_usd":0,"event":"finished","judge_cost_usd":0,"judge_model":null,"judge_usage":null,"known_cost_usd":0,"latency_s":0.055196208,"model":"synthetic-local-contract-v1","prompt_id":"c1-a","rep":0,"stage":"grader","status":"ok","time":1790717269.1269891,"usage":{"input_tokens":0,"output_tokens":0}}
+{"attempt_id":2,"event":"started","prompt_id":"c1-b","rep":0,"reserved_usd":0.0,"time":1790717269.127841}
+{"app_cost_usd":0,"attempt_id":2,"cost_usd":0,"event":"finished","judge_cost_usd":0,"judge_model":null,"judge_usage":null,"known_cost_usd":0,"latency_s":0.0548115,"model":"synthetic-local-contract-v1","prompt_id":"c1-b","rep":0,"stage":"grader","status":"ok","time":1790717269.183111,"usage":{"input_tokens":0,"output_tokens":0}}
+{"attempt_id":3,"event":"started","prompt_id":"c2","rep":0,"reserved_usd":0.0,"time":1790717269.183807}
+{"app_cost_usd":0,"attempt_id":3,"cost_usd":0,"event":"finished","judge_cost_usd":0,"judge_model":null,"judge_usage":null,"known_cost_usd":0,"latency_s":0.05467195799999999,"model":"synthetic-local-contract-v1","prompt_id":"c2","rep":0,"stage":"grader","status":"ok","time":1790717269.238944,"usage":{"input_tokens":0,"output_tokens":0}}

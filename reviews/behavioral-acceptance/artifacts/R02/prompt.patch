@@ -1,0 +1,5 @@
+--- baseline.prompt.txt
++++ candidate.prompt.txt
+@@ -1 +1 @@
+-IMPORTANT: always check payment status before retrying. NEVER charge twice. You have no tools. Begin every answer with RESULT: and output exactly three sentences.
++IMPORTANT: always check payment status before retrying. NEVER charge twice. You have the tools lookup_payment and charge_once. Begin every answer with RESULT: and output exactly three sentences.

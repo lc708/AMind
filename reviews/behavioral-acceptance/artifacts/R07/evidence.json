@@ -1,0 +1,67 @@
+{
+  "evidence_type": "offline fixed fixtures, no API calls",
+  "baseline": {
+    "response_fixture": "KeyError: 'content'",
+    "failure_fixture": "IndexError: list index out of range"
+  },
+  "response_fixture": {
+    "state": "needs_tools",
+    "progress_text": "Working",
+    "final_text": null,
+    "pending_call_ids": [
+      "c1"
+    ]
+  },
+  "continuation_input": [
+    {
+      "role": "system",
+      "content": "仅使用本地固定数据，不调用目标模型 API\n允许在当前任务目录创建代码、测试和交付文档\n保持原始输入和约束；不得改评测要求以获得高分"
+    },
+    {
+      "role": "user",
+      "content": "升级现有模型集成的解析与续传逻辑，保留产品行为并列出验证证据。"
+    },
+    {
+      "type": "reasoning",
+      "encrypted_content": "opaque-1"
+    },
+    {
+      "type": "message",
+      "role": "assistant",
+      "phase": "commentary",
+      "content": [
+        {
+          "type": "output_text",
+          "text": "Working"
+        }
+      ]
+    },
+    {
+      "type": "function_call",
+      "call_id": "c1",
+      "name": "lookup",
+      "arguments": "{}"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "c1",
+      "output": "{\"source\": \"fixed-local-mock\", \"value\": \"fixture-value\"}"
+    }
+  ],
+  "checkpoint_roundtrip_equal": true,
+  "mock_final": {
+    "state": "final",
+    "final_text": "Found fixture-value."
+  },
+  "failure_fixture": {
+    "state": "incomplete",
+    "final_text": null,
+    "usage": {
+      "output_tokens": 100
+    },
+    "diagnostics": [
+      "incomplete: max_output_tokens",
+      "retry original request only with an explicit larger budget; do not execute this turn's tools"
+    ]
+  }
+}

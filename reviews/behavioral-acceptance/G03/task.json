@@ -1,0 +1,52 @@
+{
+  "id": "G03",
+  "request": "定位多轮状态回归，给出可验证修复；不要发送真实请求。",
+  "fixture": {
+    "previous_response": {
+      "id": "r1",
+      "output": [
+        {
+          "type": "message",
+          "role": "assistant",
+          "phase": "commentary",
+          "content": "Working"
+        },
+        {
+          "type": "function_call",
+          "call_id": "c1",
+          "name": "read",
+          "arguments": "{}"
+        }
+      ]
+    },
+    "next_request": {
+      "previous_response_id": "r1",
+      "input": [
+        {
+          "role": "user",
+          "content": "Find invoice"
+        },
+        {
+          "type": "message",
+          "role": "assistant",
+          "content": "Working"
+        },
+        {
+          "type": "function_call_output",
+          "call_id": "wrong",
+          "output": "invoice"
+        }
+      ]
+    },
+    "later_compaction": {
+      "type": "compaction",
+      "encrypted_content": "opaque-2"
+    }
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

@@ -1,0 +1,27 @@
+test_checkpoint_rejects_bad_version_or_missing_identity (test_integration.IntegrationTests) ... ok
+test_checkpoint_roundtrip_preserves_envelope_and_opaque_content (test_integration.IntegrationTests) ... ok
+test_commentary_without_tool_requires_continuation (test_integration.IntegrationTests) ... ok
+test_duplicate_call_ids_rejected (test_integration.IntegrationTests) ... ok
+test_empty_completed_is_not_final (test_integration.IntegrationTests) ... ok
+test_full_replay_preserves_prefix_and_every_field (test_integration.IntegrationTests) ... ok
+test_incomplete_even_with_text_and_parseable_tool_never_continues (test_integration.IntegrationTests) ... ok
+test_json_unicode_and_slash_escaping_are_semantic (test_integration.IntegrationTests) ... ok
+test_legacy_plain_response_unchanged (test_integration.IntegrationTests) ... ok
+test_malformed_shapes_are_explicit_protocol_errors (test_integration.IntegrationTests) ... ok
+test_missing_duplicate_and_unrelated_results_rejected (test_integration.IntegrationTests) ... ok
+test_multiple_text_blocks_and_messages_in_order (test_integration.IntegrationTests) ... ok
+test_noncompleted_statuses_do_not_publish_answer (test_integration.IntegrationTests) ... ok
+test_original_parser_fails_both_supplied_fixtures (test_integration.IntegrationTests) ... ok
+test_parallel_results_are_complete_and_ordered_by_calls (test_integration.IntegrationTests) ... ok
+test_refusal_with_tool_cannot_continue (test_integration.IntegrationTests) ... ok
+test_strict_arguments_and_schema_validation (test_integration.IntegrationTests) ... ok
+test_supplied_incomplete_is_not_empty_success (test_integration.IntegrationTests) ... ok
+test_supplied_mixed_fixture_is_progress_and_tool_not_final (test_integration.IntegrationTests) ... ok
+test_tool_call_prevents_premature_final (test_integration.IntegrationTests) ... ok
+test_unknown_phase_preserved_without_becoming_final (test_integration.IntegrationTests) ... ok
+test_unknown_types_preserved_without_auto_execution (test_integration.IntegrationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.001s
+
+OK

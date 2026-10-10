@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-09-29T22:09:16.654571+00:00",
+  "source_files_checked": 129,
+  "protocol_files_checked": 4,
+  "canonical_tasks_checked": 12,
+  "worker_tasks_checked": 24,
+  "archived_tasks_checked": 24,
+  "archived_files_checked": 368,
+  "root_reproductions_checked": 24,
+  "successful": true,
+  "failures": [],
+  "limits": "SHA-256 confirms identity of recorded files, not protocol isolation, execution-model identity, or strict timing."
+}

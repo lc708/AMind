@@ -1,0 +1,29 @@
+{
+  "checked_utc": "2026-09-29T21:25:06.757005+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"baseline\": {\n    \"n\": 3,\n    \"agreement\": 0.0,\n    \"confusion\": {\n      \"TP\": 0,\n      \"TN\": 0,\n      \"FP\": 2,\n      \"FN\": 1\n    },\n    \"precision\": 0.0,\n    \"recall\": 0.0,\n    \"specificity\": 0.0,\n    \"f1\": 0.0,\n    \"cohen_kappa\": -0.7999999999999999\n  },\n  \"revised_local\": {\n    \"n\": 3,\n    \"agreement\": 1.0,\n    \"confusion\": {\n      \"TP\": 1,\n      \"TN\": 2,\n      \"FP\": 0,\n      \"FN\": 0\n    },\n    \"precision\": 1.0,\n    \"recall\": 1.0,\n    \"specificity\": 1.0,\n    \"f1\": 1.0,\n    \"cohen_kappa\": 1.0\n  },\n  \"coverage\": {\n    \"total\": 3,\n    \"scored\": 3,\n    \"needs_review_or_error\": 0\n  },\n  \"local_probes_passed\": 19,\n  \"local_probes_total\": 19,\n  \"target_model_calls\": 0\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_audit.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_all_fixed_probes (test_audit.AuditTests) ... ok\ntest_bad_input_is_not_capability_failure (test_audit.AuditTests) ... ok\ntest_baseline_recomputed_from_original_rows (test_audit.AuditTests) ... ok\ntest_duplicate_ids_are_errors (test_audit.AuditTests) ... ok\ntest_invalid_labels_are_errors (test_audit.AuditTests) ... ok\ntest_labels_and_identity_do_not_drive_grading (test_audit.AuditTests) ... ok\ntest_metrics_undefined_denominators_are_not_zero (test_audit.AuditTests) ... ok\ntest_order_trials_do_not_show_position_flip (test_audit.AuditTests) ... ok\ntest_replay_deterministic_and_input_unmodified (test_audit.AuditTests) ... ok\ntest_unscorable_is_excluded_with_coverage (test_audit.AuditTests) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK\n"
+    }
+  ],
+  "original_artifacts_modified": false
+}

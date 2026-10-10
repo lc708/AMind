@@ -1,0 +1,21 @@
+{
+  "turns": 2,
+  "findings": [
+    {
+      "turn": 1,
+      "code": "orphan_tool_result",
+      "detail": "no observed call matches call_id",
+      "severity": "warning"
+    },
+    {
+      "turn": 1,
+      "code": "unresolved_tool_calls",
+      "detail": {
+        "count": 1
+      },
+      "severity": "error"
+    }
+  ],
+  "errors": 1,
+  "limits": "Normalized structural diagnosis only. Verify provider-specific state/compaction rules. Hash-only output avoids prompt contents; hashes are still identifiers. No live ablation or opaque-content decoding."
+}

@@ -1,0 +1,31 @@
+{
+  "evidence": "historical supplied scores; action correctness unverified",
+  "planned": 3,
+  "recorded_attempts": 3,
+  "scored": 2,
+  "missing_case_ids": [],
+  "errors": [
+    {
+      "id": "c2",
+      "status": "timeout"
+    }
+  ],
+  "conditional_quality": 1.0,
+  "scored_coverage": 0.6666666666666666,
+  "observed_success_over_planned": 0.6666666666666666,
+  "quality_identification_bounds": [
+    0.6666666666666666,
+    1.0
+  ],
+  "customer_groups": 2,
+  "cross_split_customers": {
+    "c1": [
+      "test",
+      "train"
+    ]
+  },
+  "cost_usd": null,
+  "latency_s": null,
+  "migration_eligible": false,
+  "reason": "Answer leakage, contaminated split, missing timeout outcome and no baseline/candidate identity or trace."
+}

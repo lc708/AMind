@@ -39,5 +39,15 @@ scripts/*
 !scripts/build_amind_increment.py
 !scripts/verify_amind_increment.py
 !scripts/test_amind_increment.py
+!scripts/install_amind_series.py
+!scripts/test_amind_app_skills.py
+!scripts/test_amind_capability_kernel.py
+!scripts/test_amind_behavior_regressions.py
+!scripts/check_amind_capability_map.py
+!scripts/benchmark_amind_runner.py
+!scripts/verify_amind_application_skills.py
+
+.eval-improve/
+.codex-tmp/
 
 /reports/

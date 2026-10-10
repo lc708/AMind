@@ -1,0 +1,3 @@
+{"id": "c1-a", "expected": "verify then refund once"}
+{"id": "c1-b", "expected": "verify then refund once"}
+{"id": "c2", "expected": "ask for missing identifier"}

@@ -1,0 +1,12 @@
+test_bad_types_and_duplicate_rows_rejected (test_calibration.CalibrationTests) ... ok
+test_labels_cannot_enter_grader (test_calibration.CalibrationTests) ... ok
+test_negative_and_positive_controls (test_calibration.CalibrationTests) ... ok
+test_order_and_repetition_do_not_change_deterministic_results (test_calibration.CalibrationTests) ... ok
+test_original_fixture_and_corrected_labels (test_calibration.CalibrationTests) ... ok
+test_pair_identity_and_missing_orientation (test_calibration.CalibrationTests) ... ok
+test_unscored_not_hidden (test_calibration.CalibrationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK

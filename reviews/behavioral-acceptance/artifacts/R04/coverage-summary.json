@@ -1,0 +1,191 @@
+{
+  "variants": {
+    "baseline": {
+      "evidence": [
+        {
+          "id": "c1-a",
+          "rep": 0,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c1-a",
+          "rep": 1,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c1-b",
+          "rep": 0,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c1-b",
+          "rep": 1,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c2",
+          "rep": 0,
+          "status": "timeout",
+          "score": null
+        },
+        {
+          "id": "c2",
+          "rep": 1,
+          "status": "timeout",
+          "score": null
+        }
+      ],
+      "strict_attempt_policy": "first failed attempt remains failed; completed result rows are idempotent",
+      "failed_attempt_count": 2,
+      "planned": 6,
+      "scored": 4,
+      "passed": 4,
+      "statuses": {
+        "ok": 4,
+        "timeout": 2
+      },
+      "completion_rate": 0.6666666666666666,
+      "conditional_quality": 1,
+      "confirmed_success_rate": 0.6666666666666666,
+      "unresolved_quality_interval": [
+        0.6666666666666666,
+        1
+      ],
+      "customer_macro_confirmed_success": 0.5,
+      "independent_customers": 2,
+      "statistical_ci": null,
+      "statistical_limit": "Fixed correlated fixtures are not a random production sample. No valid population CI or model variance estimate."
+    },
+    "v1": {
+      "evidence": [
+        {
+          "id": "c1-a",
+          "rep": 0,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c1-a",
+          "rep": 1,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c1-b",
+          "rep": 0,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c1-b",
+          "rep": 1,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c2",
+          "rep": 0,
+          "status": "ok",
+          "score": 1
+        },
+        {
+          "id": "c2",
+          "rep": 1,
+          "status": "ok",
+          "score": 1
+        }
+      ],
+      "strict_attempt_policy": "first failed attempt remains failed; completed result rows are idempotent",
+      "failed_attempt_count": 0,
+      "planned": 6,
+      "scored": 6,
+      "passed": 6,
+      "statuses": {
+        "ok": 6
+      },
+      "completion_rate": 1,
+      "conditional_quality": 1,
+      "confirmed_success_rate": 1,
+      "unresolved_quality_interval": [
+        1,
+        1
+      ],
+      "customer_macro_confirmed_success": 1,
+      "independent_customers": 2,
+      "statistical_ci": null,
+      "statistical_limit": "Fixed correlated fixtures are not a random production sample. No valid population CI or model variance estimate."
+    },
+    "v2": {
+      "evidence": [
+        {
+          "id": "c1-a",
+          "rep": 0,
+          "status": "ok",
+          "score": 0
+        },
+        {
+          "id": "c1-a",
+          "rep": 1,
+          "status": "ok",
+          "score": 0
+        },
+        {
+          "id": "c1-b",
+          "rep": 0,
+          "status": "ok",
+          "score": 0
+        },
+        {
+          "id": "c1-b",
+          "rep": 1,
+          "status": "ok",
+          "score": 0
+        },
+        {
+          "id": "c2",
+          "rep": 0,
+          "status": "ok",
+          "score": 0
+        },
+        {
+          "id": "c2",
+          "rep": 1,
+          "status": "ok",
+          "score": 0
+        }
+      ],
+      "strict_attempt_policy": "first failed attempt remains failed; completed result rows are idempotent",
+      "failed_attempt_count": 0,
+      "planned": 6,
+      "scored": 6,
+      "passed": 0,
+      "statuses": {
+        "ok": 6
+      },
+      "completion_rate": 1,
+      "conditional_quality": 0,
+      "confirmed_success_rate": 0,
+      "unresolved_quality_interval": [
+        0,
+        0
+      ],
+      "customer_macro_confirmed_success": 0,
+      "independent_customers": 2,
+      "statistical_ci": null,
+      "statistical_limit": "Fixed correlated fixtures are not a random production sample. No valid population CI or model variance estimate."
+    }
+  },
+  "migration": {
+    "decision": "HOLD",
+    "reasons": [
+      "No real incumbent/candidate app or model has been executed.",
+      "Only two customer groups; no representative independent holdout for duplicate refunds.",
+      "Expected-label provenance and production traffic coverage are unverified."
+    ],
+    "manifest_version": "customer-quarantine-v1"
+  }
+}

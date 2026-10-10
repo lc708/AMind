@@ -1,0 +1,6 @@
+{
+  "python": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "dependencies": "Python standard library only"
+}

@@ -1,0 +1,63 @@
+{
+  "initial_state": {
+    "customer": "c1",
+    "invoice": {
+      "id": "inv-c1",
+      "customer": "c1",
+      "duplicate": true,
+      "amount_cents": 1000
+    },
+    "verified": [],
+    "refunds": [],
+    "profile": {
+      "unchanged": true
+    }
+  },
+  "events": [
+    {
+      "op": "lookup",
+      "customer": "c1",
+      "invoice": {
+        "id": "inv-c1",
+        "customer": "c1",
+        "duplicate": true,
+        "amount_cents": 1000
+      }
+    },
+    {
+      "op": "verify",
+      "invoice_id": "inv-c1",
+      "customer": "c1",
+      "allowed": true
+    },
+    {
+      "op": "refund",
+      "invoice_id": "inv-c1",
+      "key": "refund:inv-c1",
+      "allowed": true,
+      "applied": true
+    }
+  ],
+  "final_state": {
+    "customer": "c1",
+    "invoice": {
+      "id": "inv-c1",
+      "customer": "c1",
+      "duplicate": true,
+      "amount_cents": 1000
+    },
+    "verified": [
+      "inv-c1"
+    ],
+    "refunds": [
+      {
+        "invoice_id": "inv-c1",
+        "key": "refund:inv-c1",
+        "amount_cents": 1000
+      }
+    ],
+    "profile": {
+      "unchanged": true
+    }
+  }
+}

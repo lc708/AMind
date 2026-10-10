@@ -1,0 +1,57 @@
+{
+  "run_id": "R23",
+  "reviewer": "root author (not blinded)",
+  "verification_directory": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R23",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_regression.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "test_exact_legacy_slice (test_regression.ConsumerRegression) ... ok\ntest_reject_empty_response (test_regression.ConsumerRegression) ... ok\ntest_reject_prefix_breaks (test_regression.ConsumerRegression) ... ok\ntest_first_patch_only_removes_obsolete_claim (test_regression.PromptRegression) ... ok\ntest_incident_constraints_stay_verbatim_in_all_versions (test_regression.PromptRegression) ... ok\ntest_no_tool_contract_or_provider_invented_in_candidate (test_regression.PromptRegression) ... ok\ntest_obsolete_fact_is_contradicted_by_fixture (test_regression.PromptRegression) ... ok\ntest_original_input_unchanged (test_regression.PromptRegression) ... ok\ntest_second_patch_only_removes_sentence_rule (test_regression.PromptRegression) ... ok\ntest_fixed_safe_and_unsafe_traces (test_regression.TraceRegression) ... ok\ntest_oracle_rejects_removed_lookup (test_regression.TraceRegression) ... ok\ntest_report_states_evidence_limits (test_regression.TraceRegression) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "regression.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "22 synthetic trace expectations checked; all met: True\nModel calls: 0; real payment calls: 0; prompt-induced behavior changes: unmeasured.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "patch",
+        "--dry-run",
+        "original_prompt.txt",
+        "01-remove-no-tools.patch"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "patching file original_prompt.txt\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "patch",
+        "--dry-run",
+        "01_tools_corrected.txt",
+        "02-remove-sentence-cap.patch"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "patching file 01_tools_corrected.txt\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

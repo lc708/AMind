@@ -1,0 +1,35 @@
+{
+  "events": 8,
+  "duplicate_deliveries": 1,
+  "tasks": 1,
+  "findings": [
+    {
+      "event_index": 1,
+      "code": "unverified_webhook",
+      "detail": "authenticate the raw body before accepting the event"
+    },
+    {
+      "event_index": 2,
+      "code": "memory_tenant_mismatch",
+      "detail": "memory crosses tenant boundary"
+    },
+    {
+      "event_index": 2,
+      "code": "expired_memory",
+      "detail": "read past memory TTL"
+    },
+    {
+      "event_index": 7,
+      "code": "effect_after_cancel",
+      "detail": "dispatch occurred after cancellation request"
+    }
+  ],
+  "unresolved_effects": [
+    {
+      "tenant_id": "t1",
+      "idempotency_key": "write1",
+      "external_operation_id": null
+    }
+  ],
+  "limits": "Offline audit of normalized facts, not an execution runtime or proof of exactly-once effects. Signature_verified and ownership fields require trusted instrumentation."
+}

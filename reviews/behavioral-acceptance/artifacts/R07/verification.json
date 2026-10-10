@@ -1,0 +1,35 @@
+{
+  "python": "3.9.6",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "output_file": "test-results.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "demo.py"
+      ],
+      "exit_code": 0,
+      "output_file": "evidence.json"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "py_compile",
+        "integration.py",
+        "demo.py",
+        "test_integration.py"
+      ],
+      "exit_code": 0,
+      "output_file": "compile-results.txt"
+    }
+  ]
+}

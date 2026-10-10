@@ -1,0 +1,48 @@
+{
+  "id": "E05",
+  "request": "计算费用并设计一个可信的降本实验，不调用真实模型。",
+  "fixture": {
+    "rates_usd_per_million": {
+      "input": 10,
+      "cached_input": 1,
+      "output": 20
+    },
+    "attempts": [
+      {
+        "stage": "application",
+        "status": "rate_limit",
+        "reported_cost_usd": 0.001
+      },
+      {
+        "stage": "application",
+        "status": "ok",
+        "usage": {
+          "input_tokens": 1000,
+          "cached_input_tokens": 900,
+          "output_tokens": 100,
+          "reasoning_tokens": 80
+        }
+      },
+      {
+        "stage": "judge",
+        "status": "ok",
+        "reported_cost_usd": 0.002
+      },
+      {
+        "stage": "judge",
+        "status": "timeout",
+        "reported_cost_usd": null
+      }
+    ],
+    "baseline_quality": 0.9,
+    "candidate_quality": 0.89,
+    "minimum_relative_saving": 0.15,
+    "maximum_quality_loss": 0.02
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

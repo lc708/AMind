@@ -1,0 +1,52 @@
+{
+  "version": "E05-cost-search-design-v1",
+  "status": "offline design only; not ready for a real-service launch",
+  "fixed_input": "task.json; hash recorded in artifacts/provenance.json",
+  "authorization": {"network": false, "target_model_calls": 0, "judge_model_calls": 0, "spend_usd": 0, "external_side_effects": false},
+  "preserved_thresholds": {"minimum_relative_saving": 0.15, "maximum_absolute_quality_loss": 0.02},
+  "gates": {
+    "quality": "Simultaneous one-sided lower confidence bound for paired candidate-minus-baseline quality >= -0.02 overall and in each important slice; zero confirmed hard-invariant violations.",
+    "cost": "Simultaneous one-sided lower confidence bound for 1 - candidate_cost_per_useful_task / baseline_cost_per_useful_task >= 0.15; both costs must be complete and positive-denominator. Unknown costs block adoption.",
+    "mechanism": "For the first cache-prefix treatment: higher eligible warm-cache hit ratio and lower uncached billed tokens with equivalent task information; verify exact prefix/version and measured counters.",
+    "operations_proposed": "Error-rate increase upper bound <= 0.01 absolute; end-to-end p95 latency ratio upper bound <= 1.05; important-slice and repeated-run variance ratios <= 1.10 where estimable. These additional proposed limits must be frozen before a future run; zero baseline variance requires an absolute tolerance set from the pilot."
+  },
+  "estimands": {
+    "quality": "Traffic-weighted paired score difference; repetitions averaged within case; report scored quality separately from coverage and operational failures.",
+    "cost": "For each arm: all-attempt application + tools + retries/backoff charges + judge + artifact costs, plus build cost / 10000 planned tasks over 30 days, divided by completed useful tasks. This horizon is a design assumption, not an observed workload; report break-even/sensitivity.",
+    "cost_views": "Report application-only serving cost, evaluation/judge overhead, build amortization, and the combined primary cost separately; never add overlapping totals twice.",
+    "failure_policy": "All attempted task costs remain in numerator; task IDs identify retries; transport/judge failures remain unscored with separate planned/scored/useful coverage. No successful-task denominator can be inferred from this input."
+  },
+  "population_and_splits": {
+    "current_evidence": "One fixed attempt bundle and two aggregate quality numbers; no independent paired cases or serving traces.",
+    "future_population": "A predated representative traffic window, with fixed actual workload weights, covering simple tasks, long context, repeated-prefix requests, cold requests, tool/retrieval failures, retry/escalation and hard constraint cases. Population and weights are launch-blocking until sourced.",
+    "grouping": "Group related customers/documents/conversations and near duplicates before splitting. Prevent a group appearing in both validation and final test.",
+    "allocation": "40% of independent groups for pilot/validation and 60% held-out final; predeclare group IDs and seed. Determine final N from validation-only paired variance/power for the fixed margins before unsealing; a fixed 90% power target is proposed.",
+    "repetitions": 3,
+    "cache_control": "Measure cold and warm states separately; use actual workload weights. Randomize/interleave paired A/B order within cache strata, isolate namespaces to avoid cross-arm warming, log warm-up costs and cache TTL. Reset all non-cache fixture state between reps.",
+    "isolation": "A separate test executor owns final inputs and references. The optimizer cannot read either; the tested application sees only the current input and approved tools. Verify OS/sandbox canary-denial tests. Hashes alone do not enforce this."
+  },
+  "measurement": {
+    "entrypoint": "Use the original application's complete context/tool entry point. It is absent in this fixture; adapter integration is unmeasured.",
+    "identity": "Freeze dataset, rubric, judge, metric directions, splits, group IDs, reps, fixtures, runtime and configuration hashes; treatment hashes separately include prompt/model/effort/cache/tool versions. Measurement changes require both arms rerun/rescored.",
+    "ledger_fields": ["task_id", "group_id", "split", "rep", "variant", "attempt_id", "parent_attempt_id", "stage", "status", "requested_model", "served_model", "prompt_version", "cache_state", "input_tokens", "cached_input_tokens", "output_tokens", "reasoning_tokens", "external_charges", "cost_source", "billing_complete", "start_time", "end_time", "retry_backoff", "first_token_latency", "whole_task_latency", "grader_version", "score", "hard_invariant_results"],
+    "price_source": "The current dated card is fixture-only. Any future provider call requires current authoritative model/tier/region rates and UTC-window usage reconciliation; no provider was supplied or changed here.",
+    "grader_controls": "Human-labeled calibration set with blinded A/B reversal, correct paraphrase, empty/constant/fluent-wrong answer, injected judge instruction, missing artifact, forbidden mutation and broken dependency. Fail known-bad cases before optimization."
+  },
+  "analysis": {
+    "unit": "Paired independent groups; repetitions are not independent samples.",
+    "intervals": "Cluster bootstrap whole groups within predeclared strata, retaining paired cases/reps and traffic weights; recompute ratio-of-total-costs/per-useful-count in each draw. 10000 draws, seed 1905; insufficient groups or nonpositive useful-task denominators are inconclusive, never passing.",
+    "multiplicity": "Familywise one-sided alpha 0.05 divided across all predeclared overall, slice and operational decisions. Freeze family size before final test. This does not cure adaptive validation search.",
+    "stopping": "No repeated final-test peeking. If precision/sample size is inadequate, report inconclusive; do not move 0.15 or 0.02 thresholds.",
+    "selection": "All search scores are validation; after selection freeze a certificate binding baseline/candidate and measurement identity, then evaluate one untouched final joint comparison. Failed final test needs a new independent final set for any new candidate."
+  },
+  "search_order": [
+    "Measure stable-prefix caching first and keep accepted infrastructure fixed; fixed fixture cache-only headroom fails the 15% combined-cost threshold under stated unchanged-overhead assumptions.",
+    "Remove duplicated context/tool output or loops only with a specific supported hypothesis; retain rare-case requirements and error contracts.",
+    "Audit prompt with original model/provider/config frozen; inspect reasoning, output and retry costs, not prompt length alone.",
+    "Only if an authorized original-provider alternative exists, vary model then effort one axis at a time. No provider/model substitution is assumed here; stop at first quality/guardrail failure.",
+    "Tune prompt/context on selected model; re-probe next cheaper setting on validation including hard slices.",
+    "Freeze combined prompt/model/effort/cache/tool candidate and confirm jointly against frozen baseline; individual savings are not assumed additive."
+  ],
+  "launch_blockers": ["Original application/model/provider/config and real traffic are absent", "No complete candidate cost or paired quality evidence", "Unknown judge timeout charge and partial application accounting", "No real grader calibration or enforced answer isolation", "Future sample size, slice weights and practical run/spend cap must be fixed; present cap remains zero"],
+  "decision": "No demonstrated saving or adoption recommendation; this is a reviewable experiment design."
+}

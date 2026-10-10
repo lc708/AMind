@@ -1,0 +1,6 @@
+AMind Eval Improve
+Adapted from Anthropic's claude-api evaluation workflows under Apache-2.0.
+Upstream revision: 8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4
+scripts/build-report.mjs is retained unchanged from that revision.
+The other instructions and Python helpers are AMind adaptations/additions.
+See references/upstream.md for attribution, changes, and scope.

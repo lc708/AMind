@@ -1,0 +1,28 @@
+{
+  "contract-val": {
+    "planned": 3,
+    "scored": 3,
+    "coverage": 1.0,
+    "finished_attempts": 3,
+    "failures": [],
+    "quality_scored_only": 1.0,
+    "confirmed_success_over_planned": 1.0,
+    "known_api_cost_usd": 0,
+    "synthetic": true,
+    "migration_eligible": false
+  },
+  "timeout-val": {
+    "planned": 3,
+    "scored": 2,
+    "coverage": 0.6666666666666666,
+    "finished_attempts": 3,
+    "failures": [
+      "timeout"
+    ],
+    "quality_scored_only": 1.0,
+    "confirmed_success_over_planned": 0.6666666666666666,
+    "known_api_cost_usd": 0.0,
+    "synthetic": true,
+    "migration_eligible": false
+  }
+}

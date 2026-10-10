@@ -1,0 +1,29 @@
+{
+  "scope": "Local package structure and complete pinned source inventory; no semantic-equivalence or behavior inference",
+  "commands": [
+    {
+      "command": "quick_validate.py skills/amind-engineering (local PyYAML path)",
+      "exit_code": 0,
+      "result": "Skill is valid!"
+    },
+    {
+      "command": "quick_validate.py skills/eval-improve (local PyYAML path)",
+      "exit_code": 0,
+      "result": "Skill is valid!"
+    },
+    {
+      "command": "python3 -B scripts/check_amind_capability_map.py --upstream .codex-tmp/amind-behavior-2026-09-30/sources/Q",
+      "exit_code": 0,
+      "source_files": 81,
+      "section_locators": 1005,
+      "source_hashes_verified": true
+    }
+  ],
+  "test_evidence": "../../2026-09-30-post-behavior-kernel-checks.json",
+  "knowledge_regression": {
+    "command": "python3 -B scripts/test_amind_skill.py",
+    "exit_code": 0,
+    "tests": 23,
+    "successful": true
+  }
+}

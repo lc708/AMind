@@ -1,0 +1,38 @@
+{
+  "id": "E06",
+  "request": "根据这些探索结果提出可执行的下一轮成本搜索与采用判断。",
+  "fixture": {
+    "separate_pilots": [
+      {
+        "change": "smaller model",
+        "cost_change": -0.2,
+        "quality": "within band"
+      },
+      {
+        "change": "shorter prompt",
+        "cost_change": -0.15,
+        "quality": "within band"
+      },
+      {
+        "change": "routing",
+        "cost_change": -0.5,
+        "evaluated_population": "easy subset only"
+      },
+      {
+        "change": "generated memory",
+        "cost_change": -0.1,
+        "builds": 1
+      }
+    ],
+    "combined_run": null,
+    "unchanged_rebuild_control": null,
+    "model_effort_grid": "partially tested",
+    "final_test": "untouched"
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

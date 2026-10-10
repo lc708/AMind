@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "written_utc": "2026-09-29T20:57:16.055560+00:00",
+  "status": "frozen_before_first_artifact_review",
+  "scoring": "Each correctness item: 0 absent/wrong, 5 partial or claim unsupported by implementation, 10 fulfilled. Other components use listed anchors; do not reward verbosity or unnecessary code. Hard failures from original preregistered plan override scores. This refinement does not replace the preregistered task or add a hard failure.",
+  "components": {
+    "correctness": {
+      "max": 40,
+      "items_per_case": {
+        "E01": [
+          "Public ticket excludes labels and split metadata; disclose process/file isolation limits",
+          "Keep related customers/paraphrases in one split",
+          "Adapter exercises handle_ticket with tools and state; distinguish demo from missing real app",
+          "Report 2/3 completion, timeout and conditional score separately; no migration-quality claim"
+        ],
+        "E02": [
+          "Correctness and evidence replace confidence/verbosity as scoring rule",
+          "Recompute agreement against supplied human labels",
+          "Do not misdiagnose order bias: b wins both given orders; test permutations",
+          "Test correct/incorrect near misses, length and injection; scope local calibration claims"
+        ],
+        "E03": [
+          "Reject mixed grader-version comparison",
+          "Specify/reproduce rescore of both sides under a fixed validated grader, without inventing unavailable outputs",
+          "Distinguish 60 observations, 2 related cases and 1 independent group",
+          "Do not infer significance/generalization from repetitions or aggregate counts"
+        ],
+        "E04": [
+          "Reject candidate with unauthorized refunds regardless of mean quality",
+          "Enforce authenticated ownership AND duplicate verification",
+          "Relabel repeatedly selected test as validation",
+          "Freeze candidate and measurement before genuinely new final evaluation; do not reuse exposed cases"
+        ],
+        "E05": [
+          "Cached/reasoning counts are subsets; successful application cost is .0039",
+          "Include failed application .001 and judge .002; known subtotal .0069",
+          "Unknown judge timeout cost remains unknown and prevents total-cost claim",
+          "Require measured quality noninferiority, at least 15% full cost saving and verified mechanism; point means insufficient"
+        ],
+        "E06": [
+          "Do not combine isolated savings into measured joint saving or adopt now",
+          "Complete model/effort sweep; optimize prompt at fixed model then re-probe lower-cost configurations",
+          "Evaluate routing on representative full traffic and rebuild generated memory with unchanged control",
+          "Jointly confirm frozen combination and use untouched test only after selection"
+        ],
+        "G01": [
+          "Preserve incident-derived payment check and no-duplicate rule",
+          "Replace obsolete no-tools claim with actual available-tool contract",
+          "Preserve RESULT prefix or update coupled consumer with regression evidence",
+          "Make minimal justified change to unsupported three-sentence restriction and distinguish static from model validation"
+        ],
+        "G02": [
+          "Preserve all structured output items and opaque payloads for continuation",
+          "Separate commentary, final text and pending function calls",
+          "Handle incomplete status and preserve usage/failure information",
+          "Identify affected parser/history/tool ledger contracts; distinguish fixture from actual SDK/service validation"
+        ],
+        "G03": [
+          "Locate first bad transformation between prior output and next request",
+          "Choose one history owner and avoid previous_response_id plus full history duplication",
+          "Preserve phase and pair tool output with actual c1 call; reject unknown correspondence",
+          "Preserve compaction item exactly and verify continuation without fabricated service results"
+        ],
+        "G04": [
+          "Partial text without terminal event is not success",
+          "Match batch by custom_id, preserve requested ordering if needed",
+          "Retain b error and missing c explicitly",
+          "Preserve available usage and distinguish terminal failure/incomplete from completed"
+        ],
+        "G05": [
+          "Persist scoped operation identity and pending state before remote mutation",
+          "Reconcile uncertain remote outcome with stable idempotency key before replay",
+          "Validate authorization and enforce bounded attempts/budget/cancellation",
+          "Test crash after remote success and duplicates; avoid exactly-once claims from local transaction"
+        ],
+        "G06": [
+          "Verify webhook before mutation and deduplicate replayed events",
+          "Separate durable session/work from replaceable environment; no blind re-provision",
+          "Enforce memory tenant and expiry and cancellation before new effects",
+          "Handle recovery, cleanup and verified completion; disconnect/idle are not task success"
+        ]
+      }
+    },
+    "verifiability": {
+      "max": 25,
+      "anchors": {
+        "0": "No inspectable result",
+        "5": "Bare recommendation without reproducible reasoning",
+        "10": "Partial reproducible evidence; critical implementation requested but missing",
+        "15": "Task-appropriate inspectable artifact or code with material verification gaps",
+        "20": "Reproducible task-appropriate evidence with one minor gap",
+        "25": "Reproduced evidence covers requested behavior; mocks and missing external evidence explicit"
+      }
+    },
+    "failure_paths": {
+      "max": 20,
+      "anchors": {
+        "0": "Ignores all supplied failure mechanisms",
+        "5": "Addresses one of several supplied mechanisms",
+        "10": "Addresses most but leaves a material path unsafe or misleading",
+        "15": "All main supplied failures addressed with one coverage gap",
+        "20": "All supplied failures handled and conclusions appropriately bounded"
+      }
+    },
+    "operational_complexity": {
+      "max": 15,
+      "anchors": {
+        "0": "Cannot operate result or requires unauthorized work",
+        "5": "Substantial avoidable setup or incomplete execution path",
+        "10": "Usable with documented limitations or modest unnecessary complexity",
+        "15": "Clear bounded local execution/reproduction, minimal dependencies appropriate to task"
+      }
+    }
+  },
+  "review_limits": [
+    "Author-selected synthetic failure tasks, not an independent representative sample",
+    "Reviewer is the implementing root agent; neutral run IDs do not provide strict reviewer blinding",
+    "One stochastic execution per skill and task; paired score differences are descriptive, not population estimates",
+    "Package names and shared installed skill catalog remain visible; protocol isolation is not a security boundary"
+  ]
+}

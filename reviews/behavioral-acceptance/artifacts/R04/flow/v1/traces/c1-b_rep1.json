@@ -1,0 +1,32 @@
+[
+  {
+    "role": "system",
+    "content": "OFFLINE FIXTURE: no real app or model."
+  },
+  {
+    "role": "user",
+    "content": "{\"customer\":\"c1\",\"input\":\"Same duplicate charge, paraphrased\"}"
+  },
+  {
+    "role": "tool_call",
+    "name": "verify",
+    "content": "{\"customer\":\"c1\"}"
+  },
+  {
+    "role": "tool_result",
+    "content": "{\"invoice_id\":\"fixture-invoice-c1\",\"customer\":\"c1\",\"duplicate\":true,\"refund_amount\":50,\"currency\":\"USD\"}"
+  },
+  {
+    "role": "tool_call",
+    "name": "refund",
+    "content": "{\"invoice_id\":\"fixture-invoice-c1\",\"amount\":50,\"currency\":\"USD\"}"
+  },
+  {
+    "role": "tool_result",
+    "content": "{\"invoice_id\":\"fixture-invoice-c1\",\"amount\":50,\"currency\":\"USD\",\"refund_id\":\"refund-1\"}"
+  },
+  {
+    "role": "assistant",
+    "content": "{\"kind\":\"refunded\",\"message\":\"The verified duplicate charge has been refunded.\"}"
+  }
+]

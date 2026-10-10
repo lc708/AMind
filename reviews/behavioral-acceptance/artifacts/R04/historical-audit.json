@@ -1,0 +1,53 @@
+{
+  "source": "Supplied scores; no traces exist to revalidate their correctness",
+  "historical": {
+    "planned": 3,
+    "scored": 2,
+    "passed": 2,
+    "statuses": {
+      "ok": 2,
+      "timeout": 1
+    },
+    "completion_rate": 0.6666666666666666,
+    "conditional_quality": 1,
+    "confirmed_success_rate": 0.6666666666666666,
+    "unresolved_quality_interval": [
+      0.6666666666666666,
+      1
+    ],
+    "customer_macro_confirmed_success": 0.5,
+    "independent_customers": 2,
+    "evidence": [
+      {
+        "id": "c1-a",
+        "rep": 0,
+        "status": "ok",
+        "score": 1
+      },
+      {
+        "id": "c1-b",
+        "rep": 0,
+        "status": "ok",
+        "score": 1
+      },
+      {
+        "id": "c2",
+        "rep": 0,
+        "status": "timeout",
+        "score": null
+      }
+    ],
+    "statistical_ci": null,
+    "statistical_limit": "Fixed correlated fixtures are not a random production sample. No valid population CI or model variance estimate."
+  },
+  "decision": {
+    "decision": "HOLD",
+    "reasons": [
+      "No real incumbent/candidate app or model has been executed.",
+      "Only two customer groups; no representative independent holdout for duplicate refunds.",
+      "Expected-label provenance and production traffic coverage are unverified.",
+      "Incomplete trials; completion and conditional quality must both be reported."
+    ],
+    "manifest_version": "customer-quarantine-v1"
+  }
+}

@@ -1,0 +1,460 @@
+{
+  "task_id": "E01",
+  "run": "R11",
+  "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11",
+  "skill_entry": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/SKILL.md",
+  "files_read": {
+    "assigned_skill_package": [
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/SKILL.md",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/build-eval.md",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/eval-audit.md",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/runner.md",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/artifacts.md",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/assets/offline-demo/experiment.json",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/kernel_common.py",
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/compare_runs.py"
+    ],
+    "task_and_generated_runtime_artifacts": [
+      "runtime.json",
+      "timeout-experiment.json",
+      "grader.py",
+      "audit.py",
+      "adapter.py",
+      "task.json",
+      "historical-audit.json",
+      "mock_app.py",
+      "test_evaluation.py",
+      "deliverable.md",
+      "run_checks.py",
+      "experiment.json",
+      "fixture_tools.py",
+      "verified-evidence/summary.json",
+      "verified-evidence/checks.json",
+      "verified-evidence/check-02.log",
+      "verified-evidence/check-03.log",
+      "verified-evidence/check-01.log",
+      "verified-evidence/check-00.log",
+      "verified-evidence/check-04.log",
+      "verified-evidence/check-05.log",
+      "verified-evidence/check-07.log",
+      "verified-evidence/check-06.log",
+      "verified-evidence/timeout-val/_state.json",
+      "verified-evidence/timeout-val/report-data.json",
+      "verified-evidence/timeout-val/baseline/results.jsonl",
+      "verified-evidence/timeout-val/baseline/manifest.json",
+      "verified-evidence/timeout-val/baseline/errors.jsonl",
+      "verified-evidence/timeout-val/baseline/attempts.jsonl",
+      "verified-evidence/timeout-val/baseline/traces/12948897f522882b39d3c174.json",
+      "verified-evidence/timeout-val/baseline/traces/e8de63044696a63a64b72f71.json",
+      "verified-evidence/timeout-val/baseline/workspaces/12948897f522882b39d3c174/receipt.json",
+      "verified-evidence/timeout-val/baseline/workspaces/e8de63044696a63a64b72f71/receipt.json",
+      "verified-evidence/contract-val/_state.json",
+      "verified-evidence/contract-val/report-data.json",
+      "verified-evidence/contract-val/baseline/results.jsonl",
+      "verified-evidence/contract-val/baseline/manifest.json",
+      "verified-evidence/contract-val/baseline/frozen-outputs.json",
+      "verified-evidence/contract-val/baseline/attempts.jsonl",
+      "verified-evidence/contract-val/baseline/traces/12948897f522882b39d3c174.json",
+      "verified-evidence/contract-val/baseline/traces/e8de63044696a63a64b72f71.json",
+      "verified-evidence/contract-val/baseline/traces/6e0ad3f42508da123e05c4a3.json",
+      "verified-evidence/contract-val/baseline/workspaces/12948897f522882b39d3c174/receipt.json",
+      "verified-evidence/contract-val/baseline/workspaces/e8de63044696a63a64b72f71/receipt.json",
+      "verified-evidence/contract-val/baseline/workspaces/6e0ad3f42508da123e05c4a3/receipt.json",
+      "evidence/summary.json",
+      "evidence/checks.json",
+      "evidence/check-02.log",
+      "evidence/check-03.log",
+      "evidence/check-01.log",
+      "evidence/check-00.log",
+      "evidence/check-04.log",
+      "evidence/check-05.log",
+      "evidence/check-07.log",
+      "evidence/check-06.log",
+      "evidence/timeout-val/_state.json",
+      "evidence/timeout-val/report-data.json",
+      "evidence/timeout-val/baseline/results.jsonl",
+      "evidence/timeout-val/baseline/manifest.json",
+      "evidence/timeout-val/baseline/errors.jsonl",
+      "evidence/timeout-val/baseline/attempts.jsonl",
+      "evidence/timeout-val/baseline/traces/12948897f522882b39d3c174.json",
+      "evidence/timeout-val/baseline/traces/e8de63044696a63a64b72f71.json",
+      "evidence/timeout-val/baseline/workspaces/12948897f522882b39d3c174/receipt.json",
+      "evidence/timeout-val/baseline/workspaces/e8de63044696a63a64b72f71/receipt.json",
+      "evidence/contract-val/_state.json",
+      "evidence/contract-val/report-data.json",
+      "evidence/contract-val/baseline/results.jsonl",
+      "evidence/contract-val/baseline/manifest.json",
+      "evidence/contract-val/baseline/frozen-outputs.json",
+      "evidence/contract-val/baseline/attempts.jsonl",
+      "evidence/contract-val/baseline/traces/12948897f522882b39d3c174.json",
+      "evidence/contract-val/baseline/traces/e8de63044696a63a64b72f71.json",
+      "evidence/contract-val/baseline/traces/6e0ad3f42508da123e05c4a3.json",
+      "evidence/contract-val/baseline/workspaces/12948897f522882b39d3c174/receipt.json",
+      "evidence/contract-val/baseline/workspaces/e8de63044696a63a64b72f71/receipt.json",
+      "evidence/contract-val/baseline/workspaces/6e0ad3f42508da123e05c4a3/receipt.json",
+      "public/cases.jsonl",
+      "private/provenance.json",
+      "private/references.jsonl"
+    ],
+    "note": "Includes files read during runner, grader, reporter and test execution; no sibling task or unrelated repository reads."
+  },
+  "commands_executed": [
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/SKILL.md",
+      "exit_code": 0
+    },
+    {
+      "command": "cat task.json",
+      "exit_code": 0
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/build-eval.md",
+      "exit_code": 0
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/eval-audit.md",
+      "exit_code": 0
+    },
+    {
+      "command": "rg --files .",
+      "exit_code": 0
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/runner.md",
+      "exit_code": 0
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/references/artifacts.md",
+      "exit_code": 0
+    },
+    {
+      "command": "cat /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/assets/offline-demo/experiment.json",
+      "exit_code": 0
+    },
+    {
+      "command": "rg -n 'grader.*command|reference|cwd|status.*error|synthetic|control_files|runner.*files|expected_model' /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "exit_code": 0
+    },
+    {
+      "command": "sed -n '1,180p' /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "exit_code": 0
+    },
+    {
+      "command": "sed -n '196,267p' /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "exit_code": 0
+    },
+    {
+      "command": "sed -n '430,510p' /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 heredoc",
+      "purpose": "Create public inputs, private references/provenance, runtime and two experiment cards from task.json; original task unchanged.",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 run_checks.py",
+      "exit_code": 0
+    },
+    {
+      "command": "cat evidence/check-00.log evidence/check-03.log evidence/check-06.log",
+      "exit_code": 0
+    },
+    {
+      "command": "cat evidence/contract-val/report-data.json",
+      "exit_code": 0
+    },
+    {
+      "command": "rg -n '^def |^import|^from ' /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/compare_runs.py /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py /Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/kernel_common.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 heredoc",
+      "purpose": "Inspect sys.dont_write_bytecode and assigned scripts/__pycache__ existence; no cache existed.",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B run_checks.py --out verified-evidence",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -B heredoc (this finalization)",
+      "purpose": "Update delivery counts, write execution.json, verify final reports and required artifacts.",
+      "exit_code": 0
+    }
+  ],
+  "subprocess_checks": [
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_evaluation.py"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "audit.py"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val",
+        "--execute"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/contract-val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "timeout-experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "timeout-experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val",
+        "--execute"
+      ],
+      "exit_code": 2,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/timeout-val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_evaluation.py"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "audit.py"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/contract-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/contract-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val",
+        "--execute"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/contract-val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "timeout-experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/timeout-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/run_eval.py",
+        "--card",
+        "timeout-experiment.json",
+        "--flow",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/timeout-val",
+        "--variant",
+        "baseline",
+        "--split",
+        "val",
+        "--execute"
+      ],
+      "exit_code": 2,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    },
+    {
+      "run": "verified-evidence",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/timeout-val"
+      ],
+      "exit_code": 0,
+      "output_record": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R11/verified-evidence/checks.json"
+    }
+  ],
+  "tool_call_count": {
+    "self_reported_total_including_nested_tools": 34,
+    "functions_exec_invocations": 11,
+    "nested_exec_command": 20,
+    "nested_apply_patch": 3
+  },
+  "constraints": {
+    "any_unmet": false,
+    "unmet": [],
+    "no_network": true,
+    "target_model_api_calls": 0,
+    "credential_access": false,
+    "deployments_or_external_side_effects": false,
+    "additional_agents": 0,
+    "task_json_modified": false,
+    "skill_source_modified": false,
+    "writes_confined_to_task_directory": true
+  },
+  "verification": {
+    "test_count_per_pass": 18,
+    "test_passes": 2,
+    "local_fixture_attempts": 12,
+    "fixed_contract_scored_per_pass": 3,
+    "timeout_probe_scored_per_pass": 2,
+    "timeout_probe_attempts_per_pass": 3,
+    "timeout_execute_exit_code": 2,
+    "overall_check_script_exit_codes": [
+      0,
+      0
+    ],
+    "comparison_or_migration_claim": "none"
+  },
+  "material_limits": [
+    "No actual app source or model configuration supplied; handle_ticket is a labeled fixed mock.",
+    "Only two customer groups; all exposed cases are diagnostic validation; no untouched final test.",
+    "JSON input boundary is checked, but OS/filesystem isolation is not established.",
+    "No human-blind grader calibration or production language-quality validation.",
+    "Historical cost, latency and timed-out side effects remain unknown.",
+    "Fault timeout is deterministic classification, not a measured remote service timeout."
+  ]
+}

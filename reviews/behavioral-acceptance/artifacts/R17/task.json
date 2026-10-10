@@ -1,0 +1,45 @@
+{
+  "id": "G04",
+  "request": "修复流式与批处理的结果判定，写出本地可运行的契约测试。",
+  "fixture": {
+    "stream": [
+      {
+        "type": "response.created"
+      },
+      {
+        "type": "response.output_text.delta",
+        "delta": "Done"
+      }
+    ],
+    "existing_stream_success": "any text received",
+    "batch_requested": [
+      "a",
+      "b",
+      "c"
+    ],
+    "batch_returned": [
+      {
+        "custom_id": "b",
+        "error": {
+          "code": "expired"
+        }
+      },
+      {
+        "custom_id": "a",
+        "response": {
+          "status_code": 200,
+          "body": {
+            "status": "completed"
+          }
+        }
+      }
+    ],
+    "existing_batch_join": "zip(requests,results)"
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

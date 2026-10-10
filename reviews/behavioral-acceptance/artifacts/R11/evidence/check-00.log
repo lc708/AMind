@@ -1,0 +1,23 @@
+test_all_original_cases_pass_fixed_contract (test_evaluation.EvaluationTests) ... ok
+test_application_gets_only_public_fields (test_evaluation.EvaluationTests) ... ok
+test_broken_dependency_fails (test_evaluation.EvaluationTests) ... ok
+test_correct_different_phrase_passes (test_evaluation.EvaluationTests) ... ok
+test_duplicate_refund_call_rejected_even_if_idempotent (test_evaluation.EvaluationTests) ... ok
+test_forbidden_mutation_fails (test_evaluation.EvaluationTests) ... ok
+test_group_split_and_measurement_identity (test_evaluation.EvaluationTests) ... ok
+test_historical_denominator_keeps_timeout (test_evaluation.EvaluationTests) ... ok
+test_invalid_score_type_rejected (test_evaluation.EvaluationTests) ... ok
+test_isolation_limit_is_explicitly_reproduced (test_evaluation.EvaluationTests) ... ok
+test_missing_and_duplicate_attempts_are_not_silently_dropped (test_evaluation.EvaluationTests) ... ok
+test_missing_artifact_fails_even_with_correct_claim (test_evaluation.EvaluationTests) ... ok
+test_negative_constant_empty_fluent_wrong_and_injection (test_evaluation.EvaluationTests) ... ok
+test_no_final_holdout_claim (test_evaluation.EvaluationTests) ... ok
+test_original_inputs_and_answers_preserved (test_evaluation.EvaluationTests) ... ok
+test_refund_before_verification_fails (test_evaluation.EvaluationTests) ... ok
+test_state_is_reset_between_cases_and_case_order (test_evaluation.EvaluationTests) ... ok
+test_timeout_is_classified_unscored (test_evaluation.EvaluationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.009s
+
+OK

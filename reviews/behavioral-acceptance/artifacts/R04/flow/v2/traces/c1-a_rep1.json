@@ -1,0 +1,14 @@
+[
+  {
+    "role": "system",
+    "content": "OFFLINE FIXTURE: no real app or model."
+  },
+  {
+    "role": "user",
+    "content": "{\"customer\":\"c1\",\"input\":\"Refund duplicated invoice\"}"
+  },
+  {
+    "role": "assistant",
+    "content": "null"
+  }
+]

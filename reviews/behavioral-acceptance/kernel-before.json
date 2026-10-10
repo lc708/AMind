@@ -1,0 +1,27 @@
+{
+  "skill_root": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering",
+  "tests": [
+    {
+      "test": "__main__.HeldoutContracts.test_batch_http_success_does_not_hide_incomplete_body",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/Work/AMind/scripts/test_amind_behavior_regressions.py\", line 72, in test_batch_http_success_does_not_hide_incomplete_body\n    self.assertIn('x', result['errors'])\nAssertionError: 'x' not found in []\n"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_cancellation_during_authorization_prevents_dispatch",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/Work/AMind/scripts/test_amind_behavior_regressions.py\", line 67, in test_cancellation_during_authorization_prevents_dispatch\n    self.assertEqual(effects, [], 'no new effect after cancellation observed during authorization')\nAssertionError: Lists differ: ['4e270a8f35449ed32324518385616a80948262d152b24173e9d9ca7cb687c0cf'] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n'4e270a8f35449ed32324518385616a80948262d152b24173e9d9ca7cb687c0cf'\n\n- ['4e270a8f35449ed32324518385616a80948262d152b24173e9d9ca7cb687c0cf']\n+ [] : no new effect after cancellation observed during authorization\n"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_remote_key_scopes_tenant_even_when_task_and_call_ids_match",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/Work/AMind/scripts/test_amind_behavior_regressions.py\", line 49, in test_remote_key_scopes_tenant_even_when_task_and_call_ids_match\n    self.assertEqual(len(set(keys)), 2, 'remote dedup keys must not alias across authenticated tenants')\nAssertionError: 1 != 2 : remote dedup keys must not alias across authenticated tenants\n"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_text_projection_distinguishes_commentary_and_final",
+      "status": "failed",
+      "detail": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/Work/AMind/scripts/test_amind_behavior_regressions.py\", line 82, in test_text_projection_distinguishes_commentary_and_final\n    self.assertEqual(result.get('final_text'), '')\nAssertionError: None != ''\n"
+    }
+  ],
+  "passed": false,
+  "scope": "offline kernel contracts, not agent behavior"
+}

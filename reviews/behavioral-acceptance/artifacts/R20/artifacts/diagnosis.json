@@ -1,0 +1,32 @@
+{
+  "evidence_level": "offline fixed fixtures; no provider or model calls",
+  "baseline_findings": [
+    {
+      "code": "assistant_in_chain_input",
+      "path": "/next_request/input/1"
+    },
+    {
+      "code": "phase_drift",
+      "path": "/next_request/input/1/phase"
+    },
+    {
+      "code": "orphan_tool_result",
+      "path": "/next_request/input/2/call_id"
+    },
+    {
+      "code": "unresolved_tool_calls",
+      "path": "/previous_response/output",
+      "call_ids": [
+        "c1"
+      ]
+    }
+  ],
+  "fixed_findings": [],
+  "broken_result_rejected_as": "orphan_tool_result",
+  "original_task_hash": "298182e45e35d492f71c4437ba386ffbca139084eeb39f86a731e3fe22190ee0",
+  "compaction_hash": "bf380fed1a2ad10ba94fa551879f72a612593e2ce01a65a2aef199d2bab439c6",
+  "preserved_input": "user message retained; history/new-event provenance absent",
+  "tool_result_provenance": "fixed mock completion bound to original call c1",
+  "compaction_limit": "single item archived; actual compact-output continuation unverified",
+  "normalization": "unknown initial request represented as []; terminal marks local result check, not model success"
+}

@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-09-29T21:15:50.041397+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_recovery.py"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_actual_process_crash_then_duplicate_recovers_op1 (test_recovery.RecoveryTests) ... ok\ntest_cancel_after_commit_before_response_reports_too_late (test_recovery.RecoveryTests) ... ok\ntest_cancel_after_dispatch_with_no_receipt_never_claims_rollback (test_recovery.RecoveryTests) ... ok\ntest_cancel_before_dispatch_is_durable_tombstone (test_recovery.RecoveryTests) ... ok\ntest_cancel_unknown_stops_retries_not_reconciliation (test_recovery.RecoveryTests) ... ok\ntest_cancellation_races_with_inflight_dispatch (test_recovery.RecoveryTests) ... ok\ntest_concurrent_deliveries_one_effect (test_recovery.RecoveryTests) ... ok\ntest_lookup_failure_is_bounded_and_never_charges (test_recovery.RecoveryTests) ... ok\ntest_manual_readonly_reconciliation_after_exhaustion (test_recovery.RecoveryTests) ... ok\ntest_payload_conflict_no_second_charge (test_recovery.RecoveryTests) ... ok\ntest_permanent_rejection_does_not_retry (test_recovery.RecoveryTests) ... ok\ntest_rate_limit_respects_retry_after (test_recovery.RecoveryTests) ... ok\ntest_repeated_calls_replay_saved_result (test_recovery.RecoveryTests) ... ok\ntest_retry_budget_exhaustion_requires_review (test_recovery.RecoveryTests) ... ok\ntest_stale_lookup_replay_is_remote_idempotent (test_recovery.RecoveryTests) ... ok\ntest_tenant_key_isolation (test_recovery.RecoveryTests) ... ok\ntest_timeout_then_same_key_retry_with_backoff (test_recovery.RecoveryTests) ... ok\ntest_unauthorized_execution_lookup_cancel_do_nothing (test_recovery.RecoveryTests) ... ok\ntest_unexpected_exception_is_not_blindly_retried (test_recovery.RecoveryTests) ... ok\ntest_validation_rejects_malformed_amount_and_extra_fields (test_recovery.RecoveryTests) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.123s\n\nOK\n"
+    }
+  ],
+  "original_artifacts_modified": false
+}

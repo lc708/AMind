@@ -1,0 +1,143 @@
+{
+  "task_id": "E06",
+  "mode": "offline_fixed_fixture",
+  "decision": "KEEP_BASELINE_PENDING_CONFIRMATION",
+  "pilot_evidence": [
+    {
+      "change": "smaller model",
+      "reported_cost_change": -0.2,
+      "illustrative_own_baseline_index": 80.0,
+      "quality": "within band",
+      "population": "unspecified",
+      "builds": null,
+      "adopt_now": false
+    },
+    {
+      "change": "shorter prompt",
+      "reported_cost_change": -0.15,
+      "illustrative_own_baseline_index": 85.0,
+      "quality": "within band",
+      "population": "unspecified",
+      "builds": null,
+      "adopt_now": false
+    },
+    {
+      "change": "routing",
+      "reported_cost_change": -0.5,
+      "illustrative_own_baseline_index": 50.0,
+      "quality": "unknown",
+      "population": "easy subset only",
+      "builds": null,
+      "adopt_now": false
+    },
+    {
+      "change": "generated memory",
+      "reported_cost_change": -0.1,
+      "illustrative_own_baseline_index": 90.0,
+      "quality": "unknown",
+      "population": "unspecified",
+      "builds": 1,
+      "adopt_now": false
+    }
+  ],
+  "combined_savings": null,
+  "global_router_savings": null,
+  "memory_reproducibility": "unknown",
+  "final_test": "untouched",
+  "model_effort_grid": "partially tested",
+  "preregistration": {
+    "original_quality_band": null,
+    "minimum_cost_margin": null,
+    "min_confirm_repeats": 3,
+    "metric_id": null,
+    "pricing_basis": null,
+    "note": "Nulls are missing prerequisites; never replace original requirements to pass."
+  },
+  "adoption_gates": [
+    "original_quality_band",
+    "cost_beyond_margin",
+    "predicted_mechanism",
+    "stability_and_coverage",
+    "joint_sealed_confirmation"
+  ],
+  "stages": [
+    {
+      "id": "S0",
+      "action": "Freeze original metric, quality band, populations, pricing basis and splits; baseline repeats plus cache and wiring receipts.",
+      "split": "selection",
+      "repeats_per_arm": 3,
+      "arms": [
+        "unchanged incumbent"
+      ],
+      "depends_on": []
+    },
+    {
+      "id": "S1",
+      "action": "Inventory tested model-effort cells; walk from highest cost-plausible tier at low effort, include next-tier-up low comparator. Re-test near-floor pass/fail before pruning.",
+      "split": "selection",
+      "max_new_cells": 6,
+      "repeats_per_cell_initial": 2,
+      "depends_on": [
+        "S0"
+      ]
+    },
+    {
+      "id": "S2",
+      "action": "Freeze selected model/effort; validate shorter prompt against its unchanged prompt, retaining requirements. Re-probe one cheaper adjacent cell after prompt selection.",
+      "split": "selection",
+      "max_prompt_rounds": 3,
+      "stop_after_consecutive_no_wins": 2,
+      "depends_on": [
+        "S1"
+      ]
+    },
+    {
+      "id": "S3",
+      "action": "Measure original, model-only, prompt-only, and model-plus-prompt on the same cases; inspect interactions. Never infer combined savings from separate pilots.",
+      "split": "validation",
+      "repeats_per_arm": 3,
+      "depends_on": [
+        "S2"
+      ]
+    },
+    {
+      "id": "S4",
+      "action": "If memory remains worthwhile, independently rebuild unchanged and changed memories three times from training data only; repeat inference within each build and charge build costs.",
+      "split": "selection_then_validation",
+      "builds_per_arm": 3,
+      "repeats_per_build": 3,
+      "depends_on": [
+        "S0",
+        "S3"
+      ]
+    },
+    {
+      "id": "S5",
+      "action": "If routing remains worthwhile, evaluate the frozen router on the full weighted traffic frame against best single configuration; charge predictor, fallback and verification, including hard-tail errors.",
+      "split": "selection_then_validation",
+      "repeats_per_arm": 3,
+      "depends_on": [
+        "S3"
+      ]
+    },
+    {
+      "id": "S6",
+      "action": "Freeze one complete configuration and preregistration; run paired baseline/candidate joint confirmation once on sealed final test with at least three independent repeats; no tuning on its outputs.",
+      "split": "final_test",
+      "repeats_per_arm": 3,
+      "depends_on": [
+        "S3",
+        "S4_or_explicit_skip",
+        "S5_or_explicit_skip"
+      ]
+    }
+  ],
+  "actual_model_runs": 0,
+  "actual_api_spend": 0,
+  "limits": [
+    "No raw cases, transcripts, usage, prices, baseline score, named band or variances supplied.",
+    "Pilot percentages have unspecified denominators; they are not bill-wide measured ceilings.",
+    "No new model/service behavior is measured by this program."
+  ],
+  "input_sha256": "9decc8ac4c8232bf14414f3789eb7b264d4d9232a8a156afe14ed12bd8a0daef"
+}

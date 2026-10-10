@@ -1,0 +1,49 @@
+{
+  "rows": [
+    {
+      "id": "fixture-01",
+      "stage": "application",
+      "model": "fixture-text-model",
+      "status": "reported",
+      "cost_usd": 0.001,
+      "basis": "task.json reported_cost_usd; fixture, not reconciled invoice"
+    },
+    {
+      "id": "fixture-02",
+      "stage": "application",
+      "model": "fixture-text-model",
+      "status": "estimated_partial",
+      "cost_usd": 0.0039,
+      "components": {
+        "uncached_input": 0.001,
+        "cached_input": 0.0009,
+        "output_including_reasoning": 0.002,
+        "external_known": 0
+      },
+      "rate_card_version": "E05-fixture-v1",
+      "rate_card_sha256": "be05a72afd01c8c24fd83337c857c809e0bb915f4ecb2346e414ba01c1fa33d9",
+      "warning": "Tools, storage, sandbox, retries or other charges may be absent; not total task cost"
+    },
+    {
+      "id": "fixture-03",
+      "stage": "judge",
+      "model": "fixture-text-model",
+      "status": "reported",
+      "cost_usd": 0.002,
+      "basis": "task.json reported_cost_usd; fixture, not reconciled invoice"
+    },
+    {
+      "id": "fixture-04",
+      "stage": "judge",
+      "model": "fixture-text-model",
+      "status": "unknown",
+      "cost_usd": null,
+      "reason": "missing rate or usage"
+    }
+  ],
+  "known_or_estimated_subtotal_usd": 0.0069,
+  "unknown_events": 1,
+  "partial_events": 1,
+  "total_cost_usd": null,
+  "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+}

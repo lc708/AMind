@@ -1,0 +1,12 @@
+{
+  "evidence_kind": "offline fixed fixture; no target or judge executed",
+  "source_sha256": {
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R19/task.json": "c4fb5112a812369c21390508520e1c870843f67c3c20327ec26ce4aba758995a",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R19/analyze.py": "1b079b133997628f14da076a330d44a9d3676a5988e6ae61379f310475e222d3",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/price_usage.py": "6eafd16285bd2c5b3064770d4a155e49be29979cd90a33240c17c77b998ea12e",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/kernel_common.py": "c90261ec5ed003651277a66c4f5b656c1fcbb611974618a7d017b845ca1bad8c",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R19/decision-card.json": "c04d37f127009444ffc24a23986240af806c868a6fecc5715c7d3068bced69eb"
+  },
+  "actual_model_calls": 0,
+  "actual_paid_cost_usd": 0
+}

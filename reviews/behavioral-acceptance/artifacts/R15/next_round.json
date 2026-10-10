@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "task_id": "E06",
+  "request": "根据这些探索结果提出可执行的下一轮成本搜索与采用判断。",
+  "input_sha256": "9decc8ac4c8232bf14414f3789eb7b264d4d9232a8a156afe14ed12bd8a0daef",
+  "constraints_preserved": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "original_fixture": {
+    "separate_pilots": [
+      {
+        "change": "smaller model",
+        "cost_change": -0.2,
+        "quality": "within band"
+      },
+      {
+        "change": "shorter prompt",
+        "cost_change": -0.15,
+        "quality": "within band"
+      },
+      {
+        "change": "routing",
+        "cost_change": -0.5,
+        "evaluated_population": "easy subset only"
+      },
+      {
+        "change": "generated memory",
+        "cost_change": -0.1,
+        "builds": 1
+      }
+    ],
+    "combined_run": null,
+    "unchanged_rebuild_control": null,
+    "model_effort_grid": "partially tested",
+    "final_test": "untouched"
+  },
+  "current_decision": "keep_baseline; proposals_only; no demonstrated joint saving",
+  "evidence_kind": "supplied_qualitative_pilots_not_new_model_measurements",
+  "pilot_diagnoses": [
+    {
+      "input_observation": {
+        "change": "smaller model",
+        "cost_change": -0.2,
+        "quality": "within band"
+      },
+      "decision": "not_adoptable_from_supplied_evidence",
+      "gap": "探索候选；within band 缺配对区间、分切片和稳定性；模型×effort尚未完成。"
+    },
+    {
+      "input_observation": {
+        "change": "shorter prompt",
+        "cost_change": -0.15,
+        "quality": "within band"
+      },
+      "decision": "not_adoptable_from_supplied_evidence",
+      "gap": "探索候选；冻结模型复测，再在选定模型重调；包含推理、修复和工具成本。"
+    },
+    {
+      "input_observation": {
+        "change": "routing",
+        "cost_change": -0.5,
+        "evaluated_population": "easy subset only"
+      },
+      "decision": "not_adoptable_from_supplied_evidence",
+      "gap": "仅简单子集不能代表全部流量；补路由开销、升级、误分与困难逃逸。"
+    },
+    {
+      "input_observation": {
+        "change": "generated memory",
+        "cost_change": -0.1,
+        "builds": 1
+      },
+      "decision": "not_adoptable_from_supplied_evidence",
+      "gap": "一次构建且无 unchanged rebuild control；补多次配对重建及摊销。"
+    }
+  ],
+  "combined_cost_saving": null,
+  "final_test_action_now": "leave_untouched",
+  "model_calls_authorized_now": 0,
+  "decision_card_status": "proposal_not_registered",
+  "stages": [
+    {
+      "id": "0_measurement",
+      "action": "Bind real entry point, rubric, group splits, full traffic weights, all-attempt ledger, price/date or unknown spend, precision plan and budget. Keep final test inaccessible.",
+      "stop_rule": "Missing binding or live budget => no model execution."
+    },
+    {
+      "id": "1_infrastructure",
+      "action": "Frozen baseline: warm/cold cache counters; consistent adopted cache; deduplicate context/tool output, fix loops, bound output; batch only if latency-compatible.",
+      "stop_rule": "Quality, slice, mechanism or operations gate fails => stop this treatment."
+    },
+    {
+      "id": "2_prompt_audit",
+      "action": "Frozen model/effort: provenance-aware shorter-prompt audit; preserve constraints, authorization, error paths and exact outputs; paired baseline comparison.",
+      "stop_rule": "Text length alone is not a saving; reasoning/tool/repair increases must be charged."
+    },
+    {
+      "id": "3_model_effort",
+      "action": "Fill supported adjacent gaps in the partial model x effort grid, changing one axis at a time with frozen prompt/tools/budgets.",
+      "stop_rule": "Stop branch at first quality/guardrail failure; retain failed and untested cells."
+    },
+    {
+      "id": "4_selected_prompt",
+      "action": "Freeze selected model/effort, tune prompt/context on validation only; compare within that model.",
+      "stop_rule": "Do not reuse stronger-model prompt conclusions without new evidence."
+    },
+    {
+      "id": "5_reprobe",
+      "action": "Recheck next-cheaper adjacent supported settings after prompt optimization, including hard slices and repeat probes.",
+      "stop_rule": "No untested-setting optimum claim; keep the measured Pareto frontier."
+    },
+    {
+      "id": "6_routing_memory",
+      "action": "Full-mix routing with overhead/false-cheap/escalations; memory uses >=3 paired changed/unchanged rebuilds, provenance, freshness and tenant controls.",
+      "stop_rule": "Easy-only routing or single lucky build cannot qualify."
+    },
+    {
+      "id": "7_joint_validation",
+      "action": "Register exact combined configuration and run paired/interleaved against accepted frozen baseline, charging all attempts and amortized construction.",
+      "stop_rule": "Never add or multiply separate pilot savings; select at most one final candidate."
+    },
+    {
+      "id": "8_final_confirmation",
+      "action": "Seal candidate/measurement identities then compare frozen baseline/candidate on untouched final test once; simultaneous quality/cost/operations and mechanism gates.",
+      "stop_rule": "Miss/unknown => keep baseline; no retuning on test. Any further selection needs new independent final evidence."
+    }
+  ]
+}

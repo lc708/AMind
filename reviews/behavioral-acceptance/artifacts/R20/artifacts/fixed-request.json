@@ -1,0 +1,14 @@
+{
+  "previous_response_id": "r1",
+  "input": [
+    {
+      "role": "user",
+      "content": "Find invoice"
+    },
+    {
+      "type": "function_call_output",
+      "call_id": "c1",
+      "output": "invoice"
+    }
+  ]
+}

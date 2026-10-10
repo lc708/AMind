@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-09-29T21:51:44.593049+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_all_success_and_null_error (test_result_contract.BatchContractTests) ... ok\ntest_duplicate_results_never_overwrite (test_result_contract.BatchContractTests) ... ok\ntest_empty_and_entirely_missing_batches (test_result_contract.BatchContractTests) ... ok\ntest_every_result_permutation_has_same_join (test_result_contract.BatchContractTests) ... ok\ntest_http_and_body_status_are_both_required (test_result_contract.BatchContractTests) ... ok\ntest_invalid_request_ids_rejected (test_result_contract.BatchContractTests) ... ok\ntest_malformed_payload_and_conflicting_success_fail_closed (test_result_contract.BatchContractTests) ... ok\ntest_original_reordered_error_and_missing_results (test_result_contract.BatchContractTests) ... ok\ntest_unknown_and_malformed_results_are_visible (test_result_contract.BatchContractTests) ... ok\ntest_completed_event_requires_consistent_response (test_result_contract.StreamContractTests) ... ok\ntest_duplicate_or_trailing_terminal_rejected (test_result_contract.StreamContractTests) ... ok\ntest_empty_stream_incomplete_and_empty_completed_response_success (test_result_contract.StreamContractTests) ... ok\ntest_error_after_partial_text (test_result_contract.StreamContractTests) ... ok\ntest_finish_idempotent_and_feed_after_finish_rejected (test_result_contract.StreamContractTests) ... ok\ntest_item_done_or_unknown_event_is_not_completion (test_result_contract.StreamContractTests) ... ok\ntest_malformed_event_cannot_be_repaired_by_later_success (test_result_contract.StreamContractTests) ... ok\ntest_non_success_terminal_after_text (test_result_contract.StreamContractTests) ... ok\ntest_original_text_is_not_success (test_result_contract.StreamContractTests) ... ok\ntest_progress_is_provisional_until_terminal (test_result_contract.StreamContractTests) ... ok\ntest_transport_failure_preserves_partial_text (test_result_contract.StreamContractTests) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "result_contract.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"evidence\": \"local_fixed_fixture_only\",\n  \"stream\": {\n    \"status\": \"incomplete\",\n    \"success\": false,\n    \"reason\": \"missing_terminal_event\",\n    \"partial_text\": \"Done\",\n    \"terminal_event\": null,\n    \"events_seen\": 2,\n    \"final_response\": null\n  },\n  \"batch\": {\n    \"items\": [\n      {\n        \"custom_id\": \"a\",\n        \"status\": \"succeeded\",\n        \"success\": true,\n        \"reason\": \"completed\",\n        \"records\": [\n          {\n            \"custom_id\": \"a\",\n            \"response\": {\n              \"status_code\": 200,\n              \"body\": {\n                \"status\": \"completed\"\n              }\n            }\n          }\n        ]\n      },\n      {\n        \"custom_id\": \"b\",\n        \"status\": \"expired\",\n        \"success\": false,\n        \"reason\": \"expired\",\n        \"records\": [\n          {\n            \"custom_id\": \"b\",\n            \"error\": {\n              \"code\": \"expired\"\n            }\n          }\n        ]\n      },\n      {\n        \"custom_id\": \"c\",\n        \"status\": \"missing\",\n        \"success\": false,\n        \"reason\": \"no_result_for_requested_id\",\n        \"records\": []\n      }\n    ],\n    \"counts\": {\n      \"succeeded\": 1,\n      \"expired\": 1,\n      \"missing\": 1\n    },\n    \"issues\": [],\n    \"fully_reconciled\": false,\n    \"success\": false\n  }\n}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

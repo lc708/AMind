@@ -1,0 +1,55 @@
+{
+  "checked_utc": "2026-09-29T21:44:27.419336+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_bad_margin_rejected (test_decision.GateTests) ... ok\ntest_changed_grader_identity (test_decision.GateTests) ... ok\ntest_easy_only_route (test_decision.GateTests) ... ok\ntest_error_rate_regression (test_decision.GateTests) ... ok\ntest_failed_attempt_cost_is_included (test_decision.GateTests) ... ok\ntest_hard_slice_fails_despite_good_overall (test_decision.GateTests) ... ok\ntest_impossible_quality (test_decision.GateTests) ... ok\ntest_insufficient_precision (test_decision.GateTests) ... ok\ntest_insufficient_saving_lower_bound (test_decision.GateTests) ... ok\ntest_invalid_ci (test_decision.GateTests) ... ok\ntest_invariant_is_veto (test_decision.GateTests) ... ok\ntest_mechanism_does_not_move (test_decision.GateTests) ... ok\ntest_memory_tenant_failure (test_decision.GateTests) ... ok\ntest_missing_mechanism (test_decision.GateTests) ... ok\ntest_missing_pair (test_decision.GateTests) ... ok\ntest_no_joint_confirmation (test_decision.GateTests) ... ok\ntest_no_useful_completions (test_decision.GateTests) ... ok\ntest_nonfinite_and_boolean_numbers (test_decision.GateTests) ... ok\ntest_nonfinite_json_rejected (test_decision.GateTests) ... ok\ntest_nonsignificance_is_not_noninferiority (test_decision.GateTests) ... ok\ntest_original_observations_cannot_adopt (test_decision.GateTests) ... ok\ntest_p95_regression (test_decision.GateTests) ... ok\ntest_pilot_savings_not_added_or_multiplied (test_decision.GateTests) ... ok\ntest_positive_mock_checks_logic_but_never_adopts (test_decision.GateTests) ... ok\ntest_post_selection_target_change (test_decision.GateTests) ... ok\ntest_proposal_is_not_registration (test_decision.GateTests) ... ok\ntest_repeat_variance_regression (test_decision.GateTests) ... ok\ntest_retry_latency_omitted (test_decision.GateTests) ... ok\ntest_single_memory_build (test_decision.GateTests) ... ok\ntest_test_was_used_to_tune (test_decision.GateTests) ... ok\ntest_unknown_build_cost (test_decision.GateTests) ... ok\ntest_unknown_failed_attempt_cost (test_decision.GateTests) ... ok\ntest_unverified_unchanged_rebuild (test_decision.GateTests) ... ok\ntest_validation_never_final_adoption (test_decision.GateTests) ... ok\ntest_wrong_saving_arithmetic (test_decision.GateTests) ... ok\ntest_wrong_stats_method (test_decision.GateTests) ... ok\ntest_wrong_traffic_weights (test_decision.GateTests) ... ok\n\n----------------------------------------------------------------------\nRan 37 tests in 0.004s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "decision.py",
+        "plan",
+        "--task",
+        "task.json",
+        "--card",
+        "decision_card.json",
+        "--output",
+        "next_round.json"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "decision.py",
+        "check",
+        "--card",
+        "decision_card.json",
+        "--evidence",
+        "task.json",
+        "--output",
+        "decision_report.json"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

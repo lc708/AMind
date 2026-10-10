@@ -1,0 +1,3 @@
+{"id": "c1-a", "input": {"ticket": "Refund duplicated invoice", "customer": "c1"}, "group": "c1", "tags": ["user_fixed_fixture"]}
+{"id": "c1-b", "input": {"ticket": "Same duplicate charge, paraphrased", "customer": "c1"}, "group": "c1", "tags": ["user_fixed_fixture"]}
+{"id": "c2", "input": {"ticket": "Invoice not found", "customer": "c2"}, "group": "c2", "tags": ["user_fixed_fixture"]}

@@ -1,0 +1,40 @@
+{
+  "checked_utc": "2026-09-29T21:36:10.917861+00:00",
+  "source_sha256": "6eafd16285bd2c5b3064770d4a155e49be29979cd90a33240c17c77b998ea12e",
+  "checks": [
+    {
+      "variant": "complete",
+      "result": {
+        "status": "estimated_complete",
+        "cost_usd": 0.0039,
+        "components": {
+          "uncached_input": 0.001,
+          "cached_input": 0.0009,
+          "output_including_reasoning": 0.002,
+          "external_known": 0
+        },
+        "rate_card_version": "heldout-fixture-v1",
+        "rate_card_sha256": "a95587274fbe376162d12798e5bdaa72d7bba7beb470d2b9693c6c9068f6e78d",
+        "warning": null
+      }
+    },
+    {
+      "variant": "missing_cache",
+      "result": {
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "cache counter missing; normalize explicitly"
+      }
+    },
+    {
+      "variant": "missing_output",
+      "result": {
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "missing token totals"
+      }
+    }
+  ],
+  "passed": true,
+  "scope": "preregistered E05-missing-counter local kernel probe, not independent skill behavior or live pricing"
+}

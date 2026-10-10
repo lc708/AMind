@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-09-29T21:22:46.132141+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_checkpoint_rejects_bad_version_or_missing_identity (test_integration.IntegrationTests) ... ok\ntest_checkpoint_roundtrip_preserves_envelope_and_opaque_content (test_integration.IntegrationTests) ... ok\ntest_commentary_without_tool_requires_continuation (test_integration.IntegrationTests) ... ok\ntest_duplicate_call_ids_rejected (test_integration.IntegrationTests) ... ok\ntest_empty_completed_is_not_final (test_integration.IntegrationTests) ... ok\ntest_full_replay_preserves_prefix_and_every_field (test_integration.IntegrationTests) ... ok\ntest_incomplete_even_with_text_and_parseable_tool_never_continues (test_integration.IntegrationTests) ... ok\ntest_json_unicode_and_slash_escaping_are_semantic (test_integration.IntegrationTests) ... ok\ntest_legacy_plain_response_unchanged (test_integration.IntegrationTests) ... ok\ntest_malformed_shapes_are_explicit_protocol_errors (test_integration.IntegrationTests) ... ok\ntest_missing_duplicate_and_unrelated_results_rejected (test_integration.IntegrationTests) ... ok\ntest_multiple_text_blocks_and_messages_in_order (test_integration.IntegrationTests) ... ok\ntest_noncompleted_statuses_do_not_publish_answer (test_integration.IntegrationTests) ... ok\ntest_original_parser_fails_both_supplied_fixtures (test_integration.IntegrationTests) ... ok\ntest_parallel_results_are_complete_and_ordered_by_calls (test_integration.IntegrationTests) ... ok\ntest_refusal_with_tool_cannot_continue (test_integration.IntegrationTests) ... ok\ntest_strict_arguments_and_schema_validation (test_integration.IntegrationTests) ... ok\ntest_supplied_incomplete_is_not_empty_success (test_integration.IntegrationTests) ... ok\ntest_supplied_mixed_fixture_is_progress_and_tool_not_final (test_integration.IntegrationTests) ... ok\ntest_tool_call_prevents_premature_final (test_integration.IntegrationTests) ... ok\ntest_unknown_phase_preserved_without_becoming_final (test_integration.IntegrationTests) ... ok\ntest_unknown_types_preserved_without_auto_execution (test_integration.IntegrationTests) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "demo.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"evidence_type\": \"offline fixed fixtures, no API calls\",\n  \"baseline\": {\n    \"response_fixture\": \"KeyError: 'content'\",\n    \"failure_fixture\": \"IndexError: list index out of range\"\n  },\n  \"response_fixture\": {\n    \"state\": \"needs_tools\",\n    \"progress_text\": \"Working\",\n    \"final_text\": null,\n    \"pending_call_ids\": [\n      \"c1\"\n    ]\n  },\n  \"continuation_input\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"仅使用本地固定数据，不调用目标模型 API\\n允许在当前任务目录创建代码、测试和交付文档\\n保持原始输入和约束；不得改评测要求以获得高分\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": \"升级现有模型集成的解析与续传逻辑，保留产品行为并列出验证证据。\"\n    },\n    {\n      \"type\": \"reasoning\",\n      \"encrypted_content\": \"opaque-1\"\n    },\n    {\n      \"type\": \"message\",\n      \"role\": \"assistant\",\n      \"phase\": \"commentary\",\n      \"content\": [\n        {\n          \"type\": \"output_text\",\n          \"text\": \"Working\"\n        }\n      ]\n    },\n    {\n      \"type\": \"function_call\",\n      \"call_id\": \"c1\",\n      \"name\": \"lookup\",\n      \"arguments\": \"{}\"\n    },\n    {\n      \"type\": \"function_call_output\",\n      \"call_id\": \"c1\",\n      \"output\": \"{\\\"source\\\": \\\"fixed-local-mock\\\", \\\"value\\\": \\\"fixture-value\\\"}\"\n    }\n  ],\n  \"checkpoint_roundtrip_equal\": true,\n  \"mock_final\": {\n    \"state\": \"final\",\n    \"final_text\": \"Found fixture-value.\"\n  },\n  \"failure_fixture\": {\n    \"state\": \"incomplete\",\n    \"final_text\": null,\n    \"usage\": {\n      \"output_tokens\": 100\n    },\n    \"diagnostics\": [\n      \"incomplete: max_output_tokens\",\n      \"retry original request only with an explicit larger budget; do not execute this turn's tools\"\n    ]\n  }\n}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

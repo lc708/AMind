@@ -25,6 +25,8 @@
 
 ## 60 秒开始
 
+AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering`](skills/amind-engineering/SKILL.md) 负责提示词审查、成本优化、迁移与 Agent 开发；[`eval-improve`](skills/eval-improve/SKILL.md) 负责可运行的应用评测、严格比较、成本搜索和有测量依据的迭代。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装命令、中文用例及迁移范围见[系列说明](AMIND-SERIES.md)。下方知识技能保留独立的版本与资料边界。
+
 AMind **1.2.1** 已纳入 **2026-09-08 单次增量资料**及对应的判断规则。新增资料、旧文修订和抓取缺口见[更新报告](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)。
 
 把下面一行发给你正在使用的 **Agent**：

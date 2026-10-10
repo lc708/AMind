@@ -1,0 +1,69 @@
+{
+  "checked_utc": "2026-09-29T21:54:49.788613+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "verify.py",
+        "--skill-root",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve"
+      ],
+      "exit_code": 0,
+      "stdout": "PASS: 7 tests (including 15 control subcases), 3/3 fixture coverage, helper cross-check, task hash unchanged.\n",
+      "stderr": ""
+    }
+  ],
+  "nested_checks": [
+    {
+      "label": "unit-tests",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_calibration.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R18",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_bad_types_and_duplicate_rows_rejected (test_calibration.CalibrationTests) ... ok\ntest_labels_cannot_enter_grader (test_calibration.CalibrationTests) ... ok\ntest_negative_and_positive_controls (test_calibration.CalibrationTests) ... ok\ntest_order_and_repetition_do_not_change_deterministic_results (test_calibration.CalibrationTests) ... ok\ntest_original_fixture_and_corrected_labels (test_calibration.CalibrationTests) ... ok\ntest_pair_identity_and_missing_orientation (test_calibration.CalibrationTests) ... ok\ntest_unscored_not_hidden (test_calibration.CalibrationTests) ... ok\n\n----------------------------------------------------------------------\nRan 7 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "label": "calibration",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "calibration.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R18",
+      "exit_code": 0,
+      "stdout": "{\n  \"before\": {\n    \"planned\": 3,\n    \"scored\": 3,\n    \"unscored_ids\": [],\n    \"coverage\": 1.0,\n    \"confusion\": {\n      \"tp\": 0,\n      \"tn\": 0,\n      \"fp\": 2,\n      \"fn\": 1\n    },\n    \"agreement_scored\": 0.0,\n    \"agreement_over_planned\": 0.0,\n    \"false_positive_rate\": 1.0,\n    \"false_negative_rate\": 1.0,\n    \"disagreement_ids\": [\n      \"a\",\n      \"b\",\n      \"c\"\n    ]\n  },\n  \"after\": {\n    \"planned\": 3,\n    \"scored\": 3,\n    \"unscored_ids\": [],\n    \"coverage\": 1.0,\n    \"confusion\": {\n      \"tp\": 1,\n      \"tn\": 2,\n      \"fp\": 0,\n      \"fn\": 0\n    },\n    \"agreement_scored\": 1.0,\n    \"agreement_over_planned\": 1.0,\n    \"false_positive_rate\": 0.0,\n    \"false_negative_rate\": 0.0,\n    \"disagreement_ids\": []\n  },\n  \"task_sha256\": \"af223b4684ac8733106d39651e60f6a218aab6f8ce9667c070a121fbfd20b38a\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "helper-before",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/calibrate_grader.py",
+        "results/before.jsonl"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R18",
+      "exit_code": 0,
+      "stdout": "{\n  \"examples\": 3,\n  \"judgments\": 3,\n  \"confusion\": {\n    \"tp\": 0,\n    \"tn\": 0,\n    \"fp\": 2,\n    \"fn\": 1\n  },\n  \"agreement\": 0.0,\n  \"precision\": 0.0,\n  \"recall\": 0.0,\n  \"disagreements\": [\n    {\n      \"id\": \"a\",\n      \"rep\": 0,\n      \"human\": 1,\n      \"grade\": 0\n    },\n    {\n      \"id\": \"b\",\n      \"rep\": 0,\n      \"human\": 0,\n      \"grade\": 1\n    },\n    {\n      \"id\": \"c\",\n      \"rep\": 0,\n      \"human\": 0,\n      \"grade\": 1\n    }\n  ],\n  \"unstable_cases\": [],\n  \"order_inconsistency_rate\": null,\n  \"ready_for_review\": false,\n  \"limits\": \"Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "label": "helper-after",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/eval-improve/scripts/calibrate_grader.py",
+        "results/after.jsonl"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R18",
+      "exit_code": 0,
+      "stdout": "{\n  \"examples\": 3,\n  \"judgments\": 3,\n  \"confusion\": {\n    \"tp\": 1,\n    \"tn\": 2,\n    \"fp\": 0,\n    \"fn\": 0\n  },\n  \"agreement\": 1.0,\n  \"precision\": 1.0,\n  \"recall\": 1.0,\n  \"disagreements\": [],\n  \"unstable_cases\": [],\n  \"order_inconsistency_rate\": null,\n  \"ready_for_review\": true,\n  \"limits\": \"Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing.\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

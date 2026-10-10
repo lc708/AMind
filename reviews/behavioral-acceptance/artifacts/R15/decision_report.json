@@ -1,0 +1,139 @@
+{
+  "verdict": "synthetic_or_missing_evidence_never_adopt",
+  "adoption_review_eligible": false,
+  "technical_gates_passed": false,
+  "gates": [
+    {
+      "gate": "registration",
+      "passed": false,
+      "requirement": "proposal must be registered before new observations"
+    },
+    {
+      "gate": "population",
+      "passed": false,
+      "requirement": "frozen real traffic weights, including hard/failure cases"
+    },
+    {
+      "gate": "identity",
+      "passed": false,
+      "requirement": "same dataset/references/grader/splits/runner/groups; verified raw artifacts"
+    },
+    {
+      "gate": "coverage",
+      "passed": false,
+      "requirement": "complete planned pairs/reps and failures; no dropped difficult cases"
+    },
+    {
+      "gate": "statistics",
+      "passed": false,
+      "requirement": "paired independent-group intervals; simultaneous registered gates; reps are not independent cases"
+    },
+    {
+      "gate": "precision",
+      "passed": false,
+      "requirement": "registered independent-group sample/precision plan met; no arbitrary sample-size sufficiency claim"
+    },
+    {
+      "gate": "quality_range:overall",
+      "passed": false,
+      "requirement": "normalized quality difference must lie within [-1,1]"
+    },
+    {
+      "gate": "quality:overall",
+      "passed": false,
+      "requirement": "lower confidence bound >= -0.02"
+    },
+    {
+      "gate": "quality_range:easy",
+      "passed": false,
+      "requirement": "normalized quality difference must lie within [-1,1]"
+    },
+    {
+      "gate": "quality:easy",
+      "passed": false,
+      "requirement": "lower confidence bound >= -0.02"
+    },
+    {
+      "gate": "quality_range:hard",
+      "passed": false,
+      "requirement": "normalized quality difference must lie within [-1,1]"
+    },
+    {
+      "gate": "quality:hard",
+      "passed": false,
+      "requirement": "lower confidence bound >= -0.02"
+    },
+    {
+      "gate": "quality_range:rare_failure",
+      "passed": false,
+      "requirement": "normalized quality difference must lie within [-1,1]"
+    },
+    {
+      "gate": "quality:rare_failure",
+      "passed": false,
+      "requirement": "lower confidence bound >= -0.02"
+    },
+    {
+      "gate": "invariants",
+      "passed": false,
+      "requirement": "zero confirmed hard invariant violations"
+    },
+    {
+      "gate": "cost:complete",
+      "passed": false,
+      "requirement": "known all-attempt application/tool/judge/routing/storage cost plus amortized builds/refresh"
+    },
+    {
+      "gate": "cost:arithmetic",
+      "passed": false,
+      "requirement": "reported estimates match all-attempt cost / useful completions plus amortization"
+    },
+    {
+      "gate": "cost:saving",
+      "passed": false,
+      "requirement": "lower confidence bound >= 0.1"
+    },
+    {
+      "gate": "errors",
+      "passed": false,
+      "requirement": "upper confidence bound <= 0.005"
+    },
+    {
+      "gate": "latency:p95",
+      "passed": false,
+      "requirement": "upper confidence bound <= 0.1"
+    },
+    {
+      "gate": "latency:coverage",
+      "passed": false,
+      "requirement": "full task latency includes queue/retry/backoff and failures"
+    },
+    {
+      "gate": "repeat_stability",
+      "passed": false,
+      "requirement": "upper confidence bound <= 0.01"
+    },
+    {
+      "gate": "mechanisms:coverage",
+      "passed": false,
+      "requirement": "every treatment has a predicted and measured mechanism"
+    },
+    {
+      "gate": "joint",
+      "passed": false,
+      "requirement": "exact combined model/effort/prompt/cache/tools/router/memory measured as one treatment"
+    },
+    {
+      "gate": "stage",
+      "passed": false,
+      "requirement": "validation selects; final test confirms"
+    }
+  ],
+  "cost_per_completed_useful_task": {
+    "baseline": null,
+    "candidate": null,
+    "absolute_saving": null,
+    "relative_saving": null
+  },
+  "limits": "Checks normalized evidence only; cannot authenticate operator flags, compute intervals, enforce data isolation, authorize model calls or deploy."
+}

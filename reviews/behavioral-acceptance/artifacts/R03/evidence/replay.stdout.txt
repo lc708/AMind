@@ -1,0 +1,1 @@
+{"evidence": "evidence/replay.json", "state": "cancelling", "mock_machine_creations": 1, "unresolved_effects": 1, "artifact_preserved": true}

@@ -1,0 +1,478 @@
+{
+  "evidence_level": "synthetic local contract fixtures; no generated model output",
+  "assumptions": [
+    "Status labels and event fields are local test vocabulary, not verified provider schemas.",
+    "A lookup for the same payment reporting not_charged is authoritative in this fixture.",
+    "Retries use one stable idempotency key per logical payment; real backend enforcement is unverified."
+  ],
+  "cases": [
+    {
+      "id": "ordinary_first_charge",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "incident_already_paid",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "succeeded"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "retry_confirmed_unpaid",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "pending_defer",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "pending"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "unknown_defer",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "unknown"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "lookup_error_defer",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "error"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "lookup_timeout_defer",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "timeout"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "missing_lookup",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "paid_then_charge",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "succeeded"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "pending_then_charge",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "pending"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "unknown_then_charge",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "unknown"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "error_then_charge",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "error"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "timeout_then_charge",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "timeout"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "duplicate_confirmed_charge",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        },
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "changed_idempotency_key",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "timeout"
+        },
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "new-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "stale_lookup_after_timeout",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "timeout"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "uncertain_charge_reconciled_paid",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "timeout"
+        },
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "succeeded"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "uncertain_charge_reconciled_unpaid",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "timeout"
+        },
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-01",
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": true
+    },
+    {
+      "id": "wrong_payment_lookup",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": "payment-02",
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "wrong_payment_charge",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-02",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "missing_idempotency_key",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "unknown_tool",
+      "retry": false,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "charge",
+          "payment_id": "payment-01"
+        }
+      ],
+      "expected_allowed": false
+    },
+    {
+      "id": "malformed_arguments",
+      "retry": true,
+      "payment_id": "payment-01",
+      "idempotency_key": "payment-01-key",
+      "events": [
+        {
+          "tool": "lookup_payment",
+          "payment_id": null,
+          "status": "not_charged"
+        },
+        {
+          "tool": "charge_once",
+          "payment_id": "payment-01",
+          "idempotency_key": "payment-01-key",
+          "result": "succeeded"
+        }
+      ],
+      "expected_allowed": false
+    }
+  ],
+  "output_cases": [
+    {
+      "id": "ordinary",
+      "output": "RESULT: Payment is complete. A receipt is available. No further action is needed.",
+      "expected_allowed": true
+    },
+    {
+      "id": "already_paid",
+      "output": "RESULT: Payment was already complete. No charge was retried. The existing receipt is available.",
+      "expected_allowed": true
+    },
+    {
+      "id": "uncertain",
+      "output": "RESULT: Payment status is unknown. No charge was retried. Please check again later.",
+      "expected_allowed": true
+    },
+    {
+      "id": "missing_prefix",
+      "output": "Payment is complete. A receipt is available. No action is needed.",
+      "expected_allowed": false
+    },
+    {
+      "id": "wrong_case",
+      "output": "Result: Payment is complete. A receipt is available. No action is needed.",
+      "expected_allowed": false
+    },
+    {
+      "id": "leading_space",
+      "output": " RESULT: Payment is complete. A receipt is available. No action is needed.",
+      "expected_allowed": false
+    },
+    {
+      "id": "two_sentences",
+      "output": "RESULT: Payment is complete. A receipt is available.",
+      "expected_allowed": false
+    },
+    {
+      "id": "four_sentences",
+      "output": "RESULT: Payment is complete. A receipt is available. No action is needed. Thank you.",
+      "expected_allowed": false
+    }
+  ]
+}

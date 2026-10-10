@@ -1,0 +1,41 @@
+{
+  "before": {
+    "planned": 3,
+    "scored": 3,
+    "unscored_ids": [],
+    "coverage": 1.0,
+    "confusion": {
+      "tp": 0,
+      "tn": 0,
+      "fp": 2,
+      "fn": 1
+    },
+    "agreement_scored": 0.0,
+    "agreement_over_planned": 0.0,
+    "false_positive_rate": 1.0,
+    "false_negative_rate": 1.0,
+    "disagreement_ids": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "after": {
+    "planned": 3,
+    "scored": 3,
+    "unscored_ids": [],
+    "coverage": 1.0,
+    "confusion": {
+      "tp": 1,
+      "tn": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "agreement_scored": 1.0,
+    "agreement_over_planned": 1.0,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "disagreement_ids": []
+  },
+  "task_sha256": "af223b4684ac8733106d39651e60f6a218aab6f8ce9667c070a121fbfd20b38a"
+}

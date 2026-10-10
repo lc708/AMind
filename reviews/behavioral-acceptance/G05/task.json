@@ -1,0 +1,31 @@
+{
+  "id": "G05",
+  "request": "设计并实现这个副作用工具的恢复路径，验证重复调用与取消。",
+  "fixture": {
+    "operation": {
+      "tenant": "t1",
+      "task": "job1",
+      "call_id": "c1",
+      "action": "charge",
+      "amount": 20
+    },
+    "timeline": [
+      "local dispatch recorded",
+      "remote charge succeeded with operation id op1",
+      "process crashed before local completion commit",
+      "same event delivered again"
+    ],
+    "remote_support": [
+      "idempotency_key",
+      "lookup_operation"
+    ],
+    "authorization": "authenticated tenant owns invoice",
+    "existing_retry": "retry every exception immediately"
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-09-29T21:46:10.425294+00:00",
+  "provenance": "Concrete realization of frozen E02-heldout-grader variant; written before R18 artifact review but after R08 review. Not independently authored or a new agent benchmark.",
+  "probes": [
+    {
+      "id": "unsupported_citation",
+      "answer": "Total is $90, supported by row 7.",
+      "fact": "row 4 total is $90",
+      "expected": "reject_or_review"
+    },
+    {
+      "id": "negation",
+      "answer": "The total is not $90.",
+      "fact": "row 4 total is $90",
+      "expected": "reject_or_review"
+    },
+    {
+      "id": "wrong_with_right_number",
+      "answer": "Total is $190. The reference mentions $90.",
+      "fact": "row 4 total is $90",
+      "expected": "reject_or_review"
+    },
+    {
+      "id": "correct_paraphrase",
+      "answer": "The invoice total is $90.",
+      "fact": "row 4 total is $90",
+      "expected": "accept_or_declared_review"
+    }
+  ]
+}

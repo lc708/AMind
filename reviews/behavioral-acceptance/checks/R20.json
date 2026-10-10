@@ -1,0 +1,39 @@
+{
+  "run_id": "R20",
+  "reviewer": "root author (not blinded)",
+  "verification_directory": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R20",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_state"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "",
+      "stderr": "test_advance_requires_exact_prepared_request (test_state.StateTests) ... ok\ntest_cancelled_session_rejects_send_and_advance_after_restore (test_state.StateTests) ... ok\ntest_client_compaction_preserves_complete_fixed_output_and_order (test_state.StateTests) ... ok\ntest_commentary_then_final_with_two_tool_rounds (test_state.StateTests) ... ok\ntest_compaction_rejects_wrong_scope_and_mixed_owner (test_state.StateTests) ... ok\ntest_corrected_exact_envelope_and_original_preserved (test_state.StateTests) ... ok\ntest_cross_tenant_and_resource_rejected (test_state.StateTests) ... ok\ntest_duplicate_response_and_reused_call_rejected (test_state.StateTests) ... ok\ntest_failed_and_timed_out_tools_preserve_failure_evidence (test_state.StateTests) ... ok\ntest_malformed_arguments_rejected (test_state.StateTests) ... ok\ntest_malformed_result_rejected (test_state.StateTests) ... ok\ntest_missing_and_duplicate_results_rejected (test_state.StateTests) ... ok\ntest_mixed_owners_and_wrong_parent_cannot_override_envelope (test_state.StateTests) ... ok\ntest_multiple_calls_match_ids_not_array_positions (test_state.StateTests) ... ok\ntest_mutated_or_missing_compaction_is_rejected (test_state.StateTests) ... ok\ntest_non_success_response_blocks_continuation_and_final (test_state.StateTests) ... ok\ntest_one_change_ablation_does_not_hide_other_failures (test_state.StateTests) ... ok\ntest_original_failure_is_reproduced (test_state.StateTests) ... ok\ntest_phase_retained_after_json_storage_and_not_a_final_answer (test_state.StateTests) ... ok\ntest_plain_continuations_do_not_accumulate_history (test_state.StateTests) ... ok\ntest_reconnect_retains_exact_prepared_request (test_state.StateTests) ... ok\ntest_replayed_assistant_cannot_enter_fresh_input (test_state.StateTests) ... ok\ntest_returned_snapshots_and_requests_cannot_mutate_storage (test_state.StateTests) ... ok\ntest_server_compaction_output_stays_opaque_on_resume (test_state.StateTests) ... ok\ntest_settings_are_explicit_each_turn_and_preserved (test_state.StateTests) ... ok\ntest_unknown_status_is_structural_only_not_success (test_state.StateTests) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.006s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "replay.py",
+        "--task",
+        "task.json",
+        "--out",
+        "artifacts",
+        "--audit-script",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/scripts/context_audit.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "stdout": "{\n  \"baseline_codes\": [\n    \"assistant_in_chain_input\",\n    \"phase_drift\",\n    \"orphan_tool_result\",\n    \"unresolved_tool_calls\"\n  ],\n  \"fixed_findings\": [],\n  \"baseline_audit_errors\": 1,\n  \"fixed_audit_errors\": 0,\n  \"original_unchanged\": true,\n  \"output_directory\": \"artifacts\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

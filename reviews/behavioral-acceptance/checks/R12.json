@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-09-29T21:34:27.055356+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_cost_tie_and_quality_regression_reject (test_offline_analyzer.OfflineChecks) ... ok\ntest_each_evidence_gate_matters (test_offline_analyzer.OfflineChecks) ... ok\ntest_even_passing_mock_cannot_authorize_adoption (test_offline_analyzer.OfflineChecks) ... ok\ntest_failed_attempts_and_memory_builds_are_charged (test_offline_analyzer.OfflineChecks) ... ok\ntest_final_holdout_only_in_joint_confirmation (test_offline_analyzer.OfflineChecks) ... ok\ntest_fixture_is_immutable_and_preserved (test_offline_analyzer.OfflineChecks) ... ok\ntest_memory_requires_rebuild_controls (test_offline_analyzer.OfflineChecks) ... ok\ntest_missing_band_blocks_even_apparent_good_result (test_offline_analyzer.OfflineChecks) ... ok\ntest_pilots_do_not_clear_adoption (test_offline_analyzer.OfflineChecks) ... ok\ntest_routing_full_frame_differs_from_easy_only (test_offline_analyzer.OfflineChecks) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "offline_analyzer.py",
+        "--task",
+        "task.json",
+        "--output",
+        "decision.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"decision\": \"KEEP_BASELINE_PENDING_CONFIRMATION\", \"model_runs\": 0, \"output\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R12/decision.json\"}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

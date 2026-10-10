@@ -1,0 +1,14 @@
+[
+  {
+    "role": "system",
+    "content": "OFFLINE FIXTURE: no real app or model."
+  },
+  {
+    "role": "user",
+    "content": "{\"customer\":\"c2\",\"input\":\"Invoice not found\"}"
+  },
+  {
+    "role": "assistant",
+    "content": "Execution error: Fixed timeout fixture; no request was made"
+  }
+]

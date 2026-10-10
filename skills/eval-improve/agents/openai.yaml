@@ -1,0 +1,4 @@
+interface:
+  display_name: "AMind Eval Improve"
+  short_description: "Build evaluations and measure AI improvements"
+  default_prompt: "Use $eval-improve to build a trustworthy evaluation and improve this application against it."

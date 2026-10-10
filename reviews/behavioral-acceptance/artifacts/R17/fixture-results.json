@@ -1,0 +1,62 @@
+{
+  "evidence": "local_fixed_fixture_only",
+  "stream": {
+    "status": "incomplete",
+    "success": false,
+    "reason": "missing_terminal_event",
+    "partial_text": "Done",
+    "terminal_event": null,
+    "events_seen": 2,
+    "final_response": null
+  },
+  "batch": {
+    "items": [
+      {
+        "custom_id": "a",
+        "status": "succeeded",
+        "success": true,
+        "reason": "completed",
+        "records": [
+          {
+            "custom_id": "a",
+            "response": {
+              "status_code": 200,
+              "body": {
+                "status": "completed"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "custom_id": "b",
+        "status": "expired",
+        "success": false,
+        "reason": "expired",
+        "records": [
+          {
+            "custom_id": "b",
+            "error": {
+              "code": "expired"
+            }
+          }
+        ]
+      },
+      {
+        "custom_id": "c",
+        "status": "missing",
+        "success": false,
+        "reason": "no_result_for_requested_id",
+        "records": []
+      }
+    ],
+    "counts": {
+      "succeeded": 1,
+      "expired": 1,
+      "missing": 1
+    },
+    "issues": [],
+    "fully_reconciled": false,
+    "success": false
+  }
+}

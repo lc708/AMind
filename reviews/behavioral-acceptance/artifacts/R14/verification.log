@@ -1,0 +1,27 @@
+test_cancel_fences_queue_commit_and_replayed_wake (test_lifecycle.LifecycleTests) ... ok
+test_cleanup_waits_for_ack_retention_and_archives (test_lifecycle.LifecycleTests) ... ok
+test_commit_before_cancel_is_retained_not_claimed_undone (test_lifecycle.LifecycleTests) ... ok
+test_cross_tenant_event_rejected_before_mutation (test_lifecycle.LifecycleTests) ... ok
+test_disconnect_is_not_completion_or_deletion (test_lifecycle.LifecycleTests) ... ok
+test_distinct_wake_events_reuse_machine (test_lifecycle.LifecycleTests) ... ok
+test_duplicate_after_restart (test_lifecycle.LifecycleTests) ... ok
+test_effect_key_dedup_and_payload_conflict (test_lifecycle.LifecycleTests) ... ok
+test_end_turn_after_cancel_is_not_success (test_lifecycle.LifecycleTests) ... ok
+test_event_payload_conflict (test_lifecycle.LifecycleTests) ... ok
+test_idle_variants_do_not_claim_success (test_lifecycle.LifecycleTests) ... ok
+test_late_observation_requires_reconciliation_even_after_ack (test_lifecycle.LifecycleTests) ... ok
+test_memory_tenant_and_expiry_are_independent_gates (test_lifecycle.LifecycleTests) ... ok
+test_original_fixture_is_preserved_and_reproduced (test_lifecycle.LifecycleTests) ... ok
+test_reconnect_opens_stream_before_history_and_dedupes_overlap (test_lifecycle.LifecycleTests) ... ok
+test_retries_exhausted_is_failure (test_lifecycle.LifecycleTests) ... ok
+test_second_process_reads_persisted_cancel_fence (test_lifecycle.LifecycleTests) ... ok
+test_success_needs_separate_verification (test_lifecycle.LifecycleTests) ... ok
+test_transaction_failure_does_not_poison_receipt (test_lifecycle.LifecycleTests) ... ok
+test_uncompensated_effect_is_not_clean_cancellation (test_lifecycle.LifecycleTests) ... ok
+test_webhook_queue_failure_is_not_acknowledged (test_lifecycle.LifecycleTests) ... ok
+test_webhook_raw_verification_precedes_enqueue (test_lifecycle.LifecycleTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.079s
+
+OK

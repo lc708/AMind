@@ -1,0 +1,47 @@
+{
+  "id": "G06",
+  "request": "修复长期运行 Agent 的生命周期设计，并提供可复现的事件验证。",
+  "fixture": {
+    "events": [
+      {
+        "id": "e1",
+        "kind": "environment_connection_required",
+        "session": "s1"
+      },
+      {
+        "id": "e1",
+        "kind": "environment_connection_required",
+        "session": "s1"
+      },
+      {
+        "id": "e2",
+        "kind": "environment_disconnected",
+        "session": "s1"
+      },
+      {
+        "id": "e3",
+        "kind": "cancel_requested",
+        "session": "s1"
+      },
+      {
+        "id": "e4",
+        "kind": "effect_started",
+        "session": "s1",
+        "key": "write1"
+      }
+    ],
+    "webhook_signature_checked": false,
+    "memory": {
+      "request_tenant": "t1",
+      "record_tenant": "t2",
+      "expired": true
+    },
+    "existing_behavior": "every environment event creates a new machine; idle means success; files deleted on disconnect"
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

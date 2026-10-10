@@ -1,0 +1,75 @@
+{
+  "checked_utc": "2026-09-29T21:48:19.035433+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "verify.py",
+        "--skill-root",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"passed\": true, \"checks\": 4, \"evidence\": \"/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R16/verification.json\"}\n",
+      "stderr": ""
+    }
+  ],
+  "nested_checks": [
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "py_compile",
+        "integration.py",
+        "legacy.py",
+        "demo.py",
+        "test_integration.py",
+        "verify.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R16",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "elapsed_seconds": 0.025906
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_integration.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R16",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_bad_tool_arguments_leave_state_atomic (test_integration.ContinuationTests) ... ok\ntest_cancellation_survives_snapshot_and_prevents_continuation (test_integration.ContinuationTests) ... ok\ntest_exact_given_output_precedes_corresponding_result (test_integration.ContinuationTests) ... ok\ntest_failed_tool_result_is_preserved_without_success_invention (test_integration.ContinuationTests) ... ok\ntest_failure_is_journaled_and_cannot_continue_or_dispatch (test_integration.ContinuationTests) ... ok\ntest_multiple_tools_all_must_resolve (test_integration.ContinuationTests) ... ok\ntest_mutating_requests_and_snapshots_cannot_corrupt_session (test_integration.ContinuationTests) ... ok\ntest_orphan_and_conflicting_duplicate_result_rejected (test_integration.ContinuationTests) ... ok\ntest_plain_continuation_and_opaque_compacted_input (test_integration.ContinuationTests) ... ok\ntest_public_demo_uses_supplied_fixtures_and_finishes_with_mock (test_integration.ContinuationTests) ... ok\ntest_reconnect_before_and_after_tool_output_round_trips (test_integration.ContinuationTests) ... ok\ntest_replayed_delivery_noops_and_conflict_rejected (test_integration.ContinuationTests) ... ok\ntest_reused_call_id_rejected_even_after_result (test_integration.ContinuationTests) ... ok\ntest_scope_and_state_owner_mismatch_rejected (test_integration.ContinuationTests) ... ok\ntest_user_input_cannot_inject_protocol_call_items (test_integration.ContinuationTests) ... ok\ntest_commentary_then_final_is_not_flattened_for_completion (test_integration.ParserTests) ... ok\ntest_failure_fixture_preserves_reason_usage_and_blocks_success (test_integration.ParserTests) ... ok\ntest_final_text_with_tool_call_still_requires_continuation (test_integration.ParserTests) ... ok\ntest_given_response_reproduces_old_failure_and_preserves_all_items (test_integration.ParserTests) ... ok\ntest_legacy_history_loses_state_while_new_history_keeps_it (test_integration.ParserTests) ... ok\ntest_legacy_plain_text_contract_is_unchanged (test_integration.ParserTests) ... ok\ntest_malformed_response_is_not_hidden_as_empty_success (test_integration.ParserTests) ... ok\ntest_multiple_messages_and_content_are_extracted_in_order (test_integration.ParserTests) ... ok\ntest_noncompleted_text_never_claims_success (test_integration.ParserTests) ... ok\ntest_opaque_unknown_fields_round_trip_and_no_aliasing (test_integration.ParserTests) ... ok\ntest_refusal_is_separate_observable_outcome (test_integration.ParserTests) ... ok\ntest_unknown_phase_is_preserved_but_not_final (test_integration.ParserTests) ... ok\n\n----------------------------------------------------------------------\nRan 27 tests in 0.004s\n\nOK\n",
+      "elapsed_seconds": 0.035606
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "demo.py"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R16",
+      "exit_code": 0,
+      "stdout": "{\"initial_outcome\": \"tool_required\", \"display_text\": \"Working\", \"final_outcome\": \"final\", \"failure_outcome\": \"incomplete\", \"failure_usage\": {\"output_tokens\": 100}}\n",
+      "stderr": "",
+      "elapsed_seconds": 0.022514
+    },
+    {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/scripts/context_audit.py",
+        "--trace",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R16/continuation-trace.jsonl"
+      ],
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/verification/R16",
+      "exit_code": 0,
+      "stdout": "{\n  \"turns\": 2,\n  \"findings\": [],\n  \"errors\": 0,\n  \"limits\": \"Normalized structural diagnosis only. Verify provider-specific state/compaction rules. Hash-only output avoids prompt contents; hashes are still identifiers. No live ablation or opaque-content decoding.\"\n}\n",
+      "stderr": "",
+      "elapsed_seconds": 0.02579
+    }
+  ],
+  "original_artifacts_modified": false
+}

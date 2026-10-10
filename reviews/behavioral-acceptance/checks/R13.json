@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-09-29T21:37:23.877055+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_complete_demo_runs_with_network_connection_blocked (test_state_regression.StateRegressionTests) ... ok\ntest_does_not_assume_repeated_user_text_is_history (test_state_regression.StateRegressionTests) ... ok\ntest_duplicate_result_and_duplicate_call_rejected (test_state_regression.StateRegressionTests) ... ok\ntest_manual_replays_original_output_and_phase (test_state_regression.StateRegressionTests) ... ok\ntest_mock_binds_original_id_and_refuses_other_tools (test_state_regression.StateRegressionTests) ... ok\ntest_no_source_mutation_or_aliasing (test_state_regression.StateRegressionTests) ... ok\ntest_opaque_and_unknown_fields_survive_serialization (test_state_regression.StateRegressionTests) ... ok\ntest_original_fixture_reproduces_independent_faults (test_state_regression.StateRegressionTests) ... ok\ntest_parallel_results_are_correlated_by_id_not_order (test_state_regression.StateRegressionTests) ... ok\ntest_stateful_contains_only_delta (test_state_regression.StateRegressionTests) ... ok\ntest_wrong_reference_detected (test_state_regression.StateRegressionTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "state_regression.py"
+      ],
+      "exit_code": 0,
+      "stdout": "Offline reproduction: PHASE_CHANGED_OR_LOST, REPLAY_WITH_REFERENCE, UNKNOWN_CALL_ID, MISSING_RESULT\nFixed requests: 0 local contract findings; opaque compaction round-trip preserved.\nWrote verification.json; no network or SDK clients are present.\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

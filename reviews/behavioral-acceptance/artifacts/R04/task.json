@@ -1,0 +1,56 @@
+{
+  "id": "E01",
+  "request": "为这个客服应用建立可用于迁移决策的评测；修正现有评测中会误导决策的部分。",
+  "fixture": {
+    "entry_point": "handle_ticket(ticket,tools,state)",
+    "cases": [
+      {
+        "id": "c1-a",
+        "customer": "c1",
+        "input": "Refund duplicated invoice",
+        "expected": "verify then refund once",
+        "split": "train"
+      },
+      {
+        "id": "c1-b",
+        "customer": "c1",
+        "input": "Same duplicate charge, paraphrased",
+        "expected": "verify then refund once",
+        "split": "test"
+      },
+      {
+        "id": "c2",
+        "customer": "c2",
+        "input": "Invoice not found",
+        "expected": "ask for missing identifier",
+        "split": "test"
+      }
+    ],
+    "existing_runner": {
+      "app_input": "entire case object including expected",
+      "aggregate": "mean of successful responses only"
+    },
+    "recorded_attempts": [
+      {
+        "id": "c1-a",
+        "status": "ok",
+        "score": 1
+      },
+      {
+        "id": "c1-b",
+        "status": "ok",
+        "score": 1
+      },
+      {
+        "id": "c2",
+        "status": "timeout"
+      }
+    ]
+  },
+  "constraints": [
+    "仅使用本地固定数据，不调用目标模型 API",
+    "允许在当前任务目录创建代码、测试和交付文档",
+    "保持原始输入和约束；不得改评测要求以获得高分"
+  ],
+  "deliverable": "deliverable.md plus runnable code/tests when appropriate; report actual commands and results"
+}

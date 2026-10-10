@@ -1,0 +1,31 @@
+test_cancel_before_dispatch_prevents_handler_and_new_provisioning (test_lifecycle.LifecycleTests) ... ok
+test_cleanup_failure_retry_is_idempotent_and_retains_files (test_lifecycle.LifecycleTests) ... ok
+test_cleanup_refuses_changed_checkpoint (test_lifecycle.LifecycleTests) ... ok
+test_cli_replays_original_input_and_keeps_incident_visible (test_lifecycle.LifecycleTests) ... ok
+test_concurrent_duplicate_dispatch_calls_one_handler (test_lifecycle.LifecycleTests) ... ok
+test_conflicting_id_is_rejected_and_incident_persisted (test_lifecycle.LifecycleTests) ... ok
+test_crash_after_mock_effect_is_unknown_and_never_blindly_replayed (test_lifecycle.LifecycleTests) ... ok
+test_deadline_and_malformed_requests_never_dispatch (test_lifecycle.LifecycleTests) ... ok
+test_disconnect_retains_compute_and_artifact_and_needs_reconciliation (test_lifecycle.LifecycleTests) ... ok
+test_effect_replay_after_restart_returns_receipt_without_second_dispatch (test_lifecycle.LifecycleTests) ... ok
+test_identical_replay_and_repeated_connection_request_create_one_machine (test_lifecycle.LifecycleTests) ... ok
+test_idle_and_completion_report_are_not_success (test_lifecycle.LifecycleTests) ... ok
+test_inflight_reservation_survives_cancel_and_blocks_new_dispatch (test_lifecycle.LifecycleTests) ... ok
+test_invalid_events_do_not_advance_cursor (test_lifecycle.LifecycleTests) ... ok
+test_memory_expiry_boundary_and_untrusted_content (test_lifecycle.LifecycleTests) ... ok
+test_observed_post_cancel_effect_remains_unknown_and_blocks_finalization (test_lifecycle.LifecycleTests) ... ok
+test_original_memory_is_denied_for_both_reasons (test_lifecycle.LifecycleTests) ... ok
+test_reconciliation_requires_evidence_then_allows_cancellation (test_lifecycle.LifecycleTests) ... ok
+test_same_event_id_is_scoped_to_session_and_tenant (test_lifecycle.LifecycleTests) ... ok
+test_sequence_guards_against_out_of_order_environment_delivery (test_lifecycle.LifecycleTests) ... ok
+test_signed_webhook_is_queued_before_execution_and_retry_deduped (test_lifecycle.LifecycleTests) ... ok
+test_signed_webhook_still_checks_resource_ownership (test_lifecycle.LifecycleTests) ... ok
+test_success_requires_verified_artifact_and_finished_effects (test_lifecycle.LifecycleTests) ... ok
+test_unknown_tenant_cannot_ingest_or_dispatch (test_lifecycle.LifecycleTests) ... ok
+test_unsigned_tampered_expired_and_future_webhooks_are_rejected (test_lifecycle.LifecycleTests) ... ok
+test_worker_crash_after_ingest_before_ack_replays_safely (test_lifecycle.LifecycleTests) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.125s
+
+OK

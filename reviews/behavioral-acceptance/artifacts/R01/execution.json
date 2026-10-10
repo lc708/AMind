@@ -1,0 +1,129 @@
+{
+  "task_id": "G05",
+  "run_directory": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01",
+  "assigned_skill": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/SKILL.md",
+  "files_read": [
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/SKILL.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/agent-build.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/agent-lifecycle.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/references/api-implementation.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/scripts/tool_loop.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/task.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/recovery.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/test_recovery.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/demo.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/verify.py",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/deliverable.md",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/evidence/crash-recovery/report.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/evidence/final-crash-recovery/report.json",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/evidence/demo.log",
+    "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/evidence/unittest.log"
+  ],
+  "commands_executed": [
+    {
+      "command": "cat '/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/SKILL.md'",
+      "exit_code": 0
+    },
+    {
+      "command": "cat task.json",
+      "exit_code": 0
+    },
+    {
+      "command": "cat references/agent-build.md references/agent-lifecycle.md",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering",
+      "exit_code": 0
+    },
+    {
+      "command": "cat references/api-implementation.md",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering",
+      "exit_code": 0
+    },
+    {
+      "command": "rg --files --hidden -g '!__pycache__/**' .",
+      "exit_code": 0
+    },
+    {
+      "command": "cat scripts/tool_loop.py",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest -v",
+      "exit_code": 0,
+      "stage": "initial",
+      "tests_passed": 18
+    },
+    {
+      "command": "python3 demo.py --out evidence/crash-recovery",
+      "exit_code": 0,
+      "stage": "initial"
+    },
+    {
+      "command": "python3 -m unittest -v",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2332,
+      "log": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/evidence/unittest.log",
+      "stage": "final"
+    },
+    {
+      "command": "python3 demo.py --out evidence/final-crash-recovery",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01",
+      "exit_code": 0,
+      "elapsed_seconds": 0.0654,
+      "log": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01/evidence/demo.log",
+      "stage": "final"
+    },
+    {
+      "command": "python3 verify.py",
+      "cwd": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01",
+      "role": "this verification orchestrator",
+      "exit_code": 0
+    }
+  ],
+  "local_edits": {
+    "tool": "apply_patch",
+    "calls": 3,
+    "scope": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R01"
+  },
+  "self_reported_tool_call_count": 19,
+  "tool_call_count_definition": "7 top-level functions.exec calls plus 12 nested tool invocations; total 19. No agent calls.",
+  "constraints_unmet": false,
+  "unmet_constraints": [],
+  "constraints": {
+    "network_calls": 0,
+    "model_api_calls": 0,
+    "credentials_accessed": false,
+    "external_side_effects": false,
+    "additional_agents": 0,
+    "task_json_modified": false,
+    "skill_sources_modified": false,
+    "all_writes_within_task_directory": true
+  },
+  "runtime": "3.9.6 (default, Aug 25 2026, 21:26:21) \n[Clang 21.0.0 (clang-2100.3.34.2)]",
+  "checks_passed": true,
+  "final_test_count": 21,
+  "crash_recovery": {
+    "worker_exit": 73,
+    "remote_effect_count": 1,
+    "recovery_charge_requests": 0,
+    "recovery_lookup_requests": 1
+  },
+  "evidence_limits": [
+    "Remote charge and lookup are fixed local mocks.",
+    "Actual subprocess exit and SQLite recovery were exercised.",
+    "No live provider, model quality, production concurrency, or network timeout enforcement tested."
+  ],
+  "artifact_sha256": {
+    "task.json": "b698e0b454c6ff98cc74a7a34238130f3fffeb1c271674bbfc81237004a46ad2",
+    "recovery.py": "273a64c5e91eb2b1182af1f384f6c31e0bca218c2c8ce77e0241c1b79855f094",
+    "test_recovery.py": "772904744c30f2c0a8eabd759765b5bd9619fe5962f9e42e3668233bceb17c99",
+    "demo.py": "4439d153e516900c26e23d63675e6bb017fee3a783c69a1df7b4924f35e449f4",
+    "verify.py": "fd525f5d1f4ef1d42ae26c0919041a64797c91cfb15de90dcf30e26fc54c5039",
+    "deliverable.md": "a6e6186e9bf80cf6b6eee294ff3b16e20da4d7cdb5144c54a0cd6cc34f919d1d",
+    "evidence/crash-recovery/report.json": "708ba827f628224af002b86276b964e1723d77ae95b587aec1bcb647345912cc",
+    "evidence/final-crash-recovery/report.json": "708ba827f628224af002b86276b964e1723d77ae95b587aec1bcb647345912cc",
+    "evidence/demo.log": "b88fec3854cce0609b82e74e6a770cdbe7c834837bc49bb4db0914e2a6084e14",
+    "evidence/unittest.log": "c21c9d291f0963f54f811933d2ea57f09480cb37a1c8d48a6656686fb73f7102"
+  }
+}

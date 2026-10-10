@@ -1,0 +1,112 @@
+{
+  "input_sha256": "d384023c45ad00b162994cf1fc30df8fb7ea6c960e4d90e183d138252ec3f37e",
+  "evidence_level": "local fixed fixtures; no model/provider calls",
+  "normalization": "Trusted fixture harness binds t1/s1; synthetic task start plus unsigned-webhook/memory facts; e1-e4 retained unchanged; expiry represented by expires_at=0, at=1.",
+  "timeline": [
+    {
+      "event": {
+        "id": "e1",
+        "kind": "environment_connection_required",
+        "session": "s1"
+      },
+      "result": {
+        "status": "accepted",
+        "kind": "environment_connection_required"
+      }
+    },
+    {
+      "event": {
+        "id": "e1",
+        "kind": "environment_connection_required",
+        "session": "s1"
+      },
+      "result": {
+        "status": "duplicate",
+        "original": {
+          "kind": "environment_connection_required",
+          "status": "accepted"
+        }
+      }
+    },
+    {
+      "event": {
+        "id": "e2",
+        "kind": "environment_disconnected",
+        "session": "s1"
+      },
+      "result": {
+        "status": "accepted",
+        "kind": "environment_disconnected"
+      }
+    },
+    {
+      "event": {
+        "id": "e3",
+        "kind": "cancel_requested",
+        "session": "s1"
+      },
+      "result": {
+        "status": "accepted",
+        "kind": "cancel_requested"
+      }
+    },
+    {
+      "event": {
+        "id": "e4",
+        "kind": "effect_started",
+        "session": "s1",
+        "key": "write1"
+      },
+      "result": {
+        "status": "accepted",
+        "kind": "effect_started",
+        "reconciliation_required": true
+      }
+    }
+  ],
+  "state": {
+    "artifacts": {
+      "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/retained-notes.txt": "6a8951c7d624ac62772eed0fa5b622a681b6ab04eba0b94dc674a3562d0d8935"
+    },
+    "cancel_requested": true,
+    "cleanup": "pending",
+    "completion_reported": false,
+    "compute_id": "mock-machine-617c8a405149",
+    "config_version": "local-v1",
+    "deadline": 10000,
+    "environment_health": "disconnected",
+    "environment_id": "mock-env-617c8a405149",
+    "environment_sequence": -1,
+    "event_cursor": 4,
+    "provision_count": 1,
+    "provision_key": "617c8a405149087683d2f4491456afc41651d560b8728c430809b4799560b2e8",
+    "reconnect_required": true,
+    "state": "cancelling"
+  },
+  "incidents": [
+    {
+      "tenant": "t1",
+      "session": "s1",
+      "code": "effect_after_cancel",
+      "detail": "write1"
+    }
+  ],
+  "unresolved_effects": [
+    {
+      "key": "write1",
+      "state": "unknown",
+      "evidence": null
+    }
+  ],
+  "memory": {
+    "allowed": false,
+    "reasons": [
+      "memory_tenant_mismatch",
+      "expired_memory"
+    ]
+  },
+  "new_dispatch": "new dispatch blocked by cancellation or terminal state",
+  "unsigned_webhook": "invalid webhook signature",
+  "finalization": "unknown effects prevent finalization",
+  "artifact_preserved": true
+}

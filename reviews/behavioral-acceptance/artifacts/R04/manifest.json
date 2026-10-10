@@ -1,0 +1,28 @@
+{
+  "version": "customer-quarantine-v1",
+  "source_sha256": "af2980fe0c48f85c6c2770048f0598f5ef3e9b88bba96ea1a5d404b9e6a8471f",
+  "leaked_customers": [
+    "c1"
+  ],
+  "cases": [
+    {
+      "id": "c1-a",
+      "customer": "c1",
+      "original_split": "train",
+      "split": "train"
+    },
+    {
+      "id": "c1-b",
+      "customer": "c1",
+      "original_split": "test",
+      "split": "train"
+    },
+    {
+      "id": "c2",
+      "customer": "c2",
+      "original_split": "test",
+      "split": "test"
+    }
+  ],
+  "limitation": "Only two independent customers; repaired test contains no duplicate-refund case."
+}

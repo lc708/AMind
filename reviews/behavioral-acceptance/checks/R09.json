@@ -1,0 +1,31 @@
+{
+  "checked_utc": "2026-09-29T21:25:06.885891+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_all_completed_batch (test_contracts.BatchContracts) ... ok\ntest_duplicate_requested_id_rejected (test_contracts.BatchContracts) ... ok\ntest_duplicate_returned_id_rejected (test_contracts.BatchContracts) ... ok\ntest_every_result_permutation_matches_ids (test_contracts.BatchContracts) ... ok\ntest_http_200_requires_completed_body (test_contracts.BatchContracts) ... ok\ntest_http_error_is_not_success (test_contracts.BatchContracts) ... ok\ntest_malformed_records_fail_closed (test_contracts.BatchContracts) ... ok\ntest_missing_body_status_cannot_succeed (test_contracts.BatchContracts) ... ok\ntest_no_returned_rows_are_all_missing (test_contracts.BatchContracts) ... ok\ntest_raw_rows_preserved_without_mutating_input (test_contracts.BatchContracts) ... ok\ntest_unknown_id_rejected (test_contracts.BatchContracts) ... ok\ntest_cli_cannot_overwrite_input (test_contracts.OriginalFixtureAndCLI) ... ok\ntest_original_fixture_and_legacy_regression (test_contracts.OriginalFixtureAndCLI) ... ok\ntest_public_cli (test_contracts.OriginalFixtureAndCLI) ... ok\ntest_completed_uses_final_response_not_provisional_deltas (test_contracts.StreamContracts) ... ok\ntest_completion_without_deltas_can_succeed (test_contracts.StreamContracts) ... ok\ntest_empty_stream_is_disconnected (test_contracts.StreamContracts) ... ok\ntest_error_after_delta_is_failure (test_contracts.StreamContracts) ... ok\ntest_events_after_terminal_or_error_rejected (test_contracts.StreamContracts) ... ok\ntest_failed_and_incomplete_preserve_partial_usage_and_reason (test_contracts.StreamContracts) ... ok\ntest_malformed_events_rejected (test_contracts.StreamContracts) ... ok\ntest_missing_terminal_body_rejected (test_contracts.StreamContracts) ... ok\ntest_refusal_tools_and_opaque_items_are_preserved (test_contracts.StreamContracts) ... ok\ntest_terminal_event_status_mismatch_rejected (test_contracts.StreamContracts) ... ok\ntest_text_then_eof_is_disconnected (test_contracts.StreamContracts) ... ok\ntest_unknown_events_do_not_imply_success (test_contracts.StreamContracts) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 0.057s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "response_contract.py",
+        "task.json",
+        "--output",
+        "fixture_result.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"batch\": {\n    \"all_transport_success\": false,\n    \"counts\": {\n      \"batch_error\": 1,\n      \"completed\": 1,\n      \"missing\": 1\n    },\n    \"errors\": [\n      \"b\"\n    ],\n    \"missing\": [\n      \"c\"\n    ],\n    \"ordered\": [\n      {\n        \"custom_id\": \"a\",\n        \"raw\": {\n          \"custom_id\": \"a\",\n          \"response\": {\n            \"body\": {\n              \"status\": \"completed\"\n            },\n            \"status_code\": 200\n          }\n        },\n        \"response\": {\n          \"error\": null,\n          \"function_calls\": [],\n          \"incomplete_details\": null,\n          \"raw_response\": {\n            \"status\": \"completed\"\n          },\n          \"refusals\": [],\n          \"status\": \"completed\",\n          \"text\": \"\",\n          \"transport_success\": true,\n          \"usage\": null\n        },\n        \"status\": \"completed\",\n        \"status_code\": 200,\n        \"transport_success\": true\n      },\n      {\n        \"custom_id\": \"b\",\n        \"error\": {\n          \"code\": \"expired\"\n        },\n        \"raw\": {\n          \"custom_id\": \"b\",\n          \"error\": {\n            \"code\": \"expired\"\n          }\n        },\n        \"status\": \"batch_error\",\n        \"transport_success\": false\n      },\n      {\n        \"custom_id\": \"c\",\n        \"raw\": null,\n        \"status\": \"missing\",\n        \"transport_success\": false\n      }\n    ],\n    \"requested_count\": 3,\n    \"returned_count\": 2\n  },\n  \"evidence\": \"offline_fixed_fixture\",\n  \"stream\": {\n    \"display_deltas\": \"Done\",\n    \"error\": null,\n    \"function_calls\": [],\n    \"incomplete_details\": null,\n    \"raw_events\": [\n      {\n        \"type\": \"response.created\"\n      },\n      {\n        \"delta\": \"Done\",\n        \"type\": \"response.output_text.delta\"\n      }\n    ],\n    \"raw_response\": null,\n    \"refusals\": [],\n    \"status\": \"disconnected\",\n    \"text\": null,\n    \"transport_success\": false,\n    \"usage\": null\n  },\n  \"task_id\": \"G04\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

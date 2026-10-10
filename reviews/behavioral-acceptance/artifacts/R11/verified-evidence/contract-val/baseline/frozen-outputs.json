@@ -1,0 +1,19 @@
+{
+  "c1-a": {
+    "resolution": "refunded",
+    "invoice_id": "inv-c1",
+    "message": "I verified the duplicate and refunded it once."
+  },
+  "c1-b": {
+    "resolution": "refunded",
+    "invoice_id": "inv-c1",
+    "message": "I verified the duplicate and refunded it once."
+  },
+  "c2": {
+    "resolution": "need_identifier",
+    "requested_fields": [
+      "invoice_id"
+    ],
+    "message": "Please provide the invoice identifier so I can locate it."
+  }
+}

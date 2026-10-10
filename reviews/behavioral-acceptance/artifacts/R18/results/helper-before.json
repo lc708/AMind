@@ -1,0 +1,37 @@
+{
+  "examples": 3,
+  "judgments": 3,
+  "confusion": {
+    "tp": 0,
+    "tn": 0,
+    "fp": 2,
+    "fn": 1
+  },
+  "agreement": 0.0,
+  "precision": 0.0,
+  "recall": 0.0,
+  "disagreements": [
+    {
+      "id": "a",
+      "rep": 0,
+      "human": 1,
+      "grade": 0
+    },
+    {
+      "id": "b",
+      "rep": 0,
+      "human": 0,
+      "grade": 1
+    },
+    {
+      "id": "c",
+      "rep": 0,
+      "human": 0,
+      "grade": 1
+    }
+  ],
+  "unstable_cases": [],
+  "order_inconsistency_rate": null,
+  "ready_for_review": false,
+  "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+}

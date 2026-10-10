@@ -1,0 +1,6 @@
+{
+  "turns": 2,
+  "findings": [],
+  "errors": 0,
+  "limits": "Normalized structural diagnosis only. Verify provider-specific state/compaction rules. Hash-only output avoids prompt contents; hashes are still identifiers. No live ablation or opaque-content decoding."
+}

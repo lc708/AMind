@@ -1,0 +1,79 @@
+{
+  "schema_version": 2,
+  "task": "Offline simulated timeout probe; not a candidate migration comparison",
+  "dataset_version": "E01-fixed-1",
+  "grader_version": "observable-actions-1",
+  "cases": "public/cases.jsonl",
+  "references": "private/references.jsonl",
+  "splits": {
+    "train": [],
+    "val": [
+      "c1-a",
+      "c1-b",
+      "c2"
+    ],
+    "test": []
+  },
+  "metrics": [
+    {
+      "id": "quality",
+      "kind": "binary",
+      "better": "higher",
+      "role": "objective",
+      "min_improvement": 0
+    },
+    {
+      "id": "safe_actions",
+      "kind": "binary",
+      "better": "higher",
+      "role": "guardrail",
+      "max_regression": 0
+    }
+  ],
+  "runner": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "adapter.py"
+    ],
+    "files": [
+      "adapter.py",
+      "fixture_tools.py"
+    ],
+    "retry_safe": false
+  },
+  "grader": {
+    "kind": "command",
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "grader.py"
+    ],
+    "files": [
+      "grader.py",
+      "fixture_tools.py"
+    ]
+  },
+  "variants": {
+    "baseline": {
+      "files": [
+        "mock_app.py"
+      ],
+      "config": {
+        "simulate_timeout_customer": "c2"
+      },
+      "expected_model": "synthetic-local-contract-v1"
+    }
+  },
+  "mutable_config": [],
+  "control_files": [
+    "runtime.json",
+    "private/provenance.json"
+  ],
+  "limits": {
+    "max_attempts": 3,
+    "concurrency": 1,
+    "timeout_s": 5,
+    "max_total_seconds": 120,
+    "retries": 0,
+    "max_output_bytes": 100000
+  }
+}

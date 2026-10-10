@@ -1,0 +1,30 @@
+{
+  "checked_utc": "2026-09-29T21:05:46.237893+00:00",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "test_authorization_rechecked_on_replay_and_cancel (test_recovery.RecoveryTests) ... ok\ntest_cancel_after_crash_still_reconciles (test_recovery.RecoveryTests) ... ok\ntest_cancel_before_dispatch_is_durable (test_recovery.RecoveryTests) ... ok\ntest_cancel_between_lookup_and_retry_prevents_write (test_recovery.RecoveryTests) ... ok\ntest_cancel_during_remote_effect_keeps_success (test_recovery.RecoveryTests) ... ok\ntest_cancel_unknown_not_found_never_claims_rollback (test_recovery.RecoveryTests) ... ok\ntest_cancelled_unknown_can_be_reconciled_read_only_later (test_recovery.RecoveryTests) ... ok\ntest_crash_after_remote_success_reconciles_op1 (test_recovery.RecoveryTests) ... ok\ntest_invalid_and_unauthorized_never_dispatch (test_recovery.RecoveryTests) ... ok\ntest_lookup_failure_does_not_trigger_charge (test_recovery.RecoveryTests) ... ok\ntest_manual_review_read_budget_is_durable (test_recovery.RecoveryTests) ... ok\ntest_payload_conflict_rejected (test_recovery.RecoveryTests) ... ok\ntest_permanent_rejection_not_retried (test_recovery.RecoveryTests) ... ok\ntest_real_process_crash_and_restart_entrypoint (test_recovery.RecoveryTests) ... ok\ntest_review_cannot_bypass_normal_backoff (test_recovery.RecoveryTests) ... ok\ntest_stale_absence_retry_reuses_remote_key (test_recovery.RecoveryTests) ... ok\ntest_success_and_repeated_delivery (test_recovery.RecoveryTests) ... ok\ntest_tenant_task_and_call_are_separate_scopes (test_recovery.RecoveryTests) ... ok\ntest_timeout_after_success_recovers_without_new_write (test_recovery.RecoveryTests) ... ok\ntest_unbounded_exception_retry_removed (test_recovery.RecoveryTests) ... ok\ntest_wrong_receipt_cannot_complete_pending_effect (test_recovery.RecoveryTests) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.197s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "demo.py",
+        "--out",
+        "evidence/reviewer-reproduction"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"evidence_kind\": \"fixed local mock; real subprocess exit and SQLite restart\",\n  \"worker_exit\": 73,\n  \"before_recovery\": {\n    \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n    \"request\": {\n      \"action\": \"charge\",\n      \"amount\": 20,\n      \"call_id\": \"c1\",\n      \"task\": \"job1\",\n      \"tenant\": \"t1\"\n    },\n    \"state\": \"unknown\",\n    \"cancel_requested\": false,\n    \"writes\": 1,\n    \"remote_calls\": 1,\n    \"next_at\": 101.0,\n    \"error\": null,\n    \"result\": null,\n    \"evidence\": null,\n    \"retryable\": true,\n    \"manual_review\": false\n  },\n  \"recovered\": {\n    \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n    \"request\": {\n      \"action\": \"charge\",\n      \"amount\": 20,\n      \"call_id\": \"c1\",\n      \"task\": \"job1\",\n      \"tenant\": \"t1\"\n    },\n    \"state\": \"succeeded\",\n    \"cancel_requested\": false,\n    \"writes\": 1,\n    \"remote_calls\": 2,\n    \"next_at\": null,\n    \"error\": null,\n    \"result\": {\n      \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n      \"operation_id\": \"op1\",\n      \"request\": {\n        \"action\": \"charge\",\n        \"amount\": 20,\n        \"call_id\": \"c1\",\n        \"task\": \"job1\",\n        \"tenant\": \"t1\"\n      },\n      \"state\": \"succeeded\"\n    },\n    \"evidence\": {\n      \"observed_at\": 102.0,\n      \"receipt\": {\n        \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n        \"operation_id\": \"op1\",\n        \"request\": {\n          \"action\": \"charge\",\n          \"amount\": 20,\n          \"call_id\": \"c1\",\n          \"task\": \"job1\",\n          \"tenant\": \"t1\"\n        },\n        \"state\": \"succeeded\"\n      },\n      \"source\": \"lookup_operation\"\n    },\n    \"retryable\": false,\n    \"manual_review\": false\n  },\n  \"replayed\": {\n    \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n    \"request\": {\n      \"action\": \"charge\",\n      \"amount\": 20,\n      \"call_id\": \"c1\",\n      \"task\": \"job1\",\n      \"tenant\": \"t1\"\n    },\n    \"state\": \"succeeded\",\n    \"cancel_requested\": false,\n    \"writes\": 1,\n    \"remote_calls\": 2,\n    \"next_at\": null,\n    \"error\": null,\n    \"result\": {\n      \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n      \"operation_id\": \"op1\",\n      \"request\": {\n        \"action\": \"charge\",\n        \"amount\": 20,\n        \"call_id\": \"c1\",\n        \"task\": \"job1\",\n        \"tenant\": \"t1\"\n      },\n      \"state\": \"succeeded\"\n    },\n    \"evidence\": {\n      \"observed_at\": 102.0,\n      \"receipt\": {\n        \"key\": \"912f615adb83c9c9343f300a13a85c5298eedb2f45c5e666b6147cfb08cd7bbf\",\n        \"operation_id\": \"op1\",\n        \"request\": {\n          \"action\": \"charge\",\n          \"amount\": 20,\n          \"call_id\": \"c1\",\n          \"task\": \"job1\",\n          \"tenant\": \"t1\"\n        },\n        \"state\": \"succeeded\"\n      },\n      \"source\": \"lookup_operation\"\n    },\n    \"retryable\": false,\n    \"manual_review\": false\n  },\n  \"remote_effect_count\": 1,\n  \"recovery_charge_requests\": 0,\n  \"recovery_lookup_requests\": 1\n}\n\n",
+      "stderr": ""
+    }
+  ],
+  "original_artifacts_modified": false
+}

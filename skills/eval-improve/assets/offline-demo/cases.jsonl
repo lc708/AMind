@@ -1,0 +1,7 @@
+{"id":"train-a","input":{"text":"pear"},"tags":["basic"]}
+{"id":"val-a","input":{"text":"apple"},"tags":["basic"]}
+{"id":"val-b","input":{"text":"plum"},"tags":["basic"]}
+{"id":"val-c","input":{"text":"Peach"},"tags":["mixed-case"]}
+{"id":"val-d","input":{"text":"MANGO"},"tags":["already-correct"]}
+{"id":"test-a","input":{"text":"lemon"},"tags":["basic"]}
+{"id":"test-b","input":{"text":"Lime"},"tags":["mixed-case"]}

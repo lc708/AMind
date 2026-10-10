@@ -1,0 +1,77 @@
+{
+  "input_sha256": "d384023c45ad00b162994cf1fc30df8fb7ea6c960e4d90e183d138252ec3f37e",
+  "commands": [
+    {
+      "name": "python-version",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "--version"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/python-version.stdout.txt",
+      "stderr": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/python-version.stderr.txt"
+    },
+    {
+      "name": "compile",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "py_compile",
+        "lifecycle.py",
+        "test_lifecycle.py",
+        "verify.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/compile.stdout.txt",
+      "stderr": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/compile.stderr.txt"
+    },
+    {
+      "name": "unit-tests",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_lifecycle.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/unit-tests.stdout.txt",
+      "stderr": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/unit-tests.stderr.txt"
+    },
+    {
+      "name": "replay",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "lifecycle.py",
+        "--task",
+        "task.json",
+        "--output",
+        "evidence"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "stdout": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/replay.stdout.txt",
+      "stderr": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/replay.stderr.txt"
+    },
+    {
+      "name": "original-audit",
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/sources/P/amind-engineering/scripts/lifecycle_audit.py",
+        "evidence/original-normalized.jsonl"
+      ],
+      "exit_code": 2,
+      "expected_exit_code": 2,
+      "passed": true,
+      "stdout": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/original-audit.stdout.txt",
+      "stderr": "/Users/damonalbarn/Work/AMind/.codex-tmp/amind-behavior-2026-09-30/runs/R03/evidence/original-audit.stderr.txt"
+    }
+  ]
+}

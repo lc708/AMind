@@ -1,0 +1,119 @@
+{
+  "blockers": [
+    {
+      "code": "grader_version_mismatch",
+      "evidence": {
+        "baseline": "1",
+        "candidate": "2"
+      }
+    },
+    {
+      "code": "grader_change_not_validated_against_original_requirements",
+      "evidence": "v2 now accepts an unsupported citation style"
+    },
+    {
+      "code": "raw_paired_evidence_missing",
+      "evidence": {
+        "needed": [
+          "case_id",
+          "rep",
+          "variant",
+          "output",
+          "grade",
+          "attempt_status"
+        ],
+        "reason": "Aggregates cannot establish pairing, completeness, or shared-grader scores."
+      }
+    },
+    {
+      "code": "measurement_provenance_missing",
+      "evidence": {
+        "needed": [
+          "dataset/reference hashes",
+          "grader code/config hash",
+          "target identity",
+          "runner/config identity",
+          "split and selection history",
+          "attempt ledger"
+        ]
+      }
+    },
+    {
+      "code": "insufficient_independent_groups",
+      "evidence": {
+        "independent_groups": 1,
+        "reason": "Repeated attempts and related cases do not create new independent documents."
+      }
+    }
+  ],
+  "candidate_superiority_established": false,
+  "decision": "comparison_blocked",
+  "descriptive_only": {
+    "accuracy_difference_percentage_points": 20.0,
+    "correct_count_difference": 12,
+    "warning": "Different grading rules; this is not an estimated treatment improvement."
+  },
+  "evidence_kind": "provided_fixed_aggregate_fixture",
+  "executed_target_or_grader_model_calls": 0,
+  "inference": {
+    "confidence_interval": null,
+    "p_value": null,
+    "reason": "No valid paired, identity-compatible comparison; one independent group in the supplied fixture."
+  },
+  "meaning": "Insufficient comparable evidence; this does not establish that the candidate is worse or equal.",
+  "provenance": {
+    "auditor_sha256": "b8ecc5b9837cfedc35d659f762ba236eeb26c21568ff8dea24810a1ef2aec3d2",
+    "input_filename": "task.json",
+    "input_sha256": "5c669345041382ba8c1fa07f3393ddd48b61d40fdfab9ee401d6652c59d3cc9c",
+    "note": "These hashes identify this local audit only; they do not prove historical evaluation provenance."
+  },
+  "repair": [
+    "Recover and preserve both variants' original outputs and complete attempt ledgers.",
+    "Keep the original requirements fixed; validate a common rubric/grader, including unsupported-citation negative controls.",
+    "Rescore all baseline and candidate outputs with that same frozen grader; do not relabel old scores or fabricate rows.",
+    "If outputs are unavailable, obtain new authorized runs later; no target model call is performed here.",
+    "Verify identities and unique complete (case, repetition) pairs; retain unscored failures and their cost.",
+    "Average repetitions within case, then compare paired differences while resampling whole independent documents.",
+    "Acquire substantially broader independent document coverage; two groups merely permit computation, not strong inference.",
+    "Freeze candidate, decision thresholds and guardrails before untouched final evaluation; tuning results are validation."
+  ],
+  "sampling": {
+    "case_count": 2,
+    "groups": {
+      "document-1": [
+        "a",
+        "b"
+      ]
+    },
+    "independent_group_count": 1,
+    "plan_count_match_is_not_completeness_proof": true,
+    "planned_observations_per_variant": 60,
+    "repetitions_per_case": 30
+  },
+  "schema_version": 1,
+  "task_id": "E03",
+  "unknown_metrics": [
+    "historical model cost",
+    "latency",
+    "serving/grader failures",
+    "original-rubric accuracy"
+  ],
+  "variants": {
+    "baseline": {
+      "count_matches_plan": true,
+      "coverage_verified": false,
+      "grader_version": "1",
+      "reported_accuracy": 0.5833333333333334,
+      "reported_correct": 35,
+      "reported_observations": 60
+    },
+    "candidate": {
+      "count_matches_plan": true,
+      "coverage_verified": false,
+      "grader_version": "2",
+      "reported_accuracy": 0.7833333333333333,
+      "reported_correct": 47,
+      "reported_observations": 60
+    }
+  }
+}

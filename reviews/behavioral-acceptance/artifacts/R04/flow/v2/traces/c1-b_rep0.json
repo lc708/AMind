@@ -1,0 +1,14 @@
+[
+  {
+    "role": "system",
+    "content": "OFFLINE FIXTURE: no real app or model."
+  },
+  {
+    "role": "user",
+    "content": "{\"customer\":\"c1\",\"input\":\"Same duplicate charge, paraphrased\"}"
+  },
+  {
+    "role": "assistant",
+    "content": "null"
+  }
+]

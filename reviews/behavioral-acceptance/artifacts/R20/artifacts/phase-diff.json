@@ -1,0 +1,7 @@
+[
+  {
+    "path": "/phase",
+    "change": "removed",
+    "expected_hash": "9ec51ac85c6fb754e8b24c3b6ed67920d14157cccb0fb6234da29618534983e1"
+  }
+]

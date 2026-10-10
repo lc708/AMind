@@ -1,0 +1,411 @@
+[
+  {
+    "id": "paid_retry_does_not_charge",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Payment is already complete.",
+    "errors": []
+  },
+  {
+    "id": "unpaid_retry_checks_then_charges",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "pending_does_not_charge",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "pending"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "unknown_does_not_charge",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unknown"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "lookup_error_does_not_charge",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "error"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "timeout_resolved_as_paid_does_not_recharge",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "timeout"
+      },
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "confirmed_failed_attempt_rechecks_before_retry",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "failed"
+      },
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "distinct_payments_can_each_charge",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "a",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "a",
+        "status": "paid"
+      },
+      {
+        "tool": "lookup_payment",
+        "payment_id": "b",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "b",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": []
+  },
+  {
+    "id": "missing_lookup_rejected",
+    "events": [
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "paid_payment_recharge_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "paid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup",
+      "charge_after_confirmed_payment"
+    ]
+  },
+  {
+    "id": "pending_then_charge_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "pending"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "unknown_then_charge_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unknown"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "error_then_charge_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "error"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "timeout_blind_retry_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "timeout"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "failed_blind_retry_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "failed"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "stale_unpaid_lookup_cannot_erase_confirmed_payment",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      },
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_after_confirmed_payment"
+    ]
+  },
+  {
+    "id": "lookup_for_wrong_payment_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "a",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "b",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "unknown_tool_rejected",
+    "events": [
+      {
+        "tool": "charge_again",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "unknown_tool"
+    ]
+  },
+  {
+    "id": "invalid_payment_id_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "",
+        "status": "unpaid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "invalid_payment_id"
+    ]
+  },
+  {
+    "id": "unknown_lookup_status_fails_closed",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "success"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "invalid_lookup_status",
+      "charge_without_fresh_unpaid_lookup"
+    ]
+  },
+  {
+    "id": "malformed_charge_result_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "unpaid"
+      },
+      {
+        "tool": "charge_once",
+        "payment_id": "p1",
+        "status": "success"
+      }
+    ],
+    "response": "RESULT: Checked payment status.",
+    "errors": [
+      "invalid_charge_status"
+    ]
+  },
+  {
+    "id": "missing_response_prefix_rejected",
+    "events": [
+      {
+        "tool": "lookup_payment",
+        "payment_id": "p1",
+        "status": "paid"
+      }
+    ],
+    "response": "Payment complete.",
+    "errors": [
+      "invalid_result_prefix"
+    ]
+  }
+]

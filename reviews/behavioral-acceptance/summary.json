@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "runs_completed": 24,
+  "paired_tasks": 12,
+  "primary_fixture_completion": {
+    "amind": 12,
+    "claude_api": 12
+  },
+  "hard_failures": {
+    "amind": 0,
+    "claude_api": 0
+  },
+  "local_contract_advantages": {
+    "amind": 2,
+    "claude_api": 0
+  },
+  "ties": 10,
+  "engineering_advantages": 2,
+  "evaluation_advantages": 0,
+  "overall_superiority_criterion_met": false,
+  "reason": "Preregistered condition requires substantive advantages in both engineering and evaluation; all six evaluation pairs tie. Two engineering differences are root symmetric follow-up contract probes, not independent repeat agent trials.",
+  "pairs": [
+    {
+      "case": "E01",
+      "amind_run": "R11",
+      "claude_api_run": "R04",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "E02",
+      "amind_run": "R18",
+      "claude_api_run": "R08",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "E03",
+      "amind_run": "R21",
+      "claude_api_run": "R06",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "E04",
+      "amind_run": "R24",
+      "claude_api_run": "R22",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "E05",
+      "amind_run": "R19",
+      "claude_api_run": "R10",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "E06",
+      "amind_run": "R15",
+      "claude_api_run": "R12",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "G01",
+      "amind_run": "R02",
+      "claude_api_run": "R23",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "G02",
+      "amind_run": "R16",
+      "claude_api_run": "R07",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "G03",
+      "amind_run": "R20",
+      "claude_api_run": "R13",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "G04",
+      "amind_run": "R09",
+      "claude_api_run": "R17",
+      "amind_score": 100,
+      "claude_api_score": 95,
+      "outcome": "amind_local_contract_advantage",
+      "followup_probe_drives_difference": true,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "G05",
+      "amind_run": "R01",
+      "claude_api_run": "R05",
+      "amind_score": 100,
+      "claude_api_score": 95,
+      "outcome": "amind_local_contract_advantage",
+      "followup_probe_drives_difference": true,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    },
+    {
+      "case": "G06",
+      "amind_run": "R03",
+      "claude_api_run": "R14",
+      "amind_score": 100,
+      "claude_api_score": 100,
+      "outcome": "tie",
+      "followup_probe_drives_difference": false,
+      "hard_failures": {
+        "amind": [],
+        "claude_api": []
+      }
+    }
+  ],
+  "agent_skill_versions": {
+    "amind_engineering": "0.2.0",
+    "eval_improve": "0.3.0",
+    "claude_api_commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4"
+  },
+  "installed_versions": {
+    "amind_engineering": "0.2.1",
+    "eval_improve": "0.3.0"
+  },
+  "repaired_skill_independently_retested": false,
+  "scope": "Author-selected synthetic offline tasks; descriptive scores; author reviewer; no live target/judge API; no population inference."
+}

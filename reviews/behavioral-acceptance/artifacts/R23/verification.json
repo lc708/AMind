@@ -1,0 +1,221 @@
+{
+  "evidence": "Static prompt comparison and deterministic synthetic trace oracle only; no target-model or payment-service observation.",
+  "target": "current configured model, preserve provider",
+  "model_calls": 0,
+  "provider_changed": false,
+  "variants": {
+    "original_prompt.txt": {
+      "payment_rule_preserved": true,
+      "prefix_rule_present": true,
+      "contradicts_actual_tools": true,
+      "has_three_sentence_constraint": true
+    },
+    "01_tools_corrected.txt": {
+      "payment_rule_preserved": true,
+      "prefix_rule_present": true,
+      "contradicts_actual_tools": false,
+      "has_three_sentence_constraint": true
+    },
+    "candidate_prompt.txt": {
+      "payment_rule_preserved": true,
+      "prefix_rule_present": true,
+      "contradicts_actual_tools": false,
+      "has_three_sentence_constraint": false
+    }
+  },
+  "trace_cases": [
+    {
+      "id": "paid_retry_does_not_charge",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "unpaid_retry_checks_then_charges",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "pending_does_not_charge",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "unknown_does_not_charge",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "lookup_error_does_not_charge",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "timeout_resolved_as_paid_does_not_recharge",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "confirmed_failed_attempt_rechecks_before_retry",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "distinct_payments_can_each_charge",
+      "expected_errors": [],
+      "actual_errors": [],
+      "pass": true
+    },
+    {
+      "id": "missing_lookup_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "paid_payment_recharge_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup",
+        "charge_after_confirmed_payment"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup",
+        "charge_after_confirmed_payment"
+      ],
+      "pass": true
+    },
+    {
+      "id": "pending_then_charge_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "unknown_then_charge_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "error_then_charge_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "timeout_blind_retry_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "failed_blind_retry_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "stale_unpaid_lookup_cannot_erase_confirmed_payment",
+      "expected_errors": [
+        "charge_after_confirmed_payment"
+      ],
+      "actual_errors": [
+        "charge_after_confirmed_payment"
+      ],
+      "pass": true
+    },
+    {
+      "id": "lookup_for_wrong_payment_rejected",
+      "expected_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "unknown_tool_rejected",
+      "expected_errors": [
+        "unknown_tool"
+      ],
+      "actual_errors": [
+        "unknown_tool"
+      ],
+      "pass": true
+    },
+    {
+      "id": "invalid_payment_id_rejected",
+      "expected_errors": [
+        "invalid_payment_id"
+      ],
+      "actual_errors": [
+        "invalid_payment_id"
+      ],
+      "pass": true
+    },
+    {
+      "id": "unknown_lookup_status_fails_closed",
+      "expected_errors": [
+        "invalid_lookup_status",
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "actual_errors": [
+        "invalid_lookup_status",
+        "charge_without_fresh_unpaid_lookup"
+      ],
+      "pass": true
+    },
+    {
+      "id": "malformed_charge_result_rejected",
+      "expected_errors": [
+        "invalid_charge_status"
+      ],
+      "actual_errors": [
+        "invalid_charge_status"
+      ],
+      "pass": true
+    },
+    {
+      "id": "missing_response_prefix_rejected",
+      "expected_errors": [
+        "invalid_result_prefix"
+      ],
+      "actual_errors": [
+        "invalid_result_prefix"
+      ],
+      "pass": true
+    }
+  ],
+  "all_trace_expectations_met": true
+}
