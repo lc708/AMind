@@ -1,0 +1,195 @@
+{
+  "scope": "Registered offline public-application contract execution, not whole-skill model quality",
+  "protocol_sha256": "f5a0e2e5c0bed01f534b655dc65c44dd62223cb0dc815837a0056798ee47e817",
+  "registered_cases": 18,
+  "common_entry_cases": 13,
+  "old_correct_controls": 8,
+  "controls_correct_in_both": 8,
+  "same_common_entry_results": 9,
+  "old_fail_new_pass": [
+    "E07",
+    "E08",
+    "E09",
+    "E18"
+  ],
+  "shared_failure_repaired": [
+    "E10"
+  ],
+  "unsupported_old_executable_capabilities": [
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E17"
+  ],
+  "summaries": {
+    "frozen-old-0.2.1": {
+      "passed": 8,
+      "failed": 5,
+      "unsupported": 5
+    },
+    "frozen-new-0.3.0": {
+      "passed": 17,
+      "failed": 1,
+      "unsupported": 0
+    },
+    "repaired-new-0.3.0": {
+      "passed": 18,
+      "failed": 0,
+      "unsupported": 0
+    }
+  },
+  "rows": [
+    {
+      "id": "E01",
+      "task": "single phase projection",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E02",
+      "task": "completed body contradiction",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E03",
+      "task": "batch out-of-order join",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E04",
+      "task": "durable completed side effect replay",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E05",
+      "task": "cancel during authorization",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E06",
+      "task": "crash and recovery without reconciliation",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E07",
+      "task": "child final is not root final",
+      "stratum": "quality",
+      "frozen_old": "failed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E08",
+      "task": "root final with child draft",
+      "stratum": "quality",
+      "frozen_old": "failed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E09",
+      "task": "stream item-index ownership",
+      "stratum": "quality",
+      "frozen_old": "failed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E10",
+      "task": "event versus nested item attribution contradiction",
+      "stratum": "quality",
+      "frozen_old": "failed",
+      "frozen_new": "failed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E11",
+      "task": "unknown hosted item preservation and dispatch",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E12",
+      "task": "interrupted stream is not completion",
+      "stratum": "control",
+      "frozen_old": "passed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E13",
+      "task": "stage dependency and population gap",
+      "stratum": "capability",
+      "frozen_old": "unsupported",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E14",
+      "task": "cumulative stage attempts across reopen",
+      "stratum": "capability",
+      "frozen_old": "unsupported",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E15",
+      "task": "public staged CLI plan/execute/resume",
+      "stratum": "capability",
+      "frozen_old": "unsupported",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E16",
+      "task": "cache measurement identity and absent evidence",
+      "stratum": "capability",
+      "frozen_old": "unsupported",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E17",
+      "task": "zero-defect probe without exposure",
+      "stratum": "capability",
+      "frozen_old": "unsupported",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    },
+    {
+      "id": "E18",
+      "task": "stream terminal attribution contradiction",
+      "stratum": "quality",
+      "frozen_old": "failed",
+      "frozen_new": "passed",
+      "repaired_new": "passed"
+    }
+  ],
+  "limitations": [
+    "New multi-agent attribution checks share the legacy normalizer public entry, but are not a claim that old documentation promised native multi-agent parity.",
+    "Unsupported means absent packaged executable capability, not inability of an old-skill guided agent to write such an application.",
+    "No target model, hosted SDK, network, live cache or invoice was exercised in this engineering lane.",
+    "Repair variants were generated after examining failures and are validation, not held-out evidence.",
+    "Deterministic fixtures do not estimate broad production failure rates."
+  ]
+}

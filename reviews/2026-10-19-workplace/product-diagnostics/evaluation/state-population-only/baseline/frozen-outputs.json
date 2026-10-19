@@ -1,0 +1,14 @@
+{
+  "refund": {
+    "answer": "refund approved",
+    "policy_ok": true
+  },
+  "billing": {
+    "answer": "invoice corrected",
+    "policy_ok": true
+  },
+  "access": {
+    "answer": "account restored",
+    "policy_ok": true
+  }
+}

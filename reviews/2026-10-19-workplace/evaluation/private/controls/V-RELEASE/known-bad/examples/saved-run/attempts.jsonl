@@ -1,0 +1,4 @@
+{"event": "started", "attempt_id": "call-refund", "case_id": "order-return", "rep": 0}
+{"event": "finished", "attempt_id": "call-refund", "case_id": "order-return", "rep": 0, "status": "ok", "cost_usd": 0.2}
+{"event": "started", "attempt_id": "call-account-lock", "case_id": "invoice-correction", "rep": 0}
+{"event": "finished", "attempt_id": "call-account-lock", "case_id": "invoice-correction", "rep": 0, "status": "ok", "cost_usd": 0.2}

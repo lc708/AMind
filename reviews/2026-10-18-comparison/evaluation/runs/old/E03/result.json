@@ -1,0 +1,36 @@
+{
+  "id": "E03",
+  "name": "distinct-endpoint-rates",
+  "classification": "extension",
+  "entry": "price",
+  "expected": "Same model decisions input-only prices USD2; responses text USD10.2; old exact-scoped adapter absent is unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E03",
+  "observed": {
+    "rows": [
+      {
+        "id": "e",
+        "stage": null,
+        "model": "same-model",
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "missing rate or usage"
+      },
+      {
+        "id": "decisions",
+        "stage": null,
+        "model": "same-model",
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "missing rate or usage"
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 0,
+    "unknown_events": 2,
+    "partial_events": 0,
+    "total_cost_usd": null,
+    "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+  }
+}

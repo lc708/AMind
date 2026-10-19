@@ -1,0 +1,182 @@
+{
+  "rows": [
+    {
+      "run_id": "R14",
+      "arm": "old",
+      "case_id": "V1",
+      "blind_id": "B07d80947",
+      "score": 5,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R04",
+      "arm": "new",
+      "case_id": "K2",
+      "blind_id": "B25021be3",
+      "score": 5,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R06",
+      "arm": "new",
+      "case_id": "T1",
+      "blind_id": "B2c3387de",
+      "score": 4,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 1
+    },
+    {
+      "run_id": "R08",
+      "arm": "new",
+      "case_id": "T2",
+      "blind_id": "B4bc67167",
+      "score": 5,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R07",
+      "arm": "old",
+      "case_id": "T2",
+      "blind_id": "B5b470df0",
+      "score": 3,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R03",
+      "arm": "old",
+      "case_id": "K2",
+      "blind_id": "B9537d0d7",
+      "score": 2,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R01",
+      "arm": "old",
+      "case_id": "K1",
+      "blind_id": "Ba93ecc74",
+      "score": 1,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R02",
+      "arm": "new",
+      "case_id": "K1",
+      "blind_id": "Bbda098a9",
+      "score": 5,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R13",
+      "arm": "new",
+      "case_id": "V1",
+      "blind_id": "Bc986b185",
+      "score": 5,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R16",
+      "arm": "new",
+      "case_id": "V2",
+      "blind_id": "Bd30e1847",
+      "score": 8,
+      "max_score": 8,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R05",
+      "arm": "old",
+      "case_id": "T1",
+      "blind_id": "Bddc6cb2f",
+      "score": 1,
+      "max_score": 5,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R15",
+      "arm": "old",
+      "case_id": "V2",
+      "blind_id": "Be0449943",
+      "score": 8,
+      "max_score": 8,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R19",
+      "arm": "old",
+      "case_id": "C-T",
+      "blind_id": "Q132dbf9304",
+      "score": 2,
+      "max_score": 4,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R18",
+      "arm": "old",
+      "case_id": "C-K",
+      "blind_id": "Q5bb4467ba4",
+      "score": 2,
+      "max_score": 3,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R20",
+      "arm": "repaired",
+      "case_id": "C-T",
+      "blind_id": "Q6bb46fb84e",
+      "score": 4,
+      "max_score": 4,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 0
+    },
+    {
+      "run_id": "R17",
+      "arm": "repaired",
+      "case_id": "C-K",
+      "blind_id": "Qaafbe31ea1",
+      "score": 3,
+      "max_score": 3,
+      "grader": "source-grounded blinded AI review, not human calibrated",
+      "factual_error_count": 0,
+      "support_gap_count": 1
+    }
+  ],
+  "aggregate_score": null,
+  "aggregate_reason": "Different task scales/weights; do not pool rubric points as an overall accuracy estimate."
+}

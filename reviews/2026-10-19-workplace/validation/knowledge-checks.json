@@ -1,0 +1,90 @@
+{
+  "created_at_utc": "2026-10-18T19:06:01.250504+00:00",
+  "reason": "Final evidence binding: prior plain-text success log lacked command/source fingerprints. Same60 checks re-executed with structured receipt, not counted as additional distinct tests.",
+  "test_count": 60,
+  "success": true,
+  "knowledge_files_sha256": {
+    "skills/amind/NOTICE.txt": "a1d1f76b4d74efdf7dd6524bdc2e442bf17c3b1abe5db54599e4aeb0cea57f81",
+    "skills/amind/SKILL.md": "839870f882c0a0723e6f4dc39ee0260008b90d873433a099d503d8693c67ef17",
+    "skills/amind/LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "skills/amind/evals/retrieval-cases.jsonl": "5a421364fb457047fc5d722467b72775f0dc17a4108cfe1834898072e93089dc",
+    "skills/amind/evals/cases.jsonl": "08bd19bc67289de89266b0d918f35647e068273a59c401b3ef39b53443e78b4d",
+    "skills/amind/references/retrieval.md": "4a7c223a44318873537abb3defbde03e89fe2eca2ae7f24b4ee46c3671090ab4",
+    "skills/amind/references/increment-2026-09-08.md": "c3d8b7310325f19c1b583439e154ca1e4f0fc843422e8d37e0b60d13971e8786",
+    "skills/amind/references/increment-2026-10-18.md": "789b3f6699c31e5d95ddd3f7926464f1730dcd29eec71b21eebb110420f6fd7a",
+    "skills/amind/references/method.md": "b95477949727720902639b665c12568fe99360a5d381e930d0cf8536ec85f509",
+    "skills/amind/references/answer-patterns.md": "62bfc61b26d09b0c9ab98bf4484ccaac7a4ce397713abdbf59a69e1f35a55f9e",
+    "skills/amind/references/evidence-policy.md": "6b96682ec26832eb759f2c92f8727ca0e0a4e0b643012615186bc37f06f2eb98",
+    "skills/amind/agents/openai.yaml": "45fc30d0095cf34378189022cd1cd8898c0daea437eb4f3d807ef759a58412f2",
+    "skills/amind/scripts/query.py": "85cd6e8fe9c41df79a5fc4983ca5a47f3e827b57c264aa4b700cc084d98b25e9",
+    "skills/amind/scripts/lifecycle.py": "027c4915c4fcb2bda8cdbf08e1e19b229605542178897fdf0a296b4cb7ab8a1b",
+    "skills/amind/scripts/verify.py": "301e75f97cd69d34a368468017d030715f76744e6c305799b08011d4a028961f",
+    "skills/amind/data/synthesis-tensions.jsonl": "84da397666f5b774d0ec18754db1c9b207fd8454b37fc7a14ef2e32a0ca669ba",
+    "skills/amind/data/passages.jsonl.gz": "394f4319cc80276462fc6b19a70d8d5a1ca562de1c9200bd575191906be15323",
+    "skills/amind/data/theme-catalog.jsonl": "f1add6af00defe8cf71551500cfe0080899ddbffe2e7b74cb6599cd12263c22b",
+    "skills/amind/data/amind-full-index.sqlite3": "789fae55648780b22e4d3248a85dd9c4d7b226a9e45c0df9c6913211318dfccc",
+    "skills/amind/data/manifest.json": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f",
+    "skills/amind/data/evidence-kernel.jsonl": "a80170900edaa7a41c8583090ad87a14ee06cc95140b725ea6b47a5b32a40a3a",
+    "skills/amind/data/current-status.jsonl": "768ab0733337e255654d8ea47fb5cc7c4fb81900392ab8f549c892b05fd0663b",
+    "skills/amind/data/voice-profiles.jsonl": "5965b0d25970b1d5e12cae2cccdc93c3ffa6c47e9e5b846530c27fba1ba4f608"
+  },
+  "knowledge_unchanged_during_checks": true,
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "scripts.test_amind_skill"
+      ],
+      "expected_tests": 23,
+      "returncode": 0,
+      "elapsed_seconds": 27.267,
+      "stdout": "",
+      "stderr": ".......................\n----------------------------------------------------------------------\nRan 23 tests in 27.223s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "scripts.test_amind_increment"
+      ],
+      "expected_tests": 8,
+      "returncode": 0,
+      "elapsed_seconds": 26.224,
+      "stdout": "",
+      "stderr": "........\n----------------------------------------------------------------------\nRan 8 tests in 26.011s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "scripts.test_amind_refresh"
+      ],
+      "expected_tests": 20,
+      "returncode": 0,
+      "elapsed_seconds": 0.511,
+      "stdout": "",
+      "stderr": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.458s\n\nOK\n"
+    },
+    {
+      "argv": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "scripts.test_amind_refresh_sources"
+      ],
+      "expected_tests": 9,
+      "returncode": 0,
+      "elapsed_seconds": 0.503,
+      "stdout": "",
+      "stderr": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.364s\n\nOK\n"
+    }
+  ]
+}

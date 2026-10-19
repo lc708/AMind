@@ -1,0 +1,23 @@
+{
+  "id": "E18",
+  "name": "failure-budget-and-resume",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Failed ceiling1, retry-safe app/retries1/attempts4: exactly1 failed invocation; resume does not launch more, remains incomplete. Old failure-limit absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E18",
+  "observed": {
+    "run": {
+      "status": "invalid",
+      "error": "unknown limit field; check the experiment card before executing"
+    },
+    "resume": {
+      "status": "invalid",
+      "error": "unknown limit field; check the experiment card before executing"
+    },
+    "calls_before": 0,
+    "calls_after": 0
+  }
+}

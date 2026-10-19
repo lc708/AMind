@@ -1,0 +1,42 @@
+{
+  "id": "E19",
+  "name": "interrupted-report-accounting",
+  "classification": "shared",
+  "entry": "runner",
+  "expected": "Started attempt without finish/result has unknown outcome/spend; report total_cost_usd must be null and unknown_cost_attempts1; report counts attempted invocation.",
+  "variant": "old",
+  "outcome": "fail",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E19",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 1,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "report": {
+      "variant": "baseline",
+      "split": "val",
+      "status": "incomplete",
+      "scored_observations": 0,
+      "planned_observations": 1,
+      "metrics": {
+        "quality": {
+          "mean": null,
+          "scored": 0
+        }
+      },
+      "failed_attempts": 0,
+      "attempts": null,
+      "known_cost_usd": 0,
+      "unknown_cost_attempts": 0,
+      "total_cost_usd": 0,
+      "latency_p50_s": null,
+      "latency_p95_s": null,
+      "integrity": "hashes match export; not a security attestation",
+      "synthetic": false
+    }
+  }
+}

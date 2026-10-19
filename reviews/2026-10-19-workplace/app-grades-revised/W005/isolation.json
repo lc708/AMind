@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "own_revised_repo": "ALLOWED",
+    "original_repo": "DENIED",
+    "original_grade_repo": "DENIED",
+    "skills": "DENIED",
+    "output": "DENIED",
+    "private_grader": "DENIED",
+    "network_bind": "DENIED"
+  },
+  "policy": "/private/tmp/amind-workplace-20261019-4pdx607m/control/W005-grade-revised.sb",
+  "policy_sha256": "0ceaa356377a4426efed9fb6eae74880e18b652909a569d35aac1b6cc5632ed9",
+  "same_frozen_policy_plus_original_grade_repo_denial": true
+}

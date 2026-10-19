@@ -214,4 +214,12 @@ def compatible(flow, candidate):
         raise ValueError("incompatible experiments: " + ", ".join(differing))
     if manifests[0].get('selection_certificate_hash') != manifests[1].get('selection_certificate_hash'):
         raise ValueError('final test selection certificates differ')
+    for variant, manifest in zip(('baseline', candidate), manifests):
+        if manifest.get('result_identity_required'):
+            for row in read_jsonl(in_root(flow, f'{variant}/results.jsonl')):
+                expected = {'comparison_hash': manifest['comparison_hash'],
+                            'treatment_hash': manifest.get('treatment_hash'),
+                            'case_id': row.get('prompt_id'), 'rep': row.get('rep')}
+                if row.get('result_identity') != expected:
+                    raise ValueError(f'{variant}: result identity differs from its measurement/treatment/case')
     return manifests

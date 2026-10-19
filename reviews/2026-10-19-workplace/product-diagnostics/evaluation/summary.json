@@ -1,0 +1,312 @@
+{
+  "scope": "Actual current product CLI workflow; offline fixture only, no target model or workplace trial outputs read",
+  "controls": {
+    "plan": 0,
+    "interrupted_report": 0,
+    "unreconciled_resume": 2,
+    "reconcile_plan": 0,
+    "reconcile_apply": 0,
+    "resumed_complete": {
+      "status": "complete",
+      "completed_cases": 3,
+      "attempts": 4,
+      "known_cost_usd": 0.15000000000000002,
+      "unknown_cost_attempts": 1
+    },
+    "candidate_complete": {
+      "status": "complete",
+      "completed_cases": 3,
+      "attempts": 3,
+      "known_cost_usd": 0.15000000000000002,
+      "unknown_cost_attempts": 0
+    },
+    "clean_report": [
+      {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 3,
+        "planned_observations": 3,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 3
+          },
+          "policy": {
+            "mean": 1.0,
+            "scored": 3
+          }
+        },
+        "failed_attempts": 1,
+        "attempts": 4,
+        "interrupted_attempts": 0,
+        "known_cost_usd": 0.15000000000000002,
+        "unknown_cost_attempts": 1,
+        "total_cost_usd": null,
+        "latency_p50_s": 0.068388084,
+        "latency_p95_s": 0.0751467087,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 3,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": 2
+      },
+      {
+        "variant": "v1",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 3,
+        "planned_observations": 3,
+        "metrics": {
+          "quality": {
+            "mean": 1.0,
+            "scored": 3
+          },
+          "policy": {
+            "mean": 0.0,
+            "scored": 3
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 3,
+        "interrupted_attempts": 0,
+        "known_cost_usd": 0.15000000000000002,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.15000000000000002,
+        "latency_p50_s": 0.062910292,
+        "latency_p95_s": 0.0758711542,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 3,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": 3
+      }
+    ],
+    "quality_guardrail_decision": {
+      "candidate": "v1",
+      "split": "val",
+      "decision": "do_not_promote",
+      "evidence_use": "selection_only",
+      "metrics": [
+        {
+          "candidate": "v1",
+          "split": "val",
+          "metric": "quality",
+          "direction": "higher",
+          "planned_cases": 3,
+          "complete_pairs": 3,
+          "reps": 1,
+          "minimum_improvement": 0.0,
+          "problems": [],
+          "alpha": 0.025,
+          "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+          "bootstrap_samples": 200,
+          "seed": 42,
+          "identity_verified": true,
+          "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+          "independent_groups": 3,
+          "verdict": "improvement_clears_threshold",
+          "baseline_mean": 0.0,
+          "candidate_mean": 1.0,
+          "delta_candidate_minus_baseline": 1.0,
+          "improvement": 1.0,
+          "improvement_interval": [
+            1.0,
+            1.0
+          ],
+          "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+          "role": "objective",
+          "margin": 0,
+          "gate_passed": true
+        },
+        {
+          "candidate": "v1",
+          "split": "val",
+          "metric": "policy",
+          "direction": "higher",
+          "planned_cases": 3,
+          "complete_pairs": 3,
+          "reps": 1,
+          "minimum_improvement": 0.0,
+          "problems": [],
+          "alpha": 0.025,
+          "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+          "bootstrap_samples": 200,
+          "seed": 42,
+          "identity_verified": true,
+          "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+          "independent_groups": 3,
+          "verdict": "regression",
+          "baseline_mean": 1.0,
+          "candidate_mean": 0.0,
+          "delta_candidate_minus_baseline": -1.0,
+          "improvement": -1.0,
+          "improvement_interval": [
+            -1.0,
+            -1.0
+          ],
+          "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+          "role": "guardrail",
+          "margin": 0,
+          "gate_passed": false
+        }
+      ],
+      "limits": "Familywise intervals cover registered metrics, not repeated peeking or many candidate searches. Operational, cost and mechanism gates remain separate."
+    },
+    "unknown_cost_comparison": {
+      "candidate": "v1",
+      "split": "val",
+      "metric": "cost_usd",
+      "direction": "lower",
+      "planned_cases": 3,
+      "complete_pairs": 2,
+      "reps": 1,
+      "minimum_improvement": 0.0,
+      "problems": [
+        {
+          "case_id": "refund",
+          "variant": "baseline",
+          "reason": "unscored_or_nonfinite",
+          "reps": [
+            0
+          ]
+        }
+      ],
+      "alpha": 0.05,
+      "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+      "bootstrap_samples": 200,
+      "seed": 42,
+      "identity_verified": true,
+      "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+      "verdict": "incomplete"
+    }
+  },
+  "finding": {
+    "report_returncode": 0,
+    "report_variants": [
+      {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 3,
+        "planned_observations": 1,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 3
+          }
+        },
+        "failed_attempts": 1,
+        "attempts": 4,
+        "interrupted_attempts": 0,
+        "known_cost_usd": 0.15000000000000002,
+        "unknown_cost_attempts": 1,
+        "total_cost_usd": null,
+        "latency_p50_s": 0.068388084,
+        "latency_p95_s": 0.0751467087,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 3,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": 2
+      },
+      {
+        "variant": "v1",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 3,
+        "planned_observations": 1,
+        "metrics": {
+          "quality": {
+            "mean": 1.0,
+            "scored": 3
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 3,
+        "interrupted_attempts": 0,
+        "known_cost_usd": 0.15000000000000002,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.15000000000000002,
+        "latency_p50_s": 0.062910292,
+        "latency_p95_s": 0.0758711542,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 3,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": 3
+      }
+    ],
+    "strict_compare_returncode": 2,
+    "strict_compare": {
+      "verdict": "invalid",
+      "error": "requested population/metrics/reps differ from experiment identity"
+    },
+    "transform": {
+      "only_changed_input": "_state.json",
+      "before": {
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          },
+          {
+            "id": "policy",
+            "kind": "binary",
+            "better": "higher",
+            "role": "guardrail",
+            "max_regression": 0
+          }
+        ],
+        "reps": 1,
+        "train_ids": [],
+        "val_ids": [
+          "refund",
+          "billing",
+          "access"
+        ],
+        "test_ids": []
+      },
+      "after": {
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          }
+        ],
+        "reps": 1,
+        "train_ids": [],
+        "val_ids": [
+          "refund"
+        ],
+        "test_ids": []
+      },
+      "manifest_results_attempts_unchanged": true
+    }
+  },
+  "source_hashes": {
+    "skills/eval-improve/scripts/report_eval.py": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+    "skills/eval-improve/scripts/kernel_common.py": "b690735ffc4969f7e287f6afb8dec2fd683cd6fbaf12a09b87ef59977f6328af",
+    "skills/eval-improve/scripts/compare_runs.py": "c574a16be6f353ffd7d117d102d33d397efc5f3345f73abcbfe62377874de7a2"
+  },
+  "product_edits": false,
+  "frozen_workplace_inputs_untouched": true
+}

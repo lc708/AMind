@@ -1,0 +1,29 @@
+test_all_interrupted_attempts_do_not_look_free (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_boolean_journal_repetition_is_not_integer_zero (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_boolean_result_repetition_is_not_integer_zero (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_clean_complete_report_retains_cost_and_verified_export (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_copied_baseline_cannot_be_reported_as_candidate (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_duplicate_last_finished_event_is_rejected_after_rehash (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_duplicate_last_result_cannot_exceed_planned_population (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_duplicate_open_start_cannot_inflate_unknown_cost_count (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_each_variant_is_checked_against_its_own_metric_contract (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_finished_event_must_match_started_case_and_repetition (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_foreign_journal_attempt_cannot_inflate_verified_spend (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_healthy_variants_report_all_metrics_for_only_the_selected_split (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_interrupted_attempt_remains_unknown_and_counted_with_finished_cost (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_legacy_no_journal_report_preserves_descriptive_cost (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_manifest_repetitions_cannot_override_the_bound_population (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_missing_failed_case_is_a_valid_partial_report (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_out_of_range_journal_repetition_cannot_join_selected_population (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_report_rejects_foreign_result_binding_even_with_updated_byte_hash (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_state_metric_omission_cannot_hide_a_failed_guardrail (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_state_repetitions_cannot_drift_from_bound_repetitions (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_state_selected_population_cannot_shorten_planned_coverage (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_state_unselected_population_must_also_match_the_bound_splits (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_unique_out_of_range_result_repetition_is_rejected_after_rehash (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+test_unique_training_result_cannot_join_validation_population_after_rehash (scripts.test_amind_eval_reporting.EvalReportingTests) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 3.857s
+
+OK

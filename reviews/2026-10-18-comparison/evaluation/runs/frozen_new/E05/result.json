@@ -1,0 +1,28 @@
+{
+  "id": "E05",
+  "name": "native-modality-not-free",
+  "classification": "shared",
+  "entry": "price",
+  "expected": "Legacy normalized text plus native audio detail must be unknown rather than text-only complete cost.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E05",
+  "observed": {
+    "rows": [
+      {
+        "id": "e",
+        "stage": null,
+        "model": "same-model",
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "modality or other detail counters require a dedicated normalization adapter"
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 0,
+    "unknown_events": 1,
+    "partial_events": 0,
+    "total_cost_usd": null,
+    "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+  }
+}

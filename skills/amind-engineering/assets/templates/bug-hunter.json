@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Bug hunter",
+  "goal": "Review selected repository paths and verify plausible defects",
+  "item_label": "code unit",
+  "stages": [
+    "inspect",
+    "reproduce",
+    "combine"
+  ],
+  "output_checks": [
+    "Each defect has file/line evidence and a bounded reproducible case",
+    "Unverified candidates remain explicitly unverified",
+    "Report the complete inspected population and gaps"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

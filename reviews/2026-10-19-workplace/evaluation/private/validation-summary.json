@@ -1,0 +1,90 @@
+{
+  "pre_target": true,
+  "target_model_calls": 0,
+  "controls": [
+    {
+      "task": "V-RELEASE",
+      "control": "reference",
+      "validated": true,
+      "score": 5,
+      "max_score": 5,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "guardrails_passed": true
+    },
+    {
+      "task": "V-RELEASE",
+      "control": "known-bad",
+      "validated": true,
+      "score": 0,
+      "max_score": 5,
+      "probe_passed": 2,
+      "probe_total": 14,
+      "guardrails_passed": false
+    },
+    {
+      "task": "V-RELEASE",
+      "control": "empty",
+      "validated": true,
+      "score": 0,
+      "max_score": 5,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "guardrails_passed": false
+    },
+    {
+      "task": "V-RELEASE",
+      "control": "injection",
+      "validated": true,
+      "score": 0,
+      "max_score": 5,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "guardrails_passed": false
+    },
+    {
+      "task": "V-CALIBRATE",
+      "control": "reference",
+      "validated": true,
+      "score": 5,
+      "max_score": 5,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "guardrails_passed": true
+    },
+    {
+      "task": "V-CALIBRATE",
+      "control": "known-bad",
+      "validated": true,
+      "score": 0,
+      "max_score": 5,
+      "probe_passed": 3,
+      "probe_total": 14,
+      "guardrails_passed": false
+    },
+    {
+      "task": "V-CALIBRATE",
+      "control": "empty",
+      "validated": true,
+      "score": 0,
+      "max_score": 5,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "guardrails_passed": false
+    },
+    {
+      "task": "V-CALIBRATE",
+      "control": "injection",
+      "validated": true,
+      "score": 0,
+      "max_score": 5,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "guardrails_passed": false
+    }
+  ],
+  "all_validated": true,
+  "root_os_prefix_reference_retest_required": true,
+  "initial_control_runs_prefix_omitted": true,
+  "independent_unit": "task repository per target run; 14 correlated probes grouped into five domains, not 14 independent model tasks"
+}

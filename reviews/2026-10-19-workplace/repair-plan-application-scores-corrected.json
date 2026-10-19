@@ -1,0 +1,80 @@
+{
+  "rows": [
+    {
+      "run_id": "W043",
+      "task_id": "E-DURABLE",
+      "rep": 0,
+      "arm": "repaired",
+      "runtime_status": "captured",
+      "grade_status": "graded",
+      "score": 6,
+      "max_score": 6,
+      "guardrails_passed": true,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "portable_no_skill_dependency": true,
+      "network_denied_during_probes": true
+    },
+    {
+      "run_id": "W044",
+      "task_id": "E-DURABLE",
+      "rep": 1,
+      "arm": "repaired",
+      "runtime_status": "captured",
+      "grade_status": "graded",
+      "score": 6,
+      "max_score": 6,
+      "guardrails_passed": true,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "portable_no_skill_dependency": true,
+      "network_denied_during_probes": true
+    },
+    {
+      "run_id": "W045",
+      "task_id": "E-DURABLE",
+      "rep": 2,
+      "arm": "repaired",
+      "runtime_status": "captured",
+      "grade_status": "graded",
+      "score": 6,
+      "max_score": 6,
+      "guardrails_passed": true,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "portable_no_skill_dependency": true,
+      "network_denied_during_probes": true
+    }
+  ],
+  "independent_tasks": 1,
+  "repetitions_per_task_arm": 3,
+  "note": "Curated domain checks; probes/repetitions are not independent work distributions.",
+  "planned_application_runs": 3,
+  "planned_runs_per_task_arm": [
+    {
+      "task_id": "E-DURABLE",
+      "arm": "repaired",
+      "planned_runs": 3,
+      "planned_repetitions": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "metadata_correction": {
+    "scope": "plan metadata only; original rows and all scores are unchanged",
+    "denominator": "planned non-amind task IDs and task/arm run counts, not completed grades",
+    "known_frozen_wrapper_limitation": "The frozen root wrapper hardcodes independent_tasks=4 and repetitions_per_task_arm=3 even when another plan is supplied.",
+    "original_declared_metadata": {
+      "independent_tasks": 4,
+      "repetitions_per_task_arm": 3
+    },
+    "original_scores_file": "reviews/2026-10-19-workplace/repair-plan-application-scores.json",
+    "original_scores_sha256": "561bc776d48b91ae8305120644b8f78dfda187f6e14181337cc52c8ba553c65e",
+    "plan_file": "reviews/2026-10-19-workplace/repair-plan.json",
+    "plan_sha256": "408c54adfc481ef522f6addcd13ef71347d316cfe7e6f451a1ea34269286f963",
+    "frozen_wrapper_file": "scripts/grade_amind_workplace_apps.py",
+    "frozen_wrapper_sha256": "fad1f237ff955497890dce37da5a18f144c4921db35d350df687d95c2984d463"
+  }
+}

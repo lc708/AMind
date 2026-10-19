@@ -1,0 +1,528 @@
+{
+  "results": [
+    {
+      "arm": "frozen_new",
+      "scenario": "wrong-directory-variant",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "copied": "v1 directory into baseline, no artifact hash changed"
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/wrong-directory-variant"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/wrong-directory-variant/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/wrong-directory-variant/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 1.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 2,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.0510580835,
+        "latency_p95_s": 0.06011230804999999,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "frozen_new",
+      "scenario": "duplicate-finish",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "attempts",
+        "operation": "duplicate-finish",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-finish"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-finish/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-finish/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 3,
+        "known_cost_usd": 0.06,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.06,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "frozen_new",
+      "scenario": "duplicate-result",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "results",
+        "operation": "duplicate-result",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-result"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-result/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-result/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 3,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 3
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 2,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.049791375000000006,
+        "latency_p95_s": 0.0599046372,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 3,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "frozen_new",
+      "scenario": "duplicate-open-start",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "attempts",
+        "operation": "duplicate-open-start",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-open-start"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-open-start/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/duplicate-open-start/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 1,
+        "known_cost_usd": 0.02,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.02,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "frozen_new",
+      "scenario": "mismatched-finish",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "attempts",
+        "operation": "mismatched-finish",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/mismatched-finish"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/mismatched-finish/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/mismatched-finish/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 2,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "frozen_new",
+      "scenario": "clean",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {},
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/clean"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/clean/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/clean/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 2,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "frozen_new",
+      "scenario": "legacy-no-journal",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "removed": "manifest and attempt journal; descriptive legacy costs remain on result rows"
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/legacy-no-journal"
+      ],
+      "script_sha256": "e3c7547a034c2609b6a201e9da5e05164c3a67e66fb0b292ee7bb526d0250203",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/legacy-no-journal/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/frozen_new/legacy-no-journal/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "unknown",
+        "status": "unknown",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": null,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "unverified: missing v2 experiment identity",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "wrong-directory-variant",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "copied": "v1 directory into baseline, no artifact hash changed"
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/wrong-directory-variant"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 2,
+      "stdout": "{\"error\": \"baseline: manifest variant differs from its directory\"}\n",
+      "stderr": "",
+      "baseline_summary": null,
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "duplicate-finish",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "attempts",
+        "operation": "duplicate-finish",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/duplicate-finish"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 2,
+      "stdout": "{\"error\": \"baseline: duplicate finished attempt ID\"}\n",
+      "stderr": "",
+      "baseline_summary": null,
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "duplicate-result",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "results",
+        "operation": "duplicate-result",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/duplicate-result"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 2,
+      "stdout": "{\"error\": \"baseline: duplicate completed result key\"}\n",
+      "stderr": "",
+      "baseline_summary": null,
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "duplicate-open-start",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "attempts",
+        "operation": "duplicate-open-start",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/duplicate-open-start"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 2,
+      "stdout": "{\"error\": \"baseline: duplicate started attempt ID\"}\n",
+      "stderr": "",
+      "baseline_summary": null,
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "mismatched-finish",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "ledger": "attempts",
+        "operation": "mismatched-finish",
+        "byte_hash_updated": true
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/mismatched-finish"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 2,
+      "stdout": "{\"error\": \"baseline: finished attempt case/repetition differs from start\"}\n",
+      "stderr": "",
+      "baseline_summary": null,
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "clean",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {},
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/clean"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/clean/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/clean/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "val",
+        "status": "complete",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": 2,
+        "interrupted_attempts": 0,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "hashes match export; not a security attestation",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    },
+    {
+      "arm": "final_repair",
+      "scenario": "legacy-no-journal",
+      "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+      "transform": {
+        "removed": "manifest and attempt journal; descriptive legacy costs remain on result rows"
+      },
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/legacy-no-journal"
+      ],
+      "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+      "returncode": 0,
+      "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/legacy-no-journal/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/legacy-no-journal/report-data.json\", \"variants\": 2}\n",
+      "stderr": "",
+      "baseline_summary": {
+        "variant": "baseline",
+        "split": "unknown",
+        "status": "unknown",
+        "scored_observations": 2,
+        "planned_observations": 2,
+        "metrics": {
+          "quality": {
+            "mean": 0.0,
+            "scored": 2
+          }
+        },
+        "failed_attempts": 0,
+        "attempts": null,
+        "interrupted_attempts": 0,
+        "known_cost_usd": 0.04,
+        "unknown_cost_attempts": 0,
+        "total_cost_usd": 0.04,
+        "latency_p50_s": 0.05540985400000001,
+        "latency_p95_s": 0.0604664851,
+        "integrity": "unverified: missing v2 experiment identity",
+        "synthetic": true,
+        "stage_coverage": {
+          "measured_complete": 0,
+          "unmeasured": 2,
+          "required_stages": []
+        },
+        "remaining_failed_attempts": null
+      },
+      "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+    }
+  ],
+  "frozen_score_unchanged": true
+}

@@ -1,0 +1,186 @@
+{
+  "paired_tasks": [
+    {
+      "case_id": "K1",
+      "baseline": {
+        "run_id": "R01",
+        "score": 1,
+        "max_score": 5
+      },
+      "candidate": {
+        "run_id": "R02",
+        "arm": "new",
+        "score": 5,
+        "max_score": 5
+      },
+      "outcome": "higher"
+    },
+    {
+      "case_id": "K2",
+      "baseline": {
+        "run_id": "R03",
+        "score": 2,
+        "max_score": 5
+      },
+      "candidate": {
+        "run_id": "R04",
+        "arm": "new",
+        "score": 5,
+        "max_score": 5
+      },
+      "outcome": "higher"
+    },
+    {
+      "case_id": "T1",
+      "baseline": {
+        "run_id": "R05",
+        "score": 1,
+        "max_score": 5
+      },
+      "candidate": {
+        "run_id": "R06",
+        "arm": "new",
+        "score": 4,
+        "max_score": 5
+      },
+      "outcome": "higher"
+    },
+    {
+      "case_id": "T2",
+      "baseline": {
+        "run_id": "R07",
+        "score": 3,
+        "max_score": 5
+      },
+      "candidate": {
+        "run_id": "R08",
+        "arm": "new",
+        "score": 5,
+        "max_score": 5
+      },
+      "outcome": "higher"
+    },
+    {
+      "case_id": "G1",
+      "baseline": {
+        "run_id": "R10",
+        "score": 6,
+        "max_score": 6
+      },
+      "candidate": {
+        "run_id": "R09",
+        "arm": "new",
+        "score": 6,
+        "max_score": 6
+      },
+      "outcome": "tie"
+    },
+    {
+      "case_id": "G2",
+      "baseline": {
+        "run_id": "R11",
+        "score": 7,
+        "max_score": 7
+      },
+      "candidate": {
+        "run_id": "R12",
+        "arm": "new",
+        "score": 7,
+        "max_score": 7
+      },
+      "outcome": "tie"
+    },
+    {
+      "case_id": "V1",
+      "baseline": {
+        "run_id": "R14",
+        "score": 5,
+        "max_score": 5
+      },
+      "candidate": {
+        "run_id": "R13",
+        "arm": "new",
+        "score": 5,
+        "max_score": 5
+      },
+      "outcome": "tie"
+    },
+    {
+      "case_id": "V2",
+      "baseline": {
+        "run_id": "R15",
+        "score": 8,
+        "max_score": 8
+      },
+      "candidate": {
+        "run_id": "R16",
+        "arm": "new",
+        "score": 8,
+        "max_score": 8
+      },
+      "outcome": "tie"
+    },
+    {
+      "case_id": "C-K",
+      "baseline": {
+        "run_id": "R18",
+        "score": 2,
+        "max_score": 3
+      },
+      "candidate": {
+        "run_id": "R17",
+        "arm": "repaired",
+        "score": 3,
+        "max_score": 3
+      },
+      "outcome": "higher"
+    },
+    {
+      "case_id": "C-T",
+      "baseline": {
+        "run_id": "R19",
+        "score": 2,
+        "max_score": 4
+      },
+      "candidate": {
+        "run_id": "R20",
+        "arm": "repaired",
+        "score": 4,
+        "max_score": 4
+      },
+      "outcome": "higher"
+    },
+    {
+      "case_id": "C-G",
+      "baseline": {
+        "run_id": "R22",
+        "score": 6,
+        "max_score": 6
+      },
+      "candidate": {
+        "run_id": "R21",
+        "arm": "repaired",
+        "score": 6,
+        "max_score": 6
+      },
+      "outcome": "tie"
+    },
+    {
+      "case_id": "C-V",
+      "baseline": {
+        "run_id": "R23",
+        "score": 9,
+        "max_score": 9
+      },
+      "candidate": {
+        "run_id": "R24",
+        "arm": "repaired",
+        "score": 9,
+        "max_score": 9
+      },
+      "outcome": "tie"
+    }
+  ],
+  "overall_score": null,
+  "reason": "Different task weights/scales; no pooled accuracy or population inference."
+}

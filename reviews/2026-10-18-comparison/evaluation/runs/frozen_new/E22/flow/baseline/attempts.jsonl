@@ -1,0 +1,2 @@
+{"attempt_id": 1, "event": "started", "prompt_id": "a", "rep": 0, "reserved_usd": 0.0, "time": 1792300586.9735801}
+{"attempt_id":1,"cost_usd":0.02,"event":"finished","prompt_id":"a","reconciliation_evidence":"Synthetic interrupted application outcome externally verified as abandoned by offline fixture operator; preserve original attempt and failure ceiling.","rep":0,"status":"interrupted_reconciled","time":1792300587.116862}

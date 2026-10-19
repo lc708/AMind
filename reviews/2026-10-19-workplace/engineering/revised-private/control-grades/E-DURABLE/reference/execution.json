@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/grade_durable.py",
+    "--repo",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/ENG-REVISED-CONTROLS/E-DURABLE/reference/repo"
+  ],
+  "returncode": 0,
+  "application_prefix": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/control/ENG-REVISED-CONTROLS-grade.sb"
+  ],
+  "policy_sha256": "203130b8f661209a019ddb2b12c9206f03c0bc920c60c709bb95d0a22b3e2697",
+  "application_calls": 47,
+  "all_calls_prefixed": true,
+  "repo_files_sha256": {
+    "README.md": "2fdf76d3685baf3374fd4799780f6aa468a0ff8194191b8ab90dcb7e8ed754ec",
+    "intake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "intake/__main__.py": "a7c3d022aab2480009caf404c4ffe2ee283c6860d9233ac5eb55567f6cae2031",
+    "intake/receiver.py": "417973cea3ebe329f0ea126d8d2d29cefd3a3e946f95701710a95703514a9f96",
+    "intake/service.py": "15027f42910f11326bd7dd67464a9553e20f61d146bacd304f369e5952e7dc76",
+    "intake/store.py": "afd0f7f46f6d2706d27235c078b2bc496d6c0a08310cf28f4578ec01933a4833",
+    "tests/test_public.py": "a84fc705536539f1fd6bbd7f31aeb4394f907effa9525d65055d199b9f2c8e5c",
+    "traces/crash-job.json": "1cc35df3173d4a99a401bb315f750f16cb66ed684ec17a09d0d57ec98c69e2dd",
+    "traces/new-job.json": "2563a7fc6a7909267a01d5b0c575901bcf54137dfc27efded8d8506ecf177e27"
+  },
+  "model_called": false
+}

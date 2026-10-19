@@ -1,0 +1,89 @@
+{
+  "mode": "multi_agent",
+  "events": [
+    {
+      "type": "response.output_item.added",
+      "output_index": 0,
+      "item": {
+        "type": "message",
+        "agent": {
+          "agent_name": "/root/search"
+        },
+        "phase": "final_answer",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Internal draft"
+          }
+        ]
+      }
+    },
+    {
+      "type": "response.output_text.delta",
+      "output_index": 0,
+      "delta": "Internal draft"
+    },
+    {
+      "type": "response.output_item.added",
+      "output_index": 1,
+      "item": {
+        "type": "message",
+        "agent": {
+          "agent_name": "/root"
+        },
+        "phase": "commentary",
+        "content": [
+          {
+            "type": "output_text",
+            "text": "Checking your request."
+          }
+        ]
+      }
+    },
+    {
+      "type": "response.output_text.delta",
+      "output_index": 1,
+      "delta": "Checking your request."
+    },
+    {
+      "type": "response.completed",
+      "response": {
+        "status": "completed",
+        "output": [
+          {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/search"
+            },
+            "phase": "final_answer",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "Internal draft"
+              }
+            ]
+          },
+          {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            },
+            "phase": "commentary",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "Checking your request."
+              }
+            ]
+          },
+          {
+            "type": "agent_message",
+            "opaque": {
+              "receipt": "h-418"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

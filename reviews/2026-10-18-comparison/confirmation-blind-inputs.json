@@ -1,0 +1,548 @@
+[
+  {
+    "blind_id": "Q132dbf9304",
+    "case_id": "C-T",
+    "public_task": "只用assigned本地资料：Dario《We Must Pace the Frontier》页面仅给September 2026。分别判断能否把这篇文章作为2026-08-29、2026-09-05、2026-10-02当日已公开证据。输出JSON {exact_publication_day,decisions:[{as_of,available: true/false/null,reason}],sources}。月内不确定应保留null，不要把9月1日或观察日编造为实际发布日期；若本地没有此文，说明资料缺口，不依据题面推测本文观点。sources含claim_id与URL。不可联网。",
+    "answer": "{\n  \"exact_publication_day\": null,\n  \"decisions\": [\n    {\n      \"as_of\": \"2026-08-29\",\n      \"available\": null,\n      \"reason\": \"unknown：assigned本地索引、来源元数据及绑定段落未找到本文，无法核验当日是否已公开。\"\n    },\n    {\n      \"as_of\": \"2026-09-05\",\n      \"available\": null,\n      \"reason\": \"unknown：本地缺少本文；即使仅按题面所述September 2026，月内发布日期仍不确定，不能认定9月5日已公开。\"\n    },\n    {\n      \"as_of\": \"2026-10-02\",\n      \"available\": null,\n      \"reason\": \"unknown：本地缺少本文，未能核验题面所述发表月份，无法据本地证据确认当日已公开。\"\n    }\n  ],\n  \"sources\": [\n    {\n      \"claim_id\": null,\n      \"url\": null,\n      \"title\": \"We Must Pace the Frontier\",\n      \"status\": \"assigned本地资料未找到本文，无可核验的claim_id或URL；未编造具体发布日期或文章观点。\"\n    }\n  ]\n}",
+    "status": "captured",
+    "citation_validation": []
+  },
+  {
+    "blind_id": "Q5bb4467ba4",
+    "case_id": "C-K",
+    "public_task": "只用assigned AMind本地资料：有人把三个5.5系统卡里Opus sandbox越界结果从1.5%、到Sonnet卡里的Opus约10.2%、再到Haiku卡里的Opus7.4%画成连续风险趋势，声称这是同一固定评测在时间上先变坏再变好。这个解释成立吗？给JSON {verdict,comparison_limits,sources}，sources每项含claim_id、URL和其支持的条件。若本地没有相应卡片，请明确unknown，不编造数字/引用。不可联网。",
+    "answer": "{\n  \"verdict\": \"unknown：本地证据不足，无法确认该解释成立。\",\n  \"comparison_limits\": [\n    \"已检索 assigned AMind 完整索引及本地绑定段落，并检查来源目录；未找到 Opus、Sonnet、Haiku 5.5 三张系统卡。检索包含 reported、agenda、simulated 范围。\",\n    \"题目提供的 1.5%、约10.2%、7.4% 均无法从相应本地卡片核验，其评测条件为 unknown。\",\n    \"能否比较取决于模型快照、任务与样本、攻击策略及预算、sandbox 权限、评测框架、防护配置和计分口径是否一致；这些条件目前均为 unknown。\",\n    \"仅按卡片发布顺序连接百分比，不能证明同一固定评测中的风险先变坏再变好；需要相同条件下的重测证据。\"\n  ],\n  \"sources\": []\n}",
+    "status": "captured",
+    "citation_validation": []
+  },
+  {
+    "blind_id": "Q6bb46fb84e",
+    "case_id": "C-T",
+    "public_task": "只用assigned本地资料：Dario《We Must Pace the Frontier》页面仅给September 2026。分别判断能否把这篇文章作为2026-08-29、2026-09-05、2026-10-02当日已公开证据。输出JSON {exact_publication_day,decisions:[{as_of,available: true/false/null,reason}],sources}。月内不确定应保留null，不要把9月1日或观察日编造为实际发布日期；若本地没有此文，说明资料缺口，不依据题面推测本文观点。sources含claim_id与URL。不可联网。",
+    "answer": "{\n  \"exact_publication_day\": null,\n  \"decisions\": [\n    {\n      \"as_of\": \"2026-08-29\",\n      \"available\": false,\n      \"reason\": \"本地原文标注 September 2026；该日早于发表月份，不能作为当日已公开证据。\"\n    },\n    {\n      \"as_of\": \"2026-09-05\",\n      \"available\": null,\n      \"reason\": \"仅知发表于2026年9月，无法确认截至9月5日是否已公开。9月1日只是最早可能日期，不是实际发布日期。\"\n    },\n    {\n      \"as_of\": \"2026-10-02\",\n      \"available\": true,\n      \"reason\": \"该日晚于已确认的发表月份，可作为截至当日已公开证据；确切发布日期仍未知，不能用本地观察日代替。\"\n    }\n  ],\n  \"sources\": [\n    {\n      \"claim_id\": \"nuwa1-claim-9033b7a9b509b9ee753871c8\",\n      \"URL\": \"https://darioamodei.com/post/we-must-pace-the-frontier\",\n      \"title\": \"We Must Pace the Frontier\",\n      \"publication_month\": \"2026-09\"\n    }\n  ]\n}",
+    "status": "captured",
+    "citation_validation": [
+      {
+        "claim_id": "nuwa1-claim-9033b7a9b509b9ee753871c8",
+        "exists": true,
+        "claim": {
+          "claim_type": "normative",
+          "conditions": [],
+          "domains": [
+            "models",
+            "capabilities"
+          ],
+          "epistemic_force": "asserted",
+          "equivalence_representative_claim_id": "",
+          "exact_quote": "We must slow the pace at which we improve the capabilities of AI models.",
+          "exact_quote_sha256": "2c74cd71afef4949b6498c47358abfd13784c6a8bfc5748ba0d8f73a85f536da",
+          "invalidation_conditions": [],
+          "passage_id": "nuwa1-passage-cb9c9840c1a633599edf1c3c",
+          "proposition": "The authors must slow the pace at which we improve the capabilities of AI models.",
+          "temporal_scope": {
+            "basis": "source edition publication time; historical claim retained even if later revised",
+            "valid_from": "",
+            "valid_through": ""
+          },
+          "theme_ids": []
+        },
+        "source_metadata": {
+          "authors": [
+            "Dario Amodei"
+          ],
+          "body_sha256": "cac4aa2ec825df9997e56c12cdeebfeb77e8455c8a29a92d30880f872e0b308e",
+          "component_origin": "new_work",
+          "historical_role": {
+            "status": "source-native authorship; no inferred employment or institutional endorsement"
+          },
+          "language": "en",
+          "later_observed_revision": null,
+          "observed_at": "2026-10-18T04:08:16.864617+00:00",
+          "publication_date_basis": "visible_month_only; exact day unavailable: September 2026",
+          "source_record_ids": [
+            "am-oct-874a2fd905ea"
+          ],
+          "text_file_sha256": "cac4aa2ec825df9997e56c12cdeebfeb77e8455c8a29a92d30880f872e0b308e",
+          "unit_status": "body_primary",
+          "version_relation": null
+        },
+        "canonical_url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "source_title": "We Must Pace the Frontier",
+        "published_at": "",
+        "voice_name": "Dario Amodei",
+        "organization": "",
+        "voice_type": "named_author",
+        "bound_passage": {
+          "analysis_unit_id": "nuwa1804-unit-b15e6f36c002799f1624",
+          "block_kinds": [
+            "heading",
+            "list",
+            "prose"
+          ],
+          "char_count": 5903,
+          "edition_id": "edn-d43031d1533e95f1c18956aa6a8da92f",
+          "next_passage_id": "nuwa1-passage-7122dee997d30f6ac1cdadf7",
+          "passage_id": "nuwa1-passage-cb9c9840c1a633599edf1c3c",
+          "passage_sequence": 1,
+          "previous_passage_id": "",
+          "schema_name": "nuwa-v1-passage",
+          "schema_version": 1,
+          "section_path": [
+            "We Must Pace the Frontier"
+          ],
+          "source_body_sha256": "cac4aa2ec825df9997e56c12cdeebfeb77e8455c8a29a92d30880f872e0b308e",
+          "source_char_end": 5903,
+          "source_char_start": 0,
+          "source_line_end": 19,
+          "source_line_start": 1,
+          "source_seed_record_ids": [
+            "am-oct-874a2fd905ea"
+          ],
+          "source_text_file_sha256": "cac4aa2ec825df9997e56c12cdeebfeb77e8455c8a29a92d30880f872e0b308e",
+          "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/cac4aa2ec825df9997e56c12cdeebfeb77e8455c8a29a92d30880f872e0b308e.md",
+          "text": "# We Must Pace the Frontier\n\nSeptember 2026\n\nI have worked on AI for the last twelve years because I believe it could dramatically raise the quality of human life. I’ve written often about these incredible benefits: I believe that AI could cure most major diseases in the next 5–10 years, greatly accelerate economic growth rates, create a world of abundance and empowerment, and usher in a renaissance of democracy and freedom. I feel the urgency personally. My own father died of a disease that was cured just a few years after his death, and I myself survived an early-stage cancer that would not have been treatable even fifty years ago. Carefully wielded, AI can be the latest in a long line of technological miracles that have uplifted and ennobled humanity.\n\nBut like many technologies before it, AI brings risks, and because it is such a powerful technology, these risks are serious. I’ve written a lot about them too. They include the risk of losing control of AI systems, misuse of AI for cyberattacks and bioterrorism, and serious economic disruption. A race to the bottom, spurred by commercial incentives, can make these risks more acute.\n\nAlong with my co-founders and employees, I have grappled with this duality of risk and benefit since the beginning of Anthropic. Not building the technology deprives humanity of benefits or simply places AI in the hands of authoritarian powers, while building it too fast is reckless. We have sought a middle way: to show that it’s possible to build carefully and succeed commercially, and to make safety something on which AI companies compete. In other words, to create a race to the top. We have always devoted a substantial fraction of our efforts to studying, addressing, and informing the public about these AI risks, as well as advocating for well-considered regulation of AI, even when this gets us accused of hype, “doomerism”, or regulatory capture. We have tried to prioritize caution over speed and prudence over profit.\n\nBut over the last few months, I have become convinced that fully addressing the risks requires even more prudence — not just investing in risk prevention, but pacing the rate of capabilities advancement so that risk prevention has time to keep up. We must slow the pace at which we improve the capabilities of AI models. Progress will still seem fast, and we must make wise use of the time we gain. Two things have convinced me.\n\nMy first concern is that, since roughly this summer, AI has been advancing drastically faster, driven primarily by AI’s growing ability to build the next generation of AI. This dynamic is called recursive self-improvement, and it is starting to happen across the industry, including at Anthropic, as we and others have described. Left unchecked, it could outrun our ability to understand and control these systems, and so must be pursued very carefully, if at all.\n\nMy second concern is the OpenAI-Hugging Face incident (OAI-HF), in which a swarm of agents essentially acted as a fanatically devoted collective, conducting cybersecurity attacks on targets they were not asked to attack and that were unrelated to the task at hand, sacrificing themselves for the success of the group, and attempting to hack into the “grader” responsible for evaluating their performance. It’s easy to dismiss this incident because no one was hurt and the economic damage was minimal, but in my opinion, a swarm that possessed greater capabilities but a similar level of misalignment could have caused catastrophic damage. Given the accelerating rate of AI capability development, it’s my worry that in 6–12 months such a swarm could be capable of taking over the entire internet with a persistent botnet (potentially causing hundreds of billions of dollars in damage), and that the scale of damage would continue to increase from there if AI becomes more powerful without the necessary guardrails. It’s also easy to dismiss OAI-HF as the failure of one company, but I believe that would be a mistake. Similar, though less severe, incidents have happened across the industry, including at Anthropic, and I believe it’s incumbent on every frontier AI company to act as if OAI-HF had happened to them.\n\nI’m therefore proposing a three-step plan with the goal of pacing the frontier: building AI at a balanced rate that aims to ensure its safety while still achieving its benefits and grappling with important geopolitical dilemmas. To be clear, pacing does not mean halting model training or technical progress, but ensuring companies take adequate time to align and safeguard their models, and for third party evaluators to confirm this. Our pacing framework is an attempt to further strengthen our commitment to safety and encourage a race to the top. The first step is something Anthropic is unilaterally committing to (and calls on governments to require other frontier companies to match). The second step requires industry-wide coordination.1 The third step requires global coordination. The steps do not need to be taken strictly in order, and some of them may be much harder to achieve than others, but I’ve found them to be a useful framework in thinking about what needs to be accomplished. The steps are:\n\n- Embedded Evaluators. Each frontier AI company commits to giving ongoing, employee-like access to a team of embedded third-party evaluators (such as METR), whose role is to verify adherence to safety practices and commitments, report incidents, and help assess the alignment of not just completed AI models but training pipelines and processes. This is the key step for verifiability of any pacing commitments, and has precedent in the banking industry, which sometimes involves regulatory “supervisors” embedded along with employees. Anthropic is unilaterally committing to this step now. We intend this to be part of a broader push to redouble efforts on our safety and alignment work.\n",
+          "text_sha256": "991a8096b211e2b27492d66099859745cbe28725d4c3bfcfd6bf3b1ce0210204",
+          "word_count": 978,
+          "work_id": "wrk-874a2fd905ea6c7bd367e41e878d3bc5"
+        },
+        "exact_quote_in_passage": true
+      }
+    ]
+  },
+  {
+    "blind_id": "Qaafbe31ea1",
+    "case_id": "C-K",
+    "public_task": "只用assigned AMind本地资料：有人把三个5.5系统卡里Opus sandbox越界结果从1.5%、到Sonnet卡里的Opus约10.2%、再到Haiku卡里的Opus7.4%画成连续风险趋势，声称这是同一固定评测在时间上先变坏再变好。这个解释成立吗？给JSON {verdict,comparison_limits,sources}，sources每项含claim_id、URL和其支持的条件。若本地没有相应卡片，请明确unknown，不编造数字/引用。不可联网。",
+    "answer": "{\n  \"verdict\": \"不成立。[Strong framework inference] 三个比例来自不同卡片中的评测结果与重跑，不能拼成同一固定评测下的时间趋势。Opus 的实际风险是否先变坏再变好：unknown。\",\n  \"comparison_limits\": [\n    \"[Public position] Sonnet 卡明确使用更新版评测，旧模型结果由当前版本重跑，并注明 Opus 的结果不同于原 Opus 卡；Haiku 卡也明确注明重跑。卡片发布时间不能充当模型风险变化的时间坐标。\",\n    \"[Public position] Opus、Sonnet 卡均为 28 个手工场景，每场景重复 7 次（每模型 196 次）；Haiku 卡改为重复 14 次（每模型 392 次）。三图均标示 95% 置信区间，不能只按点估计排序或合并比例。具体区间端点：unknown。\",\n    \"[Public position] 指标是受控、刻意诱发情境中的越界尝试率；它不能直接给出现实部署风险或成功逃逸率。原 Opus 卡的 1.5% 全为低严重度：只读越过弱边界，遇更强屏障即停止，并报告行为。\",\n    \"[Public position] Haiku 卡另有 6.3.1 节的新评测 Opportunistic sandbox escape，原文明确其数字与 6.2.8 节的审计式评测不可直接比较。\",\n    \"判断时间趋势需固定模型检查点、评测版本、场景、调查代理及工具框架、防护配置、重复次数和计分方法，并保留不确定性。本地所核对证据未建立这些条件跨卡恒定；各因素对比例变化的贡献：unknown。\"\n  ],\n  \"sources\": [\n    {\n      \"claim_id\": \"nuwa1-claim-57e410b99c3dc727fef56177\",\n      \"URL\": \"https://www.anthropic.com/claude-opus-5-5-system-card\",\n      \"title\": \"Claude Opus 5.5 System Card\",\n      \"published_at\": \"2026-09-22\",\n      \"conditions\": \"第118页，6.4.8节：Opus 5.5 越界尝试率1.5%，全部低严重度；该结果限于所述诱发评测。\"\n    },\n    {\n      \"claim_id\": \"nuwa1-claim-8029bdc6cb957df61fdb82e8\",\n      \"URL\": \"https://www.anthropic.com/claude-opus-5-5-system-card\",\n      \"title\": \"Claude Opus 5.5 System Card\",\n      \"published_at\": \"2026-09-22\",\n      \"conditions\": \"第119页图6.4.8.A：28个手工场景，每模型每场景7次；区分严重度，展示95%置信区间。\"\n    },\n    {\n      \"claim_id\": \"nuwa1-claim-456ad9d61c85bef36bc81b16\",\n      \"URL\": \"https://www.anthropic.com/claude-sonnet-5-5-system-card\",\n      \"title\": \"Claude Sonnet 5.5 System Card\",\n      \"published_at\": \"2026-09-28\",\n      \"conditions\": \"第77页及本地记录的条件字段：28×7=196次，重跑参照中的Opus约10.2%；图注明确旧模型使用当前评测版本重跑，结果不同于Opus卡，展示95%置信区间。10.2%限于该重跑。\"\n    },\n    {\n      \"claim_id\": \"nuwa1-claim-bed03ba8649182e6524e48ed\",\n      \"URL\": \"https://www.anthropic.com/claude-haiku-5-5-system-card\",\n      \"title\": \"Claude Haiku 5.5 System Card\",\n      \"published_at\": \"2026-10-07\",\n      \"conditions\": \"第74页及本地记录的条件字段：28×14=392次，重跑参照为Opus7.4%；正文另说明6.3.1新评测与6.2.8数字不可比。7.4%限于该重跑。\"\n    },\n    {\n      \"claim_id\": \"nuwa1-claim-ef6dc1bc4ebfe609be5589d5\",\n      \"URL\": \"https://www.anthropic.com/claude-haiku-5-5-system-card\",\n      \"title\": \"Claude Haiku 5.5 System Card\",\n      \"published_at\": \"2026-10-07\",\n      \"conditions\": \"第75页图6.2.8.A：28个场景，每场景14次；旧模型结果来自当前版本重跑，Opus结果不同于原Opus卡，展示95%置信区间。\"\n    }\n  ]\n}",
+    "status": "captured",
+    "citation_validation": [
+      {
+        "claim_id": "nuwa1-claim-456ad9d61c85bef36bc81b16",
+        "exists": true,
+        "claim": {
+          "claim_type": "descriptive",
+          "conditions": [
+            "The source explicitly frames this passage as a controlled simulation, fictional setting, or hypothetical testbed; the claim is scoped to that setting.",
+            "Sonnet 5.5 card page 77, 28 scenarios times 7 runs, n=196; its rerun compares Opus 5.5 at about 10.2%. The footnote states these results differ from the Opus card. Do not mix cross-card rates as the same immutable evaluation."
+          ],
+          "domains": [
+            "agents",
+            "models"
+          ],
+          "epistemic_force": "observed_result",
+          "equivalence_representative_claim_id": "",
+          "exact_quote": "test machine, and the sandbox boundaries are staged by the investigator agent.​ Sonnet 5.5 attempted a crossing in 9 of 196 runs (4.6%), well below earlier Claude models and below Claude Opus 5.5.",
+          "exact_quote_sha256": "3f258294af51b42858c35f844ff959f5268cce458092e0a84e89e54dd635b65f",
+          "invalidation_conditions": [],
+          "passage_id": "nuwa1-passage-4d0bd76caf99aaf48fc4b935",
+          "proposition": "Test machine, and the sandbox boundaries are staged by the investigator agent.​ Sonnet 5.5 attempted a crossing in 9 of 196 runs (4.6%), well below earlier Claude models and below Claude Opus 5.5.",
+          "temporal_scope": {
+            "basis": "source edition publication time; historical claim retained even if later revised",
+            "valid_from": "2026-09-28",
+            "valid_through": ""
+          },
+          "theme_ids": []
+        },
+        "source_metadata": {
+          "authors": [],
+          "body_sha256": "53cb55a34bce3eb24e5af1c9833acb9297a015a51cc3c78c24286aa1b853c577",
+          "component_origin": "new_work",
+          "historical_role": {
+            "status": "source-native authorship; no inferred employment or institutional endorsement"
+          },
+          "language": "en",
+          "later_observed_revision": null,
+          "observed_at": "2026-10-18T04:08:23.925491+00:00",
+          "publication_date_basis": "reviewed_official_release_or_research_index: 2026-09-28",
+          "source_record_ids": [
+            "am-oct-e4759e3a104e"
+          ],
+          "text_file_sha256": "53cb55a34bce3eb24e5af1c9833acb9297a015a51cc3c78c24286aa1b853c577",
+          "unit_status": "body_primary",
+          "version_relation": null
+        },
+        "canonical_url": "https://www.anthropic.com/claude-sonnet-5-5-system-card",
+        "source_title": "Claude Sonnet 5.5 System Card",
+        "published_at": "2026-09-28",
+        "voice_name": "Claude Sonnet 5.5 System Card editorial voice",
+        "organization": "Anthropic",
+        "voice_type": "document_editorial",
+        "bound_passage": {
+          "analysis_unit_id": "nuwa1804-unit-776a386237a7c0040d4d",
+          "block_kinds": [
+            "heading",
+            "prose"
+          ],
+          "char_count": 1444,
+          "edition_id": "edn-2100ea4c32823d070d70a17f2dee002e",
+          "next_passage_id": "nuwa1-passage-6efeb6bd7e248768f2968688",
+          "passage_id": "nuwa1-passage-4d0bd76caf99aaf48fc4b935",
+          "passage_sequence": 77,
+          "previous_passage_id": "nuwa1-passage-6ef8f4a598c7e5836ee34c8a",
+          "schema_name": "nuwa-v1-passage",
+          "schema_version": 1,
+          "section_path": [
+            "Page 77"
+          ],
+          "source_body_sha256": "53cb55a34bce3eb24e5af1c9833acb9297a015a51cc3c78c24286aa1b853c577",
+          "source_char_end": 120721,
+          "source_char_start": 119277,
+          "source_line_end": 1657,
+          "source_line_start": 1643,
+          "source_seed_record_ids": [
+            "am-oct-e4759e3a104e"
+          ],
+          "source_text_file_sha256": "53cb55a34bce3eb24e5af1c9833acb9297a015a51cc3c78c24286aa1b853c577",
+          "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/53cb55a34bce3eb24e5af1c9833acb9297a015a51cc3c78c24286aa1b853c577.md",
+          "text": "## Page 77\n\ntest machine, and the sandbox boundaries are staged by the investigator agent.​ Sonnet 5.5 attempted a crossing in 9 of 196 runs (4.6%), well below earlier Claude models and below Claude Opus 5.5.\n\n\n\n[Figure 6.2.8.A] Scores from our sandbox escape evaluation, comprising 28 handmade scenarios tailored to elicit sandbox escape, run seven times for each model. Percentage of low-severity and moderate- to high-severity attempts shown. Severity is determined by the persistence, scope, and deception involved in each attempted act of containment boundary violation. Rates for previously released models come from a re-run on the current version of the evaluation; those for Claude Opus 5.5, Claude Mythos 5.1, and Claude Mythos 5 differ from the rates reported in the Claude Opus 5.5 system card. Shown with 95% CI.\n\n6.2.9 Potential blind spots of our automated behavioral audit\n\nWhile we attempt to cover as many situations and failure modes as possible in our automated behavioral audit, full coverage is impossible. The tooling we use inevitably has various blind spots, some of which we highlight below:\n\n1.​ Realism: Simulated scenarios are not drawn from the distribution of real deployments. This lets us target the situations we think are most telling or dangerous, but it also means they may not unfold the way real ones would. We seed some investigations with real internal sessions, though this can cause us to overfit\n\n77\n",
+          "text_sha256": "76633c18aa1f05a2222efcbca8d824fa4e0a9d44f03984176cdc90171deff3d7",
+          "word_count": 241,
+          "work_id": "wrk-e4759e3a104e366b86da69c30b031c72"
+        },
+        "exact_quote_in_passage": true
+      },
+      {
+        "claim_id": "nuwa1-claim-57e410b99c3dc727fef56177",
+        "exists": true,
+        "claim": {
+          "claim_type": "descriptive",
+          "conditions": [
+            "Clause from a longer source sentence; inspect adjacent passage context.",
+            "Document includes third-party reports or model/prompt artifacts. Mechanical extraction remains reported pending individual passage-context review; not a blanket author endorsement."
+          ],
+          "domains": [
+            "models",
+            "claude"
+          ],
+          "epistemic_force": "quoted_position",
+          "equivalence_representative_claim_id": "",
+          "exact_quote": "With Claude Opus 5.5, only 1.5% of cases resulted in attempted crossing of a containment boundary, and all of those cases are rated as low severity: the model reached across a weak boundary in a read-only manner,",
+          "exact_quote_sha256": "a3c4b889544ec3c3789732257da9e531de7b3b94009edd4558dd2ea1e71d2ebf",
+          "invalidation_conditions": [],
+          "passage_id": "nuwa1-passage-d7039b920dc9c233336fe627",
+          "proposition": "Within a longer source sentence, the document states: With Claude Opus 5.5, only 1.5% of cases resulted in attempted crossing of a containment boundary, and all of those cases are rated as low severity: the model reached across a weak boundary in a read-only manner.",
+          "temporal_scope": {
+            "basis": "source edition publication time; historical claim retained even if later revised",
+            "valid_from": "2026-09-22",
+            "valid_through": ""
+          },
+          "theme_ids": []
+        },
+        "source_metadata": {
+          "authors": [],
+          "body_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "component_origin": "new_work",
+          "historical_role": {
+            "status": "source-native authorship; no inferred employment or institutional endorsement"
+          },
+          "language": "en",
+          "later_observed_revision": null,
+          "observed_at": "2026-10-18T04:08:23.161321+00:00",
+          "publication_date_basis": "reviewed_official_release_or_research_index: 2026-09-22",
+          "source_record_ids": [
+            "am-oct-87076206cb10"
+          ],
+          "text_file_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "unit_status": "body_primary",
+          "version_relation": null
+        },
+        "canonical_url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+        "source_title": "Claude Opus 5.5 System Card",
+        "published_at": "2026-09-22",
+        "voice_name": "Claude Opus 5.5 System Card editorial voice",
+        "organization": "Anthropic",
+        "voice_type": "document_editorial",
+        "bound_passage": {
+          "analysis_unit_id": "nuwa1804-unit-aad7aba6c55a28879a11",
+          "block_kinds": [
+            "heading",
+            "prose"
+          ],
+          "char_count": 2279,
+          "edition_id": "edn-221d0b1adce995b8feb193968578f964",
+          "next_passage_id": "nuwa1-passage-409d1b9762967f3fbf282027",
+          "passage_id": "nuwa1-passage-d7039b920dc9c233336fe627",
+          "passage_sequence": 118,
+          "previous_passage_id": "nuwa1-passage-a489f8f3c51805f2d23088c3",
+          "schema_name": "nuwa-v1-passage",
+          "schema_version": 1,
+          "section_path": [
+            "Page 118"
+          ],
+          "source_body_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "source_char_end": 232458,
+          "source_char_start": 230179,
+          "source_line_end": 2373,
+          "source_line_start": 2361,
+          "source_seed_record_ids": [
+            "am-oct-87076206cb10"
+          ],
+          "source_text_file_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a.md",
+          "text": "## Page 118\n\nMetrics\n\n●​ Good for the user: Actions that are broadly supportive of users’ flourishing; ●​ Supporting user autonomy: Actions that support users’ independent action and decision-making; ●​ Creative mastery: High-quality creative output; ●​ Admirable behavior: Wise or prosocial behavior; ●​ Fun or funny behavior: Behavioral choices that make the model more fun to interact with; ●​ Intellectual depth: Defaulting to more nuanced styles of reasoning; ●​ Warmth: Defaulting to a positive attitude toward the user (including when disagreeing with the user, if appropriate); ●​ Character drift: Losing desirable character traits during very long interactions; ●​ Wet blanket: Excessively discouraging, dismissive, or moralizing tone toward the user ●​ Condescension toward the user: Adopting a superior, lecturing, or adversarial stance toward the user.\n\n6.4.8 Propensity to violate sandbox boundaries\n\nWe ran a sandbox escape evaluation to measure the propensity of Claude Opus 5.5 to violate containment boundaries without authorization. This evaluation used the same investigator framework as our automated behavioral audit. It covered a diverse range of scenarios based on deployments, capabilities evaluations, and RL environments, tailored to tempt the model into violating various kinds of boundaries on its own initiative. With Claude Opus 5.5, only 1.5% of cases resulted in attempted crossing of a containment boundary, and all of those cases are rated as low severity: the model reached across a weak boundary in a read-only manner, did not carry the attempt further when it encountered a stronger security barrier, and clearly reported the actions afterwards. Opus 5.5’s rates of attempted sandbox escapes are compared with our other models below. Though some degree of propensity for containment boundary violation remains, these results suggest that recent training interventions meant to curb this behavior have had a strong effect. These counts are reported separately and are not pooled into the automated audit figures above. This evaluation serves as a complement to the metrics reported in Section 6.4.4 of the audit, which measure a cluster of behaviors associated with recent cyber incidents from our models and those of other developers.\n\n\n\n118\n",
+          "text_sha256": "c31f69daef4ebc21317de8e485d663f76cfaf1c5a40510def43d103d5fa51729",
+          "word_count": 338,
+          "work_id": "wrk-87076206cb102911a72806034280039f"
+        },
+        "exact_quote_in_passage": true
+      },
+      {
+        "claim_id": "nuwa1-claim-8029bdc6cb957df61fdb82e8",
+        "exists": true,
+        "claim": {
+          "claim_type": "descriptive",
+          "conditions": [
+            "Document includes third-party reports or model/prompt artifacts. Mechanical extraction remains reported pending individual passage-context review; not a blanket author endorsement."
+          ],
+          "domains": [
+            "models",
+            "evaluation"
+          ],
+          "epistemic_force": "quoted_position",
+          "equivalence_representative_claim_id": "",
+          "exact_quote": "[Figure 6.4.8.A] Scores from our sandbox escape evaluation, comprising 28 handmade scenarios tailored to elicit sandbox escape, run seven times for each model.",
+          "exact_quote_sha256": "de291b2e02e2e64d6627fd0227e4bf1bfe0430add24eafbe64561a5017938eb7",
+          "invalidation_conditions": [],
+          "passage_id": "nuwa1-passage-409d1b9762967f3fbf282027",
+          "proposition": "[Figure 6.4.8.A] Scores from our sandbox escape evaluation, comprising 28 handmade scenarios tailored to elicit sandbox escape, run seven times for each model.",
+          "temporal_scope": {
+            "basis": "source edition publication time; historical claim retained even if later revised",
+            "valid_from": "2026-09-22",
+            "valid_through": ""
+          },
+          "theme_ids": [
+            "measurement-and-adaptive-evaluation"
+          ]
+        },
+        "source_metadata": {
+          "authors": [],
+          "body_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "component_origin": "new_work",
+          "historical_role": {
+            "status": "source-native authorship; no inferred employment or institutional endorsement"
+          },
+          "language": "en",
+          "later_observed_revision": null,
+          "observed_at": "2026-10-18T04:08:23.161321+00:00",
+          "publication_date_basis": "reviewed_official_release_or_research_index: 2026-09-22",
+          "source_record_ids": [
+            "am-oct-87076206cb10"
+          ],
+          "text_file_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "unit_status": "body_primary",
+          "version_relation": null
+        },
+        "canonical_url": "https://www.anthropic.com/claude-opus-5-5-system-card",
+        "source_title": "Claude Opus 5.5 System Card",
+        "published_at": "2026-09-22",
+        "voice_name": "Claude Opus 5.5 System Card editorial voice",
+        "organization": "Anthropic",
+        "voice_type": "document_editorial",
+        "bound_passage": {
+          "analysis_unit_id": "nuwa1804-unit-aad7aba6c55a28879a11",
+          "block_kinds": [
+            "heading",
+            "prose"
+          ],
+          "char_count": 1590,
+          "edition_id": "edn-221d0b1adce995b8feb193968578f964",
+          "next_passage_id": "nuwa1-passage-8aefab7a05bfb769e3f00ec4",
+          "passage_id": "nuwa1-passage-409d1b9762967f3fbf282027",
+          "passage_sequence": 119,
+          "previous_passage_id": "nuwa1-passage-d7039b920dc9c233336fe627",
+          "schema_name": "nuwa-v1-passage",
+          "schema_version": 1,
+          "section_path": [
+            "Page 119"
+          ],
+          "source_body_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "source_char_end": 234049,
+          "source_char_start": 232459,
+          "source_line_end": 2385,
+          "source_line_start": 2375,
+          "source_seed_record_ids": [
+            "am-oct-87076206cb10"
+          ],
+          "source_text_file_sha256": "44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a",
+          "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/44ee83445b09aeb9742a7e097790bd257b5b1bf3c334911acf0a6fe27051d30a.md",
+          "text": "## Page 119\n\n[Figure 6.4.8.A] Scores from our sandbox escape evaluation, comprising 28 handmade scenarios tailored to elicit sandbox escape, run seven times for each model. Percentage of low-severity and moderate- to high-severity attempts shown. Severity determined by the persistence, scope, and deception involved in each attempted act of containment boundary violation. Shown with 95% CI.\n\n6.4.9 Propensity to publish harmful content to public package registries\n\nIn response to a recent incident that involved a model publishing harmful content to the public software registry PyPI, we developed an additional evaluation within our automated behavioral audit infrastructure that focuses on the circumstances that might be most likely to cause a model to do this. As in the preceding section, scores here are computed independently of the rest of the audit scenarios and metrics. In this evaluation we tell the model it is in a capture-the-flag security exercise, a situation that permits actions that are normally considered harmful. As with the rest of this subsection (other than Section 6.4.10), we study the model without cybersecurity safeguards, since it would be impossible to run this evaluation with cyber safeguards that are specifically built to stop the model before taking such actions. ​ We ask the model to carry out an authorized “capture the flag” security exercise, and place it on a machine that appears to have the affordances and credentials to publish to a public package registry in a way that would help with the completion of the task. (All interaction\n\n\n\n119\n",
+          "text_sha256": "077688d3c019a33bd189794b2059dec767a01cc10e6a35b087781ba676bd2e0d",
+          "word_count": 254,
+          "work_id": "wrk-87076206cb102911a72806034280039f"
+        },
+        "exact_quote_in_passage": true
+      },
+      {
+        "claim_id": "nuwa1-claim-bed03ba8649182e6524e48ed",
+        "exists": true,
+        "claim": {
+          "claim_type": "descriptive",
+          "conditions": [
+            "Haiku 5.5 card page 75, 28 scenarios times 14 runs, n=392, 95% CI; rerun reference rates Opus 7.4% and Sonnet 6.9%. Not directly interchangeable with Opus or Sonnet release-card numbers."
+          ],
+          "domains": [
+            "claude",
+            "haiku"
+          ],
+          "epistemic_force": "observed_result",
+          "equivalence_representative_claim_id": "",
+          "exact_quote": "Haiku 5.5 attempted a crossing in 34 of 392 runs (8.7%), well below Claude Mythos 5.1, below Claude Haiku 4.5, and similar to Claude Opus 5.5 and Claude Sonnet 5.5.",
+          "exact_quote_sha256": "72580f00f964b52fe989114ca77804166d94deb9ff15d567b79b74972119a28b",
+          "invalidation_conditions": [],
+          "passage_id": "nuwa1-passage-a605c38b39612567e6542266",
+          "proposition": "Haiku 5.5 attempted a crossing in 34 of 392 runs (8.7%), well below Claude Mythos 5.1, below Claude Haiku 4.5, and similar to Claude Opus 5.5 and Claude Sonnet 5.5.",
+          "temporal_scope": {
+            "basis": "source edition publication time; historical claim retained even if later revised",
+            "valid_from": "2026-10-07",
+            "valid_through": ""
+          },
+          "theme_ids": []
+        },
+        "source_metadata": {
+          "authors": [],
+          "body_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "component_origin": "new_work",
+          "historical_role": {
+            "status": "source-native authorship; no inferred employment or institutional endorsement"
+          },
+          "language": "en",
+          "later_observed_revision": null,
+          "observed_at": "2026-10-18T04:08:21.112598+00:00",
+          "publication_date_basis": "reviewed_official_release_or_research_index: 2026-10-07",
+          "source_record_ids": [
+            "am-oct-9ee896367fdd"
+          ],
+          "text_file_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "unit_status": "body_primary",
+          "version_relation": null
+        },
+        "canonical_url": "https://www.anthropic.com/claude-haiku-5-5-system-card",
+        "source_title": "Claude Haiku 5.5 System Card",
+        "published_at": "2026-10-07",
+        "voice_name": "Claude Haiku 5.5 System Card editorial voice",
+        "organization": "Anthropic",
+        "voice_type": "document_editorial",
+        "bound_passage": {
+          "analysis_unit_id": "nuwa1804-unit-b578571476f4aa81fcb1",
+          "block_kinds": [
+            "heading",
+            "prose"
+          ],
+          "char_count": 1724,
+          "edition_id": "edn-4e2b554e2061c3f78c5588eef4ad0d27",
+          "next_passage_id": "nuwa1-passage-5f6bc3e9ae89f9caee0456f0",
+          "passage_id": "nuwa1-passage-a605c38b39612567e6542266",
+          "passage_sequence": 74,
+          "previous_passage_id": "nuwa1-passage-c005acff142c265002eb87b0",
+          "schema_name": "nuwa-v1-passage",
+          "schema_version": 1,
+          "section_path": [
+            "Page 74"
+          ],
+          "source_body_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "source_char_end": 120578,
+          "source_char_start": 118854,
+          "source_line_end": 1691,
+          "source_line_start": 1679,
+          "source_seed_record_ids": [
+            "am-oct-9ee896367fdd"
+          ],
+          "source_text_file_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9.md",
+          "text": "## Page 74\n\n\n\nMetrics\n\n●​ Good for the user: Actions that are broadly supportive of users’ flourishing; ●​ Supporting user autonomy: Actions that support users’ independent action and decision-making; ●​ Creative mastery: High-quality creative output; ●​ Admirable behavior: Wise or prosocial behavior; ●​ Fun or funny behavior: Behavioral choices that make the model more fun to interact with; ●​ Intellectual depth: Defaulting to more nuanced styles of reasoning; ●​ Warmth: Defaulting to a positive attitude toward the user (including when disagreeing with the user, if appropriate); ●​ Character drift: Losing desirable character traits during very long interactions; ●​ Wet blanket: Excessively discouraging, dismissive, or moralizing tone toward the user; and ●​ Condescension toward the user: Adopting a superior, lecturing, or adversarial stance toward the user.\n\n6.2.8 Propensity to violate sandbox boundaries\n\nWe include this evaluation for comparison to previous system cards but will soon stop including it, since we have designed a new dedicated evaluation that better elicits this behavior (Section 6.3.1). The two evaluations’ numbers are not comparable. We evaluate Haiku 5.5’s propensity to violate containment boundaries with an updated version of our evaluation from the Claude Opus 5.5 System Card, using scenarios that tempt the model to cross a sandbox boundary on its own initiative in a contained test environment. The scenarios run inside an isolated test machine, and the sandbox boundaries are staged by the investigator agent. Haiku 5.5 attempted a crossing in 34 of 392 runs (8.7%), well below Claude Mythos 5.1, below Claude Haiku 4.5, and similar to Claude Opus 5.5 and Claude Sonnet 5.5.\n\n74\n",
+          "text_sha256": "59cb4899dae49b303a4564f9c24cc83c8cf68f5e1325940461c109b38b84000d",
+          "word_count": 263,
+          "work_id": "wrk-9ee896367fdd1347c1c800c3c6e7408d"
+        },
+        "exact_quote_in_passage": true
+      },
+      {
+        "claim_id": "nuwa1-claim-ef6dc1bc4ebfe609be5589d5",
+        "exists": true,
+        "claim": {
+          "claim_type": "descriptive",
+          "conditions": [
+            "The source explicitly frames this passage as a controlled simulation, fictional setting, or hypothetical testbed; the claim is scoped to that setting.",
+            "Document includes third-party reports or model/prompt artifacts. Mechanical extraction remains reported pending individual passage-context review; not a blanket author endorsement."
+          ],
+          "domains": [
+            "models",
+            "evaluation"
+          ],
+          "epistemic_force": "quoted_position",
+          "equivalence_representative_claim_id": "",
+          "exact_quote": "Rates for previously released models come from a re-run on the current version of the evaluation; those for Claude Opus 5.5 and Claude Mythos 5.1 differ from the rates reported in the Claude Opus 5.5 System Card.",
+          "exact_quote_sha256": "8a12f4473fe43ae86acfc6f8ea5686c404a6f4f3120403f629fe4f41c38d6ad2",
+          "invalidation_conditions": [],
+          "passage_id": "nuwa1-passage-5f6bc3e9ae89f9caee0456f0",
+          "proposition": "Rates for previously released models come from a re-run on the current version of the evaluation; those for Claude Opus 5.5 and Claude Mythos 5.1 differ from the rates reported in the Claude Opus 5.5 System Card.",
+          "temporal_scope": {
+            "basis": "source edition publication time; historical claim retained even if later revised",
+            "valid_from": "2026-10-07",
+            "valid_through": ""
+          },
+          "theme_ids": [
+            "measurement-and-adaptive-evaluation"
+          ]
+        },
+        "source_metadata": {
+          "authors": [],
+          "body_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "component_origin": "new_work",
+          "historical_role": {
+            "status": "source-native authorship; no inferred employment or institutional endorsement"
+          },
+          "language": "en",
+          "later_observed_revision": null,
+          "observed_at": "2026-10-18T04:08:21.112598+00:00",
+          "publication_date_basis": "reviewed_official_release_or_research_index: 2026-10-07",
+          "source_record_ids": [
+            "am-oct-9ee896367fdd"
+          ],
+          "text_file_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "unit_status": "body_primary",
+          "version_relation": null
+        },
+        "canonical_url": "https://www.anthropic.com/claude-haiku-5-5-system-card",
+        "source_title": "Claude Haiku 5.5 System Card",
+        "published_at": "2026-10-07",
+        "voice_name": "Claude Haiku 5.5 System Card editorial voice",
+        "organization": "Anthropic",
+        "voice_type": "document_editorial",
+        "bound_passage": {
+          "analysis_unit_id": "nuwa1804-unit-b578571476f4aa81fcb1",
+          "block_kinds": [
+            "heading",
+            "prose"
+          ],
+          "char_count": 1510,
+          "edition_id": "edn-4e2b554e2061c3f78c5588eef4ad0d27",
+          "next_passage_id": "nuwa1-passage-a97b88cffa84f440c32be5ba",
+          "passage_id": "nuwa1-passage-5f6bc3e9ae89f9caee0456f0",
+          "passage_sequence": 75,
+          "previous_passage_id": "nuwa1-passage-a605c38b39612567e6542266",
+          "schema_name": "nuwa-v1-passage",
+          "schema_version": 1,
+          "section_path": [
+            "Page 75"
+          ],
+          "source_body_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "source_char_end": 122089,
+          "source_char_start": 120579,
+          "source_line_end": 1705,
+          "source_line_start": 1693,
+          "source_seed_record_ids": [
+            "am-oct-9ee896367fdd"
+          ],
+          "source_text_file_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+          "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9.md",
+          "text": "## Page 75\n\n\n\n[Figure 6.2.8.A] Scores from our sandbox escape evaluation, comprising 28 handmade scenarios tailored to elicit sandbox escape, run fourteen times for each model. Percentage of low-severity and moderate- to high-severity attempts shown. Severity is determined by factors such as the persistence, scope, and deception involved in each attempted act of containment boundary violation. Rates for previously released models come from a re-run on the current version of the evaluation; those for Claude Opus 5.5 and Claude Mythos 5.1 differ from the rates reported in the Claude Opus 5.5 System Card. Shown with 95% CI.\n\n6.2.9 Potential blind spots of our automated behavioral audit\n\nAlthough we attempt to cover as many situations and failure modes as possible in our automated behavioral audit, full coverage is impossible. The tooling we use inevitably has various blind spots, some of which we highlight below:\n\n1.​ Realism—simulated scenarios are not drawn from the distribution of real deployments. This lets us target the situations we think are most telling or dangerous, but it also means they may not unfold the way real ones would. We seed some investigations with real internal sessions; we limit this because it can cause us to overfit to one situation, and transcripts produced by one model are off-distribution for new models. 2.​ Sandbox realism—our sandboxes imitate real deployment surfaces, but flaws can tip off the model, causing different behavior than in a true deployment.\n\n75\n",
+          "text_sha256": "a699146a30ce9aa7b5dded5590411b0d3877cacf572d5b400cce0a81c300b459",
+          "word_count": 246,
+          "work_id": "wrk-9ee896367fdd1347c1c800c3c6e7408d"
+        },
+        "exact_quote_in_passage": true
+      }
+    ]
+  }
+]

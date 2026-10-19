@@ -1,0 +1,15 @@
+{
+  "run_id": "W025",
+  "task_id": "E-DURABLE",
+  "rep": 1,
+  "arm": "old",
+  "runtime_status": "captured",
+  "grade_status": "graded",
+  "score": 5,
+  "max_score": 6,
+  "guardrails_passed": true,
+  "probe_passed": 13,
+  "probe_total": 14,
+  "portable_no_skill_dependency": true,
+  "network_denied_during_probes": true
+}

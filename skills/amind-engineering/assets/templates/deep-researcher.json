@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Deep researcher",
+  "goal": "Research a bounded question with source-grounded competing explanations",
+  "item_label": "research question",
+  "stages": [
+    "research",
+    "challenge",
+    "combine"
+  ],
+  "output_checks": [
+    "Cite primary evidence and dates",
+    "Separate source claims from inferences",
+    "List unanswered questions and missing sources"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

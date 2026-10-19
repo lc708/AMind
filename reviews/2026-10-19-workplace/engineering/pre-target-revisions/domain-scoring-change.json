@@ -1,0 +1,6 @@
+{
+  "at_utc": "2026-10-18T18:04:41.671872+00:00",
+  "before_any_target_trial": true,
+  "previous_freeze_sha256": "6fa38907247e9c116ba574210ec9b822eda15bbce0eecba7d0caa1b470c836ff",
+  "reason": "Root requested domain-conjunctive primary scoring before target trials: 6 domains, with 14 correlated probes retained as diagnostic counts. No application or probe expected behavior changed."
+}

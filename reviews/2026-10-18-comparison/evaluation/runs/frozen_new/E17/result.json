@@ -1,0 +1,50 @@
+{
+  "id": "E17",
+  "name": "served-tier-substitution",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Pinned standard tier, served flex at same model: zero scores, serving_substitution, retained USD.02; old billing scope pin absent unsupported.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E17",
+  "observed": {
+    "run": {
+      "status": "incomplete",
+      "completed_cases": 0,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "errors": [
+      {
+        "app_cost_usd": 0.02,
+        "attempt_id": 1,
+        "billing_identity": {
+          "interface": "responses",
+          "model": "same-model",
+          "provider": "fixture",
+          "region": "global",
+          "service_tier": "flex"
+        },
+        "cost_usd": 0.02,
+        "error": "served billing scope is absent or differs from endpoint/model/tier/region pin",
+        "event": "finished",
+        "judge_billing_identity": null,
+        "judge_cost_usd": 0.0,
+        "judge_model": null,
+        "judge_usage": null,
+        "known_cost_usd": 0.02,
+        "latency_s": 0.066271417,
+        "model": "same-model",
+        "prompt_id": "a",
+        "rep": 0,
+        "retryable": false,
+        "stage": "application",
+        "status": "serving_substitution",
+        "time": 1792300585.4879858,
+        "usage": null
+      }
+    ]
+  }
+}

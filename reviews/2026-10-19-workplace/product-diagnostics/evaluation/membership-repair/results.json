@@ -1,0 +1,452 @@
+{
+  "scope": "Post-diagnostic product validation; actual public CLIs, no target model evidence",
+  "first_patch_report_sha256_verified": "def2acf57a2b7caa294405f4002ebc11d6d38a0e580098d79afeefec3c468c38",
+  "results": [
+    {
+      "scene": "healthy",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "healthy",
+      "implementation": "membership-fix",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "unique-training-result",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 3,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 3
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.018694708999999997,
+          "latency_p95_s": 0.0277756334,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 3,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "unique-training-result",
+      "implementation": "membership-fix",
+      "returncode": 2,
+      "report": null,
+      "error": "baseline: result outside bound selected split/repetition population"
+    },
+    {
+      "scene": "out-of-range-result",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "out-of-range-result",
+      "implementation": "membership-fix",
+      "returncode": 2,
+      "report": null,
+      "error": "baseline: result outside bound selected split/repetition population"
+    },
+    {
+      "scene": "foreign-journal",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 3,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.9400000000000001,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.9400000000000001,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "foreign-journal",
+      "implementation": "membership-fix",
+      "returncode": 2,
+      "report": null,
+      "error": "baseline: attempt outside bound selected split/repetition population"
+    },
+    {
+      "scene": "out-of-range-journal",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "out-of-range-journal",
+      "implementation": "membership-fix",
+      "returncode": 2,
+      "report": null,
+      "error": "baseline: attempt outside bound selected split/repetition population"
+    },
+    {
+      "scene": "boolean-journal-rep",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "boolean-journal-rep",
+      "implementation": "membership-fix",
+      "returncode": 2,
+      "report": null,
+      "error": "baseline: attempt outside bound selected split/repetition population"
+    },
+    {
+      "scene": "legitimate-partial",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "incomplete",
+          "scored_observations": 1,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 1
+            }
+          },
+          "failed_attempts": 1,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.03,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.03,
+          "latency_p50_s": 0.028784625,
+          "latency_p95_s": 0.028784625,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 1,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "legitimate-partial",
+      "implementation": "membership-fix",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "incomplete",
+          "scored_observations": 1,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 1
+            }
+          },
+          "failed_attempts": 1,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.03,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.03,
+          "latency_p50_s": 0.028784625,
+          "latency_p95_s": 0.028784625,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 1,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "legacy",
+      "implementation": "first-patch",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "unknown",
+          "status": "unknown",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "unverified: missing v2 experiment identity",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "scene": "legacy",
+      "implementation": "membership-fix",
+      "returncode": 0,
+      "report": [
+        {
+          "variant": "baseline",
+          "split": "unknown",
+          "status": "unknown",
+          "scored_observations": 2,
+          "planned_observations": 2,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 2
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 2,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.04,
+          "latency_p50_s": 0.023739667,
+          "latency_p95_s": 0.0282801292,
+          "integrity": "unverified: missing v2 experiment identity",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 2,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "source_sha256": {
+    "skills/eval-improve/scripts/report_eval.py": "dd98dafcff4c560869e0b7f53bdb5a326983aec9d006c316031ad637a6b50302",
+    "scripts/test_amind_eval_reporting.py": "be6523004fdbacd33ee963d467fedf4fee2c7d204e6657f5b1ae3675e1725363"
+  }
+}

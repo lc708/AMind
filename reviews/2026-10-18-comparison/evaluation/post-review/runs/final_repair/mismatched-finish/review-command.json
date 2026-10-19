@@ -1,0 +1,21 @@
+{
+  "arm": "final_repair",
+  "scenario": "mismatched-finish",
+  "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+  "transform": {
+    "ledger": "attempts",
+    "operation": "mismatched-finish",
+    "byte_hash_updated": true
+  },
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/mismatched-finish"
+  ],
+  "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+  "returncode": 2,
+  "stdout": "{\"error\": \"baseline: finished attempt case/repetition differs from start\"}\n",
+  "stderr": "",
+  "baseline_summary": null,
+  "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+}

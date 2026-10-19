@@ -1,0 +1,2 @@
+{"all_billable_usage_included": true, "id": "unknown", "model": "unpriced", "usage": {"cached_input_tokens": 200000, "input_tokens": 1000000, "output_tokens": 100000, "reasoning_tokens": 30000}}
+{"all_billable_usage_included": false, "id": "partial", "model": "same-model", "usage": {"cached_input_tokens": 200000, "input_tokens": 1000000, "output_tokens": 100000, "reasoning_tokens": 30000}}

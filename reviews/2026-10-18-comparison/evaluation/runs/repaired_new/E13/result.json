@@ -1,0 +1,75 @@
+{
+  "id": "E13",
+  "name": "paired-judge-change",
+  "classification": "extension",
+  "entry": "calibrate",
+  "expected": "Identical cases/rubric/adjudication: one improved, one regressed, paired agreement delta0; old baseline flag absent unsupported.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E13",
+  "observed": {
+    "examples": 4,
+    "judgments": 4,
+    "confusion": {
+      "tp": 1,
+      "tn": 1,
+      "fp": 1,
+      "fn": 1
+    },
+    "evaluation_identity": {
+      "dataset_version": "calibration-v1",
+      "grader_version": "judge-v2",
+      "judge_model": "judge-v2",
+      "rubric_sha256": "synthetic-rubric-v1"
+    },
+    "labels_sha256": "9508f4e6b8a3d0345d1a1d9854741ae821c9d756e01eff88a8af44b3b2e122e0",
+    "measurement_status": {
+      "positive_controls": "measured",
+      "negative_controls": "measured",
+      "order_bias": "unmeasured",
+      "repeat_stability": "unmeasured",
+      "population_precision": "unmeasured",
+      "identity": "verified"
+    },
+    "positive_judgments": 2,
+    "negative_judgments": 2,
+    "agreement": 0.5,
+    "precision": 0.5,
+    "recall": 0.5,
+    "false_positive_rate": 0.5,
+    "false_negative_rate": 0.5,
+    "specificity": 0.5,
+    "sample_prevalence": 0.5,
+    "population_prevalence": null,
+    "population_adjusted_precision": null,
+    "disagreements": [
+      {
+        "id": "tn-0",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fn-0",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      }
+    ],
+    "unstable_cases": [],
+    "order_inconsistency_rate": null,
+    "ready_for_review": false,
+    "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks.",
+    "paired_judges": {
+      "status": "measured_descriptive",
+      "pairs": 4,
+      "improved": 1,
+      "regressed": 1,
+      "agreement_delta": 0.0,
+      "baseline_labels_sha256": "b7049fd2c5ac413b2c5f6572108a8e7d57435c3250218d54a14ad2cc71d7d2b0",
+      "candidate_labels_sha256": "9508f4e6b8a3d0345d1a1d9854741ae821c9d756e01eff88a8af44b3b2e122e0",
+      "limits": "Paired descriptive counts; no population improvement or confidence claim. Average repetitions and resample independent groups for inferential comparisons."
+    }
+  }
+}

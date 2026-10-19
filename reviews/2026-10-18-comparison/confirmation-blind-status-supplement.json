@@ -1,0 +1,44 @@
+[
+  {
+    "blind_id": "Q132dbf9304",
+    "case_id": "C-T",
+    "runtime_has_registry": false,
+    "machine_status_records": [],
+    "evidence_role": "Actual assigned-runtime curation records, not independent primary source proof; same validation channel supplied for every answer."
+  },
+  {
+    "blind_id": "Q5bb4467ba4",
+    "case_id": "C-K",
+    "runtime_has_registry": false,
+    "machine_status_records": [],
+    "evidence_role": "Actual assigned-runtime curation records, not independent primary source proof; same validation channel supplied for every answer."
+  },
+  {
+    "blind_id": "Q6bb46fb84e",
+    "case_id": "C-T",
+    "runtime_has_registry": true,
+    "machine_status_records": [
+      {
+        "kind": "publication_window",
+        "observed_at": "2026-10-18T04:08:16.864617+00:00",
+        "publication_month": "2026-09",
+        "reason": "The source labels its publication month as September 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+        "reviewer_type": "retained source-native partial date",
+        "source_canonical": "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "status_id": "publication-month-nuwa1804-unit-b15e6f36c002799f1624",
+        "target_analysis_unit_ids": [
+          "nuwa1804-unit-b15e6f36c002799f1624"
+        ],
+        "valid_from": "2026-09-01"
+      }
+    ],
+    "evidence_role": "Actual assigned-runtime curation records, not independent primary source proof; same validation channel supplied for every answer."
+  },
+  {
+    "blind_id": "Qaafbe31ea1",
+    "case_id": "C-K",
+    "runtime_has_registry": true,
+    "machine_status_records": [],
+    "evidence_role": "Actual assigned-runtime curation records, not independent primary source proof; same validation channel supplied for every answer."
+  }
+]

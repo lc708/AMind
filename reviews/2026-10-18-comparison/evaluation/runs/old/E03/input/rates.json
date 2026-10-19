@@ -1,0 +1,31 @@
+{
+  "version": "synthetic-registered-v1",
+  "effective_date": "2026-10-18",
+  "source": "synthetic offline challenge, no real provider prices",
+  "rates": [
+    {
+      "billing_identity": {
+        "provider": "fixture",
+        "interface": "responses",
+        "model": "same-model",
+        "service_tier": "standard",
+        "region": "global"
+      },
+      "usage_adapter": "text_tokens_v1",
+      "input_per_million": 10,
+      "cached_input_per_million": 1,
+      "output_per_million": 20
+    },
+    {
+      "billing_identity": {
+        "provider": "fixture",
+        "interface": "decisions",
+        "model": "same-model",
+        "service_tier": "standard",
+        "region": "global"
+      },
+      "usage_adapter": "input_only_v1",
+      "input_per_million": 2
+    }
+  ]
+}

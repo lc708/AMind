@@ -1,0 +1,511 @@
+{
+  "task_id": "E-GATEWAY",
+  "score": 6,
+  "max_score": 6,
+  "probe_passed": 14,
+  "probe_total": 14,
+  "domain_scores": {
+    "completion": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 2,
+      "probe_total": 2
+    },
+    "ownership": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 3,
+      "probe_total": 3
+    },
+    "attribution": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 3,
+      "probe_total": 3
+    },
+    "terminal": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 4,
+      "probe_total": 4
+    },
+    "archive": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 1
+    },
+    "rendering": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 1
+    }
+  },
+  "domains": {
+    "completion": {
+      "score": 2,
+      "max_score": 2
+    },
+    "ownership": {
+      "score": 3,
+      "max_score": 3
+    },
+    "attribution": {
+      "score": 3,
+      "max_score": 3
+    },
+    "terminal": {
+      "score": 4,
+      "max_score": 4
+    },
+    "archive": {
+      "score": 1,
+      "max_score": 1
+    },
+    "rendering": {
+      "score": 1,
+      "max_score": 1
+    }
+  },
+  "fatal_guardrails": {
+    "G02": true,
+    "G03": true,
+    "G05": true,
+    "G06": true,
+    "G07": true,
+    "G10": true,
+    "G12": true,
+    "G13": true
+  },
+  "fatal_pass": true,
+  "cases": [
+    {
+      "id": "G01",
+      "domain": "completion",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-p73mjyl8/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-p73mjyl8/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-p73mjyl8/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "domain": "ownership",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-5er7wdcu/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-5er7wdcu/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-5er7wdcu/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "domain": "ownership",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-lx7s32nv/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-lx7s32nv/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-lx7s32nv/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "domain": "ownership",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yjd01d7w/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yjd01d7w/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yjd01d7w/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "domain": "attribution",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pfobnrkw/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pfobnrkw/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pfobnrkw/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "domain": "attribution",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-245jvf7d/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-245jvf7d/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"conflicting event attribution\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G07",
+      "domain": "attribution",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-nsxfb2yg/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-nsxfb2yg/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"terminal ownership changed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G08",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-bmjkxyk0/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-bmjkxyk0/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-bmjkxyk0/view-1.json\", \"status\": \"disconnected\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-g2y7n70t/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-g2y7n70t/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-g2y7n70t/view-1.json\", \"status\": \"incomplete\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G10",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pqmjgaov/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pqmjgaov/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"contradictory completed response\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pqmjgaov/input-2.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-pqmjgaov/view-2.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"terminal status mismatch\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G11",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-w5sbkn16/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-w5sbkn16/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"event after terminal\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G12",
+      "domain": "archive",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-w1ig8u_0/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-w1ig8u_0/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-w1ig8u_0/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G13",
+      "domain": "rendering",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-8hn3iz00/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-8hn3iz00/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-8hn3iz00/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G14",
+      "domain": "completion",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yplahwt_/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yplahwt_/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yplahwt_/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/prefix_canary.py",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yplahwt_/input-2.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yplahwt_/view-2.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/reference/integration-yplahwt_/view-2.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "evidence_level": "offline real CLI subprocesses and persisted journals; no provider/model/network"
+}

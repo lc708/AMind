@@ -1,0 +1,85 @@
+{
+  "released_after_blind_grades": true,
+  "mapping": {
+    "Ba93ecc74": {
+      "run_id": "R01",
+      "arm": "old",
+      "case_id": "K1"
+    },
+    "Bbda098a9": {
+      "run_id": "R02",
+      "arm": "new",
+      "case_id": "K1"
+    },
+    "B9537d0d7": {
+      "run_id": "R03",
+      "arm": "old",
+      "case_id": "K2"
+    },
+    "B25021be3": {
+      "run_id": "R04",
+      "arm": "new",
+      "case_id": "K2"
+    },
+    "Bddc6cb2f": {
+      "run_id": "R05",
+      "arm": "old",
+      "case_id": "T1"
+    },
+    "B2c3387de": {
+      "run_id": "R06",
+      "arm": "new",
+      "case_id": "T1"
+    },
+    "B5b470df0": {
+      "run_id": "R07",
+      "arm": "old",
+      "case_id": "T2"
+    },
+    "B4bc67167": {
+      "run_id": "R08",
+      "arm": "new",
+      "case_id": "T2"
+    },
+    "Bc986b185": {
+      "run_id": "R13",
+      "arm": "new",
+      "case_id": "V1"
+    },
+    "B07d80947": {
+      "run_id": "R14",
+      "arm": "old",
+      "case_id": "V1"
+    },
+    "Be0449943": {
+      "run_id": "R15",
+      "arm": "old",
+      "case_id": "V2"
+    },
+    "Bd30e1847": {
+      "run_id": "R16",
+      "arm": "new",
+      "case_id": "V2"
+    },
+    "Qaafbe31ea1": {
+      "run_id": "R17",
+      "arm": "repaired",
+      "case_id": "C-K"
+    },
+    "Q5bb4467ba4": {
+      "run_id": "R18",
+      "arm": "old",
+      "case_id": "C-K"
+    },
+    "Q132dbf9304": {
+      "run_id": "R19",
+      "arm": "old",
+      "case_id": "C-T"
+    },
+    "Q6bb46fb84e": {
+      "run_id": "R20",
+      "arm": "repaired",
+      "case_id": "C-T"
+    }
+  }
+}

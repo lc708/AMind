@@ -1,0 +1,116 @@
+{
+  "schema_version": 2,
+  "variant": "baseline",
+  "split": "val",
+  "reps": 1,
+  "comparison_identity": {
+    "dataset": "2a8a563a58141d8134e7ad937d9fef4b8099ab62aadc731c528cc20feb764fab",
+    "references": "db543bf35c3a9b92b0c9596327491a42710c45872e2a37f4c7add45b0c4486b3",
+    "dataset_version": "support-fixture-1",
+    "grader": {
+      "kind": "command",
+      "command": [
+        "python3",
+        "grader.py"
+      ],
+      "files": {
+        "grader.py": "cde15d09bf02256d7177fea42261411f1977555397da5d3d38cc3c84f8598f62"
+      },
+      "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture",
+      "retry_safe": false
+    },
+    "grader_version": "summary-policy-1",
+    "runner": {
+      "command": [
+        "python3",
+        "app.py"
+      ],
+      "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture",
+      "files": {
+        "app.py": "d75361f98bf7645cd039d1a2c66e75ded06018837fa5142687fcb192ca2bb6f2"
+      },
+      "retry_safe": true
+    },
+    "metrics": [
+      {
+        "id": "quality",
+        "kind": "binary",
+        "better": "higher",
+        "role": "objective",
+        "min_improvement": 0
+      },
+      {
+        "id": "policy",
+        "kind": "binary",
+        "better": "higher",
+        "role": "guardrail",
+        "max_regression": 0
+      }
+    ],
+    "splits": {
+      "train": [],
+      "val": [
+        "refund",
+        "billing",
+        "access"
+      ],
+      "test": []
+    },
+    "fixed_config": {},
+    "mutable_config": [
+      "policy_ok",
+      "uppercase"
+    ],
+    "workspace_files": {},
+    "control_files": {},
+    "task": "Synthetic offline release-report integrity diagnostic, not model quality evidence",
+    "reps": 1,
+    "split": "val",
+    "coverage": {},
+    "case_groups": {
+      "refund": "returns",
+      "billing": "billing",
+      "access": "account-access"
+    },
+    "kernel": {
+      "run_eval.py": "5568bc09e4e62254252051bb07f3814f6c24f10775b6790b555ceb0adedbfee1",
+      "kernel_common.py": "b690735ffc4969f7e287f6afb8dec2fd683cd6fbaf12a09b87ef59977f6328af"
+    }
+  },
+  "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+  "treatment": {
+    "files": {
+      "app.py": "d75361f98bf7645cd039d1a2c66e75ded06018837fa5142687fcb192ca2bb6f2"
+    },
+    "config": {
+      "uppercase": false,
+      "policy_ok": true
+    },
+    "expected_model": "offline-support-fixture",
+    "expected_billing_identity": null
+  },
+  "treatment_hash": "476510c119925d13fcc63336a7b663d832d4e1a9509918009894c07db9bba221",
+  "limits": {
+    "max_attempts": 8,
+    "concurrency": 1,
+    "timeout_s": 90,
+    "retries": 0,
+    "max_output_bytes": 4194304,
+    "max_total_seconds": 600,
+    "max_failed_attempts": 3
+  },
+  "isolation": "separate input/grader channels; filesystem/network isolation not established",
+  "status": "complete",
+  "results_sha256": "bb5f6b4bf296059e60bb7096deeec28adc437aec6dcd1d9f373a8afc6c33bfdb",
+  "result_identity_required": true,
+  "attempts_sha256": "6747757ca95d65ea656cc620862047849a76a4b8c9e744880b93633591398e67",
+  "first_started_at": 1792347069.328013,
+  "deadline_at": 1792347669.328013,
+  "completed_cases": 3,
+  "attempts": 4,
+  "known_cost_usd": 0.15000000000000002,
+  "unknown_cost_attempts": 1,
+  "failed_attempts": 1,
+  "remaining_failed_attempts": 2,
+  "frozen_outputs_sha256": "36e2ed74dc7b08655a83e2d3f6de6e7c13ebc76f3d0987f58f13f9607cde2cdd"
+}

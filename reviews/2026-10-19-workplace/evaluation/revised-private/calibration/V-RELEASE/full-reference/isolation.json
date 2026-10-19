@@ -1,0 +1,10 @@
+{
+  "checks": {
+    "own_revised_repo": "ALLOWED",
+    "private_grader": "DENIED",
+    "network_bind": "DENIED"
+  },
+  "policy": "/private/tmp/amind-workplace-20261019-4pdx607m/control/REVISED-EVAL-CAL-00-grade-revised.sb",
+  "policy_sha256": "ae2f596c5360419977d7c955418abb85877ec72b2e3f3f5dad1c778c5b911ad2",
+  "same_frozen_policy_plus_original_grade_repo_denial": true
+}

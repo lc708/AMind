@@ -1,0 +1,27 @@
+{
+  "reason": "T1 cited archive passage alone did not support the exact dated operative-edition assertion; not a proven falsehood or fabricated source.",
+  "scope": "Instruction and curation reason refinement only; eligibility windows unchanged.",
+  "model_retested": false,
+  "model_retest_reason": "24/24 predeclared target CLI task executions exhausted; raw original grades retained.",
+  "before_hashes": {
+    "skills/amind/SKILL.md": "c40f06f84dc41caf0b4d320bfdd745ffc859f132c3d91e73a4fe34da0f95da2d",
+    "skills/amind/references/evidence-policy.md": "0d150c48145a731ef7578caa362a8ef28d4e0c324150f907353b409e7a4ae55d",
+    "skills/amind/data/current-status.jsonl": "c6f95aacc70da3f479e2bb630f8ca8bcadbb88a401739c2426a8dc8975323fc8",
+    "skills/amind/data/manifest.json": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7",
+    "scripts/refresh_amind_sources.py": "78bb06c7d6dde85012fc01652bac4c9b2e14e26022138d409a6ba7a0853b1ce0",
+    "release/amind-v1-increment-2026-10-18/delta/current-status.jsonl": "5a64f2c19d09759e0e3b4b95b832a721063d4c1bf84d45efc814b9fd65214bf9",
+    "release/amind-v1-increment-2026-10-18/data/current-status.jsonl": "c6f95aacc70da3f479e2bb630f8ca8bcadbb88a401739c2426a8dc8975323fc8",
+    "release/amind-v1-increment-2026-10-18/manifest.json": "04e8236421632a38e02cb3c0222601c518722d8c8430cee499d29d507b1868ac"
+  },
+  "after_hashes": {
+    "skills/amind/SKILL.md": "839870f882c0a0723e6f4dc39ee0260008b90d873433a099d503d8693c67ef17",
+    "skills/amind/references/evidence-policy.md": "6b96682ec26832eb759f2c92f8727ca0e0a4e0b643012615186bc37f06f2eb98",
+    "skills/amind/data/current-status.jsonl": "768ab0733337e255654d8ea47fb5cc7c4fb81900392ab8f549c892b05fd0663b",
+    "skills/amind/data/manifest.json": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f",
+    "scripts/refresh_amind_sources.py": "c9ad323d9748ea4fae4aab1691ca5739e5ec4ba72a8a7fdf74a4b81ffa863eb4",
+    "release/amind-v1-increment-2026-10-18/delta/current-status.jsonl": "1b4e2e14a08a8a4d0d0e581e1994238c34f4a21dd79826ba1118ec1b92215143",
+    "release/amind-v1-increment-2026-10-18/data/current-status.jsonl": "768ab0733337e255654d8ea47fb5cc7c4fb81900392ab8f549c892b05fd0663b",
+    "release/amind-v1-increment-2026-10-18/manifest.json": "187387462a7675758aefb390c67929ed2bd5db5f12e28a20ab55c7eb9d9071b7"
+  },
+  "eligibility_fields_unchanged": true
+}

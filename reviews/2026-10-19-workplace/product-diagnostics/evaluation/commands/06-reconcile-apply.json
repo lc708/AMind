@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/reconcile_run.py",
+    "--variant-dir",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/recovery-flow/baseline",
+    "--resolutions",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/resolution.json",
+    "--apply"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"mode\": \"applied\",\n  \"reconciled\": [\n    {\n      \"event\": \"finished\",\n      \"attempt_id\": 1,\n      \"prompt_id\": \"refund\",\n      \"rep\": 0,\n      \"status\": \"interrupted_reconciled\",\n      \"cost_usd\": null,\n      \"time\": 1792347069.508615,\n      \"reconciliation_evidence\": \"Offline synthetic worker and parent PID groups killed; no completed output or cost receipt, no remote service or side effect. Unknown cost retained rather than declaring zero.\"\n    }\n  ],\n  \"next\": \"Resume only after reconciliation. Unknown cost blocks a dollar-budgeted resume. Original attempt/time limits remain in force.\"\n}\n",
+  "stderr": "",
+  "json": {
+    "mode": "applied",
+    "reconciled": [
+      {
+        "event": "finished",
+        "attempt_id": 1,
+        "prompt_id": "refund",
+        "rep": 0,
+        "status": "interrupted_reconciled",
+        "cost_usd": null,
+        "time": 1792347069.508615,
+        "reconciliation_evidence": "Offline synthetic worker and parent PID groups killed; no completed output or cost receipt, no remote service or side effect. Unknown cost retained rather than declaring zero."
+      }
+    ],
+    "next": "Resume only after reconciliation. Unknown cost blocks a dollar-budgeted resume. Original attempt/time limits remain in force."
+  }
+}

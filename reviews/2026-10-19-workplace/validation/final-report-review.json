@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "pass_with_stated_scope_limits",
+  "report_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/report.zh-CN.md",
+  "report_sha256": "648bafd3d7558874b6c935fce299cf86c2b359b66669cdaf9594a7c85c034143",
+  "review_type": "Read-only final-report consistency review",
+  "summary_zh_CN": "未发现阻断性数字矛盾或超出已披露方法边界的主要结论。主协议MCP偏差、后验测量修正、full相对docs未建立增量收益、重复/独立任务及执行/API分母均已清楚区分。",
+  "blocking_findings": [],
+  "nonblocking_findings": [],
+  "checks": [
+    {
+      "id": "main_application_results",
+      "status": "pass",
+      "finding": "报告原分/修订分与已审查的24份主应用结果一致；DURABLE修订后持平，两个Eval题原/修订评分均持平，GATEWAY仅旧W028失1分。"
+    },
+    {
+      "id": "citation_results_and_review_disagreement",
+      "status": "pass",
+      "finding": "政策before [2,2,2]、docs [5,5,4]、full [5,5,5]及主终点一致；研究主评全5，已披露W015 L4复核分歧、6答案30项中的29项一致及W039位置缺陷。"
+    },
+    {
+      "id": "mcp_protocol_deviation",
+      "status": "pass",
+      "finding": "报告明确主42工具目录均不符合预期禁用；3次共31个Node调用，39次仅未观察到使用，24次应用未见MCP；canary失败不证明严格隔离或越界。"
+    },
+    {
+      "id": "docs_vs_full_increment",
+      "status": "pass",
+      "finding": "报告明确策展理由的独立增量收益未建立；后验排除3次后的docs/full均剩5,5，补充docs单次5分仅作复用确认。"
+    },
+    {
+      "id": "repair_engineering",
+      "status": "pass",
+      "finding": "3份修复E-DURABLE均6/6、14/14、guardrail通过；历史current亦全6，报告限定为同题无观察到回归/额外收益。",
+      "independent_tasks": 1,
+      "repetitions": 3
+    },
+    {
+      "id": "transport_confirmation",
+      "status": "pass",
+      "finding": "3份引用确认均5/5、主终点3/3，原18份保留，未称新holdout或替换。"
+    },
+    {
+      "id": "repair_runtime",
+      "status": "pass",
+      "finding": "6/6 captured、实际MCP调用0、source/tests unchanged与运行receipt一致。"
+    },
+    {
+      "id": "distinct_check_accounting",
+      "status": "pass",
+      "finding": "八类26+67+42+24+23+8+20+9=219，应用159+知识60=219；报告明确重复执行及评分控制不加总。此处核对计数口径与既有清单摘要，未重新执行/逐项去重所有测试。"
+    },
+    {
+      "id": "target_execution_and_usage_denominators",
+      "status": "pass",
+      "finding": "42主轮+6补充=48任务CLI执行；报告显式区分供应端API请求数与审阅agent消耗。4项主轮+补充token合计均准确；缓存及推理保持子集口径，美元未知。",
+      "native_usage_all_48": {
+        "input_tokens": 19303200,
+        "cached_input_tokens": 16960896,
+        "output_tokens": 654896,
+        "reasoning_output_tokens": 198123
+      }
+    },
+    {
+      "id": "fingerprint_arithmetic",
+      "status": "pass",
+      "finding": "报告4221主轮+179补充=4400的算术与补充指纹receipt一致；本次未重新打开4400文件。"
+    },
+    {
+      "id": "installation_and_cleanup",
+      "status": "pass",
+      "finding": "安装receipt记录Knowledge不替换、Engineering/Eval替换并备份；97项post-smoke库存与source库存及selected-repair精确一致；本地smokes全部returncode0、provider/network0。两自建profile内容匹配后删除、base配置/凭证未改与清理receipt一致。"
+    }
+  ],
+  "scope_limits": [
+    "这是文件与结论一致性审查，未重跑目标模型、评分器、全部产品测试或安装smoke。",
+    "安装、清理、文件保全和控制执行按给定receipt核对；未重新读取安装目录、凭证或全部历史/捕获文件。",
+    "按任务指令不审查尚待生成的sync/final.json字段；该同步及hash guard由root后续完成。",
+    "报告引用的未列入本次授权清单的原始文件，仅按前轮审核与当前receipt核对，不声称本轮独立逐文件再验证。"
+  ],
+  "inputs_sha256": {
+    "report.zh-CN.md": "648bafd3d7558874b6c935fce299cf86c2b359b66669cdaf9594a7c85c034143",
+    "main-plan-application-scores.json": "34a3216ce203314aa27e8ea2c6b0809e93f3a70528624a13e0246c3e481c0f82",
+    "main-plan-engineering-scores-revised.json": "8ef79258fb46d96bb21637d112b0765e1e7463693bd9c5c9761df835eb834f4b",
+    "main-plan-evaluation-scores-revised.json": "93071defa145fb4fce0b5798d1c726a8cd5951860ce60af50c3055b02010854b",
+    "citation/actual-results.json": "65a3c286a7b41ea2eb8959fadd087b0f4f508f5f8e5e4fa17148b35a83b47eed",
+    "native-mcp-call-audit.json": "e56656959218dc8ee5993e78977c90c84ab7a7c0d221e5997a01c6446cd3e10e",
+    "runtime-correction.json": "97d441cc006bbb20d584c59b1f5987094c33d229cad42c88edd15f8c706cd898",
+    "runtime-mcp-canary.json": "e0a788c3f0bce33fbefec296ec691a785e0857d9acfdfc3a8e21cf3fcb992c4b",
+    "repair-phase-protocol.json": "fd609bc9760a24b1c32fcc820fbc16bf0a0e077c5d15aa90fdd0e82d316891d9",
+    "citation/transport-confirmation-results.json": "47c055ddfb002773f3ccd6a421e113c6d72ad2df06f0ddb92115e1e2e408fdb4",
+    "repair-plan-engineering-scores-revised.json": "11a5944249ddb3f78bff62c74976d6123440bee311c8819c3c2988002941d13e",
+    "validation/repair-runtime.json": "727070df53080b663e1dd6ed422442a8b520fe48d39a80bf9cc851e2ebd2aa56",
+    "validation/installation.json": "dd2fcbf18f844f0f73020f6730f30857b144d8fb0207b1fd619198c86595e4b0",
+    "validation/profile-cleanup.json": "46f2c25a5adcde75d945d8ee867bfb4d7c0f06f57ba5ae9b4e109fea8b5789b0",
+    "product-diagnostics/selected-repair.json": "b61e67bafd1055a9a22390c6b680d90b507bd0523ee3d02c83aef2f822e9712b"
+  },
+  "mutations": {
+    "only_written": "validation/final-report-review.json",
+    "report_or_product_or_scoring_modified": false
+  },
+  "target_or_provider_api_calls": 0,
+  "network_calls": 0
+}

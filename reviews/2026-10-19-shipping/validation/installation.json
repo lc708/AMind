@@ -1,0 +1,50 @@
+{
+  "mode": "apply",
+  "skills": [
+    {
+      "name": "amind",
+      "action": "replace",
+      "destination": "/Users/damonalbarn/.codex/skills/amind"
+    },
+    {
+      "name": "amind-engineering",
+      "action": "unchanged",
+      "destination": "/Users/damonalbarn/.codex/skills/amind-engineering"
+    },
+    {
+      "name": "eval-improve",
+      "action": "replace",
+      "destination": "/Users/damonalbarn/.codex/skills/eval-improve"
+    }
+  ],
+  "backup": "/Users/damonalbarn/.codex/skill-backups/amind-series-_1_vbo73",
+  "verified": true,
+  "previous_package_preflight": {
+    "amind": {
+      "files": 23,
+      "matches_previous_verified_package": true
+    },
+    "amind-engineering": {
+      "files": 43,
+      "matches_previous_verified_package": true
+    },
+    "eval-improve": {
+      "files": 31,
+      "matches_previous_verified_package": true
+    }
+  },
+  "post_install": {
+    "amind": {
+      "files": 23,
+      "matches_source": true
+    },
+    "amind-engineering": {
+      "files": 43,
+      "matches_source": true
+    },
+    "eval-improve": {
+      "files": 31,
+      "matches_source": true
+    }
+  }
+}

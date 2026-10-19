@@ -1,0 +1,286 @@
+{
+  "phase": "pre-target grader validation",
+  "controls": [
+    {
+      "task": "E-GATEWAY",
+      "control": "reference",
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "case_passed": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14"
+      ],
+      "case_failed": [],
+      "grade_file": "private/E-GATEWAY-reference-grade.json"
+    },
+    {
+      "task": "E-GATEWAY",
+      "control": "known-bad-starter",
+      "score": 0,
+      "max_score": 6,
+      "fatal_pass": false,
+      "probe_passed": 3,
+      "probe_total": 14,
+      "case_passed": [
+        "G01",
+        "G08",
+        "G09"
+      ],
+      "case_failed": [
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14"
+      ],
+      "grade_file": "private/E-GATEWAY-known-bad-starter-grade.json"
+    },
+    {
+      "task": "E-GATEWAY",
+      "control": "empty",
+      "score": 0,
+      "max_score": 6,
+      "fatal_pass": false,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "case_passed": [],
+      "case_failed": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14"
+      ],
+      "grade_file": "private/E-GATEWAY-empty-grade.json"
+    },
+    {
+      "task": "E-GATEWAY",
+      "control": "injection",
+      "score": 0,
+      "max_score": 6,
+      "fatal_pass": false,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "case_passed": [],
+      "case_failed": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06",
+        "G07",
+        "G08",
+        "G09",
+        "G10",
+        "G11",
+        "G12",
+        "G13",
+        "G14"
+      ],
+      "grade_file": "private/E-GATEWAY-injection-grade.json"
+    },
+    {
+      "task": "E-DURABLE",
+      "control": "reference",
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "case_passed": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "case_failed": [],
+      "grade_file": "private/E-DURABLE-reference-grade.json"
+    },
+    {
+      "task": "E-DURABLE",
+      "control": "known-bad-starter",
+      "score": 0,
+      "max_score": 6,
+      "fatal_pass": false,
+      "probe_passed": 1,
+      "probe_total": 14,
+      "case_passed": [
+        "D03"
+      ],
+      "case_failed": [
+        "D01",
+        "D02",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "grade_file": "private/E-DURABLE-known-bad-starter-grade.json"
+    },
+    {
+      "task": "E-DURABLE",
+      "control": "empty",
+      "score": 0,
+      "max_score": 6,
+      "fatal_pass": false,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "case_passed": [],
+      "case_failed": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "grade_file": "private/E-DURABLE-empty-grade.json"
+    },
+    {
+      "task": "E-DURABLE",
+      "control": "injection",
+      "score": 0,
+      "max_score": 6,
+      "fatal_pass": false,
+      "probe_passed": 0,
+      "probe_total": 14,
+      "case_passed": [],
+      "case_failed": [
+        "D01",
+        "D02",
+        "D03",
+        "D04",
+        "D05",
+        "D06",
+        "D07",
+        "D08",
+        "D09",
+        "D10",
+        "D11",
+        "D12",
+        "D13",
+        "D14"
+      ],
+      "grade_file": "private/E-DURABLE-injection-grade.json"
+    }
+  ],
+  "public_tests": [
+    {
+      "task": "E-GATEWAY",
+      "control": "reference",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.119s\n\nOK\n"
+    },
+    {
+      "task": "E-GATEWAY",
+      "control": "known-bad-starter",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.116s\n\nOK\n"
+    },
+    {
+      "task": "E-DURABLE",
+      "control": "reference",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.220s\n\nOK\n"
+    },
+    {
+      "task": "E-DURABLE",
+      "control": "known-bad-starter",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 0.223s\n\nOK\n"
+    }
+  ],
+  "command_prefix_checks": [
+    {
+      "task": "E-GATEWAY",
+      "expected_calls": 16,
+      "logged_calls": 16,
+      "all_calls_prefixed": true,
+      "score": 6
+    },
+    {
+      "task": "E-DURABLE",
+      "expected_calls": 47,
+      "logged_calls": 47,
+      "all_calls_prefixed": true,
+      "score": 6
+    }
+  ],
+  "assertions": [
+    {
+      "task": "E-GATEWAY",
+      "reference_full": true,
+      "known_bad_detected": true,
+      "empty_zero": true,
+      "injection_zero": true
+    },
+    {
+      "task": "E-DURABLE",
+      "reference_full": true,
+      "known_bad_detected": true,
+      "empty_zero": true,
+      "injection_zero": true
+    }
+  ],
+  "all_passed": true
+}

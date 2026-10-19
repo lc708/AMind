@@ -1,0 +1,9 @@
+{
+  "frozen_before_query_results": true,
+  "files": {
+    "protocol.md": "dbdde68391e84f7cf32fd714b1c463c3a0db76bc251bd50de0275696ffb11e79",
+    "cases.jsonl": "39580448bf2bae45bab1fe3c484064da480ef7e682e99a64cd15d3fb8c1c9ee0",
+    "native-exhibits.jsonl": "e7cef299b2b4106c973922918a35a530cc723e1bfeb8212029e9386bcb86e375"
+  },
+  "protocol_sha256": "714e9551b73688422322157cd7baecc795dc6b3f6785c72ea97487d947eeb4fb"
+}

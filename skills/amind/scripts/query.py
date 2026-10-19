@@ -11,6 +11,7 @@ import sqlite3
 import sys
 import zlib
 from collections import Counter
+import lifecycle
 from math import ceil
 from pathlib import Path
 from typing import Any, Iterable
@@ -132,7 +133,7 @@ def load_manifest(data_root: Path) -> dict[str, Any]:
     require(manifest.get("schema_name") == MANIFEST_SCHEMA, "invalid AMind skill manifest schema")
     require(manifest.get("schema_version") == 1, "unsupported AMind skill manifest version")
     require(manifest.get("skill_id") == "amind", "invalid AMind skill identity")
-    require(manifest.get("release_id") in {"amind-v1", "amind-v1-increment-2026-09-08"}, "invalid AMind release identity")
+    require(bool(re.fullmatch(r"amind-v1(?:-increment-\d{4}-\d{2}-\d{2})?", str(manifest.get("release_id", "")))), "invalid AMind release identity")
     counts = manifest.get("counts")
     require(isinstance(counts, dict), "missing AMind skill counts")
     for field in (
@@ -206,6 +207,11 @@ def print_evidence(row: dict[str, Any]) -> None:
     print(f"URL: {row['source_canonical']}")
     print(f"Quote: {row['exact_quote']}")
     print(f"Review: {(row.get('review') or {}).get('semantic_status', 'unknown')}")
+    if row.get('current_status'):
+        status = row['current_status']
+        print(f"Current eligibility as of {status['as_of']}: {status['eligible']} ({', '.join(status['reasons']) or 'no known exclusion'})")
+        if status['verification_required']:
+            print('Current verification required: requested date exceeds the source observation cutoff.')
     if row.get("passage"):
         print("Passage context:")
         print(row["passage"]["text"])
@@ -644,8 +650,16 @@ def command_search(data_root: Path, args: argparse.Namespace) -> int:
         results = [enriched_row(row, reviewed) for row in raw]
     finally:
         connection.close()
-    if current_mode(query, args.current):
-        results = [row for row in results if not row.get('later_observed_revision')]
+    manifest = load_manifest(data_root)
+    try:
+        status_records = lifecycle.load_records(data_root, manifest)
+        as_of = lifecycle.as_of_date(manifest, getattr(args, 'as_of', None))
+    except ValueError as error:
+        raise AMindSkillError(str(error)) from error
+    for row in results:
+        row['current_status'] = lifecycle.assess(row, status_records, as_of, manifest.get('source_observation_cutoff'))
+    if not getattr(args, 'include_inactive', False):
+        results = [row for row in results if row['current_status']['eligible']]
     if args.theme:
         results = [row for row in results if args.theme in (row.get("theme_ids") or [])]
     pure_cjk_theme_route = bool(detected) and not any(token.isascii() for token in original_tokens)
@@ -672,6 +686,8 @@ def command_search(data_root: Path, args: argparse.Namespace) -> int:
         row["retrieval"]["current_mode"] = current_mode(query, args.current)
         row["retrieval"]["detected_theme_ids"] = [theme["theme_id"] for theme in detected]
         row["retrieval"]["query"] = query
+        row['retrieval']['as_of'] = as_of
+        row['retrieval']['source_observation_cutoff'] = manifest.get('source_observation_cutoff')
     if args.json:
         json_output(matches)
     else:
@@ -701,6 +717,12 @@ def command_kernel_search(data_root: Path, args: argparse.Namespace) -> int:
     phrase = query.casefold()
     scored: list[tuple[int, str, dict[str, Any]]] = []
     themes = {row["theme_id"]: row for row in load_rows(data_root, "theme-catalog.jsonl")}
+    manifest = load_manifest(data_root)
+    try:
+        statuses = lifecycle.load_records(data_root, manifest)
+        as_of = lifecycle.as_of_date(manifest, getattr(args, 'as_of', None))
+    except ValueError as error:
+        raise AMindSkillError(str(error)) from error
     for row in load_rows(data_root, "evidence-kernel.jsonl"):
         text = kernel_searchable_text(row, themes.get(row.get("theme_id")))
         token_hits = sum(1 for token in tokens if token in text)
@@ -708,6 +730,9 @@ def command_kernel_search(data_root: Path, args: argparse.Namespace) -> int:
             continue
         result = dict(row)
         result["evidence_tier"] = "gold_human_reviewed"
+        result['current_status'] = lifecycle.assess(result, statuses, as_of, manifest.get('source_observation_cutoff'))
+        if not getattr(args, 'include_inactive', False) and not result['current_status']['eligible']:
+            continue
         scored.append(((4 if phrase in text else 0) + token_hits, row["claim_id"], result))
     matches = [row for _, _, row in sorted(scored, key=lambda item: (-item[0], item[1]))[: args.limit]]
     if not matches:
@@ -749,6 +774,14 @@ def command_show(data_root: Path, args: argparse.Namespace) -> int:
         print("Unknown claim ID(s): " + ", ".join(missing), file=sys.stderr)
         return 1
     ordered = [by_claim[claim_id] for claim_id in args.claim_ids]
+    manifest = load_manifest(data_root)
+    try:
+        statuses = lifecycle.load_records(data_root, manifest)
+        as_of = lifecycle.as_of_date(manifest, getattr(args, 'as_of', None))
+    except ValueError as error:
+        raise AMindSkillError(str(error)) from error
+    for row in ordered:
+        row['current_status'] = lifecycle.assess(row, statuses, as_of, manifest.get('source_observation_cutoff'))
     if args.passage:
         passage_ids = {row["passage_id"] for row in ordered}
         passages = load_passages(data_root, passage_ids)
@@ -865,6 +898,8 @@ def command_themes(data_root: Path, args: argparse.Namespace) -> int:
         for row in rows:
             print(f"{row['theme_id']}: {row['name_zh']}")
             print(f"  {row['thesis_zh']}")
+            if row.get('current_supplement_zh'):
+                print(f"  Supplement ({row.get('supplement_as_of', '')}): {row['current_supplement_zh']}")
     return 0
 
 
@@ -882,6 +917,8 @@ def command_voices(data_root: Path, args: argparse.Namespace) -> int:
         for row in rows:
             print(f"{row['voice_id']}: {row['name']}")
             print(f"  {row['summary_zh']}")
+            if row.get('current_supplement_zh'):
+                print(f"  Supplement ({row.get('supplement_as_of', '')}): {row['current_supplement_zh']}")
     return 0
 
 
@@ -893,11 +930,15 @@ def command_tensions(data_root: Path, args: argparse.Namespace) -> int:
         for row in rows:
             print(f"{row['tension_id']}: {row['name_zh']}")
             print(f"  {row['summary_zh']}")
+            if row.get('current_supplement_zh'):
+                print(f"  Supplement ({row.get('supplement_as_of', '')}): {row['current_supplement_zh']}")
     return 0
 
 
 def add_search_boundaries(parser: argparse.ArgumentParser) -> None:
-    parser.add_argument("--current", action="store_true", help="boost recent sources after relevance matching")
+    parser.add_argument("--current", action="store_true", help="boost recent eligible evidence within the recorded collection cutoff; does not fetch current facts")
+    parser.add_argument('--as-of', help='eligibility date YYYY-MM-DD; defaults to the source observation cutoff')
+    parser.add_argument('--include-inactive', '--include-history', dest='include_inactive', action='store_true', help='include corrected, superseded and future-effective evidence with explicit status labels')
     parser.add_argument("--include-agenda", action="store_true", help="include research questions while preserving their attribution label")
     parser.add_argument("--include-reported", action="store_true", help="include positions merely reported or quoted by the source")
     parser.add_argument('--include-simulated', action='store_true', help='include bounded simulation evidence while preserving its experimental conditions')
@@ -930,11 +971,14 @@ def parser() -> argparse.ArgumentParser:
     kernel.add_argument("query")
     kernel.add_argument("--limit", type=int, default=8)
     kernel.add_argument("--json", action="store_true")
+    kernel.add_argument('--as-of', help='eligibility date YYYY-MM-DD')
+    kernel.add_argument('--include-inactive', '--include-history', dest='include_inactive', action='store_true')
     kernel.set_defaults(handler=command_kernel_search)
 
     show = commands.add_parser("show", help="show one or more claims from the full local index")
     show.add_argument("claim_ids", nargs="+")
     show.add_argument("--json", action="store_true")
+    show.add_argument('--as-of', help='annotate historical evidence eligibility on YYYY-MM-DD')
     show.add_argument("--passage", action="store_true", help="include the full bound passage context")
     show.set_defaults(handler=command_show)
 

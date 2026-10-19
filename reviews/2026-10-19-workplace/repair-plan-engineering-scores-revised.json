@@ -1,0 +1,149 @@
+{
+  "created_at_utc": "2026-10-18T19:28:46.214071+00:00",
+  "rows": [
+    {
+      "run_id": "W043",
+      "task_id": "E-DURABLE",
+      "rep": 0,
+      "arm": "repaired",
+      "grade_status": "graded",
+      "score": 6,
+      "max_score": 6,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "guardrails_passed": true,
+      "failed_probes": [],
+      "portable_no_skill_dependency": true,
+      "network_denied_during_probes": true,
+      "policy_provenance": "byte-identical copy of original frozen-grader policy",
+      "original_frozen_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W043/grade.json"
+    },
+    {
+      "run_id": "W044",
+      "task_id": "E-DURABLE",
+      "rep": 1,
+      "arm": "repaired",
+      "grade_status": "graded",
+      "score": 6,
+      "max_score": 6,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "guardrails_passed": true,
+      "failed_probes": [],
+      "portable_no_skill_dependency": true,
+      "network_denied_during_probes": true,
+      "policy_provenance": "byte-identical copy of original frozen-grader policy",
+      "original_frozen_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W044/grade.json"
+    },
+    {
+      "run_id": "W045",
+      "task_id": "E-DURABLE",
+      "rep": 2,
+      "arm": "repaired",
+      "grade_status": "graded",
+      "score": 6,
+      "max_score": 6,
+      "probe_passed": 14,
+      "probe_total": 14,
+      "guardrails_passed": true,
+      "failed_probes": [],
+      "portable_no_skill_dependency": true,
+      "network_denied_during_probes": true,
+      "policy_provenance": "byte-identical copy of original frozen-grader policy",
+      "original_frozen_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W045/grade.json"
+    }
+  ],
+  "independent_tasks": 1,
+  "repetitions_per_task_arm": 3,
+  "phase": "post-repair reused-task verification; not a new holdout",
+  "full_six_capture_existence_gate_passed": true,
+  "gate_capture_paths": [
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W043/capture.json",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W044/capture.json",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W045/capture.json",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W046/capture.json",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W047/capture.json",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W048/capture.json"
+  ],
+  "same_main_revised_grader_files_sha256": {
+    "grade_durable.py": "160485286a322aa59a37b7e596544c61e1c8681ff0cdecb6cd08f609b5fe3658",
+    "grade_common.py": "09585f27500322f8d26cea8d464e9d0e75bf254ed8b9da7e6b489384f8d92563",
+    "rescore.py": "32e6729bdba05505940cb0de76a5a71ef7e790045b1b40c6c78adf5ffdc06a0e"
+  },
+  "historical_comparison": {
+    "source": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/main-plan-engineering-scores-revised.json",
+    "source_sha256": "8ef79258fb46d96bb21637d112b0765e1e7463693bd9c5c9761df835eb834f4b",
+    "rows": [
+      {
+        "run_id": "W003",
+        "task_id": "E-DURABLE",
+        "rep": 0,
+        "arm": "current",
+        "grade_status": "graded",
+        "score": 6,
+        "max_score": 6,
+        "probe_passed": 14,
+        "probe_total": 14,
+        "guardrails_passed": true,
+        "original_score": 6,
+        "original_probe_passed": 14,
+        "changed_probes": [],
+        "portable_no_skill_dependency": true,
+        "network_denied_during_probes": true,
+        "policy_bytes_identical_to_original": true
+      },
+      {
+        "run_id": "W026",
+        "task_id": "E-DURABLE",
+        "rep": 1,
+        "arm": "current",
+        "grade_status": "graded",
+        "score": 6,
+        "max_score": 6,
+        "probe_passed": 14,
+        "probe_total": 14,
+        "guardrails_passed": true,
+        "original_score": 6,
+        "original_probe_passed": 14,
+        "changed_probes": [],
+        "portable_no_skill_dependency": true,
+        "network_denied_during_probes": true,
+        "policy_bytes_identical_to_original": true
+      },
+      {
+        "run_id": "W031",
+        "task_id": "E-DURABLE",
+        "rep": 2,
+        "arm": "current",
+        "grade_status": "graded",
+        "score": 6,
+        "max_score": 6,
+        "probe_passed": 14,
+        "probe_total": 14,
+        "guardrails_passed": true,
+        "original_score": 6,
+        "original_probe_passed": 14,
+        "changed_probes": [],
+        "portable_no_skill_dependency": true,
+        "network_denied_during_probes": true,
+        "policy_bytes_identical_to_original": true
+      }
+    ],
+    "interpretation": "Historical main current was6/6 for all3; no new causal or independent-task comparison."
+  },
+  "original_measurement_files_unchanged": 175,
+  "original_capture_grade_files_unchanged": 178,
+  "target_model_calls": 0,
+  "limits": [
+    "Same single Durable task reused after diagnostics; not a new holdout.",
+    "Three repetitions and fourteen probes do not add independent task families.",
+    "Original frozen grades and captures are never replaced."
+  ],
+  "all_six_capture_fingerprint_verification": {
+    "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-repaired-revised/capture-fingerprint-verification.json",
+    "success": true,
+    "runs": 6,
+    "files": 179,
+    "frozen_fingerprint_sha256": "f23b13fbf61777a83c617299e39d4a30929205eb4fda4cef856521a48c82fdbe"
+  }
+}

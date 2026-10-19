@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "task": "Offline report population membership counterexample",
+  "dataset_version": "1",
+  "grader_version": "1",
+  "cases": "cases.jsonl",
+  "references": "references.jsonl",
+  "splits": {
+    "train": [
+      "train-only"
+    ],
+    "val": [
+      "reimburse",
+      "billing"
+    ],
+    "test": [
+      "test-only"
+    ]
+  },
+  "metrics": [
+    {
+      "id": "quality",
+      "kind": "binary",
+      "better": "higher",
+      "role": "objective",
+      "min_improvement": 0
+    }
+  ],
+  "runner": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "app.py"
+    ],
+    "files": [
+      "app.py"
+    ]
+  },
+  "grader": {
+    "kind": "exact"
+  },
+  "variants": {
+    "baseline": {
+      "files": [
+        "app.py"
+      ],
+      "config": {},
+      "expected_model": "fixture"
+    }
+  },
+  "limits": {
+    "max_attempts": 4,
+    "concurrency": 1,
+    "timeout_s": 5,
+    "max_total_seconds": 60,
+    "retries": 0
+  }
+}

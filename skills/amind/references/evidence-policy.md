@@ -44,9 +44,9 @@ Never invent missing metadata. If a source date is unavailable, omit it or say â
 The installed skill contains two evidence tiers:
 
 - **Gold kernel:** 54 evidence rows, six representatives for each of nine themes, individually reviewed in full passage context.
-- **Full local index:** all 64,265 source-linked atomic claims across 1,419 analysis units, structurally and attribution audited but not individually human reviewed. The 14,715 bound passages are bundled for local context inspection.
+- **Full local index:** the complete source-linked claim corpus (exact counts and observation cutoff are in `data/manifest.json`), structurally and attribution audited but not individually human reviewed. The bound passages are bundled for local context inspection.
 
-Use the full index for recall and the gold kernel for calibration. A full-index hit becomes suitable evidence only after checking its attribution class, epistemic force, conditions, source identity, and bound passage. Do not describe all 64,265 rows as human reviewed.
+Use the full index for recall and the gold kernel for calibration. A full-index hit becomes suitable evidence only after checking its attribution class, epistemic force, conditions, source identity, and bound passage. Do not describe all indexed rows as human reviewed.
 
 ## Silence and conflicts
 
@@ -60,3 +60,15 @@ If no answer-eligible evidence remains within the attribution and agenda scopes 
 4. Identify what evidence would upgrade or reverse it.
 
 When sources pull in different directions, preserve the conditional tension. The tension catalog records five recurring examples; it is a navigation aid, not a substitute for source citations.
+
+## Dated eligibility and corrections
+
+Check each result's `current_status` before treating it as a current position. A correction can affect one provisional explanation without invalidating every observation in its article. Preserve original propositions, quotes, hashes and IDs; bind a separate dated correction or effective window to explicit claims or editions. Newer editions do not silently erase old evidence.
+
+The default eligibility date is the source-observation cutoff. An `--as-of` date is a reconstruction from the recorded editions and date evidence, not a complete historical web snapshot. Month-only or unknown publication dates remain uncertain. After the collection cutoff, current verification is required even when a previously announced transition date is known.
+
+A source-native publication month gives an earliest and latest possible date, never an invented day. Before that month the evidence is unavailable; within that month `publication_day_unconfirmed` and `publication_availability: uncertain` prevent default search from certifying the passage as already public on the requested day. `show --passage` and `--include-inactive` preserve it for inspection. A wholly unknown publication date remains explicitly unknown.
+
+`current_status` is an AMind curation decision, not independent primary-source proof. `eligible=true` means the bundled registry records no exclusion for that candidate on the requested date; it does not establish that a cited edition was operative, unchanged, or publicly available then. For a dated applicability claim, inspect the primary passage and the announcement, version history, or change record that binds that specific edition to the interval. An archived page's effective-date header, its presence in the corpus, or a curated window alone does not prove continuous applicability through the requested date. If that binding is missing, distinguish dates directly stated by the source from AMind's reconstructed window, identify the relevant `status_id` as curation, and leave the exact operative edition uncertain. Do not label a registry-only reconstruction **[Public position]**.
+
+Announcements and effective rules are separate: the October 8 usage-policy announcement is evidence available in October, while the new substantive rules take effect November 12. Guest posts and staff expectations keep their named/participant attribution. Repeated blog, PDF and summary carriers do not provide independent corroboration.

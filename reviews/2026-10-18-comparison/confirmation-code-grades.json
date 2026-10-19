@@ -1,0 +1,433 @@
+{
+  "source_probe_sha256": "949467194c2cdc389de46bdb16dcf8a103275ef8035f4582a3bde21e880c1173",
+  "grading": "Actual generated programs; Seatbelt-protected references and siblings, OS network denied; 4s per probe",
+  "independence": "Probe variants cluster into two implementation tasks, not fifteen independent tasks",
+  "rows": [
+    {
+      "run_id": "R21",
+      "case_id": "C-G",
+      "arm": "repaired",
+      "artifact_present": true,
+      "probes": [
+        {
+          "id": "healthy-root",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"verified-final\", \"unknown\": [], \"reason\": \"completed terminal and attribution validated\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "verified-final",
+            "unknown": []
+          }
+        },
+        {
+          "id": "root-and-opaque",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"verified-final\", \"unknown\": [{\"opaque\": {\"data\": [1, true, null], \"token\": \"opaque-43\"}, \"type\": \"future_runtime_item\"}], \"reason\": \"completed terminal and attribution validated\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "verified-final",
+            "unknown": [
+              {
+                "opaque": {
+                  "data": [
+                    1,
+                    true,
+                    null
+                  ],
+                  "token": "opaque-43"
+                },
+                "type": "future_runtime_item"
+              }
+            ]
+          }
+        },
+        {
+          "id": "child-only",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"\", \"unknown\": [], \"reason\": \"completed terminal and attribution validated\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "",
+            "unknown": []
+          }
+        },
+        {
+          "id": "no-terminal",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": false, \"root_final\": \"\", \"unknown\": [], \"reason\": \"missing response.completed terminal\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": false,
+            "root_final": ""
+          }
+        },
+        {
+          "id": "conflicting-ownership",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": false, \"root_final\": \"\", \"unknown\": [], \"reason\": \"event and item agent_name conflict\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": false,
+            "root_final": ""
+          }
+        },
+        {
+          "id": "consistent-ownership",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"verified-final\", \"unknown\": [], \"reason\": \"completed terminal and attribution validated\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "verified-final",
+            "unknown": []
+          }
+        }
+      ],
+      "program_sha256": "4f4f14e500b92c2f80dab52e4873f37dd572304f2ef1481439e4e029b04f1e8d",
+      "score": 6,
+      "max_score": 6
+    },
+    {
+      "run_id": "R22",
+      "case_id": "C-G",
+      "arm": "old",
+      "artifact_present": true,
+      "probes": [
+        {
+          "id": "healthy-root",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"verified-final\", \"unknown\": [], \"reason\": \"valid event structure and ownership; completed terminal received\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "verified-final",
+            "unknown": []
+          }
+        },
+        {
+          "id": "root-and-opaque",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"verified-final\", \"unknown\": [{\"opaque\": {\"data\": [1, true, null], \"token\": \"opaque-43\"}, \"type\": \"future_runtime_item\"}], \"reason\": \"valid event structure and ownership; completed terminal received\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "verified-final",
+            "unknown": [
+              {
+                "opaque": {
+                  "data": [
+                    1,
+                    true,
+                    null
+                  ],
+                  "token": "opaque-43"
+                },
+                "type": "future_runtime_item"
+              }
+            ]
+          }
+        },
+        {
+          "id": "child-only",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"\", \"unknown\": [], \"reason\": \"valid event structure and ownership; completed terminal received\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "",
+            "unknown": []
+          }
+        },
+        {
+          "id": "no-terminal",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": false, \"root_final\": \"\", \"unknown\": [], \"reason\": \"no response.completed terminal received\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": false,
+            "root_final": ""
+          }
+        },
+        {
+          "id": "conflicting-ownership",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": false, \"root_final\": \"\", \"unknown\": [], \"reason\": \"events[0]: event/item agent_name conflict\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": false,
+            "root_final": ""
+          }
+        },
+        {
+          "id": "consistent-ownership",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"accepted\": true, \"root_final\": \"verified-final\", \"unknown\": [], \"reason\": \"valid event structure and ownership; completed terminal received\"}\n",
+          "stderr": "",
+          "expected": {
+            "accepted": true,
+            "root_final": "verified-final",
+            "unknown": []
+          }
+        }
+      ],
+      "program_sha256": "85c83a552f176fdf7695792fd2660fb058adaea21fcbbbed8701a2a3dba19072",
+      "score": 6,
+      "max_score": 6
+    },
+    {
+      "run_id": "R23",
+      "case_id": "C-V",
+      "arm": "old",
+      "artifact_present": true,
+      "probes": [
+        {
+          "id": "healthy-zero",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0, \"total_cost_usd\": 0, \"unknown_cost_attempts\": 0, \"identity_valid\": true, \"valid\": true}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 1,
+            "identity_valid": true,
+            "known_cost_usd": 0,
+            "total_cost_usd": 0,
+            "unknown_cost_attempts": 0,
+            "valid": true
+          }
+        },
+        {
+          "id": "unfinished-unknown",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 2, \"known_cost_usd\": 0.7, \"total_cost_usd\": null, \"unknown_cost_attempts\": 1, \"identity_valid\": true, \"valid\": true}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 2,
+            "identity_valid": true,
+            "known_cost_usd": 0.7,
+            "total_cost_usd": null,
+            "unknown_cost_attempts": 1
+          }
+        },
+        {
+          "id": "foreign-result",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0.7, \"total_cost_usd\": 0.7, \"unknown_cost_attempts\": 0, \"identity_valid\": false, \"valid\": false}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 1,
+            "identity_valid": false,
+            "known_cost_usd": 0.7,
+            "total_cost_usd": 0.7,
+            "unknown_cost_attempts": 0,
+            "valid": false
+          }
+        },
+        {
+          "id": "identical-finish-idempotent",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0.7, \"total_cost_usd\": 0.7, \"unknown_cost_attempts\": 0, \"identity_valid\": true, \"valid\": true}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 1,
+            "identity_valid": true,
+            "known_cost_usd": 0.7,
+            "total_cost_usd": 0.7,
+            "unknown_cost_attempts": 0,
+            "valid": true
+          }
+        },
+        {
+          "id": "conflicting-finish",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0, \"total_cost_usd\": null, \"unknown_cost_attempts\": 1, \"identity_valid\": true, \"valid\": false, \"reason\": \"attempt_events[2] contradicts an earlier finished\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "orphan-finish",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0, \"total_cost_usd\": null, \"unknown_cost_attempts\": 1, \"identity_valid\": true, \"valid\": false, \"reason\": \"attempt_events[0] finished without a preceding started event\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "negative-cost",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0, \"total_cost_usd\": null, \"unknown_cost_attempts\": 1, \"identity_valid\": true, \"valid\": false, \"reason\": \"attempt_events[1] has an invalid cost_usd\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "string-cost",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0, \"total_cost_usd\": null, \"unknown_cost_attempts\": 1, \"identity_valid\": true, \"valid\": false, \"reason\": \"attempt_events[1] has an invalid cost_usd\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "boolean-cost",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\": 1, \"known_cost_usd\": 0, \"total_cost_usd\": null, \"unknown_cost_attempts\": 1, \"identity_valid\": true, \"valid\": false, \"reason\": \"attempt_events[1] has an invalid cost_usd\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        }
+      ],
+      "program_sha256": "7554bee31dae05295fb8f9c026ef8fecb8295f98717d2e0ab94788e14bb6e180",
+      "score": 9,
+      "max_score": 9
+    },
+    {
+      "run_id": "R24",
+      "case_id": "C-V",
+      "arm": "repaired",
+      "artifact_present": true,
+      "probes": [
+        {
+          "id": "healthy-zero",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0,\"total_cost_usd\":0,\"unknown_cost_attempts\":0,\"identity_valid\":true,\"valid\":true}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 1,
+            "identity_valid": true,
+            "known_cost_usd": 0,
+            "total_cost_usd": 0,
+            "unknown_cost_attempts": 0,
+            "valid": true
+          }
+        },
+        {
+          "id": "unfinished-unknown",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":2,\"known_cost_usd\":0.7,\"total_cost_usd\":null,\"unknown_cost_attempts\":1,\"identity_valid\":true,\"valid\":true}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 2,
+            "identity_valid": true,
+            "known_cost_usd": 0.7,
+            "total_cost_usd": null,
+            "unknown_cost_attempts": 1
+          }
+        },
+        {
+          "id": "foreign-result",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0.7,\"total_cost_usd\":0.7,\"unknown_cost_attempts\":0,\"identity_valid\":false,\"valid\":false,\"reason\":\"result 0 identity does not match expected_identity\"}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 1,
+            "identity_valid": false,
+            "known_cost_usd": 0.7,
+            "total_cost_usd": 0.7,
+            "unknown_cost_attempts": 0,
+            "valid": false
+          }
+        },
+        {
+          "id": "identical-finish-idempotent",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0.7,\"total_cost_usd\":0.7,\"unknown_cost_attempts\":0,\"identity_valid\":true,\"valid\":true}\n",
+          "stderr": "",
+          "expected": {
+            "attempt_count": 1,
+            "identity_valid": true,
+            "known_cost_usd": 0.7,
+            "total_cost_usd": 0.7,
+            "unknown_cost_attempts": 0,
+            "valid": true
+          }
+        },
+        {
+          "id": "conflicting-finish",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0,\"total_cost_usd\":null,\"unknown_cost_attempts\":1,\"identity_valid\":true,\"valid\":false,\"reason\":\"contradictory finished for attempt 'r7'\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "orphan-finish",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0.7,\"total_cost_usd\":0.7,\"unknown_cost_attempts\":0,\"identity_valid\":true,\"valid\":false,\"reason\":\"finished without a preceding start: 'r7'\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "negative-cost",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0,\"total_cost_usd\":null,\"unknown_cost_attempts\":1,\"identity_valid\":true,\"valid\":false,\"reason\":\"invalid cost_usd for attempt 'r7'\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "string-cost",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0,\"total_cost_usd\":null,\"unknown_cost_attempts\":1,\"identity_valid\":true,\"valid\":false,\"reason\":\"invalid cost_usd for attempt 'r7'\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "id": "boolean-cost",
+          "pass": true,
+          "returncode": 0,
+          "stdout": "{\"attempt_count\":1,\"known_cost_usd\":0,\"total_cost_usd\":null,\"unknown_cost_attempts\":1,\"identity_valid\":true,\"valid\":false,\"reason\":\"invalid cost_usd for attempt 'r7'\"}\n",
+          "stderr": "",
+          "expected": {
+            "valid": false
+          }
+        }
+      ],
+      "program_sha256": "833aead64d9e3570d6b3caa811258d62e0407bb001c4619aa1e50ff006de208c",
+      "score": 9,
+      "max_score": 9
+    }
+  ]
+}

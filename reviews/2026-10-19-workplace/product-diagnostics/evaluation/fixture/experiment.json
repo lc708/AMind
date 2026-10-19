@@ -1,0 +1,21 @@
+{
+  "schema_version": 2,
+  "task": "Synthetic offline release-report integrity diagnostic, not model quality evidence",
+  "dataset_version": "support-fixture-1",
+  "grader_version": "summary-policy-1",
+  "cases": "cases.jsonl",
+  "references": "references.jsonl",
+  "splits": {"train": [], "val": ["refund", "billing", "access"], "test": []},
+  "metrics": [
+    {"id": "quality", "kind": "binary", "better": "higher", "role": "objective", "min_improvement": 0},
+    {"id": "policy", "kind": "binary", "better": "higher", "role": "guardrail", "max_regression": 0}
+  ],
+  "runner": {"command": ["python3", "app.py"], "files": ["app.py"], "retry_safe": true},
+  "grader": {"kind": "command", "command": ["python3", "grader.py"], "files": ["grader.py"]},
+  "mutable_config": ["uppercase", "policy_ok"],
+  "variants": {
+    "baseline": {"files": ["app.py"], "config": {"uppercase": false, "policy_ok": true}, "expected_model": "offline-support-fixture"},
+    "v1": {"files": ["app.py"], "config": {"uppercase": true, "policy_ok": false}, "expected_model": "offline-support-fixture"}
+  },
+  "limits": {"max_attempts": 8, "concurrency": 1, "timeout_s": 90, "max_total_seconds": 600, "max_failed_attempts": 3, "retries": 0}
+}

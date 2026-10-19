@@ -1,0 +1,4 @@
+{"as_of": "2026-08-31", "case_id": "D01-2026-08-31", "claim_id": "nuwa1-claim-9033b7a9b509b9ee753871c8", "expected": "not_yet_published", "phase": "diagnostic, not holdout"}
+{"as_of": "2026-09-17", "case_id": "D01-2026-09-17", "claim_id": "nuwa1-claim-9033b7a9b509b9ee753871c8", "expected": "uncertain", "phase": "diagnostic, not holdout"}
+{"as_of": "2026-10-01", "case_id": "D01-2026-10-01", "claim_id": "nuwa1-claim-9033b7a9b509b9ee753871c8", "expected": "available", "phase": "diagnostic, not holdout"}
+{"as_of": "2026-09-11", "case_id": "D02-independent-month-source", "claim_id": "nuwa1-claim-00730f371c40c41c9711fb38", "expected": "uncertain", "phase": "diagnostic independent source variant, not holdout"}

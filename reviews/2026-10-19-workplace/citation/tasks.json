@@ -1,0 +1,14 @@
+[
+  {
+    "id": "CIT-P",
+    "axis": "citation_temporal_applicability",
+    "skill": "amind",
+    "prompt": "你是产品运营部的研究编辑。请为2026-10-18的负责人例会写一份可直接使用的《Claude政策交接简报》：我们下周要更新客户使用指引，负责人需要知道目前应按哪一版Usage Policy交接、10月发布的更新意味着什么，以及下一次切换应怎样安排。请用分配的本地AMind资料核实后写作，不联网，也不假定资料截止日之后已经发生了什么。\n\n输出一个JSON对象：{memo,decision_log,sources}。memo约180—280个汉字，给出可采取的行动；decision_log最多4条，分别写判断、证据距离标签以及需要核实的事项；sources最多4项，每项列source_title、claim_id、canonical_url、支撑该判断的原文短摘录和段落位置。请检查完整绑定段落，确保引用能支撑交接日期与版本的判断；未知之处照实说明。"
+  },
+  {
+    "id": "CIT-L",
+    "axis": "citation_direct_support_positive_control",
+    "skill": "amind",
+    "prompt": "你是安全评估组的文献编辑。请为2026-10-18的研究周报写一份《Training Alignment Auditors via Reinforcement Learning》研读卡，帮助同事决定是否把这项方法纳入下一轮内部复现实验。请交代文章何时发布、作者实际比较了什么、哪些结果值得复现，以及这些材料足以支持哪些部署判断。只用分配的本地AMind资料，不联网。\n\n输出一个JSON对象：{memo,decision_log,sources}。memo约180—280个汉字；decision_log最多4条，分别写判断、证据距离标签以及需要核实的事项；sources最多4项，每项列source_title、claim_id、canonical_url、支撑该判断的原文短摘录和段落位置。请检查完整绑定段落，给出有依据的结论及必要边界，未知之处照实说明。"
+  }
+]

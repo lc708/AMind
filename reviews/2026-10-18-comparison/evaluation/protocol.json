@@ -1,0 +1,182 @@
+{
+  "id": "amind-evaluation-contrast-2026-10-18",
+  "registered_before_execution": true,
+  "task_population": "22 independent synthetic/offline behavioral challenges of public CLIs; not model-quality or production-price evidence",
+  "variants": {
+    "old": ".codex-tmp/contrast-2026-10-18/old/skills/eval-improve",
+    "frozen_new": ".codex-tmp/contrast-2026-10-18/new/skills/eval-improve",
+    "repaired_new": "skills/eval-improve"
+  },
+  "rules": {
+    "same_public_fixtures": true,
+    "public_cli_only": true,
+    "no_model_network_or_subagents": true,
+    "controls": [
+      "E01",
+      "E02",
+      "E08",
+      "E14",
+      "E15",
+      "E21"
+    ],
+    "scoring": "one binary contract outcome per independent challenge; extension unsupported old excluded from shared-quality denominator, reported separately; frozen_new and repaired_new never combined",
+    "repairs": "After viewing frozen outputs all repaired reruns and follow-on variants are validation, not untouched holdout",
+    "failure_coverage": "No skipped hard cases or infrastructure failures scored as application quality; harness failures called out"
+  },
+  "challenges": [
+    {
+      "id": "E01",
+      "name": "legacy-text-subsets",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Legacy normalized input/cache/output/reasoning is priced once: USD 10.2, full total 10.2."
+    },
+    {
+      "id": "E02",
+      "name": "unknown-and-partial",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Unknown model and partial usage prevent total_cost_usd; retain known subtotal."
+    },
+    {
+      "id": "E03",
+      "name": "distinct-endpoint-rates",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Same model decisions input-only prices USD2; responses text USD10.2; old exact-scoped adapter absent is unsupported."
+    },
+    {
+      "id": "E04",
+      "name": "explicit-endpoint-no-legacy-fallback",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "A legacy price card plus explicitly different endpoint must return unknown; never model-only fallback."
+    },
+    {
+      "id": "E05",
+      "name": "native-modality-not-free",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Legacy normalized text plus native audio detail must be unknown rather than text-only complete cost."
+    },
+    {
+      "id": "E06",
+      "name": "duplicate-normalization-conflict",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Flat/detail cache counters 200000 versus 100000 must reject before pricing."
+    },
+    {
+      "id": "E07",
+      "name": "cache-write-subset",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Explicit write subset is subtracted from ordinary input, added at write rate; expected USD10.6. Unsupported old accounting is separate."
+    },
+    {
+      "id": "E08",
+      "name": "clean-confusion-matrix",
+      "classification": "control",
+      "entry": "calibrate",
+      "expected": "Both sides retain exact TP2/TN2/FP1/FN1, agreement 2/3, recall2/3, precision2/3, order inconsistency0."
+    },
+    {
+      "id": "E09",
+      "name": "absent-negative-controls",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "A perfect positive-only set is not ready_for_review and negative evidence is unmeasured."
+    },
+    {
+      "id": "E10",
+      "name": "contradictory-adjudication",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "Same case human adjudication changing between repeats must reject."
+    },
+    {
+      "id": "E11",
+      "name": "rare-base-rate",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "100 positives90TP10FN,900 negatives18FP882TN: FPR.02,FNR.1, deployment PPV.04310344827586207 at prevalence .001; old flag absent unsupported."
+    },
+    {
+      "id": "E12",
+      "name": "fixed-judge-drift",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Same judge/rubric across cohorts, negatives FPR .02 to .08, max increase .03: alert and delta .06. Old drift flag absent unsupported."
+    },
+    {
+      "id": "E13",
+      "name": "paired-judge-change",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Identical cases/rubric/adjudication: one improved, one regressed, paired agreement delta0; old baseline flag absent unsupported."
+    },
+    {
+      "id": "E14",
+      "name": "clean-real-run-and-compare",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Two deterministic app variants via run_eval complete with2 pairs; quality delta1 and identity verified."
+    },
+    {
+      "id": "E15",
+      "name": "served-model-substitution",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Pinned model mismatch yields zero scores, serving_substitution, retained USD.02 cost."
+    },
+    {
+      "id": "E16",
+      "name": "short-stage-population",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Contract workers3/aggregate1, reported workers2/aggregate1: unscorable coverage_incomplete; old stage gate absent unsupported."
+    },
+    {
+      "id": "E17",
+      "name": "served-tier-substitution",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Pinned standard tier, served flex at same model: zero scores, serving_substitution, retained USD.02; old billing scope pin absent unsupported."
+    },
+    {
+      "id": "E18",
+      "name": "failure-budget-and-resume",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Failed ceiling1, retry-safe app/retries1/attempts4: exactly1 failed invocation; resume does not launch more, remains incomplete. Old failure-limit absent unsupported."
+    },
+    {
+      "id": "E19",
+      "name": "interrupted-report-accounting",
+      "classification": "shared",
+      "entry": "runner",
+      "expected": "Started attempt without finish/result has unknown outcome/spend; report total_cost_usd must be null and unknown_cost_attempts1; report counts attempted invocation."
+    },
+    {
+      "id": "E20",
+      "name": "transplanted-report-ownership",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Rehashed result whose treatment binding belongs elsewhere must have unverified report integrity. Old per-result binding absent unsupported; frozen new is tested for this claim."
+    },
+    {
+      "id": "E21",
+      "name": "unreconciled-resume",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Open started attempt blocks resume with explicit reconciliation error and no new application call."
+    },
+    {
+      "id": "E22",
+      "name": "abandoned-reconciliation-budget",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Externally documented abandoned attempt consumes failed ceiling after reconcile --apply; resume cannot launch more. Old failure ceiling absent unsupported."
+    }
+  ]
+}

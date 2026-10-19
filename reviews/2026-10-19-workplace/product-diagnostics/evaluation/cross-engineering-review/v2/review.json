@@ -1,0 +1,70 @@
+{
+  "all_passed": true,
+  "findings": [],
+  "cases": [
+    {
+      "case": "normalizer_ignores_poisoned_import_cache",
+      "passed": true,
+      "actual_source": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering/scripts/response_contract.py",
+      "poisoned_cache_calls": 0,
+      "application_calls": 1,
+      "effects": [],
+      "error": "completed response contains an error or incomplete details"
+    },
+    {
+      "case": "display_parser_stays_strict_while_loop_accepts_raw",
+      "passed": true,
+      "rejection": "message content must be an item array"
+    },
+    {
+      "case": "healthy_completed_preserves_raw_continuation",
+      "passed": true,
+      "dispatched": 1,
+      "raw_output_preserved": true
+    },
+    {
+      "case": "directory_and_file_alias_share_db_lock",
+      "passed": true,
+      "canonical_db": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/shipping.sqlite",
+      "rejected_reconcile": [
+        "stop the active coordinator before reconciling an operation"
+      ],
+      "external_receipts": 1,
+      "replay_attempts": 1
+    },
+    {
+      "case": "late_conflict_retains_confirmed_receipt",
+      "passed": true,
+      "dispatches": 1,
+      "cached": {
+        "delivered": true,
+        "receipt": "receiver-r9"
+      },
+      "conflict": "late handler conflicts with an externally settled effect; confirmed result retained; inspect the receipt before continuing"
+    },
+    {
+      "case": "late_matching_receipt",
+      "passed": true,
+      "dispatches": 1,
+      "cached": {
+        "delivered": true,
+        "receipt": "receiver-r9"
+      },
+      "conflict": null
+    },
+    {
+      "case": "actual_workflow_process_crash_recovers_through_alias",
+      "passed": true,
+      "exit_code": 23,
+      "before_reconciliation": "unknown",
+      "after_reconciliation": "completed",
+      "attempts": 1
+    }
+  ],
+  "scope": "Independent read-only product review with offline public APIs; no product changes or target runs/captures/models accessed.",
+  "source_sha256": {
+    "tool_loop.py": "e93558518e3c20cc951da682b0c8ef08b1cebce502c74d92fef036fa52745108",
+    "workflow_contract.py": "d019571e750a1c967541b13c3d86fa115cc1f3ea7643bfe4ec1fd25a51fb6b61",
+    "response_contract.py": "4a99135477a1afe0ff526b735beec9c12c0cf07e1d68ffbc3d36fdfbaeb4d4fe"
+  }
+}

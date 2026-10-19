@@ -1,0 +1,17 @@
+{
+  "planned": 6,
+  "captured": 6,
+  "actual_mcp_tool_calls": [],
+  "mcp_zero_verified_by_trace": true,
+  "effective_inventory_receipt": "validation/runtime-inventory-corrected-accepted.json",
+  "trace_flags": [],
+  "source_unchanged": true,
+  "tests_unchanged": true,
+  "native_usage": {
+    "input_tokens": 2507781,
+    "cached_input_tokens": 2254336,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 79196,
+    "reasoning_output_tokens": 22004
+  }
+}

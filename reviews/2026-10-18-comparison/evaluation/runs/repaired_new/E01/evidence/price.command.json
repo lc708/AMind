@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/price_usage.py",
+    "--events",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/repaired_new/E01/input/events.jsonl",
+    "--rates",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/repaired_new/E01/input/rates.json"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"rows\": [\n    {\n      \"id\": \"e\",\n      \"stage\": null,\n      \"model\": \"same-model\",\n      \"status\": \"estimated_complete\",\n      \"cost_usd\": 10.2,\n      \"components\": {\n        \"uncached_input\": 8.0,\n        \"cached_input\": 0.2,\n        \"output_including_reasoning\": 2.0,\n        \"external_known\": 0\n      },\n      \"billing_identity\": null,\n      \"usage_adapter\": \"text_tokens_v1\",\n      \"identity_status\": \"legacy_model_only\",\n      \"rate_card_version\": \"synthetic-registered-v1\",\n      \"rate_card_sha256\": \"aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7\",\n      \"warning\": null\n    }\n  ],\n  \"known_or_estimated_subtotal_usd\": 10.2,\n  \"unknown_events\": 0,\n  \"partial_events\": 0,\n  \"total_cost_usd\": 10.2,\n  \"basis\": \"per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings\"\n}\n",
+  "stderr": ""
+}

@@ -1,0 +1,527 @@
+{
+  "task_id": "E-GATEWAY",
+  "score": 6,
+  "max_score": 6,
+  "probe_passed": 14,
+  "probe_total": 14,
+  "domain_scores": {
+    "completion": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 2,
+      "probe_total": 2
+    },
+    "ownership": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 3,
+      "probe_total": 3
+    },
+    "attribution": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 3,
+      "probe_total": 3
+    },
+    "terminal": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 4,
+      "probe_total": 4
+    },
+    "archive": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 1
+    },
+    "rendering": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 1
+    }
+  },
+  "domains": {
+    "completion": {
+      "score": 2,
+      "max_score": 2
+    },
+    "ownership": {
+      "score": 3,
+      "max_score": 3
+    },
+    "attribution": {
+      "score": 3,
+      "max_score": 3
+    },
+    "terminal": {
+      "score": 4,
+      "max_score": 4
+    },
+    "archive": {
+      "score": 1,
+      "max_score": 1
+    },
+    "rendering": {
+      "score": 1,
+      "max_score": 1
+    }
+  },
+  "fatal_guardrails": {
+    "G02": true,
+    "G03": true,
+    "G05": true,
+    "G06": true,
+    "G07": true,
+    "G10": true,
+    "G12": true,
+    "G13": true
+  },
+  "fatal_pass": true,
+  "cases": [
+    {
+      "id": "G01",
+      "domain": "completion",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-1_1wdb47/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-1_1wdb47/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-1_1wdb47/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "domain": "ownership",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-jf0h9sly/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-jf0h9sly/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-jf0h9sly/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "domain": "ownership",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-36w418ev/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-36w418ev/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-36w418ev/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "domain": "ownership",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-70vojcgb/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-70vojcgb/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-70vojcgb/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "domain": "attribution",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-t8wt4n50/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-t8wt4n50/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-t8wt4n50/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "domain": "attribution",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-ejedna0s/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-ejedna0s/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"inconsistent item attribution: owner\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G07",
+      "domain": "attribution",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-l0fa0pxv/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-l0fa0pxv/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"inconsistent item attribution: owner\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G08",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-fgam9dqh/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-fgam9dqh/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-fgam9dqh/view-1.json\", \"status\": \"disconnected\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-cx41n7ck/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-cx41n7ck/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-cx41n7ck/view-1.json\", \"status\": \"incomplete\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G10",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-d3kqpjpl/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-d3kqpjpl/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"completed response contains an error or incomplete details\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-d3kqpjpl/input-2.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-d3kqpjpl/view-2.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"terminal event/status mismatch\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G11",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-lf8u9l7a/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-lf8u9l7a/view-1.json"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"event after terminal outcome\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G12",
+      "domain": "archive",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-g_m12ls3/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-g_m12ls3/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-g_m12ls3/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G13",
+      "domain": "rendering",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-i3r2sapj/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-i3r2sapj/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-i3r2sapj/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G14",
+      "domain": "completion",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-z5z9w_bm/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-z5z9w_bm/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-z5z9w_bm/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W001-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-z5z9w_bm/input-2.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-z5z9w_bm/view-2.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W001/grade-scratch/integration-z5z9w_bm/view-2.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "evidence_level": "offline real CLI subprocesses and persisted journals; no provider/model/network"
+}

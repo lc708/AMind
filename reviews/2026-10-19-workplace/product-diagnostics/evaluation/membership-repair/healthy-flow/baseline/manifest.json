@@ -1,0 +1,95 @@
+{
+  "schema_version": 2,
+  "variant": "baseline",
+  "split": "val",
+  "reps": 1,
+  "comparison_identity": {
+    "dataset": "5e723b24c3b37e506a0893fe768a955e7ce3b1f433c7d3aa1024705c82873079",
+    "references": "ded3bf3bc754747c1218e53dc1f59db9d6e3a0c67d49f0d25106fd5fca68c284",
+    "dataset_version": "1",
+    "grader": {
+      "kind": "exact"
+    },
+    "grader_version": "1",
+    "runner": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "app.py"
+      ],
+      "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/membership-repair/fixture",
+      "files": {
+        "app.py": "a372703e24a3e218c136d08c797b1967a7ae38a3756280912992f7c9caace1d9"
+      },
+      "retry_safe": false
+    },
+    "metrics": [
+      {
+        "id": "quality",
+        "kind": "binary",
+        "better": "higher",
+        "role": "objective",
+        "min_improvement": 0
+      }
+    ],
+    "splits": {
+      "train": [
+        "train-only"
+      ],
+      "val": [
+        "reimburse",
+        "billing"
+      ],
+      "test": [
+        "test-only"
+      ]
+    },
+    "fixed_config": {},
+    "mutable_config": [],
+    "workspace_files": {},
+    "control_files": {},
+    "task": "Offline report population membership counterexample",
+    "reps": 1,
+    "split": "val",
+    "coverage": {},
+    "case_groups": {
+      "reimburse": "reimburse",
+      "billing": "billing"
+    },
+    "kernel": {
+      "run_eval.py": "5568bc09e4e62254252051bb07f3814f6c24f10775b6790b555ceb0adedbfee1",
+      "kernel_common.py": "b690735ffc4969f7e287f6afb8dec2fd683cd6fbaf12a09b87ef59977f6328af"
+    }
+  },
+  "comparison_hash": "f9918bd1bddd5f4fe205f259001d500ac7744856ad0f8a5ac86c13a0774d35ab",
+  "treatment": {
+    "files": {
+      "app.py": "a372703e24a3e218c136d08c797b1967a7ae38a3756280912992f7c9caace1d9"
+    },
+    "config": {},
+    "expected_model": "fixture",
+    "expected_billing_identity": null
+  },
+  "treatment_hash": "f10ee758fc76d66d262e7fe57894a49a05fb1396c3b61627afdc11add39a5539",
+  "limits": {
+    "max_attempts": 4,
+    "concurrency": 1,
+    "timeout_s": 5,
+    "retries": 0,
+    "max_output_bytes": 4194304,
+    "max_total_seconds": 60
+  },
+  "isolation": "separate input/grader channels; filesystem/network isolation not established",
+  "status": "complete",
+  "results_sha256": "6f07c30c6fb54a5518ec1947b98fe69752072951668edb144e7ddc6309ab08a0",
+  "result_identity_required": true,
+  "attempts_sha256": "59bd7f3f1884f22259dc08de7c3a99a95d69f31474bcf83ea55c89624f495a1b",
+  "first_started_at": 1792347794.290616,
+  "deadline_at": 1792347854.290616,
+  "completed_cases": 2,
+  "attempts": 2,
+  "known_cost_usd": 0.04,
+  "unknown_cost_attempts": 0,
+  "failed_attempts": 0,
+  "remaining_failed_attempts": null,
+  "frozen_outputs_sha256": "46decd8be68ad60a26cb673d70953c7c281038418e2c69b5a8678249bbeff1e8"
+}

@@ -1,0 +1,2 @@
+{"attempt_id":1,"event":"started","prompt_id":"a","rep":0,"reserved_usd":0.0,"time":1792300651.49199}
+{"app_cost_usd":0.02,"attempt_id":1,"billing_identity":{"interface":"responses","model":"same-model","provider":"fixture","region":"global","service_tier":"standard"},"cost_usd":0.02,"event":"finished","judge_billing_identity":null,"judge_cost_usd":0.0,"judge_model":null,"judge_usage":null,"known_cost_usd":0.02,"latency_s":0.023883417,"model":"same-model","prompt_id":"a","rep":0,"stage":"application","status":"coverage_incomplete","time":1792300651.516607,"usage":null}

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/price_usage.py",
+    "--events",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E04/input/events.jsonl",
+    "--rates",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E04/input/rates.json"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"rows\": [\n    {\n      \"id\": \"e\",\n      \"stage\": null,\n      \"model\": \"same-model\",\n      \"status\": \"unknown\",\n      \"cost_usd\": null,\n      \"reason\": \"explicit billing scope requires billing_identity and rates[]\"\n    }\n  ],\n  \"known_or_estimated_subtotal_usd\": 0,\n  \"unknown_events\": 1,\n  \"partial_events\": 0,\n  \"total_cost_usd\": null,\n  \"basis\": \"per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings\"\n}\n",
+  "stderr": ""
+}

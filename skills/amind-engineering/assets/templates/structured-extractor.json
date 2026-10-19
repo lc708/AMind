@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Structured extractor",
+  "goal": "Extract schema-constrained facts from selected records",
+  "item_label": "record",
+  "stages": [
+    "extract",
+    "validate",
+    "combine"
+  ],
+  "output_checks": [
+    "Validate schema and business meaning separately",
+    "Keep absent, null and unknown distinct",
+    "Cite input locations for extracted facts"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

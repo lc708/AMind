@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/run_eval.py",
+    "--card",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture/experiment.json",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/recovery-flow",
+    "--variant",
+    "v1",
+    "--split",
+    "val",
+    "--execute"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"status\": \"complete\",\n  \"completed_cases\": 3,\n  \"attempts\": 3,\n  \"known_cost_usd\": 0.15000000000000002,\n  \"unknown_cost_attempts\": 0\n}\n",
+  "stderr": "",
+  "json": {
+    "status": "complete",
+    "completed_cases": 3,
+    "attempts": 3,
+    "known_cost_usd": 0.15000000000000002,
+    "unknown_cost_attempts": 0
+  }
+}

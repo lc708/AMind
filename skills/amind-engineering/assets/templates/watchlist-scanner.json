@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Watchlist scanner",
+  "goal": "Check selected watchlist items against dated evidence and explain changes",
+  "item_label": "watchlist item",
+  "stages": [
+    "scan",
+    "crosscheck",
+    "combine"
+  ],
+  "output_checks": [
+    "Retain prior snapshot and observation dates",
+    "Report missing/inaccessible items in the denominator",
+    "Scheduled delivery requires an explicit recurring-work request"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

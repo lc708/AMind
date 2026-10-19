@@ -1,0 +1,5 @@
+{
+  "field": "result_identity.treatment_hash",
+  "replacement": "foreign-treatment-binding",
+  "updated_byte_hash_only": true
+}

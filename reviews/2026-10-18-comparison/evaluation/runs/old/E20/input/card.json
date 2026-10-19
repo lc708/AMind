@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "task": "Registered offline behavioral challenge; synthetic local application",
+  "dataset_version": "challenge-v1",
+  "grader_version": "exact-v1",
+  "cases": "cases.jsonl",
+  "references": "refs.jsonl",
+  "splits": {
+    "train": [],
+    "val": [
+      "a"
+    ],
+    "test": []
+  },
+  "metrics": [
+    {
+      "id": "quality",
+      "kind": "binary",
+      "better": "higher",
+      "role": "objective",
+      "min_improvement": 0
+    }
+  ],
+  "runner": {
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "app.py"
+    ],
+    "files": [
+      "app.py"
+    ],
+    "retry_safe": true
+  },
+  "grader": {
+    "kind": "exact"
+  },
+  "mutable_config": [
+    "uppercase"
+  ],
+  "variants": {
+    "baseline": {
+      "files": [
+        "app.py"
+      ],
+      "config": {
+        "uppercase": false
+      },
+      "expected_model": "same-model"
+    },
+    "v1": {
+      "files": [
+        "app.py"
+      ],
+      "config": {
+        "uppercase": true
+      },
+      "expected_model": "same-model"
+    }
+  },
+  "limits": {
+    "max_attempts": 6,
+    "concurrency": 1,
+    "timeout_s": 3,
+    "max_total_seconds": 300,
+    "retries": 0
+  }
+}

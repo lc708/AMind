@@ -21,6 +21,8 @@ Run the baseline with recorded model/settings, raw usage and enough repetitions 
 
 Store each round's hypothesis, files/config hash, budget, run paths, observed effect, uncertainty, failure cases, mechanism evidence and decision. Freeze baseline comparator outputs for pairwise grading; never overwrite them with a later candidate's output. Keep the candidate's grader blind to the variant label.
 
+Include a judge/auditor gaming probe when optimization targets finding count, self-reported completion or another easy proxy. A higher proxy can mean invented issues, omitted difficult workers or exploiting the rubric. Keep clean negatives and a fixed independently adjudicated calibration set; compare judge changes on paired cases and regrade both variants after a rubric change. Missing negative-control, stage-coverage or drift evidence stays unmeasured.
+
 ## Search efficiency
 
 Use a small number of meaningful candidates rather than shotgun edits. Improvement may come from retrieval, tool contracts, deterministic validation, response budgets, state management or architecture; prompt changes are not the only lever. If a deterministic rule handles an invariant more reliably, move it into code and test both accept/reject paths.

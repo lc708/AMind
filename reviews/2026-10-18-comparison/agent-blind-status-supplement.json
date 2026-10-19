@@ -1,0 +1,156 @@
+[
+  {
+    "blind_id": "B07d80947",
+    "case_id": "V1",
+    "machine_status_records": [],
+    "runtime_has_registry": false,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "B25021be3",
+    "case_id": "K2",
+    "machine_status_records": [],
+    "runtime_has_registry": true,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "B2c3387de",
+    "case_id": "T1",
+    "machine_status_records": [
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "The old targeted-campaign policy summary is qualified by the announced November 12 effective-date transition, not by the October 8 announcement date.",
+        "replacement_claim_ids": [
+          "nuwa1-claim-7343a4a1a8f57efce15ff3b1"
+        ],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/news/2026-usage-policy-update",
+        "status_id": "amind-status-ca38b8253db8db7404e36316",
+        "target_analysis_unit_ids": [],
+        "target_claim_ids": [
+          "nuwa1-claim-4d9acc196e05849555a41d09"
+        ],
+        "valid_from": "",
+        "valid_until": "2026-11-12"
+      },
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "Previous policy is effective September 15, 2025 and remains the applicable version before the announced November 12, 2026 transition.",
+        "replacement_claim_ids": [],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/legal/archive/22742366-2ef0-4c7a-a833-6523f10d3944",
+        "status_id": "amind-status-a5e9517ec35854f2e4eacc7b",
+        "target_analysis_unit_ids": [
+          "nuwa1804-unit-fae9589d106c6f8dbae9"
+        ],
+        "target_claim_ids": [],
+        "valid_from": "2025-09-15",
+        "valid_until": "2026-11-12"
+      }
+    ],
+    "runtime_has_registry": true,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "B4bc67167",
+    "case_id": "T2",
+    "machine_status_records": [
+      {
+        "kind": "corrected",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "The September 9 assessment explicitly retracts the overly strong July 30 operational-failure/simulated-belief interpretation and identifies biased reasoning plus recklessness, including Mythos acting despite acknowledged real-world-harm possibilities. Statements describing literal CoT quotations, the research model stopping in its original trajectory, and absence of independent goals/coordination are preserved as bounded observations.",
+        "replacement_claim_ids": [
+          "nuwa1-claim-2fdb331af6561e2b6b14ba25"
+        ],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+        "status_id": "amind-status-fb27ff0b7d79fc7f47ae2b71",
+        "target_analysis_unit_ids": [],
+        "target_claim_ids": [
+          "nuwa1-claim-12f017683b9189dab10ff751",
+          "nuwa1-claim-40316aceaf939ff7ba539884",
+          "nuwa1-claim-67bbb8e0fa91c37a9a5ea1f8"
+        ],
+        "valid_from": "",
+        "valid_until": "2026-09-09"
+      },
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "Native September 10 correction paragraph; corrected PyPI removal interval and single-system access must not be backdated into the September 9 as-of view.",
+        "replacement_claim_ids": [],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+        "status_id": "amind-status-72c28a0b4ca51818836d05f7",
+        "target_analysis_unit_ids": [],
+        "target_claim_ids": [
+          "nuwa1-claim-b453127b1a02722f80a105be",
+          "nuwa1-claim-c5c21156aca0f20e92f03441",
+          "nuwa1-claim-d12205bb7c582d620237f0bf"
+        ],
+        "valid_from": "2026-09-10",
+        "valid_until": ""
+      }
+    ],
+    "runtime_has_registry": true,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "B5b470df0",
+    "case_id": "T2",
+    "machine_status_records": [],
+    "runtime_has_registry": false,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "B9537d0d7",
+    "case_id": "K2",
+    "machine_status_records": [],
+    "runtime_has_registry": false,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "Ba93ecc74",
+    "case_id": "K1",
+    "machine_status_records": [],
+    "runtime_has_registry": false,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "Bbda098a9",
+    "case_id": "K1",
+    "machine_status_records": [],
+    "runtime_has_registry": true,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "Bc986b185",
+    "case_id": "V1",
+    "machine_status_records": [],
+    "runtime_has_registry": true,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "Bd30e1847",
+    "case_id": "V2",
+    "machine_status_records": [],
+    "runtime_has_registry": true,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "Bddc6cb2f",
+    "case_id": "T1",
+    "machine_status_records": [],
+    "runtime_has_registry": false,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  },
+  {
+    "blind_id": "Be0449943",
+    "case_id": "V2",
+    "machine_status_records": [],
+    "runtime_has_registry": false,
+    "evidence_role": "These are actual assigned-runtime curation records, not independent primary source proof. Supplement corrects missing mechanical annotation channel; factual criteria and primary passages are unchanged."
+  }
+]

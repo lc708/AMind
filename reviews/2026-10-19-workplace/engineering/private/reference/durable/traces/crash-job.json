@@ -1,0 +1,16 @@
+{
+  "op": "submit",
+  "tenant": "acme",
+  "job": "INC-74",
+  "spec": {
+    "items": [
+      {
+        "id": "delivery-A",
+        "payload": {
+          "crash_after_effect": "inspect"
+        }
+      }
+    ],
+    "max_attempts": 8
+  }
+}

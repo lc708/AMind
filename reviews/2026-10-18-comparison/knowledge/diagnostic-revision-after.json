@@ -1,0 +1,248 @@
+{
+  "diagnostic_id": "D04-month-window-revision-generation",
+  "not_holdout": true,
+  "rules": [
+    {
+      "status_id": "publication-month-synthetic-old-month",
+      "target_analysis_unit_ids": [
+        "synthetic-old-month"
+      ],
+      "kind": "publication_window",
+      "valid_from": "2026-08-01",
+      "publication_month": "2026-08",
+      "source_canonical": "https://example.org/edition",
+      "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+      "observed_at": "",
+      "reviewer_type": "retained source-native partial date"
+    },
+    {
+      "status_id": "publication-month-synthetic-new-edition",
+      "target_analysis_unit_ids": [
+        "synthetic-new-edition"
+      ],
+      "kind": "publication_window",
+      "valid_from": "2026-08-01",
+      "publication_month": "2026-08",
+      "source_canonical": "https://example.org/edition",
+      "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+      "observed_at": "",
+      "reviewer_type": "retained source-native partial date"
+    },
+    {
+      "status_id": "revision-synthetic-old-month",
+      "target_analysis_unit_ids": [
+        "synthetic-old-month"
+      ],
+      "kind": "superseded",
+      "valid_until": "2026-10-18",
+      "replacement_analysis_unit_ids": [
+        "synthetic-new-edition"
+      ],
+      "source_canonical": "https://example.org/edition",
+      "reason": "Later observed revision of the same work.",
+      "observed_at": "2026-10-17T18:30:00+00:00",
+      "reviewer_type": "recorded version relation"
+    },
+    {
+      "status_id": "edition-start-synthetic-new-edition",
+      "target_analysis_unit_ids": [
+        "synthetic-new-edition"
+      ],
+      "kind": "effective_window",
+      "valid_from": "2026-10-18",
+      "source_canonical": "https://example.org/edition",
+      "reason": "This edition is known from the explicit revision date, or conservatively from its observation day; the original work publication date does not date this revision.",
+      "observed_at": "2026-10-17T18:30:00+00:00",
+      "reviewer_type": "recorded version relation"
+    }
+  ],
+  "checks": [
+    {
+      "as_of": "2026-10-17",
+      "unit": "synthetic-old-month",
+      "assessment": {
+        "eligible": true,
+        "as_of": "2026-10-17",
+        "reasons": [],
+        "publication_day_known": false,
+        "publication_date_precision": "month",
+        "publication_earliest_possible": "2026-08-01",
+        "publication_latest_possible": "2026-08-31",
+        "publication_availability": "available",
+        "decisions": [
+          {
+            "status_id": "publication-month-synthetic-old-month",
+            "target_analysis_unit_ids": [
+              "synthetic-old-month"
+            ],
+            "kind": "publication_window",
+            "valid_from": "2026-08-01",
+            "publication_month": "2026-08",
+            "source_canonical": "https://example.org/edition",
+            "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+            "observed_at": "",
+            "reviewer_type": "retained source-native partial date"
+          },
+          {
+            "status_id": "revision-synthetic-old-month",
+            "target_analysis_unit_ids": [
+              "synthetic-old-month"
+            ],
+            "kind": "superseded",
+            "valid_until": "2026-10-18",
+            "replacement_analysis_unit_ids": [
+              "synthetic-new-edition"
+            ],
+            "source_canonical": "https://example.org/edition",
+            "reason": "Later observed revision of the same work.",
+            "observed_at": "2026-10-17T18:30:00+00:00",
+            "reviewer_type": "recorded version relation"
+          }
+        ],
+        "source_observation_cutoff": "2026-10-18",
+        "verification_required": false,
+        "scope": "known public evidence at the recorded observation cutoff; not a live policy or model registry"
+      }
+    },
+    {
+      "as_of": "2026-10-17",
+      "unit": "synthetic-new-edition",
+      "assessment": {
+        "eligible": false,
+        "as_of": "2026-10-17",
+        "reasons": [
+          "not_yet_effective"
+        ],
+        "publication_day_known": false,
+        "publication_date_precision": "month",
+        "publication_earliest_possible": "2026-08-01",
+        "publication_latest_possible": "2026-08-31",
+        "publication_availability": "available",
+        "decisions": [
+          {
+            "status_id": "publication-month-synthetic-new-edition",
+            "target_analysis_unit_ids": [
+              "synthetic-new-edition"
+            ],
+            "kind": "publication_window",
+            "valid_from": "2026-08-01",
+            "publication_month": "2026-08",
+            "source_canonical": "https://example.org/edition",
+            "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+            "observed_at": "",
+            "reviewer_type": "retained source-native partial date"
+          },
+          {
+            "status_id": "edition-start-synthetic-new-edition",
+            "target_analysis_unit_ids": [
+              "synthetic-new-edition"
+            ],
+            "kind": "effective_window",
+            "valid_from": "2026-10-18",
+            "source_canonical": "https://example.org/edition",
+            "reason": "This edition is known from the explicit revision date, or conservatively from its observation day; the original work publication date does not date this revision.",
+            "observed_at": "2026-10-17T18:30:00+00:00",
+            "reviewer_type": "recorded version relation"
+          }
+        ],
+        "source_observation_cutoff": "2026-10-18",
+        "verification_required": false,
+        "scope": "known public evidence at the recorded observation cutoff; not a live policy or model registry"
+      }
+    },
+    {
+      "as_of": "2026-10-18",
+      "unit": "synthetic-old-month",
+      "assessment": {
+        "eligible": false,
+        "as_of": "2026-10-18",
+        "reasons": [
+          "superseded"
+        ],
+        "publication_day_known": false,
+        "publication_date_precision": "month",
+        "publication_earliest_possible": "2026-08-01",
+        "publication_latest_possible": "2026-08-31",
+        "publication_availability": "available",
+        "decisions": [
+          {
+            "status_id": "publication-month-synthetic-old-month",
+            "target_analysis_unit_ids": [
+              "synthetic-old-month"
+            ],
+            "kind": "publication_window",
+            "valid_from": "2026-08-01",
+            "publication_month": "2026-08",
+            "source_canonical": "https://example.org/edition",
+            "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+            "observed_at": "",
+            "reviewer_type": "retained source-native partial date"
+          },
+          {
+            "status_id": "revision-synthetic-old-month",
+            "target_analysis_unit_ids": [
+              "synthetic-old-month"
+            ],
+            "kind": "superseded",
+            "valid_until": "2026-10-18",
+            "replacement_analysis_unit_ids": [
+              "synthetic-new-edition"
+            ],
+            "source_canonical": "https://example.org/edition",
+            "reason": "Later observed revision of the same work.",
+            "observed_at": "2026-10-17T18:30:00+00:00",
+            "reviewer_type": "recorded version relation"
+          }
+        ],
+        "source_observation_cutoff": "2026-10-18",
+        "verification_required": false,
+        "scope": "known public evidence at the recorded observation cutoff; not a live policy or model registry"
+      }
+    },
+    {
+      "as_of": "2026-10-18",
+      "unit": "synthetic-new-edition",
+      "assessment": {
+        "eligible": true,
+        "as_of": "2026-10-18",
+        "reasons": [],
+        "publication_day_known": false,
+        "publication_date_precision": "month",
+        "publication_earliest_possible": "2026-08-01",
+        "publication_latest_possible": "2026-08-31",
+        "publication_availability": "available",
+        "decisions": [
+          {
+            "status_id": "publication-month-synthetic-new-edition",
+            "target_analysis_unit_ids": [
+              "synthetic-new-edition"
+            ],
+            "kind": "publication_window",
+            "valid_from": "2026-08-01",
+            "publication_month": "2026-08",
+            "source_canonical": "https://example.org/edition",
+            "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+            "observed_at": "",
+            "reviewer_type": "retained source-native partial date"
+          },
+          {
+            "status_id": "edition-start-synthetic-new-edition",
+            "target_analysis_unit_ids": [
+              "synthetic-new-edition"
+            ],
+            "kind": "effective_window",
+            "valid_from": "2026-10-18",
+            "source_canonical": "https://example.org/edition",
+            "reason": "This edition is known from the explicit revision date, or conservatively from its observation day; the original work publication date does not date this revision.",
+            "observed_at": "2026-10-17T18:30:00+00:00",
+            "reviewer_type": "recorded version relation"
+          }
+        ],
+        "source_observation_cutoff": "2026-10-18",
+        "verification_required": false,
+        "scope": "known public evidence at the recorded observation cutoff; not a live policy or model registry"
+      }
+    }
+  ],
+  "actual_monthly_prior_overlap": []
+}

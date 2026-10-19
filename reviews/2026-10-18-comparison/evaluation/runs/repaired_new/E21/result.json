@@ -1,0 +1,26 @@
+{
+  "id": "E21",
+  "name": "unreconciled-resume",
+  "classification": "control",
+  "entry": "runner",
+  "expected": "Open started attempt blocks resume with explicit reconciliation error and no new application call.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E21",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 1,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "resume": {
+      "status": "invalid",
+      "error": "interrupted attempt has unknown outcome/cost; reconcile it before resume; do not retry side effects blindly"
+    },
+    "calls_before": 1,
+    "calls_after": 1
+  }
+}

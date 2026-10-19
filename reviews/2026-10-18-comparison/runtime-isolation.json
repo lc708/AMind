@@ -1,0 +1,30 @@
+{
+  "root": "/private/tmp/amind-paired-20261018-16krdfbb",
+  "canary_returncode": 0,
+  "canary_result": {
+    "/private/tmp/amind-paired-20261018-16krdfbb/R01/public.txt": "PUBLIC-TASK",
+    "/private/tmp/amind-paired-20261018-16krdfbb/control/canary.txt": "DENIED",
+    "/private/tmp/amind-paired-20261018-16krdfbb/R02/private.txt": "DENIED",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/README.md": "DENIED",
+    "sibling_write": "DENIED",
+    "own_write": "ALLOWED"
+  },
+  "stderr": "",
+  "nested_returncode": 71,
+  "nested_stdout": "",
+  "nested_stderr": "sandbox-exec: sandbox_apply: Operation not permitted\n",
+  "profile_name": "amind-contrast-20261018-frozen",
+  "profile_file": "/Users/damonalbarn/.codex/amind-contrast-20261018-frozen.config.toml",
+  "profile_text": "model = \"gpt-6.1-sol\"\nmodel_reasoning_effort = \"ultra\"\nweb_search = \"disabled\"\n[features]\napps = false\nplugins = false\nhooks = false\nmulti_agent = false\nbrowser_use = false\ncomputer_use = false\nimage_generation = false\nshell_snapshot = false\nskip_host_skill_discovery = true\n",
+  "features_config_validated": false,
+  "login_returncode": 1,
+  "login_status": "Error: --profile only applies to runtime commands and `codex mcp`: `codex`, `codex exec`, `codex review`, `codex resume`, `codex queue`, `codex archive`, `codex delete`, `codex unarchive`, `codex fork`, `codex mcp`, `codex sandbox`, and `codex debug prompt-input`.",
+  "tool_sandbox": "OS Seatbelt; nested built-in sandbox unavailable, therefore internal mode danger-full-access inside external OS envelope",
+  "network_isolation": "native web/apps/plugins disabled; outbound inference remains available; not an OS network egress whitelist",
+  "prompt_input_dryrun": {
+    "returncode": 0,
+    "stdout_bytes": 6981,
+    "stderr": ""
+  },
+  "write_envelope": "Protected repo, graders, installed skills/plugins and sibling runs denied read/write; runtime and task writes allowed. Not an allowlist for all host files."
+}

@@ -3,7 +3,7 @@ name: amind-engineering
 description: Build and improve LLM applications, agents, prompts, and skills through concrete engineering contracts, executable diagnostics and measured experiments. Use for prompt audits, measured cost optimization, model or API migration, SDK upgrades, conversation-state migration, agent implementation, and routing evaluation or hillclimbing work to AMind Eval Improve. Use this AMind application skill for engineering work, not for retrieving Anthropic's public positions or ordinary non-AI code changes.
 license: Apache-2.0; see LICENSE.txt and NOTICE.txt
 metadata:
-  version: "0.2.1"
+  version: "0.3.2"
   series: "AMind"
 ---
 
@@ -27,6 +27,8 @@ These are workflow names inside a skill, not new CLI commands or API endpoints. 
 | `upgrade` | [SDK/runtime upgrade](references/migration.md#sdk-or-runtime-upgrade) | Verified dependency changes, lockfile and affected call sites |
 | `context-migrate` | [Conversation state](references/context-state.md) | Explicit state ownership and tested continuation/compaction behavior |
 | `agent-build` / build an AI application | [Agent implementation](references/agent-build.md), then the relevant part of [API implementation](references/api-implementation.md) | Runnable application path, tool contracts, verification and operating notes |
+| `agent-onboard` with a URL or template name | [Onboarding](references/onboarding.md), [thirteen templates](references/templates.md) | Committable local configuration, provenance, dry-run plan and offline workflow |
+| Large item populations / phased work | [Staged workflows](references/workflow-recipes.md) | Durable phase journal, recovery, complete coverage and a checked aggregate |
 
 If `eval-improve` is missing, first check this checkout's `skills/eval-improve/SKILL.md` and use it directly when available. Otherwise report the missing module and use the user's existing evaluator; do not silently claim an evaluation was completed. The repository installer installs both application skills together.
 
@@ -55,13 +57,17 @@ Use tools when they resolve the current task, not as a checklist to run indiscri
 | Prompt/configuration discovery | `scripts/prompt_inventory.py` | File/line inventory with provenance; no automatic deletions |
 | State and serialization diagnosis | `scripts/context_audit.py` | History/phase drift, state owners, tool correspondence and compaction hashes |
 | Response/stream/batch contracts | `scripts/response_contract.py` | Full item preservation, terminal outcomes, custom-ID batch matching |
+| Native Multi-agent / WebSocket contracts | `scripts/response_contract.py` | Root-only answers and SSE projection; hosted/unknown item retention; incompatible modes and injection acknowledgements |
+| Staged workflow execution | `scripts/workflow_contract.py` | Item/aggregate phases, cumulative budgets, crash reconciliation and uncovered populations |
+| Source/template onboarding | `scripts/onboarding_contract.py` | List actual packaged templates, plan files by default, explicit local write without cloud deployment |
+| Cache and context-probe evidence | `scripts/cache_diagnostics.py` | Comparison identity, actual cache counters and not-measured/inconclusive outcomes |
 | Durable tool execution reference | `scripts/tool_loop.py` | Validated/authorized dispatch, budgets, idempotency and unknown-outcome reconciliation |
 | Operational event audit | `scripts/lifecycle_audit.py` | Replays, cancellation, side effects, memory ownership and callback facts |
 | Application evaluation and cost accounting | Companion `$eval-improve` | Runnable grading, compatible paired comparisons, full reports and cost search |
 
 Read [agent lifecycle](references/agent-lifecycle.md) for environments, memory, multi-agent work, events, webhooks and schedules; [response recipes](references/response-recipes.md) for concrete API integration; [language adapters](references/language-adapters.md) for eight implementation surfaces; and [platform operations](references/platform-operations.md) for files, batches, retrieval, MCP, caching, usage, errors and availability.
 
-The [source capability map](references/capability-map.md) traces the complete pinned upstream file inventory to retained methods, native replacements and verification status. Capability coverage, local contract tests, live service compatibility and model-quality comparisons are different evidence levels.
+The [source capability map](references/capability-map.md) traces the current 96-file upstream pin to retained methods and destination-native contracts; the original 81-file inventory remains historical evidence. Capability coverage, local contract tests, live service compatibility and model-quality comparisons are different evidence levels. New workflows use injected adapters; no hosted deployment, schedule or paid run is implied by creating their local configuration.
 
 ## Deliver
 

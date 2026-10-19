@@ -1,0 +1,17 @@
+{
+  "metrics": [
+    {
+      "id": "quality",
+      "kind": "binary",
+      "better": "higher",
+      "role": "objective",
+      "min_improvement": 0
+    }
+  ],
+  "reps": 1,
+  "train_ids": [],
+  "val_ids": [
+    "a"
+  ],
+  "test_ids": []
+}

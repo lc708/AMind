@@ -1,0 +1,52 @@
+{
+  "id": "E09",
+  "name": "absent-negative-controls",
+  "classification": "shared",
+  "entry": "calibrate",
+  "expected": "A perfect positive-only set is not ready_for_review and negative evidence is unmeasured.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E09",
+  "observed": {
+    "examples": 2,
+    "judgments": 2,
+    "confusion": {
+      "tp": 2,
+      "tn": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    "evaluation_identity": {
+      "dataset_version": "calibration-v1",
+      "grader_version": "judge-v1",
+      "judge_model": "judge-v1",
+      "rubric_sha256": "synthetic-rubric-v1"
+    },
+    "labels_sha256": "676add1451d3a5cbd7c5c5d7a9831533bcf0c500e61c3418f72b920d7bdb2a53",
+    "measurement_status": {
+      "positive_controls": "measured",
+      "negative_controls": "unmeasured",
+      "order_bias": "unmeasured",
+      "repeat_stability": "unmeasured",
+      "population_precision": "unmeasured",
+      "identity": "verified"
+    },
+    "positive_judgments": 2,
+    "negative_judgments": 0,
+    "agreement": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "false_positive_rate": null,
+    "false_negative_rate": 0.0,
+    "specificity": null,
+    "sample_prevalence": 1.0,
+    "population_prevalence": null,
+    "population_adjusted_precision": null,
+    "disagreements": [],
+    "unstable_cases": [],
+    "order_inconsistency_rate": null,
+    "ready_for_review": false,
+    "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks."
+  }
+}

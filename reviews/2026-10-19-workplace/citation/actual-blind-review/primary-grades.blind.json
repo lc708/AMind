@@ -1,0 +1,828 @@
+[
+  {
+    "blind_id": "Wd03e358afcf1",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "States October 15, 2026 and affirmative quality/calibration and transfer results; cited 3e237edb's complete tl;dr contains the date and bounded Haiku 4.5 result."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Distinguishes Petri concerningness and planted-behavior binary reward hacking from pairwise rewards and benign calibration; explicitly prioritizes false-positive replication."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Restricts the comparison to composite/held-out audits and AuditBench transfer in Claude Code; rejects arbitrary-target coverage, researcher replacement, or independent deployment approval."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Marks the paper's methods, numeric results and strategy observations Public position; marks the team's controlled-replication and deployment advice Exploratory extrapolation."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four cited IDs/URLs resolve. Complete passages 1d782744, b5a10c5c and 6ce69aad support the publication, methods, metrics, comparison, transfer and clustering claims with the stated conditions."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Reward/judge implementation, exact confidence intervals and transfer magnitude require further detail; internal deployment reliability remains untested."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "Wddf379ddb8dd",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "Retains October 15, 2026 plus reward hacking, calibrated pairwise improvement and transfer findings, directly supported by the tl;dr and Introduction."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Explains the two pointwise designs, their hacked findings, the same-target/same-scenario pairwise comparison, and benign-target false-positive control."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Keeps Haiku 4.5 versus Opus 4.6 matching bounded to held-out/composite evaluations and Claude Code/AuditBench transfer; explicitly denies independent safety certification or researcher replacement."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for this one paper's direct methods/results and Exploratory extrapolation for internal replication and deployment limits; does not require independent studies to retain results."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four cited IDs/URLs resolve. The complete tl;dr, Introduction and strategy passages support dates, reward designs, all reported metrics, transfer and strategy clustering, including the 50%/three-epoch condition."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Metric definitions, uncertainty, independent gains from multi-family training, implementation and deployment cost/benefit are appropriately left for verification."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W75e35aecb94b",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "Gives October 15, 2026 and affirmative numeric, held-out matching and transfer results, consistent with the native header and Introduction."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Identifies concerningness and binary pointwise reward hacking and contrasts calibrated pairwise training; proposes an explicit with/without benign calibration replication."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Reports Haiku 4.5 matching Opus 4.6 on held-out/composite audits and transfer to Claude Code/AuditBench, while rejecting universal superiority, researcher replacement and standalone production approval."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Labels direct experimental facts Public position and team-specific replication/deployment recommendations Exploratory extrapolation."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Bound passage b5a10c5c supports the reward designs, benign calibration, configuration, metrics and transfer; passage 1d782744 supports publication and Haiku 4.5 held-out comparison."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Metric denominators, full experimental controls, seed total, exact uncertainty and internal production performance remain to be checked."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W33e08e4c5651",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly distinguishes October 8, 2026 announcement from November 12, 2026 future effectiveness and preserves the distinction between clarifications and changes."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses the September 15 archive only as a provisional draft, explicitly says its October 18 applicability lacks an independent primary version chain, and treats the real registry as reconstruction."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides a difference table, customer preparation and a planned November 12 cutover, with current-edition verification before release and future implementation left unknown."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for the announcement and effective-header facts; separately names amind-status-a5e9517ec35854f2e4eacc7b and describes its interval as local reconstruction, within provisional advice."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Announcement passage 962430ff and policy opening 88834441 support dates; archive passage 6357e4e3 supports its header/archive status only, and that support limit is explicit."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact October 18 operative edition and intervening revisions lack independent primary transition proof.",
+      "Actual November 12 implementation, later changes and precise cutover time/timezone remain unknown."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W8cfb498f0bcf",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "States October 15, 2026 and affirmative calibrated-pairwise quality and transfer findings rather than withholding them because the collection is machine checked."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Accurately distinguishes the hacked concerningness/binary pointwise rewards from pairwise rewards and the necessary benign-target false-positive calibration."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Bounds Haiku 4.5 matching to held-out/composite evaluations and the Claude Code/AuditBench transfer; does not claim universal safety, replacement of researchers or deployment authorization."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Marks reported methods and results Public position, and internal offline replication/limited use advice Exploratory extrapolation."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Complete tl;dr and Introduction support the date, pointwise/pairwise comparison, 50% calibration over three epochs, numeric results and bounded transfer; nearby context is explicitly located."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Reward implementation, metric scales, seed total, transfer magnitude, independent validation and real deployment reliability are appropriately unresolved."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "Wf52726f55801",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "States October 8 announcement and November 12, 2026 announced effectiveness; does not move the future election change or whole new policy into October 18."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Makes the September 15 archive a provisional handoff draft and explicitly says its continuous applicability is only locally reconstructed, with the exact operative edition still unconfirmed."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides difference review, legal version-chain confirmation, staff preparation and conditional November 12 release; explicitly leaves post-cutoff changes unknown."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Direct announcement/header claims are Public position; the separate registry role and status ID are explicit, and the provisional draft choice is exploratory advice."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Complete announcement, future policy opening, election section and archived opening support the claims at their qualified strength; the archive is not used to prove an active-through interval."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact October 18 operative edition, replacement timing and intermediate revisions remain to be confirmed.",
+      "Post-cutoff revisions, actual implementation and exact switch time/timezone are unverified."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "Wdf60bd1e461c",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "Retains October 15 publication and affirmative calibrated-pairwise scores, matching and transfer findings, supported by the header and complete Introduction."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Identifies the concerningness and planted-target binary rewards as hacked, contrasts pairwise training, and calls for no-planted-target calibration ablation and false-positive measurement."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Keeps Haiku 4.5 versus Opus 4.6 matching specific to the reported composite evaluations and Claude Code/AuditBench transfer, without general superiority or researcher replacement."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for direct experimental descriptions and Exploratory extrapolation for the team's controlled-replication and deployment advice."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Bound tl;dr and Introduction support publication, pointwise failures, pairwise/calibration methods, separate numeric metrics and transfer under the named configuration."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Implementation and ablations, exact metric definitions/uncertainty, transfer magnitude and internal costs/reliability require further verification."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W15e704a033b0",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "Gives October 15, 2026 and retains numeric calibrated-pairwise improvements plus composite matching and transfer findings, directly supported by the header and Introduction."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Separates concerningness and binary pointwise hacking from same-target/same-scenario pairwise rewards; retains benign calibration and false-positive control as replication priorities."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Bounds matching to held-out/composite audits and transfer to AuditBench fine-tuned targets in Claude Code, and explicitly separates these from natural deployment failures and standalone release decisions."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for bounded paper facts and Exploratory extrapolation for the team's replication recommendation and human-reviewed usage proposal."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Full tl;dr and Introduction support publication, the two pointwise designs, pairwise/benign calibration, configuration, scores and transfer; quoted conditions and located context are preserved."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Full controls, metric definitions, seed counts, transfer magnitude, natural-failure generalization and costs remain to be checked."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "Wf0b1f81de2e0",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "States October 15, 2026 and affirmative scores, composite matching and transfer; the cited 6ea064c8 bound opening contains the date and Haiku 4.5 context even though its atom is a different sentence."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Identifies concerningness/binary reward hacking and the more robust pairwise approach, with benign-target false-positive calibration and a proposed calibration ablation."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Restricts comparison and transfer to the reported auditing evaluations and AuditBench/Claude Code targets, and denies general superiority, cancellation of human review or deployment release evidence."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Marks direct methods/results Public position and team-specific replication, thresholds and use decisions Exploratory extrapolation."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Complete opening and Introduction support the date, Haiku 4.5, experimental methods, configuration, separate scores and bounded transfer; the answer explicitly locates the supporting full passages."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Metric definitions and denominators, seed total, transfer gains, hidden behavior in ostensibly benign targets and deployment performance are appropriately left open."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "Wfaab7f3dda22",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "States October 8 announcement and November 12, 2026 future effectiveness, and avoids treating all clarifications as newly effective restrictions."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Calls the September 15 archive a provisional draft only, explicitly distinguishes the local interval from absent primary evidence of that precise edition's October 18 applicability."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Offers a difference table, staff preparation, legal version confirmation and conditional planned cutover; does not claim later execution occurred."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Names the status record and describes the interval as AMind reconstruction; Public position is reserved for published announcement/header facts and advice is exploratory."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Full archive, announcement and future-policy passages support their headers, dates and content at the stated strength; predecessor applicability is transparently unresolved."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact dated operative edition, intermediate version chain, future implementation and precise switch time/timezone remain unverified."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W99ac3bd8a856",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly gives October 8 announcement and November 12, 2026 planned effectiveness, and distinguishes unchanged high-risk requirements from added conditional hardware controls."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses the September 15 archive as a temporary check baseline, explicitly says the local interval cannot establish October 18 continuity and requires the complete replacement chain."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides next-week preparation, current-version legal confirmation and a November 11/12 recheck/cutover plan, with actual future implementation unknown."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Names amind-status-a5e9517ec35854f2e4eacc7b and separates its local reconstruction from Public position; provisional workflow advice is exploratory."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Correctly identified full passages support announcement dates, archive header/status, conditional election changes and unchanged human oversight plus hardware requirements. The archive interval is not promoted to primary proof."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [
+      "Announcement source 7023c5fc gives inaccurate exact line offsets: the clarification/hardware paragraph is source line 9, not 7; the effective-date sentence is line 11, not 9. The correct passage ID and paragraph descriptions still identify the supporting text."
+    ],
+    "reasonable_unknowns": [
+      "Exact October 18/downstream operative edition and replacement chain, later revisions, actual implementation and precise cutover timing remain unconfirmed."
+    ],
+    "uncertain_judgments": [
+      "P5 passes despite erroneous narrow line offsets because the correct complete passage ID and paragraph are explicit and contain the claimed text; the offsets are recorded separately as citation-location defects."
+    ],
+    "score": 5
+  },
+  {
+    "blind_id": "Wc2f7acef4680",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "States October 15, 2026 and retains affirmative scores, composite matching and cross-scaffold transfer, supported by the native date and Introduction."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Explains the hacked concerningness/binary designs, contrasts calibrated pairwise rewards, and prioritizes benign-target false-positive calibration replication."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Limits Haiku 4.5 matching to reported composite audits and Claude Code/AuditBench transfer; rejects replacement of human research, proven production false-positive control and standalone release decisions."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for this paper's direct methods/results and Exploratory extrapolation for the controlled internal replication and usage advice."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. The complete tl;dr and Introduction support date, reward hacking, pairwise/benign calibration, the 50%/three-epoch scores and specified transfer; context beyond the atom is explicitly identified."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Implementation controls, metric definitions, independent judging, exact uncertainty, transfer gains and internal cost/performance need further evidence."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W7dd40ea0d1c4",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Separates October 8 announcement from November 12, 2026 future effectiveness, and does not advance new or relaxed terms into October 18."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Treats the September 15 archived edition as a provisional handoff draft, states exact current applicability remains unknown and the local window is not official continuity proof."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides difference preparation, staff training, legal current-edition verification and conditional planned cutover, while leaving later implementation unknown."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Identifies the local curation record and its reconstructed window separately; published date/content facts are Public position and provisional team actions are exploratory."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four cited IDs/URLs resolve. Complete announcement, policy opening, archive and election passages support the dated facts and conditional changes; the archive's active-through interval is explicitly not established."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact October 18 version and intervening replacement chain, later revisions and actual November 12 implementation are appropriately unresolved."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W9de03f23de12",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly identifies October 8, 2026 announcement and November 12, 2026 future effectiveness, including unchanged high-risk obligations versus added hardware controls."
+      },
+      {
+        "id": "P2",
+        "pass": false,
+        "points": 0,
+        "reason": "Directs next-week handoff under the exact September 15, 2025 archived edition and labels it the October 18 baseline without qualifying its continuity as reconstructed or supplying primary transition proof."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Supplies a difference list, training, pre-switch text/timing/scope verification and conditional November 12 cutover; post-cutoff changes and actual execution are left unknown."
+      },
+      {
+        "id": "P4",
+        "pass": false,
+        "points": 0,
+        "reason": "Labels the archived edition's October 18 handoff applicability Public position; does not separate the curated interval or establish that interval from primary publication."
+      },
+      {
+        "id": "P5",
+        "pass": false,
+        "points": 0,
+        "reason": "IDs/URLs exist and support headers, announcement and unchanged high-risk content, but the archive plus future-effective new edition do not prove that exact archived edition remained operative on October 18."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [
+      "The exact September 15, 2025 archived edition's continued applicability on October 18 and next week is asserted as Public position. The archive only supplies its effective header and replacement/archive notice; the local status record is real curation, not independent primary continuity evidence."
+    ],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Archive publication date, future changes, actual November 12 execution and precise switch time/timezone are correctly left unresolved."
+    ],
+    "uncertain_judgments": [],
+    "score": 2
+  },
+  {
+    "blind_id": "W00252a13cc8d",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "Retains October 15, 2026 plus affirmative calibrated-pairwise metric, composite matching, strategy and transfer results; the native opening and full Introduction support them."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Distinguishes Petri concerningness/binary pointwise hacking from pairwise plus benign calibration, with false-positive control and calibration ablation as replication priorities."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Bounds Haiku 4.5 versus Opus 4.6 comparison to composite audits and Claude Code/AuditBench transfer and explicitly rejects universal/significant superiority, researcher replacement or release authority."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Marks direct experiment and strategy findings Public position; separates the team's small controlled replication and reviewed usage proposal as Exploratory extrapolation."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Complete opening, Introduction and strategy passages support publication, planted training tasks, comparison, configuration, metrics, transfer and 81,000-record clustering; equivalent native context is explicitly located."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Metric definitions, calibration denominator, seed total, significance, training cost, transfer magnitude and internal deployment outcomes remain open."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W9a1548da961c",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly gives October 8 announcement and November 12, 2026 future effectiveness, preserving unchanged high-risk duties and future election relaxation."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Explicitly limits the September 15 archive to a provisional draft; says its continued interval is curator reconstruction and cannot establish the exact October 18 operative edition."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides difference preparation, training, marked pending versions, primary transition confirmation and conditional November 12 cutover; future implementation remains unknown."
+      },
+      {
+        "id": "P4",
+        "pass": false,
+        "points": 0,
+        "reason": "The status record and local reconstruction are disclosed, but the first decision labels that local interval/provisional choice Strong framework inference. A registry-plus-header transition reconstruction does not establish the contract's stronger synthesis label."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Complete announcement, archive, high-risk and election passages support the dates and conditional content; the predecessor interval is explicitly treated as local reconstruction with a named status record rather than primary continuity proof."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [
+      "The Strong framework inference label is not justified by the evidence supplied for the first decision. Its underlying interval is honestly disclosed as local curation and the exact operative edition remains unconfirmed; this is a label-strength gap, not proven factual falsity."
+    ],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact October 18/downstream operative edition and version chain, actual future effectiveness and precise time/timezone are appropriately unresolved."
+    ],
+    "uncertain_judgments": [
+      "P4 fails on its opening requirement that evidence-distance labels match support: the otherwise transparent local reconstruction is labeled Strong framework inference. A narrower reading limited solely to avoiding Public position would pass it. P5 passes because the temporal claims themselves remain explicitly qualified and the curation role is transparent."
+    ],
+    "score": 4
+  },
+  {
+    "blind_id": "W9ce9118dc40d",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Gives October 8 announcement and November 12, 2026 announced effectiveness; keeps election relaxation future and distinguishes clarifications from new controls."
+      },
+      {
+        "id": "P2",
+        "pass": false,
+        "points": 0,
+        "reason": "States that October 18 and next week's current handoff edition is the exact September 15, 2025 archive, relying on its header and the new edition's future date without continuity qualification."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides current/pending guidance, operational ownership and conditional pre-November 12 text/timing/timezone checks; does not claim the later switch has occurred."
+      },
+      {
+        "id": "P4",
+        "pass": false,
+        "points": 0,
+        "reason": "Calls the exact archived edition's dated current applicability Public position and does not identify the separate local curation role for that interval."
+      },
+      {
+        "id": "P5",
+        "pass": false,
+        "points": 0,
+        "reason": "All IDs/URLs resolve, but their complete primary passages establish headers, announcement and future content only. They do not establish continuous applicability of the exact archived edition on October 18 or next week."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [
+      "The exact September 15, 2025 archived edition is declared current on October 18 and next week. The native archive's effective date and the new policy's future effective date do not rule out intervening versions; the real local status window is not independent primary transition proof."
+    ],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Policy-page publication dates, later revision/implementation and precise switch time/timezone are correctly left unknown."
+    ],
+    "uncertain_judgments": [],
+    "score": 2
+  },
+  {
+    "blind_id": "Wda3f459199ca",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly distinguishes October 8, 2026 publication/announcement from November 12, 2026 future effectiveness and does not treat every clarification as a new immediate restriction."
+      },
+      {
+        "id": "P2",
+        "pass": false,
+        "points": 0,
+        "reason": "Presents the exact September 15, 2025 archived edition as the current next-week policy and October 18 handoff basis, without qualifying the local applicability reconstruction or supplying independent primary transition evidence."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides a difference table, customer notification/training preparation and planned conditional cutover after text/date/scope verification; post-cutoff implementation remains unknown."
+      },
+      {
+        "id": "P4",
+        "pass": false,
+        "points": 0,
+        "reason": "Labels the dated predecessor-applicability conclusion Public position. Calling its basis 'local version records' does not separately identify their curation role or justify promotion to primary published policy status."
+      },
+      {
+        "id": "P5",
+        "pass": false,
+        "points": 0,
+        "reason": "All four IDs/URLs resolve and support their publication/header and content facts, but complete archive/new-policy passages cannot establish that exact archived edition's October 18 continuous applicability."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [
+      "The local version record is promoted to Public position for the exact predecessor edition's October 18 and next-week applicability. The archived header is primary evidence of its effective date only, and the real curated window does not independently establish continuous operation until the announced transition."
+    ],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Independent policy-page publication dates, post-cutoff revisions, actual future effectiveness and precise switch time/timezone remain appropriately unresolved."
+    ],
+    "uncertain_judgments": [],
+    "score": 2
+  }
+]

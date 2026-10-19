@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Field monitor",
+  "goal": "Compare a selected field against the previous evidence snapshot",
+  "item_label": "source",
+  "stages": [
+    "observe",
+    "compare",
+    "combine"
+  ],
+  "output_checks": [
+    "Record observation time and previous snapshot identity",
+    "Notify only on meaningful supported changes if recurring work was requested",
+    "Leave scheduling disabled until explicitly requested"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

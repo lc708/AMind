@@ -1,0 +1,2 @@
+{"evaluation_identity": {"dataset_version": "calibration-v1", "grader_version": "judge-v1", "judge_model": "judge-v1", "rubric_sha256": "synthetic-rubric-v1"}, "grade": 1, "human": 1, "id": "tp-0"}
+{"evaluation_identity": {"dataset_version": "calibration-v1", "grader_version": "judge-v1", "judge_model": "judge-v1", "rubric_sha256": "synthetic-rubric-v1"}, "grade": 1, "human": 0, "id": "tp-0", "rep": 1}

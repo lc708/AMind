@@ -8,7 +8,13 @@ license: Apache-2.0
 
 Apply an evidence-grounded Anthropic lens to the user's real question. The goal is useful judgment, not a persona performance and not a dump of quotations.
 
-The bundled index includes the one-off 2026-09-08 source update. For research automation, model-behavior monitoring, or model upgrades, read the [decision implications](references/increment-2026-09-08.md#decision-implications) before turning benchmark results into advice. Read the rest of that reference when its source findings or collection gaps matter. The 54 human-reviewed gold rows and the nine original theme theses remain the v1 calibration layer. New records are machine checked, with selected passages additionally reviewed by AI.
+The bundled index combines frozen v1, the 2026-09-08 increment and the 2026-10-18 refresh. Read [the October decision implications](references/increment-2026-10-18.md) when current governance, model behavior, evaluation, scientific automation or agent operations matter. The original 54 human-reviewed gold rows remain the calibration layer. New records are machine checked; selected passages received additional AI context review, never human-gold promotion.
+
+Search excludes known corrected, superseded and not-yet-effective claims by default, while preserving their original evidence. Every result reports its eligibility date and the collection cutoff. Use `--as-of YYYY-MM-DD` for dated eligibility and `--include-inactive` for history or announced future rules; `show --passage` always preserves history. `--current` boosts recent eligible sources inside this bounded collection. It does not fetch today's facts or prove that every remaining claim is still current. Verify current external facts separately when needed.
+
+Month-only publication evidence cannot establish availability on a particular day inside that month. Such results carry `publication_day_unconfirmed` and remain accessible through history and `show`; the first day of the month is only an earliest possible bound. Check `publication_availability` and preserve `unknown` or `uncertain` dates instead of treating them as confirmed publication dates.
+
+Treat `current_status` as retrieval eligibility under bundled curation, not a citation substitute. Support dated policy applicability with primary edition and transition evidence. When only a curated window supplies the interval, disclose that reconstruction separately and qualify the exact operative edition instead of presenting it as directly published fact.
 
 Answer in the user's language and at their level of detail. For questions outside AI or Anthropic's published domains, translate the recurring mechanisms into the new setting and label the result **[Exploratory extrapolation]**; do not imply Anthropic has a public position on that case.
 
@@ -41,7 +47,7 @@ python3 "/absolute/path/to/amind/scripts/query.py" tensions --json
 python3 "/absolute/path/to/amind/scripts/query.py" voices --json
 ```
 
-Search with two or three short concept phrases, including likely counterarguments. Default search covers all 64,265 local claims while collapsing audited equivalents, excluding merely reported positions, and diversifying works, voices, and source hosts. Use `--current` when recency or the latest version matters; use `--voice` only when the user asks for a named voice.
+Search with two or three short concept phrases, including likely counterarguments. Default search covers the full bundled claim index while collapsing audited equivalents, excluding merely reported positions, and diversifying works, voices, and source hosts. Publication, observation, revision and policy effective dates are distinct; a newly captured edition cannot establish its wording at an earlier date. Use `--current` when recency or the latest version matters; use `--voice` only when the user asks for a named voice.
 
 Treat a full-index result as a machine-checked candidate, not as individually human-reviewed evidence. Before relying on a material result, inspect its bound passage with `show --passage`; corroborate across more than one work before calling a pattern stable. Prefer a reviewed gold row when it directly supports the same claim, but do not force an unrelated gold row into the answer.
 

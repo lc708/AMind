@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "old_engineering_version": "0.2.1",
+  "current_engineering_version": "0.3.1",
+  "phase": "frozen before target trials",
+  "tasks": [
+    {
+      "id": "E-GATEWAY",
+      "repo_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/repo",
+      "prompt": "Support reopened incident 418: customer sessions displayed internal worker notes and a completed badge after an unfinished stream. Please use the assigned engineering skill to investigate this repository, repair its response gateway integration, and add focused regression coverage. Read README.md and saved traces as the public application contract; preserve its CLI and healthy legacy callers. Deliver local code changes and PATCH-NOTES.md with cause, reproduction, verification and limits. No hosted SDK or live network is required.",
+      "followup_prompt": "Before handing this incident back to operations, review your patch against the public contract as a maintainer. Replay the saved incident through the public CLI, check a neighboring failure or recovery path with a focused regression, and fix anything your review exposes. Keep the public interface compatible. Update PATCH-NOTES.md with exact verification commands, observed results, and remaining limits. Do not add a model service or network dependency.",
+      "public_entrypoint": "python -m gateway --capture CAPTURE_JSON --out CLIENT_ARCHIVE_JSON",
+      "public_tests": "python -m unittest discover -s tests",
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_gateway.py",
+      "grader_command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_gateway.py",
+        "--repo",
+        "/absolute/path/to/candidate/repo"
+      ],
+      "grade_schema": {
+        "score": "integer number of passing probes",
+        "max_score": 6,
+        "probe_passed": "diagnostic passing probe count",
+        "probe_total": 14,
+        "domain_scores": "domain -> conjunctive score 0/1, max_score 1, probe_passed/probe_total",
+        "domains": "domain -> diagnostic probe score/max_score",
+        "cases": "probe records with score/max_score/calls",
+        "fatal_guardrails": "probe id -> boolean",
+        "fatal_pass": "all required guardrails pass"
+      },
+      "domains": {
+        "completion": 2,
+        "ownership": 3,
+        "attribution": 3,
+        "terminal": 4,
+        "archive": 1,
+        "rendering": 1
+      },
+      "required_fatal_guardrails": [
+        "G02",
+        "G03",
+        "G05",
+        "G06",
+        "G07",
+        "G10",
+        "G12",
+        "G13"
+      ],
+      "candidate_rule": "Do not import particular AMind helpers: public application behavior is graded through subprocesses. Copy only repo_path to the candidate workspace; private graders, references, control grades and metadata remain unreachable to the SUT.",
+      "repo_files_sha256": {
+        "README.md": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+        "gateway/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "gateway/__main__.py": "5b8935349e729d08bce953b231c021b64040a285264b8c925f01604d82630762",
+        "gateway/metrics.py": "4d8b4a52bc9ab38b68dcc5c278c2db1b8d59f7c1ab464c23c8170322fc1d601a",
+        "gateway/projection.py": "5405c304013806c279a596f27cbbbcc984d4bb8abef40fd54fd1f28b633212fa",
+        "gateway/render.py": "d3f675921273cd0be70f6cd0166fd133c305d671f2ad7f2965d39a482683e6cc",
+        "gateway/replay.py": "6e8fb44e9775aa51b67810b7e90a43baa421fb62cc083ee51915cd92f53fa9d3",
+        "gateway/service.py": "52d9ab453ff8398e1c39423dd36b50562da608facea7fce0a733be8dc08bf78c",
+        "gateway/storage.py": "fd448965890c602fa6a8330adbe635a4c227edf69b804509700cd82871f20aa3",
+        "gateway/validation.py": "9bfc2d14a0ba64db4b3c9511c87b70025f648ebf5e801420aa779d96c9bbe696",
+        "tests/test_public.py": "1e338f04bafc2514deefdabb32b1c201d49b8132b33a8f3d0a2f6842be14c273",
+        "traces/incident.json": "354d3b2ade48065e9e72cfaa6c74eca9df9fec6c7449f9d6267c462dbf79e026",
+        "traces/legacy.json": "4d56901611ec8a3c8bd873c8597228674979d60640d992953758476f4bdee30f"
+      },
+      "repo_tree_sha256": "b7627dcc1ab19e7dcba7feaa4450fe7b4469e98bb005e2876dff9e7cc406b993"
+    },
+    {
+      "id": "E-DURABLE",
+      "repo_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-DURABLE/repo",
+      "prompt": "Operations reopened incident 73: a restored intake worker delivered a receipt twice, a summary concealed an item gap, and another tenant using the same job number had recovery trouble. Please use the assigned engineering skill to repair the actual intake application across persistence, worker lifecycle and reports. Read README.md and saved requests for the public contract. Preserve the CLI and healthy existing behavior; add useful regressions and PATCH-NOTES.md with cause, reproduction, verification and limits. Work locally with the simulated receiver; no model service or network is needed.",
+      "followup_prompt": "Before handing this incident back to operations, review your patch against the public contract as a maintainer. Replay the saved incident through the public CLI, check a neighboring failure or recovery path with a focused regression, and fix anything your review exposes. Keep the public interface compatible. Update PATCH-NOTES.md with exact verification commands, observed results, and remaining limits. Do not add a model service or network dependency.",
+      "public_entrypoint": "python -m intake --db JOBS_SQLITE --request REQUEST_JSON --receipts RECEIPTS_JSONL",
+      "public_tests": "python -m unittest discover -s tests",
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_durable.py",
+      "grader_command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_durable.py",
+        "--repo",
+        "/absolute/path/to/candidate/repo"
+      ],
+      "grade_schema": {
+        "score": "integer number of passing probes",
+        "max_score": 6,
+        "probe_passed": "diagnostic passing probe count",
+        "probe_total": 14,
+        "domain_scores": "domain -> conjunctive score 0/1, max_score 1, probe_passed/probe_total",
+        "domains": "domain -> diagnostic probe score/max_score",
+        "cases": "probe records with score/max_score/calls",
+        "fatal_guardrails": "probe id -> boolean",
+        "fatal_pass": "all required guardrails pass"
+      },
+      "domains": {
+        "identity": 3,
+        "continuity": 1,
+        "recovery": 5,
+        "budget": 2,
+        "cancellation": 1,
+        "coverage": 2
+      },
+      "required_fatal_guardrails": [
+        "D01",
+        "D02",
+        "D06",
+        "D07",
+        "D08",
+        "D10",
+        "D11",
+        "D13"
+      ],
+      "candidate_rule": "Do not import particular AMind helpers: public application behavior is graded through subprocesses. Copy only repo_path to the candidate workspace; private graders, references, control grades and metadata remain unreachable to the SUT.",
+      "repo_files_sha256": {
+        "README.md": "2fdf76d3685baf3374fd4799780f6aa468a0ff8194191b8ab90dcb7e8ed754ec",
+        "intake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "intake/__main__.py": "a7c3d022aab2480009caf404c4ffe2ee283c6860d9233ac5eb55567f6cae2031",
+        "intake/receiver.py": "417973cea3ebe329f0ea126d8d2d29cefd3a3e946f95701710a95703514a9f96",
+        "intake/service.py": "9034c5a3a283ebeae1a3fea0bc9ee10dd9dfb5f0a96b49d757e2669eecb64ea3",
+        "intake/store.py": "cbb8a08e4e0a45a79fa4888177f1ddf1747e40548a32cf0912f07f933b23b851",
+        "tests/test_public.py": "a84fc705536539f1fd6bbd7f31aeb4394f907effa9525d65055d199b9f2c8e5c",
+        "traces/crash-job.json": "1cc35df3173d4a99a401bb315f750f16cb66ed684ec17a09d0d57ec98c69e2dd",
+        "traces/new-job.json": "2563a7fc6a7909267a01d5b0c575901bcf54137dfc27efded8d8506ecf177e27"
+      },
+      "repo_tree_sha256": "b2aa364940437d3f52b6d40a18a59b081cb6e995c55f6cfc78a1b2ff1beee450"
+    }
+  ],
+  "harness": {
+    "command_prefix_env": "AMIND_APP_COMMAND_PREFIX_JSON",
+    "scratch_env": "AMIND_GRADER_SCRATCH",
+    "scratch_default": "sibling directory under candidate repo parent (run workspace)",
+    "per_subprocess_timeout_seconds": 8,
+    "grader_stdout": "one grade JSON object only",
+    "isolation": "Root harness supplies OS command prefix to deny network, private grader/reference/history access and writes outside run workspace. This module does not claim to establish that isolation alone."
+  }
+}

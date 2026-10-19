@@ -1,0 +1,6 @@
+{
+  "conflicting_ownership_rejected": true,
+  "reason": "event and item changed agent attribution",
+  "incomplete_rate_card_rejected": "rate card requires version, effective_date and source",
+  "unknown_cost_retained": true
+}

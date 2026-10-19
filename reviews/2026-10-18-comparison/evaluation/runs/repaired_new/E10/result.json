@@ -1,0 +1,14 @@
+{
+  "id": "E10",
+  "name": "contradictory-adjudication",
+  "classification": "shared",
+  "entry": "calibrate",
+  "expected": "Same case human adjudication changing between repeats must reject.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E10",
+  "observed": {
+    "error": "human adjudication changed across repetitions"
+  }
+}

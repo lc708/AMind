@@ -1,0 +1,1302 @@
+{
+  "created_at_utc": "2026-10-18T19:20:44.475782+00:00",
+  "scope": "Post-main Engineering contract/measurement diagnosis and equal offline rescoring of all12 frozen Engineering submissions; no target model execution or application edit.",
+  "measurement_findings": [
+    {
+      "id": "MEAS-ENG-D14",
+      "classification": "confirmed grader false negative",
+      "public_contract": {
+        "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-DURABLE/repo/README.md",
+        "sha256": "2fdf76d3685baf3374fd4799780f6aa468a0ff8194191b8ab90dcb7e8ed754ec",
+        "start_line": 24,
+        "end_line": 32,
+        "excerpt": "Worker stages are inspect(item), review(item, requires its successful inspection),\nsummary(aggregate). The report retains the entire submitted population. Coverage\nrequires success at both item stages; synthesis cannot erase gaps. Failed item\noutcomes are known gaps, not new work to retry automatically. Unknown or pending\nitem dependencies prevent summary delivery. Each receipt includes context with\ncoverage and operation_key; keys remain stable across restarts and distinct across\ntenants. Only new dispatches consume cumulative max_attempts, including crashes.\nCancel is durable; only explicit resume permits further dispatch under original\nbudgets. Reporting and resubmission cannot reset attempts or cancellation."
+      },
+      "original_grader": {
+        "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_durable.py",
+        "sha256": "2aaeba86268e65c1ba72f34188fe6f315ddf695ff0ae2141e8a0ce934318518c",
+        "start_line": 38,
+        "end_line": 44,
+        "excerpt": "def review_gap(s):\n    submit(s,[{'id':'a'},{'id':'b','payload':{'review':'fail'}}]);r=req(s,'work');summaries=[x for x in s.received() if x['stage']=='summary']\n    require(r['coverage']==.5 and r['covered_ids']==['a'] and r['uncovered_ids']==['b'] and r['status']=='incomplete','failed review counted as covered');require(len(summaries)==1 and summaries[0]['coverage']['uncovered_ids']==['b'],'summary lost full population gap')\ndef dependency(s):\n    submit(s,[{'id':'a'},{'id':'b','payload':{'inspect':'fail'}}]);r=req(s,'work');receipts=s.received();require(not any(x['stage']=='review' and x['item']=='b' for x in receipts),'failed prerequisite still dispatched review')\n    require(find(r,'review','b')['state']=='not_covered' and r['uncovered_ids']==['b'] and len(receipts)==4,'dependency gap or full coverage report missing')\nPROBES=[('D01','identity',True,identity),('D02','identity',True,keys),('D03','identity',False,immutable),('D04','continuity',False,noop),('D05','recovery',False,crash_record),('D06','recovery',True,no_replay),('D07','recovery',True,evidence),('D08','recovery',True,settled),('D09','recovery',False,recovered),('D10','budget',True,budget),('D11','cancellation',True,cancel),('D12','budget',False,resume),('D13','coverage',True,review_gap),('D14','coverage',False,dependency)]"
+      },
+      "cause": "Original D14 required the literal review state not_covered. Public contract requires successful inspection before review, full-population gaps and truthful coverage, without prescribing that skipped dependencies use this state spelling. Old submissions independently used settled skipped; all6 deliveries skipped the failed-dependent effect and retained the identical gap.",
+      "affected_runs": [
+        "W004",
+        "W025",
+        "W032"
+      ],
+      "revised_rule": "Accept skipped or not_covered; retain no review/b effect; strengthen actual report/receipt checks for .5 coverage, covered a/uncovered b, incomplete, attempts4 and remaining8, exactly4 correct stage/item receipts, operation identities and summary gap. All other13 Durable probes and all14 Gateway probes unchanged.",
+      "score_interpretation": "The original Durable 5 vs6 comparison is not an application-quality gain and must not be claimed. Revised Durable arms tie on all3 repetitions.",
+      "post_diagnostic_status": "Correction was designed after reading targets; all12 deliveries scored identically and reference/negative controls validated before regrading; not preregistered independent evidence."
+    }
+  ],
+  "gateway_finding": {
+    "id": "APP-ENG-G06",
+    "classification": "observed public-contract miss; original probe retained",
+    "public_contract": {
+      "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/repo/README.md",
+      "sha256": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+      "start_line": 15,
+      "end_line": 34,
+      "excerpt": "## Public contract\nCapture JSON has `mode` (single or multi_agent) and ordered `events`. A message's\n`agent.agent_name` identifies its owner; `/root` owns the customer conversation.\nItem-added events associate `output_index` with an owner for later text deltas.\nA final answer in multi-agent traffic requires an explicit root `final_answer`.\nUnattributed multi-agent text is retained for operations, not guessed as root text.\nLegacy single-agent messages without a phase remain supported. Commentary may\nappear as progress but cannot turn into a final answer. A completed transport\nalone is insufficient while a developer function call is pending.\n\nCLI writes `{client,archive}` JSON. `client` has status, display_text, final_text,\nanswer_complete and html (an article element containing safely escaped visible\ntext). Only this object goes to the browser. `archive.events` and\n`archive.output_items` preserve captured data exactly, including unknown hosted\nitem types. No captured item triggers local tools or code execution.\nTerminal events are completed/failed/incomplete/cancelled and must agree with\nresponse.status. A missing terminal stays disconnected, or stream_error after an\nerror event. Contradictory terminal data or inconsistent attribution is a capture\nerror: return exit 2 with JSON `{error:...}` and do not publish a new output file.\nCalls are offline; there is no provider SDK, network, or credential setup to add."
+    },
+    "original_grader": {
+      "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_gateway.py",
+      "sha256": "889ffe0c7e8b667b2aaa1fdb130ef6157a4ab0bbc56bd16817b437a0d48ff2e3",
+      "start_line": 28,
+      "end_line": 33,
+      "excerpt": "def same_event_conflict(s):\n    events=[{'type':'response.output_item.added','output_index':4,'agent':{'agent_name':'/root'},'item':msg('private','/root/worker')},{'type':'response.output_text.delta','output_index':4,'delta':'private'}]\n    s.call({'mode':'multi_agent','events':events},2)\ndef terminal_conflict(s):\n    events=[{'type':'response.output_item.added','output_index':0,'item':msg('draft','/root')}]\n    s.call(cap([msg('draft','/root/child')],events),2)"
+    },
+    "input": {
+      "mode": "multi_agent",
+      "events": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 4,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/worker"
+            },
+            "phase": "final_answer",
+            "content": [
+              {
+                "type": "output_text",
+                "text": "private"
+              }
+            ]
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 4,
+          "delta": "private"
+        }
+      ]
+    },
+    "finding": "W028 ignores event-level owner on item-added and validates only nested item owner; returns0 and publishes disconnected output. README explicitly requires inconsistent-attribution errors to exit2 without publishing. G06 checks rejection behavior, not an exact human error message or a helper-specific interface.",
+    "schema_limit": "README defines inconsistent attribution generically; it does not spell out every event-level field. This probe applies that explicit consistency rule to two non-null agent.agent_name declarations on one event.",
+    "failure_is_not_leak_claim": "This particular W028 case does not establish that private text reached the browser: its nested child attribution is kept and projection hides it. The observed failure is accepting/publishing contradictory capture metadata.",
+    "w028_source": {
+      "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W028/repo/gateway/projection.py",
+      "sha256": "a729966ed43c14468ce7029919e60c756b824273cb84cd0fa56bb04ee2f869c0",
+      "start_line": 143,
+      "end_line": 154,
+      "excerpt": "    for event in capture['events']:\n        if ended:\n            raise ValueError('event after terminal outcome')\n        kind = event['type']\n        if kind in ('response.output_item.added', 'response.output_item.done'):\n            registry.observe(event.get('item'), _index(event))\n        elif kind == 'response.output_text.delta':\n            delta = event.get('delta', '')\n            if not isinstance(delta, str):\n                raise ValueError('text delta must be a string')\n            observed, resolved = registry.delta(event)\n            display.append((delta, observed, resolved))"
+    },
+    "current_examples": [
+      {
+        "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W002/repo/gateway/projection.py",
+        "sha256": "ea123e523125d6d1a4a9450095609b9758aadf2ca110a60a13645590882d6b35",
+        "start_line": 79,
+        "end_line": 92,
+        "excerpt": "        index = event.get('output_index')\n        event_owner = owner(event)\n        item = event.get('item')\n        if item is not None and not isinstance(item, dict):\n            raise ValueError('output item must be an object')\n        item_owner = owner(item) if item is not None else None\n        if event_owner is not None and item_owner is not None and event_owner != item_owner:\n            raise ValueError('event and item disagree on agent attribution')\n        name = event_owner or item_owner\n        item_id = (item or {}).get('id')\n        event_item_id = event.get('item_id')\n        if item_id is not None and event_item_id is not None and item_id != event_item_id:\n            raise ValueError('event and item disagree on item identity')\n        associate(index, name, item_id if item_id is not None else event_item_id)"
+      },
+      {
+        "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W027/repo/gateway/projection.py",
+        "sha256": "7f1782bce849d7a795b70d44677f0d226994ac5cf7872c96a3c5290750738167",
+        "start_line": 93,
+        "end_line": 100,
+        "excerpt": "        item = event.get('item')\n        if item is not None and not isinstance(item, dict):\n            raise ValueError('output item must be an object')\n        event_owner = _owner(event)\n        item_owner = _owner(item) if item is not None else None\n        if event_owner is not None and item_owner is not None and event_owner != item_owner:\n            raise ValueError('event and item changed agent attribution')\n        owner = event_owner or item_owner"
+      },
+      {
+        "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W030/repo/gateway/projection.py",
+        "sha256": "01ced67adcb10b3bfbb07d1af87f9aaf67baa69604c1ee85919b982f9281f2a3",
+        "start_line": 74,
+        "end_line": 83,
+        "excerpt": "        item = event.get('item', {})\n        if not isinstance(item, dict):\n            raise ValueError('output item must be an object')\n        event_owner, item_owner = agent_name(event), agent_name(item)\n        if event_owner is not None and item_owner is not None and event_owner != item_owner:\n            raise ValueError('event and item changed agent attribution')\n        owner = event_owner or item_owner\n        if not multi and (owner is not None or item.get('type') in HOSTED_ITEMS):\n            raise ValueError('attributed stream requires multi_agent mode')\n        bind(index, item, owner)"
+      }
+    ],
+    "old_helper": {
+      "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/old/skills/amind-engineering/scripts/response_contract.py",
+      "sha256": "1c70cc3d307f2581cb2ef2b3ff236f87eb74c254887d0e41449afcdb9973da0e",
+      "start_line": 39,
+      "end_line": 54,
+      "excerpt": "def terminal_stream(events):\n    \"\"\"Partial text and an open/idle stream never substitute for a terminal response.\"\"\"\n    terminal=None; failure=None; text_deltas=[]; raw_events=[]\n    for event in events:\n        kind=event.get('type')\n        if terminal is not None or failure is not None: raise ValueError('event after terminal outcome')\n        raw_events.append(copy.deepcopy(event))\n        if kind=='response.output_text.delta': text_deltas.append(event.get('delta',''))\n        elif kind in ('response.completed','response.failed','response.incomplete'):\n            terminal=event.get('response')\n            expected=kind.split('.')[-1]\n            if not isinstance(terminal,dict) or terminal.get('status')!=expected: raise ValueError('terminal event/status mismatch')\n        elif kind=='error': failure=copy.deepcopy(event)\n    if terminal is not None: return {**normalize(terminal),'display_deltas':''.join(text_deltas),'raw_events':raw_events}\n    return {'status':'stream_error' if failure else 'disconnected','scorable_transport':False,\n            'display_deltas':''.join(text_deltas),'error':failure,'usage':None,'raw_events':raw_events}"
+    },
+    "current_helper": {
+      "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/current/skills/amind-engineering/scripts/response_contract.py",
+      "sha256": "14eca230bc9508f92fed3d124e3a8e174f6f785a754c868be8840600fcd5924f",
+      "start_line": 91,
+      "end_line": 108,
+      "excerpt": "def terminal_stream(events, mode='auto'):\n    \"\"\"Partial text and an open/idle stream never substitute for a terminal response.\"\"\"\n    terminal=None; failure=None; text_deltas=[]; raw_events=[]; owners={}; attributed=False\n    for event in events:\n        kind=event.get('type')\n        if terminal is not None or failure is not None: raise ValueError('event after terminal outcome')\n        raw_events.append(copy.deepcopy(event))\n        event_owner = agent_name(event)\n        item_owner = agent_name(event.get('item') or {})\n        if event_owner is not None and item_owner is not None and event_owner != item_owner:\n            raise ValueError('event and item changed agent attribution')\n        owner = event_owner or item_owner\n        attributed = attributed or owner is not None\n        index = event.get('output_index')\n        if owner and index is not None:\n            if index in owners and owners[index] != owner: raise ValueError('output index changed agent attribution')\n            owners[index] = owner\n        if kind=='response.output_text.delta': text_deltas.append((index,owner,event.get('delta','')))"
+    },
+    "revised_g06_reproduction": {
+      "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W028/grade.json",
+      "passed": false,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W028-grade-revised-eng.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W028/grade-revised-eng-scratch/integration-6ern9rg1/input-1.json",
+            "--out",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W028/grade-revised-eng-scratch/integration-6ern9rg1/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/private/tmp/amind-workplace-20261019-4pdx607m/W028/grade-revised-eng-scratch/integration-6ern9rg1/view-1.json\", \"status\": \"disconnected\"}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  },
+  "durable_observations": [
+    {
+      "run_id": "W003",
+      "arm": "current",
+      "original_probe_error": null,
+      "original_report": {
+        "status": "incomplete",
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ],
+        "attempts": 4,
+        "remaining_attempts": 8
+      },
+      "original_review_b_state": "not_covered",
+      "revised_probe_passed": true,
+      "actual_receipt_count": 4,
+      "actual_stage_item_receipts": [
+        [
+          "inspect",
+          "a"
+        ],
+        [
+          "inspect",
+          "b"
+        ],
+        [
+          "review",
+          "a"
+        ],
+        [
+          "summary",
+          "__all__"
+        ]
+      ],
+      "actual_summary_population_gap": {
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "receipt_keys_all_match_report_rows": true
+    },
+    {
+      "run_id": "W004",
+      "arm": "old",
+      "original_probe_error": "AssertionError: dependency gap or full coverage report missing",
+      "original_report": {
+        "status": "incomplete",
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ],
+        "attempts": 4,
+        "remaining_attempts": 8
+      },
+      "original_review_b_state": "skipped",
+      "revised_probe_passed": true,
+      "actual_receipt_count": 4,
+      "actual_stage_item_receipts": [
+        [
+          "inspect",
+          "a"
+        ],
+        [
+          "inspect",
+          "b"
+        ],
+        [
+          "review",
+          "a"
+        ],
+        [
+          "summary",
+          "__all__"
+        ]
+      ],
+      "actual_summary_population_gap": {
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "receipt_keys_all_match_report_rows": true
+    },
+    {
+      "run_id": "W025",
+      "arm": "old",
+      "original_probe_error": "AssertionError: dependency gap or full coverage report missing",
+      "original_report": {
+        "status": "incomplete",
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ],
+        "attempts": 4,
+        "remaining_attempts": 8
+      },
+      "original_review_b_state": "skipped",
+      "revised_probe_passed": true,
+      "actual_receipt_count": 4,
+      "actual_stage_item_receipts": [
+        [
+          "inspect",
+          "a"
+        ],
+        [
+          "inspect",
+          "b"
+        ],
+        [
+          "review",
+          "a"
+        ],
+        [
+          "summary",
+          "__all__"
+        ]
+      ],
+      "actual_summary_population_gap": {
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "receipt_keys_all_match_report_rows": true
+    },
+    {
+      "run_id": "W026",
+      "arm": "current",
+      "original_probe_error": null,
+      "original_report": {
+        "status": "incomplete",
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ],
+        "attempts": 4,
+        "remaining_attempts": 8
+      },
+      "original_review_b_state": "not_covered",
+      "revised_probe_passed": true,
+      "actual_receipt_count": 4,
+      "actual_stage_item_receipts": [
+        [
+          "inspect",
+          "a"
+        ],
+        [
+          "inspect",
+          "b"
+        ],
+        [
+          "review",
+          "a"
+        ],
+        [
+          "summary",
+          "__all__"
+        ]
+      ],
+      "actual_summary_population_gap": {
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "receipt_keys_all_match_report_rows": true
+    },
+    {
+      "run_id": "W031",
+      "arm": "current",
+      "original_probe_error": null,
+      "original_report": {
+        "status": "incomplete",
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ],
+        "attempts": 4,
+        "remaining_attempts": 8
+      },
+      "original_review_b_state": "not_covered",
+      "revised_probe_passed": true,
+      "actual_receipt_count": 4,
+      "actual_stage_item_receipts": [
+        [
+          "inspect",
+          "a"
+        ],
+        [
+          "inspect",
+          "b"
+        ],
+        [
+          "review",
+          "a"
+        ],
+        [
+          "summary",
+          "__all__"
+        ]
+      ],
+      "actual_summary_population_gap": {
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "receipt_keys_all_match_report_rows": true
+    },
+    {
+      "run_id": "W032",
+      "arm": "old",
+      "original_probe_error": "AssertionError: dependency gap or full coverage report missing",
+      "original_report": {
+        "status": "incomplete",
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ],
+        "attempts": 4,
+        "remaining_attempts": 8
+      },
+      "original_review_b_state": "skipped",
+      "revised_probe_passed": true,
+      "actual_receipt_count": 4,
+      "actual_stage_item_receipts": [
+        [
+          "inspect",
+          "a"
+        ],
+        [
+          "inspect",
+          "b"
+        ],
+        [
+          "review",
+          "a"
+        ],
+        [
+          "summary",
+          "__all__"
+        ]
+      ],
+      "actual_summary_population_gap": {
+        "coverage": 0.5,
+        "covered_ids": [
+          "a"
+        ],
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "receipt_keys_all_match_report_rows": true
+    }
+  ],
+  "original_and_revised_scores": [
+    {
+      "run_id": "W001",
+      "task_id": "E-GATEWAY",
+      "arm": "old",
+      "rep": 0,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W001/grade.json",
+      "original_grade_sha256": "f4f5a920e322ba8d49e8c1f5355e639e5ee2eb42b9e0869a0bddd3f72242a749",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W001/grade.json",
+      "revised_grade_sha256": "5f51609d6c1714ce0b35456c5cf8eb76a5fba66192e620e26311b538b67aef03",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W002",
+      "task_id": "E-GATEWAY",
+      "arm": "current",
+      "rep": 0,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W002/grade.json",
+      "original_grade_sha256": "aa3ce5abe251c1cc985e9150a8d8f029bfb9a962c37f8aefed321a4c189c29c8",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W002/grade.json",
+      "revised_grade_sha256": "60e6433bcceb8cb2562663dda5bbf3a569d14205af2726ad3918f33db2c5d691",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W003",
+      "task_id": "E-DURABLE",
+      "arm": "current",
+      "rep": 0,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W003/grade.json",
+      "original_grade_sha256": "820088a172cc522883db3515cdb163491f73f0805572a0e85065ac418151b6c4",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W003/grade.json",
+      "revised_grade_sha256": "635f1cb15e316640aaa5f86e8a950437678128b7ad56ae5045bd311144793204",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W004",
+      "task_id": "E-DURABLE",
+      "arm": "old",
+      "rep": 0,
+      "score": 5,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [
+        "D14"
+      ],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W004/grade.json",
+      "original_grade_sha256": "d4bfd0af7cd940153cdedc60851c80247ae960cf42efc435f92aa53bf4c8aac7",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W004/grade.json",
+      "revised_grade_sha256": "227da6dc9153f053a1841d3921555f2fa6af40608555ad8b6b18091803634132",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W025",
+      "task_id": "E-DURABLE",
+      "arm": "old",
+      "rep": 1,
+      "score": 5,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [
+        "D14"
+      ],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W025/grade.json",
+      "original_grade_sha256": "65a71841ecb97d1c61124cc326b8d6d9df37d990075ad35fc77ccdc6fb7a3a4a",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W025/grade.json",
+      "revised_grade_sha256": "9d19653cd3f7ade4178f510b2755ddebddea670ed9814edca67e5215526898c3",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W026",
+      "task_id": "E-DURABLE",
+      "arm": "current",
+      "rep": 1,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W026/grade.json",
+      "original_grade_sha256": "25587cbff42943768ced83697b1561bc96a7db9c031c63adffb8543fc59d5f1e",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W026/grade.json",
+      "revised_grade_sha256": "6110523554d6be2090fe646ce581b946d7a1e121864853e5b5023f36e3280aee",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W027",
+      "task_id": "E-GATEWAY",
+      "arm": "current",
+      "rep": 1,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W027/grade.json",
+      "original_grade_sha256": "b230d749c64a37e4e52e795f7cd68042e75da65dd05837d6c6b24c47bf57b987",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W027/grade.json",
+      "revised_grade_sha256": "4e8959e4f9626186891b8209aa7787a2e246166b34eb892cb09325f74e66e1e8",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W028",
+      "task_id": "E-GATEWAY",
+      "arm": "old",
+      "rep": 1,
+      "score": 5,
+      "max_score": 6,
+      "fatal_pass": false,
+      "failed_probes": [
+        "G06"
+      ],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W028/grade.json",
+      "original_grade_sha256": "11bc14ed92ba4e4d1ae5f4b532969c3b63bfb38c7d31d57e38f409962fe2f9cd",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W028/grade.json",
+      "revised_grade_sha256": "e387c31d4e5f664b3a43f5043c595dfeacb31755415f495b7f826664082964e6",
+      "revised_score": 5,
+      "revised_failed_probes": [
+        "G06"
+      ]
+    },
+    {
+      "run_id": "W029",
+      "task_id": "E-GATEWAY",
+      "arm": "old",
+      "rep": 2,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W029/grade.json",
+      "original_grade_sha256": "efb75eca2658cdc3be61216208b6882b0f13d0303f02ceb28d70617668fe001b",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W029/grade.json",
+      "revised_grade_sha256": "f54194e97091d26777ffa56d4d1d4dbba7aa51df11731df8d3b2ef09d3c765f6",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W030",
+      "task_id": "E-GATEWAY",
+      "arm": "current",
+      "rep": 2,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W030/grade.json",
+      "original_grade_sha256": "c37b0c0486d77190637d3a06375ccd5c93ad16552db405880d8e4d3a6fa14bf0",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W030/grade.json",
+      "revised_grade_sha256": "019cc0bac906475bc511df556df372f970513d0666976d262b4da5441edb5126",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W031",
+      "task_id": "E-DURABLE",
+      "arm": "current",
+      "rep": 2,
+      "score": 6,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W031/grade.json",
+      "original_grade_sha256": "2a4d937e711b4b3dfd39e55ff61d65eb70b446776a49e1ae3997251382788d20",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W031/grade.json",
+      "revised_grade_sha256": "259d1325827539ed64c193e13f9c4b192dc230580fdb78d51718b8ff82563524",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    },
+    {
+      "run_id": "W032",
+      "task_id": "E-DURABLE",
+      "arm": "old",
+      "rep": 2,
+      "score": 5,
+      "max_score": 6,
+      "fatal_pass": true,
+      "failed_probes": [
+        "D14"
+      ],
+      "original_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W032/grade.json",
+      "original_grade_sha256": "a8d949e3105d18594bfebdce47ef24c1e8a675ae05d9c021195059249635b3e6",
+      "revised_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades-revised-eng/W032/grade.json",
+      "revised_grade_sha256": "04caef4178ddcfbc9d41b9f6bd27cb1693b3ae6b57d6c75613a9d95ac1b63b7b",
+      "revised_score": 6,
+      "revised_failed_probes": []
+    }
+  ],
+  "task_arm_score_distributions": [
+    {
+      "task_id": "E-DURABLE",
+      "arm": "old",
+      "original_domain_scores": [
+        5,
+        5,
+        5
+      ],
+      "revised_domain_scores": [
+        6,
+        6,
+        6
+      ],
+      "max_score": 6,
+      "runs": [
+        "W004",
+        "W025",
+        "W032"
+      ]
+    },
+    {
+      "task_id": "E-DURABLE",
+      "arm": "current",
+      "original_domain_scores": [
+        6,
+        6,
+        6
+      ],
+      "revised_domain_scores": [
+        6,
+        6,
+        6
+      ],
+      "max_score": 6,
+      "runs": [
+        "W003",
+        "W026",
+        "W031"
+      ]
+    },
+    {
+      "task_id": "E-GATEWAY",
+      "arm": "old",
+      "original_domain_scores": [
+        6,
+        5,
+        6
+      ],
+      "revised_domain_scores": [
+        6,
+        5,
+        6
+      ],
+      "max_score": 6,
+      "runs": [
+        "W001",
+        "W028",
+        "W029"
+      ]
+    },
+    {
+      "task_id": "E-GATEWAY",
+      "arm": "current",
+      "original_domain_scores": [
+        6,
+        6,
+        6
+      ],
+      "revised_domain_scores": [
+        6,
+        6,
+        6
+      ],
+      "max_score": 6,
+      "runs": [
+        "W002",
+        "W027",
+        "W030"
+      ]
+    }
+  ],
+  "mechanism_evidence": {
+    "interpretation": "Current Durable traces read workflow_contract/workflow-recipes; old traces read tool_loop/agent lifecycle references. They independently implement the same successful public recovery and gap behavior; literal skipped/not_covered differences are implementation vocabulary. Current Gateway source includes event/item owner checks matching its assigned reference, but old other2 runs also implemented the checks. These traces support source use and consistency, not a separate causal ablation or broad superiority.",
+    "traces": [
+      {
+        "run_id": "W001",
+        "arm": "old",
+        "task_id": "E-GATEWAY",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W001/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat ../skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 18,
+            "command": "/bin/zsh -lc 'cat ../skills/amind-engineering/scripts/response_contract.py'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W002",
+        "arm": "current",
+        "task_id": "E-GATEWAY",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W002/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 6,
+            "command": "/bin/zsh -lc 'pwd && ls -la && cat ../skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 19,
+            "command": "/bin/zsh -lc \"rg --files .. -g 'AGENTS.md' && python ../skills/amind-engineering/scripts/response_contract.py --help\"",
+            "exit_code": 1,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 24,
+            "command": "/bin/zsh -lc \"sed -n '1,340p' ../skills/amind-engineering/scripts/response_contract.py\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 25,
+            "command": "/bin/zsh -lc 'python ../skills/amind-engineering/scripts/response_contract.py --help'",
+            "exit_code": 127,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 27,
+            "command": "/bin/zsh -lc 'PYTHONDONTWRITEBYTECODE=1 python3 ../skills/amind-engineering/scripts/response_contract.py --help'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": [
+          {
+            "event_line": 53,
+            "command": "/bin/zsh -lc \"PYTHONDONTWRITEBYTECODE=1 python3 - <<'PY'\nimport json\nfrom pathlib import Path\nimport runpy\nreference = runpy.run_path('../skills/amind-engineering/scripts/response_contract.py')\nreport = {}\nfor name in ('incident', 'legacy'):\n    capture = json.loads(Path('traces/' + name + '.json').read_text())\n    expected = reference['terminal_stream'](capture['events'], mode=capture['mode'])\n    actual = json.loads(Path('../output/' + name + '-fixed.json').read_text())['client']\n    checks = {'status': expected['status'], 'display_text': expected['display_deltas'],\n              'final_text': expected['final_text'], 'answer_complete': expected['answer_complete']}\n    assert all(actual[field] == value for field, value in checks.items())\n    report[name] = {'reference_agrees': True, 'projection': checks}\nPath('../output/response-contract-diagnostic.json').write_text(json.dumps(report, indent=2))\nprint(json.dumps(report))\nPY\"",
+            "exit_code": 0,
+            "evidence_kind": "explicit helper execution shown by command trace"
+          }
+        ]
+      },
+      {
+        "run_id": "W003",
+        "arm": "current",
+        "task_id": "E-DURABLE",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W003/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 10,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/references/workflow-recipes.md skills/amind-engineering/references/agent-lifecycle.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 16,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/scripts/workflow_contract.py'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W004",
+        "arm": "old",
+        "task_id": "E-DURABLE",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W004/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 12,
+            "command": "/bin/zsh -lc \"rg --files -g 'AGENTS.md' -g 'task.json' -g '*request*' -g '\"'!repo/tests/**'\"' -g '\"'!skills/**'\"' . && cat skills/amind-engineering/references/agent-build.md && cat skills/amind-engineering/references/agent-lifecycle.md && cat skills/amind-engineering/references/api-implementation.md\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 15,
+            "command": "/bin/zsh -lc \"cat skills/amind-engineering/scripts/tool_loop.py && cat skills/amind-engineering/scripts/response_contract.py && rg --files skills -g 'SKILL.md'\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W025",
+        "arm": "old",
+        "task_id": "E-DURABLE",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W025/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 6,
+            "command": "/bin/zsh -lc \"cd repo && pwd && rg --files -g 'README.md' -g 'AGENTS.md' -g '*request*' -g '*intake*' -g 'package.json' -g 'pyproject.toml' -g 'PATCH-NOTES.md'; cat ../skills/amind-engineering/SKILL.md\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc \"cd repo && rg --files -g '\"'!tests/**'\"' && cat README.md && cat ../skills/amind-engineering/references/agent-build.md && cat ../skills/amind-engineering/references/api-implementation.md\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 10,
+            "command": "/bin/zsh -lc 'cd repo && cat intake/store.py intake/service.py intake/receiver.py intake/__main__.py && rg --files tests traces && cat traces/*.json && cat tests/*.py && cat ../skills/amind-engineering/scripts/tool_loop.py'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 13,
+            "command": "/bin/zsh -lc \"cd repo && cat ../skills/amind-engineering/references/agent-lifecycle.md && sed -n '1,240p' ../skills/amind-engineering/scripts/lifecycle_audit.py && sed -n '1,200p' ../skills/amind-engineering/scripts/response_contract.py && rg --files .. -g 'AGENTS.md' -g '\"'!skills/**'\"' -g '\"'!repo/**'\"'\"",
+            "exit_code": 1,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W026",
+        "arm": "current",
+        "task_id": "E-DURABLE",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W026/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 11,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/references/workflow-recipes.md skills/amind-engineering/references/agent-lifecycle.md skills/amind-engineering/references/agent-build.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 17,
+            "command": "/bin/zsh -lc \"sed -n '1,290p' skills/amind-engineering/scripts/workflow_contract.py\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W027",
+        "arm": "current",
+        "task_id": "E-GATEWAY",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W027/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat ../skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 17,
+            "command": "/bin/zsh -lc 'cat ../skills/amind-engineering/scripts/response_contract.py; cat ../skills/amind-engineering/NOTICE.txt; cat ../skills/amind-engineering/LICENSE.txt'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W028",
+        "arm": "old",
+        "task_id": "E-GATEWAY",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W028/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 6,
+            "command": "/bin/zsh -lc 'cd repo && pwd && ls -la && cat ../skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 11,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/references/response-recipes.md skills/amind-engineering/references/api-implementation.md skills/amind-engineering/references/migration.md && ls skills && cat skills/amind-engineering/scripts/response_contract.py'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": [
+          {
+            "event_line": 37,
+            "command": "/bin/zsh -lc \"python3 -B - <<'PY'\nimport json\nimport runpy\nfrom pathlib import Path\nroot = Path.cwd().parent\nreference = runpy.run_path(str(root / 'skills/amind-engineering/scripts/response_contract.py'))\ncapture = json.loads(Path('traces/incident.json').read_text())\nnormalized = reference['terminal_stream'](capture['events'])\nbaseline = json.loads((root / 'output/baseline-incident.json').read_text())\nfixed = json.loads((root / 'output/fixed-incident.json').read_text())\nreport = {\n    'source': 'skills/amind-engineering/scripts/response_contract.py (local offline reference)',\n    'reference_transport_status': normalized['status'],\n    'reference_preserved_item_count': len(normalized['output_items']),\n    'ownership_limit': 'Generic response normalization alone does not enforce application root ownership.',\n    'before': baseline['client'], 'after': fixed['client'],\n    'archive_items_before': len(baseline['archive']['output_items']),\n    'archive_items_after': len(fixed['archive']['output_items']),\n    'events_unchanged': fixed['archive']['events'] == capture['events'],\n    'items_unchanged': fixed['archive']['output_items'] == capture['events'][-1]['response']['output'],\n}\n(root / 'output/incident-diagnosis.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))\nprint(json.dumps(report, ensure_ascii=False, indent=2))\nPY\"",
+            "exit_code": 0,
+            "evidence_kind": "explicit helper execution shown by command trace"
+          }
+        ]
+      },
+      {
+        "run_id": "W029",
+        "arm": "old",
+        "task_id": "E-GATEWAY",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W029/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 6,
+            "command": "/bin/zsh -lc 'cd repo && pwd && ls -la && cat ../skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 16,
+            "command": "/bin/zsh -lc \"sed -n '1,280p' skills/amind-engineering/scripts/response_contract.py && cat skills/eval-improve/SKILL.md\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W030",
+        "arm": "current",
+        "task_id": "E-GATEWAY",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W030/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 21,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/scripts/response_contract.py'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W031",
+        "arm": "current",
+        "task_id": "E-DURABLE",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W031/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 12,
+            "command": "/bin/zsh -lc \"rg --files -g 'AGENTS.md' -g '*request*' -g 'SKILL.md' -g 'task.json' . && cat skills/amind-engineering/references/workflow-recipes.md skills/amind-engineering/references/agent-lifecycle.md\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 17,
+            "command": "/bin/zsh -lc \"rg -n 'def (reconcile|run|report|_execute)|evidence|not_covered|operation_key' skills/amind-engineering/scripts/workflow_contract.py && sed -n '1,200p' skills/amind-engineering/scripts/workflow_contract.py\"",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      },
+      {
+        "run_id": "W032",
+        "arm": "old",
+        "task_id": "E-DURABLE",
+        "events_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/runs/W032/events.jsonl",
+        "source_read_command_evidence": [
+          {
+            "event_line": 8,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/SKILL.md'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 11,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/references/agent-build.md skills/amind-engineering/references/agent-lifecycle.md skills/amind-engineering/references/api-implementation.md && ls skills && cat task.json'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          },
+          {
+            "event_line": 19,
+            "command": "/bin/zsh -lc 'cat skills/amind-engineering/scripts/tool_loop.py'",
+            "exit_code": 0,
+            "evidence_kind": "source read/CLI mention; not proof of invocation or causation"
+          }
+        ],
+        "explicit_helper_execution_evidence": []
+      }
+    ],
+    "limitations": [
+      "Read commands and comments do not prove full cognitive attribution. Only explicit helper executions are marked as such.",
+      "Two curated tasks, three repetitions per arm; probes/repeats are not independent task families.",
+      "Requested target model gpt-6.1-sol/ultra is not independently verified as actual served model.",
+      "No extra target model calls, product fixes or task-input edits were made in this diagnosis."
+    ]
+  },
+  "revised_grader_calibration": {
+    "phase": "post-diagnostic calibration; target outputs already seen",
+    "controls": [
+      {
+        "task_id": "E-GATEWAY",
+        "control": "reference",
+        "score": 6,
+        "max_score": 6,
+        "probe_passed": 14,
+        "fatal_pass": true,
+        "failed_probes": [],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-GATEWAY/reference/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-GATEWAY",
+        "control": "starter",
+        "score": 0,
+        "max_score": 6,
+        "probe_passed": 3,
+        "fatal_pass": false,
+        "failed_probes": [
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "G07",
+          "G10",
+          "G11",
+          "G12",
+          "G13",
+          "G14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-GATEWAY/starter/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-GATEWAY",
+        "control": "empty",
+        "score": 0,
+        "max_score": 6,
+        "probe_passed": 0,
+        "fatal_pass": false,
+        "failed_probes": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "G07",
+          "G08",
+          "G09",
+          "G10",
+          "G11",
+          "G12",
+          "G13",
+          "G14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-GATEWAY/empty/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-GATEWAY",
+        "control": "injection",
+        "score": 0,
+        "max_score": 6,
+        "probe_passed": 0,
+        "fatal_pass": false,
+        "failed_probes": [
+          "G01",
+          "G02",
+          "G03",
+          "G04",
+          "G05",
+          "G06",
+          "G07",
+          "G08",
+          "G09",
+          "G10",
+          "G11",
+          "G12",
+          "G13",
+          "G14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-GATEWAY/injection/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "reference",
+        "score": 6,
+        "max_score": 6,
+        "probe_passed": 14,
+        "fatal_pass": true,
+        "failed_probes": [],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/reference/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "starter",
+        "score": 0,
+        "max_score": 6,
+        "probe_passed": 1,
+        "fatal_pass": false,
+        "failed_probes": [
+          "D01",
+          "D02",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/starter/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "empty",
+        "score": 0,
+        "max_score": 6,
+        "probe_passed": 0,
+        "fatal_pass": false,
+        "failed_probes": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/empty/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "injection",
+        "score": 0,
+        "max_score": 6,
+        "probe_passed": 0,
+        "fatal_pass": false,
+        "failed_probes": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07",
+          "D08",
+          "D09",
+          "D10",
+          "D11",
+          "D12",
+          "D13",
+          "D14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/injection/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "legal-skipped",
+        "score": 6,
+        "max_score": 6,
+        "probe_passed": 14,
+        "fatal_pass": true,
+        "failed_probes": [],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/legal-skipped/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "bad-dependency-dispatch",
+        "score": 5,
+        "max_score": 6,
+        "probe_passed": 13,
+        "fatal_pass": true,
+        "failed_probes": [
+          "D14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/bad-dependency-dispatch/grade.json",
+        "expected_control_result": true
+      },
+      {
+        "task_id": "E-DURABLE",
+        "control": "bad-false-full-coverage",
+        "score": 2,
+        "max_score": 6,
+        "probe_passed": 8,
+        "fatal_pass": false,
+        "failed_probes": [
+          "D01",
+          "D03",
+          "D06",
+          "D11",
+          "D13",
+          "D14"
+        ],
+        "grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/control-grades/E-DURABLE/bad-false-full-coverage/grade.json",
+        "expected_control_result": true
+      }
+    ],
+    "all_passed": true,
+    "model_calls": 0,
+    "policy_sha256": "203130b8f661209a019ddb2b12c9206f03c0bc920c60c709bb95d0a22b3e2697"
+  },
+  "revision_manifest_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/revision-manifest.json",
+  "original_byte_preservation": {
+    "all_original_evidence_unchanged": true,
+    "original_evidence_file_count": 889,
+    "frozen_measurement_files_unchanged": 175
+  },
+  "revised_scores_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/main-plan-engineering-scores-revised.json",
+  "revision_scope_verification": {
+    "only_dependency_probe_function_changed": true,
+    "gateway_grader_byte_identical": true,
+    "all_receipt_keys_match": true
+  }
+}

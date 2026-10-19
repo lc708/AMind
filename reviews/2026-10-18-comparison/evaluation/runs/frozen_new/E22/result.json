@@ -1,0 +1,45 @@
+{
+  "id": "E22",
+  "name": "abandoned-reconciliation-budget",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Externally documented abandoned attempt consumes failed ceiling after reconcile --apply; resume cannot launch more. Old failure ceiling absent unsupported.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E22",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 1,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "reconcile": {
+      "mode": "applied",
+      "reconciled": [
+        {
+          "event": "finished",
+          "attempt_id": 1,
+          "prompt_id": "a",
+          "rep": 0,
+          "status": "interrupted_reconciled",
+          "cost_usd": 0.02,
+          "time": 1792300587.116862,
+          "reconciliation_evidence": "Synthetic interrupted application outcome externally verified as abandoned by offline fixture operator; preserve original attempt and failure ceiling."
+        }
+      ],
+      "next": "Resume only after reconciliation. Unknown cost blocks a dollar-budgeted resume. Original attempt/time limits remain in force."
+    },
+    "resume": {
+      "status": "incomplete",
+      "completed_cases": 0,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "calls_before": 1,
+    "calls_after": 1
+  }
+}

@@ -52,6 +52,8 @@ Memory is a typed product resource: tenant, source, freshness, permissions, scop
 
 For multiple agents, define task decomposition, context allowed to each child, budget allocation, output schema, tool permissions, cancellation propagation, result ownership and reconciliation. Avoid shared mutable files without coordination. A parent must validate child artifacts and resolve disagreement; child confidence is not evidence. Only delegate when the host/user authorizes it. Do not map a product's multi-agent capability onto unauthorized creation of chats in the development host.
 
+For a known item population, the [staged workflow journal](workflow-recipes.md) provides executable phase/resume/coverage contracts. For native Responses Multi-agent, [response recipes](response-recipes.md) adds root/child attribution, actual function-call budgets, injection acknowledgement recovery and mode-specific compaction limits. Hosted run events and local stage rows must not be conflated: only a destination adapter can establish their correspondence. A successful final summary cannot erase failed, missing or unverified child work from the population denominator.
+
 Define outcomes independently of agent text: expected file, verified database change, user acceptance, task completion rubric and failure class. Report partial success and unknown effects explicitly. Keep an outcome schema stable across runtime migrations so the app eval remains comparable.
 
 ## Scheduled deployments

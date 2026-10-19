@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/eval-improve/scripts/run_eval.py",
+    "--card",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E18/input/card.json",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E18/flow",
+    "--variant",
+    "baseline",
+    "--split",
+    "val",
+    "--execute"
+  ],
+  "returncode": 2,
+  "stdout": "{\"status\": \"invalid\", \"error\": \"unknown limit field; check the experiment card before executing\"}\n",
+  "stderr": ""
+}

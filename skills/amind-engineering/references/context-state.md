@@ -59,3 +59,11 @@ Do not remove opaque state experimentally in a production session. If a live abl
 ## Validate the migration
 
 Exercise at least a plain continuation, one and multiple tool calls, malformed/failed tool output, commentary then final answer, long-context compaction, reconnect/resume, cancellation, and cross-tenant/resource rejection. Compare baseline and new state path with the same app-level task evaluation. Record which assertions are structural and which were measured against a live model.
+
+## Prove that a probe actually measured its target
+
+A successful HTTP request or zero detected defects is not a pass when the state item was absent, dropped before the tested check, produced by an incompatible model/account, stripped by a gateway or never subjected to the check. Record actual target exposure, check application, compatible scope and violation count. Keep missing/inapplicable checks as not measured; preserve the entire selected population denominator.
+
+`cache_diagnostics.probe_coverage(observations,required_ids)` accepts provider-neutral adapter facts: `{id,target_present,check_applied,same_scope,violations,evidence}`. A zero count passes only when all three facts are explicitly true for every required observation. Missing records are not measured, and any uncovered observation makes an otherwise clean run inconclusive. Establish those facts using current destination fields and trusted capture metadata. Do not invent an OpenAI equivalent of Claude's organization/prefix-binding diagnostics or interpret API acceptance as preserved-reasoning proof.
+
+For Multi-agent, preserve `agent` along with `phase`, opaque items and tool correspondence. State and compaction belong to each agent's context. The mode restrictions and projection rules in [response recipes](response-recipes.md) apply; the generic standalone compact example is not supported when Multi-agent is enabled. Test child-only finals, root finals, missing attribution, hosted/unknown items and a post-compaction continuation independently.

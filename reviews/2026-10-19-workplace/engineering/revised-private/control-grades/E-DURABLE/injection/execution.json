@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/grade_durable.py",
+    "--repo",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/ENG-REVISED-CONTROLS/E-DURABLE/injection/repo"
+  ],
+  "returncode": 0,
+  "application_prefix": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/control/ENG-REVISED-CONTROLS-grade.sb"
+  ],
+  "policy_sha256": "203130b8f661209a019ddb2b12c9206f03c0bc920c60c709bb95d0a22b3e2697",
+  "application_calls": 38,
+  "all_calls_prefixed": true,
+  "repo_files_sha256": {
+    "intake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "intake/__main__.py": "f6926ecda5dba8f9c8a8ec87d7144c62d9104a219972edceb80862ddcf114817"
+  },
+  "model_called": false
+}

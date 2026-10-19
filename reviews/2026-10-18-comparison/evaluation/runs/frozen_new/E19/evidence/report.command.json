@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/report_eval.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E19/flow"
+  ],
+  "returncode": 0,
+  "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E19/flow/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E19/flow/report-data.json\", \"variants\": 1}\n",
+  "stderr": ""
+}

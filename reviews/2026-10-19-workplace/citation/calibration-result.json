@@ -1,0 +1,9 @@
+{
+  "controls": 8,
+  "criterion_comparisons": 40,
+  "matching_criteria": 40,
+  "mismatches": [],
+  "protocol_unchanged": true,
+  "expected_key_hidden_from_grader": true,
+  "human_calibrated": false
+}

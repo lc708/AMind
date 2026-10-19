@@ -1,0 +1,29 @@
+{
+  "id": "E09",
+  "name": "absent-negative-controls",
+  "classification": "shared",
+  "entry": "calibrate",
+  "expected": "A perfect positive-only set is not ready_for_review and negative evidence is unmeasured.",
+  "variant": "old",
+  "outcome": "fail",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E09",
+  "observed": {
+    "examples": 2,
+    "judgments": 2,
+    "confusion": {
+      "tp": 2,
+      "tn": 0,
+      "fp": 0,
+      "fn": 0
+    },
+    "agreement": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "disagreements": [],
+    "unstable_cases": [],
+    "order_inconsistency_rate": null,
+    "ready_for_review": true,
+    "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+  }
+}

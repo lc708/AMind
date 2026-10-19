@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/grade_durable.py",
+    "--repo",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/W032/grade-revised-eng-repo"
+  ],
+  "returncode": 0,
+  "application_prefix": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/control/W032-grade-revised-eng.sb"
+  ],
+  "policy_sha256": "2ba7dd83879dfcc74184f5a594af2aa0aa41de7bd43b926a288ce9bbdf5c1348",
+  "application_calls": 47,
+  "all_calls_prefixed": true,
+  "repo_files_sha256": {
+    "PATCH-NOTES.md": "727dfc1a9c00007ec3156d0d8046924531a9069739b9c39eeb08fc8079446f19",
+    "README.md": "2fdf76d3685baf3374fd4799780f6aa468a0ff8194191b8ab90dcb7e8ed754ec",
+    "THIRD-PARTY-NOTICES.md": "66a176d345a6272792a1f98aa6793531f7d6bf1bd2ab2d4a599529d6cf0aab5a",
+    "intake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "intake/__main__.py": "c38d34b2b91537224e5506c083c1ba983ce68e41e470156c99f02b7cd38faf37",
+    "intake/receiver.py": "417973cea3ebe329f0ea126d8d2d29cefd3a3e946f95701710a95703514a9f96",
+    "intake/service.py": "2fc08213c7c78c418bf63a0ac3b4257fe888a815af5d32f67700a638af957db2",
+    "intake/store.py": "4b2807c9727fc58f63cbaff1f9017dfe694aefda8748b5f11191b2b8845c58cf",
+    "licenses/AMind-Apache-2.0.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+    "licenses/AMind-NOTICE.txt": "905684266a266323c41fd38c588e1b740b58c4eb46dc991d5c3805ad4f446c59",
+    "tests/test_public.py": "a84fc705536539f1fd6bbd7f31aeb4394f907effa9525d65055d199b9f2c8e5c",
+    "traces/crash-job.json": "1cc35df3173d4a99a401bb315f750f16cb66ed684ec17a09d0d57ec98c69e2dd",
+    "traces/new-job.json": "2563a7fc6a7909267a01d5b0c575901bcf54137dfc27efded8d8506ecf177e27"
+  },
+  "model_called": false
+}

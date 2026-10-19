@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Contract tracker",
+  "goal": "Extract obligations, dates and changes from selected contracts",
+  "item_label": "contract",
+  "stages": [
+    "extract",
+    "crosscheck",
+    "combine"
+  ],
+  "output_checks": [
+    "Quote or locate the operative clause",
+    "Keep ambiguous dates/owners unresolved",
+    "Track document version and uncovered contracts"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

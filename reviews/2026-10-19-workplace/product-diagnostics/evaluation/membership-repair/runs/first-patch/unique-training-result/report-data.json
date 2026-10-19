@@ -1,0 +1,132 @@
+{
+  "variants": [
+    {
+      "variant": "baseline",
+      "split": "val",
+      "status": "complete",
+      "scored_observations": 3,
+      "planned_observations": 2,
+      "metrics": {
+        "quality": {
+          "mean": 1.0,
+          "scored": 3
+        }
+      },
+      "failed_attempts": 0,
+      "attempts": 2,
+      "interrupted_attempts": 0,
+      "known_cost_usd": 0.04,
+      "unknown_cost_attempts": 0,
+      "total_cost_usd": 0.04,
+      "latency_p50_s": 0.018694708999999997,
+      "latency_p95_s": 0.0277756334,
+      "integrity": "hashes match export; not a security attestation",
+      "synthetic": true,
+      "stage_coverage": {
+        "measured_complete": 0,
+        "unmeasured": 3,
+        "required_stages": []
+      },
+      "remaining_failed_attempts": null
+    }
+  ],
+  "details": [
+    {
+      "variant": "baseline",
+      "case": "reimburse",
+      "rep": 0,
+      "grade": {
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "reimburse",
+        "comparison_hash": "f9918bd1bddd5f4fe205f259001d500ac7744856ad0f8a5ac86c13a0774d35ab",
+        "rep": 0,
+        "treatment_hash": "f10ee758fc76d66d262e7fe57894a49a05fb1396c3b61627afdc11add39a5539"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.02,
+      "output": "reimburse",
+      "explanation": null,
+      "trace": [
+        {
+          "role": "user",
+          "content": "reimburse"
+        },
+        {
+          "role": "assistant",
+          "content": "reimburse"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "case": "billing",
+      "rep": 0,
+      "grade": {
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "billing",
+        "comparison_hash": "f9918bd1bddd5f4fe205f259001d500ac7744856ad0f8a5ac86c13a0774d35ab",
+        "rep": 0,
+        "treatment_hash": "f10ee758fc76d66d262e7fe57894a49a05fb1396c3b61627afdc11add39a5539"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.02,
+      "output": "billing",
+      "explanation": null,
+      "trace": [
+        {
+          "role": "user",
+          "content": "billing"
+        },
+        {
+          "role": "assistant",
+          "content": "billing"
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "case": "train-only",
+      "rep": 0,
+      "grade": {
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "train-only",
+        "comparison_hash": "f9918bd1bddd5f4fe205f259001d500ac7744856ad0f8a5ac86c13a0774d35ab",
+        "rep": 0,
+        "treatment_hash": "f10ee758fc76d66d262e7fe57894a49a05fb1396c3b61627afdc11add39a5539"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.02,
+      "output": "reimburse",
+      "explanation": null,
+      "trace": [
+        {
+          "role": "user",
+          "content": "reimburse"
+        },
+        {
+          "role": "assistant",
+          "content": "reimburse"
+        }
+      ]
+    }
+  ],
+  "interpretation": "Scored means exclude unscored attempts; inspect coverage before comparing. Validation is selection evidence. Synthetic runs do not measure model ability. No automatic winner."
+}

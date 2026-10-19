@@ -1,0 +1,8 @@
+[
+  {
+    "attempt_id": 1,
+    "resolution": "abandoned",
+    "cost_usd": 0.02,
+    "evidence": "Synthetic interrupted application outcome externally verified as abandoned by offline fixture operator; preserve original attempt and failure ceiling."
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "arm": "final_repair",
+  "scenario": "legacy-no-journal",
+  "source": "registered real CLI flow E14 copied verbatim before explicit transform",
+  "transform": {
+    "removed": "manifest and attempt journal; descriptive legacy costs remain on result rows"
+  },
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/report_eval.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/legacy-no-journal"
+  ],
+  "script_sha256": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+  "returncode": 0,
+  "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/legacy-no-journal/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/post-review/runs/final_repair/legacy-no-journal/report-data.json\", \"variants\": 2}\n",
+  "stderr": "",
+  "baseline_summary": {
+    "variant": "baseline",
+    "split": "unknown",
+    "status": "unknown",
+    "scored_observations": 2,
+    "planned_observations": 2,
+    "metrics": {
+      "quality": {
+        "mean": 0.0,
+        "scored": 2
+      }
+    },
+    "failed_attempts": 0,
+    "attempts": null,
+    "interrupted_attempts": 0,
+    "known_cost_usd": 0.04,
+    "unknown_cost_attempts": 0,
+    "total_cost_usd": 0.04,
+    "latency_p50_s": 0.05540985400000001,
+    "latency_p95_s": 0.0604664851,
+    "integrity": "unverified: missing v2 experiment identity",
+    "synthetic": true,
+    "stage_coverage": {
+      "measured_complete": 0,
+      "unmeasured": 2,
+      "required_stages": []
+    },
+    "remaining_failed_attempts": null
+  },
+  "evidence_use": "post-diagnostic validation; no untouched holdout claim"
+}

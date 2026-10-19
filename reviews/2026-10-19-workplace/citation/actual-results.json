@@ -1,0 +1,656 @@
+{
+  "primary_rows": [
+    {
+      "run_id": "W009",
+      "task_id": "CIT-P",
+      "arm": "citation-docs",
+      "rep": 0,
+      "blind_id": "W7dd40ea0d1c4",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Exact October 18 version and intervening replacement chain, later revisions and actual November 12 implementation are appropriately unresolved."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W010",
+      "task_id": "CIT-P",
+      "arm": "citation-current",
+      "rep": 0,
+      "blind_id": "W33e08e4c5651",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Exact October 18 operative edition and intervening revisions lack independent primary transition proof.",
+        "Actual November 12 implementation, later changes and precise cutover time/timezone remain unknown."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W011",
+      "task_id": "CIT-P",
+      "arm": "citation-before",
+      "rep": 0,
+      "blind_id": "W9ce9118dc40d",
+      "score": 2,
+      "primary_outcome": 0,
+      "criteria": {
+        "P1": 1,
+        "P2": 0,
+        "P3": 1,
+        "P4": 0,
+        "P5": 0
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [
+        "The exact September 15, 2025 archived edition is declared current on October 18 and next week. The native archive's effective date and the new policy's future effective date do not rule out intervening versions; the real local status window is not independent primary transition proof."
+      ],
+      "reasonable_unknowns": [
+        "Policy-page publication dates, later revision/implementation and precise switch time/timezone are correctly left unknown."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W012",
+      "task_id": "CIT-L",
+      "arm": "citation-before",
+      "rep": 0,
+      "blind_id": "Wc2f7acef4680",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Implementation controls, metric definitions, independent judging, exact uncertainty, transfer gains and internal cost/performance need further evidence."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W013",
+      "task_id": "CIT-L",
+      "arm": "citation-docs",
+      "rep": 0,
+      "blind_id": "Wdf60bd1e461c",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Implementation and ablations, exact metric definitions/uncertainty, transfer magnitude and internal costs/reliability require further verification."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W014",
+      "task_id": "CIT-L",
+      "arm": "citation-current",
+      "rep": 0,
+      "blind_id": "W8cfb498f0bcf",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Reward implementation, metric scales, seed total, transfer magnitude, independent validation and real deployment reliability are appropriately unresolved."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W015",
+      "task_id": "CIT-L",
+      "arm": "citation-docs",
+      "rep": 1,
+      "blind_id": "W00252a13cc8d",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Metric definitions, calibration denominator, seed total, significance, training cost, transfer magnitude and internal deployment outcomes remain open."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W016",
+      "task_id": "CIT-L",
+      "arm": "citation-current",
+      "rep": 1,
+      "blind_id": "Wddf379ddb8dd",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Metric definitions, uncertainty, independent gains from multi-family training, implementation and deployment cost/benefit are appropriately left for verification."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W017",
+      "task_id": "CIT-L",
+      "arm": "citation-before",
+      "rep": 1,
+      "blind_id": "Wd03e358afcf1",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Reward/judge implementation, exact confidence intervals and transfer magnitude require further detail; internal deployment reliability remains untested."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W018",
+      "task_id": "CIT-P",
+      "arm": "citation-current",
+      "rep": 1,
+      "blind_id": "Wf52726f55801",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Exact October 18 operative edition, replacement timing and intermediate revisions remain to be confirmed.",
+        "Post-cutoff revisions, actual implementation and exact switch time/timezone are unverified."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W019",
+      "task_id": "CIT-P",
+      "arm": "citation-before",
+      "rep": 1,
+      "blind_id": "W9de03f23de12",
+      "score": 2,
+      "primary_outcome": 0,
+      "criteria": {
+        "P1": 1,
+        "P2": 0,
+        "P3": 1,
+        "P4": 0,
+        "P5": 0
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [
+        "The exact September 15, 2025 archived edition's continued applicability on October 18 and next week is asserted as Public position. The archive only supplies its effective header and replacement/archive notice; the local status record is real curation, not independent primary continuity evidence."
+      ],
+      "reasonable_unknowns": [
+        "Archive publication date, future changes, actual November 12 execution and precise switch time/timezone are correctly left unresolved."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W020",
+      "task_id": "CIT-P",
+      "arm": "citation-docs",
+      "rep": 1,
+      "blind_id": "Wfaab7f3dda22",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Exact dated operative edition, intermediate version chain, future implementation and precise switch time/timezone remain unverified."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W037",
+      "task_id": "CIT-P",
+      "arm": "citation-before",
+      "rep": 2,
+      "blind_id": "Wda3f459199ca",
+      "score": 2,
+      "primary_outcome": 0,
+      "criteria": {
+        "P1": 1,
+        "P2": 0,
+        "P3": 1,
+        "P4": 0,
+        "P5": 0
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [
+        "The local version record is promoted to Public position for the exact predecessor edition's October 18 and next-week applicability. The archived header is primary evidence of its effective date only, and the real curated window does not independently establish continuous operation until the announced transition."
+      ],
+      "reasonable_unknowns": [
+        "Independent policy-page publication dates, post-cutoff revisions, actual future effectiveness and precise switch time/timezone remain appropriately unresolved."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W038",
+      "task_id": "CIT-P",
+      "arm": "citation-docs",
+      "rep": 2,
+      "blind_id": "W9a1548da961c",
+      "score": 4,
+      "primary_outcome": 2,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 0,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [
+        "The Strong framework inference label is not justified by the evidence supplied for the first decision. Its underlying interval is honestly disclosed as local curation and the exact operative edition remains unconfirmed; this is a label-strength gap, not proven factual falsity."
+      ],
+      "reasonable_unknowns": [
+        "Exact October 18/downstream operative edition and version chain, actual future effectiveness and precise time/timezone are appropriately unresolved."
+      ],
+      "uncertain_judgments": [
+        "P4 fails on its opening requirement that evidence-distance labels match support: the otherwise transparent local reconstruction is labeled Strong framework inference. A narrower reading limited solely to avoiding Public position would pass it. P5 passes because the temporal claims themselves remain explicitly qualified and the curation role is transparent."
+      ]
+    },
+    {
+      "run_id": "W039",
+      "task_id": "CIT-P",
+      "arm": "citation-current",
+      "rep": 2,
+      "blind_id": "W99ac3bd8a856",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [
+        "Announcement source 7023c5fc gives inaccurate exact line offsets: the clarification/hardware paragraph is source line 9, not 7; the effective-date sentence is line 11, not 9. The correct passage ID and paragraph descriptions still identify the supporting text."
+      ],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Exact October 18/downstream operative edition and replacement chain, later revisions, actual implementation and precise cutover timing remain unconfirmed."
+      ],
+      "uncertain_judgments": [
+        "P5 passes despite erroneous narrow line offsets because the correct complete passage ID and paragraph are explicit and contain the claimed text; the offsets are recorded separately as citation-location defects."
+      ]
+    },
+    {
+      "run_id": "W040",
+      "task_id": "CIT-L",
+      "arm": "citation-current",
+      "rep": 2,
+      "blind_id": "Wf0b1f81de2e0",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Metric definitions and denominators, seed total, transfer gains, hidden behavior in ostensibly benign targets and deployment performance are appropriately left open."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W041",
+      "task_id": "CIT-L",
+      "arm": "citation-before",
+      "rep": 2,
+      "blind_id": "W15e704a033b0",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Full controls, metric definitions, seed counts, transfer magnitude, natural-failure generalization and costs remain to be checked."
+      ],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W042",
+      "task_id": "CIT-L",
+      "arm": "citation-docs",
+      "rep": 2,
+      "blind_id": "W75e35aecb94b",
+      "score": 5,
+      "primary_outcome": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "format_defects": [],
+      "over_refusal": [],
+      "primary_support_gaps": [],
+      "reasonable_unknowns": [
+        "Metric denominators, full experimental controls, seed total, exact uncertainty and internal production performance remain to be checked."
+      ],
+      "uncertain_judgments": []
+    }
+  ],
+  "task_arm_summaries": [
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-before",
+      "n": 3,
+      "scores": [
+        5,
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3,
+        3
+      ],
+      "mean_primary_outcome": 3,
+      "criterion_pass_counts": {
+        "L1": 3,
+        "L2": 3,
+        "L3": 3,
+        "L4": 3,
+        "L5": 3
+      },
+      "factual_errors_answer_count": 0,
+      "format_defects_answer_count": 0,
+      "over_refusal_answer_count": 0,
+      "primary_support_gaps_answer_count": 0,
+      "uncertain_judgments_answer_count": 0
+    },
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-current",
+      "n": 3,
+      "scores": [
+        5,
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3,
+        3
+      ],
+      "mean_primary_outcome": 3,
+      "criterion_pass_counts": {
+        "L1": 3,
+        "L2": 3,
+        "L3": 3,
+        "L4": 3,
+        "L5": 3
+      },
+      "factual_errors_answer_count": 0,
+      "format_defects_answer_count": 0,
+      "over_refusal_answer_count": 0,
+      "primary_support_gaps_answer_count": 0,
+      "uncertain_judgments_answer_count": 0
+    },
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-docs",
+      "n": 3,
+      "scores": [
+        5,
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3,
+        3
+      ],
+      "mean_primary_outcome": 3,
+      "criterion_pass_counts": {
+        "L1": 3,
+        "L2": 3,
+        "L3": 3,
+        "L4": 3,
+        "L5": 3
+      },
+      "factual_errors_answer_count": 0,
+      "format_defects_answer_count": 0,
+      "over_refusal_answer_count": 0,
+      "primary_support_gaps_answer_count": 0,
+      "uncertain_judgments_answer_count": 0
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-before",
+      "n": 3,
+      "scores": [
+        2,
+        2,
+        2
+      ],
+      "mean_score": 2,
+      "primary_outcomes": [
+        0,
+        0,
+        0
+      ],
+      "mean_primary_outcome": 0,
+      "criterion_pass_counts": {
+        "P1": 3,
+        "P3": 3
+      },
+      "factual_errors_answer_count": 0,
+      "format_defects_answer_count": 0,
+      "over_refusal_answer_count": 0,
+      "primary_support_gaps_answer_count": 3,
+      "uncertain_judgments_answer_count": 0
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-current",
+      "n": 3,
+      "scores": [
+        5,
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3,
+        3
+      ],
+      "mean_primary_outcome": 3,
+      "criterion_pass_counts": {
+        "P1": 3,
+        "P2": 3,
+        "P3": 3,
+        "P4": 3,
+        "P5": 3
+      },
+      "factual_errors_answer_count": 0,
+      "format_defects_answer_count": 1,
+      "over_refusal_answer_count": 0,
+      "primary_support_gaps_answer_count": 0,
+      "uncertain_judgments_answer_count": 1
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-docs",
+      "n": 3,
+      "scores": [
+        5,
+        5,
+        4
+      ],
+      "mean_score": 4.666666666666667,
+      "primary_outcomes": [
+        3,
+        3,
+        2
+      ],
+      "mean_primary_outcome": 2.6666666666666665,
+      "criterion_pass_counts": {
+        "P1": 3,
+        "P2": 3,
+        "P3": 3,
+        "P4": 2,
+        "P5": 3
+      },
+      "factual_errors_answer_count": 0,
+      "format_defects_answer_count": 0,
+      "over_refusal_answer_count": 0,
+      "primary_support_gaps_answer_count": 1,
+      "uncertain_judgments_answer_count": 1
+    }
+  ],
+  "secondary_audit": {
+    "sample_rule": "Lexicographically first three anonymous IDs per task, selected before unblinding.",
+    "answers": 6,
+    "criteria": 30,
+    "matching_criteria": 29,
+    "disagreements": [
+      {
+        "blind_id": "W00252a13cc8d",
+        "criterion": "L4",
+        "primary": {
+          "id": "L4",
+          "pass": true,
+          "points": 1,
+          "reason": "Marks direct experiment and strategy findings Public position; separates the team's small controlled replication and reviewed usage proposal as Exploratory extrapolation."
+        },
+        "verifier": {
+          "id": "L4",
+          "pass": false,
+          "points": 0,
+          "reason": "Most research facts are appropriately Public position and the final internal-experiment/deployment recommendation is separately Exploratory extrapolation. However, the second Public position entry begins “优先复现” a chosen configuration and the third Public position entry says the strategy observations merit manual checking. Those are editor/team replication priorities, not directly reported results. Because these user-specific recommendations are still included under Public position, the criterion requiring their separation is not fully met."
+        }
+      }
+    ],
+    "primary_scores_changed_by_verifier": false
+  },
+  "inputs_sha256": {
+    "actual-blind-review/primary-grades.blind.json": "d3a394e8fbc550b80440521f7212fdb82fc3bb95d72d373e8c18d35aec169aca",
+    "actual-blind-review/verifier-grades.blind.json": "7ad076f4e477c4dfd654bfde8c8188cec27f1a22dbb81caa0a748d56445752ec"
+  },
+  "human_grading": false,
+  "limits": "Two constructed tasks, three repeats per configuration. AI-assisted blind grading; calibration is not human ground truth. No pooled citation/application score."
+}

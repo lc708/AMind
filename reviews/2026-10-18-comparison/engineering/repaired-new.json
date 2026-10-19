@@ -1,0 +1,1987 @@
+{
+  "label": "repaired-new-0.3.0",
+  "skill_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+  "protocol_sha256": "f5a0e2e5c0bed01f534b655dc65c44dd62223cb0dc815837a0056798ee47e817",
+  "invocation": [
+    "reviews/2026-10-18-comparison/engineering/run_compare.py",
+    "--skill-root",
+    "skills/amind-engineering",
+    "--label",
+    "repaired-new-0.3.0",
+    "--output",
+    "reviews/2026-10-18-comparison/engineering/repaired-new.json"
+  ],
+  "package_files_sha256": {
+    "LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+    "NOTICE.txt": "1ad6d32b68f4d900623f7a2ed3cf78809b311a091672a475cd05a48e8673f2e9",
+    "SKILL.md": "be9483396d1b3634a56e89aca148ac6547230d0d31f6d2aa8e833588bce68dab",
+    "agents/openai.yaml": "4ee0f23bd2a04bfc60947a8085b08e8762eb2e0d3d203365e09b989d8048bf86",
+    "assets/templates/bug-hunter.json": "f04574ecc11b9d0306c3143904a714466f64d82021a9d336492ebb57d4beefa8",
+    "assets/templates/contract-tracker.json": "9e9f5633f4b51470eb8b82e6780bd30f790c5474b0f9ea744eb07f2482b46624",
+    "assets/templates/data-analyst.json": "372e90dfb48d1f6907c78b6dea231f0489ba159481344d6545355823a3f711ca",
+    "assets/templates/deep-researcher.json": "d3d9d3c602974cbdc4ad50661740d691404f3f7267809dd5e79ba5bf735809ae",
+    "assets/templates/explainer-video-maker.json": "f3ab28fbea1b39dde9a91b8d7ed02b299ff6ed9d0849d3033e4c49ec161eecff",
+    "assets/templates/field-monitor.json": "3be0e3aee51f56a385e68b046fe920ac1f4b936dd73e2db8e48b81381f8d6213",
+    "assets/templates/incident-commander.json": "d70305343e818dae4c8bfac26bd0898123d5633998ce7d95f30fb8e8df89b072",
+    "assets/templates/performance-tuner.json": "bfae528ff728ec63b6b1f357d7c04b6fc282f7c564dec4c1410f291f2d58fc86",
+    "assets/templates/sprint-retro-facilitator.json": "2a73196730d11617aff2446dc554983403d65584482d9c51891ab7ebadb5589b",
+    "assets/templates/structured-extractor.json": "2120803576ec09c06c2c9c7dd7e313613b2a7535ba33bd1770149b71c889ab81",
+    "assets/templates/support-agent.json": "6a630de15b54cc2ec5d8b596c17708f0de183c843dcc704647fd71d7ef8a7c20",
+    "assets/templates/support-to-eng-escalator.json": "58eedc18801cef102d9e5af9db9dfa9a4da664d7110ecd05294fb8e1cc06725d",
+    "assets/templates/watchlist-scanner.json": "7fed3d4ecfd0c44e21bb791a4b12f30191c2cba9f3aa114a115f7c78ae652bce",
+    "references/agent-build.md": "3a8da1e34c731cbdc913dc3b742705af1d475b683269db13dfc0fdf0a0fd8a99",
+    "references/agent-lifecycle.md": "56472d0cebe6fe0ca38480660522a8b0309575bbef05a0fea94868e8798a1c7d",
+    "references/api-implementation.md": "18009debaf8ef3b155b042cce720755c3972885516fee6dcabd633cb503416b9",
+    "references/capability-map-2026-09-29.md": "6f43c71b980cb759d333ee4e7c1ff9e241eae4188c3e0d2288cf8dcb74d0d4d0",
+    "references/capability-map.md": "f31c23bf1a8ec26af77364856f32a6d7f1239db817bda5023297e32b450820ad",
+    "references/context-state.md": "fe6b961580ed317dcc5bffe6bfcdfede4043395c7ae01cabb0b3dd97a11d08a5",
+    "references/cost-optimization.md": "0a6fd62f0a3d98177b6920baaa6323c6144ff5715036530d50ac37d0b7186d62",
+    "references/language-adapters.md": "d789d59172f9f5ff2231c23aaaefba508ed7ec09f3d3e624ce2e0010404824b5",
+    "references/migration.md": "e178a886a990de67a723ee0fb0798dc3318a8c7bc41674f77ec4a60db13d942f",
+    "references/onboarding.md": "9256df666861049398baa4729f2bcd99e2ac7a20b1fcc6668e6fafa9bb525fed",
+    "references/platform-operations.md": "2ba86bb8005faab95f3f1c1b77bc7cd0915b22c0116ca780ec3a6e4011dd6021",
+    "references/prompt-audit.md": "b11730f315ca0e721399bc210dbe7eb326c3e47f5d9ccafbd9307e07cf691330",
+    "references/response-recipes.md": "723690fcd1b9575d28fbe1cf0575179ab562423b734c74793819e3d2673f75a1",
+    "references/sources.md": "a3cbf96ea4b73a61a322577359fa025fc1dc685e976bf15eb355bbd2b58bcdfd",
+    "references/templates.md": "e623f860ad39a18f987a2ff530bc2b701fe3cc03e52f995916a47df58e6584b3",
+    "references/upstream-capabilities-2026-09-29.json": "1a41e94e7ed926bb51fc6b8ddc429a3b34909cdf1b86c21708e707e9b3ec728b",
+    "references/upstream-capabilities.json": "9cc85b30e4ec3b0a99a4ed520cdbb5eb093553f525b84be2e66346bfaf140d14",
+    "references/workflow-recipes.md": "04bdedd9fa239d85588bd45d81134d1acd0aedbc8282a9faa39265f351dc2a63",
+    "scripts/cache_diagnostics.py": "ba99414f29d3d9744e1517690018968400377baa38379903cc0e6fe57adaae01",
+    "scripts/context_audit.py": "88793bf299caab4cd57efc3a02d1c5838924442b373cfb1104e86e5ef26df03c",
+    "scripts/lifecycle_audit.py": "0223c7ff297b034d02fc2d3217156a602d0914e2a4c9dd8501876219dfafc87c",
+    "scripts/onboarding_contract.py": "de627a31a8d60234029dc622e2263b71e28f4ca9e55af3def632d09cd5b8e96b",
+    "scripts/prompt_inventory.py": "fa47f63c0c19489afef1f8396bcdad3bb5f8c5f856db42f3eee256278495f838",
+    "scripts/response_contract.py": "14eca230bc9508f92fed3d124e3a8e174f6f785a754c868be8840600fcd5924f",
+    "scripts/tool_loop.py": "ea9d3fc40ab22599edbd925b968ee6fff5e8f7cabc91c5bd462c2b77d3709569",
+    "scripts/workflow_contract.py": "b71ea1a7886674d3d75b4235ced07889fb65f705d0497486b7190d0f75cc3935"
+  },
+  "summary": {
+    "passed": 18,
+    "failed": 0,
+    "unsupported": 0
+  },
+  "common_quality_summary": {
+    "passed": 13,
+    "failed": 0,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "E01",
+      "task": "single phase projection",
+      "stratum": "control",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "commentary excluded from final, explicit final retained, answer complete",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Working."
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Approved."
+                }
+              ]
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "Working.Approved.",
+          "final_text": "Approved.",
+          "commentary_text": "Working.",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Working."
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Approved."
+                }
+              ]
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "commentary",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Working."
+                  }
+                ]
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Approved."
+                  }
+                ]
+              }
+            ]
+          },
+          "mode": "single",
+          "agent_text": {
+            "unattributed": "Working.Approved."
+          },
+          "hosted_items": [],
+          "unknown_items": []
+        }
+      }
+    },
+    {
+      "id": "E02",
+      "task": "completed body contradiction",
+      "stratum": "control",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "completed plus error rejected",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "error": {
+            "code": "contradiction"
+          },
+          "output": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "bad"
+                }
+              ]
+            }
+          ]
+        },
+        "rejected": "completed response contains an error or incomplete details"
+      }
+    },
+    {
+      "id": "E03",
+      "task": "batch out-of-order join",
+      "stratum": "control",
+      "old_entry": "response.match_batch",
+      "new_entry": "response.match_batch",
+      "expected": "request order restored, missing ID stays explicit",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "request_ids": [
+            "one",
+            "two",
+            "three"
+          ],
+          "results": [
+            {
+              "custom_id": "two",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            },
+            {
+              "custom_id": "one",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            }
+          ]
+        },
+        "result": {
+          "ordered": [
+            {
+              "custom_id": "one",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            },
+            {
+              "custom_id": "two",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            },
+            null
+          ],
+          "missing": [
+            "three"
+          ],
+          "errors": [],
+          "incomplete": [],
+          "unknown_status": []
+        }
+      }
+    },
+    {
+      "id": "E04",
+      "task": "durable completed side effect replay",
+      "stratum": "control",
+      "old_entry": "tool_loop.run_loop + EffectLedger",
+      "new_entry": "tool_loop.run_loop + EffectLedger",
+      "expected": "two fresh loop invocations dispatch external effect once, exact result reused",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "call": {
+            "type": "function_call",
+            "call_id": "save-1",
+            "name": "commit",
+            "arguments": "{\"v\":17}"
+          },
+          "fresh_loop_invocations": 2
+        },
+        "results": [
+          {
+            "status": "completed",
+            "history": [
+              {
+                "type": "function_call",
+                "call_id": "save-1",
+                "name": "commit",
+                "arguments": "{\"v\":17}"
+              },
+              {
+                "type": "function_call_output",
+                "call_id": "save-1",
+                "output": "{\"saved\":17}"
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Saved."
+                  }
+                ]
+              }
+            ],
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Saved."
+                    }
+                  ]
+                }
+              ]
+            },
+            "tool_calls": 1
+          },
+          {
+            "status": "completed",
+            "history": [
+              {
+                "type": "function_call",
+                "call_id": "save-1",
+                "name": "commit",
+                "arguments": "{\"v\":17}"
+              },
+              {
+                "type": "function_call_output",
+                "call_id": "save-1",
+                "output": "{\"saved\":17}"
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Saved."
+                  }
+                ]
+              }
+            ],
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Saved."
+                    }
+                  ]
+                }
+              ]
+            },
+            "tool_calls": 1
+          }
+        ],
+        "effects": [
+          {
+            "args": {
+              "v": 17
+            },
+            "key": "4c272342ccfdea94fdf4b8b0f75cc1518fb30ff49a45fe543e4ed5961a58e28f"
+          }
+        ],
+        "authorization_calls": 2
+      }
+    },
+    {
+      "id": "E05",
+      "task": "cancel during authorization",
+      "stratum": "control",
+      "old_entry": "tool_loop.run_loop",
+      "new_entry": "tool_loop.run_loop",
+      "expected": "zero handlers dispatched after authorizer requests cancellation",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "call": {
+            "type": "function_call",
+            "call_id": "save-1",
+            "name": "commit",
+            "arguments": "{\"v\":17}"
+          },
+          "fresh_loop_invocations": 1
+        },
+        "results": [
+          {
+            "error": "cancelled"
+          }
+        ],
+        "effects": [],
+        "authorization_calls": 1
+      }
+    },
+    {
+      "id": "E06",
+      "task": "crash and recovery without reconciliation",
+      "stratum": "control",
+      "old_entry": "tool_loop.EffectLedger.perform",
+      "new_entry": "tool_loop.EffectLedger.perform",
+      "expected": "first handler raises after simulated remote effect; reopen refuses duplicate, reconciliation evidence unlocks reuse",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "first_exception": "simulated crash after remote effect",
+        "recovery_exception": "effect outcome unknown; query remote state before retry",
+        "input": {
+          "task": "job",
+          "order": 17
+        },
+        "effects": [
+          "external-order-1"
+        ],
+        "result": {
+          "remote_id": "confirmed-17"
+        }
+      }
+    },
+    {
+      "id": "E07",
+      "task": "child final is not root final",
+      "stratum": "quality",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "child final never shown as user final or declared complete",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "",
+          "final_text": "",
+          "commentary_text": "",
+          "answer_complete": false,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              }
+            ]
+          },
+          "mode": "multi_agent",
+          "agent_text": {
+            "/root/helper": "child draft"
+          },
+          "hosted_items": [],
+          "unknown_items": []
+        }
+      }
+    },
+    {
+      "id": "E08",
+      "task": "root final with child draft",
+      "stratum": "quality",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "user final contains only explicit root final; full output remains unchanged",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "root decision"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "root decision",
+          "final_text": "root decision",
+          "commentary_text": "",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "root decision"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "root decision"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              }
+            ]
+          },
+          "mode": "multi_agent",
+          "agent_text": {
+            "/root/helper": "child draft",
+            "/root": "root decision"
+          },
+          "hosted_items": [],
+          "unknown_items": []
+        }
+      }
+    },
+    {
+      "id": "E09",
+      "task": "stream item-index ownership",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "root-only display, full raw stream retained, unknown opaque terminal item retained",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 0,
+            "item": {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 0,
+            "delta": "child draft"
+          },
+          {
+            "type": "response.output_item.added",
+            "output_index": 1,
+            "item": {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Root progress."
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 1,
+            "delta": "Root progress."
+          },
+          {
+            "type": "response.completed",
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "child draft"
+                    }
+                  ],
+                  "agent": {
+                    "agent_name": "/root/helper"
+                  }
+                },
+                {
+                  "type": "message",
+                  "phase": "commentary",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Root progress."
+                    }
+                  ],
+                  "agent": {
+                    "agent_name": "/root"
+                  }
+                },
+                {
+                  "type": "future_hosted_item",
+                  "opaque": {
+                    "bytes": "keep-23"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "Root progress.",
+          "final_text": "",
+          "commentary_text": "Root progress.",
+          "answer_complete": false,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            },
+            {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Root progress."
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "keep-23"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              },
+              {
+                "type": "message",
+                "phase": "commentary",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Root progress."
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              },
+              {
+                "type": "future_hosted_item",
+                "opaque": {
+                  "bytes": "keep-23"
+                }
+              }
+            ]
+          },
+          "mode": "multi_agent",
+          "agent_text": {
+            "/root/helper": "child draft",
+            "/root": "Root progress."
+          },
+          "hosted_items": [],
+          "unknown_items": [
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "keep-23"
+              }
+            }
+          ],
+          "display_deltas": "Root progress.",
+          "agent_deltas": {
+            "/root/helper": "child draft",
+            "/root": "Root progress."
+          },
+          "raw_events": [
+            {
+              "type": "response.output_item.added",
+              "output_index": 0,
+              "item": {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              }
+            },
+            {
+              "type": "response.output_text.delta",
+              "output_index": 0,
+              "delta": "child draft"
+            },
+            {
+              "type": "response.output_item.added",
+              "output_index": 1,
+              "item": {
+                "type": "message",
+                "phase": "commentary",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Root progress."
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              }
+            },
+            {
+              "type": "response.output_text.delta",
+              "output_index": 1,
+              "delta": "Root progress."
+            },
+            {
+              "type": "response.completed",
+              "response": {
+                "status": "completed",
+                "output": [
+                  {
+                    "type": "message",
+                    "phase": "final_answer",
+                    "content": [
+                      {
+                        "type": "output_text",
+                        "text": "child draft"
+                      }
+                    ],
+                    "agent": {
+                      "agent_name": "/root/helper"
+                    }
+                  },
+                  {
+                    "type": "message",
+                    "phase": "commentary",
+                    "content": [
+                      {
+                        "type": "output_text",
+                        "text": "Root progress."
+                      }
+                    ],
+                    "agent": {
+                      "agent_name": "/root"
+                    }
+                  },
+                  {
+                    "type": "future_hosted_item",
+                    "opaque": {
+                      "bytes": "keep-23"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E10",
+      "task": "event versus nested item attribution contradiction",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "conflicting owner claims within the same event rejected before text projection",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 0,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "secret"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 0,
+            "delta": "secret"
+          }
+        ],
+        "rejected": "event and item changed agent attribution"
+      }
+    },
+    {
+      "id": "E11",
+      "task": "unknown hosted item preservation and dispatch",
+      "stratum": "control",
+      "old_entry": "response.normalize + tool_loop.run_loop",
+      "new_entry": "response.normalize + tool_loop.run_loop",
+      "expected": "unknown and hosted items preserved byte-for-byte structurally; no developer handler or authorizer invoked",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "history": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ],
+          "response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "multi_agent_call",
+                "call_id": "hosted-1",
+                "action": "spawn_agent"
+              },
+              {
+                "type": "future_hosted_item",
+                "opaque": [
+                  17,
+                  {
+                    "bytes": "same"
+                  }
+                ]
+              }
+            ]
+          },
+          "tool_calls": 0
+        },
+        "normalized": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "",
+          "final_text": "",
+          "commentary_text": "",
+          "answer_complete": false,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "multi_agent_call",
+                "call_id": "hosted-1",
+                "action": "spawn_agent"
+              },
+              {
+                "type": "future_hosted_item",
+                "opaque": [
+                  17,
+                  {
+                    "bytes": "same"
+                  }
+                ]
+              }
+            ]
+          },
+          "mode": "multi_agent",
+          "agent_text": {},
+          "hosted_items": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            }
+          ],
+          "unknown_items": [
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ]
+        },
+        "authorization_calls": 0
+      }
+    },
+    {
+      "id": "E12",
+      "task": "interrupted stream is not completion",
+      "stratum": "control",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "partial text preserved, disconnected not scorable; no terminal answer inferred",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_text.delta",
+            "delta": "Partial only."
+          }
+        ],
+        "result": {
+          "status": "disconnected",
+          "scorable_transport": false,
+          "display_deltas": "Partial only.",
+          "agent_deltas": {
+            "unattributed": "Partial only."
+          },
+          "raw_events": [
+            {
+              "type": "response.output_text.delta",
+              "delta": "Partial only."
+            }
+          ],
+          "error": null,
+          "usage": null
+        }
+      }
+    },
+    {
+      "id": "E13",
+      "task": "stage dependency and population gap",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow.Workflow.run",
+      "expected": "failed b read blocks b verify, aggregate retains complete population and gap, no-op resume does not dispatch",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "tenant_id": "tenant-A",
+          "run_id": "stage-1",
+          "items": [
+            {
+              "id": "a"
+            },
+            {
+              "id": "b"
+            }
+          ],
+          "stages": [
+            {
+              "id": "read"
+            },
+            {
+              "id": "verify",
+              "depends_on": [
+                "read"
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "depends_on": [
+                "verify"
+              ]
+            }
+          ],
+          "limits": {
+            "max_attempts": 12,
+            "timeout_s": 120
+          }
+        },
+        "calls": [
+          [
+            "read",
+            "a"
+          ],
+          [
+            "read",
+            "b"
+          ],
+          [
+            "verify",
+            "a"
+          ],
+          [
+            "combine",
+            "__aggregate__"
+          ]
+        ],
+        "first": {
+          "schema_version": 1,
+          "run_id": "stage-1",
+          "status": "incomplete",
+          "stop_reason": null,
+          "cancellation_requested": false,
+          "stages": [
+            {
+              "id": "read",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "succeeded": 1,
+                "failed": 1
+              },
+              "coverage": 0.5,
+              "uncovered": [
+                {
+                  "id": "b",
+                  "status": "failed"
+                }
+              ]
+            },
+            {
+              "id": "verify",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "succeeded": 1,
+                "not_covered": 1
+              },
+              "coverage": 0.5,
+              "uncovered": [
+                {
+                  "id": "b",
+                  "status": "not_covered"
+                }
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "required": true,
+              "total": 1,
+              "counts": {
+                "succeeded": 1
+              },
+              "coverage": 1.0,
+              "uncovered": []
+            }
+          ],
+          "coverage": 0.5,
+          "covered_ids": [
+            "a"
+          ],
+          "uncovered_ids": [
+            "b"
+          ],
+          "attempts": 4,
+          "remaining_attempts": 8,
+          "remaining_seconds": 119.99410915374756,
+          "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+        },
+        "second": {
+          "schema_version": 1,
+          "run_id": "stage-1",
+          "status": "incomplete",
+          "stop_reason": null,
+          "cancellation_requested": false,
+          "stages": [
+            {
+              "id": "read",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "succeeded": 1,
+                "failed": 1
+              },
+              "coverage": 0.5,
+              "uncovered": [
+                {
+                  "id": "b",
+                  "status": "failed"
+                }
+              ]
+            },
+            {
+              "id": "verify",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "succeeded": 1,
+                "not_covered": 1
+              },
+              "coverage": 0.5,
+              "uncovered": [
+                {
+                  "id": "b",
+                  "status": "not_covered"
+                }
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "required": true,
+              "total": 1,
+              "counts": {
+                "succeeded": 1
+              },
+              "coverage": 1.0,
+              "uncovered": []
+            }
+          ],
+          "coverage": 0.5,
+          "covered_ids": [
+            "a"
+          ],
+          "uncovered_ids": [
+            "b"
+          ],
+          "attempts": 4,
+          "remaining_attempts": 8,
+          "remaining_seconds": 119.98048520088196,
+          "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+        },
+        "rows": [
+          {
+            "stage": "read",
+            "id": "a",
+            "status": "succeeded",
+            "result": "a",
+            "attempts": 1,
+            "operation_key": "f1342fa4a31f5a0765822d79efa5a096698575cf92e9882c0af6af8581803da2"
+          },
+          {
+            "stage": "read",
+            "id": "b",
+            "status": "failed",
+            "result": "b",
+            "attempts": 1,
+            "operation_key": "85afc684b56a230f5d1c85fb88dec21b54b653a135ae4cc1dd60b3c3c7d97135"
+          },
+          {
+            "stage": "verify",
+            "id": "a",
+            "status": "succeeded",
+            "result": "a",
+            "attempts": 1,
+            "operation_key": "6bd4f1feba3561a42fe93f1216e194da5f6c18eef776e10917bbf1d4f03894ca"
+          },
+          {
+            "stage": "verify",
+            "id": "b",
+            "status": "not_covered",
+            "result": null,
+            "attempts": 0,
+            "operation_key": "74bc9b6247af7bdd9ce6d82d5f9228ab923ddb1cb2828ca8ed7ead337ff82946"
+          },
+          {
+            "stage": "combine",
+            "id": "__aggregate__",
+            "status": "succeeded",
+            "result": "__aggregate__",
+            "attempts": 1,
+            "operation_key": "19c6a3f9ca7c0eb3dc09946e7694ee688fc61eb26309330563475265177f036a"
+          }
+        ],
+        "aggregate_context": [
+          {
+            "tenant_id": "tenant-A",
+            "run_id": "stage-1",
+            "stage": "combine",
+            "item_id": "__aggregate__",
+            "item": null,
+            "dependencies": [
+              {
+                "stage": "verify",
+                "id": "a",
+                "status": "succeeded",
+                "result": "a",
+                "attempts": 1,
+                "operation_key": "6bd4f1feba3561a42fe93f1216e194da5f6c18eef776e10917bbf1d4f03894ca"
+              },
+              {
+                "stage": "verify",
+                "id": "b",
+                "status": "not_covered",
+                "result": null,
+                "attempts": 0,
+                "operation_key": "74bc9b6247af7bdd9ce6d82d5f9228ab923ddb1cb2828ca8ed7ead337ff82946"
+              }
+            ],
+            "coverage": {
+              "schema_version": 1,
+              "run_id": "stage-1",
+              "status": "pending",
+              "stop_reason": null,
+              "cancellation_requested": false,
+              "stages": [
+                {
+                  "id": "read",
+                  "scope": "item",
+                  "required": true,
+                  "total": 2,
+                  "counts": {
+                    "succeeded": 1,
+                    "failed": 1
+                  },
+                  "coverage": 0.5,
+                  "uncovered": [
+                    {
+                      "id": "b",
+                      "status": "failed"
+                    }
+                  ]
+                },
+                {
+                  "id": "verify",
+                  "scope": "item",
+                  "required": true,
+                  "total": 2,
+                  "counts": {
+                    "succeeded": 1,
+                    "not_covered": 1
+                  },
+                  "coverage": 0.5,
+                  "uncovered": [
+                    {
+                      "id": "b",
+                      "status": "not_covered"
+                    }
+                  ]
+                },
+                {
+                  "id": "combine",
+                  "scope": "aggregate",
+                  "required": true,
+                  "total": 1,
+                  "counts": {
+                    "pending": 1
+                  },
+                  "coverage": 0.0,
+                  "uncovered": [
+                    {
+                      "id": "__aggregate__",
+                      "status": "pending"
+                    }
+                  ]
+                }
+              ],
+              "coverage": 0.5,
+              "covered_ids": [
+                "a"
+              ],
+              "uncovered_ids": [
+                "b"
+              ],
+              "attempts": 3,
+              "remaining_attempts": 9,
+              "remaining_seconds": 119.99425005912781,
+              "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+            },
+            "operation_key": "19c6a3f9ca7c0eb3dc09946e7694ee688fc61eb26309330563475265177f036a",
+            "remaining_seconds": 119.99425005912781
+          }
+        ]
+      }
+    },
+    {
+      "id": "E14",
+      "task": "cumulative stage attempts across reopen",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow.Workflow.run",
+      "expected": "two-attempt budget is not reset by reopen, dependent synthesis cannot dispatch",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "tenant_id": "tenant-A",
+          "run_id": "stage-1",
+          "items": [
+            {
+              "id": "a"
+            },
+            {
+              "id": "b"
+            }
+          ],
+          "stages": [
+            {
+              "id": "read"
+            },
+            {
+              "id": "verify",
+              "depends_on": [
+                "read"
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "depends_on": [
+                "verify"
+              ]
+            }
+          ],
+          "limits": {
+            "max_attempts": 2,
+            "timeout_s": 120
+          }
+        },
+        "calls": [
+          [
+            "read",
+            "a"
+          ],
+          [
+            "read",
+            "b"
+          ]
+        ],
+        "first": {
+          "schema_version": 1,
+          "run_id": "stage-1",
+          "status": "pending",
+          "stop_reason": "attempt_budget",
+          "cancellation_requested": false,
+          "stages": [
+            {
+              "id": "read",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "succeeded": 2
+              },
+              "coverage": 1.0,
+              "uncovered": []
+            },
+            {
+              "id": "verify",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "pending": 2
+              },
+              "coverage": 0.0,
+              "uncovered": [
+                {
+                  "id": "a",
+                  "status": "pending"
+                },
+                {
+                  "id": "b",
+                  "status": "pending"
+                }
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "required": true,
+              "total": 1,
+              "counts": {
+                "pending": 1
+              },
+              "coverage": 0.0,
+              "uncovered": [
+                {
+                  "id": "__aggregate__",
+                  "status": "pending"
+                }
+              ]
+            }
+          ],
+          "coverage": 0.0,
+          "covered_ids": [],
+          "uncovered_ids": [
+            "a",
+            "b"
+          ],
+          "attempts": 2,
+          "remaining_attempts": 0,
+          "remaining_seconds": 119.99536991119385,
+          "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+        },
+        "second": {
+          "schema_version": 1,
+          "run_id": "stage-1",
+          "status": "pending",
+          "stop_reason": "attempt_budget",
+          "cancellation_requested": false,
+          "stages": [
+            {
+              "id": "read",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "succeeded": 2
+              },
+              "coverage": 1.0,
+              "uncovered": []
+            },
+            {
+              "id": "verify",
+              "scope": "item",
+              "required": true,
+              "total": 2,
+              "counts": {
+                "pending": 2
+              },
+              "coverage": 0.0,
+              "uncovered": [
+                {
+                  "id": "a",
+                  "status": "pending"
+                },
+                {
+                  "id": "b",
+                  "status": "pending"
+                }
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "required": true,
+              "total": 1,
+              "counts": {
+                "pending": 1
+              },
+              "coverage": 0.0,
+              "uncovered": [
+                {
+                  "id": "__aggregate__",
+                  "status": "pending"
+                }
+              ]
+            }
+          ],
+          "coverage": 0.0,
+          "covered_ids": [],
+          "uncovered_ids": [
+            "a",
+            "b"
+          ],
+          "attempts": 2,
+          "remaining_attempts": 0,
+          "remaining_seconds": 119.97293996810913,
+          "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+        },
+        "rows": [
+          {
+            "stage": "read",
+            "id": "a",
+            "status": "succeeded",
+            "result": "a",
+            "attempts": 1,
+            "operation_key": "f1342fa4a31f5a0765822d79efa5a096698575cf92e9882c0af6af8581803da2"
+          },
+          {
+            "stage": "read",
+            "id": "b",
+            "status": "succeeded",
+            "result": "b",
+            "attempts": 1,
+            "operation_key": "85afc684b56a230f5d1c85fb88dec21b54b653a135ae4cc1dd60b3c3c7d97135"
+          },
+          {
+            "stage": "verify",
+            "id": "a",
+            "status": "pending",
+            "result": null,
+            "attempts": 0,
+            "operation_key": "6bd4f1feba3561a42fe93f1216e194da5f6c18eef776e10917bbf1d4f03894ca"
+          },
+          {
+            "stage": "verify",
+            "id": "b",
+            "status": "pending",
+            "result": null,
+            "attempts": 0,
+            "operation_key": "74bc9b6247af7bdd9ce6d82d5f9228ab923ddb1cb2828ca8ed7ead337ff82946"
+          },
+          {
+            "stage": "combine",
+            "id": "__aggregate__",
+            "status": "pending",
+            "result": null,
+            "attempts": 0,
+            "operation_key": "19c6a3f9ca7c0eb3dc09946e7694ee688fc61eb26309330563475265177f036a"
+          }
+        ],
+        "aggregate_context": []
+      }
+    },
+    {
+      "id": "E15",
+      "task": "public staged CLI plan/execute/resume",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow CLI",
+      "expected": "plan makes no journal, deterministic execute completes, resume preserves attempt count",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "tenant_id": "tenant-A",
+          "run_id": "cli-1",
+          "items": [
+            {
+              "id": "a"
+            }
+          ],
+          "stages": [
+            {
+              "id": "read"
+            },
+            {
+              "id": "verify",
+              "depends_on": [
+                "read"
+              ]
+            },
+            {
+              "id": "combine",
+              "scope": "aggregate",
+              "depends_on": [
+                "verify"
+              ]
+            }
+          ],
+          "limits": {
+            "max_attempts": 3,
+            "timeout_s": 120
+          }
+        },
+        "calls": [
+          {
+            "argv": [
+              "/Library/Developer/CommandLineTools/usr/bin/python3",
+              "-B",
+              "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering/scripts/workflow_contract.py",
+              "--spec",
+              "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-edlh4rgt/spec.json",
+              "--db",
+              "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-edlh4rgt/stages.db"
+            ],
+            "returncode": 0,
+            "stdout": "{\n  \"plan\": {\n    \"tenant_id\": \"tenant-A\",\n    \"run_id\": \"cli-1\",\n    \"items\": [\n      {\n        \"id\": \"a\"\n      }\n    ],\n    \"stages\": [\n      {\n        \"id\": \"read\"\n      },\n      {\n        \"id\": \"verify\",\n        \"depends_on\": [\n          \"read\"\n        ]\n      },\n      {\n        \"id\": \"combine\",\n        \"scope\": \"aggregate\",\n        \"depends_on\": [\n          \"verify\"\n        ]\n      }\n    ],\n    \"limits\": {\n      \"max_attempts\": 3,\n      \"timeout_s\": 120\n    }\n  },\n  \"journal_exists\": false,\n  \"execution\": false\n}\n",
+            "stderr": "",
+            "journal_exists_after": false
+          },
+          {
+            "argv": [
+              "/Library/Developer/CommandLineTools/usr/bin/python3",
+              "-B",
+              "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering/scripts/workflow_contract.py",
+              "--spec",
+              "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-edlh4rgt/spec.json",
+              "--db",
+              "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-edlh4rgt/stages.db",
+              "--execute-demo"
+            ],
+            "returncode": 0,
+            "stdout": "{\n  \"schema_version\": 1,\n  \"run_id\": \"cli-1\",\n  \"status\": \"completed\",\n  \"stop_reason\": null,\n  \"cancellation_requested\": false,\n  \"stages\": [\n    {\n      \"id\": \"read\",\n      \"scope\": \"item\",\n      \"required\": true,\n      \"total\": 1,\n      \"counts\": {\n        \"succeeded\": 1\n      },\n      \"coverage\": 1.0,\n      \"uncovered\": []\n    },\n    {\n      \"id\": \"verify\",\n      \"scope\": \"item\",\n      \"required\": true,\n      \"total\": 1,\n      \"counts\": {\n        \"succeeded\": 1\n      },\n      \"coverage\": 1.0,\n      \"uncovered\": []\n    },\n    {\n      \"id\": \"combine\",\n      \"scope\": \"aggregate\",\n      \"required\": true,\n      \"total\": 1,\n      \"counts\": {\n        \"succeeded\": 1\n      },\n      \"coverage\": 1.0,\n      \"uncovered\": []\n    }\n  ],\n  \"coverage\": 1.0,\n  \"covered_ids\": [\n    \"a\"\n  ],\n  \"uncovered_ids\": [],\n  \"attempts\": 3,\n  \"remaining_attempts\": 0,\n  \"remaining_seconds\": 119.99832582473755,\n  \"scope\": \"local workflow journal and adapter outcomes; not provider cancellation or task-quality proof\"\n}\n",
+            "stderr": "",
+            "journal_exists_after": true
+          },
+          {
+            "argv": [
+              "/Library/Developer/CommandLineTools/usr/bin/python3",
+              "-B",
+              "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering/scripts/workflow_contract.py",
+              "--spec",
+              "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-edlh4rgt/spec.json",
+              "--db",
+              "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-edlh4rgt/stages.db",
+              "--execute-demo"
+            ],
+            "returncode": 0,
+            "stdout": "{\n  \"schema_version\": 1,\n  \"run_id\": \"cli-1\",\n  \"status\": \"completed\",\n  \"stop_reason\": null,\n  \"cancellation_requested\": false,\n  \"stages\": [\n    {\n      \"id\": \"read\",\n      \"scope\": \"item\",\n      \"required\": true,\n      \"total\": 1,\n      \"counts\": {\n        \"succeeded\": 1\n      },\n      \"coverage\": 1.0,\n      \"uncovered\": []\n    },\n    {\n      \"id\": \"verify\",\n      \"scope\": \"item\",\n      \"required\": true,\n      \"total\": 1,\n      \"counts\": {\n        \"succeeded\": 1\n      },\n      \"coverage\": 1.0,\n      \"uncovered\": []\n    },\n    {\n      \"id\": \"combine\",\n      \"scope\": \"aggregate\",\n      \"required\": true,\n      \"total\": 1,\n      \"counts\": {\n        \"succeeded\": 1\n      },\n      \"coverage\": 1.0,\n      \"uncovered\": []\n    }\n  ],\n  \"coverage\": 1.0,\n  \"covered_ids\": [\n    \"a\"\n  ],\n  \"uncovered_ids\": [],\n  \"attempts\": 3,\n  \"remaining_attempts\": 0,\n  \"remaining_seconds\": 119.94930267333984,\n  \"scope\": \"local workflow journal and adapter outcomes; not provider cancellation or task-quality proof\"\n}\n",
+            "stderr": "",
+            "journal_exists_after": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "E16",
+      "task": "cache measurement identity and absent evidence",
+      "stratum": "capability",
+      "old_entry": "no equivalent diagnostic public entry",
+      "new_entry": "cache.analyze + cache CLI",
+      "expected": "actual cached=0 remains zero, billing unknown, mismatched comparison inconclusive, missing diagnostics not measured",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "request_prompt_cache_options": {
+            "comparison_response_id": "baseline-7"
+          },
+          "prompt_cache_diagnostics": {
+            "type": "cache_hit"
+          },
+          "usage": {
+            "input_tokens_details": {
+              "cached_tokens": 0
+            }
+          }
+        },
+        "result": {
+          "status": "observed",
+          "comparison_response_id": "baseline-7",
+          "diagnostic": {
+            "type": "cache_hit"
+          },
+          "reason": null,
+          "reported_cached_tokens": 0,
+          "billing_cost_usd": null,
+          "scope": "diagnostic comparison does not load history or guarantee actual cache reuse; usage owns reuse, invoice owns cost"
+        },
+        "mismatch": {
+          "status": "inconclusive",
+          "comparison_response_id": "wrong",
+          "diagnostic": {
+            "type": "cache_hit"
+          },
+          "reason": "comparison request not captured or identity mismatch",
+          "reported_cached_tokens": 0,
+          "billing_cost_usd": null,
+          "scope": "diagnostic comparison does not load history or guarantee actual cache reuse; usage owns reuse, invoice owns cost"
+        },
+        "absent": {
+          "status": "not_measured",
+          "comparison_response_id": null,
+          "diagnostic": null,
+          "reason": "diagnostics absent",
+          "reported_cached_tokens": null,
+          "billing_cost_usd": null,
+          "scope": "diagnostic comparison does not load history or guarantee actual cache reuse; usage owns reuse, invoice owns cost"
+        },
+        "cli": {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering/scripts/cache_diagnostics.py",
+            "/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/amind-engineering-contrast-ht0rfesf/capture.json",
+            "--comparison-id",
+            "baseline-7"
+          ],
+          "returncode": 0,
+          "stdout": "{\n  \"status\": \"observed\",\n  \"comparison_response_id\": \"baseline-7\",\n  \"diagnostic\": {\n    \"type\": \"cache_hit\"\n  },\n  \"reason\": null,\n  \"reported_cached_tokens\": 0,\n  \"billing_cost_usd\": null,\n  \"scope\": \"diagnostic comparison does not load history or guarantee actual cache reuse; usage owns reuse, invoice owns cost\"\n}\n",
+          "stderr": ""
+        }
+      }
+    },
+    {
+      "id": "E17",
+      "task": "zero-defect probe without exposure",
+      "stratum": "capability",
+      "old_entry": "no equivalent probe public entry",
+      "new_entry": "cache.probe_coverage",
+      "expected": "HTTP success and zero violations cannot replace exposure; absent population item stays not measured",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "observations": [
+            {
+              "id": "x",
+              "target_present": false,
+              "check_applied": true,
+              "same_scope": true,
+              "violations": 0,
+              "evidence": "HTTP 200"
+            }
+          ],
+          "required_ids": [
+            "x",
+            "y"
+          ]
+        },
+        "result": {
+          "status": "inconclusive",
+          "measured": 0,
+          "required": 2,
+          "coverage": 0.0,
+          "observations": [
+            {
+              "id": "x",
+              "status": "not_measured",
+              "evidence": "HTTP 200"
+            },
+            {
+              "id": "y",
+              "status": "not_measured",
+              "evidence": null
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E18",
+      "task": "stream terminal attribution contradiction",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "terminal owner conflicting with stream owner rejected",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 0,
+            "item": {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "secret"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 0,
+            "delta": "secret"
+          },
+          {
+            "type": "response.completed",
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "secret"
+                    }
+                  ],
+                  "agent": {
+                    "agent_name": "/root/helper"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "rejected": "terminal output changed stream agent attribution"
+      }
+    }
+  ],
+  "evidence_level": "Offline public module/CLI execution; no model/network/provider evidence"
+}

@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/grade_gateway.py",
+    "--repo",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/W030/grade-revised-eng-repo"
+  ],
+  "returncode": 0,
+  "application_prefix": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/control/W030-grade-revised-eng.sb"
+  ],
+  "policy_sha256": "9560b1e5426609629300ad92c4f6fdb153caa4c8286f4f783b7ba85854274c09",
+  "application_calls": 16,
+  "all_calls_prefixed": true,
+  "repo_files_sha256": {
+    "PATCH-NOTES.md": "b77852f0ca2b6791105ecb1afe6353b2a8dc495690ac55751f94d3cb063ec265",
+    "README.md": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+    "gateway/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gateway/__main__.py": "5b8935349e729d08bce953b231c021b64040a285264b8c925f01604d82630762",
+    "gateway/metrics.py": "4d8b4a52bc9ab38b68dcc5c278c2db1b8d59f7c1ab464c23c8170322fc1d601a",
+    "gateway/projection.py": "01ced67adcb10b3bfbb07d1af87f9aaf67baa69604c1ee85919b982f9281f2a3",
+    "gateway/render.py": "9746b254eedaec453d062a1494dfbac2ac7a44b30ee0352aebe7f407d34d988b",
+    "gateway/replay.py": "078f2a0115efa024667f3c0f434cf5073e900e06918517a2e56039062a98f395",
+    "gateway/service.py": "52d9ab453ff8398e1c39423dd36b50562da608facea7fce0a733be8dc08bf78c",
+    "gateway/storage.py": "fd448965890c602fa6a8330adbe635a4c227edf69b804509700cd82871f20aa3",
+    "gateway/validation.py": "50b74873a075e0491aeef7780e992422c485bad75669c1699be49f596cac3598",
+    "tests/test_public.py": "1e338f04bafc2514deefdabb32b1c201d49b8132b33a8f3d0a2f6842be14c273",
+    "third_party/amind-engineering/LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+    "third_party/amind-engineering/NOTICE.txt": "1ad6d32b68f4d900623f7a2ed3cf78809b311a091672a475cd05a48e8673f2e9",
+    "traces/incident.json": "354d3b2ade48065e9e72cfaa6c74eca9df9fec6c7449f9d6267c462dbf79e026",
+    "traces/legacy.json": "4d56901611ec8a3c8bd873c8597228674979d60640d992953758476f4bdee30f"
+  },
+  "model_called": false
+}

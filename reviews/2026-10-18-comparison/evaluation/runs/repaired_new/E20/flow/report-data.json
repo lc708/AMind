@@ -1,0 +1,76 @@
+{
+  "variants": [
+    {
+      "variant": "baseline",
+      "split": "val",
+      "status": "complete",
+      "scored_observations": 1,
+      "planned_observations": 1,
+      "metrics": {
+        "quality": {
+          "mean": 1.0,
+          "scored": 1
+        }
+      },
+      "failed_attempts": 0,
+      "attempts": 1,
+      "interrupted_attempts": 0,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0,
+      "total_cost_usd": 0.02,
+      "latency_p50_s": 0.045050833,
+      "latency_p95_s": 0.045050833,
+      "integrity": "unverified: result identity differs from its measurement/treatment/case",
+      "synthetic": true,
+      "stage_coverage": {
+        "measured_complete": 0,
+        "unmeasured": 1,
+        "required_stages": []
+      },
+      "remaining_failed_attempts": null
+    }
+  ],
+  "details": [
+    {
+      "variant": "baseline",
+      "case": "a",
+      "rep": 0,
+      "grade": {
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "a",
+        "comparison_hash": "b0bfdfeec5bf88f3b8b4601deef962db82a0ffac13b67ecaf57c0900488d6e09",
+        "rep": 0,
+        "treatment_hash": "foreign-treatment-binding"
+      },
+      "billing_identity": {
+        "interface": "responses",
+        "model": "same-model",
+        "provider": "fixture",
+        "region": "global",
+        "service_tier": "standard"
+      },
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.02,
+      "output": "ok",
+      "explanation": null,
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "text": "ok"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": "ok"
+        }
+      ]
+    }
+  ],
+  "interpretation": "Scored means exclude unscored attempts; inspect coverage before comparing. Validation is selection evidence. Synthetic runs do not measure model ability. No automatic winner."
+}

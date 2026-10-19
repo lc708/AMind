@@ -1,0 +1,149 @@
+{
+  "skill_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+  "tests_run": 35,
+  "tests": [
+    {
+      "test": "__main__.HeldoutContracts.test_batch_completed_body_with_error_is_not_success",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_batch_http_success_does_not_hide_incomplete_body",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_bundled_templates_generate_executable_stage_specs_and_reject_path_arguments",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_cache_diagnostics_are_not_billing_or_context_loading",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_cancellation_during_authorization_prevents_dispatch",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_chain_audit_warns_on_phase_lost_replay_but_not_fresh_user_text",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_completed_with_incomplete_details_is_rejected_on_both_paths",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_contradictory_completed_error_is_not_accepted",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_hosted_items_never_dispatched_as_developer_tools",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_injection_budget_cancel_and_unknown_ack_are_bounded",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_injection_completion_race_persists_unknown_and_continues_exact_output",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_interrupted_stream_preserves_raw_usage_evidence",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_legacy_remote_key_is_reused_for_pending_operation",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_multiagent_child_final_cannot_complete_or_pollute_root_answer",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_multiagent_incompatible_modes_rejected_before_request",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_multiagent_stream_rejects_conflicting_event_and_nested_item_owners",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_multiagent_stream_rejects_terminal_agent_attribution_conflict",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_multiagent_stream_uses_item_attribution_and_keeps_unknown_bytes",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_multiagent_unattributed_final_is_preserved_but_not_projected",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_onboarding_cli_dryrun_writes_nothing_and_explicit_write_preserves_existing",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_remote_key_scopes_tenant_even_when_task_and_call_ids_match",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_text_projection_distinguishes_commentary_and_final",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_url_onboarding_reconstructs_design_and_rejects_commands_credentials",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_cancel_at_later_phase_keeps_prior_results_and_population",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_cancel_during_authorization_prevents_work",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_cancel_is_durable_and_explicit_resume_keeps_original_budget",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_crash_never_replays_unknown_or_loses_budget",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_each_stage_failure_or_unknown_stays_out_of_coverage",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_identity_and_cumulative_attempt_deadline_guards",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_item_dependencies_are_scoped_while_aggregate_retains_full_population",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_public_cli_plans_without_journal_then_executes_and_resumes",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_reconciliation_cannot_overwrite_an_active_handler",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_retry_refuses_to_reuse_stale_downstream_synthesis",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_workflow_runs_real_stages_preserves_uncovered_and_resumes_without_calls",
+      "status": "passed"
+    },
+    {
+      "test": "__main__.HeldoutContracts.test_zero_defect_probe_without_exposure_or_same_scope_is_inconclusive",
+      "status": "passed"
+    }
+  ],
+  "passed": true,
+  "failures": [],
+  "scope": "offline kernel contracts, not agent behavior"
+}

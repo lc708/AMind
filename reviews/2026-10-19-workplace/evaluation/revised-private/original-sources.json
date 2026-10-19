@@ -1,0 +1,21 @@
+{
+  "original_sources": {
+    "reviews/2026-10-19-workplace/evaluation/private/grade_release.py": {
+      "sha256": "2cfb34a7e1c6bc1ff3965873ce7f69bd4b39a457cbb82b76c828c6c4d6fb14c9",
+      "copied_to": "reviews/2026-10-19-workplace/evaluation/revised-private/grade_release.py"
+    },
+    "reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py": {
+      "sha256": "7039b3f4f720f3ad1a09374f6d2046d2377876974c79b4dd4f9932e53c733e84",
+      "copied_to": "reviews/2026-10-19-workplace/evaluation/revised-private/grade_calibrate.py"
+    },
+    "reviews/2026-10-19-workplace/evaluation/private/grader_common.py": {
+      "sha256": "86eeda8b0d1ac92ec93eb2ba6ecd82f1d52166033602bcec4acd302170b52760",
+      "copied_to": "reviews/2026-10-19-workplace/evaluation/revised-private/grader_common.py"
+    },
+    "reviews/2026-10-19-workplace/evaluation/private/fixtures.py": {
+      "sha256": "46a0dae65be68f73ffd7c5cacee1484dcd7b1755807026b51d33c2c7f45f94fd",
+      "copied_to": "reviews/2026-10-19-workplace/evaluation/revised-private/fixtures.py"
+    }
+  },
+  "scope": "Copies only; originals unchanged. Exact two semantic alternatives plus explicit null vs missing hardening. All other probes, scores and guardrail mappings retained."
+}

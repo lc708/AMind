@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Support to engineering escalator",
+  "goal": "Turn selected support evidence into deduplicated reproducible engineering reports",
+  "item_label": "ticket",
+  "stages": [
+    "diagnose",
+    "deduplicate",
+    "combine"
+  ],
+  "output_checks": [
+    "Separate symptoms, expected behavior and reproduction evidence",
+    "Link duplicate cases without dropping their count",
+    "Create external tickets/messages only when requested"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

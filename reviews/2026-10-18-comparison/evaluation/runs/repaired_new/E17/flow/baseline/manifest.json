@@ -1,0 +1,98 @@
+{
+  "schema_version": 2,
+  "variant": "baseline",
+  "split": "val",
+  "reps": 1,
+  "comparison_identity": {
+    "dataset": "b12b7d3ee57144540218d1e49374dc2df474a98350e6d7c2962aa27c60b7eb07",
+    "references": "05650dbe3f873c8fea97c4e0703927950f7109e5fd0df8779f2ce20cf3cbdb10",
+    "dataset_version": "challenge-v1",
+    "grader": {
+      "kind": "exact"
+    },
+    "grader_version": "exact-v1",
+    "runner": {
+      "command": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "app.py"
+      ],
+      "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/repaired_new/E17/input",
+      "files": {
+        "app.py": "4edd617509edb89d5efad464a4b410c4a8cbdf47d10a1a70d883805ed083cd80"
+      },
+      "retry_safe": true
+    },
+    "metrics": [
+      {
+        "id": "quality",
+        "kind": "binary",
+        "better": "higher",
+        "role": "objective",
+        "min_improvement": 0
+      }
+    ],
+    "splits": {
+      "train": [],
+      "val": [
+        "a"
+      ],
+      "test": []
+    },
+    "fixed_config": {},
+    "mutable_config": [
+      "uppercase"
+    ],
+    "workspace_files": {},
+    "control_files": {},
+    "task": "Registered offline behavioral challenge; synthetic local application",
+    "reps": 1,
+    "split": "val",
+    "coverage": {},
+    "case_groups": {
+      "a": "a"
+    },
+    "kernel": {
+      "run_eval.py": "5568bc09e4e62254252051bb07f3814f6c24f10775b6790b555ceb0adedbfee1",
+      "kernel_common.py": "b690735ffc4969f7e287f6afb8dec2fd683cd6fbaf12a09b87ef59977f6328af"
+    }
+  },
+  "comparison_hash": "f9fcc8ce82ac7b7d81b5c80deebf38903e5ae215f11c900340d5ebaf92039073",
+  "treatment": {
+    "files": {
+      "app.py": "4edd617509edb89d5efad464a4b410c4a8cbdf47d10a1a70d883805ed083cd80"
+    },
+    "config": {
+      "uppercase": false
+    },
+    "expected_model": "same-model",
+    "expected_billing_identity": {
+      "provider": "fixture",
+      "interface": "responses",
+      "model": "same-model",
+      "service_tier": "standard",
+      "region": "global"
+    }
+  },
+  "treatment_hash": "d023e8482347be7cf8632d54ff9105486de02f0559bd3accd1be141e796b5ccb",
+  "limits": {
+    "max_attempts": 6,
+    "concurrency": 1,
+    "timeout_s": 3,
+    "retries": 0,
+    "max_output_bytes": 4194304,
+    "max_total_seconds": 300
+  },
+  "isolation": "separate input/grader channels; filesystem/network isolation not established",
+  "status": "incomplete",
+  "results_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "result_identity_required": true,
+  "attempts_sha256": "871e58ae69f87830f50abcfb9abadf016995aaf12c181e0cf30ef00ce259d8f5",
+  "first_started_at": 1792300651.562985,
+  "deadline_at": 1792300951.562985,
+  "completed_cases": 0,
+  "attempts": 1,
+  "known_cost_usd": 0.02,
+  "unknown_cost_attempts": 0,
+  "failed_attempts": 1,
+  "remaining_failed_attempts": null
+}

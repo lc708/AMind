@@ -1,0 +1,163 @@
+{
+  "protocol_version": 1,
+  "registered_before_execution": true,
+  "date": "2026-10-18",
+  "scope": "Offline deterministic public application modules/CLIs; no SDK/network/model. Function existence alone never counts as quality failure. Capabilities unsupported in old are excluded from common quality denominator.",
+  "cases": [
+    {
+      "id": "E01",
+      "task": "single phase projection",
+      "stratum": "control",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "commentary excluded from final, explicit final retained, answer complete"
+    },
+    {
+      "id": "E02",
+      "task": "completed body contradiction",
+      "stratum": "control",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "completed plus error rejected"
+    },
+    {
+      "id": "E03",
+      "task": "batch out-of-order join",
+      "stratum": "control",
+      "old_entry": "response.match_batch",
+      "new_entry": "response.match_batch",
+      "expected": "request order restored, missing ID stays explicit"
+    },
+    {
+      "id": "E04",
+      "task": "durable completed side effect replay",
+      "stratum": "control",
+      "old_entry": "tool_loop.run_loop + EffectLedger",
+      "new_entry": "tool_loop.run_loop + EffectLedger",
+      "expected": "two fresh loop invocations dispatch external effect once, exact result reused"
+    },
+    {
+      "id": "E05",
+      "task": "cancel during authorization",
+      "stratum": "control",
+      "old_entry": "tool_loop.run_loop",
+      "new_entry": "tool_loop.run_loop",
+      "expected": "zero handlers dispatched after authorizer requests cancellation"
+    },
+    {
+      "id": "E06",
+      "task": "crash and recovery without reconciliation",
+      "stratum": "control",
+      "old_entry": "tool_loop.EffectLedger.perform",
+      "new_entry": "tool_loop.EffectLedger.perform",
+      "expected": "first handler raises after simulated remote effect; reopen refuses duplicate, reconciliation evidence unlocks reuse"
+    },
+    {
+      "id": "E07",
+      "task": "child final is not root final",
+      "stratum": "quality",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "child final never shown as user final or declared complete"
+    },
+    {
+      "id": "E08",
+      "task": "root final with child draft",
+      "stratum": "quality",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "user final contains only explicit root final; full output remains unchanged"
+    },
+    {
+      "id": "E09",
+      "task": "stream item-index ownership",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "root-only display, full raw stream retained, unknown opaque terminal item retained"
+    },
+    {
+      "id": "E10",
+      "task": "event versus nested item attribution contradiction",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "conflicting owner claims within the same event rejected before text projection"
+    },
+    {
+      "id": "E11",
+      "task": "unknown hosted item preservation and dispatch",
+      "stratum": "control",
+      "old_entry": "response.normalize + tool_loop.run_loop",
+      "new_entry": "response.normalize + tool_loop.run_loop",
+      "expected": "unknown and hosted items preserved byte-for-byte structurally; no developer handler or authorizer invoked"
+    },
+    {
+      "id": "E12",
+      "task": "interrupted stream is not completion",
+      "stratum": "control",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "partial text preserved, disconnected not scorable; no terminal answer inferred"
+    },
+    {
+      "id": "E13",
+      "task": "stage dependency and population gap",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow.Workflow.run",
+      "expected": "failed b read blocks b verify, aggregate retains complete population and gap, no-op resume does not dispatch"
+    },
+    {
+      "id": "E14",
+      "task": "cumulative stage attempts across reopen",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow.Workflow.run",
+      "expected": "two-attempt budget is not reset by reopen, dependent synthesis cannot dispatch"
+    },
+    {
+      "id": "E15",
+      "task": "public staged CLI plan/execute/resume",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow CLI",
+      "expected": "plan makes no journal, deterministic execute completes, resume preserves attempt count"
+    },
+    {
+      "id": "E16",
+      "task": "cache measurement identity and absent evidence",
+      "stratum": "capability",
+      "old_entry": "no equivalent diagnostic public entry",
+      "new_entry": "cache.analyze + cache CLI",
+      "expected": "actual cached=0 remains zero, billing unknown, mismatched comparison inconclusive, missing diagnostics not measured"
+    },
+    {
+      "id": "E17",
+      "task": "zero-defect probe without exposure",
+      "stratum": "capability",
+      "old_entry": "no equivalent probe public entry",
+      "new_entry": "cache.probe_coverage",
+      "expected": "HTTP success and zero violations cannot replace exposure; absent population item stays not measured"
+    },
+    {
+      "id": "E18",
+      "task": "stream terminal attribution contradiction",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "terminal owner conflicting with stream owner rejected"
+    }
+  ],
+  "controls": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E11",
+    "E12"
+  ],
+  "limits": "Frozen old/new never modified. Repaired-new results reported separately; any later variant marked validation, not held out."
+}

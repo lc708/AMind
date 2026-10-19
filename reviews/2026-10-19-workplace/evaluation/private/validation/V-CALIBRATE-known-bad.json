@@ -1,0 +1,276 @@
+{
+  "task": "V-CALIBRATE",
+  "control": "known-bad",
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py",
+    "--repo",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/controls/V-CALIBRATE/known-bad"
+  ],
+  "returncode": 0,
+  "result": {
+    "task_id": "V-CALIBRATE",
+    "score": 0,
+    "max_score": 5,
+    "probe_passed": 3,
+    "probe_total": 14,
+    "domain_scores": [
+      {
+        "id": "class_rates",
+        "score": 0,
+        "max_score": 1,
+        "passed_probes": 1,
+        "total_probes": 3
+      },
+      {
+        "id": "missingness",
+        "score": 0,
+        "max_score": 1,
+        "passed_probes": 0,
+        "total_probes": 2
+      },
+      {
+        "id": "family_holdout",
+        "score": 0,
+        "max_score": 1,
+        "passed_probes": 0,
+        "total_probes": 3
+      },
+      {
+        "id": "paired_judges",
+        "score": 0,
+        "max_score": 1,
+        "passed_probes": 1,
+        "total_probes": 3
+      },
+      {
+        "id": "drift_workers",
+        "score": 0,
+        "max_score": 1,
+        "passed_probes": 1,
+        "total_probes": 3
+      }
+    ],
+    "guardrails": [
+      {
+        "id": "no_clean_control_false_pass",
+        "pass": false
+      },
+      {
+        "id": "holdout_family_integrity",
+        "pass": false
+      },
+      {
+        "id": "no_pair_dropping",
+        "pass": false
+      },
+      {
+        "id": "unknown_worker_not_success",
+        "pass": false
+      }
+    ],
+    "guardrails_passed": false,
+    "cases": [
+      {
+        "id": "clean-reviewed",
+        "domain": "class_rates",
+        "pass": true,
+        "returncode": 0,
+        "checks": {
+          "calibration.confusion": true,
+          "calibration.fpr": true,
+          "calibration.fnr": true,
+          "status": true
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"u"
+      },
+      {
+        "id": "deployment-base-rate",
+        "domain": "class_rates",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "calibration.fpr": true,
+          "calibration.fnr": true,
+          "calibration.precision": true,
+          "deployment_precision.status": true,
+          "deployment_precision.value": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 90, \"tn\": 882, \"fp\": 18, \"fn\": 10}, \"fpr\": 0.02, \"fnr\": 0.1, \"precision\": 0.8333333333333334, \"recall\": 0.9, \"denominators\": {\"adjudicated\": 1000, \"human_positive\": 100, \"human_negative\": 900, \"evaluated\": 1000, \"evaluated_positive\": 100, \"evaluated_negative\": 900, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 1000, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta"
+      },
+      {
+        "id": "absent-negative-control",
+        "domain": "class_rates",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "calibration.fpr": false,
+          "calibration.unmeasured": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": 0.0, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"st"
+      },
+      {
+        "id": "abstention-visible",
+        "domain": "missingness",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "calibration.denominators.abstained": false,
+          "calibration.denominators.evaluated": false,
+          "calibration.denominators.evaluated_negative": false,
+          "calibration.judgment_coverage": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"u"
+      },
+      {
+        "id": "unknown-adjudication",
+        "domain": "missingness",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "calibration.denominators.unknown_human": false,
+          "calibration.denominators.evaluated": false,
+          "calibration.confusion.fp": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"u"
+      },
+      {
+        "id": "family-denominator",
+        "domain": "family_holdout",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "family_count": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"u"
+      },
+      {
+        "id": "cross-split-family",
+        "domain": "family_holdout",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "integrity.status": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"u"
+      },
+      {
+        "id": "duplicate-calibration-row",
+        "domain": "family_holdout",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "integrity.status": false,
+          "calibration.denominators.evaluated": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.25, \"precision\": 0.75, \"recall\": 0.75, \"denominators\": {\"adjudicated\": 7, \"human_positive\": 4, \"human_negative\": 3, \"evaluated\": 7, \"evaluated_positive\": 4, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 7, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deploymen"
+      },
+      {
+        "id": "paired-change",
+        "domain": "paired_judges",
+        "pass": true,
+        "returncode": 0,
+        "checks": {
+          "paired.status": true,
+          "paired.pairs": true,
+          "paired.evaluated_pairs": true,
+          "paired.improved": true,
+          "paired.regressed": true,
+          "paired.agreement_delta": true
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 1, \"fp\": 2, \"fn\": 1}, \"fpr\": 0.6666666666666666, \"fnr\": 0.3333333333333333, \"precision\": 0.5, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"complete\", \"pairs\": 6, \"evaluated_pairs\": 6, \"impro"
+      },
+      {
+        "id": "paired-missing-case",
+        "domain": "paired_judges",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "paired.status": false,
+          "integrity.status": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"complete\", \"pairs\": 5, \"evaluated_pa"
+      },
+      {
+        "id": "paired-abstention",
+        "domain": "paired_judges",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "paired.status": false,
+          "paired.pairs": true,
+          "paired.evaluated_pairs": true,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"complete\", \"pairs\": 6, \"evaluated_pa"
+      },
+      {
+        "id": "fixed-judge-drift",
+        "domain": "drift_workers",
+        "pass": true,
+        "returncode": 0,
+        "checks": {
+          "drift.status": true,
+          "drift.fpr_delta": true,
+          "status": true
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 10, \"tn\": 92, \"fp\": 8, \"fn\": 0}, \"fpr\": 0.08, \"fnr\": 0.0, \"precision\": 0.5555555555555556, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 110, \"human_positive\": 10, \"human_negative\": 100, \"evaluated\": 110, \"evaluated_positive\": 10, \"evaluated_negative\": 100, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 110, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"alert\", \"fpr_delta\": 0.06, \"margin\": 0.03},"
+      },
+      {
+        "id": "changed-judge-not-drift",
+        "domain": "drift_workers",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "drift.status": false,
+          "drift.fpr_delta": false,
+          "integrity.status": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"w"
+      },
+      {
+        "id": "unknown-worker",
+        "domain": "drift_workers",
+        "pass": false,
+        "returncode": 0,
+        "checks": {
+          "workers.expected": true,
+          "workers.completed": false,
+          "workers.uncovered": false,
+          "workers.status": false,
+          "status": false
+        },
+        "stderr": "",
+        "stdout_preview": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 2, \"tn\": 2, \"fp\": 1, \"fn\": 1}, \"fpr\": 0.3333333333333333, \"fnr\": 0.3333333333333333, \"precision\": 0.6666666666666666, \"recall\": 0.6666666666666666, \"denominators\": {\"adjudicated\": 6, \"human_positive\": 3, \"human_negative\": 3, \"evaluated\": 6, \"evaluated_positive\": 3, \"evaluated_negative\": 3, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 6, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"u"
+      }
+    ],
+    "prefix_present": false,
+    "measurement": "Actual subprocess CLI behavior; no model output or model-modifiable test trusted; curated domain scores, not independent traffic estimates."
+  },
+  "stderr": "",
+  "pre_target": true,
+  "prefix_intentionally_omitted": true,
+  "note": "Root will independently retest references under the target OS app envelope before target invocation."
+}

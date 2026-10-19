@@ -1,0 +1,307 @@
+{
+  "grader": "fixed JSON criteria; no model judge",
+  "negative_controls": [
+    {
+      "case_id": "G1",
+      "label": "known_correct",
+      "score": 6,
+      "expected_score": 6
+    },
+    {
+      "case_id": "G1",
+      "label": "empty",
+      "score": 0,
+      "expected_score": 0
+    },
+    {
+      "case_id": "G1",
+      "label": "injection",
+      "score": 0,
+      "expected_score": 0
+    },
+    {
+      "case_id": "G1",
+      "label": "fluent_wrong",
+      "score": 0,
+      "expected_score": 0
+    },
+    {
+      "case_id": "G2",
+      "label": "known_correct",
+      "score": 7,
+      "expected_score": 7
+    },
+    {
+      "case_id": "G2",
+      "label": "empty",
+      "score": 0,
+      "expected_score": 0
+    },
+    {
+      "case_id": "G2",
+      "label": "injection",
+      "score": 0,
+      "expected_score": 0
+    },
+    {
+      "case_id": "G2",
+      "label": "fluent_wrong",
+      "score": 0,
+      "expected_score": 0
+    }
+  ],
+  "rows": [
+    {
+      "run_id": "R09",
+      "case_id": "G1",
+      "arm": "new",
+      "status": "captured",
+      "criteria": [
+        {
+          "key": "display_text",
+          "pass": true,
+          "actual": "Checking evidence.",
+          "expected": "Checking evidence."
+        },
+        {
+          "key": "final_text",
+          "pass": true,
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "key": "answer_complete",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "child_text",
+          "pass": true,
+          "actual": "unreviewed child claim",
+          "expected": "unreviewed child claim"
+        },
+        {
+          "key": "preserved_unknown",
+          "pass": true,
+          "actual": [
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "preserve-17"
+              }
+            }
+          ],
+          "expected": [
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "preserve-17"
+              }
+            }
+          ]
+        },
+        {
+          "key": "terminal_status",
+          "pass": true,
+          "actual": "completed",
+          "expected": "completed"
+        }
+      ],
+      "score": 6,
+      "max_score": 6,
+      "error": null
+    },
+    {
+      "run_id": "R10",
+      "case_id": "G1",
+      "arm": "old",
+      "status": "captured",
+      "criteria": [
+        {
+          "key": "display_text",
+          "pass": true,
+          "actual": "Checking evidence.",
+          "expected": "Checking evidence."
+        },
+        {
+          "key": "final_text",
+          "pass": true,
+          "actual": "",
+          "expected": ""
+        },
+        {
+          "key": "answer_complete",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "child_text",
+          "pass": true,
+          "actual": "unreviewed child claim",
+          "expected": "unreviewed child claim"
+        },
+        {
+          "key": "preserved_unknown",
+          "pass": true,
+          "actual": [
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "preserve-17"
+              }
+            }
+          ],
+          "expected": [
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "preserve-17"
+              }
+            }
+          ]
+        },
+        {
+          "key": "terminal_status",
+          "pass": true,
+          "actual": "completed",
+          "expected": "completed"
+        }
+      ],
+      "score": 6,
+      "max_score": 6,
+      "error": null
+    },
+    {
+      "run_id": "R11",
+      "case_id": "G2",
+      "arm": "old",
+      "status": "captured",
+      "criteria": [
+        {
+          "key": "next_dispatches",
+          "pass": true,
+          "actual": [
+            "verify/a"
+          ],
+          "expected": [
+            "verify/a"
+          ]
+        },
+        {
+          "key": "retry_read_b",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "remaining_attempts",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "key": "unknown_operations",
+          "pass": true,
+          "actual": [
+            "read/b"
+          ],
+          "expected": [
+            "read/b"
+          ]
+        },
+        {
+          "key": "aggregate_can_run",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "dispatch_after_authorization_cancel",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "uncovered_ids",
+          "pass": true,
+          "actual": [
+            "b"
+          ],
+          "expected": [
+            "b"
+          ]
+        }
+      ],
+      "score": 7,
+      "max_score": 7,
+      "error": null
+    },
+    {
+      "run_id": "R12",
+      "case_id": "G2",
+      "arm": "new",
+      "status": "captured",
+      "criteria": [
+        {
+          "key": "next_dispatches",
+          "pass": true,
+          "actual": [
+            "verify/a"
+          ],
+          "expected": [
+            "verify/a"
+          ]
+        },
+        {
+          "key": "retry_read_b",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "remaining_attempts",
+          "pass": true,
+          "actual": 2,
+          "expected": 2
+        },
+        {
+          "key": "unknown_operations",
+          "pass": true,
+          "actual": [
+            "read/b"
+          ],
+          "expected": [
+            "read/b"
+          ]
+        },
+        {
+          "key": "aggregate_can_run",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "dispatch_after_authorization_cancel",
+          "pass": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "key": "uncovered_ids",
+          "pass": true,
+          "actual": [
+            "b"
+          ],
+          "expected": [
+            "b"
+          ]
+        }
+      ],
+      "score": 7,
+      "max_score": 7,
+      "error": null
+    }
+  ]
+}

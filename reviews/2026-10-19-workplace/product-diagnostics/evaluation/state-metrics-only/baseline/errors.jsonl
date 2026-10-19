@@ -1,0 +1,1 @@
+{"attempt_id":1,"cost_usd":null,"event":"finished","prompt_id":"refund","reconciliation_evidence":"Offline synthetic worker and parent PID groups killed; no completed output or cost receipt, no remote service or side effect. Unknown cost retained rather than declaring zero.","rep":0,"status":"interrupted_reconciled","time":1792347069.508615}

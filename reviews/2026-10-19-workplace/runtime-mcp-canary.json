@@ -1,0 +1,170 @@
+{
+  "diagnostic": "Native MCP stdio under original W017 outer Seatbelt policy",
+  "started_utc": "2026-10-18T19:17:39Z",
+  "profile": "amind-workplace-20261019-frozen",
+  "policy_path": "/private/tmp/amind-workplace-20261019-4pdx607m/control/W017.sb",
+  "policy_sha256": "e1d9b411cad7d84b46ec567084e83630da3abdebd93eb19c97827849cf8dcce0",
+  "policy_filename_verified": true,
+  "protocol_steps": [
+    {
+      "method": "initialize",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {
+            "experimental": {
+              "codex/sandbox-state-meta": {}
+            },
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "rmcp",
+            "version": "1.5.0"
+          },
+          "instructions": "Use `js` for `node_repl` execution with persistent, redeclarable top-level bindings, `js_reset` to clear bindings, and `js_add_node_module_dir` to add package directories."
+        }
+      }
+    },
+    {
+      "method": "tools/list",
+      "tool_names": [
+        "js",
+        "js_add_node_module_dir",
+        "js_reset",
+        "turn_ended"
+      ]
+    },
+    {
+      "method": "tools/call",
+      "name": "js",
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "node_repl kernel exited unexpectedly\n\nnode_repl diagnostics: {\"kernel_pid\":81527,\"kernel_status\":\"exited(code=71)\",\"kernel_stderr_tail\":\"sandbox-exec: sandbox_apply: Operation not permitted\",\"reason\":\"stdout_eof\",\"stream_error\":null}"
+            }
+          ],
+          "isError": true,
+          "_meta": {
+            "codex/telemetry": {
+              "error_code": "kernel_exited"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "probe_outcomes": {
+    "content": [
+      {
+        "type": "text",
+        "text": "node_repl kernel exited unexpectedly\n\nnode_repl diagnostics: {\"kernel_pid\":81527,\"kernel_status\":\"exited(code=71)\",\"kernel_stderr_tail\":\"sandbox-exec: sandbox_apply: Operation not permitted\",\"reason\":\"stdout_eof\",\"stream_error\":null}"
+      }
+    ],
+    "isError": true,
+    "_meta": {
+      "codex/telemetry": {
+        "error_code": "kernel_exited"
+      }
+    }
+  },
+  "limitations": [
+    "Read canaries use fs.open(path, r) and close without reading any bytes, so no existing control/sibling contents enter the response or report. Successful read-open would establish the forbidden file could be opened for reading and stops further forbidden probes.",
+    "No flags, original config, policy, or frozen artifacts were changed to work around the kernel sandbox startup failure. No target-model or network calls were used. The probe is a transport/runtime startup diagnostic, not a completed filesystem isolation test."
+  ],
+  "mcp_list_returncode": 0,
+  "native_transport": {
+    "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl",
+    "args": [],
+    "env_keys": [
+      "BROWSER_USE_AVAILABLE_BACKENDS",
+      "BROWSER_USE_CODEX_APP_BUILD_FLAVOR",
+      "BROWSER_USE_CODEX_APP_VERSION",
+      "BROWSER_USE_TINYSKY_ENABLED",
+      "CODEX_CLI_PATH",
+      "CODEX_HOME",
+      "NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER",
+      "NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME",
+      "NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE",
+      "NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS",
+      "NODE_REPL_NODE_MODULE_DIRS",
+      "NODE_REPL_NODE_PATH",
+      "NODE_REPL_TRUSTED_CODE_PATHS",
+      "NODE_REPL_TRUSTED_SERVICES",
+      "SKY_CUA_SERVICE_PATH"
+    ],
+    "enabled": true
+  },
+  "js_input_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "code": {
+        "description": "JavaScript code to execute with top-level await.",
+        "type": "string"
+      },
+      "timeout_ms": {
+        "description": "Optional execution timeout in milliseconds. Defaults to 30000 (30 seconds) when omitted.",
+        "minimum": 1,
+        "type": "integer"
+      },
+      "title": {
+        "description": "Short user-facing description of what the code does.",
+        "maxLength": 80,
+        "minLength": 1,
+        "type": "string"
+      }
+    },
+    "required": [
+      "code"
+    ],
+    "type": "object"
+  },
+  "probe_paths": {
+    "own": "/private/tmp/amind-workplace-20261019-4pdx607m/W017/mcp-canary-036167fb0cc54d26b4681cbbe9f51c21.tmp",
+    "control": "/private/tmp/amind-workplace-20261019-4pdx607m/control/canary.txt",
+    "sibling_read": "/private/tmp/amind-workplace-20261019-4pdx607m/W001/task.json",
+    "sibling_write": "/private/tmp/amind-workplace-20261019-4pdx607m/W001/mcp-canary-036167fb0cc54d26b4681cbbe9f51c21.tmp"
+  },
+  "transport_reproduced": false,
+  "process_returncode": -15,
+  "stderr_metadata": [
+    "sandbox-exec: sandbox_apply: Operation not permitted",
+    "2026-10-18T19:17:43.355829Z ERROR node_repl::diagnostics: node_repl kernel terminated unexpectedly reason=\"stdout_eof\" stream_error=\"\" redacted_source_available=false redacted_source_exec_completed=false redacted_source=\"unavailable\" kernel_status=\"exited(code=71)\" kernel_stderr_available=true kernel_stderr_kind=\"macos_sandbox_failed\" target_os=\"macos\" target_arch=\"aarch64\"",
+    "node_repl kernel exited unexpectedly"
+  ],
+  "finished_utc": "2026-10-18T19:17:43Z",
+  "transport_handshake_reproduced": true,
+  "canary_execution_completed": false,
+  "os_isolation_result": "unverified",
+  "boundary_breach_demonstrated": false,
+  "filesystem_probe_results": {
+    "own_create_read_open_cleanup": {
+      "attempted_by_probe_code": false,
+      "success": null,
+      "reason": "Node kernel terminated during nested sandbox initialization before JavaScript executed."
+    },
+    "control_read_open": {
+      "attempted_by_probe_code": false,
+      "success": null,
+      "reason": "Node kernel terminated during nested sandbox initialization before JavaScript executed."
+    },
+    "sibling_read_open": {
+      "attempted_by_probe_code": false,
+      "success": null,
+      "reason": "Node kernel terminated during nested sandbox initialization before JavaScript executed."
+    },
+    "sibling_create": {
+      "attempted_by_probe_code": false,
+      "success": null,
+      "reason": "Node kernel terminated during nested sandbox initialization before JavaScript executed."
+    }
+  },
+  "diagnostic_conclusion": "The original W017.sb was verified and used. Native MCP initialize and tools/list succeeded and tools/call js returned a kernel_exited tool error. Kernel diagnostics report exited(code=71) and sandbox-exec: sandbox_apply: Operation not permitted. Therefore the JavaScript filesystem canary did not run; this does not establish either successful OS isolation enforcement of the tested paths or an MCP escape from outer Seatbelt. No existing file contents were read by probe code and no canary file creation was executed."
+}

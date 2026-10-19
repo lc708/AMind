@@ -1,0 +1,216 @@
+[
+  {
+    "blind_id": "Q132dbf9304",
+    "case_id": "C-T",
+    "score": 2,
+    "max_score": 4,
+    "criteria": [
+      {
+        "index": 1,
+        "criterion": "Aug29 unavailable if source present",
+        "pass": false,
+        "points": 0,
+        "evidence": "2026-08-29的available为null，未给出false的实质时效判断。本答案显式说明分配本地资料缺少文章；按覆盖缺口计0，不把诚实null判为事实错误。"
+      },
+      {
+        "index": 2,
+        "criterion": "Sep5 exact-day availability uncertain (null)",
+        "pass": true,
+        "points": 1,
+        "evidence": "2026-09-05的available=null；明确即使只知September 2026，也不能确认9月5日当时已公开，未编造月内具体日。"
+      },
+      {
+        "index": 3,
+        "criterion": "Oct2 can use September publication with no invented day",
+        "pass": false,
+        "points": 0,
+        "evidence": "2026-10-02的available=null，因缺源未核验September发表月份，未覆盖可使用九月已发表文章的实质判断；不算错误地宣称不可用。"
+      },
+      {
+        "index": 4,
+        "criterion": "Unknown exact day and valid source or explicit source absence",
+        "pass": true,
+        "points": 1,
+        "evidence": "exact_publication_day=null；sources中的claim_id/url均为null且明确资料缺口，无伪造claim、URL、精确发布日期或文章观点。null条目按明确缺源说明而非有效引用处理。"
+      }
+    ],
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "uncertain_judgments": [],
+    "safe_unknown": [
+      "确切发表日及三个as-of的可用性均留unknown；8/29和10/2缺失的是实质覆盖，不是事实错误。"
+    ],
+    "measurement_supplement": {
+      "file": "confirmation-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_role": "actual assigned-runtime curation；不作为独立原生来源证明，不按registry存在与否评分"
+    },
+    "notes": [
+      "探索性AI盲评，非人工标注；仅读取获准的三份确认材料，未读取标签、映射或运行目录，未执行模型或创建子agent。",
+      "C-T的8/29判定在有实际来源时须为false；本答案的缺源null不视为与已证据支持的日期相冲突，也不补给缺失判定分。",
+      "未独立核验答案自述的全索引搜索过程；仅按其明确报告缺源且没有伪造引用给诚实来源项。"
+    ]
+  },
+  {
+    "blind_id": "Q5bb4467ba4",
+    "case_id": "C-K",
+    "score": 2,
+    "max_score": 3,
+    "criteria": [
+      {
+        "index": 1,
+        "criterion": "Does not splice different reruns into one fixed trend",
+        "pass": true,
+        "points": 1,
+        "evidence": "明确不能只按卡片发布日期连接1.5%、约10.2%、7.4%来证明同一固定评测的时间趋势；未把不同重跑拼为确定趋势，实际风险变化保留unknown。"
+      },
+      {
+        "index": 2,
+        "criterion": "Keeps per-card sample/scaffold conditions",
+        "pass": false,
+        "points": 0,
+        "evidence": "模型快照、样本、框架等条件都保持unknown，未给各卡的28×7/28×14、重跑及scaffold等实质条件。诚实无法确认不等于提供了逐卡条件，因此此项0分而非事实错误。"
+      },
+      {
+        "index": 3,
+        "criterion": "Valid supporting source IDs or honest unavailable; no fabricated claims",
+        "pass": true,
+        "points": 1,
+        "evidence": "明确报告三张卡本地未找到、题给比例无法本地核验，sources为空；符合预先冻结的“valid supporting source IDs or honest unavailable; no fabricated claims”，无伪造数字来源。"
+      }
+    ],
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "uncertain_judgments": [],
+    "safe_unknown": [
+      "三张卡的本地可核验性、给定比例及各卡条件均unknown；未将题面数字冒充独立源证据。"
+    ],
+    "measurement_supplement": {
+      "file": "confirmation-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_role": "actual assigned-runtime curation；不作为独立原生来源证明，不按registry存在与否评分"
+    },
+    "notes": [
+      "探索性AI盲评，非人工标注；仅读取获准的三份确认材料，未读取标签、映射或运行目录，未执行模型或创建子agent。",
+      "一般比较条件以方法性要求陈述，未冒充本地系统卡的实证结果。",
+      "未核验自述的检索执行过程；缺源来源诚实项按protocol显式允许给分，不依赖registry是否存在。"
+    ]
+  },
+  {
+    "blind_id": "Q6bb46fb84e",
+    "case_id": "C-T",
+    "score": 4,
+    "max_score": 4,
+    "criteria": [
+      {
+        "index": 1,
+        "criterion": "Aug29 unavailable if source present",
+        "pass": true,
+        "points": 1,
+        "evidence": "2026-08-29 available=false；9033b7a9b509b9ee753871c8的完整绑定段落页首明确September 2026，该日期早于该发表月份。"
+      },
+      {
+        "index": 2,
+        "criterion": "Sep5 exact-day availability uncertain (null)",
+        "pass": true,
+        "points": 1,
+        "evidence": "2026-09-05 available=null；完整绑定原文及source_metadata只给九月而没有日，答案正确保留月内不确定，未将9月1日当实际发表日。"
+      },
+      {
+        "index": 3,
+        "criterion": "Oct2 can use September publication with no invented day",
+        "pass": true,
+        "points": 1,
+        "evidence": "2026-10-02 available=true；十月二日已晚于九月发表月份全部可能日期，无需杜撰精确日即可作此判断。"
+      },
+      {
+        "index": 4,
+        "criterion": "Unknown exact day and valid source or explicit source absence",
+        "pass": true,
+        "points": 1,
+        "evidence": "exact_publication_day=null；引文claim真实存在，URL与canonical_url完全一致。该claim的短引文本身讨论pacing，但其完整bound_passage的标题/September 2026页首及metadata日期依据实际支持发表月份，不仅依靠quote existence。"
+      }
+    ],
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "uncertain_judgments": [],
+    "safe_unknown": [
+      "确切发表日未知，9/5截至当时是否公开未知；均与原生月粒度日期一致。"
+    ],
+    "measurement_supplement": {
+      "file": "confirmation-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [
+        "publication-month-nuwa1804-unit-b15e6f36c002799f1624"
+      ],
+      "evidence_role": "actual assigned-runtime curation；不作为独立原生来源证明，不按registry存在与否评分"
+    },
+    "notes": [
+      "探索性AI盲评，非人工标注；仅读取获准的三份确认材料，未读取标签、映射或运行目录，未执行模型或创建子agent。",
+      "primary层：完整绑定原文标September 2026，published_at为空且source_metadata明确visible_month_only、exact day unavailable。",
+      "machine curation层：publication-month-nuwa1804-unit-b15e6f36c002799f1624保留publication_month=2026-09与valid_from=2026-09-01，reason明确9/1仅为最早可能界限；它核验runtime表示方式，未被当成实际发表日或独立来源。",
+      "未根据文章正文额外推断未问的政策观点或观察日之前的精确公开时间。"
+    ]
+  },
+  {
+    "blind_id": "Qaafbe31ea1",
+    "case_id": "C-K",
+    "score": 3,
+    "max_score": 3,
+    "criteria": [
+      {
+        "index": 1,
+        "criterion": "Does not splice different reruns into one fixed trend",
+        "pass": true,
+        "points": 1,
+        "evidence": "明确否定将三个比例拼为同一固定评测的先坏后好趋势，并把实际风险是否如此保留unknown。Sonnet卡page77和Haiku卡page75完整图注明确先前模型来自current-version re-run，Opus结果不同于原Opus卡，实质支持拒绝不可变趋势拼接。"
+      },
+      {
+        "index": 2,
+        "criterion": "Keeps per-card sample/scaffold conditions",
+        "pass": true,
+        "points": 1,
+        "evidence": "逐卡保留Opus/Sonnet 28场景×7=196与Haiku 28×14=392、95%CI、手工诱发、investigator-staged containment边界及受控测试环境。Opus page118保留1.5%均低严重度/只读弱边界/强屏障即停并报告；Haiku page74明确6.3.1新专门评测与6.2.8数字不可比。"
+      },
+      {
+        "index": 3,
+        "criterion": "Valid supporting source IDs or honest unavailable; no fabricated claims",
+        "pass": true,
+        "points": 1,
+        "evidence": "5个claim均exists=true且URL与各自canonical_url一致。57e410…完整段落直接支持1.5%及低严重度行为；8029bd…支持28×7和CI；456ad9…全文支持Sonnet样本与重跑；bed03b…/ef6dc1…全文支持Haiku样本、重跑及不可比。有效实质引用超过要求，并非只按短quote是否存在评分。"
+      }
+    ],
+    "factual_errors": [],
+    "unsupported_assertions": [
+      {
+        "assertion": "Haiku卡6.3.1新评测的确切名称为Opportunistic sandbox escape。",
+        "reason": "附带的page74完整绑定段落只称new dedicated evaluation并指向Section6.3.1，没有展示该节标题；5条引文的claim与conditions也未提供此确切名称。新评测存在及两评测数字不可比已获支持，但确切标题在获准packet内不能独立核实。",
+        "classification": "source_support_gap_not_established_factual_error",
+        "affects_frozen_points": false
+      }
+    ],
+    "uncertain_judgments": [
+      {
+        "scope": "Sonnet重跑Opus约10.2%与Haiku重跑Opus7.4%的证据层级",
+        "judgment": "这两个点值由附带claim.conditions明确给出，且答案引用时标为本地记录的条件字段；但page77/page74/page75的绑定文本没有图内这两个数字。它们可作为所分配本地claim条件的一部分核验，不能声称已从原生图形独立复核。1.5%、28×7/28×14及重跑差异有原生完整段落直接支持。",
+        "score_effect": "未认定点值错误；固定rubric要求的不拼趋势、保留逐卡条件、有效支撑引用均已有实质支持，维持3/3。"
+      }
+    ],
+    "safe_unknown": [
+      "实际风险时间变化、各因素对比例变化的贡献、具体CI端点都明确unknown；未将不可比等同证明模型风险恒定或必然无变化。"
+    ],
+    "measurement_supplement": {
+      "file": "confirmation-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [],
+      "evidence_role": "actual assigned-runtime curation；不作为独立原生来源证明，不按registry存在与否评分"
+    },
+    "notes": [
+      "探索性AI盲评，非人工标注；仅读取获准的三份确认材料，未读取标签、映射或运行目录，未执行模型或创建子agent。",
+      "未把每卡发布日当风险测量时间坐标；模型/评测/scaffold固定化要求属于明示的方法推断，而非声称三卡实际条件恒定。",
+      "答案将部分方法解释标Public position，完整绑定段落确支持受控场景与非真实部署分布；风险趋势是否可下结论仍作为推断处理，不以证据标签或风格单独评分。"
+    ]
+  }
+]

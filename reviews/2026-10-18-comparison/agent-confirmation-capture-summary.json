@@ -1,0 +1,56 @@
+{
+  "captured": 8,
+  "elapsed_seconds": 336.263,
+  "graded": false,
+  "results": [
+    {
+      "arm": "repaired",
+      "case_id": "C-K",
+      "run_id": "R17",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "C-K",
+      "run_id": "R18",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "C-T",
+      "run_id": "R19",
+      "status": "captured"
+    },
+    {
+      "arm": "repaired",
+      "case_id": "C-T",
+      "run_id": "R20",
+      "status": "captured"
+    },
+    {
+      "arm": "repaired",
+      "case_id": "C-G",
+      "run_id": "R21",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "C-G",
+      "run_id": "R22",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "C-V",
+      "run_id": "R23",
+      "status": "captured"
+    },
+    {
+      "arm": "repaired",
+      "case_id": "C-V",
+      "run_id": "R24",
+      "status": "captured"
+    }
+  ],
+  "runs": 8
+}

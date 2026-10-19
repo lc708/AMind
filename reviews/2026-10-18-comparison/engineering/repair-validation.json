@@ -1,0 +1,621 @@
+{
+  "scope": "Post-discovery validation, two conflicting variants and two no-op consistency variants",
+  "results": [
+    {
+      "version": "frozen-old",
+      "variant": "conflict-root-outside",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/private"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "error": null,
+        "usage": null,
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root/private"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ]
+      },
+      "passed": false
+    },
+    {
+      "version": "frozen-old",
+      "variant": "conflict-root-inside",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root/private"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "error": null,
+        "usage": null,
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root/private"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ]
+      },
+      "passed": false
+    },
+    {
+      "version": "frozen-old",
+      "variant": "consistent-root",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "error": null,
+        "usage": null,
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "version": "frozen-old",
+      "variant": "consistent-child",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root/private"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/private"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "error": null,
+        "usage": null,
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root/private"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root/private"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ]
+      },
+      "passed": false
+    },
+    {
+      "version": "frozen-new",
+      "variant": "conflict-root-outside",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/private"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "agent_deltas": {
+          "/root": "validation text"
+        },
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root/private"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ],
+        "error": null,
+        "usage": null
+      },
+      "passed": false
+    },
+    {
+      "version": "frozen-new",
+      "variant": "conflict-root-inside",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root/private"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "",
+        "agent_deltas": {
+          "/root/private": "validation text"
+        },
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root/private"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ],
+        "error": null,
+        "usage": null
+      },
+      "passed": false
+    },
+    {
+      "version": "frozen-new",
+      "variant": "consistent-root",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "agent_deltas": {
+          "/root": "validation text"
+        },
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ],
+        "error": null,
+        "usage": null
+      },
+      "passed": true
+    },
+    {
+      "version": "frozen-new",
+      "variant": "consistent-child",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root/private"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/private"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "",
+        "agent_deltas": {
+          "/root/private": "validation text"
+        },
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root/private"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root/private"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ],
+        "error": null,
+        "usage": null
+      },
+      "passed": true
+    },
+    {
+      "version": "repaired-new",
+      "variant": "conflict-root-outside",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/private"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "error": "event and item changed agent attribution",
+      "passed": true
+    },
+    {
+      "version": "repaired-new",
+      "variant": "conflict-root-inside",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root/private"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "error": "event and item changed agent attribution",
+      "passed": true
+    },
+    {
+      "version": "repaired-new",
+      "variant": "consistent-root",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "validation text",
+        "agent_deltas": {
+          "/root": "validation text"
+        },
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ],
+        "error": null,
+        "usage": null
+      },
+      "passed": true
+    },
+    {
+      "version": "repaired-new",
+      "variant": "consistent-child",
+      "evidence_level": "validation after discovery; not held out",
+      "input": [
+        {
+          "type": "response.output_item.added",
+          "output_index": 2,
+          "agent": {
+            "agent_name": "/root/private"
+          },
+          "item": {
+            "type": "message",
+            "agent": {
+              "agent_name": "/root/private"
+            }
+          }
+        },
+        {
+          "type": "response.output_text.delta",
+          "output_index": 2,
+          "delta": "validation text"
+        }
+      ],
+      "result": {
+        "status": "disconnected",
+        "scorable_transport": false,
+        "display_deltas": "",
+        "agent_deltas": {
+          "/root/private": "validation text"
+        },
+        "raw_events": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 2,
+            "agent": {
+              "agent_name": "/root/private"
+            },
+            "item": {
+              "type": "message",
+              "agent": {
+                "agent_name": "/root/private"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 2,
+            "delta": "validation text"
+          }
+        ],
+        "error": null,
+        "usage": null
+      },
+      "passed": true
+    }
+  ],
+  "summary": {
+    "frozen-old": {
+      "passed": 1,
+      "total": 4
+    },
+    "frozen-new": {
+      "passed": 2,
+      "total": 4
+    },
+    "repaired-new": {
+      "passed": 4,
+      "total": 4
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "diagnostic_id": "D04-month-window-revision-generation",
+  "not_holdout": true,
+  "before_source_condition": "target_units collects every kind of status before supersession generation",
+  "input_units": [
+    {
+      "analysis_unit_id": "synthetic-old-month",
+      "canonical": "https://example.org/edition",
+      "published_at": "",
+      "extraction": {
+        "date_evidence": [
+          {
+            "kind": "visible_month_only; exact day unavailable",
+            "value": "August 2026"
+          }
+        ]
+      }
+    },
+    {
+      "analysis_unit_id": "synthetic-new-edition",
+      "canonical": "https://example.org/edition",
+      "published_at": "",
+      "extraction": {
+        "date_evidence": [
+          {
+            "kind": "visible_month_only; exact day unavailable",
+            "value": "August 2026"
+          }
+        ]
+      }
+    }
+  ],
+  "input_versions": [
+    {
+      "prior_analysis_unit_id": "synthetic-old-month",
+      "new_analysis_unit_id": "synthetic-new-edition",
+      "observed_at": "2026-10-17T18:30:00+00:00"
+    }
+  ],
+  "derived_month_windows": [
+    {
+      "status_id": "publication-month-synthetic-old-month",
+      "target_analysis_unit_ids": [
+        "synthetic-old-month"
+      ],
+      "kind": "publication_window",
+      "valid_from": "2026-08-01",
+      "publication_month": "2026-08",
+      "source_canonical": "https://example.org/edition",
+      "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+      "observed_at": "",
+      "reviewer_type": "retained source-native partial date"
+    },
+    {
+      "status_id": "publication-month-synthetic-new-edition",
+      "target_analysis_unit_ids": [
+        "synthetic-new-edition"
+      ],
+      "kind": "publication_window",
+      "valid_from": "2026-08-01",
+      "publication_month": "2026-08",
+      "source_canonical": "https://example.org/edition",
+      "reason": "The source labels its publication month as August 2026; the exact day is unavailable. The first day is only an earliest possible bound, not a publication date.",
+      "observed_at": "",
+      "reviewer_type": "retained source-native partial date"
+    }
+  ],
+  "before_generated_old_superseded": false,
+  "expected_old_superseded_until": "2026-10-18",
+  "current_actual_month_units_are_prior_versions": false,
+  "source": "Independent evaluation agent read-only cross-review; confirmed locally against package condition."
+}

@@ -1,0 +1,49 @@
+{
+  "variants": [
+    {
+      "variant": "baseline",
+      "split": "val",
+      "status": "incomplete",
+      "scored_observations": 0,
+      "planned_observations": 1,
+      "metrics": {
+        "quality": {
+          "mean": null,
+          "scored": 0
+        }
+      },
+      "failed_attempts": 0,
+      "attempts": 1,
+      "interrupted_attempts": 1,
+      "known_cost_usd": 0,
+      "unknown_cost_attempts": 1,
+      "total_cost_usd": null,
+      "latency_p50_s": null,
+      "latency_p95_s": null,
+      "integrity": "hashes match export; not a security attestation",
+      "synthetic": false,
+      "stage_coverage": {
+        "measured_complete": 0,
+        "unmeasured": 0,
+        "required_stages": []
+      },
+      "remaining_failed_attempts": null
+    }
+  ],
+  "details": [
+    {
+      "variant": "baseline",
+      "interrupted_attempt": {
+        "attempt_id": 1,
+        "event": "started",
+        "prompt_id": "a",
+        "rep": 0,
+        "reserved_usd": 0.0,
+        "time": 1792300651.9656372
+      },
+      "cost_usd": null,
+      "outcome": "unknown; reconcile before retrying"
+    }
+  ],
+  "interpretation": "Scored means exclude unscored attempts; inspect coverage before comparing. Validation is selection evidence. Synthetic runs do not measure model ability. No automatic winner."
+}

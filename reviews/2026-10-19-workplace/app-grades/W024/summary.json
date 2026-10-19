@@ -1,0 +1,15 @@
+{
+  "run_id": "W024",
+  "task_id": "V-RELEASE",
+  "rep": 1,
+  "arm": "old",
+  "runtime_status": "captured",
+  "grade_status": "graded",
+  "score": 4,
+  "max_score": 5,
+  "guardrails_passed": true,
+  "probe_passed": 13,
+  "probe_total": 14,
+  "portable_no_skill_dependency": true,
+  "network_denied_during_probes": true
+}

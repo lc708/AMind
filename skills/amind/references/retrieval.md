@@ -1,12 +1,15 @@
 # Retrieval policy
 
+The current package includes the 2026-10-18 refresh. Exact counts are in the manifest and `query.py stats`; distribution figures below that refer to older releases are historical audits. Default search filters recorded corrections, supersessions and effective windows, and labels each retained result. Use `--include-inactive` to inspect historical or future-effective evidence; `--as-of` changes the dated eligibility view. Neither option creates a live source connection.
+
+
 AMind separates recall from trust. The full index finds candidates; the gold kernel and bound passages help decide which candidates can support an answer.
 
 ## Evidence layers
 
 ```text
-64,265 machine-checked atomic claims  -> full local FTS recall
-14,715 source-bound passages          -> context verification
+Full machine-checked claim population -> full local FTS recall
+All source-bound passages             -> context verification
 54 human-reviewed representative rows -> gold calibration
 9 themes / 5 voices / 5 tensions      -> synthesis navigation
 ```
@@ -33,7 +36,7 @@ Attribution filtering happens before equivalence collapse. If an equivalence com
 
 ## Recency and named voices
 
-Use `--current` when the user asks about the latest policy, current practice, recent research, or a versioned document. It excludes a prior edition when this increment records a later observed revision; historical evidence remains accessible with `show`. Recency is a boost after lexical relevance, not a replacement for relevance.
+Use `--current` when the user asks about the latest policy, current practice, recent research, or a versioned document. Default search already applies dated correction and edition eligibility; historical evidence remains accessible with `show` or `--include-history`. `--current` adds a recency boost after lexical relevance, not a replacement for relevance or a live source check.
 
 Use `--voice "Name"` when the user explicitly asks about a named person. This relaxes voice and host diversity caps because concentration is then intentional. Without an explicit named-person request, do not center one author merely because that author occupies a large share of the corpus.
 
@@ -49,7 +52,7 @@ Use `--voice "Name"` when the user explicitly asks about a named person. This re
 
 ## Corpus-distribution caveat
 
-The distribution audit below describes the frozen v1 baseline. Current counts come from `query.py stats`: the one-off increment adds 4 Import AI issues and 1 Transformer Circuits article; Jack Clark now has 11,223 claims (3,690 reported), and Transformer Circuits has 12,693 claims across 52 units. No frequency is an influence weight.
+The distribution audit below describes the frozen v1 baseline. The September snapshot then added four Import AI issues and one Transformer Circuits article; its counts were Jack Clark 11,223 claims (3,690 reported) and Transformer Circuits 12,693 claims across 52 units. Those are historical snapshot counts. Current counts come from `query.py stats`. No frequency is an influence weight.
 
 Claim counts measure corpus coverage and extraction density, not influence. The frozen source population includes 480 Import AI issues, so Jack Clark has 10,835 extracted claims; 3,302 of those are reported or quoted positions rather than Clark's own source-level position. Long technical works create a different distortion: 51 transformer-circuits documents produce 12,248 claims because some papers are atomized very densely.
 

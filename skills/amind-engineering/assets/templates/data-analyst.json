@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Data analyst",
+  "goal": "Analyze selected datasets and produce reproducible results",
+  "item_label": "dataset",
+  "stages": [
+    "profile",
+    "validate",
+    "combine"
+  ],
+  "output_checks": [
+    "Retain data provenance and transformations",
+    "Check missingness and units",
+    "Verify produced tables/charts against calculations"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

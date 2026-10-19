@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "at_utc": "2026-10-19T04:17:10.988205+00:00",
+  "original": "/Users/damonalbarn/Work/AMind",
+  "source": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind",
+  "reviewed_base": "64b38fb03df1f0e0467b3e345bab28c3a9c6d995",
+  "copied_files": 36,
+  "already_matching": 4118,
+  "overwrites_backed_up": 13,
+  "deleted_files": 0,
+  "backup": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/review-and-ship/shipping-sync-trokwayq",
+  "protected_user_files": [
+    {
+      "path": "爱仕珠宝AI赋能解决方案V0.3（团队页优化，含演讲备注）.pptx.inspect.ndjson",
+      "sha256": "4779ed9b0c78b135a860788064abc13c87c9f4339de4355a6544a8e4f63fe2fd",
+      "unchanged": true
+    },
+    {
+      "path": "爱仕珠宝AI赋能解决方案V0.3（团队页优化，含演讲备注）.pptx",
+      "sha256": "497f22cec1db4aaf3f7d7092ec72404ad4c426c976c2c3c4558fb4e36a270afc",
+      "unchanged": true
+    }
+  ],
+  "full_receipt": ".codex-tmp/review-and-ship/original-sync.json"
+}

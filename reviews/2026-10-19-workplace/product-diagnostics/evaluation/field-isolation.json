@@ -1,0 +1,247 @@
+{
+  "cases": [
+    {
+      "field": "population",
+      "before": {
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          },
+          {
+            "id": "policy",
+            "kind": "binary",
+            "better": "higher",
+            "role": "guardrail",
+            "max_regression": 0
+          }
+        ],
+        "reps": 1,
+        "train_ids": [],
+        "val_ids": [
+          "refund",
+          "billing",
+          "access"
+        ],
+        "test_ids": []
+      },
+      "after": {
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          },
+          {
+            "id": "policy",
+            "kind": "binary",
+            "better": "higher",
+            "role": "guardrail",
+            "max_regression": 0
+          }
+        ],
+        "reps": 1,
+        "train_ids": [],
+        "val_ids": [
+          "refund"
+        ],
+        "test_ids": []
+      },
+      "report_returncode": 0,
+      "variants": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 3,
+          "planned_observations": 1,
+          "metrics": {
+            "quality": {
+              "mean": 0.0,
+              "scored": 3
+            },
+            "policy": {
+              "mean": 1.0,
+              "scored": 3
+            }
+          },
+          "failed_attempts": 1,
+          "attempts": 4,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.15000000000000002,
+          "unknown_cost_attempts": 1,
+          "total_cost_usd": null,
+          "latency_p50_s": 0.068388084,
+          "latency_p95_s": 0.0751467087,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 3,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": 2
+        },
+        {
+          "variant": "v1",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 3,
+          "planned_observations": 1,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 3
+            },
+            "policy": {
+              "mean": 0.0,
+              "scored": 3
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 3,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.15000000000000002,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.15000000000000002,
+          "latency_p50_s": 0.062910292,
+          "latency_p95_s": 0.0758711542,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 3,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": 3
+        }
+      ],
+      "strict_comparison": {
+        "verdict": "invalid",
+        "error": "requested population/metrics/reps differ from experiment identity"
+      },
+      "changed_manifest_result_or_attempt_bytes": false,
+      "evidence_use": "Post-diagnostic field-isolation validation, not held-out evidence"
+    },
+    {
+      "field": "metrics",
+      "before": {
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          },
+          {
+            "id": "policy",
+            "kind": "binary",
+            "better": "higher",
+            "role": "guardrail",
+            "max_regression": 0
+          }
+        ],
+        "reps": 1,
+        "train_ids": [],
+        "val_ids": [
+          "refund",
+          "billing",
+          "access"
+        ],
+        "test_ids": []
+      },
+      "after": {
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          }
+        ],
+        "reps": 1,
+        "train_ids": [],
+        "val_ids": [
+          "refund",
+          "billing",
+          "access"
+        ],
+        "test_ids": []
+      },
+      "report_returncode": 0,
+      "variants": [
+        {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 3,
+          "planned_observations": 3,
+          "metrics": {
+            "quality": {
+              "mean": 0.0,
+              "scored": 3
+            }
+          },
+          "failed_attempts": 1,
+          "attempts": 4,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.15000000000000002,
+          "unknown_cost_attempts": 1,
+          "total_cost_usd": null,
+          "latency_p50_s": 0.068388084,
+          "latency_p95_s": 0.0751467087,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 3,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": 2
+        },
+        {
+          "variant": "v1",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 3,
+          "planned_observations": 3,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 3
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 3,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.15000000000000002,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.15000000000000002,
+          "latency_p50_s": 0.062910292,
+          "latency_p95_s": 0.0758711542,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 3,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": 3
+        }
+      ],
+      "strict_comparison": {
+        "verdict": "invalid",
+        "error": "requested population/metrics/reps differ from experiment identity"
+      },
+      "changed_manifest_result_or_attempt_bytes": false,
+      "evidence_use": "Post-diagnostic field-isolation validation, not held-out evidence"
+    }
+  ]
+}

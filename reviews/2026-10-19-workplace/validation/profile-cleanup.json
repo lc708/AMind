@@ -1,0 +1,19 @@
+{
+  "at_utc": "2026-10-18T19:28:48.493500+00:00",
+  "only_created_profiles_removed": true,
+  "profiles": [
+    {
+      "path": "/Users/damonalbarn/.codex/amind-workplace-20261019-frozen.config.toml",
+      "before_sha256": "ec2bb07f3c66334714af7adc0179aa2961fd99f69ae50a232c8037f87fe57d07",
+      "matched_created_text": true,
+      "removed": true
+    },
+    {
+      "path": "/Users/damonalbarn/.codex/amind-workplace-20261019-shell-only.config.toml",
+      "before_sha256": "e06622c70f2d2529abc14a6e982e34e6d6435be939d3933dae92200521834e75",
+      "matched_created_text": true,
+      "removed": true
+    }
+  ],
+  "base_config_or_auth_changed": false
+}

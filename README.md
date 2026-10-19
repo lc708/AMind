@@ -9,7 +9,7 @@ Generic persona prompts blur facts and inference. AMind makes the distance visib
 <p align="center">
   <a href="https://github.com/lc708/AMind/stargazers"><img src="https://img.shields.io/github/stars/lc708/AMind?style=flat-square&color=D97757" alt="GitHub stars"></a>
   <a href="skills/amind"><img src="https://img.shields.io/badge/Agent%20Skill-AMind-D97757?style=flat-square" alt="AMind Agent Skill"></a>
-  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/64%2C265%20claims-offline%20index-71C4A5?style=flat-square" alt="Offline full evidence index"></a>
+  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/source--bound%20evidence-offline%20index-71C4A5?style=flat-square" alt="Offline full evidence index; current counts in manifest"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-8D96A5?style=flat-square" alt="Apache License 2.0"></a>
 </p>
 
@@ -25,15 +25,21 @@ Generic persona prompts blur facts and inference. AMind makes the distance visib
 
 ## Start in 60 seconds
 
-AMind also includes an **AI engineering and evaluation skill series**: [`amind-engineering`](skills/amind-engineering/SKILL.md) for prompt audits, cost optimization, migrations and agent development, plus [`eval-improve`](skills/eval-improve/SKILL.md) for runnable application/grader evaluations, strict comparisons, cost search and measured iteration. They work with AI products regardless of whether those products use a Codex harness; neither requires Claude. See [installation, usage and migration coverage](AMIND-SERIES.md). The knowledge skill below retains its own version and evidence boundary.
+AMind also includes an **AI engineering and evaluation skill series**: [`amind-engineering` 0.3.2](skills/amind-engineering/SKILL.md) for prompt audits, migrations, multi-agent contracts, durable staged workflows and 13 task templates, plus [`eval-improve` 0.4.3](skills/eval-improve/SKILL.md) for application/grader evaluations, exact billing scope, calibrated judges and strict comparisons. They work with AI products regardless of whether those products use a Codex harness; neither requires Claude. See [installation and usage](AMIND-SERIES.md) and the [October application update](reviews/2026-10-18-application-update.zh-CN.md). The knowledge skill below retains its own version and evidence boundary.
 
-AMind **1.2.1** includes the one-off **2026-09-08** evidence update and corresponding decision guidance. See the [update report](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md) for new sources, revisions, and collection gaps.
+AMind **1.3.1** records public evidence observed through **2026-10-18**. It adds dated current-answer eligibility while retaining corrected and superseded material as history. Read the [October knowledge update](release/amind-v1-increment-2026-10-18/reports/update.zh-CN.md); the [September 1.2.1 update](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md) and original v1 release remain historical snapshots. The installed [manifest](skills/amind/data/manifest.json), `summary` and `stats` commands are authoritative for the current packaged counts and observation cutoff. No recurring web refresh is implied.
 
-Send this to whichever **Agent** you use:
+Install [Git LFS](https://git-lfs.com/) first, then materialize the knowledge index:
 
-```text
-$skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind
+```bash
+git lfs install
+git clone https://github.com/lc708/AMind.git
+cd AMind
+git lfs pull --include="skills/amind/data/amind-full-index.sqlite3"
+python3 -B skills/amind/scripts/verify.py
 ```
+
+Ask your **Agent** to install the local `skills/amind` folder from that verified checkout, or copy it into your client's skills directory. The index must be the SQLite payload, not an LFS pointer. A source ZIP or an installer using GitHub archives may contain only the pointer; use the Git LFS checkout above if verification fails.
 
 Once installation finishes, reload the Agent or start a new session if needed, then ask a real question:
 
@@ -100,7 +106,7 @@ For a novel case, AMind still gives advice. It simply tells you how far that adv
 | Retains tensions and counterevidence | Rarely | You build it | **Built in** |
 | Traces conclusions to exact quotes and stable IDs | No | Possible | **Built in** |
 | Works from a bounded, inspectable corpus | No | Depends | **Yes** |
-| Best for live, up-to-the-minute facts | No | **Yes, with live sources** | No—AMind v1 is frozen |
+| Best for live, up-to-the-minute facts | No | **Yes, with live sources** | No—each AMind evidence package has a recorded cutoff |
 
 AMind is deliberately bounded. It trades the false freshness of an untraceable persona for a corpus you can inspect, challenge, and reproduce.
 
@@ -132,20 +138,18 @@ The public product is **AMind**. Nuwa is only the construction methodology.
 
 ## Evidence you can inspect
 
-The installed Skill includes a complete local search index. The 54-row kernel remains its individually reviewed gold layer; the frozen release remains the raw audit and research layer.
+The installed Skill includes a complete local search index. The 54-row kernel remains its individually reviewed gold layer. Current totals, hashes and the observation cutoff live in the [manifest](skills/amind/data/manifest.json); dated release packages preserve raw audit and research history.
 
-| Layer | What ships |
-|---|---:|
-| Authoritative candidates in the v1 baseline | 1,804 |
-| Deduplicated analysis units | 1,419 |
-| Source-bound evidence passages | 14,715 |
-| Locally indexed atomic claims with exact quotes and source identity | 64,265 |
-| Human-reviewed representative evidence rows | 54 |
-| Recurring themes | 9 |
-| Bounded voice profiles | 5 |
-| Preserved tensions | 5 |
+| Layer | Authoritative record |
+|---|---|
+| Current analysis units, passages and indexed claims | Manifest `counts`; `query.py summary` |
+| Source and voice distributions | `query.py stats --json` |
+| Human-reviewed representative evidence rows | 54; the reviewed gold layer is preserved |
+| Themes, voices and tensions | Manifest `counts`; the matching query commands |
+| Corrections, supersession and effective dates | Manifest-bound `current-status.jsonl` |
+| Historical candidate populations and totals | Original v1 and dated increment reports |
 
-The human-review claim is intentionally narrow: all 54 representative gold rows were reviewed in passage context. The other indexed claims are structured, source-bound, and attribution-audited, but not individually human-reviewed. Search uses them as candidates and bundles all 14,715 passages for context verification.
+The human-review claim is intentionally narrow: all 54 representative gold rows were reviewed in passage context. Other indexed claims are structured, source-bound and attribution-audited, but are not all individually human-reviewed. Search uses them as candidates and includes bound passages for context verification. New machine-checked content does not become human-reviewed gold merely by being indexed.
 
 ### Inspect the indexed Skill
 
@@ -153,13 +157,15 @@ The human-review claim is intentionally narrow: all 54 representative gold rows 
 python3 -B skills/amind/scripts/query.py summary
 python3 -B skills/amind/scripts/query.py search "alignment faking" --limit 5
 python3 -B skills/amind/scripts/query.py search "latest responsible scaling policy" --current --limit 5
+python3 -B skills/amind/scripts/query.py search "responsible scaling policy" --as-of 2026-09-08 --limit 5
+python3 -B skills/amind/scripts/query.py search "cybersecurity incidents" --as-of 2026-10-18 --include-history --limit 5
 python3 -B skills/amind/scripts/query.py kernel-search "alignment faking" --limit 5
 python3 -B skills/amind/scripts/query.py stats
 python3 -B skills/amind/scripts/query.py tensions
 python3 -B skills/amind/scripts/verify.py
 ```
 
-Default search covers all 64,265 claims, collapses audited equivalents, excludes positions that a source merely reports, and diversifies works, voices, and source hosts. Use `show <claim-id> --passage` to inspect context before relying on a machine-checked result.
+Default search uses the full index while filtering current-answer eligibility at the manifest cutoff, collapsing audited equivalents, excluding merely reported positions and diversifying works, voices and hosts. `--current` favors recent eligible evidence within that boundary; it does not fetch the web. `--as-of YYYY-MM-DD` changes the eligibility date using recorded publication/correction/effective-date evidence. `--include-history` includes inactive or future-effective material with status labels instead of deleting it. A date beyond the collection cutoff requires fresh verification. Use `show <claim-id> --passage` to inspect the original context and status before material use.
 
 ### Audit the raw release
 
@@ -172,7 +178,7 @@ python3 -B release/amind-v1/amind.py search "model welfare" --limit 5
 python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 ```
 
-For a small high-trust evaluation, start with [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl). For custom exhaustive retrieval, stream [`atomic-claims.jsonl.gz`](release/amind-v1/data/atomic-claims.jsonl.gz) and join it to [`analysis-units.jsonl.gz`](release/amind-v1/data/analysis-units.jsonl.gz).
+The commands above audit the original v1 historical snapshot. For a small high-trust evaluation, start with [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl). For current custom retrieval, use the release selected by the [manifest](skills/amind/data/manifest.json): currently [`atomic-claims.jsonl.gz`](release/amind-v1-increment-2026-10-18/data/atomic-claims.jsonl.gz) joined to [`analysis-units.jsonl.gz`](release/amind-v1-increment-2026-10-18/data/analysis-units.jsonl.gz). Apply the manifest-bound lifecycle decisions and attribution filters described in the [retrieval policy](skills/amind/references/retrieval.md), or use `query.py`, which applies them. An unfiltered raw stream includes historical and reported material that is ineligible for a current institutional answer.
 
 ## Works across Agents
 
@@ -183,17 +189,24 @@ The installable package at [`skills/amind`](skills/amind) is a self-contained Ag
 ```bash
 python3 -B skills/amind/scripts/verify.py
 python3 -B scripts/verify_amind_increment.py
-python3 -B -m unittest scripts.test_amind_skill scripts.test_amind_increment
+python3 -B scripts/verify_amind_refresh.py
+python3 -B -m unittest scripts.test_amind_skill scripts.test_amind_increment scripts.test_amind_refresh scripts.test_amind_refresh_sources
 python3 -B scripts/verify_amind_v1_release.py
+python3 -B scripts/verify_amind_increment.py --historical
+python3 -B scripts/verify_amind_application_skills.py --output .codex-tmp/application-checks.json
 ```
 
-The full SQLite index combines frozen AMind v1 with the one-off 2026-09-08 increment. The 54-row reviewed kernel is preserved from v1. Every packaged data artifact carries a SHA-256 digest and row count.
+The SQLite index combines original v1 with dated increments through the current manifest cutoff. The 54-row reviewed kernel is preserved from v1; corrected and superseded evidence retains its original identity and passage. Every packaged data artifact carries a SHA-256 digest and row count. `verify_amind_increment.py` selects the current package verifier; `--historical` checks the September snapshot independently. Current offline verification totals **220 tests**: 160 application checks and 60 knowledge/source checks. Application checks use local fixtures and make no live model calls. The historical [October 18 comparison](reviews/2026-10-18-comparison/report.zh-CN.md) records measured knowledge/timeliness and helper-contract gains; skill-guided model engineering and evaluation tasks tied. It covers 24 CLI task executions across 12 paired tasks, with one repetition per task and version. These bounded results do not establish general superiority.
+
+Three repetitions on work-like projects found one gateway-contract difference and ties on the other engineering and evaluation tasks after semantic grader corrections. Policy citation support improved in the tested task. The [workplace report](reviews/2026-10-19-workplace/report.zh-CN.md) retains 42 main executions, six confirmations, measurement repairs and the runtime configuration deviation.
+
+The original raw execution files are preserved in [checksum-bound review archives](reviews/2026-10-19-shipping/README.md). Run `python3 -B scripts/restore_amind_review_artifacts.py --apply` before opening raw-run links in a fresh checkout; restoration copies regular files only and executes no captured code.
 
 ## Boundaries
 
 - AMind reconstructs public reasoning; it has no access to Anthropic's private deliberations.
 - It never speaks in Anthropic's first person or invents an unpublished decision.
-- AMind v1 is a frozen research release, not a live source of current Anthropic policy.
+- Original v1 and each increment are dated research snapshots. Current-answer filtering uses recorded status evidence and cannot verify policy after the observation cutoff.
 - Theme frequency measures corpus coverage, not organizational consensus or personal influence.
 - Institutional material is not automatically attributed to an individual, and individual writing is not automatically institutional policy.
 - Only the 54 gold rows were individually reviewed; full-index results require passage inspection before material use.
@@ -212,11 +225,11 @@ No. It is an Agent Skill, full local evidence index, reviewed gold kernel, retri
 
 ### Does the Skill contain only 54 evidence rows?
 
-No. It searches all 64,265 atomic claims locally and carries all 14,715 bound passages. The 54 rows are the smaller set reviewed individually by a human and are used as a Gold calibration layer.
+No. It searches the full locally indexed corpus and carries bound passages; use `query.py summary` or the manifest for current totals. The 54 rows are the smaller set reviewed individually by a human and used as a Gold calibration layer.
 
 ### Why does Jack Clark appear so often?
 
-The updated source population includes 484 Import AI issues, while some long technical papers are atomized into hundreds of claims. Jack Clark accounts for 11,223 claims—not 20,000—and 3,690 of those are positions he reports or quotes rather than his own. Default retrieval excludes reported positions and caps results per work, voice, and host. See the [retrieval policy](skills/amind/references/retrieval.md#distribution-audit).
+Import AI contributes many issues, while some long technical papers produce hundreds of atomic claims. Raw volume is not a measure of personal influence: reported or quoted positions remain distinct from Jack Clark's own views. Use `query.py stats --json` for the current distribution; default retrieval excludes reported positions and caps results per work, voice and host. Historical distributions remain in dated reports. See the [retrieval policy](skills/amind/references/retrieval.md#distribution-audit).
 
 ### Does it claim to reproduce private reasoning?
 
@@ -237,6 +250,6 @@ Yes. The indexed Skill and raw release tools are standalone, use the Python stan
 
 ## License
 
-AMind's software, original documentation, build logic, and Skill instructions are licensed under the [Apache License 2.0](LICENSE). Public-source quotations and third-party factual metadata remain with their respective authors and publishers and are not relicensed; see [NOTICE](NOTICE) for the evidence and trademark boundary.
+AMind's software, original documentation, build logic, and Skill instructions are licensed under the [Apache License 2.0](LICENSE). Third-party quotations, public captures, extracted texts and factual metadata retain their respective authors’ and publishers’ rights and are not relicensed; see [NOTICE](NOTICE) for the evidence and trademark boundary.
 
 If AMind gives you a useful new lens, **[star the repository](https://github.com/lc708/AMind)** and share the question where visible evidence distance changed your answer.

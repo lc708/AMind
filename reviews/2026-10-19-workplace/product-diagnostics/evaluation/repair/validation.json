@@ -1,0 +1,51 @@
+{
+  "all_passed": true,
+  "report_regressions": 17,
+  "existing_eval_tests": 79,
+  "total_targeted_tests": 96,
+  "test_log_summaries": {
+    "report": "st_amind_eval_reporting.EvalReportingTests) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 2.978s\n\nOK\n",
+    "existing": "scripts.test_amind_app_skills.PackageTests) ... ok\n\n----------------------------------------------------------------------\nRan 79 tests in 6.914s\n\nOK\n"
+  },
+  "scenarios": [
+    {
+      "scene": "healthy",
+      "returncode": 0,
+      "error": null
+    },
+    {
+      "scene": "metrics-only",
+      "returncode": 2,
+      "error": "baseline: report state metrics differ from experiment identity"
+    },
+    {
+      "scene": "population-only",
+      "returncode": 2,
+      "error": "baseline: report state val population differs from experiment identity"
+    },
+    {
+      "scene": "both-fields",
+      "returncode": 2,
+      "error": "baseline: report state val population differs from experiment identity"
+    },
+    {
+      "scene": "reps-only",
+      "returncode": 2,
+      "error": "baseline: report state reps differ from experiment identity"
+    },
+    {
+      "scene": "legacy-unverified",
+      "returncode": 0,
+      "error": null
+    }
+  ],
+  "product_source_sha256": {
+    "skills/eval-improve/scripts/report_eval.py": "def2acf57a2b7caa294405f4002ebc11d6d38a0e580098d79afeefec3c468c38",
+    "skills/eval-improve/references/artifacts.md": "67cd775b3e2c47158eb8a63c561b444a18b2fe8d56dd121c77a0b5579769f4b8",
+    "scripts/test_amind_eval_reporting.py": "f1ef979073ca7f6a5206be890b72484be781e1d9c1d3579f9feafea68adfdc23"
+  },
+  "original_evidence_preserved": true,
+  "target_model_calls": 0,
+  "target_outputs_read": false,
+  "frozen_workplace_inputs_modified": false
+}

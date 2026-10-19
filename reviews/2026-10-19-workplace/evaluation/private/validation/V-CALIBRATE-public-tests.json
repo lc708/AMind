@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_abstention_remains_visible (test_public.PublicReviewTests) ... ok\ntest_unknown_security_worker_remains_uncovered (test_public.PublicReviewTests) ... ok\ntest_unreadable_input_returns_json_error (test_public.PublicReviewTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.180s\n\nOK\n"
+}

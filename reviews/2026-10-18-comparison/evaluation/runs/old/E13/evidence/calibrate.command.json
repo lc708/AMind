@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/eval-improve/scripts/calibrate_grader.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E13/input/labels.jsonl",
+    "--baseline",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E13/input/reference.jsonl"
+  ],
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "usage: calibrate_grader.py [-h] labels\ncalibrate_grader.py: error: unrecognized arguments: --baseline /Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E13/input/reference.jsonl\n"
+}

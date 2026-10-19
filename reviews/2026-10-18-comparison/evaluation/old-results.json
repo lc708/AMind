@@ -1,0 +1,699 @@
+{
+  "variant": "old",
+  "protocol_sha256": "5a6a4c75441cc8f843791889999646fb4758f1b9caae0861e1037739d05c755b",
+  "freeze_sha256": "f6396b81bc800138924ab6aa6ac3fa564421a8b1d15ca750013d143c54fc5fff",
+  "evidence_use": "pre-repair registered comparison",
+  "pass": 6,
+  "fail": 6,
+  "unsupported": 10,
+  "results": [
+    {
+      "id": "E01",
+      "name": "legacy-text-subsets",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Legacy normalized input/cache/output/reasoning is priced once: USD 10.2, full total 10.2.",
+      "variant": "old",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/old/E01",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 10.2,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E02",
+      "name": "unknown-and-partial",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Unknown model and partial usage prevent total_cost_usd; retain known subtotal.",
+      "variant": "old",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/old/E02",
+      "observed": {
+        "rows": [
+          {
+            "id": "unknown",
+            "stage": null,
+            "model": "unpriced",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "missing rate or usage"
+          },
+          {
+            "id": "partial",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_partial",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": "Tools, storage, sandbox, retries or other charges may be absent; not total task cost"
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 1,
+        "partial_events": 1,
+        "total_cost_usd": null,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E03",
+      "name": "distinct-endpoint-rates",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Same model decisions input-only prices USD2; responses text USD10.2; old exact-scoped adapter absent is unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E03",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "missing rate or usage"
+          },
+          {
+            "id": "decisions",
+            "stage": null,
+            "model": "same-model",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "missing rate or usage"
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 0,
+        "unknown_events": 2,
+        "partial_events": 0,
+        "total_cost_usd": null,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E04",
+      "name": "explicit-endpoint-no-legacy-fallback",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "A legacy price card plus explicitly different endpoint must return unknown; never model-only fallback.",
+      "variant": "old",
+      "outcome": "fail",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E04",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 10.2,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E05",
+      "name": "native-modality-not-free",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Legacy normalized text plus native audio detail must be unknown rather than text-only complete cost.",
+      "variant": "old",
+      "outcome": "fail",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E05",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 10.2,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E06",
+      "name": "duplicate-normalization-conflict",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Flat/detail cache counters 200000 versus 100000 must reject before pricing.",
+      "variant": "old",
+      "outcome": "fail",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E06",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 10.2,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E07",
+      "name": "cache-write-subset",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Explicit write subset is subtracted from ordinary input, added at write rate; expected USD10.6. Unsupported old accounting is separate.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E07",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "missing rate or usage"
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 0,
+        "unknown_events": 1,
+        "partial_events": 0,
+        "total_cost_usd": null,
+        "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+      }
+    },
+    {
+      "id": "E08",
+      "name": "clean-confusion-matrix",
+      "classification": "control",
+      "entry": "calibrate",
+      "expected": "Both sides retain exact TP2/TN2/FP1/FN1, agreement 2/3, recall2/3, precision2/3, order inconsistency0.",
+      "variant": "old",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/old/E08",
+      "observed": {
+        "examples": 6,
+        "judgments": 6,
+        "confusion": {
+          "tp": 2,
+          "tn": 2,
+          "fp": 1,
+          "fn": 1
+        },
+        "agreement": 0.6666666666666666,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "disagreements": [
+          {
+            "id": "fp-0",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fn-0",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          }
+        ],
+        "unstable_cases": [],
+        "order_inconsistency_rate": 0,
+        "ready_for_review": false,
+        "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "absent-negative-controls",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "A perfect positive-only set is not ready_for_review and negative evidence is unmeasured.",
+      "variant": "old",
+      "outcome": "fail",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E09",
+      "observed": {
+        "examples": 2,
+        "judgments": 2,
+        "confusion": {
+          "tp": 2,
+          "tn": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "agreement": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "disagreements": [],
+        "unstable_cases": [],
+        "order_inconsistency_rate": null,
+        "ready_for_review": true,
+        "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "contradictory-adjudication",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "Same case human adjudication changing between repeats must reject.",
+      "variant": "old",
+      "outcome": "fail",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E10",
+      "observed": {
+        "examples": 1,
+        "judgments": 2,
+        "confusion": {
+          "tp": 1,
+          "tn": 0,
+          "fp": 1,
+          "fn": 0
+        },
+        "agreement": 0.5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "disagreements": [
+          {
+            "id": "tp-0",
+            "rep": 1,
+            "human": 0,
+            "grade": 1
+          }
+        ],
+        "unstable_cases": [],
+        "order_inconsistency_rate": null,
+        "ready_for_review": false,
+        "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+      }
+    },
+    {
+      "id": "E11",
+      "name": "rare-base-rate",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "100 positives90TP10FN,900 negatives18FP882TN: FPR.02,FNR.1, deployment PPV.04310344827586207 at prevalence .001; old flag absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E11",
+      "observed": {}
+    },
+    {
+      "id": "E12",
+      "name": "fixed-judge-drift",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Same judge/rubric across cohorts, negatives FPR .02 to .08, max increase .03: alert and delta .06. Old drift flag absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E12",
+      "observed": {}
+    },
+    {
+      "id": "E13",
+      "name": "paired-judge-change",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Identical cases/rubric/adjudication: one improved, one regressed, paired agreement delta0; old baseline flag absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E13",
+      "observed": {}
+    },
+    {
+      "id": "E14",
+      "name": "clean-real-run-and-compare",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Two deterministic app variants via run_eval complete with2 pairs; quality delta1 and identity verified.",
+      "variant": "old",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/old/E14",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 2,
+          "attempts": 2,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0
+        },
+        "candidate": {
+          "status": "complete",
+          "completed_cases": 2,
+          "attempts": 2,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0
+        },
+        "comparison": {
+          "candidate": "v1",
+          "split": "val",
+          "metric": "quality",
+          "direction": "higher",
+          "planned_cases": 2,
+          "complete_pairs": 2,
+          "reps": 1,
+          "minimum_improvement": 0.0,
+          "problems": [],
+          "alpha": 0.05,
+          "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+          "bootstrap_samples": 200,
+          "seed": 42,
+          "identity_verified": true,
+          "comparison_hash": "b78b1a7260b19380af9ad8aa6d7ec18cc3d1a8e7234d3f6f6a1c24329e46b6c5",
+          "independent_groups": 2,
+          "verdict": "improvement_clears_threshold",
+          "baseline_mean": 0.0,
+          "candidate_mean": 1.0,
+          "delta_candidate_minus_baseline": 1.0,
+          "improvement": 1.0,
+          "improvement_interval": [
+            1.0,
+            1.0
+          ],
+          "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+          "improvement_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "E15",
+      "name": "served-model-substitution",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Pinned model mismatch yields zero scores, serving_substitution, retained USD.02 cost.",
+      "variant": "old",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/old/E15",
+      "observed": {
+        "run": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "errors": [
+          {
+            "app_cost_usd": 0.02,
+            "attempt_id": 1,
+            "cost_usd": 0.02,
+            "error": "served model is absent or differs from the explicit pin",
+            "event": "finished",
+            "judge_cost_usd": 0.0,
+            "judge_model": null,
+            "judge_usage": null,
+            "known_cost_usd": 0.02,
+            "latency_s": 0.052272834000000004,
+            "model": "substituted-model",
+            "prompt_id": "a",
+            "rep": 0,
+            "retryable": false,
+            "stage": "application",
+            "status": "serving_substitution",
+            "time": 1792300585.154146,
+            "usage": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "E16",
+      "name": "short-stage-population",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Contract workers3/aggregate1, reported workers2/aggregate1: unscorable coverage_incomplete; old stage gate absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E16",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "errors": []
+      }
+    },
+    {
+      "id": "E17",
+      "name": "served-tier-substitution",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Pinned standard tier, served flex at same model: zero scores, serving_substitution, retained USD.02; old billing scope pin absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E17",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "errors": []
+      }
+    },
+    {
+      "id": "E18",
+      "name": "failure-budget-and-resume",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Failed ceiling1, retry-safe app/retries1/attempts4: exactly1 failed invocation; resume does not launch more, remains incomplete. Old failure-limit absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E18",
+      "observed": {
+        "run": {
+          "status": "invalid",
+          "error": "unknown limit field; check the experiment card before executing"
+        },
+        "resume": {
+          "status": "invalid",
+          "error": "unknown limit field; check the experiment card before executing"
+        },
+        "calls_before": 0,
+        "calls_after": 0
+      }
+    },
+    {
+      "id": "E19",
+      "name": "interrupted-report-accounting",
+      "classification": "shared",
+      "entry": "runner",
+      "expected": "Started attempt without finish/result has unknown outcome/spend; report total_cost_usd must be null and unknown_cost_attempts1; report counts attempted invocation.",
+      "variant": "old",
+      "outcome": "fail",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E19",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "report": {
+          "variant": "baseline",
+          "split": "val",
+          "status": "incomplete",
+          "scored_observations": 0,
+          "planned_observations": 1,
+          "metrics": {
+            "quality": {
+              "mean": null,
+              "scored": 0
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": null,
+          "known_cost_usd": 0,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0,
+          "latency_p50_s": null,
+          "latency_p95_s": null,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": false
+        }
+      }
+    },
+    {
+      "id": "E20",
+      "name": "transplanted-report-ownership",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Rehashed result whose treatment binding belongs elsewhere must have unverified report integrity. Old per-result binding absent unsupported; frozen new is tested for this claim.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E20",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "report": {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 1,
+          "planned_observations": 1,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 1
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.02,
+          "latency_p50_s": 0.094200083,
+          "latency_p95_s": 0.094200083,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": true
+        }
+      }
+    },
+    {
+      "id": "E21",
+      "name": "unreconciled-resume",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Open started attempt blocks resume with explicit reconciliation error and no new application call.",
+      "variant": "old",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/old/E21",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "resume": {
+          "status": "invalid",
+          "error": "interrupted attempt has unknown outcome/cost; reconcile it before resume; do not retry side effects blindly"
+        },
+        "calls_before": 1,
+        "calls_after": 1
+      }
+    },
+    {
+      "id": "E22",
+      "name": "abandoned-reconciliation-budget",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Externally documented abandoned attempt consumes failed ceiling after reconcile --apply; resume cannot launch more. Old failure ceiling absent unsupported.",
+      "variant": "old",
+      "outcome": "unsupported",
+      "contract_satisfied": false,
+      "evidence": "runs/old/E22",
+      "observed": {
+        "run": {
+          "status": "invalid",
+          "error": "unknown limit field; check the experiment card before executing"
+        }
+      }
+    }
+  ]
+}

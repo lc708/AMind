@@ -1,0 +1,132 @@
+{
+  "historical_final_sha256": "fd7d8a86eff298945560daf888b0479cd94113f1e3d4487a2f50a045be79f7b2",
+  "bound_artifacts_checked": 25,
+  "all_matched": true,
+  "artifacts": [
+    {
+      "path": "reviews/2026-10-19-workplace/protocol.json",
+      "sha256": "920143d6a83600dc81e4cbf4af64ffa992da59655a6e253a3b1e25ba565fd293",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/measurement-files.json",
+      "sha256": "bc1da2d4c04f3f076234f1c4724859735fce2e2bf20d2d465a9665e039311f86",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/snapshots.json",
+      "sha256": "ec62882fcd2b02ad44a201eff82ffd9f7c56f96409a7226eb8ffa55cfccd0d44",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/selected-repair.json",
+      "sha256": "b61e67bafd1055a9a22390c6b680d90b507bd0523ee3d02c83aef2f822e9712b",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/main-plan-captured-files.json",
+      "sha256": "75e53fbd5f36c83906bb3b16578ba0a452c6ae2e229968e209440cae85c9191a",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/repair-plan-captured-files.json",
+      "sha256": "f23b13fbf61777a83c617299e39d4a30929205eb4fda4cef856521a48c82fdbe",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/application-results-final.json",
+      "sha256": "a1ccdccf890ab3b7379964bbcc2a7886fe8eaa05571b3918fe4d8e7b76ffaff3",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/main-plan-engineering-scores-revised.json",
+      "sha256": "8ef79258fb46d96bb21637d112b0765e1e7463693bd9c5c9761df835eb834f4b",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/main-plan-evaluation-scores-revised.json",
+      "sha256": "93071defa145fb4fce0b5798d1c726a8cd5951860ce60af50c3055b02010854b",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/citation/actual-results.json",
+      "sha256": "65a3c286a7b41ea2eb8959fadd087b0f4f508f5f8e5e4fa17148b35a83b47eed",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/citation/sensitivity.json",
+      "sha256": "2b4c3402c72622fdfcbdffe45a443f5833424a259a26d677a84b7da1dce55c8d",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/citation/transport-confirmation-results.json",
+      "sha256": "47c055ddfb002773f3ccd6a421e113c6d72ad2df06f0ddb92115e1e2e408fdb4",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/repair-plan-engineering-scores-revised.json",
+      "sha256": "11a5944249ddb3f78bff62c74976d6123440bee311c8819c3c2988002941d13e",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/installation.json",
+      "sha256": "dd2fcbf18f844f0f73020f6730f30857b144d8fb0207b1fd619198c86595e4b0",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/knowledge-checks.json",
+      "sha256": "e57ba0218e937ab94e22cd452d6c0e8b46fc4bd17740d57f0f651d8b7d43a018",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/source-history-integrity.json",
+      "sha256": "1e21b3e4ded11e6f68d59022a031d66c52ed2dffd12fc31f6b16e32a8a31e1f5",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/profile-cleanup.json",
+      "sha256": "46f2c25a5adcde75d945d8ee867bfb4d7c0f06f57ba5ae9b4e109fea8b5789b0",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/repair-runtime.json",
+      "sha256": "727070df53080b663e1dd6ed422442a8b520fe48d39a80bf9cc851e2ebd2aa56",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/final-methods-review.md",
+      "sha256": "8f1af4db6c57fff0dbc297df3ef0f5ba236911876a199fa6a2b876f4c5d51d9a",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/report.zh-CN.md",
+      "sha256": "648bafd3d7558874b6c935fce299cf86c2b359b66669cdaf9594a7c85c034143",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/final-report-review.json",
+      "sha256": "2ae258b16d3dc2fd76e22acb777fe5a270ec46eca26cbdb68010786301feb124",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/sync-summary.json",
+      "sha256": "a973000dd7a133a20eb5af70860e2327a299a6ab16b331f4f7ea3fb4461d080a",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/fixture-link-manifest.json",
+      "sha256": "95df4685a679c02c6a37444a657b32e287318a1e2c642d8fc46a5ecef7d0cd8f",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/captured-log-preservation.json",
+      "sha256": "77a8c322008725efbc76d5a042ab050e736e654a4124949a1de51804c8594ba9",
+      "matches": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/validation/captured-logs.jsonl.gz",
+      "sha256": "7da68674338d9786e65d2157ce09dd981f7b9de8e4d6ded382da5ff293cbdfb5",
+      "matches": true
+    }
+  ]
+}

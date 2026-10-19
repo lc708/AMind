@@ -1,0 +1,29 @@
+{
+  "id": "E18",
+  "name": "failure-budget-and-resume",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Failed ceiling1, retry-safe app/retries1/attempts4: exactly1 failed invocation; resume does not launch more, remains incomplete. Old failure-limit absent unsupported.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E18",
+  "observed": {
+    "run": {
+      "status": "incomplete",
+      "completed_cases": 0,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "resume": {
+      "status": "incomplete",
+      "completed_cases": 0,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "calls_before": 1,
+    "calls_after": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "E06",
+  "name": "duplicate-normalization-conflict",
+  "classification": "shared",
+  "entry": "price",
+  "expected": "Flat/detail cache counters 200000 versus 100000 must reject before pricing.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E06",
+  "observed": {
+    "error": "conflicting normalized cache counters"
+  }
+}

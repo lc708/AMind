@@ -1,0 +1,32 @@
+{
+  "phase": "post-diagnostic compatibility correction; no primary-treatment change",
+  "reason": "Full application verification caught the first repair imposing display normalization on legacy raw message content. Shared validate_terminal now validates terminal facts separately from display schema. Original kernel fixture was not edited.",
+  "tests": {
+    "behavior": 42,
+    "capability_kernel": 67,
+    "total_targeted": 109
+  },
+  "checks": {
+    "behavior42": true,
+    "kernel67": true,
+    "alias_lock": true,
+    "contradiction_zero_effects": true,
+    "contradiction_single_adapter_call": true,
+    "confirmed_result_retained": true,
+    "late_conflict_explicit": true,
+    "true_crash_no_replay": true
+  },
+  "all_passed": true,
+  "raw_evidence_before_any_repair_sha256": "ed92ac76c84bf6e2c40bbd4b33d32ad5e03b5d0cd2c3efc64b7a50f7fa3e8f09",
+  "interim_41_test_receipts_retained": true,
+  "product_files_sha256": {
+    "workflow_contract.py": "d019571e750a1c967541b13c3d86fa115cc1f3ea7643bfe4ec1fd25a51fb6b61",
+    "tool_loop.py": "e93558518e3c20cc951da682b0c8ef08b1cebce502c74d92fef036fa52745108",
+    "response_contract.py": "4a99135477a1afe0ff526b735beec9c12c0cf07e1d68ffbc3d36fdfbaeb4d4fe"
+  },
+  "shared_terminal_fields": "response object; completed response rejects error/incomplete_details if is not None, including empty objects",
+  "compatibility": "run_loop retains raw message content and phases/opaque items; normalize still enforces the Responses display schema",
+  "frozen_measurement_inputs_modified": false,
+  "main_outputs_read": false,
+  "target_model_calls": 0
+}

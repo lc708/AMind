@@ -1,0 +1,179 @@
+{
+  "checked_at_utc": "2026-10-18T19:37:41.583314+00:00",
+  "status": "complete",
+  "versions": {
+    "Knowledge": "1.3.1",
+    "Engineering": "0.3.2",
+    "Eval": "0.4.2"
+  },
+  "distinct_checks": {
+    "application": 159,
+    "knowledge_source": 60,
+    "total": 219,
+    "all_passed": true,
+    "repeat_execution_inflates_count": false
+  },
+  "target_executions": {
+    "main_planned": 42,
+    "main_captured": 42,
+    "supplemental_planned": 6,
+    "supplemental_captured": 6,
+    "total": 48,
+    "unique_native_threads": 48,
+    "automatic_retries": 0,
+    "runtime_failures": 0,
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "actual_served_model_verified": false
+  },
+  "native_usage": {
+    "input_tokens": 19303200,
+    "cached_input_tokens": 16960896,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 654896,
+    "reasoning_output_tokens": 198123
+  },
+  "dollar_cost_usd": null,
+  "source_integrity": {
+    "frozen_measurement_files": 175,
+    "selected_repair_files": 97,
+    "raw_captured_files": 4400,
+    "all_unchanged": true,
+    "history_files_unchanged": 3398,
+    "raw_captures_verified_in_original": 4400
+  },
+  "runtime_deviation": {
+    "main_effective_MCP_disabled": false,
+    "main_observed_MCP_using_runs": [
+      "W017",
+      "W018",
+      "W038"
+    ],
+    "main_MCP_calls": 31,
+    "main_out_of_scope_access_proven": false,
+    "MCP_OS_path_boundary_verified": false,
+    "supplemental_effective_MCP_disabled": true,
+    "supplemental_MCP_calls": 0,
+    "original_main_preserved": true
+  },
+  "post_outcome_measurement_revisions": {
+    "contract_narrowness_classes": 3,
+    "all_arms_regraded": true,
+    "original_scores_preserved": true,
+    "calibration_scenarios": 33,
+    "is_product_gain": false
+  },
+  "installed": {
+    "status": "installed_and_verified",
+    "packages": {
+      "amind": {
+        "files": 23,
+        "matches_source": true
+      },
+      "amind-engineering": {
+        "files": 43,
+        "matches_source": true
+      },
+      "eval-improve": {
+        "files": 31,
+        "matches_source": true
+      }
+    },
+    "receipt": "installation.json",
+    "backup": "/Users/damonalbarn/.codex/skill-backups/amind-series-z_58sygs"
+  },
+  "report_local_links": {
+    "checked": 31,
+    "missing": []
+  },
+  "git_diff_check_passed": true,
+  "artifacts_sha256": {
+    "protocol.json": "920143d6a83600dc81e4cbf4af64ffa992da59655a6e253a3b1e25ba565fd293",
+    "measurement-files.json": "bc1da2d4c04f3f076234f1c4724859735fce2e2bf20d2d465a9665e039311f86",
+    "snapshots.json": "ec62882fcd2b02ad44a201eff82ffd9f7c56f96409a7226eb8ffa55cfccd0d44",
+    "product-diagnostics/selected-repair.json": "b61e67bafd1055a9a22390c6b680d90b507bd0523ee3d02c83aef2f822e9712b",
+    "main-plan-captured-files.json": "75e53fbd5f36c83906bb3b16578ba0a452c6ae2e229968e209440cae85c9191a",
+    "repair-plan-captured-files.json": "f23b13fbf61777a83c617299e39d4a30929205eb4fda4cef856521a48c82fdbe",
+    "application-results-final.json": "a1ccdccf890ab3b7379964bbcc2a7886fe8eaa05571b3918fe4d8e7b76ffaff3",
+    "main-plan-engineering-scores-revised.json": "8ef79258fb46d96bb21637d112b0765e1e7463693bd9c5c9761df835eb834f4b",
+    "main-plan-evaluation-scores-revised.json": "93071defa145fb4fce0b5798d1c726a8cd5951860ce60af50c3055b02010854b",
+    "citation/actual-results.json": "65a3c286a7b41ea2eb8959fadd087b0f4f508f5f8e5e4fa17148b35a83b47eed",
+    "citation/sensitivity.json": "2b4c3402c72622fdfcbdffe45a443f5833424a259a26d677a84b7da1dce55c8d",
+    "citation/transport-confirmation-results.json": "47c055ddfb002773f3ccd6a421e113c6d72ad2df06f0ddb92115e1e2e408fdb4",
+    "repair-plan-engineering-scores-revised.json": "11a5944249ddb3f78bff62c74976d6123440bee311c8819c3c2988002941d13e",
+    "validation/installation.json": "dd2fcbf18f844f0f73020f6730f30857b144d8fb0207b1fd619198c86595e4b0",
+    "validation/knowledge-checks.json": "e57ba0218e937ab94e22cd452d6c0e8b46fc4bd17740d57f0f651d8b7d43a018",
+    "validation/source-history-integrity.json": "1e21b3e4ded11e6f68d59022a031d66c52ed2dffd12fc31f6b16e32a8a31e1f5",
+    "validation/profile-cleanup.json": "46f2c25a5adcde75d945d8ee867bfb4d7c0f06f57ba5ae9b4e109fea8b5789b0",
+    "validation/repair-runtime.json": "727070df53080b663e1dd6ed422442a8b520fe48d39a80bf9cc851e2ebd2aa56",
+    "final-methods-review.md": "8f1af4db6c57fff0dbc297df3ef0f5ba236911876a199fa6a2b876f4c5d51d9a",
+    "report.zh-CN.md": "648bafd3d7558874b6c935fce299cf86c2b359b66669cdaf9594a7c85c034143",
+    "validation/final-report-review.json": "2ae258b16d3dc2fd76e22acb777fe5a270ec46eca26cbdb68010786301feb124",
+    "validation/sync-summary.json": "a973000dd7a133a20eb5af70860e2327a299a6ab16b331f4f7ea3fb4461d080a",
+    "validation/fixture-link-manifest.json": "95df4685a679c02c6a37444a657b32e287318a1e2c642d8fc46a5ecef7d0cd8f",
+    "validation/captured-log-preservation.json": "77a8c322008725efbc76d5a042ab050e736e654a4124949a1de51804c8594ba9",
+    "validation/captured-logs.jsonl.gz": "7da68674338d9786e65d2157ce09dd981f7b9de8e4d6ded382da5ff293cbdfb5"
+  },
+  "sync": {
+    "at_utc": "2026-10-18T19:37:41.572195+00:00",
+    "status": "complete",
+    "original_root": "/Users/damonalbarn/Work/AMind",
+    "source_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind",
+    "original_writes_in_guarded_sync": 5710,
+    "main_sync_counts": {
+      "created": 5694,
+      "replaced": 16,
+      "already_equal": 3510
+    },
+    "post_copy_rehash_verified": 5710,
+    "raw_capture_files_verified_in_original": 4400,
+    "protected_user_files": [
+      {
+        "path": "爱仕珠宝AI赋能解决方案V0.3（团队页优化，含演讲备注）.pptx.inspect.ndjson",
+        "sha256": "4779ed9b0c78b135a860788064abc13c87c9f4339de4355a6544a8e4f63fe2fd",
+        "unchanged": true
+      },
+      {
+        "path": "爱仕珠宝AI赋能解决方案V0.3（团队页优化，含演讲备注）.pptx",
+        "sha256": "497f22cec1db4aaf3f7d7092ec72404ad4c426c976c2c3c4558fb4e36a270afc",
+        "unchanged": true
+      }
+    ],
+    "deletions": 0,
+    "owned_diagnostic_symlinks_excluded_from_file_copy": 6,
+    "fixture_link_metadata": "fixture-link-manifest.json",
+    "raw_fixture_links_retained_in_worktree": true,
+    "additional_ignored_captured_logs_copied": 21,
+    "captured_log_preservation_receipt": "captured-log-preservation.json",
+    "captured_logs_versionable_archive": "captured-logs.jsonl.gz",
+    "full_receipt": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/sync-records/20261018T193454Z-305eb09b5c/receipt.json",
+    "full_receipt_sha256": "141942f94965aae7457c6e87e879fe854e999fc96711b1e0d1329dad078fb3ea",
+    "event_journal": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/sync-records/20261018T193454Z-305eb09b5c/events.ndjson",
+    "event_journal_sha256": "949a44924fa6201a946adaa0556bb73f2226fb4567c4e07acd7c4b892aa46477",
+    "backup_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/sync-records/20261018T193454Z-305eb09b5c/backup",
+    "main_rejected_plan_performed_writes": 0,
+    "package_inventories_original_worktree_installed_equal": true,
+    "finalization": "After main sync, only known frozen run-owned logs and validation archive/receipts are created with no-clobber; existing run-owned final JSON hash checked before update.",
+    "summary_receipt": "sync-summary.json"
+  },
+  "worktree": {
+    "path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind",
+    "branch": "codex/amind-october-refresh",
+    "retained": true,
+    "approx_size_gb": 2.0,
+    "runtime_root": "/private/tmp/amind-workplace-20261019-4pdx607m",
+    "runtime_approx_size_gb": 2.8
+  },
+  "limitations": [
+    "Synthetic workplace tasks:two per app axis; repeated runs and probes are not independent tasks.",
+    "Scoring corrections are post-outcome and separately preserved.",
+    "Supplemental runs use reused tasks/configurations and historical references, not untouched holdout.",
+    "Citation review is AI-assisted; one secondary criterion disagreement retained.",
+    "No production/API compatibility or general superiority/dollar-savings proof."
+  ],
+  "independent_report_review": {
+    "receipt": "final-report-review.json",
+    "checks": 11,
+    "blocking_findings": 0
+  }
+}

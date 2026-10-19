@@ -1,0 +1,39 @@
+{
+  "id": "E01",
+  "name": "legacy-text-subsets",
+  "classification": "control",
+  "entry": "price",
+  "expected": "Legacy normalized input/cache/output/reasoning is priced once: USD 10.2, full total 10.2.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E01",
+  "observed": {
+    "rows": [
+      {
+        "id": "e",
+        "stage": null,
+        "model": "same-model",
+        "status": "estimated_complete",
+        "cost_usd": 10.2,
+        "components": {
+          "uncached_input": 8.0,
+          "cached_input": 0.2,
+          "output_including_reasoning": 2.0,
+          "external_known": 0
+        },
+        "billing_identity": null,
+        "usage_adapter": "text_tokens_v1",
+        "identity_status": "legacy_model_only",
+        "rate_card_version": "synthetic-registered-v1",
+        "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+        "warning": null
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 10.2,
+    "unknown_events": 0,
+    "partial_events": 0,
+    "total_cost_usd": 10.2,
+    "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+  }
+}

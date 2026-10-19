@@ -1,0 +1,92 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/compare_runs.py",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/recovery-flow",
+    "--candidate",
+    "v1",
+    "--split",
+    "val",
+    "--reps",
+    "1",
+    "--all-metrics",
+    "--bootstrap",
+    "200"
+  ],
+  "returncode": 2,
+  "stdout": "{\n  \"candidate\": \"v1\",\n  \"split\": \"val\",\n  \"decision\": \"do_not_promote\",\n  \"evidence_use\": \"selection_only\",\n  \"metrics\": [\n    {\n      \"candidate\": \"v1\",\n      \"split\": \"val\",\n      \"metric\": \"quality\",\n      \"direction\": \"higher\",\n      \"planned_cases\": 3,\n      \"complete_pairs\": 3,\n      \"reps\": 1,\n      \"minimum_improvement\": 0.0,\n      \"problems\": [],\n      \"alpha\": 0.025,\n      \"method\": \"paired case means; percentile bootstrap of whole independent groups, case-weighted estimand\",\n      \"bootstrap_samples\": 200,\n      \"seed\": 42,\n      \"identity_verified\": true,\n      \"comparison_hash\": \"f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8\",\n      \"independent_groups\": 3,\n      \"verdict\": \"improvement_clears_threshold\",\n      \"baseline_mean\": 0.0,\n      \"candidate_mean\": 1.0,\n      \"delta_candidate_minus_baseline\": 1.0,\n      \"improvement\": 1.0,\n      \"improvement_interval\": [\n        1.0,\n        1.0\n      ],\n      \"limits\": \"Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.\",\n      \"role\": \"objective\",\n      \"margin\": 0,\n      \"gate_passed\": true\n    },\n    {\n      \"candidate\": \"v1\",\n      \"split\": \"val\",\n      \"metric\": \"policy\",\n      \"direction\": \"higher\",\n      \"planned_cases\": 3,\n      \"complete_pairs\": 3,\n      \"reps\": 1,\n      \"minimum_improvement\": 0.0,\n      \"problems\": [],\n      \"alpha\": 0.025,\n      \"method\": \"paired case means; percentile bootstrap of whole independent groups, case-weighted estimand\",\n      \"bootstrap_samples\": 200,\n      \"seed\": 42,\n      \"identity_verified\": true,\n      \"comparison_hash\": \"f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8\",\n      \"independent_groups\": 3,\n      \"verdict\": \"regression\",\n      \"baseline_mean\": 1.0,\n      \"candidate_mean\": 0.0,\n      \"delta_candidate_minus_baseline\": -1.0,\n      \"improvement\": -1.0,\n      \"improvement_interval\": [\n        -1.0,\n        -1.0\n      ],\n      \"limits\": \"Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.\",\n      \"role\": \"guardrail\",\n      \"margin\": 0,\n      \"gate_passed\": false\n    }\n  ],\n  \"limits\": \"Familywise intervals cover registered metrics, not repeated peeking or many candidate searches. Operational, cost and mechanism gates remain separate.\"\n}\n",
+  "stderr": "",
+  "json": {
+    "candidate": "v1",
+    "split": "val",
+    "decision": "do_not_promote",
+    "evidence_use": "selection_only",
+    "metrics": [
+      {
+        "candidate": "v1",
+        "split": "val",
+        "metric": "quality",
+        "direction": "higher",
+        "planned_cases": 3,
+        "complete_pairs": 3,
+        "reps": 1,
+        "minimum_improvement": 0.0,
+        "problems": [],
+        "alpha": 0.025,
+        "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+        "bootstrap_samples": 200,
+        "seed": 42,
+        "identity_verified": true,
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "independent_groups": 3,
+        "verdict": "improvement_clears_threshold",
+        "baseline_mean": 0.0,
+        "candidate_mean": 1.0,
+        "delta_candidate_minus_baseline": 1.0,
+        "improvement": 1.0,
+        "improvement_interval": [
+          1.0,
+          1.0
+        ],
+        "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+        "role": "objective",
+        "margin": 0,
+        "gate_passed": true
+      },
+      {
+        "candidate": "v1",
+        "split": "val",
+        "metric": "policy",
+        "direction": "higher",
+        "planned_cases": 3,
+        "complete_pairs": 3,
+        "reps": 1,
+        "minimum_improvement": 0.0,
+        "problems": [],
+        "alpha": 0.025,
+        "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+        "bootstrap_samples": 200,
+        "seed": 42,
+        "identity_verified": true,
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "independent_groups": 3,
+        "verdict": "regression",
+        "baseline_mean": 1.0,
+        "candidate_mean": 0.0,
+        "delta_candidate_minus_baseline": -1.0,
+        "improvement": -1.0,
+        "improvement_interval": [
+          -1.0,
+          -1.0
+        ],
+        "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+        "role": "guardrail",
+        "margin": 0,
+        "gate_passed": false
+      }
+    ],
+    "limits": "Familywise intervals cover registered metrics, not repeated peeking or many candidate searches. Operational, cost and mechanism gates remain separate."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "run_id": "W039",
+  "original_unchanged": true,
+  "score_unchanged": true,
+  "type": "citation_position_correction",
+  "claim_id": "nuwa1-claim-7023c5fcec7472e89ce29ce2",
+  "passage_id": "nuwa1-passage-962430ff3fa0fb39813467f4",
+  "corrections": [
+    {
+      "statement": "Most updates clarify existing rules and hardware-related sentence",
+      "original_line": 7,
+      "correct_source_line": 9
+    },
+    {
+      "statement": "The updated policy takes effect on November 12",
+      "original_line": 9,
+      "correct_source_line": 11
+    }
+  ],
+  "safe_location": "Use the exact bound passage ID plus the corresponding paragraph and exact quotation; the original narrower offsets were wrong.",
+  "basis": "Complete bound primary paragraph in the anonymous packet; primary and secondary graders independently recorded the position issue.",
+  "scope": "Erratum for the delivered example, not a new skill rule or a rescore; source data and all historical answers remain unchanged."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "E17",
+  "name": "served-tier-substitution",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Pinned standard tier, served flex at same model: zero scores, serving_substitution, retained USD.02; old billing scope pin absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E17",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 1,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "errors": []
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "id": "E11",
+  "name": "rare-base-rate",
+  "classification": "extension",
+  "entry": "calibrate",
+  "expected": "100 positives90TP10FN,900 negatives18FP882TN: FPR.02,FNR.1, deployment PPV.04310344827586207 at prevalence .001; old flag absent unsupported.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E11",
+  "observed": {
+    "examples": 1000,
+    "judgments": 1000,
+    "confusion": {
+      "tp": 90,
+      "tn": 882,
+      "fp": 18,
+      "fn": 10
+    },
+    "evaluation_identity": {
+      "dataset_version": "calibration-v1",
+      "grader_version": "judge-v1",
+      "judge_model": "judge-v1",
+      "rubric_sha256": "synthetic-rubric-v1"
+    },
+    "labels_sha256": "fdc2c9f70affec71df67ea7369e630c1ca4915e668c46d98b9acd52a68407a3f",
+    "measurement_status": {
+      "positive_controls": "measured",
+      "negative_controls": "measured",
+      "order_bias": "unmeasured",
+      "repeat_stability": "unmeasured",
+      "population_precision": "scenario_estimate",
+      "identity": "verified"
+    },
+    "positive_judgments": 100,
+    "negative_judgments": 900,
+    "agreement": 0.972,
+    "precision": 0.8333333333333334,
+    "recall": 0.9,
+    "false_positive_rate": 0.02,
+    "false_negative_rate": 0.1,
+    "specificity": 0.98,
+    "sample_prevalence": 0.1,
+    "population_prevalence": 0.001,
+    "population_adjusted_precision": 0.043103448275862065,
+    "disagreements": [
+      {
+        "id": "fn-0",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-1",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-2",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-3",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-4",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-5",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-6",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-7",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-8",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fn-9",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      },
+      {
+        "id": "fp-0",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-1",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-2",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-3",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-4",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-5",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-6",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-7",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-8",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-9",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-10",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-11",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-12",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-13",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-14",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-15",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-16",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-17",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      }
+    ],
+    "unstable_cases": [],
+    "order_inconsistency_rate": null,
+    "ready_for_review": false,
+    "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks."
+  }
+}

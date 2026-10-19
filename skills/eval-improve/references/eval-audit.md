@@ -15,6 +15,9 @@ Follow a real case through loading, context assembly, application execution, out
 | Leakage | Can target or optimizer read answers/test content? | Protected canary access test in the actual sandbox |
 | Rubric validity | Does the metric measure the user's decision? | Near-miss wrong answer, unsupported citation, attractive but useless prose |
 | Judge robustness | Is it vulnerable to answer instructions/style/order? | Prompt injection, A/B reversal, verbosity-matched counterexamples |
+| Auditor incentives | Can finding more issues increase reward even when nothing is wrong? | Clean negatives, harmless anomalies, plausible invented failures and rubric-score exploitation |
+| Detection errors | Is high agreement hiding a low-base-rate false-positive problem? | Report TP/TN/FP/FN, class denominators, FPR/FNR and deployment-prevalence scenarios |
+| Stage coverage | Does aggregate success hide a missing worker or failed phase? | Declare required stages, item denominators and uncovered work; remove a child's output and require failure |
 | Artifact grading | Is success established by files/actions? | Missing/extra file, no-op, wrong database row, misleading final message |
 | Serving identity | Are model aliases/fallbacks silently changing? | Record actual served model; exercise substitution/incomplete paths |
 | Failure policy | Are hard cases or failed attempts excluded invisibly? | Missing case, duplicate rep, timeout, judge crash and retry |
@@ -35,6 +38,8 @@ Follow a real case through loading, context assembly, application execution, out
 ## Required negative controls
 
 A grader that cannot fail known-bad behavior is not ready. Include a constant answer, an empty answer, a fluent wrong answer, a correct but differently phrased answer, an injected instruction to the judge, a missing artifact, a forbidden mutation and a deliberately broken dependency where applicable. Do not tune an application to pass a broken grader.
+
+For an issue-detection auditor, also include adjudicated clean tasks and harmless deviations: a high finding count is not accuracy. Define which event label 1 represents. Report false positives on clean tasks separately from false negatives on genuine issues. Curated positive-heavy samples do not establish deployment precision; use an explicit prevalence scenario and retain the class denominators. Re-adjudicate disagreements independently of the judge before changing the rubric. Missing negative controls, swap checks or repeat trials remain unmeasured. Use [calibration helpers](accounting-calibration.md) to compare the same cases under two judges or audit a fixed judge across drift cohorts.
 
 Check grade range and typing; missing numeric observations; ID/rep uniqueness; denominator; planned versus completed cases; requested versus served model; retry and failure spend; linked paths and unexpected artifact access. Verify that lower-is-better metrics cannot be accidentally interpreted in the opposite direction.
 

@@ -1,0 +1,3 @@
+{"id":"refund","input":{"requested_summary":"refund approved","pause_once":true},"group":"returns"}
+{"id":"billing","input":{"requested_summary":"invoice corrected"},"group":"billing"}
+{"id":"access","input":{"requested_summary":"account restored"},"group":"account-access"}

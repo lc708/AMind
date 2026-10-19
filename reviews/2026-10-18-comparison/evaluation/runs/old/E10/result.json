@@ -1,0 +1,36 @@
+{
+  "id": "E10",
+  "name": "contradictory-adjudication",
+  "classification": "shared",
+  "entry": "calibrate",
+  "expected": "Same case human adjudication changing between repeats must reject.",
+  "variant": "old",
+  "outcome": "fail",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E10",
+  "observed": {
+    "examples": 1,
+    "judgments": 2,
+    "confusion": {
+      "tp": 1,
+      "tn": 0,
+      "fp": 1,
+      "fn": 0
+    },
+    "agreement": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "disagreements": [
+      {
+        "id": "tp-0",
+        "rep": 1,
+        "human": 0,
+        "grade": 1
+      }
+    ],
+    "unstable_cases": [],
+    "order_inconsistency_rate": null,
+    "ready_for_review": false,
+    "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+  }
+}

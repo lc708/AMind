@@ -1,0 +1,5 @@
+{
+  "source_sha256": "aa1a442764f41b6b8f453a16330cddeaf5f459ac083e13088687dfb055267676",
+  "phase": "confirmation",
+  "change": "Added admission/global process deadline from initial protocol mtime, plus bounded canary. Public tasks, skill snapshots, grader criteria and model settings unchanged."
+}

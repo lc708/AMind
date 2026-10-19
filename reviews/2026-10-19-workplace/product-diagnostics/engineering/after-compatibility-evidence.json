@@ -1,0 +1,766 @@
+{
+  "scope": "Independent post-freeze product diagnostics, not workplace/model task evidence. No target runs/captures read; no product edits/model/network calls.",
+  "product_files_sha256": {
+    "old-0.2.1": {
+      "workflow_contract.py": null,
+      "tool_loop.py": "ea9d3fc40ab22599edbd925b968ee6fff5e8f7cabc91c5bd462c2b77d3709569",
+      "response_contract.py": "1c70cc3d307f2581cb2ef2b3ff236f87eb74c254887d0e41449afcdb9973da0e"
+    },
+    "current-working-tree-after-fix": {
+      "workflow_contract.py": "d019571e750a1c967541b13c3d86fa115cc1f3ea7643bfe4ec1fd25a51fb6b61",
+      "tool_loop.py": "e93558518e3c20cc951da682b0c8ef08b1cebce502c74d92fef036fa52745108",
+      "response_contract.py": "4a99135477a1afe0ff526b735beec9c12c0cf07e1d68ffbc3d36fdfbaeb4d4fe"
+    }
+  },
+  "cases": [
+    {
+      "version": "old-0.2.1",
+      "case": "workflow-alias",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "workflow-alias",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-o0g37637"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": false, \"reason\": \"old package has no equivalent staged Workflow public entry\"}\n",
+      "stderr": "",
+      "result": {
+        "supported": false,
+        "reason": "old package has no equivalent staged Workflow public entry"
+      }
+    },
+    {
+      "version": "old-0.2.1",
+      "case": "workflow-samepath-control",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "workflow-samepath-control",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-4wlyd8vl"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": false, \"reason\": \"old package has no equivalent staged Workflow public entry\"}\n",
+      "stderr": "",
+      "result": {
+        "supported": false,
+        "reason": "old package has no equivalent staged Workflow public entry"
+      }
+    },
+    {
+      "version": "old-0.2.1",
+      "case": "contradictory-response-dispatch",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "contradictory-response-dispatch",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-ctasqf5p"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"adapter_kind\": \"fixed offline captured response callable, not a model client\", \"provider_fixture\": {\"id\": \"r-contradictory\", \"status\": \"completed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}, \"normalizer\": {\"rejection\": \"completed response contains an error or incomplete details\"}, \"loop_result\": {\"status\": \"completed\", \"history\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}, {\"type\": \"function_call_output\", \"call_id\": \"send-79\", \"output\": \"{\\\"invoice\\\":\\\"79\\\",\\\"operation_key\\\":\\\"3cfa06b2ba57162265b4a0bda04a057ef04a379e2a6681ac0f39828f8343a5cc\\\",\\\"receipt_id\\\":\\\"sent-79\\\"}\"}, {\"type\": \"message\", \"phase\": \"final_answer\", \"content\": [{\"type\": \"output_text\", \"text\": \"Invoice sent.\"}]}], \"response\": {\"status\": \"completed\", \"output\": [{\"type\": \"message\", \"phase\": \"final_answer\", \"content\": [{\"type\": \"output_text\", \"text\": \"Invoice sent.\"}]}]}, \"tool_calls\": 1}, \"actual_side_effect_receipts\": [{\"invoice\": \"79\", \"operation_key\": \"3cfa06b2ba57162265b4a0bda04a057ef04a379e2a6681ac0f39828f8343a5cc\", \"receipt_id\": \"sent-79\"}], \"adapter_invocations\": 2}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "adapter_kind": "fixed offline captured response callable, not a model client",
+        "provider_fixture": {
+          "id": "r-contradictory",
+          "status": "completed",
+          "error": {
+            "code": "provider_adapter_failure"
+          },
+          "output": [
+            {
+              "type": "function_call",
+              "call_id": "send-79",
+              "name": "send_invoice",
+              "arguments": "{\"invoice\":\"79\"}"
+            }
+          ]
+        },
+        "normalizer": {
+          "rejection": "completed response contains an error or incomplete details"
+        },
+        "loop_result": {
+          "status": "completed",
+          "history": [
+            {
+              "type": "function_call",
+              "call_id": "send-79",
+              "name": "send_invoice",
+              "arguments": "{\"invoice\":\"79\"}"
+            },
+            {
+              "type": "function_call_output",
+              "call_id": "send-79",
+              "output": "{\"invoice\":\"79\",\"operation_key\":\"3cfa06b2ba57162265b4a0bda04a057ef04a379e2a6681ac0f39828f8343a5cc\",\"receipt_id\":\"sent-79\"}"
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Invoice sent."
+                }
+              ]
+            }
+          ],
+          "response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Invoice sent."
+                  }
+                ]
+              }
+            ]
+          },
+          "tool_calls": 1
+        },
+        "actual_side_effect_receipts": [
+          {
+            "invoice": "79",
+            "operation_key": "3cfa06b2ba57162265b4a0bda04a057ef04a379e2a6681ac0f39828f8343a5cc",
+            "receipt_id": "sent-79"
+          }
+        ],
+        "adapter_invocations": 2
+      }
+    },
+    {
+      "version": "old-0.2.1",
+      "case": "failed-response-control",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "failed-response-control",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-6n6upvfh"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"adapter_kind\": \"fixed offline captured response callable, not a model client\", \"provider_fixture\": {\"id\": \"r-contradictory\", \"status\": \"failed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}, \"normalizer\": {\"result\": {\"status\": \"failed\", \"scorable_transport\": false, \"text\": \"\", \"final_text\": \"\", \"commentary_text\": \"\", \"answer_complete\": false, \"refusals\": [], \"function_calls\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}], \"output_items\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}], \"model\": null, \"usage\": null, \"response_id\": \"r-contradictory\", \"incomplete_details\": null, \"error\": {\"code\": \"provider_adapter_failure\"}, \"raw_response\": {\"id\": \"r-contradictory\", \"status\": \"failed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}}}, \"loop_result\": {\"status\": \"failed\", \"history\": [], \"response\": {\"id\": \"r-contradictory\", \"status\": \"failed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}}, \"actual_side_effect_receipts\": [], \"adapter_invocations\": 1}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "adapter_kind": "fixed offline captured response callable, not a model client",
+        "provider_fixture": {
+          "id": "r-contradictory",
+          "status": "failed",
+          "error": {
+            "code": "provider_adapter_failure"
+          },
+          "output": [
+            {
+              "type": "function_call",
+              "call_id": "send-79",
+              "name": "send_invoice",
+              "arguments": "{\"invoice\":\"79\"}"
+            }
+          ]
+        },
+        "normalizer": {
+          "result": {
+            "status": "failed",
+            "scorable_transport": false,
+            "text": "",
+            "final_text": "",
+            "commentary_text": "",
+            "answer_complete": false,
+            "refusals": [],
+            "function_calls": [
+              {
+                "type": "function_call",
+                "call_id": "send-79",
+                "name": "send_invoice",
+                "arguments": "{\"invoice\":\"79\"}"
+              }
+            ],
+            "output_items": [
+              {
+                "type": "function_call",
+                "call_id": "send-79",
+                "name": "send_invoice",
+                "arguments": "{\"invoice\":\"79\"}"
+              }
+            ],
+            "model": null,
+            "usage": null,
+            "response_id": "r-contradictory",
+            "incomplete_details": null,
+            "error": {
+              "code": "provider_adapter_failure"
+            },
+            "raw_response": {
+              "id": "r-contradictory",
+              "status": "failed",
+              "error": {
+                "code": "provider_adapter_failure"
+              },
+              "output": [
+                {
+                  "type": "function_call",
+                  "call_id": "send-79",
+                  "name": "send_invoice",
+                  "arguments": "{\"invoice\":\"79\"}"
+                }
+              ]
+            }
+          }
+        },
+        "loop_result": {
+          "status": "failed",
+          "history": [],
+          "response": {
+            "id": "r-contradictory",
+            "status": "failed",
+            "error": {
+              "code": "provider_adapter_failure"
+            },
+            "output": [
+              {
+                "type": "function_call",
+                "call_id": "send-79",
+                "name": "send_invoice",
+                "arguments": "{\"invoice\":\"79\"}"
+              }
+            ]
+          }
+        },
+        "actual_side_effect_receipts": [],
+        "adapter_invocations": 1
+      }
+    },
+    {
+      "version": "old-0.2.1",
+      "case": "ledger-active-reconcile",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "ledger-active-reconcile",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-qq9bkt77"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"observed\": {\"cached_after_reconcile\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"receipt-controller\"}, \"handler_result\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"late-worker\"}, \"cached_after_late_handler_commit\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"late-worker\"}, \"reconciliation_audit\": [{\"evidence\": \"Actual receiver-79 receipt observed in receipts.jsonl\", \"result\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"receipt-controller\"}}]}, \"receipts\": [{\"receipt_id\": \"receiver-79\"}]}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "observed": {
+          "cached_after_reconcile": {
+            "receipt_id": "receiver-79",
+            "verified_by": "receipt-controller"
+          },
+          "handler_result": {
+            "receipt_id": "receiver-79",
+            "verified_by": "late-worker"
+          },
+          "cached_after_late_handler_commit": {
+            "receipt_id": "receiver-79",
+            "verified_by": "late-worker"
+          },
+          "reconciliation_audit": [
+            {
+              "evidence": "Actual receiver-79 receipt observed in receipts.jsonl",
+              "result": {
+                "receipt_id": "receiver-79",
+                "verified_by": "receipt-controller"
+              }
+            }
+          ]
+        },
+        "receipts": [
+          {
+            "receipt_id": "receiver-79"
+          }
+        ]
+      }
+    },
+    {
+      "version": "old-0.2.1",
+      "case": "ledger-crash-control",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "ledger-crash-control",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-55pmcguq"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"observed\": {\"child_returncode\": 17, \"child_argv\": [\"/Library/Developer/CommandLineTools/usr/bin/python3\", \"-B\", \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py\", \"--worker\", \"crash-child\", \"--skill-root\", \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering\", \"--scratch\", \"/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-55pmcguq\"], \"replay_refused\": \"effect outcome unknown; query remote state before retry\", \"reused\": {\"receipt_id\": \"receiver-crash-79\"}}, \"receipts\": [{\"receipt_id\": \"receiver-crash-79\"}]}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "observed": {
+          "child_returncode": 17,
+          "child_argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+            "--worker",
+            "crash-child",
+            "--skill-root",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+            "--scratch",
+            "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-55pmcguq"
+          ],
+          "replay_refused": "effect outcome unknown; query remote state before retry",
+          "reused": {
+            "receipt_id": "receiver-crash-79"
+          }
+        },
+        "receipts": [
+          {
+            "receipt_id": "receiver-crash-79"
+          }
+        ]
+      }
+    },
+    {
+      "version": "current-working-tree-after-fix",
+      "case": "workflow-alias",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "workflow-alias",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-gvkpmudj"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"uses_symlink_file_alias\": true, \"active_path\": \"/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-gvkpmudj/delivery.sqlite\", \"recovery_path\": \"/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-gvkpmudj/active.sqlite\", \"paths_same_file\": true, \"observed\": {\"reconcile_accepted_while_handler_active\": false, \"rejection\": \"stop the active coordinator before reconciling an operation\"}, \"final\": {\"schema_version\": 1, \"run_id\": \"delivery-79\", \"status\": \"completed\", \"stop_reason\": null, \"cancellation_requested\": false, \"stages\": [{\"id\": \"deliver\", \"scope\": \"item\", \"required\": true, \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered\": []}], \"coverage\": 1.0, \"covered_ids\": [\"invoice-1\"], \"uncovered_ids\": [], \"attempts\": 1, \"remaining_attempts\": 2, \"remaining_seconds\": 59.998865842819214, \"scope\": \"local workflow journal and adapter outcomes; not provider cancellation or task-quality proof\"}, \"final_rows\": [{\"stage\": \"deliver\", \"id\": \"invoice-1\", \"status\": \"succeeded\", \"result\": {\"delivered\": true, \"receipt_id\": \"receiver-79\", \"validation\": \"passed\"}, \"attempts\": 1, \"operation_key\": \"49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87\"}], \"receipts\": [{\"event\": \"receiver_accepted\", \"operation_key\": \"49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87\", \"receipt_id\": \"receiver-79\", \"delivered\": true}, {\"event\": \"handler_validation_finished\", \"operation_key\": \"49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87\"}]}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "uses_symlink_file_alias": true,
+        "active_path": "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-gvkpmudj/delivery.sqlite",
+        "recovery_path": "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-gvkpmudj/active.sqlite",
+        "paths_same_file": true,
+        "observed": {
+          "reconcile_accepted_while_handler_active": false,
+          "rejection": "stop the active coordinator before reconciling an operation"
+        },
+        "final": {
+          "schema_version": 1,
+          "run_id": "delivery-79",
+          "status": "completed",
+          "stop_reason": null,
+          "cancellation_requested": false,
+          "stages": [
+            {
+              "id": "deliver",
+              "scope": "item",
+              "required": true,
+              "total": 1,
+              "counts": {
+                "succeeded": 1
+              },
+              "coverage": 1.0,
+              "uncovered": []
+            }
+          ],
+          "coverage": 1.0,
+          "covered_ids": [
+            "invoice-1"
+          ],
+          "uncovered_ids": [],
+          "attempts": 1,
+          "remaining_attempts": 2,
+          "remaining_seconds": 59.998865842819214,
+          "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+        },
+        "final_rows": [
+          {
+            "stage": "deliver",
+            "id": "invoice-1",
+            "status": "succeeded",
+            "result": {
+              "delivered": true,
+              "receipt_id": "receiver-79",
+              "validation": "passed"
+            },
+            "attempts": 1,
+            "operation_key": "49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87"
+          }
+        ],
+        "receipts": [
+          {
+            "event": "receiver_accepted",
+            "operation_key": "49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87",
+            "receipt_id": "receiver-79",
+            "delivered": true
+          },
+          {
+            "event": "handler_validation_finished",
+            "operation_key": "49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87"
+          }
+        ]
+      }
+    },
+    {
+      "version": "current-working-tree-after-fix",
+      "case": "workflow-samepath-control",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "workflow-samepath-control",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-cxuh3qsc"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"uses_symlink_file_alias\": false, \"active_path\": \"/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-cxuh3qsc/delivery.sqlite\", \"recovery_path\": \"/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-cxuh3qsc/delivery.sqlite\", \"paths_same_file\": true, \"observed\": {\"reconcile_accepted_while_handler_active\": false, \"rejection\": \"stop the active coordinator before reconciling an operation\"}, \"final\": {\"schema_version\": 1, \"run_id\": \"delivery-79\", \"status\": \"completed\", \"stop_reason\": null, \"cancellation_requested\": false, \"stages\": [{\"id\": \"deliver\", \"scope\": \"item\", \"required\": true, \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered\": []}], \"coverage\": 1.0, \"covered_ids\": [\"invoice-1\"], \"uncovered_ids\": [], \"attempts\": 1, \"remaining_attempts\": 2, \"remaining_seconds\": 59.998579263687134, \"scope\": \"local workflow journal and adapter outcomes; not provider cancellation or task-quality proof\"}, \"final_rows\": [{\"stage\": \"deliver\", \"id\": \"invoice-1\", \"status\": \"succeeded\", \"result\": {\"delivered\": true, \"receipt_id\": \"receiver-79\", \"validation\": \"passed\"}, \"attempts\": 1, \"operation_key\": \"49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87\"}], \"receipts\": [{\"event\": \"receiver_accepted\", \"operation_key\": \"49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87\", \"receipt_id\": \"receiver-79\", \"delivered\": true}, {\"event\": \"handler_validation_finished\", \"operation_key\": \"49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87\"}]}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "uses_symlink_file_alias": false,
+        "active_path": "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-cxuh3qsc/delivery.sqlite",
+        "recovery_path": "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-cxuh3qsc/delivery.sqlite",
+        "paths_same_file": true,
+        "observed": {
+          "reconcile_accepted_while_handler_active": false,
+          "rejection": "stop the active coordinator before reconciling an operation"
+        },
+        "final": {
+          "schema_version": 1,
+          "run_id": "delivery-79",
+          "status": "completed",
+          "stop_reason": null,
+          "cancellation_requested": false,
+          "stages": [
+            {
+              "id": "deliver",
+              "scope": "item",
+              "required": true,
+              "total": 1,
+              "counts": {
+                "succeeded": 1
+              },
+              "coverage": 1.0,
+              "uncovered": []
+            }
+          ],
+          "coverage": 1.0,
+          "covered_ids": [
+            "invoice-1"
+          ],
+          "uncovered_ids": [],
+          "attempts": 1,
+          "remaining_attempts": 2,
+          "remaining_seconds": 59.998579263687134,
+          "scope": "local workflow journal and adapter outcomes; not provider cancellation or task-quality proof"
+        },
+        "final_rows": [
+          {
+            "stage": "deliver",
+            "id": "invoice-1",
+            "status": "succeeded",
+            "result": {
+              "delivered": true,
+              "receipt_id": "receiver-79",
+              "validation": "passed"
+            },
+            "attempts": 1,
+            "operation_key": "49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87"
+          }
+        ],
+        "receipts": [
+          {
+            "event": "receiver_accepted",
+            "operation_key": "49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87",
+            "receipt_id": "receiver-79",
+            "delivered": true
+          },
+          {
+            "event": "handler_validation_finished",
+            "operation_key": "49b3b28584e1cd59e6b28f7aa4929d50989802d4d8e8247013334ba1a03c8b87"
+          }
+        ]
+      }
+    },
+    {
+      "version": "current-working-tree-after-fix",
+      "case": "contradictory-response-dispatch",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "contradictory-response-dispatch",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-pmy1nfmc"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"adapter_kind\": \"fixed offline captured response callable, not a model client\", \"provider_fixture\": {\"id\": \"r-contradictory\", \"status\": \"completed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}, \"normalizer\": {\"rejection\": \"completed response contains an error or incomplete details\"}, \"loop_result\": {\"exception\": \"ValueError\", \"message\": \"completed response contains an error or incomplete details\"}, \"actual_side_effect_receipts\": [], \"adapter_invocations\": 1}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "adapter_kind": "fixed offline captured response callable, not a model client",
+        "provider_fixture": {
+          "id": "r-contradictory",
+          "status": "completed",
+          "error": {
+            "code": "provider_adapter_failure"
+          },
+          "output": [
+            {
+              "type": "function_call",
+              "call_id": "send-79",
+              "name": "send_invoice",
+              "arguments": "{\"invoice\":\"79\"}"
+            }
+          ]
+        },
+        "normalizer": {
+          "rejection": "completed response contains an error or incomplete details"
+        },
+        "loop_result": {
+          "exception": "ValueError",
+          "message": "completed response contains an error or incomplete details"
+        },
+        "actual_side_effect_receipts": [],
+        "adapter_invocations": 1
+      }
+    },
+    {
+      "version": "current-working-tree-after-fix",
+      "case": "failed-response-control",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "failed-response-control",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-535y0e70"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"adapter_kind\": \"fixed offline captured response callable, not a model client\", \"provider_fixture\": {\"id\": \"r-contradictory\", \"status\": \"failed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}, \"normalizer\": {\"result\": {\"status\": \"failed\", \"scorable_transport\": false, \"text\": \"\", \"final_text\": \"\", \"commentary_text\": \"\", \"answer_complete\": false, \"refusals\": [], \"function_calls\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}], \"output_items\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}], \"model\": null, \"usage\": null, \"response_id\": \"r-contradictory\", \"incomplete_details\": null, \"error\": {\"code\": \"provider_adapter_failure\"}, \"raw_response\": {\"id\": \"r-contradictory\", \"status\": \"failed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}, \"mode\": \"single\", \"agent_text\": {}, \"hosted_items\": [], \"unknown_items\": []}}, \"loop_result\": {\"status\": \"failed\", \"history\": [], \"response\": {\"id\": \"r-contradictory\", \"status\": \"failed\", \"error\": {\"code\": \"provider_adapter_failure\"}, \"output\": [{\"type\": \"function_call\", \"call_id\": \"send-79\", \"name\": \"send_invoice\", \"arguments\": \"{\\\"invoice\\\":\\\"79\\\"}\"}]}}, \"actual_side_effect_receipts\": [], \"adapter_invocations\": 1}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "adapter_kind": "fixed offline captured response callable, not a model client",
+        "provider_fixture": {
+          "id": "r-contradictory",
+          "status": "failed",
+          "error": {
+            "code": "provider_adapter_failure"
+          },
+          "output": [
+            {
+              "type": "function_call",
+              "call_id": "send-79",
+              "name": "send_invoice",
+              "arguments": "{\"invoice\":\"79\"}"
+            }
+          ]
+        },
+        "normalizer": {
+          "result": {
+            "status": "failed",
+            "scorable_transport": false,
+            "text": "",
+            "final_text": "",
+            "commentary_text": "",
+            "answer_complete": false,
+            "refusals": [],
+            "function_calls": [
+              {
+                "type": "function_call",
+                "call_id": "send-79",
+                "name": "send_invoice",
+                "arguments": "{\"invoice\":\"79\"}"
+              }
+            ],
+            "output_items": [
+              {
+                "type": "function_call",
+                "call_id": "send-79",
+                "name": "send_invoice",
+                "arguments": "{\"invoice\":\"79\"}"
+              }
+            ],
+            "model": null,
+            "usage": null,
+            "response_id": "r-contradictory",
+            "incomplete_details": null,
+            "error": {
+              "code": "provider_adapter_failure"
+            },
+            "raw_response": {
+              "id": "r-contradictory",
+              "status": "failed",
+              "error": {
+                "code": "provider_adapter_failure"
+              },
+              "output": [
+                {
+                  "type": "function_call",
+                  "call_id": "send-79",
+                  "name": "send_invoice",
+                  "arguments": "{\"invoice\":\"79\"}"
+                }
+              ]
+            },
+            "mode": "single",
+            "agent_text": {},
+            "hosted_items": [],
+            "unknown_items": []
+          }
+        },
+        "loop_result": {
+          "status": "failed",
+          "history": [],
+          "response": {
+            "id": "r-contradictory",
+            "status": "failed",
+            "error": {
+              "code": "provider_adapter_failure"
+            },
+            "output": [
+              {
+                "type": "function_call",
+                "call_id": "send-79",
+                "name": "send_invoice",
+                "arguments": "{\"invoice\":\"79\"}"
+              }
+            ]
+          }
+        },
+        "actual_side_effect_receipts": [],
+        "adapter_invocations": 1
+      }
+    },
+    {
+      "version": "current-working-tree-after-fix",
+      "case": "ledger-active-reconcile",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "ledger-active-reconcile",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-5dsc0cal"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"observed\": {\"cached_after_reconcile\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"receipt-controller\"}, \"late_commit_conflict\": \"late handler conflicts with an externally settled effect; confirmed result retained; inspect the receipt before continuing\", \"cached_after_late_handler_commit\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"receipt-controller\"}, \"reconciliation_audit\": [{\"evidence\": \"Actual receiver-79 receipt observed in receipts.jsonl\", \"result\": {\"receipt_id\": \"receiver-79\", \"verified_by\": \"receipt-controller\"}}]}, \"receipts\": [{\"receipt_id\": \"receiver-79\"}]}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "observed": {
+          "cached_after_reconcile": {
+            "receipt_id": "receiver-79",
+            "verified_by": "receipt-controller"
+          },
+          "late_commit_conflict": "late handler conflicts with an externally settled effect; confirmed result retained; inspect the receipt before continuing",
+          "cached_after_late_handler_commit": {
+            "receipt_id": "receiver-79",
+            "verified_by": "receipt-controller"
+          },
+          "reconciliation_audit": [
+            {
+              "evidence": "Actual receiver-79 receipt observed in receipts.jsonl",
+              "result": {
+                "receipt_id": "receiver-79",
+                "verified_by": "receipt-controller"
+              }
+            }
+          ]
+        },
+        "receipts": [
+          {
+            "receipt_id": "receiver-79"
+          }
+        ]
+      }
+    },
+    {
+      "version": "current-working-tree-after-fix",
+      "case": "ledger-crash-control",
+      "argv": [
+        "/Library/Developer/CommandLineTools/usr/bin/python3",
+        "-B",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+        "--worker",
+        "ledger-crash-control",
+        "--skill-root",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+        "--scratch",
+        "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-j29us6xo"
+      ],
+      "returncode": 0,
+      "stdout": "{\"supported\": true, \"observed\": {\"child_returncode\": 17, \"child_argv\": [\"/Library/Developer/CommandLineTools/usr/bin/python3\", \"-B\", \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py\", \"--worker\", \"crash-child\", \"--skill-root\", \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering\", \"--scratch\", \"/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-j29us6xo\"], \"replay_refused\": \"effect outcome unknown; query remote state before retry\", \"reused\": {\"receipt_id\": \"receiver-crash-79\"}}, \"receipts\": [{\"receipt_id\": \"receiver-crash-79\"}]}\n",
+      "stderr": "",
+      "result": {
+        "supported": true,
+        "observed": {
+          "child_returncode": 17,
+          "child_argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/engineering/reproduce.py",
+            "--worker",
+            "crash-child",
+            "--skill-root",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering",
+            "--scratch",
+            "/private/var/folders/1c/ybq6jxtn7y5cn0_lzgccr3zr0000gn/T/product-diagnostic-j29us6xo"
+          ],
+          "replay_refused": "effect outcome unknown; query remote state before retry",
+          "reused": {
+            "receipt_id": "receiver-crash-79"
+          }
+        },
+        "receipts": [
+          {
+            "receipt_id": "receiver-crash-79"
+          }
+        ]
+      }
+    }
+  ]
+}

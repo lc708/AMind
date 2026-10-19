@@ -1,0 +1,93 @@
+{
+  "reason": "Generic *.log ignore excluded21 captured public/regression logs from Git-visible sync. Copied these known frozen run-owned logs with no-clobber and preserved exact bytes in this tracked gzip JSONL archive.",
+  "count": 21,
+  "all_copied_to_original": true,
+  "archive": "captured-logs.jsonl.gz",
+  "archive_sha256": "7da68674338d9786e65d2157ce09dd981f7b9de8e4d6ded382da5ff293cbdfb5",
+  "rows": [
+    {
+      "path": "runs/W003/output/incident73-tests.log",
+      "sha256": "a18bdb6bc089c76d91c4430d1742edba7a9f254844e4621aa616578bae66a5a9"
+    },
+    {
+      "path": "runs/W003/output/public-tests.log",
+      "sha256": "db8498f7c71122b10b6c191778c683274d4a08ec8aaed6dd264dbb97521d1756"
+    },
+    {
+      "path": "runs/W004/output/regressions.log",
+      "sha256": "92008aaec610a96f98f53aa8f5d969e67f0654dd113db341b716ef553cd43e39"
+    },
+    {
+      "path": "runs/W004/output/public-tests.log",
+      "sha256": "3c28fc9867ac79802ec4fd29c3e38251173868bf72277350a5da9def3b0c0633"
+    },
+    {
+      "path": "runs/W022/output/integration.log",
+      "sha256": "bac7b6869d1f30dc06b1a2f9854442a9479263facafe4ea3c8150a4fedeaec87"
+    },
+    {
+      "path": "runs/W022/output/public-tests.log",
+      "sha256": "16d164fd3b71c5c1c828b2ad6d329bec6df4188de4d172c8441087e923bd68e3"
+    },
+    {
+      "path": "runs/W025/output/regressions-tests.log",
+      "sha256": "f4522571a7181c8f31eb42680b37b4a837e32415c43eb6f0da2cd9063dff6eba"
+    },
+    {
+      "path": "runs/W025/output/public-tests.log",
+      "sha256": "e7dec365253ecbf3564a0a03d03d9823f38431b2e04018d0650eb7ee3c3e6c6d"
+    },
+    {
+      "path": "runs/W027/output/regression-tests.log",
+      "sha256": "d43dfcb0848f2d8eda5e1d92b18be9dfdffbabf4bbd062ded5e47d41e044330e"
+    },
+    {
+      "path": "runs/W027/output/public-tests.log",
+      "sha256": "a14a7d318e460a0c2fe1d9fde5c0e750b95dbea2a04f2a28b83d9228ccedf140"
+    },
+    {
+      "path": "runs/W034/output/integration.log",
+      "sha256": "f1247c06ac012d786a6aa44893b232f5412ead181d6f28d5afc545e520a1c744"
+    },
+    {
+      "path": "runs/W034/output/public-tests.log",
+      "sha256": "f383d85f2e67d94c2ffb79d4e2a5cc6f83683d5e689b950c457f07f78786abd2"
+    },
+    {
+      "path": "runs/W035/output/cli_integration.log",
+      "sha256": "b0594efb02075b9dc5ae7556b14177367049ac74f9ae4bd8d559e5a63bf2549c"
+    },
+    {
+      "path": "runs/W035/output/saved_example.log",
+      "sha256": "dc0caa2eaca97f9eca9a2e3799ebd55369712b3e6593d81cde2d777a8498d328"
+    },
+    {
+      "path": "runs/W035/output/public_tests.log",
+      "sha256": "64c272d50d39b662e2e7fd33d2047530a3a97bf44c22d2755df114f3274641cb"
+    },
+    {
+      "path": "runs/W036/output/integration-tests.log",
+      "sha256": "76860d654f0b83963c199404f055bb8f3a779d4531eb3638fda32488887adbca"
+    },
+    {
+      "path": "runs/W036/output/public-tests.log",
+      "sha256": "27aad36af5677ed6a4d607388cd9f9e892c7452eb054befaefff64de2f3beed4"
+    },
+    {
+      "path": "runs/W043/output/regression-tests.log",
+      "sha256": "767bb8d567e5da90fd5581275827f5bb1125811cb4328f289d1dc96f832011cd"
+    },
+    {
+      "path": "runs/W043/output/public-tests.log",
+      "sha256": "92237c8bfc24cd455ac63a25efdbff09059e3c5a591c84a2e212aad7cb400f7b"
+    },
+    {
+      "path": "runs/W044/output/regressions.log",
+      "sha256": "423c98e9252c895dbc1ffd30301cfd30eb212b8f6b0dc966c44c3394d34e3a52"
+    },
+    {
+      "path": "runs/W044/output/public-tests.log",
+      "sha256": "5585b5c8b031e4019f9324793a0250cf57e7d2bc7be8a69f17fab5b819114911"
+    }
+  ]
+}

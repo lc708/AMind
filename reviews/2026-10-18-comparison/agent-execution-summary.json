@@ -1,0 +1,397 @@
+{
+  "target_cli_executions_planned": 24,
+  "captured": 24,
+  "unique_threads": 24,
+  "all_canaries_denied": true,
+  "all_sources_unchanged": true,
+  "requested_model": "gpt-6.1-sol",
+  "requested_reasoning_effort": "ultra",
+  "actual_served_model_verified": false,
+  "native_cumulative_usage": {
+    "cache_write_input_tokens": 0,
+    "cached_input_tokens": 4291072,
+    "input_tokens": 5148852,
+    "output_tokens": 106034,
+    "reasoning_output_tokens": 31071
+  },
+  "dollar_cost_usd": null,
+  "dollar_cost_reason": "Subscription Codex runtime; native token counters are retained but invoice/rate identity unavailable. Zero not asserted.",
+  "sum_task_wall_seconds": 2224.389,
+  "completed_item_types": {
+    "error": 24,
+    "agent_message": 80,
+    "command_execution": 323,
+    "file_change": 8
+  },
+  "command_trace_flags": [],
+  "native_error_items": [
+    {
+      "run": "R01",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R02",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R03",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R04",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R05",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R06",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R07",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R08",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R09",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R10",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R11",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R12",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R13",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R14",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R15",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R16",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R17",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R18",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R19",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R20",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R21",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R22",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R23",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run": "R24",
+      "message": "Under-development features enabled: local_thread_store_compression, skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    }
+  ],
+  "runtime_limits": [
+    "One execution per arm/task; no statistical population claim",
+    "No full host read allowlist; native command traces cannot prove absence of all history leakage",
+    "Native web/apps/plugins disabled; outbound inference not OS egress restricted",
+    "No verified served model identity; requested configuration only"
+  ],
+  "runs": [
+    {
+      "run_id": "R01",
+      "case_id": "K1",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 67.227,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R02",
+      "case_id": "K1",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 89.715,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R03",
+      "case_id": "K2",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 141.148,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R04",
+      "case_id": "K2",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 96.479,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R05",
+      "case_id": "T1",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 66.976,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R06",
+      "case_id": "T1",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 91.802,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R07",
+      "case_id": "T2",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 113.159,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R08",
+      "case_id": "T2",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 106.645,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R09",
+      "case_id": "G1",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 27.39,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R10",
+      "case_id": "G1",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 24.048,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R11",
+      "case_id": "G2",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 24.635,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R12",
+      "case_id": "G2",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 24.894,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R13",
+      "case_id": "V1",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 58.492,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R14",
+      "case_id": "V1",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 47.501,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R15",
+      "case_id": "V2",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 178.142,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R16",
+      "case_id": "V2",
+      "arm": "new",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 205.127,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R17",
+      "case_id": "C-K",
+      "arm": "repaired",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 147.249,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R18",
+      "case_id": "C-K",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 70.574,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R19",
+      "case_id": "C-T",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 87.478,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R20",
+      "case_id": "C-T",
+      "arm": "repaired",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 46.606,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R21",
+      "case_id": "C-G",
+      "arm": "repaired",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 117.365,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R22",
+      "case_id": "C-G",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 134.161,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R23",
+      "case_id": "C-V",
+      "arm": "old",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 126.24,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    },
+    {
+      "run_id": "R24",
+      "case_id": "C-V",
+      "arm": "repaired",
+      "status": "captured",
+      "returncode": 0,
+      "elapsed_seconds": 131.336,
+      "grader_canary_denied": true,
+      "skill_unchanged": true,
+      "actual_served_model_verified": false
+    }
+  ]
+}

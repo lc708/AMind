@@ -1,0 +1,9 @@
+{
+  "controls": 8,
+  "criteria": 40,
+  "matching_criteria": 40,
+  "mismatches": [],
+  "expected_key_hidden": true,
+  "human_calibration": false,
+  "purpose": "Second independent blind diagnostic reviewer; primary scoring unchanged."
+}

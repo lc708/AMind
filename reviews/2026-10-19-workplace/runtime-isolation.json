@@ -1,0 +1,47 @@
+{
+  "root": "/private/tmp/amind-workplace-20261019-4pdx607m",
+  "profile_name": "amind-workplace-20261019-frozen",
+  "profile_file": "/Users/damonalbarn/.codex/amind-workplace-20261019-frozen.config.toml",
+  "profile_text": "model = \"gpt-6.1-sol\"\nmodel_reasoning_effort = \"ultra\"\nweb_search = \"disabled\"\nmcp_servers = {}\n[features]\napps = false\nplugins = false\nhooks = false\nmulti_agent = false\nbrowser_use = false\ncomputer_use = false\nimage_generation = false\nshell_snapshot = false\nskip_host_skill_discovery = true\nlocal_thread_store_compression = false\n",
+  "native_cli": "/Users/damonalbarn/.local/bin/codex",
+  "cli_version": "0.163.0",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "actual_served_model_verified": false,
+  "protected_history": [
+    "/Users/damonalbarn/.codex/sessions",
+    "/Users/damonalbarn/.codex/archived_sessions",
+    "/Users/damonalbarn/.codex/memories",
+    "/Users/damonalbarn/.codex/memory",
+    "/Users/damonalbarn/.codex/history.jsonl"
+  ],
+  "limits": [
+    "Path-deny envelope, not full-host read allowlist",
+    "Native web/apps/plugins/MCP disabled, not OS egress allowlist",
+    "Existing login used; credentials never copied into tasks"
+  ],
+  "dryrun": {
+    "returncode": 0,
+    "stdout_bytes": 15753,
+    "stderr": "",
+    "model_called": false,
+    "prompt_top_level_type": "list"
+  },
+  "os_preflight": {
+    "returncode": 0,
+    "canary": {
+      "/private/tmp/amind-workplace-20261019-4pdx607m/W001/public.txt": "PUBLIC",
+      "/private/tmp/amind-workplace-20261019-4pdx607m/control/canary.txt": "DENIED",
+      "/private/tmp/amind-workplace-20261019-4pdx607m/W002/canary.txt": "DENIED",
+      "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/README.md": "DENIED",
+      "own_write": "ALLOWED",
+      "sibling_write": "DENIED"
+    },
+    "protected_prompt_dryrun": {
+      "returncode": 0,
+      "stdout_bytes": 11556,
+      "stderr": ""
+    },
+    "model_called": false
+  }
+}
