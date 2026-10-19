@@ -1,0 +1,252 @@
+{
+  "task_id": "V-RELEASE",
+  "score": 5,
+  "max_score": 5,
+  "probe_passed": 14,
+  "probe_total": 14,
+  "domain_scores": [
+    {
+      "id": "population",
+      "score": 1,
+      "max_score": 1,
+      "passed_probes": 3,
+      "total_probes": 3
+    },
+    {
+      "id": "identity",
+      "score": 1,
+      "max_score": 1,
+      "passed_probes": 3,
+      "total_probes": 3
+    },
+    {
+      "id": "recovery_cost",
+      "score": 1,
+      "max_score": 1,
+      "passed_probes": 3,
+      "total_probes": 3
+    },
+    {
+      "id": "rate_scope",
+      "score": 1,
+      "max_score": 1,
+      "passed_probes": 3,
+      "total_probes": 3
+    },
+    {
+      "id": "workflow_integrity",
+      "score": 1,
+      "max_score": 1,
+      "passed_probes": 2,
+      "total_probes": 2
+    }
+  ],
+  "guardrails": [
+    {
+      "id": "no_foreign_evidence",
+      "pass": true
+    },
+    {
+      "id": "unknown_is_not_free",
+      "pass": true
+    },
+    {
+      "id": "full_population_required",
+      "pass": true
+    }
+  ],
+  "guardrails_passed": true,
+  "cases": [
+    {
+      "id": "release-clean",
+      "domain": "population",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "planned_observations": true,
+        "scored_observations": true,
+        "metrics.quality.mean": true,
+        "decision": true,
+        "cost.total_usd": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"ready\"}\n"
+    },
+    {
+      "id": "planned-repeat-gap",
+      "domain": "population",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "planned_observations": true,
+        "scored_observations": true,
+        "missing": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 4, \"scored_observations\": 3, \"missing\": [{\"case_id\": \"account-lock\", \"rep\": 1}], \"metrics\": {\"quality\": {\"mean\": 0.8666666666666667, \"scored\": 3}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "failed-case-retained",
+      "domain": "population",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "planned_observations": true,
+        "scored_observations": true,
+        "attempts.failed": true,
+        "cost.total_usd": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 3, \"scored_observations\": 2, \"missing\": [{\"case_id\": \"refund-escalation\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 3, \"finished\": 3, \"interrupted\": 0, \"failed\": 1}, \"cost\": {\"known_usd\": 0.45, \"total_usd\": 0.45, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "served-tier",
+      "domain": "identity",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "integrity.status": true,
+        "scored_observations": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"account-lock\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 0.8, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"serving_identity_mismatch\"]}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "foreign-result",
+      "domain": "identity",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "integrity.status": true,
+        "scored_observations": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"account-lock\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 0.8, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"result_identity_mismatch\"]}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "duplicate-result",
+      "domain": "identity",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "integrity.status": true,
+        "scored_observations": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1.0, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "unknown-interrupted",
+      "domain": "recovery_cost",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "cost.known_usd": true,
+        "cost.total_usd": true,
+        "cost.unknown_attempts": true,
+        "attempts.started": true,
+        "attempts.interrupted": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 3, \"finished\": 2, \"interrupted\": 1, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": null, \"unknown_attempts\": 1}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "retry-spend",
+      "domain": "recovery_cost",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "cost.total_usd": true,
+        "attempts.failed": true,
+        "attempts.finished": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 3, \"finished\": 3, \"interrupted\": 0, \"failed\": 1}, \"cost\": {\"known_usd\": 0.45, \"total_usd\": 0.45, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"ready\"}\n"
+    },
+    {
+      "id": "audited-zero",
+      "domain": "recovery_cost",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "cost.total_usd": true,
+        "cost.unknown_attempts": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.0, \"total_usd\": 0.0, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"ready\"}\n"
+    },
+    {
+      "id": "native-extra-unknown",
+      "domain": "rate_scope",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "cost.total_usd": true,
+        "cost.unknown_attempts": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.2, \"total_usd\": null, \"unknown_attempts\": 1}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "endpoint-and-subsets",
+      "domain": "rate_scope",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "cost.total_usd": true,
+        "cost.unknown_attempts": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 12.2, \"total_usd\": 12.2, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"serving_identity_mismatch\"]}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "unpriced-region",
+      "domain": "rate_scope",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "cost.total_usd": true,
+        "cost.unknown_attempts": true,
+        "cost.known_usd": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.2, \"total_usd\": null, \"unknown_attempts\": 1}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"serving_identity_mismatch\"]}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "duplicate-journal",
+      "domain": "workflow_integrity",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "integrity.status": true,
+        "attempts.finished": true,
+        "cost.total_usd": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"complete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_finish\"]}, \"decision\": \"hold\"}\n"
+    },
+    {
+      "id": "worker-population",
+      "domain": "workflow_integrity",
+      "pass": true,
+      "returncode": 0,
+      "checks": {
+        "coverage.status": true,
+        "decision": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 2, \"missing\": [], \"metrics\": {\"quality\": {\"mean\": 0.9, \"scored\": 2}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"decision\": \"hold\"}\n"
+    }
+  ],
+  "prefix_present": true,
+  "measurement": "Post-outcome semantic-contract revision; actual subprocess CLI behavior; no model output or model-modifiable test trusted; original scores retained separately."
+}

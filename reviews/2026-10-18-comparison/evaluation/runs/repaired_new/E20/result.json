@@ -1,0 +1,49 @@
+{
+  "id": "E20",
+  "name": "transplanted-report-ownership",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Rehashed result whose treatment binding belongs elsewhere must have unverified report integrity. Old per-result binding absent unsupported; frozen new is tested for this claim.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E20",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 1,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "report": {
+      "variant": "baseline",
+      "split": "val",
+      "status": "complete",
+      "scored_observations": 1,
+      "planned_observations": 1,
+      "metrics": {
+        "quality": {
+          "mean": 1.0,
+          "scored": 1
+        }
+      },
+      "failed_attempts": 0,
+      "attempts": 1,
+      "interrupted_attempts": 0,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0,
+      "total_cost_usd": 0.02,
+      "latency_p50_s": 0.045050833,
+      "latency_p95_s": 0.045050833,
+      "integrity": "unverified: result identity differs from its measurement/treatment/case",
+      "synthetic": true,
+      "stage_coverage": {
+        "measured_complete": 0,
+        "unmeasured": 1,
+        "required_stages": []
+      },
+      "remaining_failed_attempts": null
+    }
+  }
+}

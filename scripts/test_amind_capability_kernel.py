@@ -170,6 +170,54 @@ class KernelTests(unittest.TestCase):
             self.flow=self.root/('flow-'+mode)
             self.cases[0]['input']={'text':'apple',**({'served':'other'} if mode=='served' else {'action':'truncated'})}
             result=self.run_variant(); self.assertEqual(result['completed_cases'],1)
+    def test_endpoint_scope_substitution_not_scored_and_cost_retained(self):
+        identity = {'provider':'fixture','interface':'decisions','model':'mock','service_tier':'standard','region':'global'}
+        for variant in self.card['variants'].values(): variant['expected_billing_identity'] = identity
+        result = self.run_variant()
+        self.assertEqual(result['completed_cases'], 0)
+        self.assertAlmostEqual(result['known_cost_usd'], .04)
+        self.assertEqual({e['status'] for e in common.read_jsonl(self.flow/'baseline/errors.jsonl')}, {'serving_substitution'})
+    def test_required_stage_coverage_rejects_a_plausible_final_answer(self):
+        self.card['coverage'] = {'required_stages':['workers','aggregate'],'expected_totals':{'workers':2,'aggregate':2}}
+        result = self.run_variant('v1')
+        self.assertEqual(result['completed_cases'], 0)
+        self.assertEqual({e['status'] for e in common.read_jsonl(self.flow/'v1/errors.jsonl')}, {'coverage_missing'})
+        report = {'coverage':{'stages':[{'id':key,'total':2,'coverage':1,'counts':{'succeeded':2},'uncovered':[]} for key in ('workers','aggregate')]}}
+        self.assertEqual(runner.stage_coverage(report, self.card['coverage'])['status'], 'measured_complete')
+        report['coverage']['stages'][0].update(total=1,counts={'succeeded':1})
+        with self.assertRaises(runner.RunError): runner.stage_coverage(report, self.card['coverage'])
+        report['coverage']['stages'][0].update(total=2,counts={'succeeded':2})
+        report['coverage']['stages'][0]['counts'] = {'succeeded':1,'failed':1}
+        with self.assertRaises(runner.RunError): runner.stage_coverage(report, self.card['coverage'])
+    def test_failure_budget_survives_retry_and_resume(self):
+        self.cases[0]['input']['action']='retry'
+        self.card['limits'].update(concurrency=1,retries=1,max_failed_attempts=1)
+        result=self.run_variant(); self.assertEqual(result['attempts'],1)
+        before=(self.root/'calls.jsonl').read_bytes()
+        result=self.run_variant(resume=True,retry_errors=True)
+        self.assertEqual(result['attempts'],1); self.assertEqual(result['status'],'incomplete')
+        self.assertEqual((self.root/'calls.jsonl').read_bytes(),before)
+        self.assertEqual(self.manifest()['remaining_failed_attempts'],0)
+    def test_reconciled_cancelled_attempt_consumes_failure_budget(self):
+        self.card['limits'].update(concurrency=1,max_failed_attempts=1)
+        self.run_variant(); directory=self.flow/'baseline'
+        rows=common.read_jsonl(directory/'results.jsonl'); attempt=rows[0]['attempt_id']
+        common.atomic(directory,'results.jsonl',''.join(common.canonical(r)+'\n' for r in rows if r['attempt_id']!=attempt))
+        events=[e for e in common.read_jsonl(directory/'attempts.jsonl') if not (e['event']=='finished' and e['attempt_id']==attempt)]
+        common.atomic(directory,'attempts.jsonl',''.join(common.canonical(e)+'\n' for e in events))
+        reconcile_run.reconcile(directory,[{'attempt_id':attempt,'resolution':'abandoned','cost_usd':.02,'evidence':'fixture cancellation externally reconciled'}],True)
+        before=(self.root/'calls.jsonl').read_bytes()
+        result=self.run_variant(resume=True,retry_errors=True)
+        self.assertEqual(result['attempts'],2); self.assertEqual(result['status'],'incomplete')
+        self.assertEqual((self.root/'calls.jsonl').read_bytes(),before)
+    def test_result_transplant_rejected_even_after_rehash(self):
+        self.complete(); directory=self.flow/'v1'
+        rows=common.read_jsonl(directory/'results.jsonl')
+        rows[0]['result_identity']['treatment_hash']=self.manifest()['treatment_hash']
+        common.atomic(directory,'results.jsonl',''.join(common.canonical(r)+'\n' for r in rows))
+        manifest=common.read_json(directory/'manifest.json'); manifest['results_sha256']=common.sha(common.read_bytes(directory/'results.jsonl'))
+        common.write_json(directory,'manifest.json',manifest)
+        with self.assertRaisesRegex(ValueError,'result identity'): comparison.compare(self.flow,'v1','val','quality',1,samples=200)
     def test_cost_budget_stops_unknown_spend(self):
         self.cases[0]['input']['action']='unknown_cost'
         self.card['limits'].update(concurrency=1,max_cost_usd=.1,reservation_usd_per_attempt=.04)
@@ -320,6 +368,111 @@ class KernelTests(unittest.TestCase):
         result=comparison.compare(self.flow,'v1','val','cost_usd',1,samples=200)
         self.assertAlmostEqual(result['baseline_mean'],.025)
         self.assertAlmostEqual(result['candidate_mean'],.02)
+
+
+class BillingCalibrationTests(unittest.TestCase):
+    def identity(self, interface='responses', region='global'):
+        return {'provider':'fixture','interface':interface,'model':'same-model','service_tier':'standard','region':region}
+    def rate_card(self):
+        return {'version':'synthetic-v1','effective_date':'2026-10-18','source':'synthetic offline fixture',
+                'rates':[{'billing_identity':self.identity(), 'usage_adapter':'text_tokens_v1',
+                          'input_per_million':10,'cached_input_per_million':1,'output_per_million':20},
+                         {'billing_identity':self.identity('decisions'),'usage_adapter':'input_only_v1','input_per_million':2}]}
+    def event(self, interface='responses'):
+        return {'billing_identity':self.identity(interface), 'usage_adapter':'input_only_v1' if interface=='decisions' else 'text_tokens_v1',
+                'usage':{'input_tokens':1000} if interface=='decisions' else {'input_tokens':1000,'cached_input_tokens':100,'output_tokens':20},
+                'all_billable_usage_included':True}
+    def test_same_model_on_different_endpoints_never_uses_the_other_rate(self):
+        card=self.rate_card(); event=self.event('decisions')
+        self.assertAlmostEqual(price_usage.price(event,card)['cost_usd'],.002)
+        event['billing_identity']['interface']='unadapted'
+        self.assertEqual(price_usage.price(event,card)['status'],'unknown')
+        card['rates']=card['rates'][:1]
+        self.assertIsNone(price_usage.price(self.event('decisions'),card)['cost_usd'])
+    def test_region_tier_context_and_adapter_are_exact(self):
+        for field in ('region','service_tier','context_band'):
+            event=self.event(); event['billing_identity'][field]='different'
+            self.assertEqual(price_usage.price(event,self.rate_card())['status'],'unknown')
+        event=self.event(); event['usage_adapter']='units_v1'
+        self.assertEqual(price_usage.price(event,self.rate_card())['status'],'unknown')
+    def test_duplicate_flat_billing_scope_cannot_contradict_identity(self):
+        for field in ('provider','interface','model','service_tier','region','context_band'):
+            event=self.event(); event[field]='contradiction'
+            with self.assertRaisesRegex(ValueError,'billing_identity'): price_usage.price(event,self.rate_card())
+    def test_legacy_card_cannot_silently_price_a_declared_endpoint(self):
+        card=self.rate_card(); card['models']={'same-model':card['rates'][0]}
+        event={'model':'same-model','interface':'decisions','usage':{'input_tokens':1000,'output_tokens':0,'cached_input_tokens':0}}
+        self.assertEqual(price_usage.price(event,card)['status'],'unknown')
+    def test_legacy_card_requires_unknown_cost_for_any_explicit_context_band(self):
+        card=self.rate_card(); card['models']={'same-model':card['rates'][0]}
+        event={'model':'same-model','usage':{'input_tokens':1000,'output_tokens':20,'cached_input_tokens':100},
+               'all_billable_usage_included':True}
+        legacy=price_usage.price(event,card)
+        self.assertEqual(legacy['status'],'estimated_complete')
+        self.assertEqual(legacy['identity_status'],'legacy_model_only')
+        self.assertAlmostEqual(legacy['cost_usd'],.0095)
+        for context_band in ('long_context','unknown','',None):
+            scoped={**event,'context_band':context_band}
+            with self.subTest(context_band=context_band):
+                result=price_usage.price(scoped,card)
+                self.assertEqual(result['status'],'unknown'); self.assertIsNone(result['cost_usd'])
+                reported=price_usage.price({**scoped,'cost_usd':.02,'cost_source':'provider reconciled receipt'},card)
+                self.assertEqual(reported['status'],'reported'); self.assertEqual(reported['cost_usd'],.02)
+    def test_cache_write_accounting_is_explicit_and_not_double_counted(self):
+        card=self.rate_card(); event=self.event(); event['usage']['cache_write_input_tokens']=200
+        self.assertEqual(price_usage.price(event,card)['status'],'unknown')
+        card['rates'][0].update(cache_write_accounting='input_subset',cache_write_input_per_million=12)
+        result=price_usage.price(event,card)
+        self.assertAlmostEqual(result['components']['uncached_input'],.007)
+        self.assertAlmostEqual(result['components']['cache_write_input'],.0024)
+        card['rates'][0]['cache_write_accounting']='separate'
+        self.assertAlmostEqual(price_usage.price(event,card)['components']['uncached_input'],.009)
+        card['rates'][0]['cache_write_accounting']='input_subset'; event['usage']['cache_write_input_tokens']=1000
+        with self.assertRaises(ValueError): price_usage.price(event,card)
+    def test_input_only_usage_rejects_text_fields_and_unpriced_units(self):
+        card=self.rate_card(); event=self.event('decisions'); event['usage']['output_tokens']=0
+        self.assertEqual(price_usage.price(event,card)['status'],'unknown')
+        del event['usage']['output_tokens']; event['usage']['units']={'tool_calls':2}
+        self.assertEqual(price_usage.price(event,card)['status'],'unknown')
+        card['rates'][1]['unit_rates']={'tool_calls':{'per':1,'usd':.01}}
+        self.assertAlmostEqual(price_usage.price(event,card)['cost_usd'],.022)
+    def test_unadapted_native_fields_never_look_free(self):
+        event=self.event(); event['usage']['audio_tokens']=20
+        self.assertEqual(price_usage.price(event,self.rate_card())['status'],'unknown')
+    def test_conflicting_cache_or_reasoning_normalizations_are_rejected(self):
+        event=self.event(); event['usage']['input_tokens_details']={'cached_tokens':99}
+        with self.assertRaisesRegex(ValueError,'conflicting'): price_usage.price(event,self.rate_card())
+        event=self.event(); event['usage'].update(reasoning_tokens=10,output_tokens_details={'reasoning_tokens':11})
+        with self.assertRaisesRegex(ValueError,'conflicting'): price_usage.price(event,self.rate_card())
+        event=self.event(); event['usage']['input_tokens_details']={'audio_tokens':20}
+        self.assertEqual(price_usage.price(event,self.rate_card())['status'],'unknown')
+    def labels(self, dataset='fixture-1', judge='judge-1'):
+        identity={'dataset_version':dataset,'grader_version':judge,'rubric_sha256':'fixture-rubric','judge_model':judge}
+        return [{'id':'positive','human':1,'grade':1,'evaluation_identity':identity},
+                {'id':'negative-a','human':0,'grade':1,'evaluation_identity':identity},
+                {'id':'negative-b','human':0,'grade':0,'evaluation_identity':identity}]
+    def test_false_positives_and_base_rates_are_visible(self):
+        result=calibrate_grader.calibrate(self.labels(),.01)
+        self.assertEqual(result['false_positive_rate'],.5)
+        self.assertAlmostEqual(result['population_adjusted_precision'],.01/(.01+.5*.99))
+        self.assertEqual(result['measurement_status']['order_bias'],'unmeasured')
+        self.assertFalse(result['ready_for_review'])
+    def test_missing_negative_controls_cannot_pass_or_produce_zero_drift(self):
+        rows=self.labels()[:1]; result=calibrate_grader.calibrate(rows)
+        self.assertIsNone(result['false_positive_rate']); self.assertFalse(result['ready_for_review'])
+        self.assertEqual(calibrate_grader.drift(rows,rows)['status'],'unmeasured')
+    def test_paired_judges_require_matching_cases_rubric_and_human_labels(self):
+        baseline=self.labels(); candidate=self.labels(judge='judge-2'); candidate[1]['grade']=0
+        result=calibrate_grader.paired(baseline,candidate)
+        self.assertEqual((result['improved'],result['regressed']),(1,0))
+        with self.assertRaisesRegex(ValueError,'identical'): calibrate_grader.paired(baseline,candidate[:1])
+        candidate[0]['evaluation_identity']['rubric_sha256']='changed'
+        with self.assertRaises(ValueError): calibrate_grader.paired(baseline,candidate)
+    def test_drift_alert_does_not_confuse_judge_change_with_population_change(self):
+        old=self.labels(); old[1]['grade']=0
+        new=self.labels(dataset='fixture-2')
+        self.assertEqual(calibrate_grader.drift(old,new,.1)['status'],'alert')
+        with self.assertRaises(ValueError): calibrate_grader.drift(old,self.labels(judge='judge-2'))
 
 
 class EngineeringKernelTests(unittest.TestCase):

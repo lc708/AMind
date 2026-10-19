@@ -1,0 +1,76 @@
+{
+  "frozen_at_utc": "2026-10-18T18:04:16.990888+00:00",
+  "before_target_trials": true,
+  "task_metadata_sha256": "83dcfd71b05a97bc1a997b161d598372bf5f562f860327e0b76d03f5eeca8b1c",
+  "public_repos": {
+    "E-GATEWAY": {
+      "tree_sha256": "b7627dcc1ab19e7dcba7feaa4450fe7b4469e98bb005e2876dff9e7cc406b993",
+      "files": {
+        "README.md": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+        "gateway/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "gateway/__main__.py": "5b8935349e729d08bce953b231c021b64040a285264b8c925f01604d82630762",
+        "gateway/metrics.py": "4d8b4a52bc9ab38b68dcc5c278c2db1b8d59f7c1ab464c23c8170322fc1d601a",
+        "gateway/projection.py": "5405c304013806c279a596f27cbbbcc984d4bb8abef40fd54fd1f28b633212fa",
+        "gateway/render.py": "d3f675921273cd0be70f6cd0166fd133c305d671f2ad7f2965d39a482683e6cc",
+        "gateway/replay.py": "6e8fb44e9775aa51b67810b7e90a43baa421fb62cc083ee51915cd92f53fa9d3",
+        "gateway/service.py": "52d9ab453ff8398e1c39423dd36b50562da608facea7fce0a733be8dc08bf78c",
+        "gateway/storage.py": "fd448965890c602fa6a8330adbe635a4c227edf69b804509700cd82871f20aa3",
+        "gateway/validation.py": "9bfc2d14a0ba64db4b3c9511c87b70025f648ebf5e801420aa779d96c9bbe696",
+        "tests/test_public.py": "1e338f04bafc2514deefdabb32b1c201d49b8132b33a8f3d0a2f6842be14c273",
+        "traces/incident.json": "354d3b2ade48065e9e72cfaa6c74eca9df9fec6c7449f9d6267c462dbf79e026",
+        "traces/legacy.json": "4d56901611ec8a3c8bd873c8597228674979d60640d992953758476f4bdee30f"
+      }
+    },
+    "E-DURABLE": {
+      "tree_sha256": "b2aa364940437d3f52b6d40a18a59b081cb6e995c55f6cfc78a1b2ff1beee450",
+      "files": {
+        "README.md": "2fdf76d3685baf3374fd4799780f6aa468a0ff8194191b8ab90dcb7e8ed754ec",
+        "intake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "intake/__main__.py": "a7c3d022aab2480009caf404c4ffe2ee283c6860d9233ac5eb55567f6cae2031",
+        "intake/receiver.py": "417973cea3ebe329f0ea126d8d2d29cefd3a3e946f95701710a95703514a9f96",
+        "intake/service.py": "9034c5a3a283ebeae1a3fea0bc9ee10dd9dfb5f0a96b49d757e2669eecb64ea3",
+        "intake/store.py": "cbb8a08e4e0a45a79fa4888177f1ddf1747e40548a32cf0912f07f933b23b851",
+        "tests/test_public.py": "a84fc705536539f1fd6bbd7f31aeb4394f907effa9525d65055d199b9f2c8e5c",
+        "traces/crash-job.json": "1cc35df3173d4a99a401bb315f750f16cb66ed684ec17a09d0d57ec98c69e2dd",
+        "traces/new-job.json": "2563a7fc6a7909267a01d5b0c575901bcf54137dfc27efded8d8506ecf177e27"
+      }
+    }
+  },
+  "private_rubric_sha256": "fc19a45cab668126a8effb7db17724914a56c6ee5ddb40ee1b6ae11dbc9af2ac",
+  "private_grader_files_sha256": {
+    "grade_common.py": "b7e5e4fd8d103dd40d2215a8c7470f61574af49ac0943f0b6fd5a3031dc2159a",
+    "grade_gateway.py": "889ffe0c7e8b667b2aaa1fdb130ef6157a4ab0bbc56bd16817b437a0d48ff2e3",
+    "grade_durable.py": "2aaeba86268e65c1ba72f34188fe6f315ddf695ff0ae2141e8a0ce934318518c"
+  },
+  "private_reference_files_sha256": {
+    "gateway": {
+      "README.md": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+      "gateway/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "gateway/__main__.py": "5b8935349e729d08bce953b231c021b64040a285264b8c925f01604d82630762",
+      "gateway/metrics.py": "4d8b4a52bc9ab38b68dcc5c278c2db1b8d59f7c1ab464c23c8170322fc1d601a",
+      "gateway/projection.py": "10a5c4654db935e4e59a2a2b6a361d375b213d17a0c4192de5e11afcf5aafc77",
+      "gateway/render.py": "2c818438ddff9d2a5b674cd11a16f967ff0f33f73d954bc713ac810cdb8ea1f3",
+      "gateway/replay.py": "6fddcdd6270d9e45e71b6bfc59fe493d9474f097471bee12d8902c5d3018d488",
+      "gateway/service.py": "52d9ab453ff8398e1c39423dd36b50562da608facea7fce0a733be8dc08bf78c",
+      "gateway/storage.py": "fd448965890c602fa6a8330adbe635a4c227edf69b804509700cd82871f20aa3",
+      "gateway/validation.py": "9bfc2d14a0ba64db4b3c9511c87b70025f648ebf5e801420aa779d96c9bbe696",
+      "tests/test_public.py": "1e338f04bafc2514deefdabb32b1c201d49b8132b33a8f3d0a2f6842be14c273",
+      "traces/incident.json": "354d3b2ade48065e9e72cfaa6c74eca9df9fec6c7449f9d6267c462dbf79e026",
+      "traces/legacy.json": "4d56901611ec8a3c8bd873c8597228674979d60640d992953758476f4bdee30f"
+    },
+    "durable": {
+      "README.md": "2fdf76d3685baf3374fd4799780f6aa468a0ff8194191b8ab90dcb7e8ed754ec",
+      "intake/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "intake/__main__.py": "a7c3d022aab2480009caf404c4ffe2ee283c6860d9233ac5eb55567f6cae2031",
+      "intake/receiver.py": "417973cea3ebe329f0ea126d8d2d29cefd3a3e946f95701710a95703514a9f96",
+      "intake/service.py": "15027f42910f11326bd7dd67464a9553e20f61d146bacd304f369e5952e7dc76",
+      "intake/store.py": "afd0f7f46f6d2706d27235c078b2bc496d6c0a08310cf28f4578ec01933a4833",
+      "tests/test_public.py": "a84fc705536539f1fd6bbd7f31aeb4394f907effa9525d65055d199b9f2c8e5c",
+      "traces/crash-job.json": "1cc35df3173d4a99a401bb315f750f16cb66ed684ec17a09d0d57ec98c69e2dd",
+      "traces/new-job.json": "2563a7fc6a7909267a01d5b0c575901bcf54137dfc27efded8d8506ecf177e27"
+    }
+  },
+  "control_validation_sha256": "d64aa2eb9d95c903248d59042b4199c3b117eca19601d3a8ebaf6b303584c94f",
+  "dataset_and_inputs": "Public trace files and all code/docs/tests hashed in each public repository; private probe inputs are literal fixtures in hashed grader code. Expected contracts and domains are frozen here before target outputs.",
+  "not_target_quality_evidence": "Reference and control validation calibrate this local grader; they do not measure model or skill quality."
+}

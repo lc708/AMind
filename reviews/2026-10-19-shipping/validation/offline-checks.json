@@ -1,0 +1,106 @@
+{
+  "product_tests": 220,
+  "application_tests": 160,
+  "knowledge_source_tests": 60,
+  "all_commands_passed": true,
+  "source_map_scope": "metadata and local resources only; no --upstream checkout hash validation in this shipping run",
+  "live_model_calls": 0,
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/verify_amind_application_skills.py",
+        "--output",
+        ".codex-tmp/review-and-ship/validation/application-checks.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.621,
+      "output": "reviews/2026-10-19-shipping/validation/01-output.txt",
+      "output_sha256": "fe09cdf36fd169a3835cdd279ffbd9f01a798298a86c2b3b72d59af5399acb68"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "scripts.test_amind_skill",
+        "scripts.test_amind_increment",
+        "scripts.test_amind_refresh",
+        "scripts.test_amind_refresh_sources"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 47.549,
+      "output": "reviews/2026-10-19-shipping/validation/02-output.txt",
+      "output_sha256": "7067c7f1e323e84ed58a5c2b24641b364e05037d7636619a968a4aeb728a2ac6"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "skills/amind/scripts/verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.646,
+      "output": "reviews/2026-10-19-shipping/validation/03-output.txt",
+      "output_sha256": "efcbe276c15dc7a98d3415b7a33baa24c0e45829eb611fb8267eb1495daf1647"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/verify_amind_refresh.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 20.678,
+      "output": "reviews/2026-10-19-shipping/validation/04-output.txt",
+      "output_sha256": "65b701ee5be5b48cff9e57eb0cfa8345776ab8075411f65c0b035991749a39db"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/verify_amind_increment.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 21.03,
+      "output": "reviews/2026-10-19-shipping/validation/05-output.txt",
+      "output_sha256": "65b701ee5be5b48cff9e57eb0cfa8345776ab8075411f65c0b035991749a39db"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/verify_amind_increment.py",
+        "--historical"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 6.665,
+      "output": "reviews/2026-10-19-shipping/validation/06-output.txt",
+      "output_sha256": "c17da5a3e339a65a0a3831ce9cd50ac698252e82ecd9d20125284f1956fa2398"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/verify_amind_v1_release.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.534,
+      "output": "reviews/2026-10-19-shipping/validation/07-output.txt",
+      "output_sha256": "9ed662c136ecc735a63d15eaa13dc6e370bccd41f8f58d76c162b0dab475c517"
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/check_amind_capability_map.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.036,
+      "output": "reviews/2026-10-19-shipping/validation/08-output.txt",
+      "output_sha256": "45abe645c797b1053b6d10ee649065b704f2adcaa705e4655f737f256760553b"
+    }
+  ]
+}

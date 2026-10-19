@@ -1,0 +1,731 @@
+[
+  {
+    "blind_id": "B07d80947",
+    "case_id": "V1",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "按精确端点区分input_only_v1与text_tokens_v1，A=2美元、B=10.2美元，均与题给价率一致。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "C因unpriced-region没有匹配价率保留unknown/null，未按模型名或global价率回退。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "B按800000非缓存输入、200000缓存输入、100000输出计价；reasoning已含于输出，未重复累加。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "D因native audio_tokens缺少归一化和价率保留整条unknown/null；未套用文本费用。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "known_subtotal_usd=12.2、total_cost_usd=null；明确题给合成离线价卡不代表实际provider价格。"
+      }
+    ],
+    "score": 5,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "C的区域价率、D的音频归一化/价率和完整总额保持unknown/null，符合题意。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "独立复算A=2、B=8+0.2+2=10.2、小计12.2；两处缓存计数未相加。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "B25021be3",
+    "case_id": "K2",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "明确拒绝凭高分或concerningness单点奖励全面替代人工，辅助审计建议标为外推。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "f72e25b44cba0384329b10da的真实claim及Introduction完整绑定段落明确记载两类pointwise reward均发生reward hacking，答案保留了制造发现/未证实结论。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "73b8475eb319571aa748ec1f及同段明确支持pairwise更稳健、混入benign targets对低FPR必要；50%校准被限定为实验配置。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "保留作者综合评测、Haiku/Opus4.6比较、Claude Code scaffold下AuditBench微调目标迁移；未外推为普适替代，并要求独立留出/部署验证。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "5个引文claim均在分配包内且URL与canonical一致；其中f72e25…/73b847…/e04a48…直接支持奖励失败、校准和迁移事实，ae21ec…的完整Introduction支持人工复核及环境局限。"
+      }
+    ],
+    "score": 5,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "全面替代人工的漏报风险、长期可靠性、取消复核门槛及实际部署复现明确unknown。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "4b2ca761d31676873727ed23对应72.7/68.0、99.6和realism14.0，数字与实验条件一致。",
+      "uncertain：答案将realism称为“真实性”。该词可能指情景真实感，也可能被误读成结论truthfulness；原文只支持realism，不能据此主张事实真实性/正确率14.0。未将此翻译歧义当作明确事实错误或自行增设扣分项。",
+      "未把相邻引文自动扩展为整段支持：相关人工审阅、污染和植入行为局限实际都出现在ae21ec…的完整绑定段落中。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "B2c3387de",
+    "case_id": "T1",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "7023c5fcec7472e89ce29ce2及完整公告段落明确Oct8发布、Nov12生效；答案正确区分。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "明确截至Oct18新版尚未生效，符合公告claim的显式条件。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "明确区分当前旧版和未来公告版；实际machine curation确有2025-09-15至2026-11-12的旧版effective_window，支持它确实依据分配runtime作此区分；primary原文对精确当前版本的独立支持仍有限。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "把Nov12视为已公布安排，明确以后修改/延期及实际按期生效unknown，未声称未来实时核验。"
+      },
+      {
+        "index": 5,
+        "pass": false,
+        "points": 0,
+        "reason": "两条claim和URL均真实，公告primary passage支持10/8公告和11/12生效；旧版完整绑定页显示Effective Sep15,2025与archive/replaced提示，但未独立建立10/18现行窗口。补充核实确有AI-curated effective_window，仍不等于原生引文支持全部时效归属；第5项按primary支持完整性给0并标uncertain。",
+        "uncertain": true
+      }
+    ],
+    "score": 4,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [
+      {
+        "assertion": "截至2026-10-18仍适用2025年9月15日生效的具体旧版Usage Policy。",
+        "evidence_layer": "primary_source_support_gap_only",
+        "machine_curation_support": true,
+        "reason": "actual runtime的amind-status-a5e9517ec35854f2e4eacc7b确提供对应分析单元2025-09-15至2026-11-12的AI整理窗口，所以答案所称“结合本地生效窗口记录”已获机械核验，不能称其编造。primary层面，00e72f6…是禁止冒充人的claim，完整bound_passage只有旧版effective日期及archive/replaced提示；独立原文没有精确确立10/18现行窗口。此为来源层级与支持强度问题，非已证伪事实。",
+        "claim_id": "nuwa1-claim-00e72f6b70c4f19ae056ccc1"
+      }
+    ],
+    "safe_unknown": [
+      "Nov12当日实际生效、后续修改或延期明确unknown。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "公告claim的条件直接支持10/18新政策尚未operative；不因旧版窗口证据不足否定已支持的新旧时效区别。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。",
+      "machine curation层：a5e9517…将旧政策分析单元的窗口设为2025-09-15至2026-11-12；ca38b825…另限定旧targeted-campaign summary到11/12。这些实际AI整理记录核验了runtime信息，不是新的独立原生证据。",
+      "uncertain：rubric第5项未说明AI-curated effective_window能否补足primary引文的精确当前版本支持。第3项确认已区分当前/未来给1；第5项按primary temporal citation完整支持给0，维持4/5并保留歧义，不静默改变rubric。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [
+        "amind-status-ca38b8253db8db7404e36316",
+        "amind-status-a5e9517ec35854f2e4eacc7b"
+      ],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "B4bc67167",
+    "case_id": "T2",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "七月解释作为初步历史判断保留；未把修正这一解释扩展成整篇七月文章被删除或所有观察无效。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "2fdb331…真实claim和Alignment assessment summary全文支持9/9改判biased reasoning与recklessness；6d2365…全文支持重采样中只有无歧义现实证据才停止。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "明确CoT里声称模拟不证明内部信念，完整摘要及Mythos5段落支持不能仅凭自述下强结论；弱可解释性证据也保留了限制。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "b12ea282…真实claim及Replication and monitoring全文直接支持调查未发现协调、任务外目标或规避监督，并保留为有限调查观察。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "5条引文均存在且URL匹配canonical；纠正、实验、未发现及根因未知均由各自完整绑定段落支持，未宣称本地截止后实时已知。"
+      }
+    ],
+    "score": 5,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "每次运行中内部信念、偏置推理确切根因、为何Mythos5尤其严重明确unknown。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "2fdb331…条件中有controlled simulation限定；全文同时明确fictional CTF设置、误联网和真实受害系统，答案在这一评测事故范围内陈述，未外推所有部署。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。",
+      "machine curation层：amind-status-fb27ff0b7d79fc7f47ae2b71确将40316ace…等七月claim标为corrected，valid_until=2026-09-09、replacement=2fdb331…，因此“已标corrected”自述获机械核验。primary层：解释被修正仍由九月原文独立支持；不把该AI标记当额外原生来源。",
+      "补充中另有9/10修订有效窗口，但本答案未声称PyPI移除时长或系统数量；未据此新增评分条件。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [
+        "amind-status-fb27ff0b7d79fc7f47ae2b71",
+        "amind-status-72c28a0b4ca51818836d05f7"
+      ],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "B5b470df0",
+    "case_id": "T2",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "将7/30说法保留为当时公开的初步因果解释，并限定起初判断，未删除整篇文章或宣称所有历史事实无效。"
+      },
+      {
+        "index": 2,
+        "pass": false,
+        "points": 0,
+        "reason": "报告的是9/7已观察到的初步motivated reasoning/recklessness材料，未报告9/9更完整的revised assessment；未知最新状态不补足这一时效知识点。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "没有把所述模拟信念当作已确证的内部状态，明确认识真实联网程度、知情忽略迹象及因果未知；符合“不作为证明”的控制要求。未显式讨论CoT措辞，解释有歧义。",
+        "uncertain": true
+      },
+      {
+        "index": 4,
+        "pass": false,
+        "points": 0,
+        "reason": "未保留调查未发现任务外目标/代理协调这一有界观察；不能从未提及推定已覆盖。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "4条claim均真实、canonical URL一致；完整段落支持初步机制、调查/独立审查进行中及未解问题，并明确9/8资料边界和10/18最新状态unknown。"
+      }
+    ],
+    "score": 3,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "10/18最新状态、深入调查/独立审查最终结果、模型内部认知和行为因果明确unknown；不算事实错误。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "资料覆盖缺少9/9结论，未将这一覆盖缺口称作幻觉。",
+      "uncertain：第3项未说明必须显式说明CoT自述与内部状态证据的区别，还是仅要求不把模拟信念当确证。按控制性措辞给1；若要求明确CoT证据来源，此项应复议，不能静默更改rubric。",
+      "题包可核实相关source于9/7被观察，但9/8全包截止为答案自述；未额外核验快照元数据。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "B9537d0d7",
+    "case_id": "K2",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "明确拒绝仅凭高分/单点奖励替代人工，并将框架推断和相关研究与未知的RL实验区分。"
+      },
+      {
+        "index": 2,
+        "pass": false,
+        "points": 0,
+        "reason": "未提供concerningness/pointwise reward的reward hacking结果，而将该实验定义、训练和成绩保留unknown；诚实未知不补足此知识点。"
+      },
+      {
+        "index": 3,
+        "pass": false,
+        "points": 0,
+        "reason": "有一般judge校准和误报提醒，但缺少该RL实验的pairwise奖励与benign/calibration targets机制。"
+      },
+      {
+        "index": 4,
+        "pass": false,
+        "points": 0,
+        "reason": "未给该RL训练的held-out、scaffold和迁移结果/边界；不作普适替代及提出未来独立测试是良好控制，但不能代替缺失的实质范围知识。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "5个claim均存在且canonical URL一致；754ad6…/3ebec8…完整Introduction支持88%与7/10及人工审阅，Petri完整Limitations支持judge误报/漏报和人工校准，c3955c…完整段落支持复杂高分不等于令人担忧。"
+      }
+    ],
+    "score": 2,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "题述RL/concerningness实验的定义、训练、分数和替代有效性明确unknown；不算事实错误。",
+      "人工复核可取消的阈值、错误率及泛化保证没有被编造。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "相关研究均真实支撑其具体陈述；未将相关研究当作缺失RL实验的实证替代。",
+      "未独立核验答案自述的全索引检索过程；本评分仅认定回答公开表达unknown，未将检索过程自述当作源中不存在该实验的独立证明。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "Ba93ecc74",
+    "case_id": "K1",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "用unknown区分无法支持的说法与已证伪，未捏造作者、机构归属或来源；符合诚实控制项。"
+      },
+      {
+        "index": 2,
+        "pass": false,
+        "points": 0,
+        "reason": "未给出BootLoops由Matthew Schwartz拥有和维护的事实。"
+      },
+      {
+        "index": 3,
+        "pass": false,
+        "points": 0,
+        "reason": "作者及客座/访问研究员归属保持unknown，未覆盖指定署名与角色事实。"
+      },
+      {
+        "index": 4,
+        "pass": false,
+        "points": 0,
+        "reason": "未覆盖人类概念贡献、现实数据获取/理解/检查及有界技术任务；仅列缺失证据。"
+      },
+      {
+        "index": 5,
+        "pass": false,
+        "points": 0,
+        "reason": "sources为空，无可验证的claim ID及canonical URL支撑实质答案。"
+      }
+    ],
+    "score": 1,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "文章作者、官方代表性、BootLoops归属和完整科学方法替代能力均诚实unknown；不按事实错误计。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "未知回答获得控制项1分，未获得缺失知识或引文覆盖分。",
+      "未独立核验答案自述的全索引检索过程。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "Bbda098a9",
+    "case_id": "K1",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "根据本地文章否定两项夸大主张，同时把文章之后的产权变化明确留为unknown，未捏造官方立场。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "f55e37328616061787f26242的真实claim和Disclosure全文明确BootLoops不是Anthropic项目，由Matthew Schwartz拥有和维护。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "保留作者Matthew Schwartz、2026-10-01、guest author条件和项目期间visiting researcher身份；50a968…及source/voice元数据支持，未将host当机构背书。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "91357a…的Outlook全文保留现实数据迭代、人类概念工作、适当问题上技术工作自动化；98146e…完整Technical details支持人工复查、自动检查不可靠和计算解释可错。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "4个引文claim均存在、canonical URL均为https://www.anthropic.com/research/claude-shaped-science；至少f55e373…直接支撑核心产权判断。"
+      }
+    ],
+    "score": 5,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "文章之后产权是否变更明确unknown；未把文章时点产权延伸成未经核验的后续事实。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "完整绑定段落而非文章宿主或邻近引用支持人类角色、数据循环和校验局限。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "Bc986b185",
+    "case_id": "V1",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "按精确端点区分input_only_v1与text_tokens_v1，A=2美元、B=10.2美元，均与题给价率一致。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "C因unpriced-region没有匹配价率保留unknown/null，未按模型名或global价率回退。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "B按800000非缓存输入、200000缓存输入、100000输出计价；reasoning已含于输出，未重复累加。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "D因native audio_tokens缺少归一化和价率保留整条unknown/null；未套用文本费用。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "known_subtotal_usd=12.2、total_cost_usd=null；明确题给合成离线价卡不代表实际provider价格。"
+      }
+    ],
+    "score": 5,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "C的区域价率、D的音频归一化/价率和完整总额保持unknown/null，符合题意。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "独立复算A=2、B=10.2、小计12.2；用量完整声明未被当作定价规则完整。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "Bd30e1847",
+    "case_id": "V2",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "FPR=18/(18+882)=18/900=0.02，负例分母900正确。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "FNR=10/(90+10)=10/100=0.1，正例分母100正确。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "给定部署基率0.001时PPV=(0.9*0.001)/(0.9*0.001+0.02*0.999)=0.0431034483；明确区别校准样本90/108=0.8333333333，且声明误差率迁移是假设。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "固定g1/r1/j1下prior FPR=0.02、current=0.08，delta=0.06>0.03触发告警；允许独立不同dataset_version作漂移监测，未当同样本配对改进或因果结论。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "以规范workers=3为分母，已报成功2/3，第三个身份/终态unknown；aggregate成功不补齐人口，当前结果不能作为完整工作流上线依据。"
+      },
+      {
+        "index": 6,
+        "pass": true,
+        "points": 1,
+        "reason": "精确指出served flex与目标standard服务身份不匹配；同模型名不能使本次pin比较有效。"
+      },
+      {
+        "index": 7,
+        "pass": true,
+        "points": 1,
+        "reason": "保留历史2个失败、max_failed_attempts=2、余量0；resume不重置，max_attempts=10不覆盖失败上限，现预算下不启动新attempt。"
+      },
+      {
+        "index": 8,
+        "pass": true,
+        "points": 1,
+        "reason": "拒绝以aggregate均分放行，要求逐attempt成本/用量对账、人口与产物核对、目标pin下有效独立评估后再审查；独立最终测试也明确列为未测。",
+        "uncertain": true
+      }
+    ],
+    "score": 8,
+    "max_score": 8,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "第三worker、完整attempt总数、失败/总成本、实际部署PPV、cohort正例统计、独立最终测试等保持unknown。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "核心数值均已独立复算；5/116等于0.04310344827586207，每10万情景TP90、FN10、FP1998、TN97902及告警2088均正确。",
+      "uncertain：第8项的independent final selection未定义是否必须另行明确候选选择与最终测试隔离。答案要求独立评估再审查并保留独立最终测试缺口，按独立最终验证含义给1；不能据此声称已经建立候选选择隔离。",
+      "答案声称实际调用stage_coverage；packet没有执行日志，未将该自述作为额外能力证据，评分基于可复核的题给人口与答案判断。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": true,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "Bddc6cb2f",
+    "case_id": "T1",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": false,
+        "points": 0,
+        "reason": "只说明公告日不能当生效日，未确定或区分10/8公告与11/12生效这一具体事实。"
+      },
+      {
+        "index": 2,
+        "pass": false,
+        "points": 0,
+        "reason": "明确unknown，未给出截至10/18新版尚未生效的实质判断。"
+      },
+      {
+        "index": 3,
+        "pass": false,
+        "points": 0,
+        "reason": "当前具体旧版与未来公告版均unknown，未覆盖版本区别。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "明确本地观察边界早于题述时间，不把11/12未来状态当作已实时核验。"
+      },
+      {
+        "index": 5,
+        "pass": false,
+        "points": 0,
+        "reason": "sources为空，未提供支持公告、生效或当前版本的有效claim/URL。"
+      }
+    ],
+    "score": 1,
+    "max_score": 5,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "10/18现行具体规则和11/12适用规则均明确unknown；属于知识/来源覆盖缺失，不是事实错误。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "unknown获得时间控制项1分，未补给缺失实质判断或引文分。",
+      "精确资料截止时刻及检索范围为答案自述，packet无快照元数据或日志可独立核验，未将其视作已验证的来源事实。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  },
+  {
+    "blind_id": "Be0449943",
+    "case_id": "V2",
+    "criteria": [
+      {
+        "index": 1,
+        "pass": true,
+        "points": 1,
+        "reason": "FPR=18/(18+882)=18/900=0.02，负例分母900正确。"
+      },
+      {
+        "index": 2,
+        "pass": true,
+        "points": 1,
+        "reason": "FNR=10/(90+10)=10/100=0.1，正例分母100正确。"
+      },
+      {
+        "index": 3,
+        "pass": true,
+        "points": 1,
+        "reason": "给定部署基率0.001时PPV=(0.9*0.001)/(0.9*0.001+0.02*0.999)=0.0431034483；明确区别校准样本90/108=0.8333333333，且声明误差率迁移是假设。"
+      },
+      {
+        "index": 4,
+        "pass": true,
+        "points": 1,
+        "reason": "固定g1/r1/j1下prior FPR=0.02、current=0.08，delta=0.06>0.03触发告警；允许独立不同dataset_version作漂移监测，未当同样本配对改进或因果结论。"
+      },
+      {
+        "index": 5,
+        "pass": true,
+        "points": 1,
+        "reason": "以规范workers=3为分母，已报成功2/3，第三个身份/终态unknown；aggregate成功不补齐人口，当前结果不能作为完整工作流上线依据。"
+      },
+      {
+        "index": 6,
+        "pass": true,
+        "points": 1,
+        "reason": "精确指出served flex与目标standard服务身份不匹配；同模型名不能使本次pin比较有效。"
+      },
+      {
+        "index": 7,
+        "pass": true,
+        "points": 1,
+        "reason": "保留历史2个失败、max_failed_attempts=2、余量0；resume不重置，max_attempts=10不覆盖失败上限，现预算下不启动新attempt。"
+      },
+      {
+        "index": 8,
+        "pass": true,
+        "points": 1,
+        "reason": "拒绝以aggregate均分放行，要求逐ID人口核对、全部失败attempt成本/用量对账、有效目标配置和完整人口证据；独立最终测试明确标未测，未当已通过。",
+        "uncertain": true
+      }
+    ],
+    "score": 8,
+    "max_score": 8,
+    "factual_errors": [],
+    "unsupported_assertions": [],
+    "safe_unknown": [
+      "第三worker、attempt总数及失败/总成本、实际部署误差率、cohort正例TPR和独立最终测试等保持unknown。"
+    ],
+    "notes": [
+      "探索性AI复核，非人工标注；只依据指定contract、blind-inputs及获准的统一status measurement补充，未依据真实标签、答案长度或风格评分。",
+      "核心数值均已独立复算；每百万TP900、FN100、FP19980、TN979020正确。额外Newcombe-Wilson差值95%区间独立复算为[-0.003363222386040171,0.13146708392206866]，与所报数值吻合，未将点阈值告警混为统计确认。",
+      "uncertain：第8项的independent final selection未定义是否必须显式要求候选选择隔离。答案把独立最终测试列为unknown并阻止上线，但next_actions未逐字写出final selection；按独立最终验证缺口不得当通过的含义给1，该解释需保留，不能声称已提供独立选择流程。",
+      "measurement补充：同一规则覆盖全部12份pack；仅核验机械记录是否存在，不因registry存在与否加减能力分，不以AI curation替代primary passage。"
+    ],
+    "measurement_supplement": {
+      "file": "agent-blind-status-supplement.json",
+      "runtime_has_registry": false,
+      "machine_status_ids": [],
+      "evidence_layer": "actual assigned-runtime AI curation；不等于独立原生来源证明",
+      "rubric_changed": false
+    }
+  }
+]

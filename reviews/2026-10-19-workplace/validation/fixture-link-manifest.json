@@ -1,0 +1,59 @@
+{
+  "reason": "Transient diagnostics deliberately created symlink aliases; preserve source links in retained worktree and metadata here, omit links from ordinary original-checkout file copying. No original/user file deleted.",
+  "links": [
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/alias-directory",
+      "link_text": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical",
+      "resolved_target": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical",
+      "resolved_target_relative_to_worktree": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical",
+      "target_kind": "directory",
+      "target_file_sha256": null,
+      "source_symlink_preserved": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/crashed-active.sqlite",
+      "link_text": "crashed.sqlite",
+      "resolved_target": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/crashed.sqlite",
+      "resolved_target_relative_to_worktree": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/crashed.sqlite",
+      "target_kind": "file",
+      "target_file_sha256": "badd102e60818f24de3d99ebac3b5208c8107a138593eb6a9063699856d98869",
+      "source_symlink_preserved": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/live.sqlite",
+      "link_text": "shipping.sqlite",
+      "resolved_target": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/shipping.sqlite",
+      "resolved_target_relative_to_worktree": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/shipping.sqlite",
+      "target_kind": "file",
+      "target_file_sha256": "cebeb64d77c5b04f486b722e7da26ec00a8bcaa1d3a196045147fa58f96a698f",
+      "source_symlink_preserved": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/alias-directory",
+      "link_text": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical",
+      "resolved_target": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical",
+      "resolved_target_relative_to_worktree": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical",
+      "target_kind": "directory",
+      "target_file_sha256": null,
+      "source_symlink_preserved": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/crashed-active.sqlite",
+      "link_text": "crashed.sqlite",
+      "resolved_target": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/crashed.sqlite",
+      "resolved_target_relative_to_worktree": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/crashed.sqlite",
+      "target_kind": "file",
+      "target_file_sha256": "f2d2235fff60dd1b8c35ff51b2aad848f1170ad94c38472cc623a47df934fa90",
+      "source_symlink_preserved": true
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/live.sqlite",
+      "link_text": "shipping.sqlite",
+      "resolved_target": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/shipping.sqlite",
+      "resolved_target_relative_to_worktree": "reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/shipping.sqlite",
+      "target_kind": "file",
+      "target_file_sha256": "f1eb3eee7027c34b26aba4b0ebfb3d4c12720f94b297898061a0e27aa2f2de69",
+      "source_symlink_preserved": true
+    }
+  ]
+}

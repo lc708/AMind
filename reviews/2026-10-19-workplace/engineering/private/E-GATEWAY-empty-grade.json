@@ -1,0 +1,449 @@
+{
+  "task_id": "E-GATEWAY",
+  "score": 0,
+  "max_score": 6,
+  "probe_passed": 0,
+  "probe_total": 14,
+  "domain_scores": {
+    "completion": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 2
+    },
+    "ownership": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 3
+    },
+    "attribution": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 3
+    },
+    "terminal": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 4
+    },
+    "archive": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 1
+    },
+    "rendering": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 1
+    }
+  },
+  "domains": {
+    "completion": {
+      "score": 0,
+      "max_score": 2
+    },
+    "ownership": {
+      "score": 0,
+      "max_score": 3
+    },
+    "attribution": {
+      "score": 0,
+      "max_score": 3
+    },
+    "terminal": {
+      "score": 0,
+      "max_score": 4
+    },
+    "archive": {
+      "score": 0,
+      "max_score": 1
+    },
+    "rendering": {
+      "score": 0,
+      "max_score": 1
+    }
+  },
+  "fatal_guardrails": {
+    "G02": false,
+    "G03": false,
+    "G05": false,
+    "G06": false,
+    "G07": false,
+    "G10": false,
+    "G12": false,
+    "G13": false
+  },
+  "fatal_pass": false,
+  "cases": [
+    {
+      "id": "G01",
+      "domain": "completion",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-4agshqhx/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-4agshqhx/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-4agshqhx/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "domain": "ownership",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-o9uxh1iw/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-o9uxh1iw/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-o9uxh1iw/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "domain": "ownership",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-y5k05x4o/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-y5k05x4o/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-y5k05x4o/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "domain": "ownership",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-k98at8l6/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-k98at8l6/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-k98at8l6/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "domain": "attribution",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-mpf0gnxt/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-mpf0gnxt/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-mpf0gnxt/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "domain": "attribution",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-a918y5xy/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-a918y5xy/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G07",
+      "domain": "attribution",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-24mrl2sy/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-24mrl2sy/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G08",
+      "domain": "terminal",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-aiq338np/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-aiq338np/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-aiq338np/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "domain": "terminal",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-q5r6o4s6/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-q5r6o4s6/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-q5r6o4s6/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G10",
+      "domain": "terminal",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-tk7ryg_r/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-tk7ryg_r/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G11",
+      "domain": "terminal",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-5a8jif5a/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-5a8jif5a/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G12",
+      "domain": "archive",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-b4hev5tf/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-b4hev5tf/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-b4hev5tf/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G13",
+      "domain": "rendering",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-83mncz0z/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-83mncz0z/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-83mncz0z/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G14",
+      "domain": "completion",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-pouesusk/view-1.json'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-pouesusk/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-GATEWAY/integration-pouesusk/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "evidence_level": "offline real CLI subprocesses and persisted journals; no provider/model/network"
+}

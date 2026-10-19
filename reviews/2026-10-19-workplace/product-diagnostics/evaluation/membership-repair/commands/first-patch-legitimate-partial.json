@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/membership-repair/first-patch-source/report_eval.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/membership-repair/runs/first-patch/legitimate-partial"
+  ],
+  "returncode": 0,
+  "stdout": "{\"report\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/membership-repair/runs/first-patch/legitimate-partial/report-full.html\", \"data\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/membership-repair/runs/first-patch/legitimate-partial/report-data.json\", \"variants\": 1}\n",
+  "stderr": ""
+}

@@ -1,0 +1,15 @@
+{
+  "returncode": 0,
+  "benchmark_content_term_hits": {
+    "nuwa1-claim-": 0,
+    "AMind": 0,
+    "amind-engineering": 0,
+    "eval-improve": 0,
+    "2026-10-18-comparison": 0,
+    "PRIVATE-GRADER": 0,
+    "BootLoops": 0
+  },
+  "prompt_messages": 5,
+  "model_called": false,
+  "meaning": "Narrow canary/content check, not proof that no external context exists."
+}

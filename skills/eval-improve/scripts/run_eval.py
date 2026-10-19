@@ -47,6 +47,39 @@ def projection(config, mutable):
     return result
 
 
+def validate_billing_identity(identity):
+    fields = {'provider', 'interface', 'model', 'service_tier', 'region'}
+    if (not isinstance(identity, dict) or set(identity) - fields - {'context_band'}
+            or not fields <= set(identity) or any(not isinstance(v, str) or not v for v in identity.values())):
+        raise ValueError('expected_billing_identity needs exact provider/interface/model/service_tier/region and optional context_band')
+    return identity
+
+
+def stage_coverage(observed, contract):
+    """Accept an instrumented workflow report, never infer child success from final prose."""
+    if not contract: return {'status': 'unmeasured', 'reason': 'no declared stage coverage contract'}
+    report = observed.get('coverage')
+    if not isinstance(report, dict) or not isinstance(report.get('stages'), list):
+        raise RunError('coverage_missing', 'application must report declared workflow stage coverage')
+    stages = {}
+    for stage in report['stages']:
+        if not isinstance(stage, dict) or not isinstance(stage.get('id'), str) or not stage['id'] or stage['id'] in stages:
+            raise RunError('coverage_invalid', 'stage IDs must be unique nonempty strings')
+        stages[stage['id']] = stage
+    missing = set(contract['required_stages']) - set(stages)
+    if missing: raise RunError('coverage_missing', 'required stages absent: ' + ', '.join(sorted(missing)))
+    for key in contract['required_stages']:
+        stage = stages[key]
+        counts = stage.get('counts')
+        if (stage.get('coverage') != 1 or isinstance(stage.get('coverage'), bool)
+                or stage.get('uncovered') != [] or type(stage.get('total')) is not int or stage['total'] <= 0
+                or stage['total'] != contract['expected_totals'][key]
+                or not isinstance(counts, dict) or any(type(v) is not int or v < 0 for v in counts.values())
+                or sum(counts.values()) != stage['total'] or counts.get('succeeded') != stage['total']):
+            raise RunError('coverage_incomplete', 'required stage has missing, failed, unknown or uninstrumented work: ' + key)
+    return {'status': 'measured_complete', 'required_stages': contract['required_stages'], 'report': report}
+
+
 def prepare(card_path, variant, split, reps, selection=None):
     card_path = card_path.resolve()
     base = card_path.parent
@@ -127,9 +160,24 @@ def prepare(card_path, variant, split, reps, selection=None):
     if not treatment.get('files'):
         raise ValueError('each variant must list actual target files; labels alone are not snapshots')
     target = {'files': file_hashes(base, treatment['files']), 'config': configs[variant],
-              'expected_model': treatment.get('expected_model')}
+              'expected_model': treatment.get('expected_model'),
+              'expected_billing_identity': treatment.get('expected_billing_identity')}
     if target['expected_model'] is not None and (not isinstance(target['expected_model'], str) or not target['expected_model']):
         raise ValueError('expected_model must be a nonempty exact served identity or null')
+    if target['expected_billing_identity'] is not None:
+        validate_billing_identity(target['expected_billing_identity'])
+        if target['expected_model'] and target['expected_model'] != target['expected_billing_identity']['model']:
+            raise ValueError('expected_model differs from expected_billing_identity')
+    if grader.get('expected_billing_identity') is not None: validate_billing_identity(grader['expected_billing_identity'])
+    coverage = card.get('coverage', {})
+    if (not isinstance(coverage, dict) or set(coverage) - {'required_stages', 'expected_totals'}
+            or (coverage and (not isinstance(coverage.get('required_stages'), list) or not coverage['required_stages']
+                             or any(not isinstance(k, str) or not k for k in coverage['required_stages'])
+                             or len(set(coverage['required_stages'])) != len(coverage['required_stages'])
+                             or not isinstance(coverage.get('expected_totals'), dict)
+                             or set(coverage['expected_totals']) != set(coverage['required_stages'])
+                             or any(type(v) is not int or v <= 0 for v in coverage['expected_totals'].values())))):
+        raise ValueError('coverage requires unique required_stages and positive expected_totals for each stage')
     workspace = card.get('workspace', {})
     workspace_files = file_hashes(base, workspace.get('files', []))
     for name in workspace_files:
@@ -146,13 +194,13 @@ def prepare(card_path, variant, split, reps, selection=None):
                 'runner': runner, 'metrics': metric_specs, 'splits': splits,
                 'fixed_config': fixed, 'mutable_config': sorted(mutable),
                 'workspace_files': workspace_files, 'control_files': control_files,
-                'task': card['task'], 'reps': reps, 'split': split,
+                'task': card['task'], 'reps': reps, 'split': split, 'coverage': coverage,
                 'case_groups': {key: by_id[key].get('group', key) for key in splits[split]},
                 'kernel': {p.name: sha(read_bytes(p)) for p in (Path(__file__), Path(__file__).with_name('kernel_common.py'))}}
     limits = {'max_attempts': len(splits[split]) * reps, 'concurrency': 1,
               'timeout_s': 120, 'retries': 0, 'max_output_bytes': 4 * 1024 * 1024,
               'max_total_seconds': 3600, **card.get('limits', {})}
-    if set(limits) - {'max_attempts','concurrency','timeout_s','retries','max_output_bytes','max_total_seconds','max_cost_usd','reservation_usd_per_attempt'}:
+    if set(limits) - {'max_attempts','concurrency','timeout_s','retries','max_output_bytes','max_total_seconds','max_cost_usd','reservation_usd_per_attempt','max_failed_attempts'}:
         raise ValueError('unknown limit field; check the experiment card before executing')
     positive(reps, 'reps', True)
     for name in ('max_attempts', 'concurrency', 'max_output_bytes'):
@@ -160,6 +208,7 @@ def prepare(card_path, variant, split, reps, selection=None):
     positive(limits['concurrency'], 'concurrency', True, 32)
     positive(limits['timeout_s'], 'timeout_s')
     positive(limits['max_total_seconds'], 'max_total_seconds')
+    if 'max_failed_attempts' in limits: positive(limits['max_failed_attempts'], 'max_failed_attempts', True)
     if type(limits['retries']) is not int or not 0 <= limits['retries'] <= 10:
         raise ValueError('retries must be 0..10')
     if limits['retries'] and not runner['retry_safe']:
@@ -174,6 +223,7 @@ def prepare(card_path, variant, split, reps, selection=None):
                 'treatment': target, 'treatment_hash': sha(target), 'limits': limits,
                 'isolation': 'separate input/grader channels; filesystem/network isolation not established',
                 'status': 'planned', 'results_sha256': None}
+    manifest['result_identity_required'] = True
     if split == 'test':
         if selection is None: raise ValueError('final test requires --selection from frozen validation evidence')
         from seal_selection import verify
@@ -391,6 +441,7 @@ def run(prepared, flow, resume=False, retry_errors=False):
         spent = [sum(e.get('known_cost_usd', e.get('cost_usd') or 0.0) for e in finishes.values())]
         unknown = [sum(value is None for value in accounted)]
         reserved = [0.0]; attempted = [len(starts)]; errors = []
+        failed = [sum(e['status'] != 'ok' for e in finishes.values())]
         overall_deadline = time.monotonic() + max(0, manifest['deadline_at'] - time.time())
         if limits.get('max_cost_usd') is not None and unknown[0]:
             raise ValueError('unknown historical cost prevents budgeted resume')
@@ -420,6 +471,7 @@ def run(prepared, flow, resume=False, retry_errors=False):
                     reservation = limits.get('reservation_usd_per_attempt', 0.0)
                     if (stopping.is_set() or time.monotonic() >= case_deadline
                             or attempted[0] >= limits['max_attempts']
+                            or ('max_failed_attempts' in limits and failed[0] >= limits['max_failed_attempts'])
                             or (ceiling is not None and spent[0] + reserved[0] + reservation > ceiling)):
                         return
                     attempted[0] += 1; reserved[0] += reservation
@@ -453,8 +505,12 @@ def run(prepared, flow, resume=False, retry_errors=False):
                     expected_model = manifest['treatment']['expected_model']
                     if expected_model and observed.get('model') != expected_model:
                         raise RunError('serving_substitution', 'served model is absent or differs from the explicit pin')
+                    expected_identity = manifest['treatment'].get('expected_billing_identity')
+                    if expected_identity is not None and observed.get('billing_identity') != expected_identity:
+                        raise RunError('serving_substitution', 'served billing scope is absent or differs from endpoint/model/tier/region pin')
                     if observed.get('status', 'ok') != 'ok':
                         raise RunError(observed.get('status', 'incomplete'), 'application returned an unscorable status')
+                    coverage_result = stage_coverage(observed, manifest['comparison_identity']['coverage'])
                     cached_application = (observed, workspace, application_attempt)
                     grader = prepared['grader']; reference = prepared['references'].get(case_id, {}).get('expected')
                     stage = 'grader'
@@ -466,6 +522,10 @@ def run(prepared, flow, resume=False, retry_errors=False):
                     else:
                         judged = grade_builtin(grader['kind'], observed['output'], reference,
                                                grader.get('options', {}), workspace, prepared['metrics'][0]['id'])
+                    if grader.get('expected_model') is not None and judged.get('model') != grader['expected_model']:
+                        raise RunError('judge_substitution', 'served judge model differs from the grader pin')
+                    if grader.get('expected_billing_identity') is not None and judged.get('billing_identity') != grader['expected_billing_identity']:
+                        raise RunError('judge_substitution', 'served judge billing scope differs from the grader pin')
                     grades = validate_grade(judged, prepared['metrics'])
                     check_files(prepared)
                     transcript = observed.get('transcript', [{'role': 'user', 'content': case['input']},
@@ -474,7 +534,11 @@ def run(prepared, flow, resume=False, retry_errors=False):
                     row = {'prompt_id': case_id, 'rep': rep, 'status': 'ok', 'grade': grades,
                            'prompt': case['input'], 'tags': case.get('tags', []), 'group': case.get('group', case_id),
                            'output': observed['output'], 'model': observed.get('model'), 'usage': observed.get('usage'),
+                           'billing_identity': observed.get('billing_identity'), 'coverage': coverage_result,
+                           'result_identity': {'comparison_hash': manifest['comparison_hash'],
+                                               'treatment_hash': manifest['treatment_hash'], 'case_id': case_id, 'rep': rep},
                            'judge_model': judged.get('model'), 'judge_usage': judged.get('usage'),
+                           'judge_billing_identity': judged.get('billing_identity'),
                            'latency_s': time.monotonic() - task_started, 'trace_file': f'traces/{stem}.json',
                            'attempt_id': attempt_id, 'explanation': judged.get('explanation'),
                            'meta': {'synthetic': observed.get('synthetic', False), 'application_attempt_id': application_attempt,
@@ -507,6 +571,7 @@ def run(prepared, flow, resume=False, retry_errors=False):
                               'app_cost_usd': app_cost, 'judge_cost_usd': judge_cost, 'stage': stage,
                               'usage': None if reused_application else observed.get('usage'), 'judge_usage': judged.get('usage'),
                               'model': observed.get('model'), 'judge_model': judged.get('model'),
+                              'billing_identity': observed.get('billing_identity'), 'judge_billing_identity': judged.get('billing_identity'),
                               'latency_s': time.monotonic() - started}
                     if not failure:
                         costs = case_costs.get((case_id, rep), []) + [cost]
@@ -514,6 +579,7 @@ def run(prepared, flow, resume=False, retry_errors=False):
                         row['attempt_cost_usd'] = cost
                         append_json(directory, 'results.jsonl', row); rows.append(row)
                     else:
+                        failed[0] += 1
                         error = {**finish, 'retryable': failure.retryable, 'error': str(failure)}
                         append_json(directory, 'errors.jsonl', error); errors.append(error)
                     append_json(directory, 'attempts.jsonl', finish)
@@ -532,7 +598,9 @@ def run(prepared, flow, resume=False, retry_errors=False):
             list(pool.map(lambda pair: task(*pair), pending))
         complete = len(rows) == len(prepared['selected']) * manifest['reps'] and not stopping.is_set()
         manifest.update(status='complete' if complete else 'incomplete', results_sha256=sha(read_bytes(results_path)),
-                        completed_cases=len(rows), attempts=attempted[0], known_cost_usd=spent[0], unknown_cost_attempts=unknown[0])
+                        completed_cases=len(rows), attempts=attempted[0], known_cost_usd=spent[0], unknown_cost_attempts=unknown[0],
+                        failed_attempts=failed[0], remaining_failed_attempts=(None if 'max_failed_attempts' not in limits
+                                                                         else max(0, limits['max_failed_attempts'] - failed[0])))
         if variant == 'baseline' and complete:
             frozen = {key: next(r['output'] for r in rows if r['prompt_id'] == key and r['rep'] == 0) for key in prepared['selected']}
             frozen_path = in_root(directory, 'frozen-outputs.json')

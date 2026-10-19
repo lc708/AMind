@@ -6,6 +6,8 @@ from __future__ import annotations
 import hashlib
 import gzip
 import json
+import re
+import lifecycle
 import sqlite3
 import sys
 from pathlib import Path
@@ -99,14 +101,17 @@ def main() -> int:
     require(manifest.get("schema_name") == "amind-skill-evidence-manifest", "invalid manifest schema")
     require(manifest.get("schema_version") == 1, "unsupported manifest schema version")
     require(manifest.get("skill_id") == "amind", "invalid skill identity")
-    require(manifest.get("release_id") in {"amind-v1", "amind-v1-increment-2026-09-08"}, "invalid release identity")
+    require(bool(re.fullmatch(r"amind-v1(?:-increment-\d{4}-\d{2}-\d{2})?", str(manifest.get("release_id", "")))), "invalid release identity")
     counts = manifest.get("counts")
     require(isinstance(counts, dict), "missing counts")
     for field in MANIFEST_COUNT_FIELDS:
         require(type(counts.get(field)) is int and counts[field] >= 0, f"invalid manifest count: {field}")
 
+    expected_artifacts = dict(EXPECTED_ARTIFACTS)
+    if manifest.get('current_status_bundled'):
+        expected_artifacts['current-status.jsonl'] = 'jsonl'
     artifacts = manifest.get("artifacts")
-    require(isinstance(artifacts, list) and len(artifacts) == len(EXPECTED_ARTIFACTS), "unexpected evidence artifact count")
+    require(isinstance(artifacts, list) and len(artifacts) == len(expected_artifacts), "unexpected evidence artifact count")
     seen_paths: set[str] = set()
     rows_by_path: dict[str, list[dict[str, Any]]] = {}
     for artifact in artifacts:
@@ -119,15 +124,20 @@ def main() -> int:
         require(len(payload) == artifact.get("bytes"), f"byte count mismatch: {relative}")
         require(sha256(payload) == artifact.get("sha256"), f"SHA-256 mismatch: {relative}")
         artifact_format = artifact.get("format")
-        require(artifact_format == EXPECTED_ARTIFACTS.get(relative), f"invalid artifact format: {relative}")
+        require(artifact_format == expected_artifacts.get(relative), f"invalid artifact format: {relative}")
         if artifact_format == "jsonl":
             rows = list(iter_jsonl(path))
             require(len(rows) == artifact.get("rows"), f"row count mismatch: {relative}")
             rows_by_path[relative] = rows
         elif artifact_format == "jsonl-gzip":
             require(sum(1 for _ in iter_jsonl(path)) == artifact.get("rows"), f"row count mismatch: {relative}")
-    require(seen_paths == set(EXPECTED_ARTIFACTS), "missing or unexpected evidence artifacts")
+    require(seen_paths == set(expected_artifacts), "missing or unexpected evidence artifacts")
 
+    if manifest.get('current_status_bundled'):
+        try:
+            current_records = lifecycle.load_records(DATA_ROOT, manifest)
+        except (ValueError, json.JSONDecodeError) as error:
+            raise VerifyError(str(error)) from error
     index_path = safe_artifact_path("amind-full-index.sqlite3")
     try:
         connection = sqlite3.connect(index_path.resolve().as_uri() + "?mode=ro&immutable=1", uri=True)
@@ -141,6 +151,14 @@ def main() -> int:
         require(connection.execute("SELECT count(*) FROM sources").fetchone()[0] == counts["full_index_analysis_units"] == metadata['analysis_units'], "full index source count mismatch")
         require(connection.execute("SELECT count(*) FROM claims WHERE is_reviewed_kernel = 1").fetchone()[0] == 54, "full index gold count mismatch")
         require(connection.execute("SELECT count(*) FROM claims WHERE synthesis_disposition = 'eligible_for_source_level_synthesis'").fetchone()[0] == counts.get('full_index_direct_claims', 45941), "full index direct-position count mismatch")
+        if manifest.get('current_status_bundled'):
+            known_claims = {r[0] for r in connection.execute('SELECT claim_id FROM claims')}
+            known_units = {r[0] for r in connection.execute('SELECT analysis_unit_id FROM sources')}
+            for status in current_records:
+                require(set(status.get('target_claim_ids', [])) <= known_claims, 'current-status claim target missing')
+                require(set(status.get('replacement_claim_ids', [])) <= known_claims, 'current-status replacement claim missing')
+                require(set(status.get('target_analysis_unit_ids', [])) <= known_units, 'current-status source target missing')
+                require(set(status.get('replacement_analysis_unit_ids', [])) <= known_units, 'current-status replacement source missing')
     except (json.JSONDecodeError, sqlite3.Error) as error:
         raise VerifyError(f"invalid full SQLite index: {error}") from error
     finally:

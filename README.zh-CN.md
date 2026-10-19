@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/lc708/AMind/stargazers"><img src="https://img.shields.io/github/stars/lc708/AMind?style=flat-square&color=D97757" alt="GitHub stars"></a>
   <a href="skills/amind"><img src="https://img.shields.io/badge/Agent%20Skill-AMind-D97757?style=flat-square" alt="AMind Agent Skill"></a>
-  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/64%2C265%20claims-offline%20index-71C4A5?style=flat-square" alt="离线完整证据索引"></a>
+  <a href="skills/amind/data/manifest.json"><img src="https://img.shields.io/badge/source--bound%20evidence-offline%20index-71C4A5?style=flat-square" alt="离线完整证据索引；当前数量见 manifest"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-8D96A5?style=flat-square" alt="Apache License 2.0"></a>
 </p>
 
@@ -25,15 +25,21 @@
 
 ## 60 秒开始
 
-AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering`](skills/amind-engineering/SKILL.md) 负责提示词审查、成本优化、迁移与 Agent 开发；[`eval-improve`](skills/eval-improve/SKILL.md) 负责可运行的应用评测、严格比较、成本搜索和有测量依据的迭代。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装命令、中文用例及迁移范围见[系列说明](AMIND-SERIES.md)。下方知识技能保留独立的版本与资料边界。
+AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering` 0.3.2](skills/amind-engineering/SKILL.md) 负责提示词审查、迁移、多代理合同、持久分阶段工作流及 13 个任务模板；[`eval-improve` 0.4.3](skills/eval-improve/SKILL.md) 负责应用／评分器评测、精确计费范围、评分器校准和严格比较。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装和中文用例见[系列说明](AMIND-SERIES.md)，实际实现与验证见[10 月应用更新报告](reviews/2026-10-18-application-update.zh-CN.md)。下方知识技能保留独立版本与资料边界。
 
-AMind **1.2.1** 已纳入 **2026-09-08 单次增量资料**及对应的判断规则。新增资料、旧文修订和抓取缺口见[更新报告](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)。
+AMind **1.3.1** 的公开资料观察截止到 **2026-10-18**，增加带日期的当前回答资格判断，同时保留被更正或取代的历史证据。详见[10 月知识更新报告](release/amind-v1-increment-2026-10-18/reports/update.zh-CN.md)；[9 月 1.2.1 更新](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)与原始 v1 继续作为历史快照保留。当前包的总量、哈希和截止日期以 [manifest](skills/amind/data/manifest.json)、`summary` 和 `stats` 命令为准；这不意味着已经配置周期联网更新。
 
-把下面一行发给你正在使用的 **Agent**：
+先安装 [Git LFS](https://git-lfs.com/)，再获取完整知识索引：
 
-```text
-$skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind
+```bash
+git lfs install
+git clone https://github.com/lc708/AMind.git
+cd AMind
+git lfs pull --include="skills/amind/data/amind-full-index.sqlite3"
+python3 -B skills/amind/scripts/verify.py
 ```
+
+让 **Agent** 安装这个已验证工作区中的本地 `skills/amind` 文件夹，或将它复制到客户端的 skills 目录。索引必须是完整 SQLite 文件，不能是 LFS 指针。源码 ZIP 或使用 GitHub 归档的安装器可能只取得指针；验证失败时请改用上面的 Git LFS 工作区。
 
 安装完成后，如有需要就重新加载 Agent 或开启新会话，然后拿一个真实问题来试：
 
@@ -100,7 +106,7 @@ $skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind
 | 保留张力与反向证据 | 很少 | 需要自己构建 | **内置** |
 | 回链逐字引句和稳定 ID | 不会 | 可以实现 | **内置** |
 | 使用有界、可检查的语料 | 不会 | 取决于实现 | **会** |
-| 最适合实时新事实 | 不适合 | **接入实时来源后适合** | 不适合——AMind v1 是冻结版本 |
+| 最适合实时新事实 | 不适合 | **接入实时来源后适合** | 不适合——每份证据包都有明确截止日期 |
 
 AMind 有意保持边界：它不要一个看似新鲜却无法溯源的人格表演，而要一套你能检查、质疑和复算的证据。
 
@@ -132,20 +138,18 @@ AMind 用一套内部提炼方法把公开材料变成可用判断：
 
 ## 可检查的证据与明确的边界
 
-安装后的 Skill 已包含完整本地搜索索引；54 条证据仍是逐条人工复核的 Gold 层，冻结发布包则是原始审计与研究层。
+安装后的 Skill 已包含完整本地搜索索引；54 条证据仍是逐条人工复核的 Gold 层。当前数量、哈希与观察截止日期记录在 [manifest](skills/amind/data/manifest.json)，各日期发布包保留原始审计和研究历史。
 
-| 数据层 | 数量 |
-|---|---:|
-| v1 基线权威候选 | 1,804 |
-| 去重分析单位 | 1,419（1,416 个有正文，3 个有边界的 unavailable 例外） |
-| 来源绑定证据段 | 14,715 |
-| 带逐字引句、来源身份且可本地检索的原子主张 | 64,265 |
-| 人工复核的代表证据 | 54 |
-| 反复出现的主题 | 9 |
-| 有边界的声部画像 | 5 |
-| 保留的核心张力 | 5 |
+| 数据层 | 权威口径 |
+|---|---|
+| 当前分析单位、证据段与索引主张 | manifest 的 `counts`；`query.py summary` |
+| 来源与声部分布 | `query.py stats --json` |
+| 人工复核的代表证据 | 54 条，保留原 Gold 层 |
+| 主题、声部与张力 | manifest 的 `counts`；对应查询命令 |
+| 更正、取代与生效日期 | manifest 绑定的 `current-status.jsonl` |
+| 历史候选与数量 | 原始 v1 及各日期增量报告 |
 
-这里对“人工复核”的表述是刻意收紧的：54 条 Gold 证据全部在完整段落语境中逐条复核；其余索引主张经过结构化、来源绑定和归属审计，但没有声称全部由人逐条复核。Skill 同时携带全部 14,715 个段落，供使用前检查上下文。
+这里对“人工复核”的表述是刻意收紧的：54 条 Gold 证据全部在完整段落语境中逐条复核；其余索引主张经过结构化、来源绑定和归属审计，没有声称全部由人逐条复核。Skill 同时携带绑定段落，供使用前检查上下文；新增机器检查资料不会因为进入索引就变成人工 Gold。
 
 ### 检查带索引的 Skill
 
@@ -153,13 +157,15 @@ AMind 用一套内部提炼方法把公开材料变成可用判断：
 python3 -B skills/amind/scripts/query.py summary
 python3 -B skills/amind/scripts/query.py search "alignment faking" --limit 5
 python3 -B skills/amind/scripts/query.py search "latest responsible scaling policy" --current --limit 5
+python3 -B skills/amind/scripts/query.py search "responsible scaling policy" --as-of 2026-09-08 --limit 5
+python3 -B skills/amind/scripts/query.py search "cybersecurity incidents" --as-of 2026-10-18 --include-history --limit 5
 python3 -B skills/amind/scripts/query.py kernel-search "alignment faking" --limit 5
 python3 -B skills/amind/scripts/query.py stats
 python3 -B skills/amind/scripts/query.py tensions
 python3 -B skills/amind/scripts/verify.py
 ```
 
-默认查询覆盖全部 64,265 条主张，并折叠已审计等价项、排除来源仅仅转述的观点、分散文章/作者/域名占比。引用机器检查结果前，可用 `show <claim-id> --passage` 检查完整绑定段落。
+默认查询使用完整索引，按 manifest 截止日期过滤当前回答资格，并折叠已审计等价项、排除来源仅仅转述的观点、分散文章／声部／域名占比。`--current` 在这个边界内优先近期可用证据，不会联网取新事实；`--as-of YYYY-MM-DD` 根据记录的发表、更正和生效日期判断指定日期的资格；`--include-history` 保留并标记失效或尚未生效的资料，原文不会被删除。指定日期晚于资料截止时仍需另行核实。引用前可用 `show <claim-id> --passage` 检查原始绑定段落与状态。
 
 ### 审计原始发布包
 
@@ -172,7 +178,7 @@ python3 -B release/amind-v1/amind.py search "model welfare" --limit 5
 python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 ```
 
-小型高可信评测优先读取 [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl)；自定义全量检索则流式读取 [`atomic-claims.jsonl.gz`](release/amind-v1/data/atomic-claims.jsonl.gz)，并连接 [`analysis-units.jsonl.gz`](release/amind-v1/data/analysis-units.jsonl.gz)。
+以上命令审计的是原始 v1 历史快照。小型高可信评测优先读取 [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl)。自定义当前检索应选择 [manifest](skills/amind/data/manifest.json) 指向的发布包：目前为 [`atomic-claims.jsonl.gz`](release/amind-v1-increment-2026-10-18/data/atomic-claims.jsonl.gz) 连接 [`analysis-units.jsonl.gz`](release/amind-v1-increment-2026-10-18/data/analysis-units.jsonl.gz)，并应用 manifest 绑定的时效资格与归属过滤，详见[检索规则](skills/amind/references/retrieval.md)；也可以直接使用已实现这些规则的 `query.py`。未经筛选的原始流包含历史与转述内容，不能直接用于回答当前机构立场。
 
 ## 跨 Agent 使用
 
@@ -183,17 +189,24 @@ python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 ```bash
 python3 -B skills/amind/scripts/verify.py
 python3 -B scripts/verify_amind_increment.py
-python3 -B -m unittest scripts.test_amind_skill scripts.test_amind_increment
+python3 -B scripts/verify_amind_refresh.py
+python3 -B -m unittest scripts.test_amind_skill scripts.test_amind_increment scripts.test_amind_refresh scripts.test_amind_refresh_sources
 python3 -B scripts/verify_amind_v1_release.py
+python3 -B scripts/verify_amind_increment.py --historical
+python3 -B scripts/verify_amind_application_skills.py --output .codex-tmp/application-checks.json
 ```
 
-完整 SQLite 索引已合并冻结的 AMind v1 与 2026-09-08 单次增量；54 条 Gold 证据保持原样。每个数据文件都有 SHA-256 和行数清单。
+完整 SQLite 索引合并原始 v1 与截至当前 manifest 的各日期增量；54 条 Gold 保留原样，被更正或取代的证据也保留原始身份与段落。每个数据文件都有 SHA-256 和行数清单。`verify_amind_increment.py` 选择当前包的验证器，`--historical` 独立检查 9 月快照。当前离线验证合计 **220 项测试**：160 项应用检查和 60 项知识／来源检查。应用检查使用本地夹具、没有真实模型调用。历史[10 月 18 日新旧对照报告](reviews/2026-10-18-comparison/report.zh-CN.md)记录了所测知识／时效任务和 helper 合同的改善；技能引导的模型工程与评估任务持平。对照共 24 次 CLI 任务执行，覆盖 12 个配对任务，每个任务每版仅运行一次，不能据此声称普遍优于旧版。
+
+工作场景三轮对照经评分语义修正后，工程仅网关出现一次拒绝合同差异，其余工程／评测任务持平；政策题的引用支持有所改善。42 次主执行、6 次确认、评分器修正与工具配置偏差见[工作场景评估报告](reviews/2026-10-19-workplace/report.zh-CN.md)。
+
+原始执行文件以[带校验清单的评审归档](reviews/2026-10-19-shipping/README.md)保留；新工作区打开原始运行链接前，先执行 `python3 -B scripts/restore_amind_review_artifacts.py --apply`。恢复只复制普通文件，不执行捕获的代码。
 
 ## 边界
 
 - AMind 重建的是公开思考方式，没有 Anthropic 内部信息；
 - 它不以 Anthropic 第一人称说话，也不虚构未公开决定；
-- AMind v1 是冻结的研究发布，不是 Anthropic 当前政策的实时来源；
+- 原始 v1 和各次增量都是有日期的研究快照，当前回答过滤依据已记录的状态，不能核实截止日期之后的政策；
 - 语料频次不等于组织共识或个人影响力；
 - 机构口径不自动等于个人观点，个人文章也不自动等于机构政策；
 - 只有 54 条 Gold 证据经过逐条人工复核；全量索引结果在关键使用前仍需检查绑定段落；
@@ -212,11 +225,11 @@ python3 -B scripts/verify_amind_v1_release.py
 
 ### Skill 里是不是只有 54 条证据？
 
-不是。Skill 可在本地检索全部 64,265 条原子主张，并携带全部 14,715 个绑定段落。54 条只是经过人工逐条复核、用于校准与评测的 Gold 层。
+不是。Skill 检索完整本地索引并携带绑定段落，当前总量请查看 `query.py summary` 或 manifest。54 条只是经过人工逐条复核、用于校准与评测的 Gold 层。
 
 ### 为什么 Jack Clark 经常出现？
 
-合并后的语料收录了 484 期 Import AI，而部分长篇技术论文又会被拆成数百条主张。Jack Clark 声部共有 11,223 条，并不是两万多条；其中 3,690 条是他转述或引用的他人观点。默认检索会排除这些转述，并限制同一文章、声部和域名的结果数量。详见[检索规范](skills/amind/references/retrieval.md#distribution-audit)。
+Import AI 包含许多期刊，而部分长篇技术论文又会被拆成数百条主张。原子主张数量不代表个人影响力；Jack Clark 自己的观点与他转述、引用的观点仍有区分。当前分布请运行 `query.py stats --json`，历史分布保留在各日期报告中。默认检索排除转述，并限制同一文章、声部和域名的结果数量。详见[检索规范](skills/amind/references/retrieval.md#distribution-audit)。
 
 ### 它会声称还原 Anthropic 的内部思考吗？
 
@@ -237,6 +250,6 @@ python3 -B scripts/verify_amind_v1_release.py
 
 ## 许可证
 
-AMind 的软件、原创文档、构建逻辑和 Skill 指令采用 [Apache License 2.0](LICENSE)。公开来源引句与第三方事实元数据的权利仍属于各自作者和出版方，不因本仓库而被重新授权；证据与商标边界见 [NOTICE](NOTICE)。
+AMind 的软件、原创文档、构建逻辑和 Skill 指令采用 [Apache License 2.0](LICENSE)。第三方引句、公开网页／PDF 抓取件、提取文本与事实元数据的权利仍属于各自作者和出版方，不因本仓库而被重新授权；证据与商标边界见 [NOTICE](NOTICE)。
 
 如果 AMind 让你的判断多了一层真正有用的视角，欢迎 **[Star 这个仓库](https://github.com/lc708/AMind)**，并分享那个“因为看清证据距离而改变答案”的问题。

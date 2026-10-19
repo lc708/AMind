@@ -164,23 +164,30 @@ class AMindSkillTests(unittest.TestCase):
         self.assertEqual(stats["total_claims"], COUNTS['full_index_atomic_claims'])
         self.assertEqual(stats["total_sources"], COUNTS['full_index_analysis_units'])
         self.assertEqual(stats["source_level_direct_claims"], COUNTS.get('full_index_direct_claims', 45941))
-        self.assertEqual(stats["equivalence_extra_rows"], 217)
-        jack = next(row for row in stats["voices"] if row["name"] == "Jack Clark")
-        self.assertEqual(
-            jack,
-            {
-                "agenda_claims": 1,
-                "claims": 11223 if IS_INCREMENT else 10835,
-                "direct_claims": 7532,
-                "name": "Jack Clark",
-                "reported_claims": 3690 if IS_INCREMENT else 3302,
-                "sources": 484 if IS_INCREMENT else 480,
-            },
-        )
-        hosts = {row["host"]: row for row in stats["source_hosts"]}
-        self.assertEqual(hosts["jack-clark.net"]["claims"], 11556 if IS_INCREMENT else 11168)
-        self.assertEqual(hosts["transformer-circuits.pub"]["claims"], 12693 if IS_INCREMENT else 12248)
-        self.assertEqual(hosts["transformer-circuits.pub"]["claims_per_source"], 244.1 if IS_INCREMENT else 240.16)
+        import gzip
+        from urllib.parse import urlsplit
+        data = ROOT/'release'/MANIFEST['release_id']/'data'
+        def records(name):
+            with gzip.open(data/(name+'.jsonl.gz'),'rt',encoding='utf-8') as h:
+                return [json.loads(line) for line in h if line.strip()]
+        claims = records('atomic-claims')
+        audit = {r['claim_id']:r for r in records('claim-attribution-audit')}
+        units = {r['analysis_unit_id']:r for r in records('analysis-units')}
+        jack_rows=[r for r in claims if r['voice']['name']=='Jack Clark']
+        jack=next(r for r in stats['voices'] if r['name']=='Jack Clark')
+        self.assertEqual(jack['claims'],len(jack_rows))
+        self.assertEqual(jack['sources'],len({r['evidence'][0]['analysis_unit_id'] for r in jack_rows}))
+        for field, disposition in [('direct_claims','eligible_for_source_level_synthesis'),
+                                   ('reported_claims','preserve_as_reported_position_not_source_belief'),
+                                   ('agenda_claims','preserve_as_agenda_not_answer')]:
+            self.assertEqual(jack[field],sum(audit[r['claim_id']]['synthesis_disposition']==disposition for r in jack_rows))
+        components=[json.loads(line) for line in (data/'claim-equivalence-components.jsonl').read_text().splitlines() if line.strip()]
+        self.assertEqual(stats['equivalence_extra_rows'],sum(len(c['member_claim_ids'])-1 for c in components))
+        hosts={r['host']:r for r in stats['source_hosts']}
+        for host in ['jack-clark.net','transformer-circuits.pub']:
+            matching=[r for r in claims if (urlsplit(units[r['evidence'][0]['analysis_unit_id']]['canonical']).hostname or '').removeprefix('www.')==host]
+            self.assertEqual(hosts[host]['claims'],len(matching))
+            self.assertEqual(hosts[host]['sources'],len({r['evidence'][0]['analysis_unit_id'] for r in matching}))
 
     def test_gold_kernel_distribution_explains_old_jack_repetition(self) -> None:
         rows = json_lines((SKILL / "data/evidence-kernel.jsonl").read_text(encoding="utf-8"))
@@ -312,6 +319,13 @@ class AMindSkillTests(unittest.TestCase):
                         self.assertTrue(by_id[claim_id]["conditions"], f'missing scope conditions: {claim_id}')
                 if "required_attribution_class" in expected:
                     self.assertTrue(all(row["attribution_class"] == expected["required_attribution_class"] for row in rows))
+                if "required_claim_attribution" in expected:
+                    by_id={row['claim_id']:row for row in rows}
+                    for claim_id,attribution in expected['required_claim_attribution'].items():
+                        self.assertIn(claim_id,by_id)
+                        self.assertEqual(by_id[claim_id]['attribution_class'],attribution)
+                if expected.get('all_simulated_results_conditioned'):
+                    self.assertTrue(all(row['conditions'] for row in rows if row['attribution_class']=='bounded_simulation_evidence'))
                 if "minimum_strong_results" in expected:
                     self.assertGreaterEqual(
                         sum(row["retrieval"]["relevance_tier"] == "strong" for row in rows),
@@ -379,12 +393,17 @@ class AMindSkillTests(unittest.TestCase):
     def test_readme_leads_with_install_and_broad_use(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
-        install = "$skill-installer install https://github.com/lc708/AMind/tree/main/skills/amind"
+        pull = 'git lfs pull --include="skills/amind/data/amind-full-index.sqlite3"'
+        verify = "python3 -B skills/amind/scripts/verify.py"
         self.assertIn("Think with the Anthropic lens", readme)
-        self.assertIn(install, readme)
-        self.assertIn(install, chinese)
-        self.assertIn("Send this to whichever **Agent** you use", readme)
-        self.assertIn("发给你正在使用的 **Agent**", chinese)
+        for document in (readme, chinese):
+            self.assertIn(pull, document)
+            self.assertIn(verify, document)
+            self.assertLess(document.index(pull), document.index(verify))
+            self.assertLess(document.index(verify), document.index("```text"))
+            self.assertIn("`skills/amind`", document)
+        self.assertIn("Ask your **Agent** to install the local", readme)
+        self.assertIn("让 **Agent** 安装", chinese)
         self.assertNotIn("Codex chat", readme)
         self.assertNotIn("Restart Codex", readme)
         self.assertNotIn("Codex 对话框", chinese)

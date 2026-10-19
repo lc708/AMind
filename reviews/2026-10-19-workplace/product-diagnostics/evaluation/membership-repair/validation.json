@@ -1,0 +1,24 @@
+{
+  "all_passed": true,
+  "report_tests": 24,
+  "existing_eval_tests": 79,
+  "targeted_tests_total": 103,
+  "actual_cli_scenarios_per_implementation": 8,
+  "first_patch_source_verified_against_prior_receipt": true,
+  "new_guard": "Every schema2 result and attempt event must belong to bound selected split IDs and strict integer rep range; missing results remain a legitimate partial report.",
+  "test_log_summaries": {
+    "report": "st_amind_eval_reporting.EvalReportingTests) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 3.857s\n\nOK\n",
+    "existing": "scripts.test_amind_app_skills.PackageTests) ... ok\n\n----------------------------------------------------------------------\nRan 79 tests in 6.818s\n\nOK\n"
+  },
+  "source_sha256": {
+    "skills/eval-improve/scripts/report_eval.py": "dd98dafcff4c560869e0b7f53bdb5a326983aec9d006c316031ad637a6b50302",
+    "skills/eval-improve/references/artifacts.md": "2a5fba9889783da6b9a2aaf035502c856fa5605f770f71392c8aa2ab6d884d1c",
+    "scripts/test_amind_eval_reporting.py": "be6523004fdbacd33ee963d467fedf4fee2c7d204e6657f5b1ae3675e1725363"
+  },
+  "independent_reviewer": "engineering_contrast independently verified 11 fresh CLI scenarios after membership fix; invalid result/journal populations rejected, healthy partial and legacy reports retained.",
+  "independent_evidence": "product-diagnostics/engineering/cross-eval-review.json after_membership_*",
+  "primary_treatment_modified": false,
+  "target_model_calls": 0,
+  "target_outputs_read": false,
+  "pre_fix_diagnostic_files_unchanged": 105
+}

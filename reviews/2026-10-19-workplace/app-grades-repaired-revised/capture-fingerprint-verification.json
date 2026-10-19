@@ -1,0 +1,24 @@
+{
+  "checked_at_utc": "2026-10-18T19:29:10.239336+00:00",
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/capture_fingerprint.py",
+    "--plan",
+    "repair-plan.json",
+    "--verify"
+  ],
+  "returncode": 0,
+  "stdout": "{\"mode\": \"verify\", \"runs\": 6, \"files\": 179, \"success\": true}\n",
+  "stderr": "",
+  "frozen_fingerprint_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/repair-plan-captured-files.json",
+  "frozen_fingerprint_sha256": "f23b13fbf61777a83c617299e39d4a30929205eb4fda4cef856521a48c82fdbe",
+  "all_six_capture_file_sets_and_hashes_unchanged": true,
+  "content_handling": "Opaque byte hashes only for citation artifacts; no citation answer parsing by this Engineering review.",
+  "result": {
+    "mode": "verify",
+    "runs": 6,
+    "files": 179,
+    "success": true
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "role": "user",
+    "content": {
+      "text": "apple"
+    }
+  },
+  {
+    "role": "assistant",
+    "content": "apple"
+  }
+]

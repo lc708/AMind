@@ -1,0 +1,12 @@
+{
+  "checks": {
+    "returncode": true,
+    "real_negative_population": true,
+    "zero_fpr_measured": true,
+    "no_unmeasured_class": true,
+    "ready": true
+  },
+  "passed": true,
+  "stdout": "{\"status\": \"ready_for_review\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 4, \"fp\": 0, \"fn\": 0}, \"fpr\": 0.0, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 7, \"human_positive\": 3, \"human_negative\": 4, \"evaluated\": 7, \"evaluated_positive\": 3, \"evaluated_negative\": 4, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": []}, \"family_count\": 7, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\": \"scenario\", \"value\": 1.0}, \"integrity\": {\"status\": \"verified\", \"issues\": []}, \"limits\": \"Descriptive family-labelled evidence; repetitions and related examples are not independent population samples. Scenario precision is not observed deployment traffic. Review readiness is not deployment approval.\"}\n",
+  "stderr": ""
+}

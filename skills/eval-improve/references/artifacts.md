@@ -8,6 +8,8 @@ The default flow is `.eval-improve/<experiment>-<split>/` with `baseline/`, `v1/
 
 Variant manifests use schema 2. `comparison_identity` binds the data, references, metrics, grader/runner code and configuration, split IDs, independence groups, repetitions, fixtures/control files and kernel. `comparison_hash` must equal its canonical SHA-256. Treatment identity records actual target files and configuration separately so legitimate application edits can be compared while measurement edits cannot. Result and journal byte hashes detect changes since export. A complete status is necessary, not sufficient, for adoption.
 
+New runner exports set `result_identity_required:true`; each row binds comparison hash, treatment hash, case and repetition. A result from another endpoint/model configuration or treatment must not be transplanted by merely rewriting file hashes. `billing_identity` and `judge_billing_identity` retain exact served scope when instrumented. `coverage.status:unmeasured` means no required-stage contract was instrumented; it does not mean all children passed. The report exposes these distinctions and remaining failure budget.
+
 ## Strict comparison
 
 ```bash
@@ -27,7 +29,9 @@ The estimand is the case-weighted mean difference, with repetitions averaged wit
 
 ## Reports
 
-`report_eval.py FLOW` creates `report-full.html` and `report-data.json` with every declared metric, planned/scored coverage, attempt failures, known and unknown cost, latency quantiles, synthetic labels, integrity status, per-case outputs, grader explanations and escaped traces. It is local and needs no external JS/CDN. It does not declare a winner. Scored means exclude unscored attempts and must be read alongside coverage.
+`report_eval.py FLOW` creates `report-full.html` and `report-data.json` with every declared metric, planned/scored coverage, attempt failures, known and unknown cost, latency quantiles, synthetic labels, integrity status, per-case outputs, grader explanations and escaped traces. It is local and needs no external JS/CDN. It does not declare a winner. Scored means exclude unscored attempts and must be read alongside coverage. Started attempts without a finished outcome remain counted as interrupted attempts with unknown cost; even when there are no finished calls, the report cannot label their total spend zero. Reports check required per-result measurement/treatment/case bindings as well as byte hashes, and mark mismatched ownership unverified. A schema-2 manifest must name its actual variant directory. Duplicate case/repetition rows, repeated attempt IDs, and finished attempts without a matching preceding case/repetition start are rejected before aggregation; byte rehashing cannot make these populations valid.
+
+For every schema-2 variant, the report checks `_state.json` metrics, all split populations and repetitions against that variant's bound `comparison_identity`, including the manifest's selected split/repetitions. Drift is a controlled error, rather than a shortened denominator or a silently omitted guardrail. Report metrics and the selected population come from the bound identity. Every result and journal start/finish must name a case in that selected split and a strict integer repetition in range; other split cases, out-of-range repetitions and boolean repetitions are rejected. Missing results remain a valid partial report with the full planned denominator. Legacy exports without that identity remain descriptive and explicitly unverified.
 
 `build-report.mjs FLOW` retains the attributed upstream lite viewer for older workflows and trajectory files. It emphasizes the primary metric and legacy trace naming; use the full reporter for the new runner's hashed trace paths and all-metric evidence. The lite viewer is not a second decision engine.
 

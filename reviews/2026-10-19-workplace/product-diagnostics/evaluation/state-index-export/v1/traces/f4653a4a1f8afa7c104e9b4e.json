@@ -1,0 +1,16 @@
+[
+  {
+    "role": "user",
+    "content": {
+      "requested_summary": "refund approved",
+      "pause_once": true
+    }
+  },
+  {
+    "role": "assistant",
+    "content": {
+      "answer": "REFUND APPROVED",
+      "policy_ok": false
+    }
+  }
+]

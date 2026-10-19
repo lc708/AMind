@@ -1,0 +1,5 @@
+{
+  "source_sha256": "28842d68d46da88f8ce30462ff3b46c03759d4be90c578fe9689a735543feacd",
+  "phase": "diagnostic",
+  "known_limit": "Declared global deadline was not enforced; per-run 360s and total invocation cap were enforced. Observed duration must be reported, not claimed as hard global bound."
+}

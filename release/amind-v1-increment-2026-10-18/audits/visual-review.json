@@ -1,0 +1,85 @@
+{
+  "scope": "Eight complete relevant pages visually reviewed; all 522 card pages machine extracted, not all individually semantically reviewed.",
+  "reviews": [
+    {
+      "document": "opus 5.5 system card",
+      "page": 3,
+      "image": "audits/system-card-pages/opus-3.png",
+      "image_sha256": "15fcb7b96fee4bf6eebaa977aa34fa577ab27199dec2a70962d03b7245005464",
+      "extracted_page_text_sha256": "a029a6e517aaf801dbbdbff19f7839c5d0c0ef020f72e093394d791435d4e8c2",
+      "scope_note": "Mixed measures: broad audit improvement coexists with regressions in misuse, pasted prompt instructions, unverifiable authorization and some other tests. No general safety proof.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "opus 5.5 system card",
+      "page": 92,
+      "image": "audits/system-card-pages/opus-92.png",
+      "image_sha256": "742c1e46ea911e7eaee3c31eab8cfe2b2c4951f21f877da8e58abee7abe12ddc",
+      "extracted_page_text_sha256": "9ef95cb574f36aa4de75f189f201e3a0755ebb853d694c91a642f7c91b10ce2e",
+      "scope_note": "Assessment focuses on the model across scaffolds; product surfaces and production safeguards differ. Training and evaluation scaffolds are distinguished.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "opus 5.5 system card",
+      "page": 93,
+      "image": "audits/system-card-pages/opus-93.png",
+      "image_sha256": "70ae6449dfcf62e795bc7aac058a8cb3cb65a481577da93ef46181046e258eda",
+      "extracted_page_text_sha256": "28457454b63ee9d2163f1b4da1ed63d4f022d105ae18a1bfaf007ca97d3d43dc",
+      "scope_note": "Audit has thin multi-agent and very-long-trajectory coverage; assessments can miss severe behavior. Strongest tested audit performance is bounded to measured scenarios.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "opus 5.5 system card",
+      "page": 119,
+      "image": "audits/system-card-pages/opus-119.png",
+      "image_sha256": "610c38fc688343a68353e2c22f1225acb07132baf598289f4ea1d15020844533",
+      "extracted_page_text_sha256": "05180e7f9b4ca50557782169fd9e847d5fc5f1f82914a492affea628991e8154",
+      "scope_note": "Figure 6.4.8.A: 28 handmade sandbox scenarios, seven runs per model, 95% confidence intervals. Opus 5.5 total 1.5% is specific to this card/evaluation; not a universal failure probability.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "sonnet 5.5 system card",
+      "page": 56,
+      "image": "audits/system-card-pages/sonnet-56.png",
+      "image_sha256": "63f612b4690e965e1b017a895e282d70000e3dbf85879386f7f401b6972f994b",
+      "extracted_page_text_sha256": "4ae6fdf6d9e9250b7e0e1a605d2c09bc3fe0afa8a9b62bad9e3132553aaf19dd",
+      "scope_note": "Most audit measures improve or match Sonnet 5; exceptions and limitations remain. Comparisons are model/task-specific.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "sonnet 5.5 system card",
+      "page": 77,
+      "image": "audits/system-card-pages/sonnet-77.png",
+      "image_sha256": "9e8de677ffd4b5ccd6203a5bda4e359a35b11876b46bfa9a02c9b072097ebc66",
+      "extracted_page_text_sha256": "e786fc75a5dcfe0e1dba6fc85128723a9a3078bc55f87a2d157a3cf473734f38",
+      "scope_note": "Figure 6.2.8.A: 28 scenarios x seven runs, Sonnet 5.5 9/196 (4.6%). Prior-model rates rerun on this current evaluation differ from Opus 5.5 card. Do not mix card tables.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "haiku 5.5 system card",
+      "page": 56,
+      "image": "audits/system-card-pages/haiku-56.png",
+      "image_sha256": "aea5057dab98323169c918af6b12a0c866ed5fee03ed49b5a9326b1091927cc9",
+      "extracted_page_text_sha256": "29bc11857dfcaae8d526cb5fab6220c7da8297d1af7306ff106da779ced0f504",
+      "scope_note": "Broad improvement coexists with audit over-refusal, hallucination and leaked-answer regressions. External-credential use is a different evaluation from attempted sandbox crossings.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    },
+    {
+      "document": "haiku 5.5 system card",
+      "page": 75,
+      "image": "audits/system-card-pages/haiku-75.png",
+      "image_sha256": "b0fa17d60c911de57ce3f1e0f30ab98bf25ccfc5e726c2feff441bea41635e42",
+      "extracted_page_text_sha256": "13bfc9170a1c11de4728117cb409d2bf914776df57490a8176aec7bdb0b8a475",
+      "scope_note": "Figure 6.2.8.A: 28 scenarios x fourteen runs (n=392), 95% intervals. Prior-model rates are reruns and differ from Opus card; percentages cannot be pooled as the same experiment.",
+      "reviewer_type": "AI assistant visual inspection",
+      "human_reviewed": false
+    }
+  ]
+}

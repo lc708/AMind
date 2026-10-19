@@ -83,7 +83,7 @@ class IncrementTests(unittest.TestCase):
             # The checked-in binary may use a different SQLite/zlib version.
             # Compare all logical records, including decompressed evidence, too.
             fingerprints=[]
-            for p in (first,ROOT/'skills/amind/data/amind-full-index.sqlite3'):
+            for p in (first, (ROOT/'skills/amind/data/amind-full-index.sqlite3') if json.loads((ROOT/'skills/amind/data/manifest.json').read_text())['release_id']==manifest['release_id'] else second):
                 conn=sqlite3.connect(p.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
                 digest=hashlib.sha256()
                 try:

@@ -1,0 +1,21 @@
+{
+  "command": "python3 -m unittest scripts.test_amind_capability_kernel.KernelTests scripts.test_amind_capability_kernel.BillingCalibrationTests scripts.test_amind_app_skills scripts.test_amind_eval_reporting -v",
+  "returncode": 0,
+  "tests": 89,
+  "elapsed_seconds": 12.735,
+  "public_cli_post_review_scenarios": 7,
+  "invalid_scenarios": 5,
+  "clean_controls": 2,
+  "independent_reviewer": "engineering_contrast independently reran original counterexamples and controls; all invalid cases rejected with CLI exit2; clean/legacy controls retained costs.",
+  "evidence_use": "post-diagnostic validation; original frozen 22-score and first-repair 22/22 evidence remain unchanged",
+  "source_sha256": {
+    "skills/eval-improve/scripts/report_eval.py": "f94c25234e8b219fb7178d691a9f71da1fcdb295de26acb154c58d1db30b285c",
+    "skills/eval-improve/references/artifacts.md": "4dfb04536dbe11a149d2813006f962dd20bb7e18cb12975adeadad30ca3cbdaa",
+    "scripts/test_amind_eval_reporting.py": "c80e7751c3c0e6b62d4a9340c518a17b03de1025d2aa46e38115f49c1e5cdb8c"
+  },
+  "logs": [
+    "regression-stdout.txt",
+    "regression-stderr.txt",
+    "results.json"
+  ]
+}

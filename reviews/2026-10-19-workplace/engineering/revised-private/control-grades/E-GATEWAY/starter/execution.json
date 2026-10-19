@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/grade_gateway.py",
+    "--repo",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/ENG-REVISED-CONTROLS/E-GATEWAY/starter/repo"
+  ],
+  "returncode": 0,
+  "application_prefix": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/control/ENG-REVISED-CONTROLS-grade.sb"
+  ],
+  "policy_sha256": "203130b8f661209a019ddb2b12c9206f03c0bc920c60c709bb95d0a22b3e2697",
+  "application_calls": 14,
+  "all_calls_prefixed": true,
+  "repo_files_sha256": {
+    "README.md": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+    "gateway/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gateway/__main__.py": "5b8935349e729d08bce953b231c021b64040a285264b8c925f01604d82630762",
+    "gateway/metrics.py": "4d8b4a52bc9ab38b68dcc5c278c2db1b8d59f7c1ab464c23c8170322fc1d601a",
+    "gateway/projection.py": "5405c304013806c279a596f27cbbbcc984d4bb8abef40fd54fd1f28b633212fa",
+    "gateway/render.py": "d3f675921273cd0be70f6cd0166fd133c305d671f2ad7f2965d39a482683e6cc",
+    "gateway/replay.py": "6e8fb44e9775aa51b67810b7e90a43baa421fb62cc083ee51915cd92f53fa9d3",
+    "gateway/service.py": "52d9ab453ff8398e1c39423dd36b50562da608facea7fce0a733be8dc08bf78c",
+    "gateway/storage.py": "fd448965890c602fa6a8330adbe635a4c227edf69b804509700cd82871f20aa3",
+    "gateway/validation.py": "9bfc2d14a0ba64db4b3c9511c87b70025f648ebf5e801420aa779d96c9bbe696",
+    "tests/test_public.py": "1e338f04bafc2514deefdabb32b1c201d49b8132b33a8f3d0a2f6842be14c273",
+    "traces/incident.json": "354d3b2ade48065e9e72cfaa6c74eca9df9fec6c7449f9d6267c462dbf79e026",
+    "traces/legacy.json": "4d56901611ec8a3c8bd873c8597228674979d60640d992953758476f4bdee30f"
+  },
+  "model_called": false
+}

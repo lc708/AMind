@@ -1,0 +1,19 @@
+{
+  "op": "submit",
+  "tenant": "acme",
+  "job": "INC-73",
+  "spec": {
+    "items": [
+      {
+        "id": "invoice-A"
+      },
+      {
+        "id": "invoice-B",
+        "payload": {
+          "inspect": "fail"
+        }
+      }
+    ],
+    "max_attempts": 8
+  }
+}

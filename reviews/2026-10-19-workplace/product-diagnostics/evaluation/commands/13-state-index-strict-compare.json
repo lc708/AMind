@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/compare_runs.py",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/state-index-export",
+    "--candidate",
+    "v1",
+    "--split",
+    "val",
+    "--reps",
+    "1",
+    "--all-metrics",
+    "--bootstrap",
+    "200"
+  ],
+  "returncode": 2,
+  "stdout": "{\"verdict\": \"invalid\", \"error\": \"requested population/metrics/reps differ from experiment identity\"}\n",
+  "stderr": "",
+  "json": {
+    "verdict": "invalid",
+    "error": "requested population/metrics/reps differ from experiment identity"
+  }
+}

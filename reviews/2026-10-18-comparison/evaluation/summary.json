@@ -1,0 +1,314 @@
+{
+  "protocol_sha256": "5a6a4c75441cc8f843791889999646fb4758f1b9caae0861e1037739d05c755b",
+  "freeze_sha256": "f6396b81bc800138924ab6aa6ac3fa564421a8b1d15ca750013d143c54fc5fff",
+  "snapshots": [
+    {
+      "variant": "old",
+      "frozen_files": 26,
+      "changed_files": []
+    },
+    {
+      "variant": "frozen_new",
+      "frozen_files": 31,
+      "changed_files": []
+    }
+  ],
+  "inputs_changed": [],
+  "harness_unchanged": true,
+  "counts": {
+    "old": {
+      "all_pass": 6,
+      "all_total": 22,
+      "supported_pass": 6,
+      "supported_total": 12,
+      "shared_pass": 6,
+      "shared_total": 12,
+      "control_pass": 6,
+      "control_total": 6,
+      "extension_pass": 0,
+      "extension_total": 10,
+      "unsupported": 10
+    },
+    "frozen_new": {
+      "all_pass": 20,
+      "all_total": 22,
+      "supported_pass": 20,
+      "supported_total": 22,
+      "shared_pass": 11,
+      "shared_total": 12,
+      "control_pass": 6,
+      "control_total": 6,
+      "extension_pass": 9,
+      "extension_total": 10,
+      "unsupported": 0
+    },
+    "repaired_new": {
+      "all_pass": 22,
+      "all_total": 22,
+      "supported_pass": 22,
+      "supported_total": 22,
+      "shared_pass": 12,
+      "shared_total": 12,
+      "control_pass": 6,
+      "control_total": 6,
+      "extension_pass": 10,
+      "extension_total": 10,
+      "unsupported": 0
+    }
+  },
+  "paired": [
+    {
+      "id": "E01",
+      "name": "legacy-text-subsets",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Legacy normalized input/cache/output/reasoning is priced once: USD 10.2, full total 10.2.",
+      "old": "pass",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E02",
+      "name": "unknown-and-partial",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Unknown model and partial usage prevent total_cost_usd; retain known subtotal.",
+      "old": "pass",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E03",
+      "name": "distinct-endpoint-rates",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Same model decisions input-only prices USD2; responses text USD10.2; old exact-scoped adapter absent is unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E04",
+      "name": "explicit-endpoint-no-legacy-fallback",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "A legacy price card plus explicitly different endpoint must return unknown; never model-only fallback.",
+      "old": "fail",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E05",
+      "name": "native-modality-not-free",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Legacy normalized text plus native audio detail must be unknown rather than text-only complete cost.",
+      "old": "fail",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E06",
+      "name": "duplicate-normalization-conflict",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Flat/detail cache counters 200000 versus 100000 must reject before pricing.",
+      "old": "fail",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E07",
+      "name": "cache-write-subset",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Explicit write subset is subtracted from ordinary input, added at write rate; expected USD10.6. Unsupported old accounting is separate.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E08",
+      "name": "clean-confusion-matrix",
+      "classification": "control",
+      "entry": "calibrate",
+      "expected": "Both sides retain exact TP2/TN2/FP1/FN1, agreement 2/3, recall2/3, precision2/3, order inconsistency0.",
+      "old": "pass",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E09",
+      "name": "absent-negative-controls",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "A perfect positive-only set is not ready_for_review and negative evidence is unmeasured.",
+      "old": "fail",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E10",
+      "name": "contradictory-adjudication",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "Same case human adjudication changing between repeats must reject.",
+      "old": "fail",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E11",
+      "name": "rare-base-rate",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "100 positives90TP10FN,900 negatives18FP882TN: FPR.02,FNR.1, deployment PPV.04310344827586207 at prevalence .001; old flag absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E12",
+      "name": "fixed-judge-drift",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Same judge/rubric across cohorts, negatives FPR .02 to .08, max increase .03: alert and delta .06. Old drift flag absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E13",
+      "name": "paired-judge-change",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Identical cases/rubric/adjudication: one improved, one regressed, paired agreement delta0; old baseline flag absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E14",
+      "name": "clean-real-run-and-compare",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Two deterministic app variants via run_eval complete with2 pairs; quality delta1 and identity verified.",
+      "old": "pass",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E15",
+      "name": "served-model-substitution",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Pinned model mismatch yields zero scores, serving_substitution, retained USD.02 cost.",
+      "old": "pass",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E16",
+      "name": "short-stage-population",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Contract workers3/aggregate1, reported workers2/aggregate1: unscorable coverage_incomplete; old stage gate absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E17",
+      "name": "served-tier-substitution",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Pinned standard tier, served flex at same model: zero scores, serving_substitution, retained USD.02; old billing scope pin absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E18",
+      "name": "failure-budget-and-resume",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Failed ceiling1, retry-safe app/retries1/attempts4: exactly1 failed invocation; resume does not launch more, remains incomplete. Old failure-limit absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E19",
+      "name": "interrupted-report-accounting",
+      "classification": "shared",
+      "entry": "runner",
+      "expected": "Started attempt without finish/result has unknown outcome/spend; report total_cost_usd must be null and unknown_cost_attempts1; report counts attempted invocation.",
+      "old": "fail",
+      "frozen_new": "fail",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E20",
+      "name": "transplanted-report-ownership",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Rehashed result whose treatment binding belongs elsewhere must have unverified report integrity. Old per-result binding absent unsupported; frozen new is tested for this claim.",
+      "old": "unsupported",
+      "frozen_new": "fail",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E21",
+      "name": "unreconciled-resume",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Open started attempt blocks resume with explicit reconciliation error and no new application call.",
+      "old": "pass",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    },
+    {
+      "id": "E22",
+      "name": "abandoned-reconciliation-budget",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Externally documented abandoned attempt consumes failed ceiling after reconcile --apply; resume cannot launch more. Old failure ceiling absent unsupported.",
+      "old": "unsupported",
+      "frozen_new": "pass",
+      "repaired_new": "pass"
+    }
+  ],
+  "repairs": [
+    {
+      "id": "E19",
+      "bug": "Report silently treated open started attempts as zero known total spend and omitted their count.",
+      "current_files": [
+        "skills/eval-improve/scripts/report_eval.py",
+        "skills/eval-improve/references/artifacts.md"
+      ],
+      "new_tests": [
+        "test_all_interrupted_attempts_do_not_look_free",
+        "test_interrupted_attempt_remains_unknown_and_counted_with_finished_cost"
+      ]
+    },
+    {
+      "id": "E20",
+      "bug": "Report accepted foreign per-result treatment binding after result-byte hash was updated, even when runner marked result identity required.",
+      "current_files": [
+        "skills/eval-improve/scripts/report_eval.py",
+        "skills/eval-improve/references/artifacts.md"
+      ],
+      "new_tests": [
+        "test_report_rejects_foreign_result_binding_even_with_updated_byte_hash"
+      ]
+    }
+  ],
+  "limits": [
+    "All fixtures are synthetic local applications and offline pricing/calibration; no actual target model ability or live provider prices measured.",
+    "Independent challenge count is 22 curated contracts, not independent production traffic; no statistical population improvement claim.",
+    "All current repairs and added regression variants are validation after observed failures, not untouched holdout.",
+    "Old missing extensions remain unsupported rather than whole-skill quality failures.",
+    "Stage coverage challenge checks a predeclared cardinality, not independent proof of every member identity.",
+    "Process runner does not enforce filesystem/network/credential isolation; hashes are not adversarial authentication."
+  ]
+}

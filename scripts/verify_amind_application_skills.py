@@ -18,7 +18,7 @@ class EvidenceResult(unittest.TextTestResult):
 
 def verify(output):
     loader=unittest.TestLoader();suite=unittest.TestSuite()
-    for module in ('test_amind_app_skills','test_amind_capability_kernel','test_amind_behavior_regressions'):
+    for module in ('test_amind_app_skills','test_amind_capability_kernel','test_amind_behavior_regressions','test_amind_eval_reporting'):
         suite.addTests(loader.loadTestsFromName(module))
     result=unittest.TextTestRunner(verbosity=1,resultclass=EvidenceResult).run(suite)
     inventory={}

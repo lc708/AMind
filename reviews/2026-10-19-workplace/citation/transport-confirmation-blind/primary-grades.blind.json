@@ -1,0 +1,139 @@
+[
+  {
+    "blind_id": "W7ad93aca0c59",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly states October 8, 2026 publication/announcement and November 12, 2026 announced effectiveness; distinguishes existing high-risk obligations from new conditional hardware controls."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses the September 15 archive only as a provisional draft, explicitly says exact October 18 applicability lacks a primary version chain, and recognizes the real AMind interval as curation rather than proof."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Provides a difference table, customer preparation, legal version confirmation before release and a conditional November 12 cutover, while leaving future implementation unverified."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for published dates and unchanged/added requirements; separately identifies amind-status-a5e9517ec35854f2e4eacc7b and its reconstructed interval within provisional exploratory advice."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four cited IDs/URLs resolve. Full archive, announcement, future policy opening and high-risk passages support their headers, dates and conditional requirements; predecessor continuity is explicitly not claimed as primary-established fact."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact October 18 operative edition, intervening revisions and the archive's replacement chain need primary confirmation.",
+      "Later changes, actual November 12 implementation and exact cutover time/timezone remain unverified."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W757812cb1ade",
+    "task_id": "CIT-P",
+    "criteria": [
+      {
+        "id": "P1",
+        "pass": true,
+        "points": 1,
+        "reason": "Correctly separates October 8, 2026 announcement from November 12, 2026 future effectiveness and preserves existing human review/AI disclosure obligations versus added conditional hardware requirements."
+      },
+      {
+        "id": "P2",
+        "pass": true,
+        "points": 1,
+        "reason": "Treats the September 15 archive as a pending-confirmation baseline and explicitly rejects its header or curated window as proof of continuous October 18 applicability."
+      },
+      {
+        "id": "P3",
+        "pass": true,
+        "points": 1,
+        "reason": "Offers next-week version review and preparation, named policy ownership, pre-November 12 confirmation and conditional cutover, without asserting post-cutoff execution."
+      },
+      {
+        "id": "P4",
+        "pass": true,
+        "points": 1,
+        "reason": "Names the local status record and distinguishes its reconstructed interval from Public position; dates and direct policy descriptions are public facts, while the provisional handoff recommendation is exploratory."
+      },
+      {
+        "id": "P5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four IDs/URLs resolve. Complete archive and policy openings establish the stated headers; announcement passages establish publication, future effectiveness and unchanged high-risk/conditional hardware requirements. Limits of the predecessor evidence are transparent."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Exact October 18/current handoff edition and possible intermediate revisions need an original version chain.",
+      "Post-cutoff changes, actual future implementation and precise transition arrangements remain to be checked."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  },
+  {
+    "blind_id": "W4e52420f9ce1",
+    "task_id": "CIT-L",
+    "criteria": [
+      {
+        "id": "L1",
+        "pass": true,
+        "points": 1,
+        "reason": "Retains October 15, 2026 and affirmative reward-hacking, calibrated pairwise scores, composite matching and transfer findings; the cited opening and Introduction directly support them."
+      },
+      {
+        "id": "L2",
+        "pass": true,
+        "points": 1,
+        "reason": "Distinguishes the hacked Petri concerningness and planted-target binary rewards from pairwise rewards and benign-target false-positive calibration; makes false-positive checking a replication priority."
+      },
+      {
+        "id": "L3",
+        "pass": true,
+        "points": 1,
+        "reason": "Keeps Haiku 4.5 versus Opus 4.6 matching within specified composite/held-out auditing evaluations and AuditBench/Claude Code transfer, and rejects universal safety, human replacement or independent deployment approval."
+      },
+      {
+        "id": "L4",
+        "pass": true,
+        "points": 1,
+        "reason": "Uses Public position for bounded reported methods/results and places the team's limited replication, human-reviewed use and deployment recommendations in an explicit Exploratory extrapolation decision."
+      },
+      {
+        "id": "L5",
+        "pass": true,
+        "points": 1,
+        "reason": "All four cited IDs/URLs resolve. Full opening and Introduction support publication, planted training tasks, reward methods, 50% calibration over three epochs, separate metrics, uncertainty wording and specified transfer; supporting context beyond each atom is explicitly located."
+      }
+    ],
+    "factual_errors": [],
+    "primary_support_gaps": [],
+    "over_refusal": [],
+    "format_defects": [],
+    "reasonable_unknowns": [
+      "Experimental controls, metric definitions, seed total/significance, transfer effect size, costs and real deployment outcomes appropriately remain for verification."
+    ],
+    "uncertain_judgments": [],
+    "score": 5
+  }
+]

@@ -1,0 +1,229 @@
+{
+  "task_rubrics": {
+    "E-GATEWAY": {
+      "domains": {
+        "completion": 2,
+        "ownership": 3,
+        "attribution": 3,
+        "terminal": 4,
+        "archive": 1,
+        "rendering": 1
+      },
+      "max_score": 6,
+      "primary_scoring": "One point only when all probes within the domain pass; six domains total; probe counts are diagnostic",
+      "probes": [
+        {
+          "id": "G01",
+          "domain": "completion",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "legacy"
+        },
+        {
+          "id": "G02",
+          "domain": "ownership",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "root_final"
+        },
+        {
+          "id": "G03",
+          "domain": "ownership",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "child_only"
+        },
+        {
+          "id": "G04",
+          "domain": "ownership",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "unattributed"
+        },
+        {
+          "id": "G05",
+          "domain": "attribution",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "indexed_stream"
+        },
+        {
+          "id": "G06",
+          "domain": "attribution",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "same_event_conflict"
+        },
+        {
+          "id": "G07",
+          "domain": "attribution",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "terminal_conflict"
+        },
+        {
+          "id": "G08",
+          "domain": "terminal",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "disconnected"
+        },
+        {
+          "id": "G09",
+          "domain": "terminal",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "incomplete"
+        },
+        {
+          "id": "G10",
+          "domain": "terminal",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "contradiction"
+        },
+        {
+          "id": "G11",
+          "domain": "terminal",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "after_terminal"
+        },
+        {
+          "id": "G12",
+          "domain": "archive",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "opaque_archive"
+        },
+        {
+          "id": "G13",
+          "domain": "rendering",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "safe_render"
+        },
+        {
+          "id": "G14",
+          "domain": "completion",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "final_readiness"
+        }
+      ]
+    },
+    "E-DURABLE": {
+      "domains": {
+        "identity": 3,
+        "continuity": 1,
+        "recovery": 5,
+        "budget": 2,
+        "cancellation": 1,
+        "coverage": 2
+      },
+      "max_score": 6,
+      "primary_scoring": "One point only when all probes within the domain pass; six domains total; probe counts are diagnostic",
+      "probes": [
+        {
+          "id": "D01",
+          "domain": "identity",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "identity"
+        },
+        {
+          "id": "D02",
+          "domain": "identity",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "keys"
+        },
+        {
+          "id": "D03",
+          "domain": "identity",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "immutable"
+        },
+        {
+          "id": "D04",
+          "domain": "continuity",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "noop"
+        },
+        {
+          "id": "D05",
+          "domain": "recovery",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "crash_record"
+        },
+        {
+          "id": "D06",
+          "domain": "recovery",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "no_replay"
+        },
+        {
+          "id": "D07",
+          "domain": "recovery",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "evidence"
+        },
+        {
+          "id": "D08",
+          "domain": "recovery",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "settled"
+        },
+        {
+          "id": "D09",
+          "domain": "recovery",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "recovered"
+        },
+        {
+          "id": "D10",
+          "domain": "budget",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "budget"
+        },
+        {
+          "id": "D11",
+          "domain": "cancellation",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "cancel"
+        },
+        {
+          "id": "D12",
+          "domain": "budget",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "resume"
+        },
+        {
+          "id": "D13",
+          "domain": "coverage",
+          "max_score": 1,
+          "fatal": true,
+          "check_function": "review_gap"
+        },
+        {
+          "id": "D14",
+          "domain": "coverage",
+          "max_score": 1,
+          "fatal": false,
+          "check_function": "dependency"
+        }
+      ]
+    }
+  },
+  "judging": "Deterministic integration assertions outside candidate. No target output observed, no model judge. Guardrails are mandatory separate from additive score."
+}

@@ -1,0 +1,65 @@
+{
+  "id": "E08",
+  "name": "clean-confusion-matrix",
+  "classification": "control",
+  "entry": "calibrate",
+  "expected": "Both sides retain exact TP2/TN2/FP1/FN1, agreement 2/3, recall2/3, precision2/3, order inconsistency0.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E08",
+  "observed": {
+    "examples": 6,
+    "judgments": 6,
+    "confusion": {
+      "tp": 2,
+      "tn": 2,
+      "fp": 1,
+      "fn": 1
+    },
+    "evaluation_identity": {
+      "dataset_version": "calibration-v1",
+      "grader_version": "judge-v1",
+      "judge_model": "judge-v1",
+      "rubric_sha256": "synthetic-rubric-v1"
+    },
+    "labels_sha256": "1bfaf34614399a86188967585eead3b3aec8814bebb6ba3e187de4b972730c82",
+    "measurement_status": {
+      "positive_controls": "measured",
+      "negative_controls": "measured",
+      "order_bias": "measured",
+      "repeat_stability": "unmeasured",
+      "population_precision": "unmeasured",
+      "identity": "verified"
+    },
+    "positive_judgments": 3,
+    "negative_judgments": 3,
+    "agreement": 0.6666666666666666,
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "false_positive_rate": 0.3333333333333333,
+    "false_negative_rate": 0.3333333333333333,
+    "specificity": 0.6666666666666666,
+    "sample_prevalence": 0.5,
+    "population_prevalence": null,
+    "population_adjusted_precision": null,
+    "disagreements": [
+      {
+        "id": "fp-0",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fn-0",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      }
+    ],
+    "unstable_cases": [],
+    "order_inconsistency_rate": 0,
+    "ready_for_review": false,
+    "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks."
+  }
+}

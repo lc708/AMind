@@ -1,0 +1,885 @@
+{
+  "task_id": "E-DURABLE",
+  "score": 0,
+  "max_score": 6,
+  "probe_passed": 0,
+  "probe_total": 14,
+  "domain_scores": {
+    "identity": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 3
+    },
+    "continuity": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 1
+    },
+    "recovery": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 5
+    },
+    "budget": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 2
+    },
+    "cancellation": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 1
+    },
+    "coverage": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 2
+    }
+  },
+  "domains": {
+    "identity": {
+      "score": 0,
+      "max_score": 3
+    },
+    "continuity": {
+      "score": 0,
+      "max_score": 1
+    },
+    "recovery": {
+      "score": 0,
+      "max_score": 5
+    },
+    "budget": {
+      "score": 0,
+      "max_score": 2
+    },
+    "cancellation": {
+      "score": 0,
+      "max_score": 1
+    },
+    "coverage": {
+      "score": 0,
+      "max_score": 2
+    }
+  },
+  "fatal_guardrails": {
+    "D01": false,
+    "D02": false,
+    "D06": false,
+    "D07": false,
+    "D08": false,
+    "D10": false,
+    "D11": false,
+    "D13": false
+  },
+  "fatal_pass": false,
+  "cases": [
+    {
+      "id": "D01",
+      "domain": "identity",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "KeyError: 'tenant'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-hwesu4kg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "domain": "identity",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "KeyError: 'rows'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/input-4.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-oetmsweq/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "domain": "identity",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jmyayebp/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jmyayebp/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jmyayebp/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jmyayebp/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jmyayebp/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jmyayebp/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "domain": "continuity",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: settled work replayed or cumulative count reset",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-ex28ux5i/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "domain": "recovery",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: CLI exit 0, expected 17",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-03rh028a/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-03rh028a/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-03rh028a/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-03rh028a/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-03rh028a/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-03rh028a/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "domain": "recovery",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 17",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jpyss2kd/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jpyss2kd/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jpyss2kd/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jpyss2kd/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jpyss2kd/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-jpyss2kd/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "domain": "recovery",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 17",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dsclkiyu/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dsclkiyu/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dsclkiyu/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dsclkiyu/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dsclkiyu/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dsclkiyu/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "domain": "recovery",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dqar_slw/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "domain": "recovery",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: CLI exit 0, expected 17",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-tijkurmj/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-tijkurmj/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-tijkurmj/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-tijkurmj/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-tijkurmj/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-tijkurmj/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "domain": "budget",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "KeyError: 'attempts'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-1ei7rd42/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "domain": "cancellation",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "KeyError: 'status'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-u83f7p68/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "domain": "budget",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "KeyError: 'attempts'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/input-3.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/input-4.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/input-5.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-n_2vqrw6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D13",
+      "domain": "coverage",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "KeyError: 'coverage'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dt3hakyn/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dt3hakyn/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dt3hakyn/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dt3hakyn/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dt3hakyn/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dt3hakyn/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D14",
+      "domain": "coverage",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "KeyError: 'rows'",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dlzw1roa/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dlzw1roa/input-1.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dlzw1roa/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dlzw1roa/jobs.sqlite",
+            "--request",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dlzw1roa/input-2.json",
+            "--receipts",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/controls/E-DURABLE/integration-dlzw1roa/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "evidence_level": "offline real CLI subprocesses and persisted journals; no provider/model/network"
+}

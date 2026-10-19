@@ -1,0 +1,41 @@
+FF
+======================================================================
+FAIL: test_workflow_file_symlink_uses_the_same_active_coordinator_lock (scripts.test_amind_behavior_regressions.HeldoutContracts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/scripts/test_amind_behavior_regressions.py", line 355, in test_workflow_file_symlink_uses_the_same_active_coordinator_lock
+    self.assertEqual(engine.run({'deliver':deliver},lambda ctx:None)['status'],'completed')
+  File "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind-engineering/scripts/workflow_contract.py", line 180, in run
+    outcome=handlers[stage['id']](context)
+  File "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/scripts/test_amind_behavior_regressions.py", line 351, in deliver
+    other.reconcile('deliver','invoice','succeeded',receipt,'Receiver-79 receipt verified')
+AssertionError: RuntimeError not raised
+
+======================================================================
+FAIL: test_tool_loop_rejects_contradictory_completion_before_tool_authorization (scripts.test_amind_behavior_regressions.HeldoutContracts) (contradiction={'error': {'code': 'adapter_failure'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/scripts/test_amind_behavior_regressions.py", line 483, in test_tool_loop_rejects_contradictory_completion_before_tool_authorization
+    loop.run_loop(lambda request:{'status':'completed','output':[call],**contradiction},[],
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_tool_loop_rejects_contradictory_completion_before_tool_authorization (scripts.test_amind_behavior_regressions.HeldoutContracts) (contradiction={'incomplete_details': {'reason': 'max_output_tokens'}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/scripts/test_amind_behavior_regressions.py", line 483, in test_tool_loop_rejects_contradictory_completion_before_tool_authorization
+    loop.run_loop(lambda request:{'status':'completed','output':[call],**contradiction},[],
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_effect_ledger_preserves_confirmation_when_late_handler_conflicts (scripts.test_amind_behavior_regressions.HeldoutContracts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/scripts/test_amind_behavior_regressions.py", line 519, in test_effect_ledger_preserves_confirmation_when_late_handler_conflicts
+    ledger.perform('north','send-79',request,handler)
+AssertionError: ReconciliationRequired not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.019s
+
+FAILED (failures=4)

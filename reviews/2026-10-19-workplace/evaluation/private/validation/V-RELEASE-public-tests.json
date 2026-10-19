@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_incident_missing_case_stays_in_planned_population (test_public.PublicIncidentTests) ... ok\ntest_interrupted_judge_is_unknown_not_free (test_public.PublicIncidentTests) ... ok\ntest_saved_export_is_readable_and_keeps_known_spend (test_public.PublicIncidentTests) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.194s\n\nOK\n"
+}

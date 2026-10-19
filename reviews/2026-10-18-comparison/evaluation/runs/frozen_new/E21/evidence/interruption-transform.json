@@ -1,0 +1,15 @@
+{
+  "synthetic_crash_boundary": "after started, before result or finished",
+  "removed_finished": 1,
+  "retained_started": [
+    {
+      "attempt_id": 1,
+      "event": "started",
+      "prompt_id": "a",
+      "rep": 0,
+      "reserved_usd": 0.0,
+      "time": 1792300586.718156
+    }
+  ],
+  "no_score_fabricated": true
+}

@@ -1,0 +1,1224 @@
+{
+  "variant": "repaired_new",
+  "protocol_sha256": "5a6a4c75441cc8f843791889999646fb4758f1b9caae0861e1037739d05c755b",
+  "freeze_sha256": "f6396b81bc800138924ab6aa6ac3fa564421a8b1d15ca750013d143c54fc5fff",
+  "evidence_use": "validation after observed failures and repair",
+  "pass": 22,
+  "fail": 0,
+  "unsupported": 0,
+  "results": [
+    {
+      "id": "E01",
+      "name": "legacy-text-subsets",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Legacy normalized input/cache/output/reasoning is priced once: USD 10.2, full total 10.2.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E01",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "billing_identity": null,
+            "usage_adapter": "text_tokens_v1",
+            "identity_status": "legacy_model_only",
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 10.2,
+        "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+      }
+    },
+    {
+      "id": "E02",
+      "name": "unknown-and-partial",
+      "classification": "control",
+      "entry": "price",
+      "expected": "Unknown model and partial usage prevent total_cost_usd; retain known subtotal.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E02",
+      "observed": {
+        "rows": [
+          {
+            "id": "unknown",
+            "stage": null,
+            "model": "unpriced",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "missing rate or usage"
+          },
+          {
+            "id": "partial",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_partial",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "billing_identity": null,
+            "usage_adapter": "text_tokens_v1",
+            "identity_status": "legacy_model_only",
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+            "warning": "Tools, storage, sandbox, retries or other charges may be absent; not total task cost"
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.2,
+        "unknown_events": 1,
+        "partial_events": 1,
+        "total_cost_usd": null,
+        "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+      }
+    },
+    {
+      "id": "E03",
+      "name": "distinct-endpoint-rates",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Same model decisions input-only prices USD2; responses text USD10.2; old exact-scoped adapter absent is unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E03",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.2,
+            "components": {
+              "uncached_input": 8.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "external_known": 0
+            },
+            "billing_identity": {
+              "interface": "responses",
+              "model": "same-model",
+              "provider": "fixture",
+              "region": "global",
+              "service_tier": "standard"
+            },
+            "usage_adapter": "text_tokens_v1",
+            "identity_status": "exact",
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "3862f30914f01cb78e5fa841258e7e6c452a3fd7bcc21192d6377a11e11f6635",
+            "warning": null
+          },
+          {
+            "id": "decisions",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 2.0,
+            "components": {
+              "input": 2.0,
+              "external_known": 0
+            },
+            "billing_identity": {
+              "interface": "decisions",
+              "model": "same-model",
+              "provider": "fixture",
+              "region": "global",
+              "service_tier": "standard"
+            },
+            "usage_adapter": "input_only_v1",
+            "identity_status": "exact",
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "3862f30914f01cb78e5fa841258e7e6c452a3fd7bcc21192d6377a11e11f6635",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 12.2,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 12.2,
+        "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+      }
+    },
+    {
+      "id": "E04",
+      "name": "explicit-endpoint-no-legacy-fallback",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "A legacy price card plus explicitly different endpoint must return unknown; never model-only fallback.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E04",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "explicit billing scope requires billing_identity and rates[]"
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 0,
+        "unknown_events": 1,
+        "partial_events": 0,
+        "total_cost_usd": null,
+        "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+      }
+    },
+    {
+      "id": "E05",
+      "name": "native-modality-not-free",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Legacy normalized text plus native audio detail must be unknown rather than text-only complete cost.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E05",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "unknown",
+            "cost_usd": null,
+            "reason": "modality or other detail counters require a dedicated normalization adapter"
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 0,
+        "unknown_events": 1,
+        "partial_events": 0,
+        "total_cost_usd": null,
+        "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+      }
+    },
+    {
+      "id": "E06",
+      "name": "duplicate-normalization-conflict",
+      "classification": "shared",
+      "entry": "price",
+      "expected": "Flat/detail cache counters 200000 versus 100000 must reject before pricing.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E06",
+      "observed": {
+        "error": "conflicting normalized cache counters"
+      }
+    },
+    {
+      "id": "E07",
+      "name": "cache-write-subset",
+      "classification": "extension",
+      "entry": "price",
+      "expected": "Explicit write subset is subtracted from ordinary input, added at write rate; expected USD10.6. Unsupported old accounting is separate.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E07",
+      "observed": {
+        "rows": [
+          {
+            "id": "e",
+            "stage": null,
+            "model": "same-model",
+            "status": "estimated_complete",
+            "cost_usd": 10.6,
+            "components": {
+              "uncached_input": 6.0,
+              "cached_input": 0.2,
+              "output_including_reasoning": 2.0,
+              "cache_write_input": 2.4,
+              "external_known": 0
+            },
+            "billing_identity": {
+              "interface": "responses",
+              "model": "same-model",
+              "provider": "fixture",
+              "region": "global",
+              "service_tier": "standard"
+            },
+            "usage_adapter": "text_tokens_v1",
+            "identity_status": "exact",
+            "rate_card_version": "synthetic-registered-v1",
+            "rate_card_sha256": "1883b23439279b2a322e50d97499ae0484b6d62c0a94f1641b80044a6f010d67",
+            "warning": null
+          }
+        ],
+        "known_or_estimated_subtotal_usd": 10.6,
+        "unknown_events": 0,
+        "partial_events": 0,
+        "total_cost_usd": 10.6,
+        "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+      }
+    },
+    {
+      "id": "E08",
+      "name": "clean-confusion-matrix",
+      "classification": "control",
+      "entry": "calibrate",
+      "expected": "Both sides retain exact TP2/TN2/FP1/FN1, agreement 2/3, recall2/3, precision2/3, order inconsistency0.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E08",
+      "observed": {
+        "examples": 6,
+        "judgments": 6,
+        "confusion": {
+          "tp": 2,
+          "tn": 2,
+          "fp": 1,
+          "fn": 1
+        },
+        "evaluation_identity": {
+          "dataset_version": "calibration-v1",
+          "grader_version": "judge-v1",
+          "judge_model": "judge-v1",
+          "rubric_sha256": "synthetic-rubric-v1"
+        },
+        "labels_sha256": "1bfaf34614399a86188967585eead3b3aec8814bebb6ba3e187de4b972730c82",
+        "measurement_status": {
+          "positive_controls": "measured",
+          "negative_controls": "measured",
+          "order_bias": "measured",
+          "repeat_stability": "unmeasured",
+          "population_precision": "unmeasured",
+          "identity": "verified"
+        },
+        "positive_judgments": 3,
+        "negative_judgments": 3,
+        "agreement": 0.6666666666666666,
+        "precision": 0.6666666666666666,
+        "recall": 0.6666666666666666,
+        "false_positive_rate": 0.3333333333333333,
+        "false_negative_rate": 0.3333333333333333,
+        "specificity": 0.6666666666666666,
+        "sample_prevalence": 0.5,
+        "population_prevalence": null,
+        "population_adjusted_precision": null,
+        "disagreements": [
+          {
+            "id": "fp-0",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fn-0",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          }
+        ],
+        "unstable_cases": [],
+        "order_inconsistency_rate": 0,
+        "ready_for_review": false,
+        "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks."
+      }
+    },
+    {
+      "id": "E09",
+      "name": "absent-negative-controls",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "A perfect positive-only set is not ready_for_review and negative evidence is unmeasured.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E09",
+      "observed": {
+        "examples": 2,
+        "judgments": 2,
+        "confusion": {
+          "tp": 2,
+          "tn": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "evaluation_identity": {
+          "dataset_version": "calibration-v1",
+          "grader_version": "judge-v1",
+          "judge_model": "judge-v1",
+          "rubric_sha256": "synthetic-rubric-v1"
+        },
+        "labels_sha256": "676add1451d3a5cbd7c5c5d7a9831533bcf0c500e61c3418f72b920d7bdb2a53",
+        "measurement_status": {
+          "positive_controls": "measured",
+          "negative_controls": "unmeasured",
+          "order_bias": "unmeasured",
+          "repeat_stability": "unmeasured",
+          "population_precision": "unmeasured",
+          "identity": "verified"
+        },
+        "positive_judgments": 2,
+        "negative_judgments": 0,
+        "agreement": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "false_positive_rate": null,
+        "false_negative_rate": 0.0,
+        "specificity": null,
+        "sample_prevalence": 1.0,
+        "population_prevalence": null,
+        "population_adjusted_precision": null,
+        "disagreements": [],
+        "unstable_cases": [],
+        "order_inconsistency_rate": null,
+        "ready_for_review": false,
+        "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks."
+      }
+    },
+    {
+      "id": "E10",
+      "name": "contradictory-adjudication",
+      "classification": "shared",
+      "entry": "calibrate",
+      "expected": "Same case human adjudication changing between repeats must reject.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E10",
+      "observed": {
+        "error": "human adjudication changed across repetitions"
+      }
+    },
+    {
+      "id": "E11",
+      "name": "rare-base-rate",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "100 positives90TP10FN,900 negatives18FP882TN: FPR.02,FNR.1, deployment PPV.04310344827586207 at prevalence .001; old flag absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E11",
+      "observed": {
+        "examples": 1000,
+        "judgments": 1000,
+        "confusion": {
+          "tp": 90,
+          "tn": 882,
+          "fp": 18,
+          "fn": 10
+        },
+        "evaluation_identity": {
+          "dataset_version": "calibration-v1",
+          "grader_version": "judge-v1",
+          "judge_model": "judge-v1",
+          "rubric_sha256": "synthetic-rubric-v1"
+        },
+        "labels_sha256": "fdc2c9f70affec71df67ea7369e630c1ca4915e668c46d98b9acd52a68407a3f",
+        "measurement_status": {
+          "positive_controls": "measured",
+          "negative_controls": "measured",
+          "order_bias": "unmeasured",
+          "repeat_stability": "unmeasured",
+          "population_precision": "scenario_estimate",
+          "identity": "verified"
+        },
+        "positive_judgments": 100,
+        "negative_judgments": 900,
+        "agreement": 0.972,
+        "precision": 0.8333333333333334,
+        "recall": 0.9,
+        "false_positive_rate": 0.02,
+        "false_negative_rate": 0.1,
+        "specificity": 0.98,
+        "sample_prevalence": 0.1,
+        "population_prevalence": 0.001,
+        "population_adjusted_precision": 0.043103448275862065,
+        "disagreements": [
+          {
+            "id": "fn-0",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-1",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-2",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-3",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-4",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-5",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-6",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-7",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-8",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fn-9",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          },
+          {
+            "id": "fp-0",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-1",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-2",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-3",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-4",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-5",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-6",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-7",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-8",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-9",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-10",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-11",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-12",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-13",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-14",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-15",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-16",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-17",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          }
+        ],
+        "unstable_cases": [],
+        "order_inconsistency_rate": null,
+        "ready_for_review": false,
+        "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks."
+      }
+    },
+    {
+      "id": "E12",
+      "name": "fixed-judge-drift",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Same judge/rubric across cohorts, negatives FPR .02 to .08, max increase .03: alert and delta .06. Old drift flag absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E12",
+      "observed": {
+        "examples": 110,
+        "judgments": 110,
+        "confusion": {
+          "tp": 10,
+          "tn": 92,
+          "fp": 8,
+          "fn": 0
+        },
+        "evaluation_identity": {
+          "dataset_version": "current",
+          "grader_version": "judge-v1",
+          "judge_model": "judge-v1",
+          "rubric_sha256": "synthetic-rubric-v1"
+        },
+        "labels_sha256": "4a5d15736d8ab9516b8117009f836ab184de00da7ee3bbf63d83bebf7cb824ca",
+        "measurement_status": {
+          "positive_controls": "measured",
+          "negative_controls": "measured",
+          "order_bias": "unmeasured",
+          "repeat_stability": "unmeasured",
+          "population_precision": "unmeasured",
+          "identity": "verified"
+        },
+        "positive_judgments": 10,
+        "negative_judgments": 100,
+        "agreement": 0.9272727272727272,
+        "precision": 0.5555555555555556,
+        "recall": 1.0,
+        "false_positive_rate": 0.08,
+        "false_negative_rate": 0.0,
+        "specificity": 0.92,
+        "sample_prevalence": 0.09090909090909091,
+        "population_prevalence": null,
+        "population_adjusted_precision": null,
+        "disagreements": [
+          {
+            "id": "fp-0",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-1",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-2",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-3",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-4",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-5",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-6",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fp-7",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          }
+        ],
+        "unstable_cases": [],
+        "order_inconsistency_rate": null,
+        "ready_for_review": false,
+        "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks.",
+        "drift": {
+          "status": "alert",
+          "false_positive_rate_delta": 0.06,
+          "max_fpr_increase": 0.03,
+          "reference_labels_sha256": "9bd911cc980922b8acf07cd5ad2b0b55f14a8588a9609a33fbd6eb730672167b",
+          "current_labels_sha256": "4a5d15736d8ab9516b8117009f836ab184de00da7ee3bbf63d83bebf7cb824ca",
+          "limits": "Descriptive cohort drift; population mix, class balance and uncertainty require review. No negative controls means no drift verdict."
+        }
+      }
+    },
+    {
+      "id": "E13",
+      "name": "paired-judge-change",
+      "classification": "extension",
+      "entry": "calibrate",
+      "expected": "Identical cases/rubric/adjudication: one improved, one regressed, paired agreement delta0; old baseline flag absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E13",
+      "observed": {
+        "examples": 4,
+        "judgments": 4,
+        "confusion": {
+          "tp": 1,
+          "tn": 1,
+          "fp": 1,
+          "fn": 1
+        },
+        "evaluation_identity": {
+          "dataset_version": "calibration-v1",
+          "grader_version": "judge-v2",
+          "judge_model": "judge-v2",
+          "rubric_sha256": "synthetic-rubric-v1"
+        },
+        "labels_sha256": "9508f4e6b8a3d0345d1a1d9854741ae821c9d756e01eff88a8af44b3b2e122e0",
+        "measurement_status": {
+          "positive_controls": "measured",
+          "negative_controls": "measured",
+          "order_bias": "unmeasured",
+          "repeat_stability": "unmeasured",
+          "population_precision": "unmeasured",
+          "identity": "verified"
+        },
+        "positive_judgments": 2,
+        "negative_judgments": 2,
+        "agreement": 0.5,
+        "precision": 0.5,
+        "recall": 0.5,
+        "false_positive_rate": 0.5,
+        "false_negative_rate": 0.5,
+        "specificity": 0.5,
+        "sample_prevalence": 0.5,
+        "population_prevalence": null,
+        "population_adjusted_precision": null,
+        "disagreements": [
+          {
+            "id": "tn-0",
+            "rep": 0,
+            "human": 0,
+            "grade": 1
+          },
+          {
+            "id": "fn-0",
+            "rep": 0,
+            "human": 1,
+            "grade": 0
+          }
+        ],
+        "unstable_cases": [],
+        "order_inconsistency_rate": null,
+        "ready_for_review": false,
+        "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks.",
+        "paired_judges": {
+          "status": "measured_descriptive",
+          "pairs": 4,
+          "improved": 1,
+          "regressed": 1,
+          "agreement_delta": 0.0,
+          "baseline_labels_sha256": "b7049fd2c5ac413b2c5f6572108a8e7d57435c3250218d54a14ad2cc71d7d2b0",
+          "candidate_labels_sha256": "9508f4e6b8a3d0345d1a1d9854741ae821c9d756e01eff88a8af44b3b2e122e0",
+          "limits": "Paired descriptive counts; no population improvement or confidence claim. Average repetitions and resample independent groups for inferential comparisons."
+        }
+      }
+    },
+    {
+      "id": "E14",
+      "name": "clean-real-run-and-compare",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Two deterministic app variants via run_eval complete with2 pairs; quality delta1 and identity verified.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E14",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 2,
+          "attempts": 2,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0
+        },
+        "candidate": {
+          "status": "complete",
+          "completed_cases": 2,
+          "attempts": 2,
+          "known_cost_usd": 0.04,
+          "unknown_cost_attempts": 0
+        },
+        "comparison": {
+          "candidate": "v1",
+          "split": "val",
+          "metric": "quality",
+          "direction": "higher",
+          "planned_cases": 2,
+          "complete_pairs": 2,
+          "reps": 1,
+          "minimum_improvement": 0.0,
+          "problems": [],
+          "alpha": 0.05,
+          "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+          "bootstrap_samples": 200,
+          "seed": 42,
+          "identity_verified": true,
+          "comparison_hash": "7cc47097b9856b43994a81802e869f75a7c096763013f11f617ff9ffa1e02ccb",
+          "independent_groups": 2,
+          "verdict": "improvement_clears_threshold",
+          "baseline_mean": 0.0,
+          "candidate_mean": 1.0,
+          "delta_candidate_minus_baseline": 1.0,
+          "improvement": 1.0,
+          "improvement_interval": [
+            1.0,
+            1.0
+          ],
+          "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+          "improvement_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    {
+      "id": "E15",
+      "name": "served-model-substitution",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Pinned model mismatch yields zero scores, serving_substitution, retained USD.02 cost.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E15",
+      "observed": {
+        "run": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "errors": [
+          {
+            "app_cost_usd": 0.02,
+            "attempt_id": 1,
+            "billing_identity": {
+              "interface": "responses",
+              "model": "same-model",
+              "provider": "fixture",
+              "region": "global",
+              "service_tier": "standard"
+            },
+            "cost_usd": 0.02,
+            "error": "served model is absent or differs from the explicit pin",
+            "event": "finished",
+            "judge_billing_identity": null,
+            "judge_cost_usd": 0.0,
+            "judge_model": null,
+            "judge_usage": null,
+            "known_cost_usd": 0.02,
+            "latency_s": 0.032840917000000004,
+            "model": "substituted-model",
+            "prompt_id": "a",
+            "rep": 0,
+            "retryable": false,
+            "stage": "application",
+            "status": "serving_substitution",
+            "time": 1792300651.4218738,
+            "usage": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "E16",
+      "name": "short-stage-population",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Contract workers3/aggregate1, reported workers2/aggregate1: unscorable coverage_incomplete; old stage gate absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E16",
+      "observed": {
+        "run": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "errors": [
+          {
+            "app_cost_usd": 0.02,
+            "attempt_id": 1,
+            "billing_identity": {
+              "interface": "responses",
+              "model": "same-model",
+              "provider": "fixture",
+              "region": "global",
+              "service_tier": "standard"
+            },
+            "cost_usd": 0.02,
+            "error": "required stage has missing, failed, unknown or uninstrumented work: workers",
+            "event": "finished",
+            "judge_billing_identity": null,
+            "judge_cost_usd": 0.0,
+            "judge_model": null,
+            "judge_usage": null,
+            "known_cost_usd": 0.02,
+            "latency_s": 0.023883417,
+            "model": "same-model",
+            "prompt_id": "a",
+            "rep": 0,
+            "retryable": false,
+            "stage": "application",
+            "status": "coverage_incomplete",
+            "time": 1792300651.516607,
+            "usage": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "E17",
+      "name": "served-tier-substitution",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Pinned standard tier, served flex at same model: zero scores, serving_substitution, retained USD.02; old billing scope pin absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E17",
+      "observed": {
+        "run": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "errors": [
+          {
+            "app_cost_usd": 0.02,
+            "attempt_id": 1,
+            "billing_identity": {
+              "interface": "responses",
+              "model": "same-model",
+              "provider": "fixture",
+              "region": "global",
+              "service_tier": "flex"
+            },
+            "cost_usd": 0.02,
+            "error": "served billing scope is absent or differs from endpoint/model/tier/region pin",
+            "event": "finished",
+            "judge_billing_identity": null,
+            "judge_cost_usd": 0.0,
+            "judge_model": null,
+            "judge_usage": null,
+            "known_cost_usd": 0.02,
+            "latency_s": 0.025231249999999997,
+            "model": "same-model",
+            "prompt_id": "a",
+            "rep": 0,
+            "retryable": false,
+            "stage": "application",
+            "status": "serving_substitution",
+            "time": 1792300651.589893,
+            "usage": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "E18",
+      "name": "failure-budget-and-resume",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Failed ceiling1, retry-safe app/retries1/attempts4: exactly1 failed invocation; resume does not launch more, remains incomplete. Old failure-limit absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E18",
+      "observed": {
+        "run": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "resume": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "calls_before": 1,
+        "calls_after": 1
+      }
+    },
+    {
+      "id": "E19",
+      "name": "interrupted-report-accounting",
+      "classification": "shared",
+      "entry": "runner",
+      "expected": "Started attempt without finish/result has unknown outcome/spend; report total_cost_usd must be null and unknown_cost_attempts1; report counts attempted invocation.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E19",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "report": {
+          "variant": "baseline",
+          "split": "val",
+          "status": "incomplete",
+          "scored_observations": 0,
+          "planned_observations": 1,
+          "metrics": {
+            "quality": {
+              "mean": null,
+              "scored": 0
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 1,
+          "interrupted_attempts": 1,
+          "known_cost_usd": 0,
+          "unknown_cost_attempts": 1,
+          "total_cost_usd": null,
+          "latency_p50_s": null,
+          "latency_p95_s": null,
+          "integrity": "hashes match export; not a security attestation",
+          "synthetic": false,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 0,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      }
+    },
+    {
+      "id": "E20",
+      "name": "transplanted-report-ownership",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Rehashed result whose treatment binding belongs elsewhere must have unverified report integrity. Old per-result binding absent unsupported; frozen new is tested for this claim.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E20",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "report": {
+          "variant": "baseline",
+          "split": "val",
+          "status": "complete",
+          "scored_observations": 1,
+          "planned_observations": 1,
+          "metrics": {
+            "quality": {
+              "mean": 1.0,
+              "scored": 1
+            }
+          },
+          "failed_attempts": 0,
+          "attempts": 1,
+          "interrupted_attempts": 0,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0,
+          "total_cost_usd": 0.02,
+          "latency_p50_s": 0.045050833,
+          "latency_p95_s": 0.045050833,
+          "integrity": "unverified: result identity differs from its measurement/treatment/case",
+          "synthetic": true,
+          "stage_coverage": {
+            "measured_complete": 0,
+            "unmeasured": 1,
+            "required_stages": []
+          },
+          "remaining_failed_attempts": null
+        }
+      }
+    },
+    {
+      "id": "E21",
+      "name": "unreconciled-resume",
+      "classification": "control",
+      "entry": "runner",
+      "expected": "Open started attempt blocks resume with explicit reconciliation error and no new application call.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E21",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "resume": {
+          "status": "invalid",
+          "error": "interrupted attempt has unknown outcome/cost; reconcile it before resume; do not retry side effects blindly"
+        },
+        "calls_before": 1,
+        "calls_after": 1
+      }
+    },
+    {
+      "id": "E22",
+      "name": "abandoned-reconciliation-budget",
+      "classification": "extension",
+      "entry": "runner",
+      "expected": "Externally documented abandoned attempt consumes failed ceiling after reconcile --apply; resume cannot launch more. Old failure ceiling absent unsupported.",
+      "variant": "repaired_new",
+      "outcome": "pass",
+      "contract_satisfied": true,
+      "evidence": "runs/repaired_new/E22",
+      "observed": {
+        "run": {
+          "status": "complete",
+          "completed_cases": 1,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "reconcile": {
+          "mode": "applied",
+          "reconciled": [
+            {
+              "event": "finished",
+              "attempt_id": 1,
+              "prompt_id": "a",
+              "rep": 0,
+              "status": "interrupted_reconciled",
+              "cost_usd": 0.02,
+              "time": 1792300652.573237,
+              "reconciliation_evidence": "Synthetic interrupted application outcome externally verified as abandoned by offline fixture operator; preserve original attempt and failure ceiling."
+            }
+          ],
+          "next": "Resume only after reconciliation. Unknown cost blocks a dollar-budgeted resume. Original attempt/time limits remain in force."
+        },
+        "resume": {
+          "status": "incomplete",
+          "completed_cases": 0,
+          "attempts": 1,
+          "known_cost_usd": 0.02,
+          "unknown_cost_attempts": 0
+        },
+        "calls_before": 1,
+        "calls_after": 1
+      }
+    }
+  ]
+}

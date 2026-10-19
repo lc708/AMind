@@ -1,0 +1,78 @@
+{
+  "planned": 3,
+  "captured": 3,
+  "graded": 3,
+  "rows": [
+    {
+      "run_id": "W046",
+      "reference_run_id": "W017",
+      "task_id": "CIT-L",
+      "arm": "transport-confirmation-citation-before",
+      "score": 5,
+      "primary_outcome": 3,
+      "original_main_score": 5,
+      "original_main_primary": 3,
+      "criteria": {
+        "L1": 1,
+        "L2": 1,
+        "L3": 1,
+        "L4": 1,
+        "L5": 1
+      },
+      "factual_errors": [],
+      "primary_support_gaps": [],
+      "over_refusal": [],
+      "format_defects": [],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W047",
+      "reference_run_id": "W018",
+      "task_id": "CIT-P",
+      "arm": "transport-confirmation-citation-current",
+      "score": 5,
+      "primary_outcome": 3,
+      "original_main_score": 5,
+      "original_main_primary": 3,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "primary_support_gaps": [],
+      "over_refusal": [],
+      "format_defects": [],
+      "uncertain_judgments": []
+    },
+    {
+      "run_id": "W048",
+      "reference_run_id": "W038",
+      "task_id": "CIT-P",
+      "arm": "transport-confirmation-citation-docs",
+      "score": 5,
+      "primary_outcome": 3,
+      "original_main_score": 4,
+      "original_main_primary": 2,
+      "criteria": {
+        "P1": 1,
+        "P2": 1,
+        "P3": 1,
+        "P4": 1,
+        "P5": 1
+      },
+      "factual_errors": [],
+      "primary_support_gaps": [],
+      "over_refusal": [],
+      "format_defects": [],
+      "uncertain_judgments": []
+    }
+  ],
+  "actual_mcp_calls": 0,
+  "source_rule_changed": false,
+  "is_replacement": false,
+  "scope": "After-discovery reused configuration confirmation under explicit no-MCP inventory, not untouched holdout. Primary rubric unchanged; earlier18 retained.",
+  "grades_sha256": "4f70e656492bf3f7232be504c952d9681fef05fdb5a6903cb3734a94bd7d2c32"
+}

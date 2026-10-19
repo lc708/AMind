@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/run_eval.py",
+    "--card",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E22/input/card.json",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E22/flow",
+    "--variant",
+    "baseline",
+    "--split",
+    "val",
+    "--execute",
+    "--resume",
+    "--retry-errors"
+  ],
+  "returncode": 2,
+  "stdout": "{\n  \"status\": \"incomplete\",\n  \"completed_cases\": 0,\n  \"attempts\": 1,\n  \"known_cost_usd\": 0.02,\n  \"unknown_cost_attempts\": 0\n}\n",
+  "stderr": ""
+}

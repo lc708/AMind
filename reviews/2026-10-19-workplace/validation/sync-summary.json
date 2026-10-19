@@ -1,0 +1,41 @@
+{
+  "at_utc": "2026-10-18T19:37:41.572195+00:00",
+  "status": "complete",
+  "original_root": "/Users/damonalbarn/Work/AMind",
+  "source_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind",
+  "original_writes_in_guarded_sync": 5710,
+  "main_sync_counts": {
+    "created": 5694,
+    "replaced": 16,
+    "already_equal": 3510
+  },
+  "post_copy_rehash_verified": 5710,
+  "raw_capture_files_verified_in_original": 4400,
+  "protected_user_files": [
+    {
+      "path": "爱仕珠宝AI赋能解决方案V0.3（团队页优化，含演讲备注）.pptx.inspect.ndjson",
+      "sha256": "4779ed9b0c78b135a860788064abc13c87c9f4339de4355a6544a8e4f63fe2fd",
+      "unchanged": true
+    },
+    {
+      "path": "爱仕珠宝AI赋能解决方案V0.3（团队页优化，含演讲备注）.pptx",
+      "sha256": "497f22cec1db4aaf3f7d7092ec72404ad4c426c976c2c3c4558fb4e36a270afc",
+      "unchanged": true
+    }
+  ],
+  "deletions": 0,
+  "owned_diagnostic_symlinks_excluded_from_file_copy": 6,
+  "fixture_link_metadata": "fixture-link-manifest.json",
+  "raw_fixture_links_retained_in_worktree": true,
+  "additional_ignored_captured_logs_copied": 21,
+  "captured_log_preservation_receipt": "captured-log-preservation.json",
+  "captured_logs_versionable_archive": "captured-logs.jsonl.gz",
+  "full_receipt": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/sync-records/20261018T193454Z-305eb09b5c/receipt.json",
+  "full_receipt_sha256": "141942f94965aae7457c6e87e879fe854e999fc96711b1e0d1329dad078fb3ea",
+  "event_journal": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/sync-records/20261018T193454Z-305eb09b5c/events.ndjson",
+  "event_journal_sha256": "949a44924fa6201a946adaa0556bb73f2226fb4567c4e07acd7c4b892aa46477",
+  "backup_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/workplace-2026-10-19/sync-records/20261018T193454Z-305eb09b5c/backup",
+  "main_rejected_plan_performed_writes": 0,
+  "package_inventories_original_worktree_installed_equal": true,
+  "finalization": "After main sync, only known frozen run-owned logs and validation archive/receipts are created with no-clobber; existing run-owned final JSON hash checked before update."
+}

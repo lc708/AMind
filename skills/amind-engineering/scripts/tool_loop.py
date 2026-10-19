@@ -4,9 +4,18 @@ The application supplies model_call(request), tool validators, authorization and
 This is a synchronous reference kernel, not a hosted agent platform or an isolation layer.
 """
 import hashlib
+import importlib.util
 import json
 import sqlite3
 import time
+from pathlib import Path
+
+
+# Keep standalone imports and importlib-loaded skill modules on the same public
+# response contract, without relying on the host's sys.path or SDK installation.
+_response_spec=importlib.util.spec_from_file_location('amind_loop_response_contract',Path(__file__).with_name('response_contract.py'))
+_response_contract=importlib.util.module_from_spec(_response_spec)
+_response_spec.loader.exec_module(_response_contract)
 
 
 class ReconciliationRequired(RuntimeError): pass
@@ -50,7 +59,14 @@ class EffectLedger:
         # Crash/timeout before the following commit leaves pending and intentionally cannot auto-retry.
         result=handler(key)
         encoded=canonical(result)
-        self.db.execute('UPDATE effects SET state=?,result=? WHERE tenant=? AND key=?',('complete',encoded,tenant,key))
+        changed=self.db.execute("UPDATE effects SET state='complete',result=? WHERE tenant=? AND key=? AND request_hash=? AND state='pending'",
+                                (encoded,tenant,key,fingerprint)).rowcount
+        if changed!=1:
+            old=self.db.execute('SELECT request_hash,state,result FROM effects WHERE tenant=? AND key=?',(tenant,key)).fetchone()
+            if old and old[0]==fingerprint and old[1]=='complete':
+                if old[2]==encoded: return json.loads(old[2])
+                raise ReconciliationRequired('late handler conflicts with an externally settled effect; confirmed result retained; inspect the receipt before continuing')
+            raise ReconciliationRequired('effect record changed during dispatch; reconcile before continuing')
         return result
     def reconcile(self, tenant, key, result, evidence):
         if not isinstance(evidence,str) or not evidence.strip(): raise ValueError('external reconciliation evidence required')
@@ -85,6 +101,7 @@ def run_loop(model_call, input_items, tools, tenant, task_id, ledger, authorize,
         response=model_call({'input':history,'tools':[t['schema'] for t in tools.values()],
                              'remaining_seconds':max(0,timeout_s-(time.monotonic()-started))})
         checkpoint()
+        _response_contract.validate_terminal(response)  # Dispatch safety shares terminal validation, not display parsing.
         if response.get('status')!='completed': return {'status':response.get('status','unknown'),'history':history,'response':response}
         output=response.get('output')
         if not isinstance(output,list) or any(not isinstance(i,dict) for i in output): raise ValueError('full output items required')

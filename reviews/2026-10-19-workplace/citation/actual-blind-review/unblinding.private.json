@@ -1,0 +1,221 @@
+{
+  "seed": "ee9e9219b902d147b574439ada8bedb2903d0da3ffdec807",
+  "mapping": [
+    {
+      "blind_id": "W7dd40ea0d1c4",
+      "run_id": "W009",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W009/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W009",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "W33e08e4c5651",
+      "run_id": "W010",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W010/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W010",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f"
+    },
+    {
+      "blind_id": "W9ce9118dc40d",
+      "run_id": "W011",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W011/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W011",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "Wc2f7acef4680",
+      "run_id": "W012",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W012/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W012",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "Wdf60bd1e461c",
+      "run_id": "W013",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W013/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W013",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "W8cfb498f0bcf",
+      "run_id": "W014",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W014/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W014",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f"
+    },
+    {
+      "blind_id": "W00252a13cc8d",
+      "run_id": "W015",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W015/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W015",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "Wddf379ddb8dd",
+      "run_id": "W016",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W016/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W016",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f"
+    },
+    {
+      "blind_id": "Wd03e358afcf1",
+      "run_id": "W017",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W017/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W017",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "Wf52726f55801",
+      "run_id": "W018",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W018/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W018",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f"
+    },
+    {
+      "blind_id": "W9de03f23de12",
+      "run_id": "W019",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W019/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W019",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "Wfaab7f3dda22",
+      "run_id": "W020",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W020/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W020",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "Wda3f459199ca",
+      "run_id": "W037",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W037/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W037",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "W9a1548da961c",
+      "run_id": "W038",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W038/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W038",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "W99ac3bd8a856",
+      "run_id": "W039",
+      "task_id": "CIT-P",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W039/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W039",
+        "task_id": "CIT-P",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f"
+    },
+    {
+      "blind_id": "Wf0b1f81de2e0",
+      "run_id": "W040",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W040/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W040",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f"
+    },
+    {
+      "blind_id": "W15e704a033b0",
+      "run_id": "W041",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W041/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W041",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    },
+    {
+      "blind_id": "W75e35aecb94b",
+      "run_id": "W042",
+      "task_id": "CIT-L",
+      "skill_root": "/private/tmp/amind-workplace-20261019-4pdx607m/W042/skills/amind",
+      "input_fields_excluded_from_review": {
+        "run_id": "W042",
+        "task_id": "CIT-L",
+        "status": "captured"
+      },
+      "runtime_manifest_sha256": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "blind_control_inputs": "controls-blind-inputs.json",
+  "created_at_utc": "2026-10-18T18:03:09.231149+00:00",
+  "created_before_target_outputs": true,
+  "files": {
+    "README.md": "a79edbce1d55f1cd343705be90036a012a589fd065e38c0859410b2089f19604",
+    "arm-recipe.private.json": "413942e2f391bc4b4c9327a4730a768a1440d7b703027290ba3ad290055df41f",
+    "build_blind_packets.py": "e840c6e26ce112bdb9bd9f23703a62c3a5a2013782ebcf53a48b59df565a6f7a",
+    "calibration-blind-inputs.jsonl": "8f45be1de7be8021fac2139c33e5597419a207ccdcaaf0420b64250a40b1bfeb",
+    "calibration-controls.private.json": "f96758006bd00a0cf5c198ddc73014fb6ace70fe84c162d7b977a8b078c5e868",
+    "calibration-key.private.json": "0862f029b734622d4ab9dbc2a0ca204f96de558257661287db60fbd97d77ea3f",
+    "controls-blind-inputs.json": "fc7a81b64959dcc7ae066ed9840a9a40f4cc978b8485b727bf565350d33d0efe",
+    "controls-expected.json": "3ec7dc8eecc7112d0e805fce156678dd2a800d1b2aff07ff34d0eac08604c685",
+    "curation-exhibits.private.json": "19de466fa97d6ecfd3f5c2564006529e6bf896655bd077a0858699090f37f0b9",
+    "grading-contract.json": "6b204cb97675287ae4df430af737ff63fb6ef86e8ccb1d26f2aba2e2bb7d4102",
+    "native-exhibits.json": "4b904b336f9fc04f3e5d51af2742846364f72a74e449f8b89cf245d079411f80",
+    "prepare_protocol.py": "d6b33c469bbbaa50949e1b24b28e6947ecb451a9b8d475de16fd5ad0475c6980",
+    "protocol-validation.json": "5f8b4b5f002be7bf42abf99a35f2a5e12c42a1f01e08e47efd360347c3aad787",
+    "tasks.json": "873b2f49de285ab6a8da770ddc7f349bf9e0f7bf7947bbb5d3e3f956b5c2eac3"
+  },
+  "grading_blinded": true,
+  "immutable_after_freeze": true,
+  "planned_target_executions": 18,
+  "private_expected_key": "controls-expected.json",
+  "protocol_sha256": "0cfe1deeccd083a61a70535e121ddc015eee182175b1c0a3dff0acf01d6159c2",
+  "schema_version": 1,
+  "target_model_executions_by_worker": 0,
+  "target_outputs_inspected": 0
+}

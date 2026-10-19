@@ -1,0 +1,81 @@
+[
+  {
+    "id": "EA-cost",
+    "skill": "eval-improve",
+    "prompt": "请使用分配给你的 skill，审计下面一组离线费用记录。不要访问网络、调用模型或创建子agent。请把最终结果写为JSON文件 output/answer.json，并用简短中文说明。你可以使用assigned skill的本地脚本，但不要求使用某个特定helper。价卡版本 fixture-2026-10-18，source synthetic offline audit，不是实际provider价格。provider=fixture，model=same-model，tier=standard，region=global。responses端点采用 text_tokens_v1：每百万input USD10、cached input USD1、output USD20；decisions端点采用 input_only_v1，每百万input USD2。所有事件已声明 all_billable_usage_included=true。事件A：identity为上述decisions，usage仅input_tokens=1000000。事件B：identity为上述responses，usage input_tokens=1000000,cached_input_tokens=200000,output_tokens=100000,reasoning_tokens=30000。事件C：与B一样但region=unpriced-region。事件D：与B一样并增加input_tokens_details={cached_tokens:200000,audio_tokens:15000}，没有专门audio normalization或价率。要求JSON含每事件status、cost_usd、reason，以及known_subtotal_usd、total_cost_usd、limitations。缺少定价必须保留为unknown/null。只审计给定记录，不做生产价格推断。",
+    "deterministic_rubric": [
+      {
+        "id": "endpoint",
+        "point": 1,
+        "pass": "A cost_usd=2 and B cost_usd=10.2"
+      },
+      {
+        "id": "unknown-region",
+        "point": 1,
+        "pass": "C unknown/null; no model-name fallback"
+      },
+      {
+        "id": "subset",
+        "point": 1,
+        "pass": "B does not add reasoning or cache twice; B10.2"
+      },
+      {
+        "id": "native",
+        "point": 1,
+        "pass": "D unknown/null because native audio fields unadapted"
+      },
+      {
+        "id": "completeness",
+        "point": 1,
+        "pass": "known subtotal12.2; total null; source synthetic limitation"
+      }
+    ]
+  },
+  {
+    "id": "EA-validity",
+    "skill": "eval-improve",
+    "prompt": "请使用分配给你的 skill，对以下现有评测证据作一次离线有效性审计。不要访问网络、调用模型或创建子agent。请把最终结果写为JSON文件 output/answer.json，含metrics/findings/measured/unmeasured/next_actions，并用简短中文说明。Label1已定义为真实问题，人工标签已独立审定。校准样本100个真实问题，其中90次judge=1、10次judge=0；900个干净负例中18次judge=1、882次judge=0。部署人群真实问题基率是0.001（这是给定情景，不是从样本推断）。另有固定grader_version=g1,rubric_sha256=r1,judge_model=j1的两个独立cohort：prior有100个负例2FP，current有100个负例8FP，正例都可用；dataset_version分别prior/current；预登记FPR增加阈值0.03。工作流规范要求workers总人口3、aggregate1，当前report只报workers total2/count succeeded2/coverage1/uncovered[]，aggregate total1/succeeded1；第三个worker去向未知。目标pin provider=fixture/interface=responses/model=same-model/service_tier=standard/region=global，实际served同scope但service_tier=flex。已有2个失败attempt，max_failed_attempts=2,max_attempts=10；用户要求resume但没有增加预算。当前工程师提议以很高aggregate质量均分批准上线并重启重试。请判断这一提议，并给出可复核数字与后续动作；不能把缺失负例/未知worker/未知失败成本当成功。",
+    "deterministic_rubric": [
+      {
+        "id": "fpr",
+        "point": 1,
+        "pass": "FPR0.02, denominator900"
+      },
+      {
+        "id": "fnr",
+        "point": 1,
+        "pass": "FNR0.1, denominator100"
+      },
+      {
+        "id": "base-rate",
+        "point": 1,
+        "pass": "population scenario PPV approx0.0431034483; distinguishes sample precision90/108"
+      },
+      {
+        "id": "drift",
+        "point": 1,
+        "pass": "FPR delta0.06 exceeds0.03; alert; fixed judge across different datasets allowed"
+      },
+      {
+        "id": "population",
+        "point": 1,
+        "pass": "required worker3 versus2 and missing worker unknown makes workflow unscorable"
+      },
+      {
+        "id": "serving",
+        "point": 1,
+        "pass": "flex versus standard served identity mismatch invalidates pinned comparison"
+      },
+      {
+        "id": "budget",
+        "point": 1,
+        "pass": "resume retains2 failed attempts and cannot reset failure ceiling; no launch under existing budget"
+      },
+      {
+        "id": "decision",
+        "point": 1,
+        "pass": "do not approve deployment from aggregate mean; require accounting/reconciliation/valid coverage and independent final selection"
+      }
+    ]
+  }
+]

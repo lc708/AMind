@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/eval-improve/scripts/calibrate_grader.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E09/input/labels.jsonl"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"examples\": 2,\n  \"judgments\": 2,\n  \"confusion\": {\n    \"tp\": 2,\n    \"tn\": 0,\n    \"fp\": 0,\n    \"fn\": 0\n  },\n  \"agreement\": 1.0,\n  \"precision\": 1.0,\n  \"recall\": 1.0,\n  \"disagreements\": [],\n  \"unstable_cases\": [],\n  \"order_inconsistency_rate\": null,\n  \"ready_for_review\": true,\n  \"limits\": \"Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing.\"\n}\n",
+  "stderr": ""
+}

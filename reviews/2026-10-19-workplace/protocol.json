@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "user_facing_date": "2026-10-19",
+  "timezone": "Asia/Singapore",
+  "frozen_at_utc": "2026-10-18T18:08:01.150312+00:00",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "configuration_basis": "Unchanged user host config; actual served identity not independently instrumented",
+  "timeout_seconds": 480,
+  "max_wall_seconds": 7200,
+  "max_target_executions": 48,
+  "main_target_executions": 42,
+  "repair_reserve": 6,
+  "max_concurrency": 3,
+  "retries": 0,
+  "tasks": [
+    {
+      "id": "E-GATEWAY",
+      "axis": "engineering",
+      "skill": "amind-engineering",
+      "prompt": "Support reopened incident 418: customer sessions displayed internal worker notes and a completed badge after an unfinished stream. Please use the assigned engineering skill to investigate this repository, repair its response gateway integration, and add focused regression coverage. Read README.md and saved traces as the public application contract; preserve its CLI and healthy legacy callers. Deliver local code changes and PATCH-NOTES.md with cause, reproduction, verification and limits. No hosted SDK or live network is required.",
+      "max_score": 6,
+      "repo": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/repo",
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_gateway.py"
+    },
+    {
+      "id": "E-DURABLE",
+      "axis": "engineering",
+      "skill": "amind-engineering",
+      "prompt": "Operations reopened incident 73: a restored intake worker delivered a receipt twice, a summary concealed an item gap, and another tenant using the same job number had recovery trouble. Please use the assigned engineering skill to repair the actual intake application across persistence, worker lifecycle and reports. Read README.md and saved requests for the public contract. Preserve the CLI and healthy existing behavior; add useful regressions and PATCH-NOTES.md with cause, reproduction, verification and limits. Work locally with the simulated receiver; no model service or network is needed.",
+      "max_score": 6,
+      "repo": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-DURABLE/repo",
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/private/grade_durable.py"
+    },
+    {
+      "id": "V-RELEASE",
+      "axis": "evaluation",
+      "skill": "eval-improve",
+      "prompt": "Repair the release dashboard after the partial provider outage. Work in this repository as the engineer responsible for the incident. Read README.md and the saved local example, repair the existing implementation across modules, and run the public tests plus useful local integration checks. Preserve the documented CLI and JSON contract. Deliver working repository changes and a concise account of what changed and how you verified it. Do not call external services or models. No installed AMind helper imports are required. The source tree is the product; passing model-written tests alone is not evidence of completion.",
+      "max_score": 5,
+      "repo": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/repos/V-RELEASE",
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_release.py"
+    },
+    {
+      "id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "skill": "eval-improve",
+      "prompt": "Repair the support-judge calibration and rollout review. Work in this repository as the engineer responsible for the incident. Read README.md and the saved local example, repair the existing implementation across modules, and run the public tests plus useful local integration checks. Preserve the documented CLI and JSON contract. Deliver working repository changes and a concise account of what changed and how you verified it. Do not call external services or models. No installed AMind helper imports are required. The source tree is the product; passing model-written tests alone is not evidence of completion.",
+      "max_score": 5,
+      "repo": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/repos/V-CALIBRATE",
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py"
+    },
+    {
+      "id": "CIT-P",
+      "axis": "citation",
+      "skill": "amind",
+      "prompt": "你是产品运营部的研究编辑。请为2026-10-18的负责人例会写一份可直接使用的《Claude政策交接简报》：我们下周要更新客户使用指引，负责人需要知道目前应按哪一版Usage Policy交接、10月发布的更新意味着什么，以及下一次切换应怎样安排。请用分配的本地AMind资料核实后写作，不联网，也不假定资料截止日之后已经发生了什么。\n\n输出一个JSON对象：{memo,decision_log,sources}。memo约180—280个汉字，给出可采取的行动；decision_log最多4条，分别写判断、证据距离标签以及需要核实的事项；sources最多4项，每项列source_title、claim_id、canonical_url、支撑该判断的原文短摘录和段落位置。请检查完整绑定段落，确保引用能支撑交接日期与版本的判断；未知之处照实说明。",
+      "max_score": 5
+    },
+    {
+      "id": "CIT-L",
+      "axis": "citation",
+      "skill": "amind",
+      "prompt": "你是安全评估组的文献编辑。请为2026-10-18的研究周报写一份《Training Alignment Auditors via Reinforcement Learning》研读卡，帮助同事决定是否把这项方法纳入下一轮内部复现实验。请交代文章何时发布、作者实际比较了什么、哪些结果值得复现，以及这些材料足以支持哪些部署判断。只用分配的本地AMind资料，不联网。\n\n输出一个JSON对象：{memo,decision_log,sources}。memo约180—280个汉字；decision_log最多4条，分别写判断、证据距离标签以及需要核实的事项；sources最多4项，每项列source_title、claim_id、canonical_url、支撑该判断的原文短摘录和段落位置。请检查完整绑定段落，给出有依据的结论及必要边界，未知之处照实说明。",
+      "max_score": 5
+    }
+  ],
+  "repetitions": 3,
+  "arms": {
+    "engineering_and_evaluation": [
+      "old",
+      "current"
+    ],
+    "citation": [
+      "citation-before",
+      "citation-docs",
+      "citation-current"
+    ]
+  },
+  "primary_unit": "Task family, with three repetitions averaged within each task. Two app task families per axis; two citation tasks. Repetition index is matched bookkeeping, not shared sampling seed.",
+  "scoring": "Each application task uses all-or-nothing domain scores from14 external subprocess probes, plus fatal guardrails. Each citation task uses5 pre-registered binary semantic criteria and separate support-gap/over-refusal outcomes. No pooled score across axes.",
+  "hypotheses": [
+    "Current engineering/eval skill may improve realistic app repair outcomes rather than explicit decision puzzles; ties and regressions retained.",
+    "Longer skills may cost more or less tool/context usage; native usage and elapsed diagnostics retained, no dollar imputation.",
+    "Citation docs may reduce registry-to-primary laundering while retaining directly supported findings; compare before/docs-only/full current."
+  ],
+  "decision_rule": "Report per-task mean/range and hard-guardrail failure counts across all planned reps. No population/significance claim from two task families per axis. A task-specific gain needs positive mean with no new confirmed hard-invariant regression; broader axis gain needs both task families non-regressing. Ceiling ties remain ties. Runtime failures remain visible, not silently removed or converted into successful numeric zeros.",
+  "repair_policy": "Inspect outputs only after main42 captured or terminally failed. Diagnose and make minimal coherent fixes with regression tests. Up to6 reserved target executions may validate selected affected scenarios using frozen current/baseline and repaired candidate; those are explicitly after-discovery validation, not untouched final proof. No adaptive extra executions beyond48.",
+  "controls": "Reference, starter, empty, fluent/injected controls frozen; app reference runs under exact network-denied subprocess policy; citation fresh anonymous calibration40/40matches across8controls, not human calibration. Three repetitions of each unchanged arm expose within-configuration variation.",
+  "runtime": "Independent copied skills and app repos; host path-deny Seatbelt with canaries; no native web/apps/plugins/MCP or subagents. Grading uses separate portable repository with original task skill/repo/output denied and network denied. Not complete host file or inference egress isolation.",
+  "source_cutoff": "2026-10-18; no new internet collection in this evaluation",
+  "measurement_files_sha256": "bc1da2d4c04f3f076234f1c4724859735fce2e2bf20d2d465a9665e039311f86",
+  "snapshot_manifest_sha256": "ec62882fcd2b02ad44a201eff82ffd9f7c56f96409a7226eb8ffa55cfccd0d44",
+  "candidate_before_any_new_repairs": true
+}

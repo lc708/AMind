@@ -1,0 +1,8 @@
+{
+  "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+  "reviewed_on": "2026-10-18",
+  "source_files": 96,
+  "section_locators": 1346,
+  "source_hashes_verified": true,
+  "meaning": "inventory and resource checks only; semantic/behavioral evidence is separate"
+}

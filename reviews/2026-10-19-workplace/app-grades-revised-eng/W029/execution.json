@@ -1,0 +1,35 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/revised-private/grade_gateway.py",
+    "--repo",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/W029/grade-revised-eng-repo"
+  ],
+  "returncode": 0,
+  "application_prefix": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/private/tmp/amind-workplace-20261019-4pdx607m/control/W029-grade-revised-eng.sb"
+  ],
+  "policy_sha256": "83f9d665e272304a9af4def796d21ff9046f3f9fcded5156e71a7702151cd2ae",
+  "application_calls": 16,
+  "all_calls_prefixed": true,
+  "repo_files_sha256": {
+    "PATCH-NOTES.md": "13683d4437cec8035b43db974cea059cd4e36e76a4905ffd42ea2219f8150415",
+    "README.md": "a140737a0ec6118fad7f07a7d4569051923f868b83f76194fef4b42f2ec3f75f",
+    "gateway/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gateway/__main__.py": "5b8935349e729d08bce953b231c021b64040a285264b8c925f01604d82630762",
+    "gateway/metrics.py": "4d8b4a52bc9ab38b68dcc5c278c2db1b8d59f7c1ab464c23c8170322fc1d601a",
+    "gateway/projection.py": "da2db286d5be8b27fea32d2728c17234f2a4672a8d7a1f70dcc80c79273b3137",
+    "gateway/render.py": "08afa66322cf96715df1854e2f93c2779f897550a20780e2894c19d5cbf24a3f",
+    "gateway/replay.py": "e6e15473e631c51314cf7efa1920e257d3df6536c287aeb686eceee1214efce6",
+    "gateway/service.py": "52d9ab453ff8398e1c39423dd36b50562da608facea7fce0a733be8dc08bf78c",
+    "gateway/storage.py": "fd448965890c602fa6a8330adbe635a4c227edf69b804509700cd82871f20aa3",
+    "gateway/validation.py": "50b74873a075e0491aeef7780e992422c485bad75669c1699be49f596cac3598",
+    "tests/test_public.py": "1e338f04bafc2514deefdabb32b1c201d49b8132b33a8f3d0a2f6842be14c273",
+    "traces/incident.json": "354d3b2ade48065e9e72cfaa6c74eca9df9fec6c7449f9d6267c462dbf79e026",
+    "traces/legacy.json": "4d56901611ec8a3c8bd873c8597228674979d60640d992953758476f4bdee30f"
+  },
+  "model_called": false
+}

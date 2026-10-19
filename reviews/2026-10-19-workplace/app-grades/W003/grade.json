@@ -1,0 +1,1179 @@
+{
+  "task_id": "E-DURABLE",
+  "score": 6,
+  "max_score": 6,
+  "probe_passed": 14,
+  "probe_total": 14,
+  "domain_scores": {
+    "identity": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 3,
+      "probe_total": 3
+    },
+    "continuity": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 1
+    },
+    "recovery": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 5,
+      "probe_total": 5
+    },
+    "budget": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 2,
+      "probe_total": 2
+    },
+    "cancellation": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 1
+    },
+    "coverage": {
+      "score": 1,
+      "max_score": 1,
+      "probe_passed": 2,
+      "probe_total": 2
+    }
+  },
+  "domains": {
+    "identity": {
+      "score": 3,
+      "max_score": 3
+    },
+    "continuity": {
+      "score": 1,
+      "max_score": 1
+    },
+    "recovery": {
+      "score": 5,
+      "max_score": 5
+    },
+    "budget": {
+      "score": 2,
+      "max_score": 2
+    },
+    "cancellation": {
+      "score": 1,
+      "max_score": 1
+    },
+    "coverage": {
+      "score": 2,
+      "max_score": 2
+    }
+  },
+  "fatal_guardrails": {
+    "D01": true,
+    "D02": true,
+    "D06": true,
+    "D07": true,
+    "D08": true,
+    "D10": true,
+    "D11": true,
+    "D13": true
+  },
+  "fatal_pass": true,
+  "cases": [
+    {
+      "id": "D01",
+      "domain": "identity",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"north-only\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"north-only\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"c800c3f99fc534f43c27d8ab6ae30630dc59b5261f122ed41d858ece39eb5741\"}, {\"stage\": \"review\", \"item\": \"north-only\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"c598cc3065dc8e07061c2b70f18f5349d544a9523edb6fd7d15b0df67a86c5a0\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"north-only\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"north-only\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"south\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"south-1\", \"south-2\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"south-1\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"f0f0a9fa2b4af94a904749114423394e96ae1836f2576e92e0325fb0f8af9b17\"}, {\"stage\": \"inspect\", \"item\": \"south-2\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"9f1932d474b8f021371caceadd1a7b32e06cd1adc5cc003b776dc936696dcc73\"}, {\"stage\": \"review\", \"item\": \"south-1\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"adb5b4edcbf17bc4c0442a8255d7100727c41bf923de7d39c5f50e4b1924596c\"}, {\"stage\": \"review\", \"item\": \"south-2\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"91890edafa31dcb7e84dc6c7e1958bd50a858bebc92cf4754ad4ade1996e4d0e\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"fd6fdfa0c03d2d234879a057538a440c83897548c8627eb82d6ee2305824ef89\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"south-1\", \"south-2\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"south-1\", \"south-2\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-xk9hskh2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"south\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"south-1\", \"south-2\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"south-1\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"f0f0a9fa2b4af94a904749114423394e96ae1836f2576e92e0325fb0f8af9b17\"}, {\"stage\": \"inspect\", \"item\": \"south-2\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"9f1932d474b8f021371caceadd1a7b32e06cd1adc5cc003b776dc936696dcc73\"}, {\"stage\": \"review\", \"item\": \"south-1\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"adb5b4edcbf17bc4c0442a8255d7100727c41bf923de7d39c5f50e4b1924596c\"}, {\"stage\": \"review\", \"item\": \"south-2\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"91890edafa31dcb7e84dc6c7e1958bd50a858bebc92cf4754ad4ade1996e4d0e\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"fd6fdfa0c03d2d234879a057538a440c83897548c8627eb82d6ee2305824ef89\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"south-1\", \"south-2\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"south-1\", \"south-2\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "domain": "identity",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"south\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"c3d70a60e54b8fdbdfe79db159c75c4775accc543acfb4e703a3fe54e632877c\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"ffd59bd3a8c62fd53a28daa3a9a48934b7152784621d918c4af6334fcf80263f\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"fd6fdfa0c03d2d234879a057538a440c83897548c8627eb82d6ee2305824ef89\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/input-4.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-ilpzl4r2/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"south\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"c3d70a60e54b8fdbdfe79db159c75c4775accc543acfb4e703a3fe54e632877c\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"ffd59bd3a8c62fd53a28daa3a9a48934b7152784621d918c4af6334fcf80263f\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"fd6fdfa0c03d2d234879a057538a440c83897548c8627eb82d6ee2305824ef89\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "domain": "identity",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/receipts.jsonl"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"immutable job specification differs\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-f5_wfz96/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "domain": "continuity",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"completed\", \"attempts\": 3, \"remaining_attempts\": 9, \"coverage\": 1.0, \"covered_ids\": [\"a\"], \"uncovered_ids\": [], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1uns_p7h/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"completed\", \"attempts\": 3, \"remaining_attempts\": 9, \"coverage\": 1.0, \"covered_ids\": [\"a\"], \"uncovered_ids\": [], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "domain": "recovery",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/receipts.jsonl"
+          ],
+          "returncode": 17,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-46qxs9_j/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"unknown\", \"attempts\": 1, \"remaining_attempts\": 11, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"running\", \"result\": \"null\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"running\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "domain": "recovery",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/receipts.jsonl"
+          ],
+          "returncode": 17,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"unknown\", \"attempts\": 1, \"remaining_attempts\": 11, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"running\", \"result\": \"null\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"running\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/input-4.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-_dcc8bz6/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"unknown\", \"attempts\": 1, \"remaining_attempts\": 11, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"running\", \"result\": \"null\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"running\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "domain": "recovery",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/receipts.jsonl"
+          ],
+          "returncode": 17,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-festsbga/receipts.jsonl"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"external outcome, result and nonempty evidence required\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "domain": "recovery",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"completed\", \"attempts\": 3, \"remaining_attempts\": 9, \"coverage\": 1.0, \"covered_ids\": [\"a\"], \"uncovered_ids\": [], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/receipts.jsonl"
+          ],
+          "returncode": 2,
+          "stdout": "{\"error\": \"exactly one unknown operation required\"}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/input-4.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-9d961488/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"completed\", \"attempts\": 3, \"remaining_attempts\": 9, \"coverage\": 1.0, \"covered_ids\": [\"a\"], \"uncovered_ids\": [], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "domain": "recovery",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 3, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/receipts.jsonl"
+          ],
+          "returncode": 17,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"unknown\", \"attempts\": 1, \"remaining_attempts\": 2, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"running\", \"result\": \"null\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"running\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/input-4.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 1, \"remaining_attempts\": 2, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"receipt\\\":\\\"confirmed\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/input-5.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-n7mkvm9s/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"completed\", \"attempts\": 3, \"remaining_attempts\": 0, \"coverage\": 1.0, \"covered_ids\": [\"a\"], \"uncovered_ids\": [], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"receipt\\\":\\\"confirmed\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "domain": "budget",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 2, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 2, \"remaining_attempts\": 0, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-hm1udth3/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 2, \"remaining_attempts\": 0, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "domain": "cancellation",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"cancelled\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": true, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-1eowrfl9/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"cancelled\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\"], \"cancelled\": true, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"review\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D12",
+      "domain": "budget",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 2, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 2, \"remaining_attempts\": 0, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/input-3.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"cancelled\", \"attempts\": 2, \"remaining_attempts\": 0, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": true, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/input-4.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 2, \"remaining_attempts\": 0, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/input-5.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-kig9zoeg/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 2, \"remaining_attempts\": 0, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D13",
+      "domain": "coverage",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": true,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-seftea3r/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-seftea3r/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-seftea3r/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-seftea3r/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-seftea3r/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-seftea3r/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"incomplete\", \"attempts\": 5, \"remaining_attempts\": 7, \"coverage\": 0.5, \"covered_ids\": [\"a\"], \"uncovered_ids\": [\"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"failed\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 2}, \"coverage\": 1.0, \"uncovered_ids\": []}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"succeeded\": 1, \"failed\": 1}, \"coverage\": 0.5, \"uncovered_ids\": [\"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "D14",
+      "domain": "coverage",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-mzgu718b/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-mzgu718b/input-1.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-mzgu718b/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"pending\", \"attempts\": 0, \"remaining_attempts\": 12, \"coverage\": 0.0, \"covered_ids\": [], \"uncovered_ids\": [\"a\", \"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"pending\", \"result\": null, \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"pending\": 2}, \"coverage\": 0.0, \"uncovered_ids\": [\"a\", \"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"pending\": 1}, \"coverage\": 0.0, \"uncovered_ids\": [\"__all__\"]}]}\n",
+          "stderr": ""
+        },
+        {
+          "argv": [
+            "/usr/bin/sandbox-exec",
+            "-f",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/control/W003-grade.sb",
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "intake",
+            "--db",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-mzgu718b/jobs.sqlite",
+            "--request",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-mzgu718b/input-2.json",
+            "--receipts",
+            "/private/tmp/amind-workplace-20261019-4pdx607m/W003/grade-scratch/integration-mzgu718b/receipts.jsonl"
+          ],
+          "returncode": 0,
+          "stdout": "{\"tenant\": \"north\", \"job\": \"batch-23\", \"status\": \"incomplete\", \"attempts\": 4, \"remaining_attempts\": 8, \"coverage\": 0.5, \"covered_ids\": [\"a\"], \"uncovered_ids\": [\"b\"], \"cancelled\": false, \"rows\": [{\"stage\": \"inspect\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"d3a5a456db3d58138d8d85587cdc034c6693e77c05cf37383571e33e281fe107\"}, {\"stage\": \"inspect\", \"item\": \"b\", \"state\": \"failed\", \"result\": \"{\\\"item\\\":\\\"b\\\",\\\"stage\\\":\\\"inspect\\\"}\", \"operation_key\": \"b4d74177c1d0562f586f8f43fa57ef3ca848b80edeb733a9f037ed6ac5c5f0fb\"}, {\"stage\": \"review\", \"item\": \"a\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"a\\\",\\\"stage\\\":\\\"review\\\"}\", \"operation_key\": \"68b558c7e50e8650c20b3dd190517e3b6b7c9f58acea8db6efcce76db55d1c9b\"}, {\"stage\": \"review\", \"item\": \"b\", \"state\": \"not_covered\", \"result\": \"null\", \"operation_key\": \"93c433187d827f81013620c19ee712ec2790a5300f79aafc352866803d634cab\"}, {\"stage\": \"summary\", \"item\": \"__all__\", \"state\": \"succeeded\", \"result\": \"{\\\"item\\\":\\\"__all__\\\",\\\"stage\\\":\\\"summary\\\"}\", \"operation_key\": \"aae8dd5534b598e79c88972d01acb7e49b3f84b9dd97d7d8d9af0d3bae3b9ca5\"}], \"stages\": [{\"stage\": \"inspect\", \"total\": 2, \"counts\": {\"succeeded\": 1, \"failed\": 1}, \"coverage\": 0.5, \"uncovered_ids\": [\"b\"]}, {\"stage\": \"review\", \"total\": 2, \"counts\": {\"succeeded\": 1, \"not_covered\": 1}, \"coverage\": 0.5, \"uncovered_ids\": [\"b\"]}, {\"stage\": \"summary\", \"total\": 1, \"counts\": {\"succeeded\": 1}, \"coverage\": 1.0, \"uncovered_ids\": []}]}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "evidence_level": "offline real CLI subprocesses and persisted journals; no provider/model/network"
+}

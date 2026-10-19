@@ -1,0 +1,15 @@
+[
+  {
+    "role": "user",
+    "content": {
+      "requested_summary": "account restored"
+    }
+  },
+  {
+    "role": "assistant",
+    "content": {
+      "answer": "ACCOUNT RESTORED",
+      "policy_ok": false
+    }
+  }
+]

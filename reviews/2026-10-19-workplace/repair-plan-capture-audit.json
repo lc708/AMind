@@ -1,0 +1,219 @@
+{
+  "planned": 6,
+  "captured": 6,
+  "statuses": {
+    "captured": 6
+  },
+  "all_assigned_skills_unchanged": true,
+  "all_public_tests_unchanged": true,
+  "all_canaries_denied": true,
+  "native_unique_threads": 6,
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "actual_served_model_verified": false,
+  "native_cumulative_usage": {
+    "input_tokens": 2507781,
+    "cached_input_tokens": 2254336,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 79196,
+    "reasoning_output_tokens": 22004
+  },
+  "missing_usage_runs": [],
+  "sum_task_wall_seconds": 1533.575,
+  "dollar_cost_usd": null,
+  "cost_note": "Native subscription counters, unknown invoice/rate scope. Cached/reasoning counters are subsets and not added twice. Analytical agents not included in target capture counters.",
+  "completed_item_types": {
+    "error": 6,
+    "agent_message": 33,
+    "command_execution": 111,
+    "file_change": 12
+  },
+  "native_error_items": [
+    {
+      "run_id": "W043",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W044",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W045",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W046",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W047",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W048",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    }
+  ],
+  "trace_flags": [],
+  "skill_use_trace_terms": [
+    {
+      "run_id": "W043",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "receiver.py",
+        "service.py",
+        "store.py",
+        "test_public.py",
+        "workflow_contract.py"
+      ]
+    },
+    {
+      "run_id": "W044",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "audit_receipts.py",
+        "lifecycle_audit.py",
+        "receiver.py",
+        "replay.py",
+        "run_verification.py",
+        "service.py",
+        "store.py",
+        "workflow_contract.py"
+      ]
+    },
+    {
+      "run_id": "W045",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__main__.py",
+        "receiver.py",
+        "service.py",
+        "store.py",
+        "test_public.py",
+        "workflow_contract.py"
+      ]
+    },
+    {
+      "run_id": "W046",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W047",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W048",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "run_id": "W043",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "repaired",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 240.15,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W044",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "repaired",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 312.174,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W045",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "repaired",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 374.926,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W046",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "transport-confirmation-citation-before",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 208.278,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W047",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "transport-confirmation-citation-current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 173.94,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W048",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "transport-confirmation-citation-docs",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 224.107,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    }
+  ],
+  "limits": [
+    "Only declared phase complete; no production-distribution claim.",
+    "Path-deny isolation and trace term scan do not prove absence of every possible leak.",
+    "Skill/helper trace terms are evidence of command mentions, not full cognitive mechanism."
+  ]
+}

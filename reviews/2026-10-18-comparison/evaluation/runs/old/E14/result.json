@@ -1,0 +1,59 @@
+{
+  "id": "E14",
+  "name": "clean-real-run-and-compare",
+  "classification": "control",
+  "entry": "runner",
+  "expected": "Two deterministic app variants via run_eval complete with2 pairs; quality delta1 and identity verified.",
+  "variant": "old",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/old/E14",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 2,
+      "attempts": 2,
+      "known_cost_usd": 0.04,
+      "unknown_cost_attempts": 0
+    },
+    "candidate": {
+      "status": "complete",
+      "completed_cases": 2,
+      "attempts": 2,
+      "known_cost_usd": 0.04,
+      "unknown_cost_attempts": 0
+    },
+    "comparison": {
+      "candidate": "v1",
+      "split": "val",
+      "metric": "quality",
+      "direction": "higher",
+      "planned_cases": 2,
+      "complete_pairs": 2,
+      "reps": 1,
+      "minimum_improvement": 0.0,
+      "problems": [],
+      "alpha": 0.05,
+      "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+      "bootstrap_samples": 200,
+      "seed": 42,
+      "identity_verified": true,
+      "comparison_hash": "b78b1a7260b19380af9ad8aa6d7ec18cc3d1a8e7234d3f6f6a1c24329e46b6c5",
+      "independent_groups": 2,
+      "verdict": "improvement_clears_threshold",
+      "baseline_mean": 0.0,
+      "candidate_mean": 1.0,
+      "delta_candidate_minus_baseline": 1.0,
+      "improvement": 1.0,
+      "improvement_interval": [
+        1.0,
+        1.0
+      ],
+      "limits": "Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.",
+      "improvement_ci95": [
+        1.0,
+        1.0
+      ]
+    }
+  }
+}

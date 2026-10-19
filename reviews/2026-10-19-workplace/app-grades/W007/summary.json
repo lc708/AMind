@@ -1,0 +1,15 @@
+{
+  "run_id": "W007",
+  "task_id": "V-CALIBRATE",
+  "rep": 0,
+  "arm": "old",
+  "runtime_status": "captured",
+  "grade_status": "graded",
+  "score": 4,
+  "max_score": 5,
+  "guardrails_passed": false,
+  "probe_passed": 13,
+  "probe_total": 14,
+  "portable_no_skill_dependency": true,
+  "network_denied_during_probes": true
+}

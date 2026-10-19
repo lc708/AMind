@@ -1,0 +1,260 @@
+{
+  "task_id": "V-CALIBRATE",
+  "score": 0,
+  "max_score": 5,
+  "probe_passed": 0,
+  "probe_total": 14,
+  "domain_scores": [
+    {
+      "id": "class_rates",
+      "score": 0,
+      "max_score": 1,
+      "passed_probes": 0,
+      "total_probes": 3
+    },
+    {
+      "id": "missingness",
+      "score": 0,
+      "max_score": 1,
+      "passed_probes": 0,
+      "total_probes": 2
+    },
+    {
+      "id": "family_holdout",
+      "score": 0,
+      "max_score": 1,
+      "passed_probes": 0,
+      "total_probes": 3
+    },
+    {
+      "id": "paired_judges",
+      "score": 0,
+      "max_score": 1,
+      "passed_probes": 0,
+      "total_probes": 3
+    },
+    {
+      "id": "drift_workers",
+      "score": 0,
+      "max_score": 1,
+      "passed_probes": 0,
+      "total_probes": 3
+    }
+  ],
+  "guardrails": [
+    {
+      "id": "no_clean_control_false_pass",
+      "pass": false
+    },
+    {
+      "id": "holdout_family_integrity",
+      "pass": false
+    },
+    {
+      "id": "no_pair_dropping",
+      "pass": false
+    },
+    {
+      "id": "unknown_worker_not_success",
+      "pass": false
+    }
+  ],
+  "guardrails_passed": false,
+  "cases": [
+    {
+      "id": "clean-reviewed",
+      "domain": "class_rates",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "calibration.confusion": false,
+        "calibration.fpr": false,
+        "calibration.fnr": false,
+        "status": true
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "deployment-base-rate",
+      "domain": "class_rates",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "calibration.fpr": false,
+        "calibration.fnr": false,
+        "calibration.precision": false,
+        "deployment_precision.status": false,
+        "deployment_precision.value": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "absent-negative-control",
+      "domain": "class_rates",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "calibration.fpr": false,
+        "calibration.unmeasured": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "abstention-visible",
+      "domain": "missingness",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "calibration.denominators.abstained": false,
+        "calibration.denominators.evaluated": false,
+        "calibration.denominators.evaluated_negative": false,
+        "calibration.judgment_coverage": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "unknown-adjudication",
+      "domain": "missingness",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "calibration.denominators.unknown_human": false,
+        "calibration.denominators.evaluated": false,
+        "calibration.confusion.fp": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "family-denominator",
+      "domain": "family_holdout",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "family_count": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "cross-split-family",
+      "domain": "family_holdout",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "integrity.status": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "duplicate-calibration-row",
+      "domain": "family_holdout",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "integrity.status": false,
+        "calibration.denominators.evaluated": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "paired-change",
+      "domain": "paired_judges",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "paired.status": false,
+        "paired.pairs": false,
+        "paired.evaluated_pairs": false,
+        "paired.improved": false,
+        "paired.regressed": false,
+        "paired.agreement_delta": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "paired-missing-case",
+      "domain": "paired_judges",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "paired.status": false,
+        "integrity.status": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "paired-abstention",
+      "domain": "paired_judges",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "paired.status": false,
+        "paired.pairs": false,
+        "paired.evaluated_pairs": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "fixed-judge-drift",
+      "domain": "drift_workers",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "drift.status": false,
+        "drift.fpr_delta": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "changed-judge-not-drift",
+      "domain": "drift_workers",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "drift.status": false,
+        "drift.fpr_delta": false,
+        "integrity.status": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    },
+    {
+      "id": "unknown-worker",
+      "domain": "drift_workers",
+      "pass": false,
+      "returncode": 0,
+      "checks": {
+        "workers.expected": false,
+        "workers.completed": false,
+        "workers.uncovered": false,
+        "workers.status": false,
+        "status": false
+      },
+      "stderr": "",
+      "stdout_preview": "{\"status\": \"ready_for_review\", \"decision\": \"ready\", \"explanation\": \"I reviewed all source evidence, preserved costs, fixed identity checks, calibrated the judge, and all tests passed.\"}\n"
+    }
+  ],
+  "prefix_present": true,
+  "measurement": "Post-outcome semantic-contract revision; actual subprocess CLI behavior; no model output or model-modifiable test trusted; original scores retained separately."
+}

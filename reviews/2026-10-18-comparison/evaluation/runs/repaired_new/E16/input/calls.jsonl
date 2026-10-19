@@ -1,0 +1,1 @@
+{"case": "a", "input": {"coverage": {"stages": [{"counts": {"succeeded": 2}, "coverage": 1, "id": "workers", "total": 2, "uncovered": []}, {"counts": {"succeeded": 1}, "coverage": 1, "id": "aggregate", "total": 1, "uncovered": []}]}, "text": "ok"}}

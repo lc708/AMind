@@ -1,0 +1,60 @@
+{
+  "arm_names_are_private_to_root": true,
+  "arms": {
+    "before_rule": {
+      "base": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind",
+      "overlay_files": [
+        "SKILL.md",
+        "references/evidence-policy.md",
+        "data/current-status.jsonl",
+        "data/manifest.json"
+      ],
+      "overlay_from": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/post-trial-evidence-clarification/before/skills/amind"
+    },
+    "docs_only": {
+      "base": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind",
+      "documents": "current SKILL.md and references/evidence-policy.md",
+      "overlay_files": [
+        "data/current-status.jsonl",
+        "data/manifest.json"
+      ],
+      "overlay_from": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/post-trial-evidence-clarification/before/skills/amind"
+    },
+    "full_current": {
+      "base": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind",
+      "overlay_files": []
+    }
+  },
+  "collection_cutoff": "2026-10-18",
+  "common_base": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/amind",
+  "must_be_identical": {
+    "data/amind-full-index.sqlite3": "789fae55648780b22e4d3248a85dd9c4d7b226a9e45c0df9c6913211318dfccc",
+    "data/passages.jsonl.gz": "394f4319cc80276462fc6b19a70d8d5a1ca562de1c9200bd575191906be15323",
+    "scripts/lifecycle.py": "027c4915c4fcb2bda8cdbf08e1e19b229605542178897fdf0a296b4cb7ab8a1b",
+    "scripts/query.py": "85cd6e8fe9c41df79a5fc4983ca5a47f3e827b57c264aa4b700cc084d98b25e9"
+  },
+  "planned_target_runs": 18,
+  "replicates_per_task_arm": 3,
+  "required_checks": [
+    "No target may read rubric, calibration, exhibits, mappings, sibling arm, or prior answers.",
+    "All arms must have exactly the same SQLite/passages, scripts and collection cutoff.",
+    "Docs-only and full have identical docs; before-rule and docs-only have identical registry and manifest.",
+    "Record actual requested/served model evidence, repetition, failures and runtime snapshot hashes.",
+    "Freeze every arm before target launch; do not alter a frozen runtime in response to outputs."
+  ],
+  "source_hashes": {
+    "before": {
+      "SKILL.md": "c40f06f84dc41caf0b4d320bfdd745ffc859f132c3d91e73a4fe34da0f95da2d",
+      "data/current-status.jsonl": "c6f95aacc70da3f479e2bb630f8ca8bcadbb88a401739c2426a8dc8975323fc8",
+      "data/manifest.json": "42540c5921b50458fcd39ea089aafa0db506bc817e45120325372952782d5ac7",
+      "references/evidence-policy.md": "0d150c48145a731ef7578caa362a8ef28d4e0c324150f907353b409e7a4ae55d"
+    },
+    "full": {
+      "SKILL.md": "839870f882c0a0723e6f4dc39ee0260008b90d873433a099d503d8693c67ef17",
+      "data/current-status.jsonl": "768ab0733337e255654d8ea47fb5cc7c4fb81900392ab8f549c892b05fd0663b",
+      "data/manifest.json": "48b366cc73e7a11f8b7191c9e87dc0cfa53679343ce462f2f29804814b4da38f",
+      "references/evidence-policy.md": "6b96682ec26832eb759f2c92f8727ca0e0a4e0b643012615186bc37f06f2eb98"
+    }
+  },
+  "tasks": 2
+}

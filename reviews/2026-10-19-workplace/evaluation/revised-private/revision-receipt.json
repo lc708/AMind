@@ -1,0 +1,165 @@
+{
+  "status": "completed",
+  "kind": "disclosed post-outcome measurement-contract revision; not product improvement/holdout",
+  "authorized_tasks": [
+    "V-RELEASE",
+    "V-CALIBRATE"
+  ],
+  "target_model_calls": 0,
+  "product_edits": 0,
+  "new_old_sources": [
+    {
+      "original": "reviews/2026-10-19-workplace/evaluation/private/grade_release.py",
+      "original_sha256": "2cfb34a7e1c6bc1ff3965873ce7f69bd4b39a457cbb82b76c828c6c4d6fb14c9",
+      "revised": "reviews/2026-10-19-workplace/evaluation/revised-private/grade_release.py",
+      "revised_sha256": "24e36c8161cb4057bef48dcbe4753807177053e9245056ed6d0e0aaa072ac429",
+      "changed": true
+    },
+    {
+      "original": "reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py",
+      "original_sha256": "7039b3f4f720f3ad1a09374f6d2046d2377876974c79b4dd4f9932e53c733e84",
+      "revised": "reviews/2026-10-19-workplace/evaluation/revised-private/grade_calibrate.py",
+      "revised_sha256": "259e9fb63dd9a8738bf4beaad4893001e4d9214c4e32284fa344f98c04acf694",
+      "changed": true
+    },
+    {
+      "original": "reviews/2026-10-19-workplace/evaluation/private/grader_common.py",
+      "original_sha256": "86eeda8b0d1ac92ec93eb2ba6ecd82f1d52166033602bcec4acd302170b52760",
+      "revised": "reviews/2026-10-19-workplace/evaluation/revised-private/grader_common.py",
+      "revised_sha256": "2061c15dbea9305adc647f1f9404c37818031e04196057ed073689277e451db1",
+      "changed": true
+    },
+    {
+      "original": "reviews/2026-10-19-workplace/evaluation/private/fixtures.py",
+      "original_sha256": "46a0dae65be68f73ffd7c5cacee1484dcd7b1755807026b51d33c2c7f45f94fd",
+      "revised": "reviews/2026-10-19-workplace/evaluation/revised-private/fixtures.py",
+      "revised_sha256": "46a0dae65be68f73ffd7c5cacee1484dcd7b1755807026b51d33c2c7f45f94fd",
+      "changed": false
+    }
+  ],
+  "revision_freeze_sha256": "a9228e40823eebd80678842aedb444c2799e3bcb6b135bd0f322d95f41657c4b",
+  "source_revision_diff": "reviews/2026-10-19-workplace/evaluation/revised-private/grader-revision.diff",
+  "calibration": {
+    "summary": "reviews/2026-10-19-workplace/evaluation/revised-private/calibration/summary.json",
+    "sha256": "fa04c140d24b17bbc29974bc5debe0bbcf6475bfe2bc565f6b375f4b307bc5d8",
+    "passed": true,
+    "control_count": 20,
+    "control_app_cli_probes": 280,
+    "real_fpr_zero_positive_cli_controls": 2,
+    "full_reference_semantic_alternative_controls": 4,
+    "other_negative_controls": 16,
+    "every_app_subprocess_prefixed": true,
+    "private_grader_and_network_denial_preflights": 20
+  },
+  "rescoring": {
+    "summary": "reviews/2026-10-19-workplace/main-plan-evaluation-scores-revised.json",
+    "sha256": "93071defa145fb4fce0b5798d1c726a8cd5951860ce60af50c3055b02010854b",
+    "runs": 12,
+    "actual_app_cli_probes": 168,
+    "prefixed_network_denied": true,
+    "isolation_preflights": 12,
+    "per_run_root": "reviews/2026-10-19-workplace/app-grades-revised",
+    "changed_probes": "Only duplicate-result for all six V-RELEASE runs and absent-negative-control for all six V-CALIBRATE runs; unchanged other probes.",
+    "paired_results": {
+      "V-RELEASE": {
+        "old": [
+          {
+            "rep": 0,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 1,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 2,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          }
+        ],
+        "current": [
+          {
+            "rep": 0,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 1,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 2,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          }
+        ]
+      },
+      "V-CALIBRATE": {
+        "old": [
+          {
+            "rep": 0,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 1,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 2,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          }
+        ],
+        "current": [
+          {
+            "rep": 0,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 1,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          },
+          {
+            "rep": 2,
+            "original_score": 4,
+            "revised_score": 5,
+            "revised_guardrails_passed": true
+          }
+        ]
+      }
+    },
+    "original_artifacts_unchanged": true,
+    "original_engineering_scores": "Not rerun, read for scoring, or modified."
+  },
+  "preservation": {
+    "frozen_measurement_files_verified": 175,
+    "frozen_eval_files_verified": 65,
+    "revised_lane_files_verified": 144,
+    "original_captures_and_eval_grades": "Complete per-file before/after inventories recorded in revised summary; all equal.",
+    "original_score_and_capture_files_replaced": false
+  },
+  "limitations": [
+    "Both arms remain tied on these two curated tasks. Repetitions/probes are not independent real-work distributions.",
+    "The revised semantics were selected after primary outcomes; report original 4/5 and revised 5/5 separately.",
+    "This corrects an assay false negative and does not establish broad app correctness, product gain, or a fresh holdout.",
+    "Original fatal guardrail mappings are retained; nonfatal duplicate/stage defects still lose their relevant domain."
+  ]
+}

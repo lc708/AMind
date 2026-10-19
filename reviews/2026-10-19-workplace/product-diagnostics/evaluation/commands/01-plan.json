@@ -1,0 +1,128 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/run_eval.py",
+    "--card",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture/experiment.json",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/recovery-flow",
+    "--variant",
+    "baseline",
+    "--split",
+    "val"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"mode\": \"plan\",\n  \"runs\": 3,\n  \"manifest\": {\n    \"schema_version\": 2,\n    \"variant\": \"baseline\",\n    \"split\": \"val\",\n    \"reps\": 1,\n    \"comparison_identity\": {\n      \"dataset\": \"2a8a563a58141d8134e7ad937d9fef4b8099ab62aadc731c528cc20feb764fab\",\n      \"references\": \"db543bf35c3a9b92b0c9596327491a42710c45872e2a37f4c7add45b0c4486b3\",\n      \"dataset_version\": \"support-fixture-1\",\n      \"grader\": {\n        \"kind\": \"command\",\n        \"command\": [\n          \"python3\",\n          \"grader.py\"\n        ],\n        \"files\": {\n          \"grader.py\": \"cde15d09bf02256d7177fea42261411f1977555397da5d3d38cc3c84f8598f62\"\n        },\n        \"cwd\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture\",\n        \"retry_safe\": false\n      },\n      \"grader_version\": \"summary-policy-1\",\n      \"runner\": {\n        \"command\": [\n          \"python3\",\n          \"app.py\"\n        ],\n        \"cwd\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture\",\n        \"files\": {\n          \"app.py\": \"d75361f98bf7645cd039d1a2c66e75ded06018837fa5142687fcb192ca2bb6f2\"\n        },\n        \"retry_safe\": true\n      },\n      \"metrics\": [\n        {\n          \"id\": \"quality\",\n          \"kind\": \"binary\",\n          \"better\": \"higher\",\n          \"role\": \"objective\",\n          \"min_improvement\": 0\n        },\n        {\n          \"id\": \"policy\",\n          \"kind\": \"binary\",\n          \"better\": \"higher\",\n          \"role\": \"guardrail\",\n          \"max_regression\": 0\n        }\n      ],\n      \"splits\": {\n        \"train\": [],\n        \"val\": [\n          \"refund\",\n          \"billing\",\n          \"access\"\n        ],\n        \"test\": []\n      },\n      \"fixed_config\": {},\n      \"mutable_config\": [\n        \"policy_ok\",\n        \"uppercase\"\n      ],\n      \"workspace_files\": {},\n      \"control_files\": {},\n      \"task\": \"Synthetic offline release-report integrity diagnostic, not model quality evidence\",\n      \"reps\": 1,\n      \"split\": \"val\",\n      \"coverage\": {},\n      \"case_groups\": {\n        \"refund\": \"returns\",\n        \"billing\": \"billing\",\n        \"access\": \"account-access\"\n      },\n      \"kernel\": {\n        \"run_eval.py\": \"5568bc09e4e62254252051bb07f3814f6c24f10775b6790b555ceb0adedbfee1\",\n        \"kernel_common.py\": \"b690735ffc4969f7e287f6afb8dec2fd683cd6fbaf12a09b87ef59977f6328af\"\n      }\n    },\n    \"comparison_hash\": \"f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8\",\n    \"treatment\": {\n      \"files\": {\n        \"app.py\": \"d75361f98bf7645cd039d1a2c66e75ded06018837fa5142687fcb192ca2bb6f2\"\n      },\n      \"config\": {\n        \"uppercase\": false,\n        \"policy_ok\": true\n      },\n      \"expected_model\": \"offline-support-fixture\",\n      \"expected_billing_identity\": null\n    },\n    \"treatment_hash\": \"476510c119925d13fcc63336a7b663d832d4e1a9509918009894c07db9bba221\",\n    \"limits\": {\n      \"max_attempts\": 8,\n      \"concurrency\": 1,\n      \"timeout_s\": 90,\n      \"retries\": 0,\n      \"max_output_bytes\": 4194304,\n      \"max_total_seconds\": 600,\n      \"max_failed_attempts\": 3\n    },\n    \"isolation\": \"separate input/grader channels; filesystem/network isolation not established\",\n    \"status\": \"planned\",\n    \"results_sha256\": null,\n    \"result_identity_required\": true\n  }\n}\n",
+  "stderr": "",
+  "json": {
+    "mode": "plan",
+    "runs": 3,
+    "manifest": {
+      "schema_version": 2,
+      "variant": "baseline",
+      "split": "val",
+      "reps": 1,
+      "comparison_identity": {
+        "dataset": "2a8a563a58141d8134e7ad937d9fef4b8099ab62aadc731c528cc20feb764fab",
+        "references": "db543bf35c3a9b92b0c9596327491a42710c45872e2a37f4c7add45b0c4486b3",
+        "dataset_version": "support-fixture-1",
+        "grader": {
+          "kind": "command",
+          "command": [
+            "python3",
+            "grader.py"
+          ],
+          "files": {
+            "grader.py": "cde15d09bf02256d7177fea42261411f1977555397da5d3d38cc3c84f8598f62"
+          },
+          "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture",
+          "retry_safe": false
+        },
+        "grader_version": "summary-policy-1",
+        "runner": {
+          "command": [
+            "python3",
+            "app.py"
+          ],
+          "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/fixture",
+          "files": {
+            "app.py": "d75361f98bf7645cd039d1a2c66e75ded06018837fa5142687fcb192ca2bb6f2"
+          },
+          "retry_safe": true
+        },
+        "metrics": [
+          {
+            "id": "quality",
+            "kind": "binary",
+            "better": "higher",
+            "role": "objective",
+            "min_improvement": 0
+          },
+          {
+            "id": "policy",
+            "kind": "binary",
+            "better": "higher",
+            "role": "guardrail",
+            "max_regression": 0
+          }
+        ],
+        "splits": {
+          "train": [],
+          "val": [
+            "refund",
+            "billing",
+            "access"
+          ],
+          "test": []
+        },
+        "fixed_config": {},
+        "mutable_config": [
+          "policy_ok",
+          "uppercase"
+        ],
+        "workspace_files": {},
+        "control_files": {},
+        "task": "Synthetic offline release-report integrity diagnostic, not model quality evidence",
+        "reps": 1,
+        "split": "val",
+        "coverage": {},
+        "case_groups": {
+          "refund": "returns",
+          "billing": "billing",
+          "access": "account-access"
+        },
+        "kernel": {
+          "run_eval.py": "5568bc09e4e62254252051bb07f3814f6c24f10775b6790b555ceb0adedbfee1",
+          "kernel_common.py": "b690735ffc4969f7e287f6afb8dec2fd683cd6fbaf12a09b87ef59977f6328af"
+        }
+      },
+      "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+      "treatment": {
+        "files": {
+          "app.py": "d75361f98bf7645cd039d1a2c66e75ded06018837fa5142687fcb192ca2bb6f2"
+        },
+        "config": {
+          "uppercase": false,
+          "policy_ok": true
+        },
+        "expected_model": "offline-support-fixture",
+        "expected_billing_identity": null
+      },
+      "treatment_hash": "476510c119925d13fcc63336a7b663d832d4e1a9509918009894c07db9bba221",
+      "limits": {
+        "max_attempts": 8,
+        "concurrency": 1,
+        "timeout_s": 90,
+        "retries": 0,
+        "max_output_bytes": 4194304,
+        "max_total_seconds": 600,
+        "max_failed_attempts": 3
+      },
+      "isolation": "separate input/grader channels; filesystem/network isolation not established",
+      "status": "planned",
+      "results_sha256": null,
+      "result_identity_required": true
+    }
+  }
+}

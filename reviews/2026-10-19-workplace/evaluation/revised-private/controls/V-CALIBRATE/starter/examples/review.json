@@ -1,0 +1,80 @@
+{
+  "incident_id": "customer-support-judge-review",
+  "positive_event": "genuine_support_policy_issue",
+  "current": {
+    "identity": {
+      "dataset_version": "support-holdout-9",
+      "judge": "judge-current",
+      "grader_version": "judge-current",
+      "rubric": "issue-detection-7"
+    },
+    "records": [
+      {
+        "id": "tp-0",
+        "family": "family-0",
+        "split": "holdout",
+        "human": 1,
+        "decision": 1
+      },
+      {
+        "id": "tp-1",
+        "family": "family-1",
+        "split": "holdout",
+        "human": 1,
+        "decision": 1
+      },
+      {
+        "id": "tn-0",
+        "family": "family-2",
+        "split": "holdout",
+        "human": 0,
+        "decision": null
+      },
+      {
+        "id": "tn-1",
+        "family": "family-3",
+        "split": "holdout",
+        "human": 0,
+        "decision": 0
+      },
+      {
+        "id": "fp-0",
+        "family": "family-4",
+        "split": "holdout",
+        "human": 0,
+        "decision": 1
+      },
+      {
+        "id": "fn-0",
+        "family": "family-5",
+        "split": "holdout",
+        "human": 1,
+        "decision": 0
+      }
+    ]
+  },
+  "deployment_prevalence": 0.001,
+  "required_workers": [
+    "billing",
+    "support",
+    "security"
+  ],
+  "worker_reports": [
+    {
+      "id": "billing",
+      "status": "succeeded"
+    },
+    {
+      "id": "support",
+      "status": "succeeded"
+    },
+    {
+      "id": "security",
+      "status": "unknown"
+    }
+  ],
+  "limits": {
+    "max_fpr_increase": 0.03,
+    "min_labeled_families": 2
+  }
+}

@@ -1,0 +1,4 @@
+{"id":"genuine-issue","human":1,"grade":1,"evaluation_identity":{"dataset_version":"synthetic-clean-and-issue-1","grader_version":"synthetic-judge-1","rubric_sha256":"synthetic-rubric-id-not-a-real-hash","judge_model":"synthetic-judge"}}
+{"id":"clean-task-a","human":0,"grade":1,"evaluation_identity":{"dataset_version":"synthetic-clean-and-issue-1","grader_version":"synthetic-judge-1","rubric_sha256":"synthetic-rubric-id-not-a-real-hash","judge_model":"synthetic-judge"}}
+{"id":"clean-task-b","human":0,"grade":0,"evaluation_identity":{"dataset_version":"synthetic-clean-and-issue-1","grader_version":"synthetic-judge-1","rubric_sha256":"synthetic-rubric-id-not-a-real-hash","judge_model":"synthetic-judge"}}
+{"id":"clean-task-c","human":0,"grade":0,"evaluation_identity":{"dataset_version":"synthetic-clean-and-issue-1","grader_version":"synthetic-judge-1","rubric_sha256":"synthetic-rubric-id-not-a-real-hash","judge_model":"synthetic-judge"}}

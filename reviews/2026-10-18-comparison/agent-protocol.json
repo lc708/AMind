@@ -1,0 +1,74 @@
+{
+  "decision_rule": "Report each axis separately. A four-axis superiority claim requires positive evidence in every axis and no new hard failure. Unknown/unsupported is separate from incorrect. No significance claim from eight independent tasks.",
+  "isolation": "Per-run copied skills. Seatbelt denies repo/grader/installed skills and sibling runs; local canary verifies. Native web/apps/plugins/hooks/multiagent disabled identically. OS outbound inference and unrelated host files remain accessible; traces audited.",
+  "main_invocations": 16,
+  "max_concurrency": 3,
+  "max_total_model_invocations": 24,
+  "max_wall_seconds": 5400,
+  "model_basis": "unchanged user configured values",
+  "phase": "diagnostic",
+  "purpose": "Exploratory same-model paired skill-use comparison; not production-distribution or universal quality proof",
+  "requested_effort": "ultra",
+  "requested_model": "gpt-6.1-sol",
+  "reserved_confirmation_invocations": 8,
+  "retries": 0,
+  "schema_version": 1,
+  "scoring": "Objective JSON/arithmetic and source-ID checks plus source-grounded AI adjudication; no human calibrated subjective judge. Rubrics frozen separately before outputs.",
+  "seed": "amind-2026-10-18-paired-v1",
+  "snapshot_fingerprints": {
+    "new": "9f42a0d92641d200eb6dbfb9018f080f33c3b2525d81d167e9e6b276402f392a",
+    "old": "886e2349812e19177811df8118b7a8926dad96cf45f9da10e42ceb1d6a6124ff"
+  },
+  "tasks": [
+    {
+      "axis": "knowledge",
+      "id": "K1",
+      "prompt": "只用分配给你的本地 AMind 资料：有人说《Claude-shaped science》证明 Anthropic 已官方拥有 BootLoops，且 Claude 可取代完整科学方法。请给 JSON {verdict,attribution,limits,sources}，sources 每项含 claim_id 与 URL。若本地资料不足，明确报告 unknown 和缺失项，不编造来源。",
+      "skill": "amind"
+    },
+    {
+      "axis": "knowledge",
+      "id": "K2",
+      "prompt": "只用分配给你的本地资料：RL alignment auditor 拿到高分，就能用 concerningness 单点奖励替代人工安全审计吗？输出 JSON {recommendation,evidence,conditions,sources}，sources 每项含 claim_id 与 URL。若资料不足请明确 unknown，不把一般经验当作本地来源。",
+      "skill": "amind"
+    },
+    {
+      "axis": "timeliness",
+      "id": "T1",
+      "prompt": "只用分配给你的本地资料判断：截至2026-10-18，10月8日公布的新 Usage Policy 是否已经生效？11月12日会如何？给 JSON {as_of,current_rule,future_rule,verification_limit,sources}，sources 每项含 claim_id 与 URL。不可联网；本地证据不足就明确 unknown，不把未来日期当已实时核验。",
+      "skill": "amind"
+    },
+    {
+      "axis": "timeliness",
+      "id": "T2",
+      "prompt": "只用分配给你的本地资料判断：截至2026-10-18，七月网络事故的“模型认为自己在模拟中”是否仍应作为现行解释？输出 JSON {historical,current_assessment,remaining_uncertainty,sources}，sources 含 claim_id 与 URL。区分已知与未知，不可联网补资料。",
+      "skill": "amind"
+    },
+    {
+      "axis": "engineering",
+      "id": "G1",
+      "prompt": "Use the assigned AMind Engineering skill to inspect these captured offline Responses events and return ONLY JSON with keys display_text, final_text, answer_complete, child_text, preserved_unknown, terminal_status. This is an application integration result, not a model call. User-visible text may come only from agent /root; final completion needs a completed terminal response and an explicit /root final_answer message. Associate unattributed deltas with the output_index owner. Do not discard raw unknown output items. Events: [{\"type\":\"response.output_item.added\",\"output_index\":0,\"item\":{\"type\":\"message\",\"agent\":{\"agent_name\":\"/root/research\"}}},{\"type\":\"response.output_text.delta\",\"output_index\":0,\"delta\":\"unreviewed child claim\"},{\"type\":\"response.output_item.added\",\"output_index\":1,\"item\":{\"type\":\"message\",\"agent\":{\"agent_name\":\"/root\"}}},{\"type\":\"response.output_text.delta\",\"output_index\":1,\"delta\":\"Checking evidence.\"},{\"type\":\"response.completed\",\"response\":{\"status\":\"completed\",\"output\":[{\"type\":\"message\",\"phase\":\"final_answer\",\"agent\":{\"agent_name\":\"/root/research\"},\"content\":[{\"type\":\"output_text\",\"text\":\"unreviewed child claim\"}]},{\"type\":\"message\",\"phase\":\"commentary\",\"agent\":{\"agent_name\":\"/root\"},\"content\":[{\"type\":\"output_text\",\"text\":\"Checking evidence.\"}]},{\"type\":\"future_hosted_item\",\"opaque\":{\"bytes\":\"preserve-17\"}}]}}]. Do not browse, call a model, perform external actions or modify files; all evidence is above.",
+      "skill": "amind-engineering"
+    },
+    {
+      "axis": "engineering",
+      "id": "G2",
+      "prompt": "Use the assigned AMind Engineering skill to produce an offline recovery decision as ONLY JSON. No execution, browsing, models, or writes. Task T for tenant A has item population [a,b], ordered stages read(item), verify(item, depends on read), combine(aggregate, depends on verify). Every dispatch consumes one cumulative attempt; limit 5. Persisted journal: read/a succeeded attempt1; read/b running attempt1 after process crash; verify/a pending attempt0; verify/b pending attempt0; combine pending attempt0. There are 2 consumed attempts. No remote reconciliation evidence exists for read/b. Application requires aggregate context to retain all item coverage gaps; an aggregate may run only after its dependencies have known outcomes. First recovery run has cancellation false. Select the next legal dispatches, whether read/b may auto-retry, remaining attempt budget, and aggregate eligibility after that run makes all currently legal progress. Separately, an otherwise eligible pending developer-tool operation calls its authorization callback; the callback requests cancellation before dispatch. Report whether that operation can execute. Return keys next_dispatches (ordered strings stage/item), retry_read_b (boolean), remaining_attempts (integer), unknown_operations (array), aggregate_can_run (boolean), dispatch_after_authorization_cancel (boolean), uncovered_ids (array). Assume verify/a returns succeeded; there is no external state change for b.",
+      "skill": "amind-engineering"
+    },
+    {
+      "axis": "evaluation",
+      "id": "V1",
+      "prompt": "请使用分配给你的 skill，审计下面一组离线费用记录。不要访问网络、调用模型或创建子agent。请把最终结果写为JSON文件 output/answer.json，并用简短中文说明。你可以使用assigned skill的本地脚本，但不要求使用某个特定helper。价卡版本 fixture-2026-10-18，source synthetic offline audit，不是实际provider价格。provider=fixture，model=same-model，tier=standard，region=global。responses端点采用 text_tokens_v1：每百万input USD10、cached input USD1、output USD20；decisions端点采用 input_only_v1，每百万input USD2。所有事件已声明 all_billable_usage_included=true。事件A：identity为上述decisions，usage仅input_tokens=1000000。事件B：identity为上述responses，usage input_tokens=1000000,cached_input_tokens=200000,output_tokens=100000,reasoning_tokens=30000。事件C：与B一样但region=unpriced-region。事件D：与B一样并增加input_tokens_details={cached_tokens:200000,audio_tokens:15000}，没有专门audio normalization或价率。要求JSON含每事件status、cost_usd、reason，以及known_subtotal_usd、total_cost_usd、limitations。缺少定价必须保留为unknown/null。只审计给定记录，不做生产价格推断。",
+      "skill": "eval-improve"
+    },
+    {
+      "axis": "evaluation",
+      "id": "V2",
+      "prompt": "请使用分配给你的 skill，对以下现有评测证据作一次离线有效性审计。不要访问网络、调用模型或创建子agent。请把最终结果写为JSON文件 output/answer.json，含metrics/findings/measured/unmeasured/next_actions，并用简短中文说明。Label1已定义为真实问题，人工标签已独立审定。校准样本100个真实问题，其中90次judge=1、10次judge=0；900个干净负例中18次judge=1、882次judge=0。部署人群真实问题基率是0.001（这是给定情景，不是从样本推断）。另有固定grader_version=g1,rubric_sha256=r1,judge_model=j1的两个独立cohort：prior有100个负例2FP，current有100个负例8FP，正例都可用；dataset_version分别prior/current；预登记FPR增加阈值0.03。工作流规范要求workers总人口3、aggregate1，当前report只报workers total2/count succeeded2/coverage1/uncovered[]，aggregate total1/succeeded1；第三个worker去向未知。目标pin provider=fixture/interface=responses/model=same-model/service_tier=standard/region=global，实际served同scope但service_tier=flex。已有2个失败attempt，max_failed_attempts=2,max_attempts=10；用户要求resume但没有增加预算。当前工程师提议以很高aggregate质量均分批准上线并重启重试。请判断这一提议，并给出可复核数字与后续动作；不能把缺失负例/未知worker/未知失败成本当成功。",
+      "skill": "eval-improve"
+    }
+  ],
+  "timeout_seconds": 360,
+  "trial_scope": "Knowledge retrieval and bounded offline engineering/evaluation decisions; executable helper capability tested separately by independent lanes."
+}

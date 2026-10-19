@@ -1,0 +1,18 @@
+{
+  "regression_invocation": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "scripts/test_amind_behavior_regressions.py",
+    "--json",
+    "reviews/2026-10-18-comparison/engineering/regression-results.json"
+  ],
+  "regression_returncode": 0,
+  "regression_tests_run": 35,
+  "protocol_hash_matches_registered": true,
+  "frozen_packages_unchanged_since_execution": {
+    "frozen-old": true,
+    "frozen-new": true
+  },
+  "repair_diff": "response_contract.py rejects conflicting event and nested item ownership before projecting deltas; matching redundant ownership remains accepted",
+  "scope": "offline standard-library modules/CLI and regression; no provider/model/network calls"
+}

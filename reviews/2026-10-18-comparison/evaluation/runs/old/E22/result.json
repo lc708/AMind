@@ -1,0 +1,17 @@
+{
+  "id": "E22",
+  "name": "abandoned-reconciliation-budget",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Externally documented abandoned attempt consumes failed ceiling after reconcile --apply; resume cannot launch more. Old failure ceiling absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E22",
+  "observed": {
+    "run": {
+      "status": "invalid",
+      "error": "unknown limit field; check the experiment card before executing"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "only_changed_input": "_state.json",
+  "before": {
+    "metrics": [
+      {
+        "id": "quality",
+        "kind": "binary",
+        "better": "higher",
+        "role": "objective",
+        "min_improvement": 0
+      },
+      {
+        "id": "policy",
+        "kind": "binary",
+        "better": "higher",
+        "role": "guardrail",
+        "max_regression": 0
+      }
+    ],
+    "reps": 1,
+    "train_ids": [],
+    "val_ids": [
+      "refund",
+      "billing",
+      "access"
+    ],
+    "test_ids": []
+  },
+  "after": {
+    "metrics": [
+      {
+        "id": "quality",
+        "kind": "binary",
+        "better": "higher",
+        "role": "objective",
+        "min_improvement": 0
+      }
+    ],
+    "reps": 1,
+    "train_ids": [],
+    "val_ids": [
+      "refund"
+    ],
+    "test_ids": []
+  },
+  "manifest_results_attempts_unchanged": true
+}

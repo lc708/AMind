@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/eval-improve/scripts/price_usage.py",
+    "--events",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E03/input/events.jsonl",
+    "--rates",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E03/input/rates.json"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"rows\": [\n    {\n      \"id\": \"e\",\n      \"stage\": null,\n      \"model\": \"same-model\",\n      \"status\": \"unknown\",\n      \"cost_usd\": null,\n      \"reason\": \"missing rate or usage\"\n    },\n    {\n      \"id\": \"decisions\",\n      \"stage\": null,\n      \"model\": \"same-model\",\n      \"status\": \"unknown\",\n      \"cost_usd\": null,\n      \"reason\": \"missing rate or usage\"\n    }\n  ],\n  \"known_or_estimated_subtotal_usd\": 0,\n  \"unknown_events\": 2,\n  \"partial_events\": 0,\n  \"total_cost_usd\": null,\n  \"basis\": \"per event; input includes cache, output includes reasoning; do not double-count subsets\"\n}\n",
+  "stderr": ""
+}

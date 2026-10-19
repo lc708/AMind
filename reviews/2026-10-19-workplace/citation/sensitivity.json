@@ -1,0 +1,149 @@
+{
+  "excluded_from_diagnostic_only": [
+    "W017",
+    "W018",
+    "W038"
+  ],
+  "main_denominator_still": 18,
+  "unblinded_after_grades": true,
+  "reason": "Observed MCP use despite intended disable; all main tool catalogs inherited MCP, so removing observed calls does not prove strict isolation of retained runs.",
+  "without_observed_mcp_use": [
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-before",
+      "n": 2,
+      "run_ids": [
+        "W012",
+        "W041"
+      ],
+      "scores": [
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3
+      ]
+    },
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-current",
+      "n": 3,
+      "run_ids": [
+        "W014",
+        "W016",
+        "W040"
+      ],
+      "scores": [
+        5,
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-docs",
+      "n": 3,
+      "run_ids": [
+        "W013",
+        "W015",
+        "W042"
+      ],
+      "scores": [
+        5,
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-before",
+      "n": 3,
+      "run_ids": [
+        "W011",
+        "W019",
+        "W037"
+      ],
+      "scores": [
+        2,
+        2,
+        2
+      ],
+      "mean_score": 2,
+      "primary_outcomes": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-current",
+      "n": 2,
+      "run_ids": [
+        "W010",
+        "W039"
+      ],
+      "scores": [
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3
+      ]
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-docs",
+      "n": 2,
+      "run_ids": [
+        "W009",
+        "W020"
+      ],
+      "scores": [
+        5,
+        5
+      ],
+      "mean_score": 5,
+      "primary_outcomes": [
+        3,
+        3
+      ]
+    }
+  ],
+  "secondary_disagreement_sensitivity": {
+    "run_id": "W015",
+    "task_id": "CIT-L",
+    "arm": "citation-docs",
+    "criterion": "L4",
+    "primary": 1,
+    "verifier": 0,
+    "if_verifier_applied_scores": [
+      5,
+      4,
+      5
+    ],
+    "if_verifier_applied_primary_outcomes": [
+      3,
+      2,
+      3
+    ],
+    "original_primary_grades_unchanged": true
+  },
+  "interpretation": "Full current vs before policy improvement remains in the observed no-MCP-use subset. Additional effect of curation wording over docs-only is not stable; no population claim."
+}

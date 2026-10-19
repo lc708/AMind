@@ -1,0 +1,13 @@
+[
+  {
+    "role": "user",
+    "content": {
+      "served_tier": "flex",
+      "text": "ok"
+    }
+  },
+  {
+    "role": "assistant",
+    "content": "ok"
+  }
+]

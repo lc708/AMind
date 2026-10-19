@@ -1,0 +1,24 @@
+{
+  "metrics": [
+    {
+      "id": "quality",
+      "kind": "binary",
+      "better": "higher",
+      "role": "objective",
+      "min_improvement": 0
+    },
+    {
+      "id": "policy",
+      "kind": "binary",
+      "better": "higher",
+      "role": "guardrail",
+      "max_regression": 0
+    }
+  ],
+  "reps": 1,
+  "train_ids": [],
+  "val_ids": [
+    "refund"
+  ],
+  "test_ids": []
+}

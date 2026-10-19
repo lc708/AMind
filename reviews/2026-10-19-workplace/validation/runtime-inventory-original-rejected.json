@@ -1,0 +1,31 @@
+{
+  "at_utc": "2026-10-18T19:26:03.261195+00:00",
+  "argv": [
+    "/Users/damonalbarn/.local/bin/codex",
+    "--no-daemon",
+    "--profile",
+    "amind-workplace-20261019-frozen",
+    "mcp",
+    "list",
+    "--json"
+  ],
+  "cwd": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind",
+  "returncode": 0,
+  "effective_mcp_servers": [
+    {
+      "name": "computer-use",
+      "enabled": false
+    },
+    {
+      "name": "node_repl",
+      "enabled": true
+    },
+    {
+      "name": "openaiDeveloperDocs",
+      "enabled": true
+    }
+  ],
+  "all_effective_mcp_disabled": false,
+  "model_calls": 0,
+  "limits": "Inventory check only; does not establish every OS or network boundary. Audit all actual tool calls after execution as well."
+}

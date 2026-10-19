@@ -1,0 +1,21 @@
+{
+  "id": "E16",
+  "name": "short-stage-population",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Contract workers3/aggregate1, reported workers2/aggregate1: unscorable coverage_incomplete; old stage gate absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E16",
+  "observed": {
+    "run": {
+      "status": "complete",
+      "completed_cases": 1,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "errors": []
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "controls": 8,
+  "criteria": 40,
+  "matching_criteria": 40,
+  "rows": [
+    {
+      "blind_id": "C4835558d9fd5",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "Cac3569271ae5",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "C4307c3cff1a0",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "C6ee9b8a2de5d",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "C16c68fac0ea6",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "C1ccb3105b5e0",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "C05349a8c9459",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    },
+    {
+      "blind_id": "C69758ac05f0a",
+      "matches": 5,
+      "total": 5,
+      "disagreements": []
+    }
+  ],
+  "human_calibration": false,
+  "private_key_seen_by_grader": false
+}

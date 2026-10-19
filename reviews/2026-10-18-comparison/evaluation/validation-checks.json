@@ -1,0 +1,15 @@
+{
+  "command": "python3 -m unittest scripts.test_amind_capability_kernel.KernelTests scripts.test_amind_capability_kernel.BillingCalibrationTests scripts.test_amind_app_skills scripts.test_amind_eval_reporting -v",
+  "returncode": 0,
+  "tests": 83,
+  "elapsed_seconds": 12.01,
+  "observed_summary": "Ran 83 tests in 12.010s; OK",
+  "new_regression_file": "scripts/test_amind_eval_reporting.py",
+  "new_regression_count": 4,
+  "evidence": "Observed stdout/stderr from terminal session41900 in this task, recorded without rerunning.",
+  "source_hashes": {
+    "skills/eval-improve/scripts/report_eval.py": "fd9f90a7a98dc87f6b61bfbd53b91d975d8213b3547d2955791b68a95dccf679",
+    "skills/eval-improve/references/artifacts.md": "4f76f7b5af560b7fdd349a97d91592849a218b6f37c3cc9edd7b9359d02ef810",
+    "scripts/test_amind_eval_reporting.py": "d3fc8da744b7cf5b9e6d18ca48afa0eed26029b1a053e6d363ab84ee9a62e1ea"
+  }
+}

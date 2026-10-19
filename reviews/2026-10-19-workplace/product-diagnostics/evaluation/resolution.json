@@ -1,0 +1,8 @@
+[
+  {
+    "attempt_id": 1,
+    "resolution": "abandoned",
+    "cost_usd": null,
+    "evidence": "Offline synthetic worker and parent PID groups killed; no completed output or cost receipt, no remote service or side effect. Unknown cost retained rather than declaring zero."
+  }
+]

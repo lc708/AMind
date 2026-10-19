@@ -1,0 +1,50 @@
+{
+  "id": "E16",
+  "name": "short-stage-population",
+  "classification": "extension",
+  "entry": "runner",
+  "expected": "Contract workers3/aggregate1, reported workers2/aggregate1: unscorable coverage_incomplete; old stage gate absent unsupported.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E16",
+  "observed": {
+    "run": {
+      "status": "incomplete",
+      "completed_cases": 0,
+      "attempts": 1,
+      "known_cost_usd": 0.02,
+      "unknown_cost_attempts": 0
+    },
+    "errors": [
+      {
+        "app_cost_usd": 0.02,
+        "attempt_id": 1,
+        "billing_identity": {
+          "interface": "responses",
+          "model": "same-model",
+          "provider": "fixture",
+          "region": "global",
+          "service_tier": "standard"
+        },
+        "cost_usd": 0.02,
+        "error": "required stage has missing, failed, unknown or uninstrumented work: workers",
+        "event": "finished",
+        "judge_billing_identity": null,
+        "judge_cost_usd": 0.0,
+        "judge_model": null,
+        "judge_usage": null,
+        "known_cost_usd": 0.02,
+        "latency_s": 0.023883417,
+        "model": "same-model",
+        "prompt_id": "a",
+        "rep": 0,
+        "retryable": false,
+        "stage": "application",
+        "status": "coverage_incomplete",
+        "time": 1792300651.516607,
+        "usage": null
+      }
+    ]
+  }
+}

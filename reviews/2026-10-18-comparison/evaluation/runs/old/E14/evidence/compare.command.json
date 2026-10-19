@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/eval-improve/scripts/compare_runs.py",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/old/E14/flow",
+    "--candidate",
+    "v1",
+    "--split",
+    "val",
+    "--metric",
+    "quality",
+    "--reps",
+    "1",
+    "--bootstrap",
+    "200"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"candidate\": \"v1\",\n  \"split\": \"val\",\n  \"metric\": \"quality\",\n  \"direction\": \"higher\",\n  \"planned_cases\": 2,\n  \"complete_pairs\": 2,\n  \"reps\": 1,\n  \"minimum_improvement\": 0.0,\n  \"problems\": [],\n  \"alpha\": 0.05,\n  \"method\": \"paired case means; percentile bootstrap of whole independent groups, case-weighted estimand\",\n  \"bootstrap_samples\": 200,\n  \"seed\": 42,\n  \"identity_verified\": true,\n  \"comparison_hash\": \"b78b1a7260b19380af9ad8aa6d7ec18cc3d1a8e7234d3f6f6a1c24329e46b6c5\",\n  \"independent_groups\": 2,\n  \"verdict\": \"improvement_clears_threshold\",\n  \"baseline_mean\": 0.0,\n  \"candidate_mean\": 1.0,\n  \"delta_candidate_minus_baseline\": 1.0,\n  \"improvement\": 1.0,\n  \"improvement_interval\": [\n    1.0,\n    1.0\n  ],\n  \"limits\": \"Declared groups must be independent. Small-group bootstrap can be unreliable. No correction for adaptive candidate selection; validation is not final evidence. Hashes detect drift, not malicious edits.\",\n  \"improvement_ci95\": [\n    1.0,\n    1.0\n  ]\n}\n",
+  "stderr": ""
+}

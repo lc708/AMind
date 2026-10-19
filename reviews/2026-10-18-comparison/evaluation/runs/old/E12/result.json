@@ -1,0 +1,12 @@
+{
+  "id": "E12",
+  "name": "fixed-judge-drift",
+  "classification": "extension",
+  "entry": "calibrate",
+  "expected": "Same judge/rubric across cohorts, negatives FPR .02 to .08, max increase .03: alert and delta .06. Old drift flag absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E12",
+  "observed": {}
+}

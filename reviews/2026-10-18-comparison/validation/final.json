@@ -1,0 +1,99 @@
+{
+  "verified_at": "2026-10-18T05:45:53.197325+00:00",
+  "verdict": "PASS with explicitly bounded model conclusions",
+  "versions": {
+    "amind": "1.3.1",
+    "amind-engineering": "0.3.1",
+    "eval-improve": "0.4.1"
+  },
+  "product_checks": {
+    "application": 138,
+    "knowledge_and_sources": 60,
+    "total": 198,
+    "failures": 0,
+    "all_product_code_tested": true,
+    "post_trial_instruction_change_model_retested": false
+  },
+  "frozen_snapshots": {
+    "old": {
+      "files": 68,
+      "tree_sha256": "886e2349812e19177811df8118b7a8926dad96cf45f9da10e42ceb1d6a6124ff",
+      "changed_files": []
+    },
+    "new": {
+      "files": 97,
+      "tree_sha256": "9f42a0d92641d200eb6dbfb9018f080f33c3b2525d81d167e9e6b276402f392a",
+      "changed_files": []
+    },
+    "repaired": {
+      "files": 97,
+      "tree_sha256": "e3c9d27a13e34b6b1796c69c8bb4119ad5bfd8495a47f3b80ad48bf2e26fc16e",
+      "changed_files": []
+    }
+  },
+  "frozen_protocol_hashes_match": true,
+  "target_cli_executions": {
+    "planned": 24,
+    "captured": 24,
+    "failed": 0,
+    "unique_threads": 24,
+    "retries": 0,
+    "requested_model": "gpt-6.1-sol",
+    "requested_effort": "ultra",
+    "actual_served_model_verified": false
+  },
+  "model_task_outcomes": {
+    "higher": 6,
+    "tie": 6,
+    "lower": 0,
+    "production_population_inference": false
+  },
+  "release": {
+    "verdict": "PASS",
+    "release_id": "amind-v1-increment-2026-10-18",
+    "counts": {
+      "analysis_units": 1537,
+      "atomic_claims": 129132,
+      "equivalence_components": 189,
+      "new_claims": 64867,
+      "new_passages": 5806,
+      "new_units": 118,
+      "passages": 20521,
+      "reviewed_kernel_claims": 54
+    },
+    "historical_files_unchanged": 59,
+    "new_claims_quote_verified": 64867,
+    "lifecycle_decisions": 38,
+    "new_human_gold_rows": 0
+  },
+  "upstream_source_map": {
+    "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "reviewed_on": "2026-10-18",
+    "source_files": 96,
+    "section_locators": 1346,
+    "source_hashes_verified": true,
+    "meaning": "inventory and resource checks only; semantic/behavioral evidence is separate"
+  },
+  "installation": {
+    "verified": true,
+    "backup": "/Users/damonalbarn/.codex/skill-backups/amind-series-qxfv_fnw",
+    "all_three_package_inventories_match": true,
+    "unrelated_directory_smoke_passed": true
+  },
+  "runtime_cleanup": {
+    "created_profile": "/Users/damonalbarn/.codex/amind-contrast-20261018-frozen.config.toml",
+    "present_before_cleanup": true,
+    "contents_match_created_profile": true,
+    "removed": true,
+    "host_main_config_modified": false
+  },
+  "git_diff_check_passed": true,
+  "harness_syntax_check_passed": true,
+  "cost_usd": null,
+  "scope": "198 deterministic product checks plus targeted local contract comparisons and24 exploratory actual CLI skill trials; source-grounded AI grading is not human calibration; precise support and isolation limitations in report.",
+  "source_observation_cutoff": "2026-10-18",
+  "new_human_gold_rows": 0,
+  "repair_classes": 8,
+  "post_trial_evidence_rule_refinement": true,
+  "working_tree_sync_receipt": "workspace-sync.json"
+}

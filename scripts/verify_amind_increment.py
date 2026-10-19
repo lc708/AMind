@@ -122,22 +122,25 @@ def verify(release=RELEASE, *, local_vault=False):
             require(units[v['prior_analysis_unit_id']]['work_id']==units[v['new_analysis_unit_id']]['work_id'],'version work mismatch')
     for c in rows(delta/'contradiction-candidates.jsonl'):
         require(set(c['claim_ids'])<=all_claim_ids,'opposition foreign key')
-    skill=ROOT/'skills/amind/data';sm=json.loads((skill/'manifest.json').read_text())
-    require(sha((skill/'manifest.json').read_bytes())==manifest['skill_manifest_sha256'],'skill manifest drift')
-    require(sm['release_id']==manifest['release_id'],'skill release mismatch')
-    for a in sm['artifacts']:
-        require(sha((skill/a['path']).read_bytes())==a['sha256'],f'skill artifact drift: {a["path"]}')
-    conn=sqlite3.connect((skill/'amind-full-index.sqlite3').resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
-    try:
-        meta={k:json.loads(v) for k,v in conn.execute('SELECT key,value FROM metadata')}
-        require(conn.execute('PRAGMA integrity_check').fetchone()[0]=='ok','SQLite integrity')
-        require(meta['release_id']==RELEASE_ID,'index release')
-        require({r[0] for r in conn.execute('SELECT claim_id FROM claims')}==all_claim_ids,'index claim set')
-        require({r[0] for r in conn.execute('SELECT analysis_unit_id FROM sources')}==set(units),'index unit set')
-        require(conn.execute('SELECT count(*) FROM claims_fts').fetchone()[0]==len(all_claim_ids),'FTS population')
-        for relative,expected in meta['source_fingerprints'].items():
-            require(sha((ROOT/relative).read_bytes())==expected,'index source fingerprint')
-    finally:conn.close()
+    current_manifest=json.loads((ROOT/'skills/amind/data/manifest.json').read_text())
+    current_skill_checked=current_manifest.get('release_id')==RELEASE_ID
+    if current_skill_checked:
+        skill=ROOT/'skills/amind/data';sm=json.loads((skill/'manifest.json').read_text())
+        require(sha((skill/'manifest.json').read_bytes())==manifest['skill_manifest_sha256'],'skill manifest drift')
+        require(sm['release_id']==manifest['release_id'],'skill release mismatch')
+        for a in sm['artifacts']:
+            require(sha((skill/a['path']).read_bytes())==a['sha256'],f'skill artifact drift: {a["path"]}')
+        conn=sqlite3.connect((skill/'amind-full-index.sqlite3').resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+        try:
+            meta={k:json.loads(v) for k,v in conn.execute('SELECT key,value FROM metadata')}
+            require(conn.execute('PRAGMA integrity_check').fetchone()[0]=='ok','SQLite integrity')
+            require(meta['release_id']==RELEASE_ID,'index release')
+            require({r[0] for r in conn.execute('SELECT claim_id FROM claims')}==all_claim_ids,'index claim set')
+            require({r[0] for r in conn.execute('SELECT analysis_unit_id FROM sources')}==set(units),'index unit set')
+            require(conn.execute('SELECT count(*) FROM claims_fts').fetchone()[0]==len(all_claim_ids),'FTS population')
+            for relative,expected in meta['source_fingerprints'].items():
+                require(sha((ROOT/relative).read_bytes())==expected,'index source fingerprint')
+        finally:conn.close()
     if local_vault:
         for u in rows(delta/'analysis-units.jsonl.gz'):
             text=(ROOT/u['text_path']).read_text()
@@ -145,12 +148,21 @@ def verify(release=RELEASE, *, local_vault=False):
             pp=sorted((p for p in new_passages if p['analysis_unit_id']==u['analysis_unit_id']),key=lambda p:p['passage_sequence'])
             require(sum(sum(not ch.isspace() for ch in p['text']) for p in pp)==sum(not ch.isspace() for ch in text),'nonspace passage coverage')
     return {'verdict':'PASS','baseline_files_unchanged':checked,'new_claims_quote_verified':len(new_claims),
-            'new_passages_processed':len(new_passages),'counts':counts,'new_human_gold_rows':0}
+            'new_passages_processed':len(new_passages),'counts':counts,'new_human_gold_rows':0,
+            'current_skill_checked':current_skill_checked}
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--local-vault',action='store_true');args=p.parse_args()
-    print(json.dumps(verify(local_vault=args.local_vault),ensure_ascii=False,indent=2))
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--local-vault',action='store_true')
+    p.add_argument('--historical',action='store_true',help='verify the frozen September increment independently of the current skill')
+    args=p.parse_args()
+    manifest=json.loads((ROOT/'skills/amind/data/manifest.json').read_text())
+    if not args.historical and manifest.get('release_id') not in {'amind-v1', RELEASE_ID}:
+        from verify_amind_refresh import verify as verify_current
+        result=verify_current()
+    else:
+        result=verify(local_vault=args.local_vault)
+    print(json.dumps(result,ensure_ascii=False,indent=2))
 
 
 if __name__=='__main__':

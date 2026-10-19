@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Incident commander",
+  "goal": "Triage an authorized incident and coordinate evidence-based recovery",
+  "item_label": "incident hypothesis",
+  "stages": [
+    "triage",
+    "verify",
+    "combine"
+  ],
+  "output_checks": [
+    "Preserve timestamps and forensic evidence",
+    "Separate verified facts from hypotheses",
+    "Mutating recovery actions require existing incident authorization"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

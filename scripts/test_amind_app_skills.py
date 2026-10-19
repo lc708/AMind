@@ -377,6 +377,27 @@ class InstallationTests(unittest.TestCase):
 
 
 class PackageTests(unittest.TestCase):
+    def test_offline_accounting_cli_keeps_unknown_scope_unpriced(self):
+        demo=SKILL/'assets/accounting-demo'
+        call=subprocess.run([sys.executable,str(SKILL/'scripts/price_usage.py'),
+                             '--events',str(demo/'events.jsonl'),'--rates',str(demo/'rates.json')],
+                            capture_output=True,text=True)
+        self.assertEqual(call.returncode,0,call.stdout+call.stderr)
+        result=json.loads(call.stdout)
+        self.assertEqual(result['unknown_events'],1); self.assertIsNone(result['total_cost_usd'])
+        self.assertAlmostEqual(result['rows'][0]['cost_usd'],.0199)
+        self.assertAlmostEqual(result['rows'][1]['cost_usd'],.002)
+    def test_offline_calibration_cli_reports_base_rate_and_unmeasured_checks(self):
+        call=subprocess.run([sys.executable,str(SKILL/'scripts/calibrate_grader.py'),
+                             str(SKILL/'assets/accounting-demo/labels.jsonl'),'--population-prevalence','0.01'],
+                            capture_output=True,text=True)
+        self.assertEqual(call.returncode,0,call.stdout+call.stderr)
+        result=json.loads(call.stdout)
+        self.assertAlmostEqual(result['false_positive_rate'],1/3)
+        self.assertAlmostEqual(result['population_adjusted_precision'],.01/(.01+.99/3))
+        self.assertEqual(result['measurement_status']['order_bias'],'unmeasured')
+        self.assertFalse(result['ready_for_review'])
+
     def test_local_reference_links_exist(self):
         for name in installer.PACKAGES:
             root = installer.SOURCE / name

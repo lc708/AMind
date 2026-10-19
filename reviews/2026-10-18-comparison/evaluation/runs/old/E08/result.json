@@ -1,0 +1,42 @@
+{
+  "id": "E08",
+  "name": "clean-confusion-matrix",
+  "classification": "control",
+  "entry": "calibrate",
+  "expected": "Both sides retain exact TP2/TN2/FP1/FN1, agreement 2/3, recall2/3, precision2/3, order inconsistency0.",
+  "variant": "old",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/old/E08",
+  "observed": {
+    "examples": 6,
+    "judgments": 6,
+    "confusion": {
+      "tp": 2,
+      "tn": 2,
+      "fp": 1,
+      "fn": 1
+    },
+    "agreement": 0.6666666666666666,
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "disagreements": [
+      {
+        "id": "fp-0",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fn-0",
+        "rep": 0,
+        "human": 1,
+        "grade": 0
+      }
+    ],
+    "unstable_cases": [],
+    "order_inconsistency_rate": 0,
+    "ready_for_review": false,
+    "limits": "Agreement on this calibration sample is not construct validity or generalization. Resolve disagreements, adversarial rubric attacks and rubric blind spots with humans before freezing."
+  }
+}

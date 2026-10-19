@@ -1,0 +1,334 @@
+{
+  "variants": [
+    {
+      "variant": "baseline",
+      "split": "val",
+      "status": "complete",
+      "scored_observations": 3,
+      "planned_observations": 1,
+      "metrics": {
+        "quality": {
+          "mean": 0.0,
+          "scored": 3
+        },
+        "policy": {
+          "mean": 1.0,
+          "scored": 3
+        }
+      },
+      "failed_attempts": 1,
+      "attempts": 4,
+      "interrupted_attempts": 0,
+      "known_cost_usd": 0.15000000000000002,
+      "unknown_cost_attempts": 1,
+      "total_cost_usd": null,
+      "latency_p50_s": 0.068388084,
+      "latency_p95_s": 0.0751467087,
+      "integrity": "hashes match export; not a security attestation",
+      "synthetic": true,
+      "stage_coverage": {
+        "measured_complete": 0,
+        "unmeasured": 3,
+        "required_stages": []
+      },
+      "remaining_failed_attempts": 2
+    },
+    {
+      "variant": "v1",
+      "split": "val",
+      "status": "complete",
+      "scored_observations": 3,
+      "planned_observations": 1,
+      "metrics": {
+        "quality": {
+          "mean": 1.0,
+          "scored": 3
+        },
+        "policy": {
+          "mean": 0.0,
+          "scored": 3
+        }
+      },
+      "failed_attempts": 0,
+      "attempts": 3,
+      "interrupted_attempts": 0,
+      "known_cost_usd": 0.15000000000000002,
+      "unknown_cost_attempts": 0,
+      "total_cost_usd": 0.15000000000000002,
+      "latency_p50_s": 0.062910292,
+      "latency_p95_s": 0.0758711542,
+      "integrity": "hashes match export; not a security attestation",
+      "synthetic": true,
+      "stage_coverage": {
+        "measured_complete": 0,
+        "unmeasured": 3,
+        "required_stages": []
+      },
+      "remaining_failed_attempts": 3
+    }
+  ],
+  "details": [
+    {
+      "variant": "baseline",
+      "case": "refund",
+      "rep": 0,
+      "grade": {
+        "policy": 1,
+        "quality": 0
+      },
+      "result_identity": {
+        "case_id": "refund",
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "rep": 0,
+        "treatment_hash": "476510c119925d13fcc63336a7b663d832d4e1a9509918009894c07db9bba221"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": null,
+      "output": {
+        "answer": "refund approved",
+        "policy_ok": true
+      },
+      "explanation": "Synthetic exact summary and deterministic policy flag.",
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "requested_summary": "refund approved",
+            "pause_once": true
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "answer": "refund approved",
+            "policy_ok": true
+          }
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "case": "billing",
+      "rep": 0,
+      "grade": {
+        "policy": 1,
+        "quality": 0
+      },
+      "result_identity": {
+        "case_id": "billing",
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "rep": 0,
+        "treatment_hash": "476510c119925d13fcc63336a7b663d832d4e1a9509918009894c07db9bba221"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.05,
+      "output": {
+        "answer": "invoice corrected",
+        "policy_ok": true
+      },
+      "explanation": "Synthetic exact summary and deterministic policy flag.",
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "requested_summary": "invoice corrected"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "answer": "invoice corrected",
+            "policy_ok": true
+          }
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "case": "access",
+      "rep": 0,
+      "grade": {
+        "policy": 1,
+        "quality": 0
+      },
+      "result_identity": {
+        "case_id": "access",
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "rep": 0,
+        "treatment_hash": "476510c119925d13fcc63336a7b663d832d4e1a9509918009894c07db9bba221"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.05,
+      "output": {
+        "answer": "account restored",
+        "policy_ok": true
+      },
+      "explanation": "Synthetic exact summary and deterministic policy flag.",
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "requested_summary": "account restored"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "answer": "account restored",
+            "policy_ok": true
+          }
+        }
+      ]
+    },
+    {
+      "variant": "baseline",
+      "failure": {
+        "attempt_id": 1,
+        "cost_usd": null,
+        "event": "finished",
+        "prompt_id": "refund",
+        "reconciliation_evidence": "Offline synthetic worker and parent PID groups killed; no completed output or cost receipt, no remote service or side effect. Unknown cost retained rather than declaring zero.",
+        "rep": 0,
+        "status": "interrupted_reconciled",
+        "time": 1792347069.508615
+      }
+    },
+    {
+      "variant": "v1",
+      "case": "refund",
+      "rep": 0,
+      "grade": {
+        "policy": 0,
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "refund",
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "rep": 0,
+        "treatment_hash": "142aff17e6a0f2c5aa8b8d9c8612e55f2216f0d608de975d5a592d11c824aaa5"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.05,
+      "output": {
+        "answer": "REFUND APPROVED",
+        "policy_ok": false
+      },
+      "explanation": "Synthetic exact summary and deterministic policy flag.",
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "requested_summary": "refund approved",
+            "pause_once": true
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "answer": "REFUND APPROVED",
+            "policy_ok": false
+          }
+        }
+      ]
+    },
+    {
+      "variant": "v1",
+      "case": "billing",
+      "rep": 0,
+      "grade": {
+        "policy": 0,
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "billing",
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "rep": 0,
+        "treatment_hash": "142aff17e6a0f2c5aa8b8d9c8612e55f2216f0d608de975d5a592d11c824aaa5"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.05,
+      "output": {
+        "answer": "INVOICE CORRECTED",
+        "policy_ok": false
+      },
+      "explanation": "Synthetic exact summary and deterministic policy flag.",
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "requested_summary": "invoice corrected"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "answer": "INVOICE CORRECTED",
+            "policy_ok": false
+          }
+        }
+      ]
+    },
+    {
+      "variant": "v1",
+      "case": "access",
+      "rep": 0,
+      "grade": {
+        "policy": 0,
+        "quality": 1
+      },
+      "result_identity": {
+        "case_id": "access",
+        "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+        "rep": 0,
+        "treatment_hash": "142aff17e6a0f2c5aa8b8d9c8612e55f2216f0d608de975d5a592d11c824aaa5"
+      },
+      "billing_identity": null,
+      "coverage": {
+        "reason": "no declared stage coverage contract",
+        "status": "unmeasured"
+      },
+      "cost_usd": 0.05,
+      "output": {
+        "answer": "ACCOUNT RESTORED",
+        "policy_ok": false
+      },
+      "explanation": "Synthetic exact summary and deterministic policy flag.",
+      "trace": [
+        {
+          "role": "user",
+          "content": {
+            "requested_summary": "account restored"
+          }
+        },
+        {
+          "role": "assistant",
+          "content": {
+            "answer": "ACCOUNT RESTORED",
+            "policy_ok": false
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": "Scored means exclude unscored attempts; inspect coverage before comparing. Validation is selection evidence. Synthetic runs do not measure model ability. No automatic winner."
+}

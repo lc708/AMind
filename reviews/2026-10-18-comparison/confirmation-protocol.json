@@ -1,0 +1,49 @@
+{
+  "created_before_diagnostic_outputs_review": true,
+  "grader": {
+    "C-G": "External stdin/stdout probes include valid root, child-only, missing terminal, attribution conflict, opaque retention; no self-report scoring",
+    "C-K": [
+      "Does not splice different reruns into one fixed trend",
+      "Keeps per-card sample/scaffold conditions",
+      "Valid supporting source IDs or honest unavailable; no fabricated claims"
+    ],
+    "C-T": [
+      "Aug29 unavailable if source present",
+      "Sep5 exact-day availability uncertain (null)",
+      "Oct2 can use September publication with no invented day",
+      "Unknown exact day and valid source or explicit source absence"
+    ],
+    "C-V": "External stdin/stdout probes healthy known0, interrupted unknown, identity mismatch, idempotent duplicate, conflicting duplicate, orphan finish, invalid numeric cost. Outcomes scored by actual process result."
+  },
+  "optimizer_agents_not_given_tasks": true,
+  "phase": "reserved confirmation",
+  "pre_execution_clarification": "Clarified accepted as transport/ownership acceptance, separate from root final availability, before any confirmation runs; expected probes unchanged.",
+  "schema_version": 1,
+  "scope": "Targeted new variants and two executable implementation tasks; exploratory confirmation, not random production holdout",
+  "tasks": [
+    {
+      "axis": "knowledge",
+      "id": "C-K",
+      "prompt": "只用assigned AMind本地资料：有人把三个5.5系统卡里Opus sandbox越界结果从1.5%、到Sonnet卡里的Opus约10.2%、再到Haiku卡里的Opus7.4%画成连续风险趋势，声称这是同一固定评测在时间上先变坏再变好。这个解释成立吗？给JSON {verdict,comparison_limits,sources}，sources每项含claim_id、URL和其支持的条件。若本地没有相应卡片，请明确unknown，不编造数字/引用。不可联网。",
+      "skill": "amind"
+    },
+    {
+      "axis": "timeliness",
+      "id": "C-T",
+      "prompt": "只用assigned本地资料：Dario《We Must Pace the Frontier》页面仅给September 2026。分别判断能否把这篇文章作为2026-08-29、2026-09-05、2026-10-02当日已公开证据。输出JSON {exact_publication_day,decisions:[{as_of,available: true/false/null,reason}],sources}。月内不确定应保留null，不要把9月1日或观察日编造为实际发布日期；若本地没有此文，说明资料缺口，不依据题面推测本文观点。sources含claim_id与URL。不可联网。",
+      "skill": "amind"
+    },
+    {
+      "axis": "engineering",
+      "id": "C-G",
+      "prompt": "请依据assigned skill实现独立标准库Python脚本 output/solution.py，并真正用本地样例运行验证。脚本从stdin读JSON {events:[...]}, stdout只输出JSON {accepted:boolean,root_final:string,unknown:[objects],reason:string}。只接收 type=response.completed 的terminal response。agent归属可在event.agent与event.item.agent；两者同时有agent_name且不同必须立刻accepted=false，不能让伪根文本进入结果。terminal output message也可有agent；只有 /root 且phase=final_answer贡献root_final，子agent文本不贡献。未知output item原样保留。没有完成terminal时accepted=false。提供两公开样例：(a) completed response含 /root final_answer的text=\"approved\"以及future_blob {opaque:\"keep-A\"}，应accepted=true,root_final=\"approved\",unknown=[该future_blob]；(b) output_item.added event.agent=/root,item.agent=/root/worker，之后completed携带该worker，必须accepted=false,root_final=\"\"。在输出JSON或简短说明中给脚本路径和实际执行结果。禁止外部网络/模型/子agent，不修改skill。允许工具阅读assigned skill和实现/测试本题。 accepted仅表示事件序列的结构与归属通过且收到completed terminal，不表示已有root最终答案；只有child的completed terminal可以accepted=true但root_final必须为空。",
+      "skill": "amind-engineering"
+    },
+    {
+      "axis": "evaluation",
+      "id": "C-V",
+      "prompt": "请依据assigned skill实现独立标准库Python脚本 output/audit.py，并真正运行本地样例。stdin JSON {attempt_events:[{type,attempt_id,cost_usd?}],results:[{id,result_identity}],expected_identity:object}；stdout JSON {attempt_count:int,known_cost_usd:number,total_cost_usd:number|null,unknown_cost_attempts:int,identity_valid:boolean,valid:boolean}。started而无finished的调用必须计入attempt_count和未知费用；同attempt_id完成一次仅计一次；同一finished的完全重复记录不再收费；矛盾重复、无started的finished、负数/非数值费用必须valid=false（可以附reason）。results每条identity必须与expected_identity完全一致，否则identity_valid=false，valid=false。若存在未知费用total_cost_usd=null，不能用0假充；known_cost只计已知完成调用。公开样例：started a, finished a(cost1.2), started b；result_identity={target:\"other\"},expected_identity={target:\"pinned\"}。应attempt_count2,known_cost1.2,total null,unknown1,identity_valid=false,valid=false。另纯健康 started a/finished a(cost0)且identity匹配，应合法已知0。禁止网络/模型/子agent，不修改skill。允许工具阅读assigned skill并实现与验证脚本。",
+      "skill": "eval-improve"
+    }
+  ]
+}

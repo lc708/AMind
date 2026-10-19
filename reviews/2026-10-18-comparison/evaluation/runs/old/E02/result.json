@@ -1,0 +1,44 @@
+{
+  "id": "E02",
+  "name": "unknown-and-partial",
+  "classification": "control",
+  "entry": "price",
+  "expected": "Unknown model and partial usage prevent total_cost_usd; retain known subtotal.",
+  "variant": "old",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/old/E02",
+  "observed": {
+    "rows": [
+      {
+        "id": "unknown",
+        "stage": null,
+        "model": "unpriced",
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "missing rate or usage"
+      },
+      {
+        "id": "partial",
+        "stage": null,
+        "model": "same-model",
+        "status": "estimated_partial",
+        "cost_usd": 10.2,
+        "components": {
+          "uncached_input": 8.0,
+          "cached_input": 0.2,
+          "output_including_reasoning": 2.0,
+          "external_known": 0
+        },
+        "rate_card_version": "synthetic-registered-v1",
+        "rate_card_sha256": "aa4a4c12e425ea3ab377e9351fc57c6417d18659e6c6ef467f129f9262cb38d7",
+        "warning": "Tools, storage, sandbox, retries or other charges may be absent; not total task cost"
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 10.2,
+    "unknown_events": 1,
+    "partial_events": 1,
+    "total_cost_usd": null,
+    "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+  }
+}

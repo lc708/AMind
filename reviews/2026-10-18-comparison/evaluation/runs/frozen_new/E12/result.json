@@ -1,0 +1,109 @@
+{
+  "id": "E12",
+  "name": "fixed-judge-drift",
+  "classification": "extension",
+  "entry": "calibrate",
+  "expected": "Same judge/rubric across cohorts, negatives FPR .02 to .08, max increase .03: alert and delta .06. Old drift flag absent unsupported.",
+  "variant": "frozen_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/frozen_new/E12",
+  "observed": {
+    "examples": 110,
+    "judgments": 110,
+    "confusion": {
+      "tp": 10,
+      "tn": 92,
+      "fp": 8,
+      "fn": 0
+    },
+    "evaluation_identity": {
+      "dataset_version": "current",
+      "grader_version": "judge-v1",
+      "judge_model": "judge-v1",
+      "rubric_sha256": "synthetic-rubric-v1"
+    },
+    "labels_sha256": "4a5d15736d8ab9516b8117009f836ab184de00da7ee3bbf63d83bebf7cb824ca",
+    "measurement_status": {
+      "positive_controls": "measured",
+      "negative_controls": "measured",
+      "order_bias": "unmeasured",
+      "repeat_stability": "unmeasured",
+      "population_precision": "unmeasured",
+      "identity": "verified"
+    },
+    "positive_judgments": 10,
+    "negative_judgments": 100,
+    "agreement": 0.9272727272727272,
+    "precision": 0.5555555555555556,
+    "recall": 1.0,
+    "false_positive_rate": 0.08,
+    "false_negative_rate": 0.0,
+    "specificity": 0.92,
+    "sample_prevalence": 0.09090909090909091,
+    "population_prevalence": null,
+    "population_adjusted_precision": null,
+    "disagreements": [
+      {
+        "id": "fp-0",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-1",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-2",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-3",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-4",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-5",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-6",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      },
+      {
+        "id": "fp-7",
+        "rep": 0,
+        "human": 0,
+        "grade": 1
+      }
+    ],
+    "unstable_cases": [],
+    "order_inconsistency_rate": null,
+    "ready_for_review": false,
+    "limits": "Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks.",
+    "drift": {
+      "status": "alert",
+      "false_positive_rate_delta": 0.06,
+      "max_fpr_increase": 0.03,
+      "reference_labels_sha256": "9bd911cc980922b8acf07cd5ad2b0b55f14a8588a9609a33fbd6eb730672167b",
+      "current_labels_sha256": "4a5d15736d8ab9516b8117009f836ab184de00da7ee3bbf63d83bebf7cb824ca",
+      "limits": "Descriptive cohort drift; population mix, class balance and uncertainty require review. No negative controls means no drift verdict."
+    }
+  }
+}

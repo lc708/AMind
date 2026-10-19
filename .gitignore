@@ -51,3 +51,32 @@ scripts/*
 .codex-tmp/
 
 /reports/
+
+# Reproducible October refresh and eligibility checks
+!scripts/refresh_amind_sources.py
+!scripts/test_amind_refresh_sources.py
+!scripts/package_amind_refresh.py
+!scripts/verify_amind_refresh.py
+!scripts/test_amind_refresh.py
+!scripts/amind_refresh_atoms.py
+
+# Paired version evaluation and reporter counterexamples
+!scripts/compare_amind_agent_trials.py
+!scripts/test_amind_eval_reporting.py
+!scripts/grade_amind_agent_code.py
+
+# Realistic multi-round skill-use evaluation
+!scripts/run_amind_workplace_trials.py
+!scripts/grade_amind_workplace_apps.py
+
+# Frozen execution history is shipped byte-for-byte in checksum-bound archives.
+# Keep live local files, logs and diagnostic aliases out of the Git file tree.
+/reviews/2026-10-18-comparison/agent-runs/
+/reviews/2026-10-19-workplace/runs/
+/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/physical/
+/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/physical/
+/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/alias-directory
+/reviews/2026-10-19-workplace/product-diagnostics/evaluation/cross-engineering-review/v2/alias-directory
+!scripts/package_amind_review_artifacts.py
+!scripts/restore_amind_review_artifacts.py
+!scripts/test_restore_amind_review_artifacts.py

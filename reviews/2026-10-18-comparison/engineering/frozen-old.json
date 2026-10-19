@@ -1,0 +1,1319 @@
+{
+  "label": "frozen-old-0.2.1",
+  "skill_root": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+  "protocol_sha256": "f5a0e2e5c0bed01f534b655dc65c44dd62223cb0dc815837a0056798ee47e817",
+  "invocation": [
+    "reviews/2026-10-18-comparison/engineering/run_compare.py",
+    "--skill-root",
+    ".codex-tmp/contrast-2026-10-18/old/skills/amind-engineering",
+    "--label",
+    "frozen-old-0.2.1",
+    "--output",
+    "reviews/2026-10-18-comparison/engineering/frozen-old.json"
+  ],
+  "package_files_sha256": {
+    "LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+    "NOTICE.txt": "905684266a266323c41fd38c588e1b740b58c4eb46dc991d5c3805ad4f446c59",
+    "SKILL.md": "cb29cbca1bac92a90b0018a957a8a6ad1dfc9b75223d38b88dfb4611ecad560f",
+    "agents/openai.yaml": "4ee0f23bd2a04bfc60947a8085b08e8762eb2e0d3d203365e09b989d8048bf86",
+    "references/agent-build.md": "555ac365243ee0da2b784b1c07abfa95f6c9e2c2d5b4b9eeb94e865dcc8e4881",
+    "references/agent-lifecycle.md": "0f8675feef8da487110dcc72220ff84111806fabc3a7f9023d40e3f4a3f27150",
+    "references/api-implementation.md": "18009debaf8ef3b155b042cce720755c3972885516fee6dcabd633cb503416b9",
+    "references/capability-map.md": "6f43c71b980cb759d333ee4e7c1ff9e241eae4188c3e0d2288cf8dcb74d0d4d0",
+    "references/context-state.md": "81295fdce1287ee4ee3d8a16dcb62c97ad2d41bd9477b058468824b2661583be",
+    "references/cost-optimization.md": "0a6fd62f0a3d98177b6920baaa6323c6144ff5715036530d50ac37d0b7186d62",
+    "references/language-adapters.md": "d789d59172f9f5ff2231c23aaaefba508ed7ec09f3d3e624ce2e0010404824b5",
+    "references/migration.md": "e178a886a990de67a723ee0fb0798dc3318a8c7bc41674f77ec4a60db13d942f",
+    "references/platform-operations.md": "1ea57bcc481c36c241acc7a63be9c4e8396b79e020c6dd552a877de99095721f",
+    "references/prompt-audit.md": "b11730f315ca0e721399bc210dbe7eb326c3e47f5d9ccafbd9307e07cf691330",
+    "references/response-recipes.md": "ce4fd6feed947d26b2a3eaf5c3be19487c34000e48d091c67969cfc973121c68",
+    "references/sources.md": "20ef87488ec5b97d37ecb2b50a5ea34f8d876bbac516d39ae2608cd025c76a87",
+    "references/upstream-capabilities.json": "1a41e94e7ed926bb51fc6b8ddc429a3b34909cdf1b86c21708e707e9b3ec728b",
+    "scripts/context_audit.py": "88793bf299caab4cd57efc3a02d1c5838924442b373cfb1104e86e5ef26df03c",
+    "scripts/lifecycle_audit.py": "0223c7ff297b034d02fc2d3217156a602d0914e2a4c9dd8501876219dfafc87c",
+    "scripts/prompt_inventory.py": "fa47f63c0c19489afef1f8396bcdad3bb5f8c5f856db42f3eee256278495f838",
+    "scripts/response_contract.py": "1c70cc3d307f2581cb2ef2b3ff236f87eb74c254887d0e41449afcdb9973da0e",
+    "scripts/tool_loop.py": "ea9d3fc40ab22599edbd925b968ee6fff5e8f7cabc91c5bd462c2b77d3709569"
+  },
+  "summary": {
+    "passed": 8,
+    "failed": 5,
+    "unsupported": 5
+  },
+  "common_quality_summary": {
+    "passed": 8,
+    "failed": 5,
+    "unsupported": 0
+  },
+  "cases": [
+    {
+      "id": "E01",
+      "task": "single phase projection",
+      "stratum": "control",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "commentary excluded from final, explicit final retained, answer complete",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Working."
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Approved."
+                }
+              ]
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "Working.Approved.",
+          "final_text": "Approved.",
+          "commentary_text": "Working.",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Working."
+                }
+              ]
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Approved."
+                }
+              ]
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "commentary",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Working."
+                  }
+                ]
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Approved."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "E02",
+      "task": "completed body contradiction",
+      "stratum": "control",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "completed plus error rejected",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "error": {
+            "code": "contradiction"
+          },
+          "output": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "bad"
+                }
+              ]
+            }
+          ]
+        },
+        "rejected": "completed response contains an error or incomplete details"
+      }
+    },
+    {
+      "id": "E03",
+      "task": "batch out-of-order join",
+      "stratum": "control",
+      "old_entry": "response.match_batch",
+      "new_entry": "response.match_batch",
+      "expected": "request order restored, missing ID stays explicit",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "request_ids": [
+            "one",
+            "two",
+            "three"
+          ],
+          "results": [
+            {
+              "custom_id": "two",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            },
+            {
+              "custom_id": "one",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            }
+          ]
+        },
+        "result": {
+          "ordered": [
+            {
+              "custom_id": "one",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            },
+            {
+              "custom_id": "two",
+              "response": {
+                "status_code": 200,
+                "body": {
+                  "status": "completed"
+                }
+              }
+            },
+            null
+          ],
+          "missing": [
+            "three"
+          ],
+          "errors": [],
+          "incomplete": [],
+          "unknown_status": []
+        }
+      }
+    },
+    {
+      "id": "E04",
+      "task": "durable completed side effect replay",
+      "stratum": "control",
+      "old_entry": "tool_loop.run_loop + EffectLedger",
+      "new_entry": "tool_loop.run_loop + EffectLedger",
+      "expected": "two fresh loop invocations dispatch external effect once, exact result reused",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "call": {
+            "type": "function_call",
+            "call_id": "save-1",
+            "name": "commit",
+            "arguments": "{\"v\":17}"
+          },
+          "fresh_loop_invocations": 2
+        },
+        "results": [
+          {
+            "status": "completed",
+            "history": [
+              {
+                "type": "function_call",
+                "call_id": "save-1",
+                "name": "commit",
+                "arguments": "{\"v\":17}"
+              },
+              {
+                "type": "function_call_output",
+                "call_id": "save-1",
+                "output": "{\"saved\":17}"
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Saved."
+                  }
+                ]
+              }
+            ],
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Saved."
+                    }
+                  ]
+                }
+              ]
+            },
+            "tool_calls": 1
+          },
+          {
+            "status": "completed",
+            "history": [
+              {
+                "type": "function_call",
+                "call_id": "save-1",
+                "name": "commit",
+                "arguments": "{\"v\":17}"
+              },
+              {
+                "type": "function_call_output",
+                "call_id": "save-1",
+                "output": "{\"saved\":17}"
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Saved."
+                  }
+                ]
+              }
+            ],
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Saved."
+                    }
+                  ]
+                }
+              ]
+            },
+            "tool_calls": 1
+          }
+        ],
+        "effects": [
+          {
+            "args": {
+              "v": 17
+            },
+            "key": "4c272342ccfdea94fdf4b8b0f75cc1518fb30ff49a45fe543e4ed5961a58e28f"
+          }
+        ],
+        "authorization_calls": 2
+      }
+    },
+    {
+      "id": "E05",
+      "task": "cancel during authorization",
+      "stratum": "control",
+      "old_entry": "tool_loop.run_loop",
+      "new_entry": "tool_loop.run_loop",
+      "expected": "zero handlers dispatched after authorizer requests cancellation",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "call": {
+            "type": "function_call",
+            "call_id": "save-1",
+            "name": "commit",
+            "arguments": "{\"v\":17}"
+          },
+          "fresh_loop_invocations": 1
+        },
+        "results": [
+          {
+            "error": "cancelled"
+          }
+        ],
+        "effects": [],
+        "authorization_calls": 1
+      }
+    },
+    {
+      "id": "E06",
+      "task": "crash and recovery without reconciliation",
+      "stratum": "control",
+      "old_entry": "tool_loop.EffectLedger.perform",
+      "new_entry": "tool_loop.EffectLedger.perform",
+      "expected": "first handler raises after simulated remote effect; reopen refuses duplicate, reconciliation evidence unlocks reuse",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "first_exception": "simulated crash after remote effect",
+        "recovery_exception": "effect outcome unknown; query remote state before retry",
+        "input": {
+          "task": "job",
+          "order": 17
+        },
+        "effects": [
+          "external-order-1"
+        ],
+        "result": {
+          "remote_id": "confirmed-17"
+        }
+      }
+    },
+    {
+      "id": "E07",
+      "task": "child final is not root final",
+      "stratum": "quality",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "child final never shown as user final or declared complete",
+      "status": "failed",
+      "error": "AssertionError: child final exposed as user final",
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "child draft",
+          "final_text": "child draft",
+          "commentary_text": "",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              }
+            ]
+          }
+        },
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 154, in main\n    try:execute(root,case['id'],evidence,Path(temp))\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 85, in execute\n    expect(result['final_text']==('root decision' if ident=='E08' else '') and result['answer_complete']==(ident=='E08'),'child final exposed as user final')\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 29, in expect\n    if not condition: raise AssertionError(why)\nAssertionError: child final exposed as user final\n"
+      }
+    },
+    {
+      "id": "E08",
+      "task": "root final with child draft",
+      "stratum": "quality",
+      "old_entry": "response.normalize",
+      "new_entry": "response.normalize",
+      "expected": "user final contains only explicit root final; full output remains unchanged",
+      "status": "failed",
+      "error": "AssertionError: child final exposed as user final",
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "root decision"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "child draftroot decision",
+          "final_text": "child draftroot decision",
+          "commentary_text": "",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            },
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "root decision"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              },
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "root decision"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              }
+            ]
+          }
+        },
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 154, in main\n    try:execute(root,case['id'],evidence,Path(temp))\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 85, in execute\n    expect(result['final_text']==('root decision' if ident=='E08' else '') and result['answer_complete']==(ident=='E08'),'child final exposed as user final')\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 29, in expect\n    if not condition: raise AssertionError(why)\nAssertionError: child final exposed as user final\n"
+      }
+    },
+    {
+      "id": "E09",
+      "task": "stream item-index ownership",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "root-only display, full raw stream retained, unknown opaque terminal item retained",
+      "status": "failed",
+      "error": "AssertionError: stream leaked child or lost opaque evidence",
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 0,
+            "item": {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 0,
+            "delta": "child draft"
+          },
+          {
+            "type": "response.output_item.added",
+            "output_index": 1,
+            "item": {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Root progress."
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 1,
+            "delta": "Root progress."
+          },
+          {
+            "type": "response.completed",
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "child draft"
+                    }
+                  ],
+                  "agent": {
+                    "agent_name": "/root/helper"
+                  }
+                },
+                {
+                  "type": "message",
+                  "phase": "commentary",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "Root progress."
+                    }
+                  ],
+                  "agent": {
+                    "agent_name": "/root"
+                  }
+                },
+                {
+                  "type": "future_hosted_item",
+                  "opaque": {
+                    "bytes": "keep-23"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "child draftRoot progress.",
+          "final_text": "child draft",
+          "commentary_text": "Root progress.",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "child draft"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            },
+            {
+              "type": "message",
+              "phase": "commentary",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "Root progress."
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": {
+                "bytes": "keep-23"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              },
+              {
+                "type": "message",
+                "phase": "commentary",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Root progress."
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              },
+              {
+                "type": "future_hosted_item",
+                "opaque": {
+                  "bytes": "keep-23"
+                }
+              }
+            ]
+          },
+          "display_deltas": "child draftRoot progress.",
+          "raw_events": [
+            {
+              "type": "response.output_item.added",
+              "output_index": 0,
+              "item": {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "child draft"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              }
+            },
+            {
+              "type": "response.output_text.delta",
+              "output_index": 0,
+              "delta": "child draft"
+            },
+            {
+              "type": "response.output_item.added",
+              "output_index": 1,
+              "item": {
+                "type": "message",
+                "phase": "commentary",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "Root progress."
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              }
+            },
+            {
+              "type": "response.output_text.delta",
+              "output_index": 1,
+              "delta": "Root progress."
+            },
+            {
+              "type": "response.completed",
+              "response": {
+                "status": "completed",
+                "output": [
+                  {
+                    "type": "message",
+                    "phase": "final_answer",
+                    "content": [
+                      {
+                        "type": "output_text",
+                        "text": "child draft"
+                      }
+                    ],
+                    "agent": {
+                      "agent_name": "/root/helper"
+                    }
+                  },
+                  {
+                    "type": "message",
+                    "phase": "commentary",
+                    "content": [
+                      {
+                        "type": "output_text",
+                        "text": "Root progress."
+                      }
+                    ],
+                    "agent": {
+                      "agent_name": "/root"
+                    }
+                  },
+                  {
+                    "type": "future_hosted_item",
+                    "opaque": {
+                      "bytes": "keep-23"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 154, in main\n    try:execute(root,case['id'],evidence,Path(temp))\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 91, in execute\n    expect(result['display_deltas']=='Root progress.' and result['raw_events']==events and result['output_items'][-1]==unknown,'stream leaked child or lost opaque evidence')\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 29, in expect\n    if not condition: raise AssertionError(why)\nAssertionError: stream leaked child or lost opaque evidence\n"
+      }
+    },
+    {
+      "id": "E10",
+      "task": "event versus nested item attribution contradiction",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "conflicting owner claims within the same event rejected before text projection",
+      "status": "failed",
+      "error": "AssertionError: conflicting attribution accepted",
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 0,
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "secret"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 0,
+            "delta": "secret"
+          }
+        ],
+        "result": {
+          "status": "disconnected",
+          "scorable_transport": false,
+          "display_deltas": "secret",
+          "error": null,
+          "usage": null,
+          "raw_events": [
+            {
+              "type": "response.output_item.added",
+              "output_index": 0,
+              "agent": {
+                "agent_name": "/root"
+              },
+              "item": {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "secret"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              }
+            },
+            {
+              "type": "response.output_text.delta",
+              "output_index": 0,
+              "delta": "secret"
+            }
+          ]
+        },
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 154, in main\n    try:execute(root,case['id'],evidence,Path(temp))\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 100, in execute\n    raise AssertionError('conflicting attribution accepted')\nAssertionError: conflicting attribution accepted\n"
+      }
+    },
+    {
+      "id": "E11",
+      "task": "unknown hosted item preservation and dispatch",
+      "stratum": "control",
+      "old_entry": "response.normalize + tool_loop.run_loop",
+      "new_entry": "response.normalize + tool_loop.run_loop",
+      "expected": "unknown and hosted items preserved byte-for-byte structurally; no developer handler or authorizer invoked",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": {
+          "status": "completed",
+          "output": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ]
+        },
+        "result": {
+          "status": "completed",
+          "history": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ],
+          "response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "multi_agent_call",
+                "call_id": "hosted-1",
+                "action": "spawn_agent"
+              },
+              {
+                "type": "future_hosted_item",
+                "opaque": [
+                  17,
+                  {
+                    "bytes": "same"
+                  }
+                ]
+              }
+            ]
+          },
+          "tool_calls": 0
+        },
+        "normalized": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "",
+          "final_text": "",
+          "commentary_text": "",
+          "answer_complete": false,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "multi_agent_call",
+              "call_id": "hosted-1",
+              "action": "spawn_agent"
+            },
+            {
+              "type": "future_hosted_item",
+              "opaque": [
+                17,
+                {
+                  "bytes": "same"
+                }
+              ]
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "multi_agent_call",
+                "call_id": "hosted-1",
+                "action": "spawn_agent"
+              },
+              {
+                "type": "future_hosted_item",
+                "opaque": [
+                  17,
+                  {
+                    "bytes": "same"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "authorization_calls": 0
+      }
+    },
+    {
+      "id": "E12",
+      "task": "interrupted stream is not completion",
+      "stratum": "control",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "partial text preserved, disconnected not scorable; no terminal answer inferred",
+      "status": "passed",
+      "error": null,
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_text.delta",
+            "delta": "Partial only."
+          }
+        ],
+        "result": {
+          "status": "disconnected",
+          "scorable_transport": false,
+          "display_deltas": "Partial only.",
+          "error": null,
+          "usage": null,
+          "raw_events": [
+            {
+              "type": "response.output_text.delta",
+              "delta": "Partial only."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E13",
+      "task": "stage dependency and population gap",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow.Workflow.run",
+      "expected": "failed b read blocks b verify, aggregate retains complete population and gap, no-op resume does not dispatch",
+      "status": "unsupported",
+      "error": "No equivalent packaged public entry for workflow_contract; not a quality failure",
+      "evidence": {}
+    },
+    {
+      "id": "E14",
+      "task": "cumulative stage attempts across reopen",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow.Workflow.run",
+      "expected": "two-attempt budget is not reset by reopen, dependent synthesis cannot dispatch",
+      "status": "unsupported",
+      "error": "No equivalent packaged public entry for workflow_contract; not a quality failure",
+      "evidence": {}
+    },
+    {
+      "id": "E15",
+      "task": "public staged CLI plan/execute/resume",
+      "stratum": "capability",
+      "old_entry": "no equivalent staged workflow public entry",
+      "new_entry": "workflow CLI",
+      "expected": "plan makes no journal, deterministic execute completes, resume preserves attempt count",
+      "status": "unsupported",
+      "error": "No equivalent packaged public entry for workflow_contract; not a quality failure",
+      "evidence": {}
+    },
+    {
+      "id": "E16",
+      "task": "cache measurement identity and absent evidence",
+      "stratum": "capability",
+      "old_entry": "no equivalent diagnostic public entry",
+      "new_entry": "cache.analyze + cache CLI",
+      "expected": "actual cached=0 remains zero, billing unknown, mismatched comparison inconclusive, missing diagnostics not measured",
+      "status": "unsupported",
+      "error": "No equivalent packaged public entry for cache_diagnostics; not a quality failure",
+      "evidence": {}
+    },
+    {
+      "id": "E17",
+      "task": "zero-defect probe without exposure",
+      "stratum": "capability",
+      "old_entry": "no equivalent probe public entry",
+      "new_entry": "cache.probe_coverage",
+      "expected": "HTTP success and zero violations cannot replace exposure; absent population item stays not measured",
+      "status": "unsupported",
+      "error": "No equivalent packaged public entry for cache_diagnostics; not a quality failure",
+      "evidence": {}
+    },
+    {
+      "id": "E18",
+      "task": "stream terminal attribution contradiction",
+      "stratum": "quality",
+      "old_entry": "response.terminal_stream",
+      "new_entry": "response.terminal_stream",
+      "expected": "terminal owner conflicting with stream owner rejected",
+      "status": "failed",
+      "error": "AssertionError: conflicting attribution accepted",
+      "evidence": {
+        "input": [
+          {
+            "type": "response.output_item.added",
+            "output_index": 0,
+            "item": {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "secret"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root"
+              }
+            }
+          },
+          {
+            "type": "response.output_text.delta",
+            "output_index": 0,
+            "delta": "secret"
+          },
+          {
+            "type": "response.completed",
+            "response": {
+              "status": "completed",
+              "output": [
+                {
+                  "type": "message",
+                  "phase": "final_answer",
+                  "content": [
+                    {
+                      "type": "output_text",
+                      "text": "secret"
+                    }
+                  ],
+                  "agent": {
+                    "agent_name": "/root/helper"
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "result": {
+          "status": "completed",
+          "scorable_transport": true,
+          "text": "secret",
+          "final_text": "secret",
+          "commentary_text": "",
+          "answer_complete": true,
+          "refusals": [],
+          "function_calls": [],
+          "output_items": [
+            {
+              "type": "message",
+              "phase": "final_answer",
+              "content": [
+                {
+                  "type": "output_text",
+                  "text": "secret"
+                }
+              ],
+              "agent": {
+                "agent_name": "/root/helper"
+              }
+            }
+          ],
+          "model": null,
+          "usage": null,
+          "response_id": null,
+          "incomplete_details": null,
+          "error": null,
+          "raw_response": {
+            "status": "completed",
+            "output": [
+              {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "secret"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root/helper"
+                }
+              }
+            ]
+          },
+          "display_deltas": "secret",
+          "raw_events": [
+            {
+              "type": "response.output_item.added",
+              "output_index": 0,
+              "item": {
+                "type": "message",
+                "phase": "final_answer",
+                "content": [
+                  {
+                    "type": "output_text",
+                    "text": "secret"
+                  }
+                ],
+                "agent": {
+                  "agent_name": "/root"
+                }
+              }
+            },
+            {
+              "type": "response.output_text.delta",
+              "output_index": 0,
+              "delta": "secret"
+            },
+            {
+              "type": "response.completed",
+              "response": {
+                "status": "completed",
+                "output": [
+                  {
+                    "type": "message",
+                    "phase": "final_answer",
+                    "content": [
+                      {
+                        "type": "output_text",
+                        "text": "secret"
+                      }
+                    ],
+                    "agent": {
+                      "agent_name": "/root/helper"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "traceback": "Traceback (most recent call last):\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 154, in main\n    try:execute(root,case['id'],evidence,Path(temp))\n  File \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/engineering/run_compare.py\", line 100, in execute\n    raise AssertionError('conflicting attribution accepted')\nAssertionError: conflicting attribution accepted\n"
+      }
+    }
+  ],
+  "evidence_level": "Offline public module/CLI execution; no model/network/provider evidence"
+}

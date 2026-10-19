@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Performance tuner",
+  "goal": "Measure a workload, test a focused optimization and verify the joint result",
+  "item_label": "workload",
+  "stages": [
+    "baseline",
+    "verify",
+    "combine"
+  ],
+  "output_checks": [
+    "Use representative workload and same measurement conditions",
+    "Include failure and tail latency",
+    "Adopt only after quality/correctness and combined confirmation pass"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

@@ -1,0 +1,1294 @@
+{
+  "planned": 42,
+  "captured": 42,
+  "statuses": {
+    "captured": 42
+  },
+  "all_assigned_skills_unchanged": true,
+  "all_public_tests_unchanged": true,
+  "all_canaries_denied": true,
+  "native_unique_threads": 42,
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "actual_served_model_verified": false,
+  "native_cumulative_usage": {
+    "input_tokens": 16795419,
+    "cached_input_tokens": 14706560,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 575700,
+    "reasoning_output_tokens": 176119
+  },
+  "missing_usage_runs": [],
+  "sum_task_wall_seconds": 11012.945,
+  "dollar_cost_usd": null,
+  "cost_note": "Native subscription counters, unknown invoice/rate scope. Cached/reasoning counters are subsets and not added twice. Analytical agents not included in target capture counters.",
+  "completed_item_types": {
+    "error": 42,
+    "agent_message": 211,
+    "command_execution": 703,
+    "file_change": 58,
+    "mcp_tool_call": 31
+  },
+  "native_error_items": [
+    {
+      "run_id": "W001",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W002",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W003",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W004",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W005",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W006",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W007",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W008",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W009",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W010",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W011",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W012",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W013",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W014",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W015",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W016",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W017",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W018",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W019",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W020",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W021",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W022",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W023",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W024",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W025",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W026",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W027",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W028",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W029",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W030",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W031",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W032",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W033",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W034",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W035",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W036",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W037",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W038",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W039",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W040",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W041",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    },
+    {
+      "run_id": "W042",
+      "message": "Under-development features enabled: skip_host_skill_discovery. Under-development features are incomplete and may behave unpredictably. To suppress this warning, set `suppress_unstable_features_warning = true` in /Users/damonalbarn/.codex/config.toml."
+    }
+  ],
+  "trace_flags": [],
+  "skill_use_trace_terms": [
+    {
+      "run_id": "W001",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "projection.py",
+        "response_contract.py",
+        "test_gateway_regressions.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W002",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "metrics.py",
+        "projection.py",
+        "render.py",
+        "replay.py",
+        "response_contract.py",
+        "service.py",
+        "storage.py",
+        "test_public.py",
+        "validation.py",
+        "verify_gateway.py"
+      ]
+    },
+    {
+      "run_id": "W003",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__main__.py",
+        "service.py",
+        "store.py",
+        "test_public.py",
+        "workflow_contract.py"
+      ]
+    },
+    {
+      "run_id": "W004",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "baseline.py",
+        "receiver.py",
+        "replay_incident.py",
+        "response_contract.py",
+        "service.py",
+        "standalone_smoke.py",
+        "store.py",
+        "tool_loop.py"
+      ]
+    },
+    {
+      "run_id": "W005",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "accounting.py",
+        "report.py",
+        "test_integration.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W006",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "accounting.py",
+        "check_standalone.py",
+        "integration_checks.py",
+        "price_usage.py",
+        "report.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W007",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "calibration.py",
+        "comparison.py",
+        "integration_check.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W008",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "calibrate_grader.py",
+        "calibration.py",
+        "check_integration.py",
+        "comparison.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W009",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W010",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W011",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W012",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W013",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W014",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W015",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W016",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W017",
+      "assigned_skill_terms": [],
+      "helper_script_terms": []
+    },
+    {
+      "run_id": "W018",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W019",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W020",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W021",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "calibrate_grader.py",
+        "calibration.py",
+        "comparison.py",
+        "integration_checks.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W022",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "calibration.py",
+        "comparison.py",
+        "integration_checks.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W023",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "accounting.py",
+        "integration_checks.py",
+        "report.py",
+        "test_public.py",
+        "verify_delivery.py"
+      ]
+    },
+    {
+      "run_id": "W024",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "accounting.py",
+        "integration_checks.py",
+        "price_usage.py",
+        "report.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W025",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__main__.py",
+        "lifecycle_audit.py",
+        "receiver.py",
+        "response_contract.py",
+        "service.py",
+        "store.py",
+        "tool_loop.py",
+        "verify.py"
+      ]
+    },
+    {
+      "run_id": "W026",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__main__.py",
+        "receiver.py",
+        "service.py",
+        "store.py",
+        "test_public.py",
+        "workflow_contract.py"
+      ]
+    },
+    {
+      "run_id": "W027",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "projection.py",
+        "render.py",
+        "replay.py",
+        "response_contract.py",
+        "test_gateway_regressions.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W028",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "response_contract.py",
+        "test_public.py",
+        "verify_delivery.py"
+      ]
+    },
+    {
+      "run_id": "W029",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "projection.py",
+        "render.py",
+        "replay.py",
+        "response_contract.py",
+        "test_gateway_regression.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W030",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "metrics.py",
+        "projection.py",
+        "render.py",
+        "replay.py",
+        "response_contract.py",
+        "service.py",
+        "storage.py",
+        "test_gateway_regression.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W031",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "receiver.py",
+        "service.py",
+        "store.py",
+        "test_public.py",
+        "workflow_contract.py"
+      ]
+    },
+    {
+      "run_id": "W032",
+      "assigned_skill_terms": [
+        "amind-engineering"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "lifecycle_audit.py",
+        "receiver.py",
+        "replay_incident.py",
+        "service.py",
+        "store.py",
+        "test_public.py",
+        "test_regressions.py",
+        "tool_loop.py"
+      ]
+    },
+    {
+      "run_id": "W033",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "accounting.py",
+        "integration_check.py",
+        "report.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W034",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "accounting.py",
+        "price_usage.py",
+        "report.py",
+        "test_integration.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W035",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "calibration.py",
+        "comparison.py",
+        "test_integration.py",
+        "test_public.py",
+        "validation.py"
+      ]
+    },
+    {
+      "run_id": "W036",
+      "assigned_skill_terms": [
+        "amind-engineering",
+        "eval-improve"
+      ],
+      "helper_script_terms": [
+        "__init__.py",
+        "__main__.py",
+        "calibration.py",
+        "comparison.py",
+        "test_integration.py",
+        "test_public.py"
+      ]
+    },
+    {
+      "run_id": "W037",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W038",
+      "assigned_skill_terms": [],
+      "helper_script_terms": []
+    },
+    {
+      "run_id": "W039",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W040",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W041",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    },
+    {
+      "run_id": "W042",
+      "assigned_skill_terms": [
+        "amind"
+      ],
+      "helper_script_terms": [
+        "query.py"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "run_id": "W001",
+      "task_id": "E-GATEWAY",
+      "axis": "engineering",
+      "arm": "old",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 307.122,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W002",
+      "task_id": "E-GATEWAY",
+      "axis": "engineering",
+      "arm": "current",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 357.613,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W003",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "current",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 238.627,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W004",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "old",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 262.381,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W005",
+      "task_id": "V-RELEASE",
+      "axis": "evaluation",
+      "arm": "old",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 327.938,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W006",
+      "task_id": "V-RELEASE",
+      "axis": "evaluation",
+      "arm": "current",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 380.928,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W007",
+      "task_id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "arm": "old",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 363.572,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W008",
+      "task_id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "arm": "current",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 326.67,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W009",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-docs",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 202.209,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W010",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-current",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 178.802,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W011",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-before",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 233.98,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W012",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-before",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 255.647,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W013",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-docs",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 230.242,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W014",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-current",
+      "rep": 0,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 267.974,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W015",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-docs",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 154.107,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W016",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 188.923,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W017",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-before",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 226.081,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W018",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 194.011,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W019",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-before",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 222.031,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W020",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-docs",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 195.152,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W021",
+      "task_id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "arm": "current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 325.813,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W022",
+      "task_id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "arm": "old",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 250.624,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W023",
+      "task_id": "V-RELEASE",
+      "axis": "evaluation",
+      "arm": "current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 334.043,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W024",
+      "task_id": "V-RELEASE",
+      "axis": "evaluation",
+      "arm": "old",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 279.802,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W025",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "old",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 282.343,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W026",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 301.364,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W027",
+      "task_id": "E-GATEWAY",
+      "axis": "engineering",
+      "arm": "current",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 214.019,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W028",
+      "task_id": "E-GATEWAY",
+      "axis": "engineering",
+      "arm": "old",
+      "rep": 1,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 402.805,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W029",
+      "task_id": "E-GATEWAY",
+      "axis": "engineering",
+      "arm": "old",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 288.494,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W030",
+      "task_id": "E-GATEWAY",
+      "axis": "engineering",
+      "arm": "current",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 295.179,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W031",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "current",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 266.815,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W032",
+      "task_id": "E-DURABLE",
+      "axis": "engineering",
+      "arm": "old",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 301.356,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W033",
+      "task_id": "V-RELEASE",
+      "axis": "evaluation",
+      "arm": "old",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 301.251,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W034",
+      "task_id": "V-RELEASE",
+      "axis": "evaluation",
+      "arm": "current",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 396.454,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W035",
+      "task_id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "arm": "old",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 258.4,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W036",
+      "task_id": "V-CALIBRATE",
+      "axis": "evaluation",
+      "arm": "current",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 241.533,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W037",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-before",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 187.547,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W038",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-docs",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 197.886,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W039",
+      "task_id": "CIT-P",
+      "axis": "citation",
+      "arm": "citation-current",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 185.336,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W040",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-current",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 193.787,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W041",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-before",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 201.101,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    },
+    {
+      "run_id": "W042",
+      "task_id": "CIT-L",
+      "axis": "citation",
+      "arm": "citation-docs",
+      "rep": 2,
+      "status": "captured",
+      "model_launched": true,
+      "elapsed_seconds": 192.983,
+      "skill_unchanged": true,
+      "public_tests_unchanged": true,
+      "grader_canary_denied": true
+    }
+  ],
+  "limits": [
+    "Only declared phase complete; no production-distribution claim.",
+    "Path-deny isolation and trace term scan do not prove absence of every possible leak.",
+    "Skill/helper trace terms are evidence of command mentions, not full cognitive mechanism."
+  ]
+}

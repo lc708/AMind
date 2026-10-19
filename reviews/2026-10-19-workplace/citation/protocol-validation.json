@@ -1,0 +1,14 @@
+{
+  "calibration_controls": 8,
+  "changed_registry_reason_ids": [
+    "amind-status-a5e9517ec35854f2e4eacc7b"
+  ],
+  "control_vectors_have_five_binary_criteria": true,
+  "known_positive_excerpts_supported": true,
+  "positive_excerpt_checks": 5,
+  "registry_non_reason_fields_equal": true,
+  "status_ids_equal": true,
+  "target_model_calls": 0,
+  "target_outputs_inspected": 0,
+  "tasks": 2
+}

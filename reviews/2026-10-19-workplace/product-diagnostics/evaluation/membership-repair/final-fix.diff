@@ -1,0 +1,239 @@
+--- before-product-diagnostic/skills/eval-improve/scripts/report_eval.py
++++ after-membership/skills/eval-improve/scripts/report_eval.py
+@@ -50,6 +50,42 @@
+     return list(finishes.values()),[event for number,event in starts.items() if number not in finishes]
+ 
+ 
++def report_contract(state, manifest, name):
++    """Bind report metadata to each v2 export, retaining descriptive legacy input."""
++    if manifest.get('schema_version')!=2:
++        split=manifest.get('split','val')
++        return (state.get(split+'_ids',[]), manifest.get('reps',state.get('reps',1)), state['metrics'])
++    identity=manifest.get('comparison_identity',{})
++    if not isinstance(identity,dict) or not isinstance(state,dict):
++        raise ValueError(f'{name}: missing bound report population/metrics/reps')
++    splits=identity.get('splits',{})
++    split,reps,metrics=identity.get('split'),identity.get('reps'),identity.get('metrics')
++    if (not isinstance(splits,dict) or split not in ('train','val','test')
++            or type(reps) is not int or reps<1 or not isinstance(metrics,list) or not metrics):
++        raise ValueError(f'{name}: missing bound report population/metrics/reps')
++    for partition in ('train','val','test'):
++        ids=splits.get(partition,[])
++        if (not isinstance(ids,list) or any(not isinstance(key,str) for key in ids)
++                or state.get(partition+'_ids',[])!=ids):
++            raise ValueError(f'{name}: report state {partition} population differs from experiment identity')
++    if state.get('metrics')!=metrics:
++        raise ValueError(f'{name}: report state metrics differ from experiment identity')
++    if type(state.get('reps')) is not int or state['reps']!=reps:
++        raise ValueError(f'{name}: report state reps differ from experiment identity')
++    if manifest.get('split')!=split or type(manifest.get('reps')) is not int or manifest['reps']!=reps:
++        raise ValueError(f'{name}: manifest split/reps differ from experiment identity')
++    return splits.get(split,[]),reps,metrics
++
++
++def validate_population(rows, events, planned_ids, reps, name):
++    ids=set(planned_ids)
++    for kind,records in (('result',rows),('attempt',events)):
++        for record in records:
++            rep=record.get('rep')
++            if (record.get('prompt_id') not in ids or type(rep) is not int or not 0<=rep<reps):
++                raise ValueError(f'{name}: {kind} outside bound selected split/repetition population')
++
++
+ def summarize(flow):
+     state=read_json(in_root(flow,'_state.json')); summaries=[]; details=[]
+     dirs=sorted([p for p in flow.iterdir() if p.name=='baseline' or re.fullmatch(r'v[1-9][0-9]*',p.name)],
+@@ -65,6 +101,9 @@
+         manifest_path=in_root(flow,f'{name}/manifest.json'); manifest=read_json(manifest_path) if manifest_path.exists() else {}
+         if manifest.get('schema_version')==2 and manifest.get('variant')!=name:
+             raise ValueError(f'{name}: manifest variant differs from its directory')
++        planned_ids,reps,metric_specs=report_contract(state,manifest,name)
++        if manifest.get('schema_version')==2:
++            validate_population(rows,events,planned_ids,reps,name)
+         integrity='unverified legacy artifacts'
+         try:
+             contract_hash(manifest)
+@@ -80,9 +119,9 @@
+             integrity='hashes match export; not a security attestation'
+         except (OSError,ValueError,KeyError) as e:
+             integrity='unverified: '+str(e)
+-        planned=len(state.get(manifest.get('split','val')+'_ids',[]))*manifest.get('reps',state.get('reps',1))
++        planned=len(planned_ids)*reps
+         scores={}
+-        for m in state['metrics']:
++        for m in metric_specs:
+             values=[r.get('grade',{}).get(m['id']) for r in rows if r.get('status')=='ok']
+             values=[float(v) for v in values if finite(v) or isinstance(v,bool)]
+             scores[m['id']]={'mean':statistics.mean(values) if values else None,'scored':len(values)}
+--- before-product-diagnostic/skills/eval-improve/references/artifacts.md
++++ after-membership/skills/eval-improve/references/artifacts.md
+@@ -31,6 +31,8 @@
+ 
+ `report_eval.py FLOW` creates `report-full.html` and `report-data.json` with every declared metric, planned/scored coverage, attempt failures, known and unknown cost, latency quantiles, synthetic labels, integrity status, per-case outputs, grader explanations and escaped traces. It is local and needs no external JS/CDN. It does not declare a winner. Scored means exclude unscored attempts and must be read alongside coverage. Started attempts without a finished outcome remain counted as interrupted attempts with unknown cost; even when there are no finished calls, the report cannot label their total spend zero. Reports check required per-result measurement/treatment/case bindings as well as byte hashes, and mark mismatched ownership unverified. A schema-2 manifest must name its actual variant directory. Duplicate case/repetition rows, repeated attempt IDs, and finished attempts without a matching preceding case/repetition start are rejected before aggregation; byte rehashing cannot make these populations valid.
+ 
++For every schema-2 variant, the report checks `_state.json` metrics, all split populations and repetitions against that variant's bound `comparison_identity`, including the manifest's selected split/repetitions. Drift is a controlled error, rather than a shortened denominator or a silently omitted guardrail. Report metrics and the selected population come from the bound identity. Every result and journal start/finish must name a case in that selected split and a strict integer repetition in range; other split cases, out-of-range repetitions and boolean repetitions are rejected. Missing results remain a valid partial report with the full planned denominator. Legacy exports without that identity remain descriptive and explicitly unverified.
++
+ `build-report.mjs FLOW` retains the attributed upstream lite viewer for older workflows and trajectory files. It emphasizes the primary metric and legacy trace naming; use the full reporter for the new runner's hashed trace paths and all-metric evidence. The lite viewer is not a second decision engine.
+ 
+ ## Exporting an existing evaluator
+--- before-product-diagnostic/scripts/test_amind_eval_reporting.py
++++ after-membership/scripts/test_amind_eval_reporting.py
+@@ -61,6 +61,28 @@
+         data=json.loads((self.flow/'report-data.json').read_text())
+         return data['variants'][0],data['details']
+ 
++    def guardrail_flow(self, variants=('baseline',)):
++        (self.root/'judge.py').write_text("import json,sys\np=json.load(sys.stdin)\nprint(json.dumps({'grade':{'quality':1,'policy':0},'cost_usd':0}))\n")
++        card=json.loads((self.root/'card.json').read_text())
++        card['grader']={'kind':'command','command':[sys.executable,'judge.py'],'files':['judge.py']}
++        card['metrics'].append({'id':'policy','kind':'binary','better':'higher','role':'guardrail','max_regression':0})
++        card['variants']['v1']=dict(card['variants']['baseline'])
++        self.json(self.root/'card.json',card)
++        self.flow=self.root/'guardrail-flow'
++        for variant in variants:
++            self.cli('run_eval.py','--card',self.root/'card.json','--flow',self.flow,
++                     '--variant',variant,'--split','val','--execute')
++        self.variant=self.flow/'baseline'
++
++    def add_other_splits(self):
++        cases=self.readlines(self.root/'cases.jsonl')
++        cases.extend([{'id':'train-only','input':'training'},{'id':'test-only','input':'test'}])
++        self.jsonl(self.root/'cases.jsonl',cases)
++        self.jsonl(self.root/'refs.jsonl',[{'id':r['id'],'expected':r['input']} for r in cases])
++        card=json.loads((self.root/'card.json').read_text())
++        card['splits'].update(train=['train-only'],test=['test-only'])
++        self.json(self.root/'card.json',card)
++
+     def test_interrupted_attempt_remains_unknown_and_counted_with_finished_cost(self):
+         # Reproduce a process exit after attempt 2 started but before its result/finish.
+         rows=self.readlines(self.variant/'results.jsonl')
+@@ -146,6 +168,129 @@
+         self.assertTrue(result['integrity'].startswith('unverified:'))
+         self.assertIsNone(result['attempts'])
+ 
++    def test_state_metric_omission_cannot_hide_a_failed_guardrail(self):
++        self.guardrail_flow()
++        state=json.loads((self.flow/'_state.json').read_text())
++        state['metrics']=[m for m in state['metrics'] if m['id']!='policy']
++        self.json(self.flow/'_state.json',state)
++        self.assert_invalid_report('report state metrics differ from experiment identity')
++
++    def test_state_selected_population_cannot_shorten_planned_coverage(self):
++        state=json.loads((self.flow/'_state.json').read_text())
++        state['val_ids']=['a']
++        self.json(self.flow/'_state.json',state)
++        self.assert_invalid_report('report state val population differs from experiment identity')
++
++    def test_state_unselected_population_must_also_match_the_bound_splits(self):
++        state=json.loads((self.flow/'_state.json').read_text())
++        state['train_ids']=['unregistered-training-case']
++        self.json(self.flow/'_state.json',state)
++        self.assert_invalid_report('report state train population differs from experiment identity')
++
++    def test_state_repetitions_cannot_drift_from_bound_repetitions(self):
++        state=json.loads((self.flow/'_state.json').read_text())
++        state['reps']=2
++        self.json(self.flow/'_state.json',state)
++        self.assert_invalid_report('report state reps differ from experiment identity')
++
++    def test_manifest_repetitions_cannot_override_the_bound_population(self):
++        manifest=json.loads((self.variant/'manifest.json').read_text())
++        manifest['reps']=2
++        self.json(self.variant/'manifest.json',manifest)
++        self.assert_invalid_report('manifest split/reps differ from experiment identity')
++
++    def test_each_variant_is_checked_against_its_own_metric_contract(self):
++        baseline_flow=self.flow
++        self.guardrail_flow(('v1',))
++        shutil.copytree(self.flow/'v1',baseline_flow/'v1')
++        self.flow=baseline_flow
++        self.assert_invalid_report('v1: report state metrics differ from experiment identity')
++
++    def test_healthy_variants_report_all_metrics_for_only_the_selected_split(self):
++        # Train and final-test cases belong to the bound dataset, not this report's denominator.
++        self.add_other_splits()
++        self.guardrail_flow(('baseline','v1'))
++        self.cli('report_eval.py',self.flow)
++        variants=json.loads((self.flow/'report-data.json').read_text())['variants']
++        self.assertEqual([v['variant'] for v in variants],['baseline','v1'])
++        for variant in variants:
++            self.assertEqual(variant['planned_observations'],2)
++            self.assertEqual(variant['scored_observations'],2)
++            self.assertEqual(set(variant['metrics']),{'quality','policy'})
++            self.assertEqual(variant['metrics']['policy']['mean'],0)
++            self.assertTrue(variant['integrity'].startswith('hashes match export'))
++
++    def test_unique_training_result_cannot_join_validation_population_after_rehash(self):
++        self.add_other_splits()
++        self.guardrail_flow()
++        rows=self.readlines(self.variant/'results.jsonl')
++        foreign=json.loads(json.dumps(rows[0]))
++        foreign['prompt_id']='train-only'
++        foreign['result_identity']['case_id']='train-only'
++        rows.append(foreign)
++        self.jsonl(self.variant/'results.jsonl',rows)
++        self.rehash()
++        self.assert_invalid_report('result outside bound selected split/repetition population')
++
++    def test_unique_out_of_range_result_repetition_is_rejected_after_rehash(self):
++        rows=self.readlines(self.variant/'results.jsonl')
++        rows[0]['rep']=3
++        rows[0]['result_identity']['rep']=3
++        self.jsonl(self.variant/'results.jsonl',rows)
++        self.rehash()
++        self.assert_invalid_report('result outside bound selected split/repetition population')
++
++    def test_boolean_result_repetition_is_not_integer_zero(self):
++        rows=self.readlines(self.variant/'results.jsonl')
++        rows[0]['rep']=False
++        rows[0]['result_identity']['rep']=False
++        self.jsonl(self.variant/'results.jsonl',rows)
++        self.rehash()
++        self.assert_invalid_report('nonnegative integer rep')
++
++    def test_foreign_journal_attempt_cannot_inflate_verified_spend(self):
++        events=self.readlines(self.variant/'attempts.jsonl')
++        events.extend([{'event':'started','attempt_id':3,'prompt_id':'another-release','rep':0},
++                       {'event':'finished','attempt_id':3,'prompt_id':'another-release','rep':0,'status':'ok','cost_usd':.7}])
++        self.jsonl(self.variant/'attempts.jsonl',events)
++        self.rehash()
++        self.assert_invalid_report('attempt outside bound selected split/repetition population')
++
++    def test_out_of_range_journal_repetition_cannot_join_selected_population(self):
++        events=self.readlines(self.variant/'attempts.jsonl')
++        for event in events:
++            if event['attempt_id']==1: event['rep']=3
++        self.jsonl(self.variant/'attempts.jsonl',events)
++        self.rehash()
++        self.assert_invalid_report('attempt outside bound selected split/repetition population')
++
++    def test_boolean_journal_repetition_is_not_integer_zero(self):
++        events=self.readlines(self.variant/'attempts.jsonl')
++        for event in events:
++            if event['attempt_id']==1: event['rep']=False
++        self.jsonl(self.variant/'attempts.jsonl',events)
++        self.rehash()
++        self.assert_invalid_report('attempt outside bound selected split/repetition population')
++
++    def test_missing_failed_case_is_a_valid_partial_report(self):
++        rows=self.readlines(self.variant/'results.jsonl')
++        self.jsonl(self.variant/'results.jsonl',[r for r in rows if r['attempt_id']!=1])
++        events=self.readlines(self.variant/'attempts.jsonl')
++        failure=next(e for e in events if e['event']=='finished' and e['attempt_id']==1)
++        failure.update(status='rate_limit',cost_usd=.01,known_cost_usd=.01,app_cost_usd=.01)
++        self.jsonl(self.variant/'attempts.jsonl',events)
++        self.jsonl(self.variant/'errors.jsonl',[failure])
++        manifest=json.loads((self.variant/'manifest.json').read_text())
++        manifest.update(status='incomplete',completed_cases=1)
++        self.json(self.variant/'manifest.json',manifest)
++        self.rehash()
++        result,_=self.report()
++        self.assertEqual((result['planned_observations'],result['scored_observations']),(2,1))
++        self.assertEqual(result['status'],'incomplete')
++        self.assertEqual(result['failed_attempts'],1)
++        self.assertAlmostEqual(result['total_cost_usd'],.03)
++        self.assertTrue(result['integrity'].startswith('hashes match export'))
++
+     def test_clean_complete_report_retains_cost_and_verified_export(self):
+         result,_=self.report()
+         self.assertAlmostEqual(result['total_cost_usd'],.04)

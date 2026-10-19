@@ -1,0 +1,12 @@
+{
+  "id": "E11",
+  "name": "rare-base-rate",
+  "classification": "extension",
+  "entry": "calibrate",
+  "expected": "100 positives90TP10FN,900 negatives18FP882TN: FPR.02,FNR.1, deployment PPV.04310344827586207 at prevalence .001; old flag absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E11",
+  "observed": {}
+}

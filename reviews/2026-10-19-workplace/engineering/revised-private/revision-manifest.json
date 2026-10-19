@@ -1,0 +1,14 @@
+{
+  "created_at_utc": "2026-10-18T19:18:48.417077+00:00",
+  "phase": "post-diagnostic correction, not preregistered target evidence",
+  "change": "D14 accepts skipped/not_covered and verifies real receipts and full-population gap; all other probes unchanged",
+  "files_sha256": {
+    "grade_durable.py": "160485286a322aa59a37b7e596544c61e1c8681ff0cdecb6cd08f609b5fe3658",
+    "grade_gateway.py": "889ffe0c7e8b667b2aaa1fdb130ef6157a4ab0bbc56bd16817b437a0d48ff2e3",
+    "grade_common.py": "09585f27500322f8d26cea8d464e9d0e75bf254ed8b9da7e6b489384f8d92563",
+    "rescore.py": "32e6729bdba05505940cb0de76a5a71ef7e790045b1b40c6c78adf5ffdc06a0e",
+    "control-validation.json": "5cd73f46a151e2de0515e0462b3890ae3ffa7f8da31a856421a5bcc3f791996a"
+  },
+  "original_frozen_measurement_files": 175,
+  "target_model_calls": 0
+}

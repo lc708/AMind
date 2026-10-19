@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "V-RELEASE",
+      "task_id": "V-RELEASE",
+      "title": "Repair the release dashboard after the partial provider outage",
+      "repo_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/repos/V-RELEASE",
+      "prompt": "Repair the release dashboard after the partial provider outage. Work in this repository as the engineer responsible for the incident. Read README.md and the saved local example, repair the existing implementation across modules, and run the public tests plus useful local integration checks. Preserve the documented CLI and JSON contract. Deliver working repository changes and a concise account of what changed and how you verified it. Do not call external services or models. No installed AMind helper imports are required. The source tree is the product; passing model-written tests alone is not evidence of completion.",
+      "entrypoint": "python3 -m releaseboard",
+      "public_test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_release.py",
+      "grader_command": [
+        "python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_release.py",
+        "--repo",
+        "{repo}"
+      ],
+      "reference_repo_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/references/V-RELEASE",
+      "controls_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/controls/V-RELEASE",
+      "score": null,
+      "max_score": 5,
+      "probe_count": 14,
+      "rubric_domains": 5,
+      "fatal_guardrails": [
+        "Do not treat unknown costs or missing evaluation population as successful zero-cost completion",
+        "Do not admit evidence from foreign treatment/served scope"
+      ],
+      "private_material_not_to_deliver": [
+        "private grader",
+        "reference implementation",
+        "hidden probe fixtures",
+        "controls",
+        "frozen rubric expected values"
+      ],
+      "subprocess_prefix_env": "AMIND_APP_COMMAND_PREFIX_JSON",
+      "probe_timeout_seconds": 8,
+      "measurement": "Domain-grouped real subprocess CLI probes; standard-library application repair, not prose-only arithmetic.",
+      "public_python_loc": 221,
+      "public_test_count": 3,
+      "grader_validation": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/validation/V-RELEASE-reference.json"
+    },
+    {
+      "id": "V-CALIBRATE",
+      "task_id": "V-CALIBRATE",
+      "title": "Repair the support-judge calibration and rollout review",
+      "repo_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/repos/V-CALIBRATE",
+      "prompt": "Repair the support-judge calibration and rollout review. Work in this repository as the engineer responsible for the incident. Read README.md and the saved local example, repair the existing implementation across modules, and run the public tests plus useful local integration checks. Preserve the documented CLI and JSON contract. Deliver working repository changes and a concise account of what changed and how you verified it. Do not call external services or models. No installed AMind helper imports are required. The source tree is the product; passing model-written tests alone is not evidence of completion.",
+      "entrypoint": "python3 -m judgecheck",
+      "public_test_command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "grader_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py",
+      "grader_command": [
+        "python3",
+        "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py",
+        "--repo",
+        "{repo}"
+      ],
+      "reference_repo_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/references/V-CALIBRATE",
+      "controls_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/controls/V-CALIBRATE",
+      "score": null,
+      "max_score": 5,
+      "probe_count": 14,
+      "rubric_domains": 5,
+      "fatal_guardrails": [
+        "Do not pass absent clean controls as zero false positives",
+        "Do not treat family leakage, unmatched pairs or unknown worker as complete review"
+      ],
+      "private_material_not_to_deliver": [
+        "private grader",
+        "reference implementation",
+        "hidden probe fixtures",
+        "controls",
+        "frozen rubric expected values"
+      ],
+      "subprocess_prefix_env": "AMIND_APP_COMMAND_PREFIX_JSON",
+      "probe_timeout_seconds": 8,
+      "measurement": "Domain-grouped real subprocess CLI probes; standard-library application repair, not prose-only arithmetic.",
+      "public_python_loc": 193,
+      "public_test_count": 3,
+      "grader_validation": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/evaluation/private/validation/V-CALIBRATE-reference.json"
+    }
+  ],
+  "status": "pre-target controls validated; tasks and private rubrics frozen"
+}

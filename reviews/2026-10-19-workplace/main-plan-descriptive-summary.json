@@ -1,0 +1,687 @@
+{
+  "application": [
+    {
+      "task_id": "E-DURABLE",
+      "arm": "current",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          6,
+          6,
+          6
+        ],
+        "n": 3,
+        "mean": 6,
+        "min": 6,
+        "max": 6
+      },
+      "max_score": 6,
+      "probe_passed": {
+        "values": [
+          14,
+          14,
+          14
+        ],
+        "n": 3,
+        "mean": 14,
+        "min": 14,
+        "max": 14
+      },
+      "guardrail_failures": [],
+      "run_ids": [
+        "W003",
+        "W026",
+        "W031"
+      ]
+    },
+    {
+      "task_id": "E-DURABLE",
+      "arm": "old",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          5,
+          5,
+          5
+        ],
+        "n": 3,
+        "mean": 5,
+        "min": 5,
+        "max": 5
+      },
+      "max_score": 6,
+      "probe_passed": {
+        "values": [
+          13,
+          13,
+          13
+        ],
+        "n": 3,
+        "mean": 13,
+        "min": 13,
+        "max": 13
+      },
+      "guardrail_failures": [],
+      "run_ids": [
+        "W004",
+        "W025",
+        "W032"
+      ]
+    },
+    {
+      "task_id": "E-GATEWAY",
+      "arm": "current",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          6,
+          6,
+          6
+        ],
+        "n": 3,
+        "mean": 6,
+        "min": 6,
+        "max": 6
+      },
+      "max_score": 6,
+      "probe_passed": {
+        "values": [
+          14,
+          14,
+          14
+        ],
+        "n": 3,
+        "mean": 14,
+        "min": 14,
+        "max": 14
+      },
+      "guardrail_failures": [],
+      "run_ids": [
+        "W002",
+        "W027",
+        "W030"
+      ]
+    },
+    {
+      "task_id": "E-GATEWAY",
+      "arm": "old",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          6,
+          5,
+          6
+        ],
+        "n": 3,
+        "mean": 5.666666666666667,
+        "min": 5,
+        "max": 6
+      },
+      "max_score": 6,
+      "probe_passed": {
+        "values": [
+          14,
+          13,
+          14
+        ],
+        "n": 3,
+        "mean": 13.666666666666666,
+        "min": 13,
+        "max": 14
+      },
+      "guardrail_failures": [
+        "W028"
+      ],
+      "run_ids": [
+        "W001",
+        "W028",
+        "W029"
+      ]
+    },
+    {
+      "task_id": "V-CALIBRATE",
+      "arm": "current",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          4,
+          4,
+          4
+        ],
+        "n": 3,
+        "mean": 4,
+        "min": 4,
+        "max": 4
+      },
+      "max_score": 5,
+      "probe_passed": {
+        "values": [
+          13,
+          13,
+          13
+        ],
+        "n": 3,
+        "mean": 13,
+        "min": 13,
+        "max": 13
+      },
+      "guardrail_failures": [
+        "W008",
+        "W021",
+        "W036"
+      ],
+      "run_ids": [
+        "W008",
+        "W021",
+        "W036"
+      ]
+    },
+    {
+      "task_id": "V-CALIBRATE",
+      "arm": "old",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          4,
+          4,
+          4
+        ],
+        "n": 3,
+        "mean": 4,
+        "min": 4,
+        "max": 4
+      },
+      "max_score": 5,
+      "probe_passed": {
+        "values": [
+          13,
+          13,
+          13
+        ],
+        "n": 3,
+        "mean": 13,
+        "min": 13,
+        "max": 13
+      },
+      "guardrail_failures": [
+        "W007",
+        "W022",
+        "W035"
+      ],
+      "run_ids": [
+        "W007",
+        "W022",
+        "W035"
+      ]
+    },
+    {
+      "task_id": "V-RELEASE",
+      "arm": "current",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          4,
+          4,
+          4
+        ],
+        "n": 3,
+        "mean": 4,
+        "min": 4,
+        "max": 4
+      },
+      "max_score": 5,
+      "probe_passed": {
+        "values": [
+          13,
+          13,
+          13
+        ],
+        "n": 3,
+        "mean": 13,
+        "min": 13,
+        "max": 13
+      },
+      "guardrail_failures": [],
+      "run_ids": [
+        "W006",
+        "W023",
+        "W034"
+      ]
+    },
+    {
+      "task_id": "V-RELEASE",
+      "arm": "old",
+      "planned": 3,
+      "graded": 3,
+      "runtime_failures": [],
+      "domain_score": {
+        "values": [
+          4,
+          4,
+          4
+        ],
+        "n": 3,
+        "mean": 4,
+        "min": 4,
+        "max": 4
+      },
+      "max_score": 5,
+      "probe_passed": {
+        "values": [
+          13,
+          13,
+          13
+        ],
+        "n": 3,
+        "mean": 13,
+        "min": 13,
+        "max": 13
+      },
+      "guardrail_failures": [],
+      "run_ids": [
+        "W005",
+        "W024",
+        "W033"
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-before",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          255.647,
+          226.081,
+          201.101
+        ],
+        "n": 3,
+        "mean": 227.60966666666667,
+        "min": 201.101,
+        "max": 255.647
+      },
+      "native_usage": {
+        "input_tokens": 1302744,
+        "cached_input_tokens": 1156096,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 34674,
+        "reasoning_output_tokens": 13658
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-current",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          267.974,
+          188.923,
+          193.787
+        ],
+        "n": 3,
+        "mean": 216.89466666666667,
+        "min": 188.923,
+        "max": 267.974
+      },
+      "native_usage": {
+        "input_tokens": 1363553,
+        "cached_input_tokens": 1224832,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33290,
+        "reasoning_output_tokens": 11192
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "CIT-L",
+      "arm": "citation-docs",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          230.242,
+          154.107,
+          192.983
+        ],
+        "n": 3,
+        "mean": 192.444,
+        "min": 154.107,
+        "max": 230.242
+      },
+      "native_usage": {
+        "input_tokens": 1263697,
+        "cached_input_tokens": 1105536,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 30160,
+        "reasoning_output_tokens": 10996
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-before",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          233.98,
+          222.031,
+          187.547
+        ],
+        "n": 3,
+        "mean": 214.51933333333332,
+        "min": 187.547,
+        "max": 233.98
+      },
+      "native_usage": {
+        "input_tokens": 1526576,
+        "cached_input_tokens": 1328384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 31243,
+        "reasoning_output_tokens": 11587
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-current",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          178.802,
+          194.011,
+          185.336
+        ],
+        "n": 3,
+        "mean": 186.04966666666667,
+        "min": 178.802,
+        "max": 194.011
+      },
+      "native_usage": {
+        "input_tokens": 1257781,
+        "cached_input_tokens": 1074432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 29049,
+        "reasoning_output_tokens": 8248
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "CIT-P",
+      "arm": "citation-docs",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          202.209,
+          195.152,
+          197.886
+        ],
+        "n": 3,
+        "mean": 198.41566666666665,
+        "min": 195.152,
+        "max": 202.209
+      },
+      "native_usage": {
+        "input_tokens": 1627380,
+        "cached_input_tokens": 1436928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28180,
+        "reasoning_output_tokens": 9149
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "E-DURABLE",
+      "arm": "current",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          238.627,
+          301.364,
+          266.815
+        ],
+        "n": 3,
+        "mean": 268.93533333333335,
+        "min": 238.627,
+        "max": 301.364
+      },
+      "native_usage": {
+        "input_tokens": 1136286,
+        "cached_input_tokens": 1003904,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 50639,
+        "reasoning_output_tokens": 11889
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "E-DURABLE",
+      "arm": "old",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          262.381,
+          282.343,
+          301.356
+        ],
+        "n": 3,
+        "mean": 282.02666666666664,
+        "min": 262.381,
+        "max": 301.356
+      },
+      "native_usage": {
+        "input_tokens": 1076743,
+        "cached_input_tokens": 961152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 47005,
+        "reasoning_output_tokens": 12852
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "E-GATEWAY",
+      "arm": "current",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          357.613,
+          214.019,
+          295.179
+        ],
+        "n": 3,
+        "mean": 288.937,
+        "min": 214.019,
+        "max": 357.613
+      },
+      "native_usage": {
+        "input_tokens": 1196032,
+        "cached_input_tokens": 1038208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 44259,
+        "reasoning_output_tokens": 11786
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "E-GATEWAY",
+      "arm": "old",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          307.122,
+          402.805,
+          288.494
+        ],
+        "n": 3,
+        "mean": 332.807,
+        "min": 288.494,
+        "max": 402.805
+      },
+      "native_usage": {
+        "input_tokens": 926313,
+        "cached_input_tokens": 760192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 51412,
+        "reasoning_output_tokens": 15724
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "V-CALIBRATE",
+      "arm": "current",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          326.67,
+          325.813,
+          241.533
+        ],
+        "n": 3,
+        "mean": 298.00533333333334,
+        "min": 241.533,
+        "max": 326.67
+      },
+      "native_usage": {
+        "input_tokens": 976021,
+        "cached_input_tokens": 856704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 48390,
+        "reasoning_output_tokens": 14963
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "V-CALIBRATE",
+      "arm": "old",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          363.572,
+          250.624,
+          258.4
+        ],
+        "n": 3,
+        "mean": 290.8653333333333,
+        "min": 250.624,
+        "max": 363.572
+      },
+      "native_usage": {
+        "input_tokens": 948154,
+        "cached_input_tokens": 832512,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 44287,
+        "reasoning_output_tokens": 12215
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "V-RELEASE",
+      "arm": "current",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          380.928,
+          334.043,
+          396.454
+        ],
+        "n": 3,
+        "mean": 370.475,
+        "min": 334.043,
+        "max": 396.454
+      },
+      "native_usage": {
+        "input_tokens": 1240574,
+        "cached_input_tokens": 1084288,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 56339,
+        "reasoning_output_tokens": 15996
+      },
+      "missing_usage": []
+    },
+    {
+      "task_id": "V-RELEASE",
+      "arm": "old",
+      "runs": 3,
+      "statuses": {
+        "captured": 3
+      },
+      "elapsed_seconds": {
+        "values": [
+          327.938,
+          279.802,
+          301.251
+        ],
+        "n": 3,
+        "mean": 302.997,
+        "min": 279.802,
+        "max": 327.938
+      },
+      "native_usage": {
+        "input_tokens": 953565,
+        "cached_input_tokens": 843392,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 46773,
+        "reasoning_output_tokens": 15864
+      },
+      "missing_usage": []
+    }
+  ],
+  "dollar_cost_usd": null,
+  "scope": "Descriptive task-family summaries. No pooled axis score, no inference from probe/repetition counts as independent tasks. Runtime failures remain separately visible.",
+  "requested_model": "gpt-6.1-sol",
+  "requested_effort": "ultra",
+  "served_model_verified": false
+}

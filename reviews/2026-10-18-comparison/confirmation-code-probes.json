@@ -1,0 +1,562 @@
+{
+  "C-G": [
+    {
+      "expected": {
+        "accepted": true,
+        "root_final": "verified-final",
+        "unknown": []
+      },
+      "id": "healthy-root",
+      "input": {
+        "events": [
+          {
+            "response": {
+              "output": [
+                {
+                  "agent": {
+                    "agent_name": "/root"
+                  },
+                  "content": [
+                    {
+                      "text": "verified-final",
+                      "type": "output_text"
+                    }
+                  ],
+                  "phase": "final_answer",
+                  "type": "message"
+                }
+              ],
+              "status": "completed"
+            },
+            "type": "response.completed"
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "accepted": true,
+        "root_final": "verified-final",
+        "unknown": [
+          {
+            "opaque": {
+              "data": [
+                1,
+                true,
+                null
+              ],
+              "token": "opaque-43"
+            },
+            "type": "future_runtime_item"
+          }
+        ]
+      },
+      "id": "root-and-opaque",
+      "input": {
+        "events": [
+          {
+            "response": {
+              "output": [
+                {
+                  "agent": {
+                    "agent_name": "/root/audit"
+                  },
+                  "content": [
+                    {
+                      "text": "child-only",
+                      "type": "output_text"
+                    }
+                  ],
+                  "phase": "final_answer",
+                  "type": "message"
+                },
+                {
+                  "opaque": {
+                    "data": [
+                      1,
+                      true,
+                      null
+                    ],
+                    "token": "opaque-43"
+                  },
+                  "type": "future_runtime_item"
+                },
+                {
+                  "agent": {
+                    "agent_name": "/root"
+                  },
+                  "content": [
+                    {
+                      "text": "verified-final",
+                      "type": "output_text"
+                    }
+                  ],
+                  "phase": "final_answer",
+                  "type": "message"
+                }
+              ],
+              "status": "completed"
+            },
+            "type": "response.completed"
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "accepted": true,
+        "root_final": "",
+        "unknown": []
+      },
+      "id": "child-only",
+      "input": {
+        "events": [
+          {
+            "response": {
+              "output": [
+                {
+                  "agent": {
+                    "agent_name": "/root/audit"
+                  },
+                  "content": [
+                    {
+                      "text": "child-only",
+                      "type": "output_text"
+                    }
+                  ],
+                  "phase": "final_answer",
+                  "type": "message"
+                }
+              ],
+              "status": "completed"
+            },
+            "type": "response.completed"
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "accepted": false,
+        "root_final": ""
+      },
+      "id": "no-terminal",
+      "input": {
+        "events": [
+          {
+            "delta": "unfinished",
+            "type": "response.output_text.delta"
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "accepted": false,
+        "root_final": ""
+      },
+      "id": "conflicting-ownership",
+      "input": {
+        "events": [
+          {
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "agent": {
+                "agent_name": "/root/audit"
+              },
+              "type": "message"
+            },
+            "type": "response.output_item.added"
+          },
+          {
+            "response": {
+              "output": [
+                {
+                  "agent": {
+                    "agent_name": "/root"
+                  },
+                  "content": [
+                    {
+                      "text": "verified-final",
+                      "type": "output_text"
+                    }
+                  ],
+                  "phase": "final_answer",
+                  "type": "message"
+                }
+              ],
+              "status": "completed"
+            },
+            "type": "response.completed"
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "accepted": true,
+        "root_final": "verified-final",
+        "unknown": []
+      },
+      "id": "consistent-ownership",
+      "input": {
+        "events": [
+          {
+            "agent": {
+              "agent_name": "/root"
+            },
+            "item": {
+              "agent": {
+                "agent_name": "/root"
+              },
+              "type": "message"
+            },
+            "type": "response.output_item.added"
+          },
+          {
+            "response": {
+              "output": [
+                {
+                  "agent": {
+                    "agent_name": "/root"
+                  },
+                  "content": [
+                    {
+                      "text": "verified-final",
+                      "type": "output_text"
+                    }
+                  ],
+                  "phase": "final_answer",
+                  "type": "message"
+                }
+              ],
+              "status": "completed"
+            },
+            "type": "response.completed"
+          }
+        ]
+      }
+    }
+  ],
+  "C-V": [
+    {
+      "expected": {
+        "attempt_count": 1,
+        "identity_valid": true,
+        "known_cost_usd": 0,
+        "total_cost_usd": 0,
+        "unknown_cost_attempts": 0,
+        "valid": true
+      },
+      "id": "healthy-zero",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "attempt_count": 2,
+        "identity_valid": true,
+        "known_cost_usd": 0.7,
+        "total_cost_usd": null,
+        "unknown_cost_attempts": 1
+      },
+      "id": "unfinished-unknown",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.7,
+            "type": "finished"
+          },
+          {
+            "attempt_id": "r8",
+            "type": "started"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "attempt_count": 1,
+        "identity_valid": false,
+        "known_cost_usd": 0.7,
+        "total_cost_usd": 0.7,
+        "unknown_cost_attempts": 0,
+        "valid": false
+      },
+      "id": "foreign-result",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.7,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "other"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "attempt_count": 1,
+        "identity_valid": true,
+        "known_cost_usd": 0.7,
+        "total_cost_usd": 0.7,
+        "unknown_cost_attempts": 0,
+        "valid": true
+      },
+      "id": "identical-finish-idempotent",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.7,
+            "type": "finished"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.7,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "valid": false
+      },
+      "id": "conflicting-finish",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.7,
+            "type": "finished"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.9,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "valid": false
+      },
+      "id": "orphan-finish",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "cost_usd": 0.7,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "valid": false
+      },
+      "id": "negative-cost",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": -0.1,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "valid": false
+      },
+      "id": "string-cost",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": "0.7",
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "expected": {
+        "valid": false
+      },
+      "id": "boolean-cost",
+      "input": {
+        "attempt_events": [
+          {
+            "attempt_id": "r7",
+            "type": "started"
+          },
+          {
+            "attempt_id": "r7",
+            "cost_usd": false,
+            "type": "finished"
+          }
+        ],
+        "expected_identity": {
+          "runtime": "fixed-1",
+          "target": "frozen-app"
+        },
+        "results": [
+          {
+            "id": "p1",
+            "result_identity": {
+              "runtime": "fixed-1",
+              "target": "frozen-app"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

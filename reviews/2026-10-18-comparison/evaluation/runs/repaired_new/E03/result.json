@@ -1,0 +1,68 @@
+{
+  "id": "E03",
+  "name": "distinct-endpoint-rates",
+  "classification": "extension",
+  "entry": "price",
+  "expected": "Same model decisions input-only prices USD2; responses text USD10.2; old exact-scoped adapter absent is unsupported.",
+  "variant": "repaired_new",
+  "outcome": "pass",
+  "contract_satisfied": true,
+  "evidence": "runs/repaired_new/E03",
+  "observed": {
+    "rows": [
+      {
+        "id": "e",
+        "stage": null,
+        "model": "same-model",
+        "status": "estimated_complete",
+        "cost_usd": 10.2,
+        "components": {
+          "uncached_input": 8.0,
+          "cached_input": 0.2,
+          "output_including_reasoning": 2.0,
+          "external_known": 0
+        },
+        "billing_identity": {
+          "interface": "responses",
+          "model": "same-model",
+          "provider": "fixture",
+          "region": "global",
+          "service_tier": "standard"
+        },
+        "usage_adapter": "text_tokens_v1",
+        "identity_status": "exact",
+        "rate_card_version": "synthetic-registered-v1",
+        "rate_card_sha256": "3862f30914f01cb78e5fa841258e7e6c452a3fd7bcc21192d6377a11e11f6635",
+        "warning": null
+      },
+      {
+        "id": "decisions",
+        "stage": null,
+        "model": "same-model",
+        "status": "estimated_complete",
+        "cost_usd": 2.0,
+        "components": {
+          "input": 2.0,
+          "external_known": 0
+        },
+        "billing_identity": {
+          "interface": "decisions",
+          "model": "same-model",
+          "provider": "fixture",
+          "region": "global",
+          "service_tier": "standard"
+        },
+        "usage_adapter": "input_only_v1",
+        "identity_status": "exact",
+        "rate_card_version": "synthetic-registered-v1",
+        "rate_card_sha256": "3862f30914f01cb78e5fa841258e7e6c452a3fd7bcc21192d6377a11e11f6635",
+        "warning": null
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 12.2,
+    "unknown_events": 0,
+    "partial_events": 0,
+    "total_cost_usd": 12.2,
+    "basis": "per-event exact billing scope, or legacy text scope; normalized adapters are not provider SDK field mappings"
+  }
+}

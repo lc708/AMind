@@ -1,0 +1,15 @@
+[
+  {
+    "role": "user",
+    "content": {
+      "requested_summary": "invoice corrected"
+    }
+  },
+  {
+    "role": "assistant",
+    "content": {
+      "answer": "invoice corrected",
+      "policy_ok": true
+    }
+  }
+]

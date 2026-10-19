@@ -1,0 +1,40 @@
+{
+  "at_utc": "2026-10-18T19:17:28.557904+00:00",
+  "target_executions": 6,
+  "total_target_cap": 48,
+  "plan_sha256": "408c54adfc481ef522f6addcd13ef71347d316cfe7e6f451a1ea34269286f963",
+  "model_and_effort_unchanged": true,
+  "explicit_mcp_disabled": true,
+  "engineering_task": "E-DURABLE",
+  "engineering_repetitions": 3,
+  "engineering_choice_reason": "Independent product workflow repairs frozen before main outcomes. Main D14 was found to be a scoring label restriction, not used as proof of gain or basis for selection. This is a ceiling/regression validation.",
+  "citation_confirmations": [
+    {
+      "run_id": "W017",
+      "task_id": "CIT-L",
+      "rep": 1,
+      "arm": "citation-before"
+    },
+    {
+      "run_id": "W018",
+      "task_id": "CIT-P",
+      "rep": 1,
+      "arm": "citation-current"
+    },
+    {
+      "run_id": "W038",
+      "task_id": "CIT-P",
+      "rep": 2,
+      "arm": "citation-docs"
+    }
+  ],
+  "original_main_retained": true,
+  "selection_after_discovery": true,
+  "source_rule_changed_for_confirmation": false,
+  "measurement_revision_reason": "Three main runs used inherited MCP despite intended disable. Correct explicit per-server enabled=false and re-execute those configurations in reserve.",
+  "planned_larger_repair_comparison_reallocated": "Earlier default preference E-DURABLE plus V-RELEASE replaced by E-DURABLE3 plus citation transport3 after runtime and grader issues; no additional targets beyond48.",
+  "limitations": [
+    "Original profile and corrected profile have different advertised tool surfaces.",
+    "Reused task confirmation; historical reference, no same seed or contemporaneous serving attestation."
+  ]
+}

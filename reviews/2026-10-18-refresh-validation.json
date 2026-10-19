@@ -1,0 +1,301 @@
+{
+  "application_tests": {
+    "failures": [],
+    "record": "reviews/2026-10-18-application-checks.json",
+    "record_sha256": "c60ebda45b868794a97535107beb2e87e350ebacc8a9acc78d1706e6dc109345",
+    "successful": true,
+    "tests_run": 127
+  },
+  "artifact_fingerprints": {
+    "release_manifest_sha256": "6304f82ec1dc03825a7f84d921634b6c0779666e8ed86d2f3df8b8c9e79034a0",
+    "report_sha256": "b72175b50e6c8b360a4f0caf480f2c86d8d922d08366b76d5c1e16dc3ffafa8f",
+    "skill_manifest_sha256": "c50dfa8ca66262c19715377a651da7950817415008a9831c59203d01a6344ed5"
+  },
+  "commands": [
+    "python3 -m unittest scripts.test_amind_skill scripts.test_amind_increment scripts.test_amind_refresh",
+    "python3 -m unittest scripts.test_amind_refresh_sources",
+    "python3 scripts/verify_amind_application_skills.py --output reviews/2026-10-18-application-checks.json",
+    "python3 scripts/check_amind_capability_map.py --upstream <exact pinned checkout>",
+    "python3 scripts/verify_amind_refresh.py",
+    "python3 skills/amind/scripts/verify.py",
+    "python3 scripts/verify_amind_increment.py --historical",
+    "python3 scripts/verify_amind_v1_release.py",
+    "python3 /Users/damonalbarn/.codex/skills/amind/scripts/verify.py  (cwd=/tmp)"
+  ],
+  "frozen_september_verification": {
+    "baseline_files_unchanged": 24,
+    "counts": {
+      "analysis_units": 1419,
+      "atomic_claims": 64265,
+      "equivalence_components": 189,
+      "lexical_opposition_candidates": 23,
+      "new_claims": 12040,
+      "new_passages": 1279,
+      "new_units": 68,
+      "passages": 14715,
+      "reviewed_kernel_claims": 54
+    },
+    "current_skill_checked": false,
+    "new_claims_quote_verified": 12040,
+    "new_human_gold_rows": 0,
+    "new_passages_processed": 1279,
+    "verdict": "PASS"
+  },
+  "frozen_v1_verification": {
+    "artifacts": 21,
+    "claims": 52225,
+    "passages": 13436,
+    "verdict": "PASS"
+  },
+  "full_evidence_verification": {
+    "counts": {
+      "analysis_units": 1537,
+      "atomic_claims": 129132,
+      "equivalence_components": 189,
+      "new_claims": 64867,
+      "new_passages": 5806,
+      "new_units": 118,
+      "passages": 20521,
+      "reviewed_kernel_claims": 54
+    },
+    "historical_files_unchanged": 59,
+    "lifecycle_decisions": 36,
+    "new_claims_quote_verified": 64867,
+    "new_human_gold_rows": 0,
+    "release_id": "amind-v1-increment-2026-10-18",
+    "verdict": "PASS"
+  },
+  "implementation_fingerprints": {
+    "scripts/amind_refresh_atoms.py": "6019ee6c53723d7337cf9d3b82a07234558de49a29f9ac52b4f648f2d0de3eca",
+    "scripts/package_amind_refresh.py": "0ab0a2d7bf9ebc8fb158d5a6002a5868f31f989b73e4557f155c921ea8b2b213",
+    "scripts/refresh_amind_sources.py": "78bb06c7d6dde85012fc01652bac4c9b2e14e26022138d409a6ba7a0853b1ce0",
+    "scripts/test_amind_refresh.py": "aba11d934b6354930b822c26cc63625f0d0878e8a5af440ca2fd41ed83d169be",
+    "scripts/test_amind_refresh_sources.py": "c9bc31e07f325db267d5f116d3f39addcd913c2ac35abab1692cb4d23cf8e4d3",
+    "scripts/verify_amind_refresh.py": "67f0adc079616b42c6d498021d1397aa24bc3df5867e5cd54fcd53c37c886d08",
+    "skills/amind/scripts/lifecycle.py": "c04b47b098684c27ef766ad1fc141487fa65a66b9876b1d9ab312a468dba6769",
+    "skills/amind/scripts/query.py": "85cd6e8fe9c41df79a5fc4983ca5a47f3e827b57c264aa4b700cc084d98b25e9",
+    "skills/amind/scripts/verify.py": "301e75f97cd69d34a368468017d030715f76744e6c305799b08011d4a028961f"
+  },
+  "independent_review": {
+    "checks": [
+      "Opus model comparison reply has no belief claims",
+      "9 legal editions / 781 claims effective boundaries",
+      "3 corrected incident explanations retained historically",
+      "3 September 10 corrections and 4 October 16 METR clarifications",
+      "57 former goals inactive currently",
+      "9 later editions unavailable before known start",
+      "49 policy announcement claims retain November 12 scope",
+      "Jack and guest author attribution; sampled exact offsets",
+      "independent visual review of 3 sandbox plots",
+      "report counts, partitions and review boundaries"
+    ],
+    "read_only": true,
+    "reviewer": "/root/refresh_review",
+    "unresolved_reported_findings": 0,
+    "verdict": "PASS"
+  },
+  "installation": {
+    "backup": "/Users/damonalbarn/.codex/skill-backups/amind-series-nbvefumg",
+    "inventory": {
+      "amind": {
+        "files": 23,
+        "identical": true
+      },
+      "amind-engineering": {
+        "files": 43,
+        "identical": true
+      },
+      "eval-improve": {
+        "files": 31,
+        "identical": true
+      }
+    },
+    "mode": "apply",
+    "portable_verification": {
+      "knowledge_summary": "1.3.0; 129132 claims; 1537 analysis units; 20521 passages; 54 Gold",
+      "knowledge_verifier": "PASS",
+      "working_directory": "/tmp"
+    },
+    "skills": [
+      {
+        "action": "replace",
+        "destination": "/Users/damonalbarn/.codex/skills/amind",
+        "name": "amind"
+      },
+      {
+        "action": "replace",
+        "destination": "/Users/damonalbarn/.codex/skills/amind-engineering",
+        "name": "amind-engineering"
+      },
+      {
+        "action": "replace",
+        "destination": "/Users/damonalbarn/.codex/skills/eval-improve",
+        "name": "eval-improve"
+      }
+    ],
+    "verified": true
+  },
+  "knowledge_tests": {
+    "elapsed_seconds": 80.156,
+    "failures": [],
+    "scope": "Offline evidence retrieval, lifecycle, provenance, frozen release and deterministic historical index checks; no model API calls.",
+    "skipped": [],
+    "successful": true,
+    "test_ids": [
+      "scripts.test_amind_skill.AMindSkillTests.test_attribution_filter_precedes_equivalence_collapse",
+      "scripts.test_amind_skill.AMindSkillTests.test_eval_suite_covers_all_modes_and_boundaries",
+      "scripts.test_amind_skill.AMindSkillTests.test_generated_evidence_is_current",
+      "scripts.test_amind_skill.AMindSkillTests.test_gold_kernel_distribution_explains_old_jack_repetition",
+      "scripts.test_amind_skill.AMindSkillTests.test_index_builder_rejects_duplicate_passage_ids",
+      "scripts.test_amind_skill.AMindSkillTests.test_index_builder_rejects_missing_or_unknown_claim_passage_ids",
+      "scripts.test_amind_skill.AMindSkillTests.test_invalid_manifest_is_a_controlled_error",
+      "scripts.test_amind_skill.AMindSkillTests.test_license_is_self_contained_and_preserves_evidence_rights",
+      "scripts.test_amind_skill.AMindSkillTests.test_openai_metadata_supports_explicit_and_implicit_use",
+      "scripts.test_amind_skill.AMindSkillTests.test_query_summary_reports_compact_and_full_counts",
+      "scripts.test_amind_skill.AMindSkillTests.test_readme_leads_with_install_and_broad_use",
+      "scripts.test_amind_skill.AMindSkillTests.test_retrieval_eval_suite",
+      "scripts.test_amind_skill.AMindSkillTests.test_search_returns_source_bound_full_index_evidence",
+      "scripts.test_amind_skill.AMindSkillTests.test_search_supports_chinese_theme_terms",
+      "scripts.test_amind_skill.AMindSkillTests.test_self_contained_verifier_passes",
+      "scripts.test_amind_skill.AMindSkillTests.test_show_resolves_a_stable_claim",
+      "scripts.test_amind_skill.AMindSkillTests.test_show_returns_bound_passage_context",
+      "scripts.test_amind_skill.AMindSkillTests.test_skill_contract_names_amind_and_three_labels",
+      "scripts.test_amind_skill.AMindSkillTests.test_skill_query_examples_are_working_directory_independent",
+      "scripts.test_amind_skill.AMindSkillTests.test_stats_exposes_corpus_concentration_without_treating_it_as_weight",
+      "scripts.test_amind_skill.AMindSkillTests.test_verifier_rejects_incompatible_or_incomplete_manifest",
+      "scripts.test_amind_skill.AMindSkillTests.test_verifier_rejects_tampered_evidence",
+      "scripts.test_amind_skill.AMindSkillTests.test_welfare_tension_uses_reviewed_direct_evidence",
+      "scripts.test_amind_increment.IncrementTests.test_current_retrieval_excludes_prior_edition_but_show_preserves_it",
+      "scripts.test_amind_increment.IncrementTests.test_increment_index_rebuild_is_identical_in_same_runtime",
+      "scripts.test_amind_increment.IncrementTests.test_new_system_card_is_retrievable_with_bound_context",
+      "scripts.test_amind_increment.IncrementTests.test_old_pdf_carrier_is_not_misclassified_as_new_revision",
+      "scripts.test_amind_increment.IncrementTests.test_original_v1_index_retains_frozen_population_and_provenance",
+      "scripts.test_amind_increment.IncrementTests.test_simulation_is_explicitly_retrievable_without_losing_scope",
+      "scripts.test_amind_increment.IncrementTests.test_system_prompt_artifacts_have_context_but_no_belief_claims",
+      "scripts.test_amind_increment.IncrementTests.test_tampered_quote_and_offsets_are_rejected",
+      "scripts.test_amind_refresh.LifecycleTests.test_decisions_must_have_precise_dates_explicit_targets_and_sources",
+      "scripts.test_amind_refresh.LifecycleTests.test_explicit_correction_changes_eligibility_without_rewriting_history",
+      "scripts.test_amind_refresh.LifecycleTests.test_future_as_of_needs_current_verification",
+      "scripts.test_amind_refresh.LifecycleTests.test_future_policy_and_preceding_policy_have_exclusive_boundary",
+      "scripts.test_amind_refresh.LifecycleTests.test_invalid_as_of_is_rejected",
+      "scripts.test_amind_refresh.LifecycleTests.test_lifecycle_file_is_hash_bound",
+      "scripts.test_amind_refresh.LifecycleTests.test_publication_observation_and_effective_dates_remain_distinct",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_actual_cli_is_portable_and_current_results_are_eligible",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_archived_goals_are_historical_without_asserting_completion",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_later_paragraph_corrections_do_not_leak_to_original_publication_day",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_model_reply_and_system_prompt_are_not_belief_claims",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_policy_editions_switch_on_effective_date",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_revised_edition_cannot_be_read_before_it_was_observed",
+      "scripts.test_amind_refresh.PackagedEvidenceTests.test_three_retracted_explanations_are_retained_but_not_current"
+    ],
+    "tests_run": 45
+  },
+  "same_runtime_packaging_rebuild": {
+    "artifacts_compared": 8,
+    "changed": [],
+    "ok": true,
+    "same_runtime_rebuild": true,
+    "sha256": {
+      "amind-full-index.sqlite3": "789fae55648780b22e4d3248a85dd9c4d7b226a9e45c0df9c6913211318dfccc",
+      "current-status.jsonl": "fa924acc9dd144476a197006ef20fffa80279387a879c9f9c7d2a9ac64305311",
+      "evidence-kernel.jsonl": "a80170900edaa7a41c8583090ad87a14ee06cc95140b725ea6b47a5b32a40a3a",
+      "manifest.json": "c50dfa8ca66262c19715377a651da7950817415008a9831c59203d01a6344ed5",
+      "passages.jsonl.gz": "394f4319cc80276462fc6b19a70d8d5a1ca562de1c9200bd575191906be15323",
+      "synthesis-tensions.jsonl": "84da397666f5b774d0ec18754db1c9b207fd8454b37fc7a14ef2e32a0ca669ba",
+      "theme-catalog.jsonl": "f1add6af00defe8cf71551500cfe0080899ddbffe2e7b74cb6599cd12263c22b",
+      "voice-profiles.jsonl": "5965b0d25970b1d5e12cae2cccdc93c3ffa6c47e9e5b846530c27fba1ba4f608"
+    }
+  },
+  "schema_name": "amind-series-refresh-validation",
+  "schema_version": 1,
+  "source_coverage": {
+    "body_captures": 393,
+    "configured_entry_points": 86,
+    "failed_entry_points": [
+      "anthropic-economic-research-team-index",
+      "anthropic-notebook-sitemap",
+      "anthropic-youtube-videos-1",
+      "claude-blog-index",
+      "code-with-claude-sessions-0",
+      "dario-archive",
+      "jared-kaplan-publications"
+    ],
+    "failed_selected_bodies": 0,
+    "scope": "configured public entry points and selected source bodies; no assertion of complete internet or spoken-interview coverage"
+  },
+  "source_inventory_verification": {
+    "meaning": "inventory and resource checks only; semantic/behavioral evidence is separate",
+    "reviewed_on": "2026-10-18",
+    "section_locators": 1346,
+    "source_commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "source_files": 96,
+    "source_hashes_verified": true,
+    "verification_command": "python3 scripts/check_amind_capability_map.py --upstream <checkout at dbd4588f9e1033efb41dad4bef2f7947c8993d44>"
+  },
+  "source_observation_completed_at": "2026-10-18T04:16:47.297567+00:00",
+  "source_rebuild_tests": {
+    "elapsed_seconds": 0.422,
+    "failures": [],
+    "scope": "Offline missing/partial-vault and source-configuration fail-closed checks; no source data mutation or network calls.",
+    "successful": true,
+    "test_ids": [
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_collect_and_review_do_not_require_historical_vault",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_declared_missing_raw_is_rejected",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_existing_native_failed_capture_can_use_its_saved_derivative",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_missing_comparison_body_cannot_silently_become_a_revision",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_missing_config_reuses_saved_entrypoint_snapshot_without_mutation",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_missing_or_empty_discovery_configuration_is_rejected",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_nonexistent_vault_fails_before_any_write",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_partial_vault_missing_seed_record_is_rejected",
+      "scripts.test_amind_refresh_sources.ReplayInputTests.test_required_stages_without_explicit_vault_fail_before_any_write"
+    ],
+    "tests_run": 9
+  },
+  "source_replay": {
+    "artifacts_compared": 23,
+    "changed": [],
+    "ok": true,
+    "record": "release/amind-v1-increment-2026-10-18/audits/replay-determinism.json",
+    "record_sha256": "6ee48eee6453360755c8d7365a4088255ad3d30f0ec894c8e15670d76b07e132"
+  },
+  "test_total": 181,
+  "validated_at": "2026-10-18T04:41:17.646383+00:00",
+  "verdict": "PASS",
+  "verification_boundaries": {
+    "complete_new_system_card_pages_extracted": 522,
+    "full_web_or_spoken_interview_coverage_claimed": false,
+    "independent_paid_skill_comparison_repeated": false,
+    "live_target_or_judge_API_calls": 0,
+    "new_human_gold": 0,
+    "new_machine_checked_claims": 64867,
+    "overall_quality_or_production_savings_improvement_claimed": false,
+    "remote_publication_performed": false,
+    "selected_AI_context_reviews": 20,
+    "selected_AI_page_reviews": 8
+  },
+  "versions": {
+    "amind": "1.3.0",
+    "amind-engineering": "0.3.0",
+    "eval-improve": "0.4.0"
+  },
+  "workspace_sync": {
+    "all_content_hashes_verified": true,
+    "baseline_head": "64b38fb03df1f0e0467b3e345bab28c3a9c6d995",
+    "branch": "codex/amind-october-refresh",
+    "committed": false,
+    "completed_at": "2026-10-18T04:41:43.850028+00:00",
+    "copied_or_removed_paths": 1903,
+    "destination": "/Users/damonalbarn/Work/AMind",
+    "post_sync_checks": {
+      "git_diff_check": "PASS",
+      "lifecycle_and_source_guard_tests": 23,
+      "portable_knowledge_verifier": "PASS",
+      "test_failures": 0
+    },
+    "remote_push": false,
+    "source_worktree": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind",
+    "status": "complete",
+    "unrelated_untracked_files_preserved": 2,
+    "worktree_retained": true
+  }
+}

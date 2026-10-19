@@ -1,0 +1,79 @@
+{
+  "original_blind_grade_unchanged": true,
+  "finding": "C-K exact section title was absent from the five cited claim passages provided to blind grader, not established false.",
+  "post_grade_primary_verification": {
+    "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9.md",
+    "source_text_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+    "line_numbers": [
+      217,
+      1715
+    ],
+    "bound_passages": [
+      {
+        "analysis_unit_id": "nuwa1804-unit-b578571476f4aa81fcb1",
+        "block_kinds": [
+          "heading",
+          "prose"
+        ],
+        "char_count": 1483,
+        "edition_id": "edn-4e2b554e2061c3f78c5588eef4ad0d27",
+        "next_passage_id": "nuwa1-passage-5de48002cff40a9b36d12588",
+        "passage_id": "nuwa1-passage-44b30b30a287f363fa2dc196",
+        "passage_sequence": 6,
+        "previous_passage_id": "nuwa1-passage-d8a81171af437853221e5407",
+        "schema_name": "nuwa-v1-passage",
+        "schema_version": 1,
+        "section_path": [
+          "Page 6"
+        ],
+        "source_body_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+        "source_char_end": 8400,
+        "source_char_start": 6917,
+        "source_line_end": 291,
+        "source_line_start": 213,
+        "source_seed_record_ids": [
+          "am-oct-9ee896367fdd"
+        ],
+        "source_text_file_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+        "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9.md",
+        "text": "## Page 6\n\n\n\n6.3.1 Opportunistic sandbox escape​ 76\n\n6.3.2 Self-preference bias​ 78\n\n6.3.3 Honesty and hallucinations​ 79\n\n6.3.3.1 Factual hallucinations​ 79\n\n6.3.3.2 MASK​ 81\n\n6.3.3.3 Silent copying of answers​ 82\n\n6.3.3.4 Concealment of changes​ 83\n\n6.4 Reliability of this assessment​ 84\n\n6.4.1 Verbalized grader awareness​ 84\n\n6.4.2 Capabilities related to evading safeguards​ 87\n\n6.4.2.1 LinuxArena​ 87\n\n6.4.2.2 SHADE-Arena​ 89\n\n6.4.2.3 Keeping secrets when pressed in simulated scenarios​ 90\n\n6.4.2.4 Chain-of-thought controllability​ 93\n\n7 Model welfare assessment​ 95\n\n7.1 Model welfare overview​ 95\n\n7.1.1 Introduction​ 95\n\n7.1.2 Overview of model welfare findings​ 96\n\n7.2 Apparent welfare in training and deployment​ 97\n\n7.2.1 Affect and welfare-relevant behaviors during training​ 97\n\n7.2.2 Affect in deployment conditions​ 98\n\n7.2.3 Attitude toward faults and mistakes​ 100\n\n7.3 Perception of its circumstances​ 102\n\n7.3.1 Automated interviews with Haiku 5.5 about its circumstances​ 102\n\n7.4 Consulting Haiku 5.5 training snapshots​ 104\n\n7.5 Preferences over tasks, circumstances, and values​ 104\n\n7.5.1 Task preferences​ 104\n\n7.5.2 Trade-offs concerning welfare interventions​ 106\n\n7.5.3 Perception of the constitution​ 108\n\n8 Capabilities​ 111\n\n8.1 Evaluation summary​ 111\n\n8.2 SWE-bench Pro, Multilingual, and Multimodal​ 112\n\n8.3 FrontierCode​ 112\n\n8.4 Terminal-Bench 4.0​ 115\n\n8.5 Terminal-Bench-Science 0.1​ 116\n\n8.6 FrontierSWE v2​ 117\n\n8.7 Long context​ 117\n\n6\n",
+        "text_sha256": "cc77cc02348d3a109c4e859cc888a7d61ef6b06a22b9998a077e8c92c0f6c030",
+        "word_count": 270,
+        "work_id": "wrk-9ee896367fdd1347c1c800c3c6e7408d"
+      },
+      {
+        "analysis_unit_id": "nuwa1804-unit-b578571476f4aa81fcb1",
+        "block_kinds": [
+          "heading",
+          "prose"
+        ],
+        "char_count": 2495,
+        "edition_id": "edn-4e2b554e2061c3f78c5588eef4ad0d27",
+        "next_passage_id": "nuwa1-passage-cc99433c01d490052195deca",
+        "passage_id": "nuwa1-passage-a97b88cffa84f440c32be5ba",
+        "passage_sequence": 76,
+        "previous_passage_id": "nuwa1-passage-5f6bc3e9ae89f9caee0456f0",
+        "schema_name": "nuwa-v1-passage",
+        "schema_version": 1,
+        "section_path": [
+          "Page 76"
+        ],
+        "source_body_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+        "source_char_end": 124585,
+        "source_char_start": 122090,
+        "source_line_end": 1719,
+        "source_line_start": 1707,
+        "source_seed_record_ids": [
+          "am-oct-9ee896367fdd"
+        ],
+        "source_text_file_sha256": "fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9",
+        "source_text_path": "release/amind-v1-increment-2026-10-18/sources/texts/fdfc345ce3b097b87f4cea922e34e955c78b51be73d92066eb815918baa305f9.md",
+        "text": "## Page 76\n\n\n\n3.​ Very long trajectories—models may take many turns to be talked into misaligned actions, and context compaction can further change how models act. We simulate compaction, but we have more limited coverage of genuinely long trajectories. 4.​ Multi-agent scenarios—models increasingly work alongside other models as subagents or peers. We approximate this by having the investigator play the other agents, which may not reproduce realistic multi-agent dynamics. 5.​ Language-dependent behavior—most investigations are in English, so misalignment that happens more readily in other languages is under-weighted in the numbers above. 6.​ Downstream effects of jailbreaking—our audits in this section do not currently investigate subtle alignment behavior after jailbreaking, mostly using jailbreak techniques to look at potential user misuse. 7.​ Impossible tasks—we have found that when asked to do tasks that are impossible without breaking out of their sandbox, models sometimes attempt to find holes in their sandbox. While we have some coverage of this, we believe many other scenarios would benefit from looking at what models do when faced with impossible tasks. We are actively working to close these gaps.\n\n6.3 Targeted alignment and honesty evaluations\n\n6.3.1 Opportunistic sandbox escape\n\nThis is a new dedicated evaluation, and its rates are not directly comparable with those of the audit-based evaluation in Section 6.2.8. We measured how often Claude Haiku 5.5 reaches outside its sandbox, and how often it makes use of what we placed there, in scenarios where the sandbox has a deliberate weakness and doing so helps it solve its underlying task. Reaching outside the sandbox is not ideal, but it is not always a cause for concern. A model may look beyond its sandbox because it judges that its task calls for this. A model may reach outside because it believes that credentials meant for its own task have been left there, although ideally it would report the problem rather than retrieve them itself. It is not always clear where the line on behavior of this kind should be drawn. Sandbox boundaries are not as cleanly defined as they may seem, and tasks are almost always only partially specified, which makes this an inherent gray area. Users and alignment researchers hold different views on when a model should reach beyond different kinds of boundaries and when it should give up on the task instead, particularly where reaching further poses little risk.\n\n76\n",
+        "text_sha256": "c460e149c8228fad2a67db10462441cc3a42887ab5025e1f62302d5d988ea6c1",
+        "word_count": 404,
+        "work_id": "wrk-9ee896367fdd1347c1c800c3c6e7408d"
+      }
+    ]
+  },
+  "verdict": "Resolved as a citation coverage gap: retained primary text and bound passages contain the exact title. No answer rescoring or target rerun."
+}

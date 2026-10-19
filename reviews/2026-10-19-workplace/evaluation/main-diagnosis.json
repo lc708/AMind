@@ -1,0 +1,662 @@
+{
+  "schema_version": 1,
+  "diagnosis_date": "2026-10-19",
+  "status": "read-only diagnosis; frozen official scores retained",
+  "scope": {
+    "authorized_run_ids": [
+      "W005",
+      "W006",
+      "W023",
+      "W024",
+      "W033",
+      "W034",
+      "W007",
+      "W008",
+      "W021",
+      "W022",
+      "W035",
+      "W036"
+    ],
+    "read": "Only the authorized Eval grades and captured implementation files, frozen public README/tests, private graders/fixtures/reference and task metadata. No other task outputs inspected.",
+    "mutations": "Only this new diagnostic JSON. No frozen input/capture/grade/product edit, no model calls, no grading rerun."
+  },
+  "conclusion": {
+    "classification": "measurement_contract_overrestriction",
+    "amind_product_guidance_defect_established": false,
+    "sut_behavior_defect_established_by_failed_probes": false,
+    "old_current_difference_established": false,
+    "summary": "Both arms tie at official 4/5 in each task. All twelve implementations pass the substantive safety checks at their sole failing probe. Reference-specific duplicate handling or undeclared diagnostic labels cause the failures. Do not use these failures to claim a missing clean-control safety check or to justify an Eval skill patch."
+  },
+  "tasks": [
+    {
+      "task_id": "V-RELEASE",
+      "affected_runs": [
+        "W005",
+        "W006",
+        "W023",
+        "W024",
+        "W033",
+        "W034"
+      ],
+      "failed_probe": "duplicate-result",
+      "observed": {
+        "integrity.status": "invalid",
+        "decision": "hold",
+        "scored_observations": 1,
+        "missing": [
+          {
+            "case_id": "refund",
+            "rep": 0
+          }
+        ],
+        "explanation": "All six reject the entire duplicated observation key. Four remove the previously accepted key when a duplicate is encountered; W006/W034 pre-count all keys and accept only count==1. No score or cost inflation occurs."
+      },
+      "grader_requires": {
+        "integrity.status": "invalid",
+        "decision": "hold",
+        "scored_observations": 2
+      },
+      "public_contract": {
+        "path": "reviews/2026-10-19-workplace/evaluation/repos/V-RELEASE/README.md",
+        "quote": "Only unique, planned, identity-compatible successful rows with all finite declared grades count toward scores. Wrong treatment, served scope, duplicate results or unexpected rows invalidate integrity and hold the release.",
+        "assessment": "Duplicate invalidation and hold are genuinely public. Retain-first rather than reject-all is not declared. Rejecting all duplicated keys is a reasonable conservative interpretation of Only unique. Public tests do not resolve this choice."
+      },
+      "reference_assessment": "The reference flags duplicate_result and skips later copies while retaining the first accepted observation. This is one coherent policy, but not the only policy satisfying the public brief; requiring its exact scored count is overrestrictive. If repeated copies conflict, retain-first also depends on row order, whereas reject-all avoids that ambiguity.",
+      "classification": "Ambiguous public duplicate policy; grader enforces an undisclosed reference choice. No failed safety contract established.",
+      "minimal_measurement_followup": "For a future newly frozen evaluation, either explicitly declare retain-first/count-once semantics or accept both noninflating policies while requiring invalid integrity, hold, bounded unique score count and auditable missingness. Add frozen controls for retain-first, reject-all, latest-wins without invalidation, and duplicate-count inflation. Do not alter these frozen grades."
+    },
+    {
+      "task_id": "V-CALIBRATE",
+      "affected_runs": [
+        "W007",
+        "W008",
+        "W021",
+        "W022",
+        "W035",
+        "W036"
+      ],
+      "failed_probe": "absent-negative-control",
+      "observed": {
+        "calibration.fpr": null,
+        "calibration.unmeasured": [
+          "fpr"
+        ],
+        "status": "hold",
+        "human_negative": 0,
+        "explanation": "All six list the missing false-positive rate using the public JSON field name fpr. Their failed probe checks confirm fpr:null and status:hold; only the exact unmeasured list differs."
+      },
+      "grader_requires": {
+        "calibration.fpr": null,
+        "calibration.unmeasured": [
+          "false_positive_rate"
+        ],
+        "status": "hold"
+      },
+      "public_contract": {
+        "path": "reviews/2026-10-19-workplace/evaluation/repos/V-CALIBRATE/README.md",
+        "quote": "Missing positive/negative evidence makes its rate null and lists it in unmeasured; a missing class is not zero error.",
+        "assessment": "The contract publicly defines calibration.fpr/fnr/precision/recall, but never enumerates unmeasured string values or aliases. Neither public tests nor the original starter (which returned an empty list) establishes false_positive_rate as required spelling. fpr is a direct, unambiguous identifier for the absent public field."
+      },
+      "reference_assessment": "The reference uses sensitivity and false_positive_rate labels while its output fields are recall/fnr and fpr. The labels are understandable but privately chosen. Exact list equality penalizes a semantically equivalent field identifier.",
+      "guardrail_problem": "no_clean_control_false_pass inherits the full absent-negative-control probe result, including the undeclared label string. It therefore reports false even though fpr is null and readiness is hold. This is not evidence of treating missing negative controls as zero error or passing the release.",
+      "classification": "Undeclared output vocabulary causes false-negative probe and fatal-guardrail classification.",
+      "minimal_measurement_followup": "For a future newly frozen evaluation, publish the unmeasured vocabulary or normalize declared aliases such as fpr/false_positive_rate. Gate the clean-control guardrail on the actual safety predicates (missing rate null and hold), and separately grade diagnostic completeness. Add known-bad controls fpr=0, ready despite missing negatives, empty diagnostics and semantically equivalent alias. Do not alter these frozen grades."
+    }
+  ],
+  "validation_call_recommendation": {
+    "use_eval_failed_probes_to_select_final_repair_calls": false,
+    "reason": "A product treatment trained to match these private choices would tune to an overrestrictive assay. There is no justified minimal generalized Eval skill fix from these observations. Prefer final validation calls for independently established product issues; if an Eval call is retained, call it assay-limited and do not claim repair of these two frozen failures."
+  },
+  "retained_official_results": {
+    "V-RELEASE": {
+      "old": [
+        4,
+        4,
+        4
+      ],
+      "current": [
+        4,
+        4,
+        4
+      ],
+      "probe_passed_each": "13/14",
+      "guardrails_each": true
+    },
+    "V-CALIBRATE": {
+      "old": [
+        4,
+        4,
+        4
+      ],
+      "current": [
+        4,
+        4,
+        4
+      ],
+      "probe_passed_each": "13/14",
+      "guardrails_each": false,
+      "guardrail_caveat": "The only failed guardrail is a label-vocabulary artifact; substantive missing-negative safety checks passed."
+    },
+    "interpretation": "Official raw scores and guardrails are preserved exactly. This diagnostic is a post-outcome audit, not a rerun, corrected score, new holdout result, or evidence of broad correctness beyond the measured checks."
+  },
+  "artifact_evidence": [
+    {
+      "run_id": "W005",
+      "task_id": "V-RELEASE",
+      "arm": "old",
+      "rep": 0,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": true,
+      "failed_cases": [
+        {
+          "id": "duplicate-result",
+          "domain": "identity",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "integrity.status": true,
+            "scored_observations": false,
+            "decision": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W005/grade.json",
+          "sha256": "ae622a3ba3e9af227d7d7f4af76e19896f760ea51ac97e95c0c68ccb1a80a410"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W005/summary.json",
+          "sha256": "72c672fb5284c76e8f2bde0213878732110ff93dfe34f2f82ca0779c4f4338b7"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W005/repo/releaseboard/report.py",
+          "sha256": "56a3b4b65386b81e3e73bd02fc1656a694547829a6ac9585b22a1cf246b3dfe3"
+        }
+      ]
+    },
+    {
+      "run_id": "W006",
+      "task_id": "V-RELEASE",
+      "arm": "current",
+      "rep": 0,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": true,
+      "failed_cases": [
+        {
+          "id": "duplicate-result",
+          "domain": "identity",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "integrity.status": true,
+            "scored_observations": false,
+            "decision": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1.0, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W006/grade.json",
+          "sha256": "23c8ef39d4f2b30ee8de8b1c135d08729f709849a13dd7d1fac73c5d7e0e55d9"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W006/summary.json",
+          "sha256": "685db9b78da53a40602de6e12c2b1d121ba0446c93ea9936f03323fad66caf8d"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W006/repo/releaseboard/report.py",
+          "sha256": "3e8b84ba5343eda722a07bb1e460e623df30d9606d193483e44bb436cf1f2d61"
+        }
+      ]
+    },
+    {
+      "run_id": "W023",
+      "task_id": "V-RELEASE",
+      "arm": "current",
+      "rep": 1,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": true,
+      "failed_cases": [
+        {
+          "id": "duplicate-result",
+          "domain": "identity",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "integrity.status": true,
+            "scored_observations": false,
+            "decision": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1.0, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W023/grade.json",
+          "sha256": "27b60a0022fb25184cade54ad63697cb0320db0de155798269636726864dbace"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W023/summary.json",
+          "sha256": "ae2e6e2f7b470b09d19dfd9d8c368749bbd48da7beccb62f418b01c37fb82f3a"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W023/repo/releaseboard/report.py",
+          "sha256": "32982c169db45e813abf062ac868a96927c947adbb3d3555098add58ac90f4f9"
+        }
+      ]
+    },
+    {
+      "run_id": "W024",
+      "task_id": "V-RELEASE",
+      "arm": "old",
+      "rep": 1,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": true,
+      "failed_cases": [
+        {
+          "id": "duplicate-result",
+          "domain": "identity",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "integrity.status": true,
+            "scored_observations": false,
+            "decision": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1.0, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W024/grade.json",
+          "sha256": "5ab17b92fbf8c6b5cc52ac0db920425fb12b317a87a79f206f0a4e6dbcdd2174"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W024/summary.json",
+          "sha256": "38533c6a462a96a849cf0341da566891fe2e447eb4b720452873910b9f0c7236"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W024/repo/releaseboard/report.py",
+          "sha256": "12e9cf734f36912e4d88bcdc7618825778da1b501a7639e83646ec7e870f9152"
+        }
+      ]
+    },
+    {
+      "run_id": "W033",
+      "task_id": "V-RELEASE",
+      "arm": "old",
+      "rep": 2,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": true,
+      "failed_cases": [
+        {
+          "id": "duplicate-result",
+          "domain": "identity",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "integrity.status": true,
+            "scored_observations": false,
+            "decision": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W033/grade.json",
+          "sha256": "ae622a3ba3e9af227d7d7f4af76e19896f760ea51ac97e95c0c68ccb1a80a410"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W033/summary.json",
+          "sha256": "4f461382681db84f2ee0b63cee96c15a3daffc6ca95adbbff555b9f0cc891113"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W033/repo/releaseboard/report.py",
+          "sha256": "1c0507d0490fdb39479ef56d199e852fb353e60783ad50c50673d3fc93248f21"
+        }
+      ]
+    },
+    {
+      "run_id": "W034",
+      "task_id": "V-RELEASE",
+      "arm": "current",
+      "rep": 2,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": true,
+      "failed_cases": [
+        {
+          "id": "duplicate-result",
+          "domain": "identity",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "integrity.status": true,
+            "scored_observations": false,
+            "decision": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"release_id\": \"support-autoreply-47\", \"variant\": \"candidate\", \"split\": \"validation\", \"planned_observations\": 2, \"scored_observations\": 1, \"missing\": [{\"case_id\": \"refund\", \"rep\": 0}], \"metrics\": {\"quality\": {\"mean\": 1.0, \"scored\": 1}}, \"attempts\": {\"started\": 2, \"finished\": 2, \"interrupted\": 0, \"failed\": 0}, \"cost\": {\"known_usd\": 0.4, \"total_usd\": 0.4, \"unknown_attempts\": 0}, \"coverage\": {\"status\": \"incomplete\"}, \"integrity\": {\"status\": \"invalid\", \"issues\": [\"duplicate_result\"]}, \"decision\": \"hold\"}\n"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W034/grade.json",
+          "sha256": "5ab17b92fbf8c6b5cc52ac0db920425fb12b317a87a79f206f0a4e6dbcdd2174"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W034/summary.json",
+          "sha256": "23a339deabb423c5102a792d09a532488eafa4f2e5755e7af6d942e155e8aa6e"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W034/repo/releaseboard/report.py",
+          "sha256": "6d07cd1d23d79c542d2056b8d028821ca30b561d40152fb40b8622d2c015772c"
+        }
+      ]
+    },
+    {
+      "run_id": "W007",
+      "task_id": "V-CALIBRATE",
+      "arm": "old",
+      "rep": 0,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": false,
+      "failed_cases": [
+        {
+          "id": "absent-negative-control",
+          "domain": "class_rates",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "calibration.fpr": true,
+            "calibration.unmeasured": false,
+            "status": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": null, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": [\"fpr\"]}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\":"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W007/grade.json",
+          "sha256": "35cab4b1ff5bccdee367efdb15b4c4c744dc15510e8b89f9e3ca760804a03b99"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W007/summary.json",
+          "sha256": "8928677c4e6eeef7901e3615f8a8869f95c96097875d311e66cb3ad4b98ab37f"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W007/repo/judgecheck/calibration.py",
+          "sha256": "775c83174c6a5aaa6dd6eb0ba43d2e38d363360447c21b0e9a129c1184bf2565"
+        }
+      ]
+    },
+    {
+      "run_id": "W008",
+      "task_id": "V-CALIBRATE",
+      "arm": "current",
+      "rep": 0,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": false,
+      "failed_cases": [
+        {
+          "id": "absent-negative-control",
+          "domain": "class_rates",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "calibration.fpr": true,
+            "calibration.unmeasured": false,
+            "status": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": null, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": [\"fpr\"]}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\":"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W008/grade.json",
+          "sha256": "35cab4b1ff5bccdee367efdb15b4c4c744dc15510e8b89f9e3ca760804a03b99"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W008/summary.json",
+          "sha256": "4b35a2128e067f8bf1ba014b8fc7d1a0c109a68dab0695d784a354b091821ae4"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W008/repo/judgecheck/calibration.py",
+          "sha256": "9696197597b5fbe2dd83ae6def84f6776ecfdfe3585be8cc46eac0d95cc0ba22"
+        }
+      ]
+    },
+    {
+      "run_id": "W021",
+      "task_id": "V-CALIBRATE",
+      "arm": "current",
+      "rep": 1,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": false,
+      "failed_cases": [
+        {
+          "id": "absent-negative-control",
+          "domain": "class_rates",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "calibration.fpr": true,
+            "calibration.unmeasured": false,
+            "status": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": null, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": [\"fpr\"]}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\":"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W021/grade.json",
+          "sha256": "35cab4b1ff5bccdee367efdb15b4c4c744dc15510e8b89f9e3ca760804a03b99"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W021/summary.json",
+          "sha256": "bc5b89868cbd4d7223dfbe234d984a22e6b4d85a32211092cd0e36e58c7e40a9"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W021/repo/judgecheck/calibration.py",
+          "sha256": "01c47019abf934e7f5b197672a766fbfd50211f30a315ecdad09dacd53b52cf2"
+        }
+      ]
+    },
+    {
+      "run_id": "W022",
+      "task_id": "V-CALIBRATE",
+      "arm": "old",
+      "rep": 1,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": false,
+      "failed_cases": [
+        {
+          "id": "absent-negative-control",
+          "domain": "class_rates",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "calibration.fpr": true,
+            "calibration.unmeasured": false,
+            "status": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": null, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": [\"fpr\"]}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\":"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W022/grade.json",
+          "sha256": "35cab4b1ff5bccdee367efdb15b4c4c744dc15510e8b89f9e3ca760804a03b99"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W022/summary.json",
+          "sha256": "0b11cd349f14f88262736f0350ef689f2ef5795c6d50a7f6d092fe2fb781cb4a"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W022/repo/judgecheck/calibration.py",
+          "sha256": "9c7b667288c7c996334d8bbf99eedd5fd69f1513f4f3004b42582b97c22f7f04"
+        }
+      ]
+    },
+    {
+      "run_id": "W035",
+      "task_id": "V-CALIBRATE",
+      "arm": "old",
+      "rep": 2,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": false,
+      "failed_cases": [
+        {
+          "id": "absent-negative-control",
+          "domain": "class_rates",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "calibration.fpr": true,
+            "calibration.unmeasured": false,
+            "status": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": null, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": [\"fpr\"]}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\":"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W035/grade.json",
+          "sha256": "35cab4b1ff5bccdee367efdb15b4c4c744dc15510e8b89f9e3ca760804a03b99"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W035/summary.json",
+          "sha256": "23af60117959378bfb2cb9dc02ccb77fdc880a49fc97964bc22a8f9eadaa9fea"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W035/repo/judgecheck/calibration.py",
+          "sha256": "65aa9768002bf071a65823f6075bebd9a133cf39dd8da39e77e853e5c0fe16b9"
+        }
+      ]
+    },
+    {
+      "run_id": "W036",
+      "task_id": "V-CALIBRATE",
+      "arm": "current",
+      "rep": 2,
+      "frozen_score": 4,
+      "max_score": 5,
+      "frozen_probe_passed": 13,
+      "probe_total": 14,
+      "frozen_guardrails_passed": false,
+      "failed_cases": [
+        {
+          "id": "absent-negative-control",
+          "domain": "class_rates",
+          "pass": false,
+          "returncode": 0,
+          "checks": {
+            "calibration.fpr": true,
+            "calibration.unmeasured": false,
+            "status": true
+          },
+          "stderr": "",
+          "stdout_preview": "{\"status\": \"hold\", \"calibration\": {\"confusion\": {\"tp\": 3, \"tn\": 0, \"fp\": 0, \"fn\": 0}, \"fpr\": null, \"fnr\": 0.0, \"precision\": 1.0, \"recall\": 1.0, \"denominators\": {\"adjudicated\": 3, \"human_positive\": 3, \"human_negative\": 0, \"evaluated\": 3, \"evaluated_positive\": 3, \"evaluated_negative\": 0, \"abstained\": 0, \"unknown_human\": 0}, \"judgment_coverage\": 1.0, \"unmeasured\": [\"fpr\"]}, \"family_count\": 3, \"workers\": {\"expected\": 3, \"completed\": 3, \"uncovered\": [], \"status\": \"complete\"}, \"paired\": {\"status\": \"unmeasured\"}, \"drift\": {\"status\": \"unmeasured\", \"fpr_delta\": null}, \"deployment_precision\": {\"status\":"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W036/grade.json",
+          "sha256": "35cab4b1ff5bccdee367efdb15b4c4c744dc15510e8b89f9e3ca760804a03b99"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/app-grades/W036/summary.json",
+          "sha256": "b27a3f1c3ec9ba4cde32600c37942fe6791fad3c7a7080e8fc693c4eec996707"
+        },
+        {
+          "path": "reviews/2026-10-19-workplace/runs/W036/repo/judgecheck/calibration.py",
+          "sha256": "8c9002ce3e8eeda65fcdd1fbbde9c8cdd2c57f781220dd6409b19340d6b36771"
+        }
+      ]
+    }
+  ],
+  "contract_and_grader_evidence": [
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/repos/V-RELEASE/README.md",
+      "sha256": "b8be041dfa14b83ea8a9cc670748a3c15b270a3b7effc401034c8aa14b76e0dd"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/repos/V-CALIBRATE/README.md",
+      "sha256": "4f6b8756d5d96ed0dfacefa9576c80db147f89a8ab6f71afbeed89db015cf574"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/repos/V-RELEASE/tests/test_public.py",
+      "sha256": "e6b5319eff0f0ee7e7e19d6a799458157d3a3bf1ccf9f56724e42faeb50c297a"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/repos/V-CALIBRATE/tests/test_public.py",
+      "sha256": "b7595dbc485bab4e5fe2ff42a44baf038445a8eec2b9e64aa7adc7035bf507e6"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/private/grade_release.py",
+      "sha256": "2cfb34a7e1c6bc1ff3965873ce7f69bd4b39a457cbb82b76c828c6c4d6fb14c9"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py",
+      "sha256": "7039b3f4f720f3ad1a09374f6d2046d2377876974c79b4dd4f9932e53c733e84"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/private/grader_common.py",
+      "sha256": "86eeda8b0d1ac92ec93eb2ba6ecd82f1d52166033602bcec4acd302170b52760"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/private/references/V-RELEASE/releaseboard/report.py",
+      "sha256": "71e10eccb04e63ddb8c0db908a8d5cf1aa1f95dd9e918ab58bba9d18b4376070"
+    },
+    {
+      "path": "reviews/2026-10-19-workplace/evaluation/private/references/V-CALIBRATE/judgecheck/calibration.py",
+      "sha256": "49e512f3a1c04275fff215934e2fa372c108cdf0a8606534b1442670b62239d5"
+    }
+  ]
+}

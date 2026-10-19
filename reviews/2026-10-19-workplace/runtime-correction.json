@@ -1,0 +1,25 @@
+{
+  "at_utc": "2026-10-18T19:14:52.384812+00:00",
+  "profile_name": "amind-workplace-20261019-shell-only",
+  "profile_file": "/Users/damonalbarn/.codex/amind-workplace-20261019-shell-only.config.toml",
+  "profile_text": "model = \"gpt-6.1-sol\"\nmodel_reasoning_effort = \"ultra\"\nweb_search = \"disabled\"\n[features]\napps = false\nplugins = false\nhooks = false\nmulti_agent = false\nbrowser_use = false\ncomputer_use = false\nimage_generation = false\nshell_snapshot = false\nskip_host_skill_discovery = true\nlocal_thread_store_compression = false\n\n[mcp_servers.node_repl]\nenabled = false\n[mcp_servers.openaiDeveloperDocs]\nenabled = false\n[mcp_servers.computer-use]\nenabled = false\n",
+  "profile_sha256": "e06622c70f2d2529abc14a6e982e34e6d6435be939d3933dae92200521834e75",
+  "effective_mcp_servers": [
+    {
+      "name": "computer-use",
+      "enabled": false
+    },
+    {
+      "name": "node_repl",
+      "enabled": false
+    },
+    {
+      "name": "openaiDeveloperDocs",
+      "enabled": false
+    }
+  ],
+  "native_cli": "/Users/damonalbarn/.local/bin/codex",
+  "reason": "Empty profile MCP table inherited host servers. Explicit enabled=false removes all listed MCP servers. No base host configuration changed.",
+  "official_docs": "https://learn.chatgpt.com/docs/extend/mcp#other-configuration-options",
+  "model_called": false
+}

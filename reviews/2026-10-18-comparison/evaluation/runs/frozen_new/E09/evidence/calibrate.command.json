@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/.codex-tmp/contrast-2026-10-18/new/skills/eval-improve/scripts/calibrate_grader.py",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-18-comparison/evaluation/runs/frozen_new/E09/input/labels.jsonl"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"examples\": 2,\n  \"judgments\": 2,\n  \"confusion\": {\n    \"tp\": 2,\n    \"tn\": 0,\n    \"fp\": 0,\n    \"fn\": 0\n  },\n  \"evaluation_identity\": {\n    \"dataset_version\": \"calibration-v1\",\n    \"grader_version\": \"judge-v1\",\n    \"judge_model\": \"judge-v1\",\n    \"rubric_sha256\": \"synthetic-rubric-v1\"\n  },\n  \"labels_sha256\": \"676add1451d3a5cbd7c5c5d7a9831533bcf0c500e61c3418f72b920d7bdb2a53\",\n  \"measurement_status\": {\n    \"positive_controls\": \"measured\",\n    \"negative_controls\": \"unmeasured\",\n    \"order_bias\": \"unmeasured\",\n    \"repeat_stability\": \"unmeasured\",\n    \"population_precision\": \"unmeasured\",\n    \"identity\": \"verified\"\n  },\n  \"positive_judgments\": 2,\n  \"negative_judgments\": 0,\n  \"agreement\": 1.0,\n  \"precision\": 1.0,\n  \"recall\": 1.0,\n  \"false_positive_rate\": null,\n  \"false_negative_rate\": 0.0,\n  \"specificity\": null,\n  \"sample_prevalence\": 1.0,\n  \"population_prevalence\": null,\n  \"population_adjusted_precision\": null,\n  \"disagreements\": [],\n  \"unstable_cases\": [],\n  \"order_inconsistency_rate\": null,\n  \"ready_for_review\": false,\n  \"limits\": \"Positive means the declared event, not automatically a safety violation. Curated/repeated samples are not independent population estimates. Base-rate precision is a scenario using supplied prevalence. Unmeasured checks do not pass. Human review must address auditor reward hacking, negative controls and rubric attacks.\"\n}\n",
+  "stderr": ""
+}

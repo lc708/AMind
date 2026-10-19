@@ -1,0 +1,153 @@
+{
+  "schema_name": "amind-review-artifact-archive-validation",
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "timezone": "Asia/Singapore",
+  "success": true,
+  "source_sha256": {
+    "scripts/package_amind_review_artifacts.py": "2b0fd804752775c2251876a4e57b86c78bc59b9d4bd22c22562c10fba65b1d0b",
+    "scripts/restore_amind_review_artifacts.py": "e3acc71ba65f86d2c7976e1fab7b4e69c62297cbc8eefc8a317a0ae3afc973f2",
+    "scripts/test_restore_amind_review_artifacts.py": "9aedfb6ab8cfad1045eae2a0a192a67855db0a4d2ebc458fe092e130dd695985",
+    "reviews/2026-10-19-shipping/README.md": "2972aa74542c13b27bc62b45c5151d03be456bd3650c0b1d8a99a1fd8f6d7066",
+    "reviews/2026-10-19-shipping/artifact-manifest.json": "716a6fed08956be31e508ddeb3e88317b8a45dd22db6fa74ac7cf0adf6f09871"
+  },
+  "bundles": [
+    {
+      "archive": "artifacts/october-18-agent-runs.tar.gz",
+      "member_count": 155,
+      "sha256": "2c9dfb948a8f4164d28027c8f52eb4d2316c190994562ca519b94aff2da5724d",
+      "size_bytes": 1007894,
+      "uncompressed_bytes": 5575530
+    },
+    {
+      "archive": "artifacts/october-19-workplace-runs.tar.gz",
+      "member_count": 4400,
+      "sha256": "9232fb9e2938b8f8a0b6542ee2ed6c6c85f4a85e89113f65eab41f03995bbdb0",
+      "size_bytes": 2544686,
+      "uncompressed_bytes": 17194511
+    },
+    {
+      "archive": "artifacts/october-19-reconciliation-fixtures.tar.gz",
+      "member_count": 16,
+      "sha256": "fa64ec34dd47d2cf7cc2f3220630f8a3e0a92b641a09c95e79fd3e696a652343",
+      "size_bytes": 5649,
+      "uncompressed_bytes": 278528
+    }
+  ],
+  "coverage": [
+    {
+      "manifest": "reviews/2026-10-19-workplace/main-plan-captured-files.json",
+      "sha256": "75e53fbd5f36c83906bb3b16578ba0a452c6ae2e229968e209440cae85c9191a",
+      "files": 4221,
+      "matching_in_archive": 4221
+    },
+    {
+      "manifest": "reviews/2026-10-19-workplace/repair-plan-captured-files.json",
+      "sha256": "f23b13fbf61777a83c617299e39d4a30929205eb4fda4cef856521a48c82fdbe",
+      "files": 179,
+      "matching_in_archive": 179
+    }
+  ],
+  "original_regular_files_matching_archive": 4571,
+  "included_log_files": 21,
+  "inert_link_count": 6,
+  "deterministic_repeat_build": {
+    "command": "python3 -B scripts/package_amind_review_artifacts.py",
+    "exit_code": 0,
+    "result": {
+      "success": true,
+      "bundles": 3,
+      "files": 4571,
+      "payload_bytes": 23048569,
+      "archive_bytes": 3558229,
+      "inert_symlinks": 6,
+      "manifest_sha256": "716a6fed08956be31e508ddeb3e88317b8a45dd22db6fa74ac7cf0adf6f09871"
+    },
+    "different_existing_artifacts_refused": true
+  },
+  "test_suite": {
+    "command": "python3 -B scripts/test_restore_amind_review_artifacts.py",
+    "exit_code": 0,
+    "tests": 15,
+    "output": "test_real_archives_restore_every_file_in_fresh_tree (__main__.FrozenArchiveRoundTripTests) ... ok\ntest_archive_checksum_is_checked (__main__.RestoreSafetyTests) ... ok\ntest_archive_path_cannot_escape_manifest_directory (__main__.RestoreSafetyTests) ... ok\ntest_case_unicode_and_file_directory_aliases_reject_before_writes (__main__.RestoreSafetyTests) ... ok\ntest_changed_existing_file_prevents_all_restores (__main__.RestoreSafetyTests) ... ok\ntest_cli_defaults_to_check (__main__.RestoreSafetyTests) ... ok\ntest_default_check_does_not_write_and_apply_is_idempotent (__main__.RestoreSafetyTests) ... ok\ntest_duplicate_tar_member_is_rejected (__main__.RestoreSafetyTests) ... ok\ntest_extra_and_missing_tar_members_are_rejected (__main__.RestoreSafetyTests) ... ok\ntest_gzip_expansion_is_bounded_by_inventory (__main__.RestoreSafetyTests) ... ok\ntest_member_checksum_is_checked_even_if_archive_hash_matches (__main__.RestoreSafetyTests) ... ok\ntest_member_outside_allowlisted_roots_is_rejected (__main__.RestoreSafetyTests) ... ok\ntest_symlink_parent_and_destination_are_rejected (__main__.RestoreSafetyTests) ... ok\ntest_tar_symlink_and_hardlink_members_are_rejected (__main__.RestoreSafetyTests) ... ok\ntest_traversal_path_is_rejected_even_if_manifest_and_archive_agree (__main__.RestoreSafetyTests) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 4.493s\n\nOK\n",
+    "real_fresh_tree_roundtrip": {
+      "files": 4571,
+      "all_file_sizes_and_hashes_checked": true,
+      "default_check_writes": 0,
+      "inert_links_restored": 0,
+      "repeated_apply_restored": 0
+    },
+    "negative_controls": [
+      "archive checksum",
+      "member checksum despite matching archive checksum",
+      "changed existing destination aborts before any restore",
+      "relative/absolute/Windows traversal paths",
+      "outside fixed roots",
+      "tar symlink and hardlink",
+      "duplicate/extra/missing tar member",
+      "symlink parent and final destination",
+      "gzip expansion beyond inventory",
+      "archive path escape",
+      "case aliases, Unicode NFC/NFD aliases, file-directory prefixes and case aliases in ancestor prefixes"
+    ]
+  },
+  "original_fingerprint_rechecks": [
+    {
+      "command": "python3 -B reviews/2026-10-19-workplace/capture_fingerprint.py --verify",
+      "exit_code": 0,
+      "result": {
+        "mode": "verify",
+        "runs": 42,
+        "files": 4221,
+        "success": true
+      }
+    },
+    {
+      "command": "python3 -B reviews/2026-10-19-workplace/capture_fingerprint.py --plan repair-plan.json --verify",
+      "exit_code": 0,
+      "result": {
+        "mode": "verify",
+        "runs": 6,
+        "files": 179,
+        "success": true
+      }
+    }
+  ],
+  "independent_review": {
+    "reviewer": "ship_engineering_eval_review",
+    "initial_findings": [
+      "On a case-insensitive macOS volume, A/a destinations passed the missing-file preflight then collided during apply.",
+      "A regular file and a descendant member passed empty-parent preflight then collided during apply."
+    ],
+    "fix": "NFD/casefold namespace validation of every full member path and directory prefix before destination writes.",
+    "reported_recheck": {
+      "negative_groups": 4,
+      "all_rejected_without_any_directory_writes": true,
+      "full_suite": "15/15",
+      "source_bytes": "4571/4571 match",
+      "remaining_blockers": 0
+    }
+  },
+  "preserved": {
+    "existing_frozen_records_modified": false,
+    "product_packages_modified": false,
+    "root_docs_modified": false,
+    "original_directories_deleted": false,
+    "symlinks_automatically_created": false,
+    "target_model_or_api_calls": 0
+  },
+  "limits": [
+    "The selected manifest and repository are the trust root; hashes are integrity checks, not signatures.",
+    "Multi-file restoration is not a global transaction. Runtime I/O errors or concurrent filesystem changes can leave earlier missing files restored; no-replace prevents overwriting existing destinations.",
+    "Historical absolute host paths and link targets remain inert provenance metadata.",
+    "POSIX O_NOFOLLOW/O_DIRECTORY and directory-descriptor operations are required."
+  ],
+  "publication_note": "The self-contained October source release remains unchanged, including public third-party HTML/PDF/text captures. Public client bootstrap keys in captured YouTube HTML are retained as historical source data, not identified user/provider credentials; original third-party rights remain.",
+  "current_product_checks_reported_by_parent": {
+    "total": 220,
+    "application": 160,
+    "knowledge": 60,
+    "separate_from_shipping_tests": 15,
+    "reported_version": "Eval 0.4.3"
+  }
+}

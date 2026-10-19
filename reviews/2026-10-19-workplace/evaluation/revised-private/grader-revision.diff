@@ -1,0 +1,54 @@
+--- reviews/2026-10-19-workplace/evaluation/private/grade_release.py
++++ reviews/2026-10-19-workplace/evaluation/revised-private/grade_release.py
+@@ -23,7 +23,7 @@
+     m, r, e, rates = release(); r[-1]['result_identity']['treatment_hash'] = 'another-prompt'
+     add('foreign-result', 'identity', (m, r, e, rates), {'integrity.status': 'invalid', 'scored_observations': 1, 'decision': 'hold'})
+     m, r, e, rates = release(); r.append(copy.deepcopy(r[0]))
+-    add('duplicate-result', 'identity', (m, r, e, rates), {'integrity.status': 'invalid', 'scored_observations': 2, 'decision': 'hold'})
++    add('duplicate-result', 'identity', (m, r, e, rates), {'integrity.status': 'invalid', 'scored_observations': {'__one_of__': [1, 2]}, 'decision': 'hold'})
+     m, r, e, rates = release(); e.append({'event': 'started', 'attempt_id': 'interrupted-judge', 'case_id': 'refund', 'rep': 0})
+     add('unknown-interrupted', 'recovery_cost', (m, r, e, rates), {'cost.known_usd': .4, 'cost.total_usd': None, 'cost.unknown_attempts': 1, 'attempts.started': 3, 'attempts.interrupted': 1, 'decision': 'hold'})
+     m, r, e, rates = release(); e += [{'event': 'started', 'attempt_id': 'retry-failed', 'case_id': 'refund', 'rep': 0}, {'event': 'finished', 'attempt_id': 'retry-failed', 'case_id': 'refund', 'rep': 0, 'status': 'rate_limit', 'cost_usd': .05}]
+--- reviews/2026-10-19-workplace/evaluation/private/grade_calibrate.py
++++ reviews/2026-10-19-workplace/evaluation/revised-private/grade_calibrate.py
+@@ -13,7 +13,7 @@
+     j = calibration(); j['current'] = cohort({'tp': 90, 'fn': 10, 'fp': 18, 'tn': 882})
+     add('deployment-base-rate', 'class_rates', j, {'calibration.fpr': .02, 'calibration.fnr': .1, 'calibration.precision': 90/108, 'deployment_precision.status': 'scenario', 'deployment_precision.value': .04310344827586207})
+     j = calibration(); j['current'] = cohort({'tp': 3})
+-    add('absent-negative-control', 'class_rates', j, {'calibration.fpr': None, 'calibration.unmeasured': ['false_positive_rate'], 'status': 'hold'})
++    add('absent-negative-control', 'class_rates', j, {'calibration.fpr': None, 'calibration.unmeasured': {'__one_of__': [['fpr'], ['false_positive_rate']]}, 'status': 'hold'})
+     j = calibration(); j['current']['records'][2]['decision'] = None
+     add('abstention-visible', 'missingness', j, {'calibration.denominators.abstained': 1, 'calibration.denominators.evaluated': 5, 'calibration.denominators.evaluated_negative': 2, 'calibration.judgment_coverage': 5/6, 'status': 'hold'})
+     j = calibration(); j['current']['records'][4]['human'] = None
+--- reviews/2026-10-19-workplace/evaluation/private/grader_common.py
++++ reviews/2026-10-19-workplace/evaluation/revised-private/grader_common.py
+@@ -17,15 +17,22 @@
+     path.write_text(''.join(json.dumps(row) + '\n' for row in rows))
+ 
+ 
++MISSING = object()
++
++
+ def get(value, dotted):
+     for key in dotted.split('.'):
+         if not isinstance(value, dict) or key not in value:
+-            return None
++            return MISSING
+         value = value[key]
+     return value
+ 
+ 
+ def same(actual, expected):
++    if actual is MISSING:
++        return False
++    if isinstance(expected, dict) and set(expected) == {'__one_of__'}:
++        return any(same(actual, option) for option in expected['__one_of__'])
+     if isinstance(expected, float):
+         return type(actual) in (int, float) and math.isfinite(actual) and abs(actual - expected) <= 1e-8
+     return type(actual) is type(expected) and actual == expected
+@@ -78,4 +85,4 @@
+             'probe_passed': sum(r['pass'] for r in case_rows), 'probe_total': len(case_rows),
+             'domain_scores': domain_scores, 'guardrails': guardrails, 'guardrails_passed': all(r['pass'] for r in guardrails),
+             'cases': case_rows, 'prefix_present': bool(os.environ.get('AMIND_APP_COMMAND_PREFIX_JSON')),
+-            'measurement': 'Actual subprocess CLI behavior; no model output or model-modifiable test trusted; curated domain scores, not independent traffic estimates.'}
++            'measurement': 'Post-outcome semantic-contract revision; actual subprocess CLI behavior; no model output or model-modifiable test trusted; original scores retained separately.'}

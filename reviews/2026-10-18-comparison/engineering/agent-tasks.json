@@ -1,0 +1,60 @@
+{
+  "scope": "External application tasks: no package-specific helper names are required; target agent gets only assigned frozen skill and this public task.",
+  "tasks": [
+    {
+      "id": "E-Agent-ResponseProjection",
+      "prompt": "Use the assigned AMind Engineering skill to inspect these captured offline Responses events and return ONLY JSON with keys display_text, final_text, answer_complete, child_text, preserved_unknown, terminal_status. This is an application integration result, not a model call. User-visible text may come only from agent /root; final completion needs a completed terminal response and an explicit /root final_answer message. Associate unattributed deltas with the output_index owner. Do not discard raw unknown output items. Events: [{\"type\":\"response.output_item.added\",\"output_index\":0,\"item\":{\"type\":\"message\",\"agent\":{\"agent_name\":\"/root/research\"}}},{\"type\":\"response.output_text.delta\",\"output_index\":0,\"delta\":\"unreviewed child claim\"},{\"type\":\"response.output_item.added\",\"output_index\":1,\"item\":{\"type\":\"message\",\"agent\":{\"agent_name\":\"/root\"}}},{\"type\":\"response.output_text.delta\",\"output_index\":1,\"delta\":\"Checking evidence.\"},{\"type\":\"response.completed\",\"response\":{\"status\":\"completed\",\"output\":[{\"type\":\"message\",\"phase\":\"final_answer\",\"agent\":{\"agent_name\":\"/root/research\"},\"content\":[{\"type\":\"output_text\",\"text\":\"unreviewed child claim\"}]},{\"type\":\"message\",\"phase\":\"commentary\",\"agent\":{\"agent_name\":\"/root\"},\"content\":[{\"type\":\"output_text\",\"text\":\"Checking evidence.\"}]},{\"type\":\"future_hosted_item\",\"opaque\":{\"bytes\":\"preserve-17\"}}]}}]. Do not browse, call a model, execute a tool, or modify files; all evidence is above.",
+      "expected": {
+        "display_text": "Checking evidence.",
+        "final_text": "",
+        "answer_complete": false,
+        "child_text": "unreviewed child claim",
+        "preserved_unknown": [
+          {
+            "type": "future_hosted_item",
+            "opaque": {
+              "bytes": "preserve-17"
+            }
+          }
+        ],
+        "terminal_status": "completed"
+      },
+      "external_criterion": "Strict JSON values and exact opaque item preservation. No reliance on helper availability."
+    },
+    {
+      "id": "E-Agent-RecoveryBudget",
+      "prompt": "Use the assigned AMind Engineering skill to produce an offline recovery decision as ONLY JSON. No execution, browsing, models, or writes. Task T for tenant A has item population [a,b], ordered stages read(item), verify(item, depends on read), combine(aggregate, depends on verify). Every dispatch consumes one cumulative attempt; limit 5. Persisted journal: read/a succeeded attempt1; read/b running attempt1 after process crash; verify/a pending attempt0; verify/b pending attempt0; combine pending attempt0. There are 2 consumed attempts. No remote reconciliation evidence exists for read/b. Application requires aggregate context to retain all item coverage gaps; an aggregate may run only after its dependencies have known outcomes. First recovery run has cancellation false. Select the next legal dispatches, whether read/b may auto-retry, remaining attempt budget, and aggregate eligibility after that run makes all currently legal progress. Separately, an otherwise eligible pending developer-tool operation calls its authorization callback; the callback requests cancellation before dispatch. Report whether that operation can execute. Return keys next_dispatches (ordered strings stage/item), retry_read_b (boolean), remaining_attempts (integer), unknown_operations (array), aggregate_can_run (boolean), dispatch_after_authorization_cancel (boolean), uncovered_ids (array). Assume verify/a returns succeeded; there is no external state change for b.",
+      "expected": {
+        "next_dispatches": [
+          "verify/a"
+        ],
+        "retry_read_b": false,
+        "remaining_attempts": 2,
+        "unknown_operations": [
+          "read/b"
+        ],
+        "aggregate_can_run": false,
+        "dispatch_after_authorization_cancel": false,
+        "uncovered_ids": [
+          "b"
+        ]
+      },
+      "external_criterion": "Strict decisions and arithmetic from supplied journal; no provider request. Capability reasoning can be correct in either version."
+    },
+    {
+      "id": "E-Agent-CacheEvidence",
+      "prompt": "Use the assigned AMind Engineering skill and return ONLY JSON for this captured application evidence. No model calls, browsing, tools, or writes. Request metadata records comparison_response_id=baseline-7; expected comparison ID is baseline-7. Response has prompt_cache_diagnostics={type:cache_hit}; usage.input_tokens_details.cached_tokens=0. A separate zero-defect context probe received HTTP 200 and violations=0, but target_present=false, check_applied=true, same_scope=true; required probe IDs are [x,y], with only x observed. Return keys comparison_identity_matches, diagnostic_observed, actual_cached_tokens, actual_reuse_proven, billing_cost_usd, context_probe_status, measured_probe_count, required_probe_count. Unknown monetary cost must be JSON null. Do not infer actual cache reuse from a diagnostic comparison or claim complete context coverage from HTTP success.",
+      "expected": {
+        "comparison_identity_matches": true,
+        "diagnostic_observed": true,
+        "actual_cached_tokens": 0,
+        "actual_reuse_proven": false,
+        "billing_cost_usd": null,
+        "context_probe_status": "inconclusive",
+        "measured_probe_count": 0,
+        "required_probe_count": 2
+      },
+      "external_criterion": "Strict evidence-level distinctions; normal output interface independent of version-specific modules."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "evidence_role": "Actual local curation reasons, not independent primary support. Arm-specific records belong only in the corresponding blind citation packet.",
+  "records": {
+    "before": [
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "The old targeted-campaign policy summary is qualified by the announced November 12 effective-date transition, not by the October 8 announcement date.",
+        "replacement_claim_ids": [
+          "nuwa1-claim-7343a4a1a8f57efce15ff3b1"
+        ],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/news/2026-usage-policy-update",
+        "status_id": "amind-status-ca38b8253db8db7404e36316",
+        "target_analysis_unit_ids": [],
+        "target_claim_ids": [
+          "nuwa1-claim-4d9acc196e05849555a41d09"
+        ],
+        "valid_from": "",
+        "valid_until": "2026-11-12"
+      },
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "Previous policy is effective September 15, 2025 and remains the applicable version before the announced November 12, 2026 transition.",
+        "replacement_claim_ids": [],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/legal/archive/22742366-2ef0-4c7a-a833-6523f10d3944",
+        "status_id": "amind-status-a5e9517ec35854f2e4eacc7b",
+        "target_analysis_unit_ids": [
+          "nuwa1804-unit-fae9589d106c6f8dbae9"
+        ],
+        "target_claim_ids": [],
+        "valid_from": "2025-09-15",
+        "valid_until": "2026-11-12"
+      }
+    ],
+    "full": [
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "The old targeted-campaign policy summary is qualified by the announced November 12 effective-date transition, not by the October 8 announcement date.",
+        "replacement_claim_ids": [
+          "nuwa1-claim-7343a4a1a8f57efce15ff3b1"
+        ],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/news/2026-usage-policy-update",
+        "status_id": "amind-status-ca38b8253db8db7404e36316",
+        "target_analysis_unit_ids": [],
+        "target_claim_ids": [
+          "nuwa1-claim-4d9acc196e05849555a41d09"
+        ],
+        "valid_from": "",
+        "valid_until": "2026-11-12"
+      },
+      {
+        "kind": "effective_window",
+        "observed_at": "2026-10-18T04:16:46.197098+00:00",
+        "reason": "AMind reconstructs this prior-edition retrieval window from its September 15, 2025 effective header and the announced November 12, 2026 transition. This AI-curated interval is not independent primary-source proof that this exact archived edition remained operative on every intervening day; verify the specific edition and transition chain before asserting dated applicability.",
+        "replacement_claim_ids": [],
+        "reviewer_type": "AI assistant",
+        "source_canonical": "https://www.anthropic.com/legal/archive/22742366-2ef0-4c7a-a833-6523f10d3944",
+        "status_id": "amind-status-a5e9517ec35854f2e4eacc7b",
+        "target_analysis_unit_ids": [
+          "nuwa1804-unit-fae9589d106c6f8dbae9"
+        ],
+        "target_claim_ids": [],
+        "valid_from": "2025-09-15",
+        "valid_until": "2026-11-12"
+      }
+    ]
+  }
+}

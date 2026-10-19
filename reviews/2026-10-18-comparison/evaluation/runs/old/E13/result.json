@@ -1,0 +1,12 @@
+{
+  "id": "E13",
+  "name": "paired-judge-change",
+  "classification": "extension",
+  "entry": "calibrate",
+  "expected": "Identical cases/rubric/adjudication: one improved, one regressed, paired agreement delta0; old baseline flag absent unsupported.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E13",
+  "observed": {}
+}

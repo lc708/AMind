@@ -1,0 +1,66 @@
+--- frozen_new/skills/eval-improve/scripts/report_eval.py
++++ repaired_new/skills/eval-improve/scripts/report_eval.py
+@@ -29,13 +29,23 @@
+         rows=read_jsonl(in_root(flow,f'{name}/results.jsonl'))
+         errors_path=in_root(flow,f'{name}/errors.jsonl'); errors=read_jsonl(errors_path) if errors_path.exists() else []
+         events_path=in_root(flow,f'{name}/attempts.jsonl')
+-        attempts=[e for e in read_jsonl(events_path) if e.get('event')=='finished'] if events_path.exists() else []
++        events=read_jsonl(events_path) if events_path.exists() else []
++        attempts=[e for e in events if e.get('event')=='finished']
++        finished_ids={e.get('attempt_id') for e in attempts}
++        interrupted=[e for e in events if e.get('event')=='started' and e.get('attempt_id') not in finished_ids]
+         manifest_path=in_root(flow,f'{name}/manifest.json'); manifest=read_json(manifest_path) if manifest_path.exists() else {}
+         integrity='unverified legacy artifacts'
+         try:
+             contract_hash(manifest)
+             if manifest['results_sha256']!=sha(read_bytes(in_root(flow,f'{name}/results.jsonl'))): raise ValueError('result hash changed')
+             if manifest.get('attempts_sha256')!=sha(read_bytes(events_path)): raise ValueError('attempt hash changed')
++            if manifest.get('result_identity_required'):
++                for row in rows:
++                    expected={'comparison_hash':manifest['comparison_hash'],
++                              'treatment_hash':manifest.get('treatment_hash'),
++                              'case_id':row.get('prompt_id'),'rep':row.get('rep')}
++                    if row.get('result_identity')!=expected:
++                        raise ValueError('result identity differs from its measurement/treatment/case')
+             integrity='hashes match export; not a security attestation'
+         except (OSError,ValueError,KeyError) as e:
+             integrity='unverified: '+str(e)
+@@ -45,13 +55,14 @@
+             values=[r.get('grade',{}).get(m['id']) for r in rows if r.get('status')=='ok']
+             values=[float(v) for v in values if finite(v) or isinstance(v,bool)]
+             scores[m['id']]={'mean':statistics.mean(values) if values else None,'scored':len(values)}
+-        cost_items=attempts if attempts else rows
++        cost_items=attempts if attempts or interrupted else rows
+         known=sum(r.get('known_cost_usd',r.get('cost_usd') or 0.) for r in cost_items)
+-        unknown=sum(not finite(r.get('cost_usd')) for r in cost_items)
++        unknown=sum(not finite(r.get('cost_usd')) for r in cost_items)+len(interrupted)
+         latency=[r['latency_s'] for r in rows if finite(r.get('latency_s'))]
+         summaries.append({'variant':name,'split':manifest.get('split','unknown'),'status':manifest.get('status','unknown'),
+                           'scored_observations':len(rows),'planned_observations':planned,'metrics':scores,
+-                          'failed_attempts':len(errors),'attempts':len(attempts) if attempts else None,
++                          'failed_attempts':len(errors),'attempts':len(attempts)+len(interrupted) if events else None,
++                          'interrupted_attempts':len(interrupted),
+                           'known_cost_usd':known,'unknown_cost_attempts':unknown,
+                           'total_cost_usd':None if unknown else known,
+                           'latency_p50_s':quantile(latency,.5),'latency_p95_s':quantile(latency,.95),
+@@ -70,6 +81,9 @@
+                             'coverage':row.get('coverage', {'status':'unmeasured'}),
+                             'cost_usd':row.get('cost_usd'),'output':row.get('output'),'explanation':row.get('explanation'),'trace':trace})
+         for error in errors: details.append({'variant':name,'failure':error})
++        for attempt in interrupted:
++            details.append({'variant':name,'interrupted_attempt':attempt,'cost_usd':None,
++                            'outcome':'unknown; reconcile before retrying'})
+     return {'variants':summaries,'details':details,
+             'interpretation':'Scored means exclude unscored attempts; inspect coverage before comparing. Validation is selection evidence. Synthetic runs do not measure model ability. No automatic winner.'}
+ 
+--- frozen_new/skills/eval-improve/references/artifacts.md
++++ repaired_new/skills/eval-improve/references/artifacts.md
+@@ -29,7 +29,7 @@
+ 
+ ## Reports
+ 
+-`report_eval.py FLOW` creates `report-full.html` and `report-data.json` with every declared metric, planned/scored coverage, attempt failures, known and unknown cost, latency quantiles, synthetic labels, integrity status, per-case outputs, grader explanations and escaped traces. It is local and needs no external JS/CDN. It does not declare a winner. Scored means exclude unscored attempts and must be read alongside coverage.
++`report_eval.py FLOW` creates `report-full.html` and `report-data.json` with every declared metric, planned/scored coverage, attempt failures, known and unknown cost, latency quantiles, synthetic labels, integrity status, per-case outputs, grader explanations and escaped traces. It is local and needs no external JS/CDN. It does not declare a winner. Scored means exclude unscored attempts and must be read alongside coverage. Started attempts without a finished outcome remain counted as interrupted attempts with unknown cost; even when there are no finished calls, the report cannot label their total spend zero. Reports check required per-result measurement/treatment/case bindings as well as byte hashes, and mark mismatched ownership unverified.
+ 
+ `build-report.mjs FLOW` retains the attributed upstream lite viewer for older workflows and trajectory files. It emphasizes the primary metric and legacy trace naming; use the full reporter for the new runner's hashed trace paths and all-metric evidence. The lite viewer is not a second decision engine.
+ 

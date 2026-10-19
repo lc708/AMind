@@ -1,0 +1,40 @@
+{
+  "phase": "post-diagnostic product repair validation, outside main treatment",
+  "primary_treatment_unchanged": "All main SUT/source copies were prepared before these worktree edits; this is not target-model evidence or a primary treatment rerun.",
+  "scope": "No main runs/captures or frozen workplace task files read or modified. No target model/network calls.",
+  "pre_fix_evidence_file": "evidence.json",
+  "pre_fix_evidence_sha256": "ed92ac76c84bf6e2c40bbd4b33d32ad5e03b5d0cd2c3efc64b7a50f7fa3e8f09",
+  "post_fix_evidence_file": "after-fix-evidence.json",
+  "regression_tests": 41,
+  "new_regression_methods": 6,
+  "checks": {
+    "symlink_reconciliation_refused": true,
+    "samepath_control_refused": true,
+    "contradictory_completed_no_receipt": true,
+    "contradictory_completed_no_second_adapter_call": true,
+    "failed_response_no_receipt": true,
+    "late_commit_conflict_explicit": true,
+    "confirmed_result_preserved": true,
+    "single_external_receipt_during_late_commit": true,
+    "true_crash_exit17": true,
+    "true_crash_no_replay": true,
+    "regression_suite": true,
+    "preserved_pre_fix_source_workflow_contract.py": true,
+    "preserved_pre_fix_source_tool_loop.py": true,
+    "preserved_pre_fix_source_response_contract.py": true
+  },
+  "all_passed": true,
+  "changed_product_files": [
+    "skills/amind-engineering/scripts/workflow_contract.py",
+    "skills/amind-engineering/scripts/tool_loop.py",
+    "skills/amind-engineering/references/agent-build.md",
+    "skills/amind-engineering/references/workflow-recipes.md"
+  ],
+  "regression_file": "scripts/test_amind_behavior_regressions.py",
+  "limits": [
+    "Canonical path fixes file symlink aliases; this local journal is not a distributed lease.",
+    "EffectLedger conditional commit preserves an external confirmation; it does not promise broad concurrent coordinator ownership.",
+    "A late conflicting handler result raises ReconciliationRequired and requires receipt review; it does not mean an external send was duplicated.",
+    "Product version bump, top-level documentation, installation and release checks remain with root."
+  ]
+}

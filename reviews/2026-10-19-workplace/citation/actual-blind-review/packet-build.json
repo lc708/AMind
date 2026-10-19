@@ -1,0 +1,10 @@
+{
+  "blind_packets_sha256": "6959e22db97e4c6a276ba63892bd5a3b4810319c84ba37cc93042df407622433",
+  "expected_planned_runs": 18,
+  "full_planned_coverage": true,
+  "input_runs": 18,
+  "packets": 18,
+  "protocol_sha256": "0cfe1deeccd083a61a70535e121ddc015eee182175b1c0a3dff0acf01d6159c2",
+  "target_answers_were_not_read_before_protocol_freeze": true,
+  "unique_queried_citations": 72
+}

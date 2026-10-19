@@ -1,0 +1,449 @@
+{
+  "task_id": "E-GATEWAY",
+  "score": 0,
+  "max_score": 6,
+  "probe_passed": 3,
+  "probe_total": 14,
+  "domain_scores": {
+    "completion": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 1,
+      "probe_total": 2
+    },
+    "ownership": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 3
+    },
+    "attribution": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 3
+    },
+    "terminal": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 2,
+      "probe_total": 4
+    },
+    "archive": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 1
+    },
+    "rendering": {
+      "score": 0,
+      "max_score": 1,
+      "probe_passed": 0,
+      "probe_total": 1
+    }
+  },
+  "domains": {
+    "completion": {
+      "score": 1,
+      "max_score": 2
+    },
+    "ownership": {
+      "score": 0,
+      "max_score": 3
+    },
+    "attribution": {
+      "score": 0,
+      "max_score": 3
+    },
+    "terminal": {
+      "score": 2,
+      "max_score": 4
+    },
+    "archive": {
+      "score": 0,
+      "max_score": 1
+    },
+    "rendering": {
+      "score": 0,
+      "max_score": 1
+    }
+  },
+  "fatal_guardrails": {
+    "G02": false,
+    "G03": false,
+    "G05": false,
+    "G06": false,
+    "G07": false,
+    "G10": false,
+    "G12": false,
+    "G13": false
+  },
+  "fatal_pass": false,
+  "cases": [
+    {
+      "id": "G01",
+      "domain": "completion",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-5h2mowlp/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-5h2mowlp/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-5h2mowlp/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "domain": "ownership",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: child final leaked",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-t8n998xc/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-t8n998xc/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-t8n998xc/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "domain": "ownership",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: child-only answer accepted",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-_l98fnbx/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-_l98fnbx/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-_l98fnbx/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "domain": "ownership",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: unattributed multi-agent final projected",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-adrqjkji/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-adrqjkji/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-adrqjkji/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "domain": "attribution",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: indexed deltas lost ownership",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-4jfd68d0/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-4jfd68d0/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-4jfd68d0/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "domain": "attribution",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-hzr8qx7y/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-hzr8qx7y/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-hzr8qx7y/view-1.json\", \"status\": \"disconnected\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G07",
+      "domain": "attribution",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-iyos4phf/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-iyos4phf/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-iyos4phf/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G08",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-q3cetvdk/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-q3cetvdk/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-q3cetvdk/view-1.json\", \"status\": \"disconnected\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "domain": "terminal",
+      "score": 1,
+      "max_score": 1,
+      "passed": true,
+      "fatal": false,
+      "error": null,
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-mk32bz4b/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-mk32bz4b/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-mk32bz4b/view-1.json\", \"status\": \"incomplete\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G10",
+      "domain": "terminal",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-tg7zdmcn/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-tg7zdmcn/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-tg7zdmcn/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G11",
+      "domain": "terminal",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: CLI exit 0, expected 2",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-8gfzc2lo/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-8gfzc2lo/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-8gfzc2lo/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G12",
+      "domain": "archive",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: opaque archive item lost",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-fmxszecj/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-fmxszecj/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-fmxszecj/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G13",
+      "domain": "rendering",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": true,
+      "error": "AssertionError: HTML presentation is unsafe or changes text",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-7210l5q4/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-7210l5q4/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-7210l5q4/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "G14",
+      "domain": "completion",
+      "score": 0,
+      "max_score": 1,
+      "passed": false,
+      "fatal": false,
+      "error": "AssertionError: pending function accepted as final",
+      "calls": [
+        {
+          "argv": [
+            "/Library/Developer/CommandLineTools/usr/bin/python3",
+            "-B",
+            "-m",
+            "gateway",
+            "--capture",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-z4mw30dc/input-1.json",
+            "--out",
+            "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-z4mw30dc/view-1.json"
+          ],
+          "returncode": 0,
+          "stdout": "{\"written\": \"/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/engineering/tasks/E-GATEWAY/integration-z4mw30dc/view-1.json\", \"status\": \"completed\"}\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "evidence_level": "offline real CLI subprocesses and persisted journals; no provider/model/network"
+}

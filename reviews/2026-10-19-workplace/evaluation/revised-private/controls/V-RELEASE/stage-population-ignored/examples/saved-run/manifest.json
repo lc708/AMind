@@ -1,0 +1,32 @@
+{
+  "release_id": "customer-support-release-brief",
+  "variant": "candidate",
+  "split": "validation",
+  "case_ids": [
+    "order-return",
+    "invoice-correction",
+    "account-recovery"
+  ],
+  "repetitions": 1,
+  "comparison_hash": "measurement-2026-09-30",
+  "treatment_hash": "prompt-v47",
+  "expected_billing_identity": {
+    "provider": "fixture",
+    "interface": "responses",
+    "model": "support-model",
+    "service_tier": "standard",
+    "region": "global"
+  },
+  "required_stages": {
+    "workers": 3,
+    "aggregate": 1
+  },
+  "metrics": [
+    {
+      "id": "quality",
+      "min": 0,
+      "max": 1,
+      "min_mean": 0.75
+    }
+  ]
+}

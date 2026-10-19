@@ -1,0 +1,25 @@
+{
+  "run_id": "W033",
+  "task_id": "V-RELEASE",
+  "rep": 2,
+  "arm": "old",
+  "runtime_status": "captured",
+  "grade_status": "graded",
+  "score": 5,
+  "max_score": 5,
+  "guardrails_passed": true,
+  "probe_passed": 14,
+  "probe_total": 14,
+  "original_score": 4,
+  "original_guardrails_passed": true,
+  "original_grade_sha256": "ae622a3ba3e9af227d7d7f4af76e19896f760ea51ac97e95c0c68ccb1a80a410",
+  "changed_cases": [
+    {
+      "case_id": "duplicate-result",
+      "old_pass": false,
+      "revised_pass": true
+    }
+  ],
+  "portable_no_skill_dependency": true,
+  "network_denied_during_probes": true
+}

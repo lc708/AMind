@@ -1,0 +1,27 @@
+--- first-patch/report_eval.py
++++ membership-fixed/report_eval.py
+@@ -77,6 +77,15 @@
+     return splits.get(split,[]),reps,metrics
+ 
+ 
++def validate_population(rows, events, planned_ids, reps, name):
++    ids=set(planned_ids)
++    for kind,records in (('result',rows),('attempt',events)):
++        for record in records:
++            rep=record.get('rep')
++            if (record.get('prompt_id') not in ids or type(rep) is not int or not 0<=rep<reps):
++                raise ValueError(f'{name}: {kind} outside bound selected split/repetition population')
++
++
+ def summarize(flow):
+     state=read_json(in_root(flow,'_state.json')); summaries=[]; details=[]
+     dirs=sorted([p for p in flow.iterdir() if p.name=='baseline' or re.fullmatch(r'v[1-9][0-9]*',p.name)],
+@@ -93,6 +102,8 @@
+         if manifest.get('schema_version')==2 and manifest.get('variant')!=name:
+             raise ValueError(f'{name}: manifest variant differs from its directory')
+         planned_ids,reps,metric_specs=report_contract(state,manifest,name)
++        if manifest.get('schema_version')==2:
++            validate_population(rows,events,planned_ids,reps,name)
+         integrity='unverified legacy artifacts'
+         try:
+             contract_hash(manifest)

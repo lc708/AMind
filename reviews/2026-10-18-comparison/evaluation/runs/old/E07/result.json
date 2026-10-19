@@ -1,0 +1,28 @@
+{
+  "id": "E07",
+  "name": "cache-write-subset",
+  "classification": "extension",
+  "entry": "price",
+  "expected": "Explicit write subset is subtracted from ordinary input, added at write rate; expected USD10.6. Unsupported old accounting is separate.",
+  "variant": "old",
+  "outcome": "unsupported",
+  "contract_satisfied": false,
+  "evidence": "runs/old/E07",
+  "observed": {
+    "rows": [
+      {
+        "id": "e",
+        "stage": null,
+        "model": "same-model",
+        "status": "unknown",
+        "cost_usd": null,
+        "reason": "missing rate or usage"
+      }
+    ],
+    "known_or_estimated_subtotal_usd": 0,
+    "unknown_events": 1,
+    "partial_events": 0,
+    "total_cost_usd": null,
+    "basis": "per event; input includes cache, output includes reasoning; do not double-count subsets"
+  }
+}

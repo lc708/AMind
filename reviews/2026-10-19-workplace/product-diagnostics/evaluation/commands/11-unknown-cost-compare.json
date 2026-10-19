@@ -1,0 +1,49 @@
+{
+  "command": [
+    "/Library/Developer/CommandLineTools/usr/bin/python3",
+    "-B",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/skills/eval-improve/scripts/compare_runs.py",
+    "--flow",
+    "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/product-diagnostics/evaluation/recovery-flow",
+    "--candidate",
+    "v1",
+    "--split",
+    "val",
+    "--reps",
+    "1",
+    "--metric",
+    "cost_usd",
+    "--bootstrap",
+    "200"
+  ],
+  "returncode": 2,
+  "stdout": "{\n  \"candidate\": \"v1\",\n  \"split\": \"val\",\n  \"metric\": \"cost_usd\",\n  \"direction\": \"lower\",\n  \"planned_cases\": 3,\n  \"complete_pairs\": 2,\n  \"reps\": 1,\n  \"minimum_improvement\": 0.0,\n  \"problems\": [\n    {\n      \"case_id\": \"refund\",\n      \"variant\": \"baseline\",\n      \"reason\": \"unscored_or_nonfinite\",\n      \"reps\": [\n        0\n      ]\n    }\n  ],\n  \"alpha\": 0.05,\n  \"method\": \"paired case means; percentile bootstrap of whole independent groups, case-weighted estimand\",\n  \"bootstrap_samples\": 200,\n  \"seed\": 42,\n  \"identity_verified\": true,\n  \"comparison_hash\": \"f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8\",\n  \"verdict\": \"incomplete\"\n}\n",
+  "stderr": "",
+  "json": {
+    "candidate": "v1",
+    "split": "val",
+    "metric": "cost_usd",
+    "direction": "lower",
+    "planned_cases": 3,
+    "complete_pairs": 2,
+    "reps": 1,
+    "minimum_improvement": 0.0,
+    "problems": [
+      {
+        "case_id": "refund",
+        "variant": "baseline",
+        "reason": "unscored_or_nonfinite",
+        "reps": [
+          0
+        ]
+      }
+    ],
+    "alpha": 0.05,
+    "method": "paired case means; percentile bootstrap of whole independent groups, case-weighted estimand",
+    "bootstrap_samples": 200,
+    "seed": 42,
+    "identity_verified": true,
+    "comparison_hash": "f0ae920cde19860f8f22560ac978fdc14d30e12691c56471a9ed9853bf6102e8",
+    "verdict": "incomplete"
+  }
+}

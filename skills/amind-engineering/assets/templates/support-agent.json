@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "title": "Support agent",
+  "goal": "Resolve selected support cases using current policy and authorized tools",
+  "item_label": "ticket",
+  "stages": [
+    "investigate",
+    "check",
+    "combine"
+  ],
+  "output_checks": [
+    "Ground the answer in current policy and actual account evidence",
+    "Verify effects before claiming resolution",
+    "Do not send external replies unless requested"
+  ],
+  "suggested_tools": [],
+  "suggested_network_hosts": []
+}

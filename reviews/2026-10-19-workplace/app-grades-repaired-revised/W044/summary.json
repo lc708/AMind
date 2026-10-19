@@ -1,0 +1,17 @@
+{
+  "run_id": "W044",
+  "task_id": "E-DURABLE",
+  "rep": 1,
+  "arm": "repaired",
+  "grade_status": "graded",
+  "score": 6,
+  "max_score": 6,
+  "probe_passed": 14,
+  "probe_total": 14,
+  "guardrails_passed": true,
+  "failed_probes": [],
+  "portable_no_skill_dependency": true,
+  "network_denied_during_probes": true,
+  "policy_provenance": "byte-identical copy of original frozen-grader policy",
+  "original_frozen_grade_path": "/Users/damonalbarn/.codex/worktrees/amind-october-refresh/AMind/reviews/2026-10-19-workplace/app-grades/W044/grade.json"
+}

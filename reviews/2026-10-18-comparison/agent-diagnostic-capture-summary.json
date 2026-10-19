@@ -1,0 +1,104 @@
+{
+  "captured": 16,
+  "elapsed_seconds": 547.22,
+  "graded": false,
+  "results": [
+    {
+      "arm": "old",
+      "case_id": "K1",
+      "run_id": "R01",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "K1",
+      "run_id": "R02",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "K2",
+      "run_id": "R03",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "K2",
+      "run_id": "R04",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "T1",
+      "run_id": "R05",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "T1",
+      "run_id": "R06",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "T2",
+      "run_id": "R07",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "T2",
+      "run_id": "R08",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "G1",
+      "run_id": "R09",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "G1",
+      "run_id": "R10",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "G2",
+      "run_id": "R11",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "G2",
+      "run_id": "R12",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "V1",
+      "run_id": "R13",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "V1",
+      "run_id": "R14",
+      "status": "captured"
+    },
+    {
+      "arm": "old",
+      "case_id": "V2",
+      "run_id": "R15",
+      "status": "captured"
+    },
+    {
+      "arm": "new",
+      "case_id": "V2",
+      "run_id": "R16",
+      "status": "captured"
+    }
+  ],
+  "runs": 16
+}
