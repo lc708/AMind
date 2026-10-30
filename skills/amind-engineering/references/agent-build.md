@@ -16,6 +16,8 @@ Use a deterministic function when rules suffice, a single structured model call 
 
 These boundaries follow the current [agent architecture guide](https://developers.openai.com/api/docs/guides/agents). A managed Codex runtime is an option, not the target definition of this skill.
 
+For an existing multi-agent design, use [architecture migration diagnostics](method-diagnostics.md#choose-a-migration-experiment-for-each-component) to consider each component for fold, merge, as-tool or keep. Freeze required production chains and task cases before changing the architecture, then inspect per-task regressions alongside quality, constraint violations, cost and latency. Shared context may justify merging; independent verification, permissions, parallel work and observed context pressure may justify retaining a separate context. Structural suggestions do not authorize edits or prove improved behavior.
+
 ## Define observable contracts
 
 Write the input, successful output, failure states, state owner, tool inventory, side effects, permissions, termination and budget. For each tool specify:
@@ -60,5 +62,7 @@ For a named template or a concrete source URL, use [onboarding](onboarding.md) t
 ## Acceptance
 
 Test malformed arguments, unknown tools, schema-valid unauthorized actions, zero/one/many tool calls, partial/failing results, loops, deadline/cancel, duplicate events, crash after a side effect, reconnect, memory boundaries and final artifact checks. Feed normalized events to `lifecycle_audit.py` and request traces to `context_audit.py` where useful. Build a task eval covering meaningful outcomes, not only happy-path response text.
+
+Include judgment-formation probes when experts review an agent's choices: preserve pre-advice preferences and present defensible alternatives symmetrically. [Oversight diagnostics](method-diagnostics.md#measure-judgment-formation-separately-from-approval) report preference following and missing evidence without treating human approval as proof of independent judgment. [Handoff diagnostics](method-diagnostics.md#audit-summary-and-shared-state-handoffs) cover summaries, agent messages and shared-file changes that a single-context action check can miss.
 
 Deliver a runnable product entry point, tool/state/operational contracts, tested fixtures, measured limits, and a replay command. Identify what still depends on live provider access or deployment infrastructure without presenting simulated behavior as a production result.

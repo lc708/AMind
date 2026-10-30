@@ -1,0 +1,29 @@
+{
+  "response": {
+    "model": "fixture-model",
+    "usage": {
+      "input_tokens": 12000,
+      "input_tokens_details": {
+        "cached_tokens": 4000,
+        "cache_write_tokens": 7000,
+        "cache_write_tokens_details": {
+          "ttl_30m_tokens": 3000,
+          "ttl_12h_tokens": 4000
+        }
+      },
+      "output_tokens": 100,
+      "output_tokens_details": {
+        "reasoning_tokens": 20
+      },
+      "total_tokens": 12100
+    }
+  },
+  "billing_identity": {
+    "provider": "openai",
+    "interface": "responses",
+    "model": "fixture-model",
+    "service_tier": "default",
+    "region": "fixture-region"
+  },
+  "all_billable_usage_included": true
+}

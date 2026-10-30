@@ -243,7 +243,13 @@ def build_index_file(path: Path, *, release_id: str = 'amind-v1', expected: dict
         for key, value in sorted(metadata.items()):
             connection.execute("INSERT INTO metadata(key, value) VALUES(?, ?)", (key, canonical_json(value)))
 
-        later_by_unit = {v['prior_analysis_unit_id']: v['new_analysis_unit_id'] for v in (version_relations or []) if v.get('prior_analysis_unit_id')}
+        # A retained same-work revision is not itself proof that every earlier
+        # proposition is obsolete. New claim-curated editions preserve relation
+        # metadata while lifecycle decisions select the precise affected claims.
+        for version in version_relations or []:
+            require(version.get('eligibility_scope', 'unit') in {'unit', 'claim'}, 'unknown revision eligibility scope')
+        later_by_unit = {v['prior_analysis_unit_id']: v['new_analysis_unit_id'] for v in (version_relations or [])
+                         if v.get('prior_analysis_unit_id') and v.get('eligibility_scope', 'unit') == 'unit'}
         prior_by_unit = {v['new_analysis_unit_id']: v for v in (version_relations or [])}
         for source_id, unit in enumerate(units, start=1):
             published_at = str(unit.get("published_at") or "")

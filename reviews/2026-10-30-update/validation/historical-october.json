@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS",
+  "release_id": "amind-v1-increment-2026-10-18",
+  "counts": {
+    "analysis_units": 1537,
+    "atomic_claims": 129132,
+    "equivalence_components": 189,
+    "new_claims": 64867,
+    "new_passages": 5806,
+    "new_units": 118,
+    "passages": 20521,
+    "reviewed_kernel_claims": 54
+  },
+  "historical_files_unchanged": 59,
+  "new_claims_quote_verified": 64867,
+  "lifecycle_decisions": 38,
+  "new_human_gold_rows": 0,
+  "current_skill_checked": false
+}

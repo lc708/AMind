@@ -1,6 +1,6 @@
 # Retrieval policy
 
-The current package includes the 2026-10-18 refresh. Exact counts are in the manifest and `query.py stats`; distribution figures below that refer to older releases are historical audits. Default search filters recorded corrections, supersessions and effective windows, and labels each retained result. Use `--include-inactive` to inspect historical or future-effective evidence; `--as-of` changes the dated eligibility view. Neither option creates a live source connection.
+The current package includes the 2026-10-30 refresh, retaining the October 18 snapshot and all earlier evidence. Observed availability may confirm a month-only source by a bound capture date without manufacturing its publication day. Exact counts are in the manifest and `query.py stats`; distribution figures below that refer to older releases are historical audits. Default search filters recorded corrections, supersessions and effective windows, and labels each retained result. Use `--include-inactive` to inspect historical or future-effective evidence; `--as-of` changes the dated eligibility view. Neither option creates a live source connection.
 
 
 AMind separates recall from trust. The full index finds candidates; the gold kernel and bound passages help decide which candidates can support an answer.

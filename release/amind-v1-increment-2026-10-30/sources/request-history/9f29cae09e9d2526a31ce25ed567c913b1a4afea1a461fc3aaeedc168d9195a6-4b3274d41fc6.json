@@ -1,0 +1,1 @@
+{"completed_at":"2026-10-30T07:23:43.131237+00:00","error":"<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>","http_status":null,"ok":false,"requested_url":"https://export.arxiv.org/api/query?search_query=au:%22Sam_McCandlish%22&start=0&max_results=100","started_at":"2026-10-30T07:23:38.091270+00:00"}

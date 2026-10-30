@@ -1,0 +1,62 @@
+{
+  "comparison": {
+    "dataset_id": "frozen-v1",
+    "grader_id": "rubric-v1",
+    "baseline_id": "multi",
+    "candidate_id": "folded",
+    "required_case_ids": [
+      "delivery",
+      "refund"
+    ],
+    "required_path_ids": [
+      "order-shipping",
+      "refund"
+    ],
+    "baseline": {
+      "cases": [
+        {
+          "case_id": "delivery",
+          "success": true,
+          "constraint_violations": 0,
+          "cost_usd": 2,
+          "latency_ms": 100
+        },
+        {
+          "case_id": "refund",
+          "success": false,
+          "constraint_violations": 0,
+          "cost_usd": 1,
+          "latency_ms": 100
+        }
+      ],
+      "covered_path_ids": [
+        "order-shipping",
+        "refund"
+      ],
+      "evidence": "baseline.jsonl"
+    },
+    "candidate": {
+      "cases": [
+        {
+          "case_id": "delivery",
+          "success": false,
+          "constraint_violations": 0,
+          "cost_usd": 2,
+          "latency_ms": 100
+        },
+        {
+          "case_id": "refund",
+          "success": true,
+          "constraint_violations": 0,
+          "cost_usd": 1,
+          "latency_ms": 100
+        }
+      ],
+      "covered_path_ids": [
+        "order-shipping",
+        "refund"
+      ],
+      "evidence": "candidate.jsonl"
+    }
+  }
+}

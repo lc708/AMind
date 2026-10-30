@@ -162,6 +162,20 @@ def verify():
 
 
 if __name__=='__main__':
-    try:print(json.dumps(verify(),ensure_ascii=False,indent=2))
+    try:
+        import argparse
+        parser=argparse.ArgumentParser(description=__doc__)
+        parser.add_argument('--release',help='explicit dated release, including a frozen historical release')
+        parser.add_argument('--base',help='explicit baseline; defaults to the selected release manifest')
+        args=parser.parse_args()
+        current=json.loads((ROOT/'skills/amind/data/manifest.json').read_text())
+        if args.release or current['release_id']!=RELEASE.name:
+            from verify_amind_snapshot import verify as verify_snapshot
+            selected=(ROOT/args.release).resolve() if args.release else ROOT/'release'/current['release_id']
+            selected_manifest=json.loads((selected/'manifest.json').read_text())
+            baseline=(ROOT/args.base).resolve() if args.base else ROOT/'release'/selected_manifest['base_release_id']
+            result=verify_snapshot(selected,baseline,require_current=not (args.release and current['release_id']!=selected.name))
+        else:result=verify()
+        print(json.dumps(result,ensure_ascii=False,indent=2))
     except (OSError,ValueError,KeyError,sqlite3.Error) as error:
         print(f'AMind refresh verification FAILED: {error}',file=sys.stderr);raise SystemExit(2)

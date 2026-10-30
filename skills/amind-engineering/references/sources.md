@@ -12,6 +12,12 @@ Version 0.3.0 implements root/child-safe response and SSE projections, hosted/un
 
 The September 0.2.0/0.2.1 core added prompt/state/lifecycle diagnostics, an injectable tool loop with a durable effect ledger, response/stream/batch contract helpers and native API/language recipes. Eval Improve's September 0.3.0 core added the complete application/grader runner and experiment evidence. Their 81-file pin and acceptance limitations remain historical facts; an inventory is not behavioral-equivalence proof.
 
+## October 30 method additions
+
+Locally authored `scripts/method_diagnostics.py` adds read-only evidence contracts for component migration suggestions and complete paired/path coverage, bounded patch-specific review, preference-following observations, approval/state handoffs and selected Claude API version removals. [Method diagnostics](method-diagnostics.md) documents their normalized inputs and limits. Their fixtures verify local reporting behavior; no live agent quality, causal oversight effect or provider parity is asserted.
+
+The method references are [folding subagents](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) (October 22), [code review](https://claude.dev/blog/solving-code-review-at-anthropic/) (October 15), [cloud sessions](https://claude.dev/blog/claude-code-in-the-cloud/) (October 6), [Auto Mode red teaming](https://alignment.anthropic.com/2026/red-teaming-auto-mode/) (October 22) and [experts' judgment](https://www.anthropic.com/research/agents-judgment-calls) (October 27). These provide distinct experiments and practices; their effect sizes are not transported to AMind. The [Claude API migration](https://platform.claude.com/docs/en/api/migration-2026-10-21) is version-specific. The [MCP builder v2 change](https://github.com/anthropics/skills/commit/ca45fc496a3436251f191354091d557da31c15b5) is an additional reference outside the unchanged 96-file claude-api inventory, not a silent repin or a bundled MCP server.
+
 ## Functional migration
 
 | Source entry | AMind implementation | Scope |

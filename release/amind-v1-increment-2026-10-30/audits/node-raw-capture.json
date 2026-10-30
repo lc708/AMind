@@ -1,0 +1,98 @@
+{
+  "requested": 165,
+  "captured": 147,
+  "cached": 0,
+  "failed": [
+    {
+      "url": "https://darioamodei.com/archive",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.judiciary.senate.gov/imo/media/doc/2023-07-26_-_testimony_-_amodei.pdf",
+      "ok": false,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://physics-astronomy.jhu.edu/directory/jared-kaplan/",
+      "ok": false,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://krieger.jhu.edu/physics/wp-content/uploads/sites/11/2013/05/JaredKaplanCVFall2018.pdf",
+      "ok": false,
+      "error": "HTTP 403"
+    },
+    {
+      "url": "https://www.anthropic.com/claude-opus-5-system-card",
+      "ok": false,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://www.anthropic.com/claude-opus-4-8-system-card",
+      "ok": false,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://www.anthropic.com/claude-mythos-preview-system-card",
+      "ok": false,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://www.anthropic.com/claude-opus-4-5-system-card",
+      "ok": false,
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://www.anthropic.com/data-input-controls-and-audit",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/identifiers-of-ai-generated-material",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/model-reporting-and-information-sharing",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/preventing-and-monitoring-model-misuse",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/prioritising-research-on-risks-posed-by-ai",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/red-teaming-and-model-evaluations",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/reporting-structure-for-vulnerabilities",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/responsible-capability-scaling",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/security-controls-including-securing-model-weights",
+      "ok": false,
+      "error": "HTTP 404"
+    },
+    {
+      "url": "https://www.anthropic.com/uk-government-internal-ai-safety-policy-response",
+      "ok": false,
+      "error": "HTTP 404"
+    }
+  ],
+  "completed_at": "2026-10-30T07:29:25.278Z"
+}

@@ -49,9 +49,9 @@ def projection(config, mutable):
 
 def validate_billing_identity(identity):
     fields = {'provider', 'interface', 'model', 'service_tier', 'region'}
-    if (not isinstance(identity, dict) or set(identity) - fields - {'context_band'}
+    if (not isinstance(identity, dict) or set(identity) - fields - {'context_band', 'cache_policy'}
             or not fields <= set(identity) or any(not isinstance(v, str) or not v for v in identity.values())):
-        raise ValueError('expected_billing_identity needs exact provider/interface/model/service_tier/region and optional context_band')
+        raise ValueError('expected_billing_identity needs exact provider/interface/model/service_tier/region and optional context_band/cache_policy')
     return identity
 
 
@@ -233,14 +233,32 @@ def prepare(card_path, variant, split, reps, selection=None):
             'workspace_files': workspace_files, 'selected': splits[split], 'metrics': metric_specs}
 
 
-def terminate(process):
+def terminate(process, deadline=None):
+    cleanup = {'process_group_signal_confirmed': os.name != 'posix',
+               'leader_signal_confirmed': False, 'group_termination_error': None}
     try:
         if os.name == 'posix':
             os.killpg(process.pid, signal.SIGKILL)
+            cleanup['process_group_signal_confirmed'] = True
         else:
             process.kill()
+        cleanup['leader_signal_confirmed'] = True
     except ProcessLookupError:
-        pass
+        cleanup['leader_already_exited'] = process.poll() is not None
+    except PermissionError as error:
+        cleanup['group_termination_error'] = type(error).__name__
+        if process.poll() is None:
+            if deadline is None:
+                raise
+            # Only signal the positive PID of the adapter we created. This can
+            # reap the leader when group signaling is denied, but it does not
+            # establish that grandchildren were cancelled.
+            try:
+                process.kill()
+                cleanup['leader_signal_confirmed'] = True
+            except ProcessLookupError:
+                cleanup['leader_already_exited'] = process.poll() is not None
+    return cleanup
 
 
 def invoke(command, cwd, payload, deadline, byte_limit, workspace):
@@ -281,17 +299,38 @@ def invoke(command, cwd, payload, deadline, byte_limit, workspace):
                     break
                 time.sleep(.01)
         except BaseException:
-            terminate(process)
-            process.wait()
+            cleanup = None
+            try:
+                cleanup = terminate(process, deadline)
+            finally:
+                if process.poll() is not None or (cleanup and cleanup['leader_signal_confirmed']):
+                    process.wait()
             raise
         if failure:
-            terminate(process)
+            try:
+                cleanup = terminate(process, deadline)
+            except OSError as error:
+                # Keep the already detected timeout/output failure visible and
+                # make unsuccessful cleanup explicit. Never retry an adapter
+                # whose termination could not be established.
+                failure.retryable = False
+                failure.observed = {'runtime_cleanup': {
+                    'process_group_signal_confirmed': False,
+                    'leader_exited': process.poll() is not None,
+                    'error': type(error).__name__, 'pid': process.pid}}
+                if process.poll() is not None: process.wait()
+                raise failure from error
+            if not cleanup['process_group_signal_confirmed']:
+                failure.retryable = False
+                failure.observed = {'runtime_cleanup': cleanup}
         process.wait()
         for reader in readers:
             reader.join(timeout=1)
         if exceeded.is_set() and not failure:
             failure = RunError('output_limit', 'adapter exceeded its output byte ceiling')
         if failure:
+            if failure.observed.get('runtime_cleanup'):
+                failure.observed['runtime_cleanup']['leader_reaped'] = process.returncode is not None
             raise failure
         try:
             result = json.loads(buffers[0].decode('utf-8'), parse_constant=lambda _: (_ for _ in ()).throw(ValueError('nonfinite JSON')))
@@ -581,6 +620,8 @@ def run(prepared, flow, resume=False, retry_errors=False):
                     else:
                         failed[0] += 1
                         error = {**finish, 'retryable': failure.retryable, 'error': str(failure)}
+                        if failure.observed.get('runtime_cleanup'):
+                            error['runtime_cleanup'] = failure.observed['runtime_cleanup']
                         append_json(directory, 'errors.jsonl', error); errors.append(error)
                     append_json(directory, 'attempts.jsonl', finish)
                     case_costs.setdefault((case_id, rep), []).append(cost)

@@ -1,0 +1,11 @@
+{
+  "attachment_urls": 17,
+  "bodies": 105,
+  "captured": 105,
+  "completed_at": "2026-10-30T07:34:43.312785+00:00",
+  "failed": [],
+  "record_inventory_scope": "105 selected captures (88 source URLs + 17 PDF attachments); 3 previously captured team navigation pages retained as metadata only; all 108 raw records retained",
+  "retained_capture_records": 108,
+  "retained_metadata_only_records": 3,
+  "selected_urls": 88
+}

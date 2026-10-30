@@ -1,0 +1,139 @@
+--- nuwa1804-unit-dc96c908ea8562a576a9
+
++++ am-refresh-c2c3b48be6d14cf6
+
+@@ -14,15 +14,15 @@
+
+ 
+ - Active: The model is fully supported and recommended for use.
+ 
+-- Legacy: The model will no longer receive updates and may be deprecated in the future.
++- Legacy: The model will no longer receive updates and might be deprecated in the future.
+ 
+ - Deprecated: The model is still functional but no longer recommended. Anthropic provides a recommended replacement and assigns a retirement date.
+ 
+-- Retired: The model is no longer available for use. Requests to retired models will fail.
++- Retired: The model is no longer available for use. Requests to retired models fail.
+ 
+ Deprecated models are likely to be less reliable than active models. Move workloads to active models to maintain the highest level of support and reliability.
+ 
+-The dates on this page apply to Anthropic-operated platforms: the Claude API, Claude Platform on AWS, and Microsoft Foundry. Partner-operated platforms (Amazon Bedrock and Google Cloud) set their own retirement schedules, so a model's lifecycle status and dates can differ. See the Amazon Bedrock, Amazon Bedrock (Opus 4.6 and earlier), and Google Cloud model tables.
++The dates on this page apply to Anthropic-operated platforms: the Claude API, Claude Platform on AWS, Claude Models on Google Cloud (Anthropic managed), and Microsoft Foundry. Partner-operated platforms, Amazon Bedrock and Claude Models on Google Cloud (Google managed), set their own retirement schedules, so a model’s lifecycle status and dates can differ. See the Amazon Bedrock, Amazon Bedrock (Opus 4.6 and earlier), and Claude Models on Google Cloud (Google managed) model tables.
+ 
+ ## Migrating to replacements
+ 
+@@ -30,15 +30,15 @@
+
+ 
+ To help measure the performance of replacement models on your tasks, consider thorough testing of your applications with the new models well before the retirement date.
+ 
+-For specific instructions on migrating to the latest Claude models, see the Migration guide.
++For specific instructions on migrating to the latest Claude models, see Migration guides.
+ 
+ ## Notifications
+ 
+-Anthropic notifies customers with active deployments for models with upcoming retirements, providing at least 60 days' notice before model retirement for publicly released models.
++Anthropic notifies customers with active deployments for models with upcoming retirements, providing at least 60 days’ notice before model retirement for publicly released models.
+ 
+ ## Auditing model usage
+ 
+-To help identify usage of deprecated models, customers can access an audit of their API usage. Follow these steps:
++To help identify usage of deprecated models, you can access an audit of your API usage. Follow these steps:
+ 
+ - Go to the Usage page in Claude Console.
+ 
+@@ -46,7 +46,7 @@
+
+ 
+ - Review the downloaded CSV to see usage broken down by API key and model.
+ 
+-This audit will help you locate any instances where your application is still using deprecated models, allowing you to prioritize updates to newer models before the retirement date.
++This audit helps you locate any instances where your application is still using deprecated models, allowing you to prioritize updates to newer models before the retirement date.
+ 
+ ## Best practices
+ 
+@@ -56,17 +56,17 @@
+
+ 
+ - Update your code to use the recommended replacement model as soon as possible.
+ 
+-- Contact the support team if you need assistance with migration or have any questions.
++- Contact the support team if you need help with migration or have any questions.
+ 
+ ## Deprecation downsides and mitigations
+ 
+ Anthropic currently deprecates and retires models to ensure capacity for new model releases. This comes with downsides:
+ 
+-- Users who value specific models must migrate to new versions
+-
+-- Researchers lose access to models for ongoing and comparative studies
+-
+-- Model retirement introduces safety- and model welfare-related risks
++- Users who value specific models must migrate to new versions.
++
++- Researchers lose access to models for ongoing and comparative studies.
++
++- Model retirement introduces safety- and model welfare-related risks.
+ 
+ At some point, Anthropic hopes to make past models publicly available again. In the meantime, Anthropic has committed to long-term preservation of model weights and other measures to help mitigate these impacts. For more details, see Commitments on Model Deprecation and Preservation.
+ 
+@@ -141,7 +141,7 @@
+
+ 
+ This model was retired April 20, 2026.
+ 
+-On February 19, 2026, Anthropic notified developers using Claude Haiku 3 model of its upcoming retirement on the Claude API.
++On February 19, 2026, Anthropic notified developers using Claude Haiku 3 of its upcoming retirement on the Claude API.
+ 
+ ```source-table
+ Retirement date | Deprecated model | Recommended replacement
+@@ -152,7 +152,7 @@
+
+ 
+ This model was retired February 19, 2026.
+ 
+-On December 19, 2025, Anthropic notified developers using Claude Haiku 3.5 model of its upcoming retirement on the Claude API.
++On December 19, 2025, Anthropic notified developers using Claude Haiku 3.5 of its upcoming retirement on the Claude API.
+ 
+ ```source-table
+ Retirement date | Deprecated model | Recommended replacement
+@@ -163,7 +163,7 @@
+
+ 
+ This model was retired February 19, 2026.
+ 
+-On October 28, 2025, Anthropic notified developers using Claude Sonnet 3.7 model of its upcoming retirement on the Claude API.
++On October 28, 2025, Anthropic notified developers using Claude Sonnet 3.7 of its upcoming retirement on the Claude API.
+ 
+ ```source-table
+ Retirement date | Deprecated model | Recommended replacement
+@@ -186,7 +186,7 @@
+
+ 
+ This model was retired January 5, 2026.
+ 
+-On June 30, 2025, Anthropic notified developers using Claude Opus 3 model of its upcoming retirement.
++On June 30, 2025, Anthropic notified developers using Claude Opus 3 of its upcoming retirement.
+ 
+ ```source-table
+ Retirement date | Deprecated model | Recommended replacement
+@@ -225,13 +225,13 @@
+
+ 
+ ## API parameter deprecations
+ 
+-Anthropic occasionally deprecates request parameters that no longer apply to current models. How the API treats a deprecated parameter depends on the model, as the following table shows. Most SDKs keep deprecated parameters in their request types so existing code continues to type-check. The Python SDK (v1.0 and later) removes temperature, top_p, and top_k, so passing them raises a TypeError.
++Anthropic occasionally deprecates request parameters that no longer apply to current models. A new model can reject a deprecated parameter, and a new API version can remove it for every model.
+ 
+ ```source-table
+ Parameter | Status | Behavior | Recommended replacement
+-temperature, top_p, top_k | Deprecated (Claude 4.7 and later models) | Returns a 400 error when set to a non-default value on Claude 4.7 and later models and Claude Mythos Preview. | Omit and use prompting to guide model behavior.
+-```
+-
+-For migration steps, see the migration guide.
++temperature, top_p, top_k | Removed in API version 2026-10-21 | Returns a 400 error. Earlier API versions return it when set to a non-default value on Claude 4.7 and later models and Claude Mythos Preview. | Omit and use prompting to guide model behavior.
++```
++
++For migration steps, see Migration guides.
+ 
+ Was this page helpful?

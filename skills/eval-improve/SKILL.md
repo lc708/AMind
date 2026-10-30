@@ -3,7 +3,7 @@ name: eval-improve
 description: Build or audit evaluations for LLM applications, agents, and skills, then improve quality, cost, or latency through measured iterations. Use for evaluation datasets, grader calibration, prompt or skill optimization, and hillclimbing against a runnable evaluation. Ordinary unit tests and general code review do not require this skill.
 license: Apache-2.0; see LICENSE.txt and references/upstream.md
 metadata:
-  version: "0.4.3"
+  version: "0.5.0"
   series: "AMind"
 ---
 
@@ -64,6 +64,8 @@ python3 "$SKILL_ROOT/scripts/report_eval.py" "$FLOW"
 The runner plans by default. Comparison verifies experiment/result identities, complete pairs and declared independent groups before calculating intervals. Final tests require a frozen selection certificate. Read [runner](references/runner.md) for the full contract, isolation limits and interrupted-attempt reconciliation.
 
 Other helpers: `calibrate_grader.py` audits agreement, negative controls, false positives, prevalence scenarios, paired judges, drift and order bias; `price_usage.py` matches explicit endpoint/model/tier/region rates and declared normalized usage adapters; `seal_selection.py` freezes a candidate; `reconcile_run.py` handles documented interrupted outcomes. See [accounting and calibration](references/accounting-calibration.md) for executable offline examples and [platform lifecycle](references/platform-lifecycle.md) for migration/export guidance. The original `build-report.mjs` lite viewer and read-only `collect_codex.py` remain optional compatibility tools. They are not substitutes for the complete application/grader runner.
+
+`openai_billing.py` preserves native usage and normalizes the documented Responses 30m/12h cache counters and Decisions 30m cache contract into explicit billing scopes. Its prefix planner is an offline scenario, not measured service usage. `decisions_contract.py` checks a documented GA request subset, including the 400-question boundary, JSON data and question images; it is not full SDK or live-service validation. Unknown or contradictory fields remain explicit failures rather than zero cost.
 
 ## Finish with evidence
 

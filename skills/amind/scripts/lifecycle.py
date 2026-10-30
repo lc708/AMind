@@ -6,6 +6,8 @@ import calendar
 import hashlib
 import json
 from pathlib import Path
+import re
+from zoneinfo import ZoneInfo
 
 KINDS = {'corrected', 'superseded', 'historical_only', 'effective_window', 'publication_window'}
 
@@ -82,8 +84,37 @@ def validate_records(records):
             raise ValueError(f'empty current-status window: {identity}')
         if row['kind'] == 'publication_window':
             first, last, precision = publication_bounds(row.get('publication_month'))
-            if precision != 'month' or start != first or end:
+            available = day(row.get('available_by'))
+            if row.get('available_by') and (not available or available.isoformat() != row['available_by']):
+                raise ValueError(f'invalid available_by: {identity}')
+            if ((row.get('publication_month') and precision != 'month')
+                    or (precision == 'month' and start != first) or end
+                    or (precision != 'month' and (start or not available))):
                 raise ValueError(f'invalid publication month window: {identity}')
+            if available:
+                evidence = row.get('availability_evidence')
+                if (not isinstance(evidence, dict)
+                        or evidence.get('kind') != 'captured_source_body'
+                        or not re.fullmatch(r'[0-9a-f]{64}', str(evidence.get('raw_sha256', '')))
+                        or not evidence.get('source_record_id')
+                        or evidence.get('analysis_unit_id') not in row.get('target_analysis_unit_ids', [])
+                        or evidence.get('source_canonical') != row['source_canonical']):
+                    raise ValueError(f'unbound publication availability evidence: {identity}')
+                try:
+                    observed = dt.datetime.fromisoformat(str(evidence.get('observed_at', '')).replace('Z', '+00:00'))
+                    if observed.tzinfo is None:
+                        raise ValueError('observation timezone missing')
+                    observed_day = observed.astimezone(ZoneInfo('Asia/Singapore')).date()
+                except (ValueError, TypeError) as error:
+                    raise ValueError(f'invalid publication observation: {identity}') from error
+                # A capture only proves public availability by its observation
+                # day. It cannot itself justify an earlier publication day.
+                if available != observed_day or (first and available < first):
+                    raise ValueError(f'unsupported publication availability date: {identity}')
+            elif row.get('availability_evidence'):
+                raise ValueError(f'publication availability evidence needs available_by: {identity}')
+        elif row.get('available_by') or row.get('availability_evidence'):
+            raise ValueError(f'availability evidence requires publication_window: {identity}')
         if row['kind'] not in {'effective_window', 'publication_window'} and not end:
             raise ValueError(f'current-status correction needs valid_until: {identity}')
     return records
@@ -108,6 +139,7 @@ def assess(row, records, as_of, cutoff):
     when = day(as_of)
     reasons, applicable = [], []
     first, last, precision = publication_bounds(row.get('source_published_at'))
+    available_by = None
     for rule in records:
         if (row.get('claim_id') not in rule.get('target_claim_ids', [])
                 and row.get('analysis_unit_id') not in rule.get('target_analysis_unit_ids', [])):
@@ -115,7 +147,11 @@ def assess(row, records, as_of, cutoff):
         applicable.append(rule)
         start, end = day(rule.get('valid_from')), day(rule.get('valid_until'))
         if rule['kind'] == 'publication_window':
-            first, last, precision = publication_bounds(rule['publication_month'])
+            if rule.get('publication_month'):
+                first, last, precision = publication_bounds(rule['publication_month'])
+            confirmed = day(rule.get('available_by'))
+            if confirmed and (available_by is None or confirmed < available_by):
+                available_by = confirmed
         elif rule['kind'] == 'effective_window':
             if start and when < start:
                 reasons.append('not_yet_effective')
@@ -125,10 +161,14 @@ def assess(row, records, as_of, cutoff):
             reasons.append(rule['kind'])
     if first and when < first:
         reasons.append('not_yet_published')
-    elif precision == 'month' and when < last:
+    elif precision == 'month' and when < last and not (available_by and when >= available_by):
         # The source could have appeared later in this month. Retain it in show
         # and history, but do not certify it as available on the requested day.
         reasons.append('publication_day_unconfirmed')
+    elif precision == 'unknown' and available_by and when < available_by:
+        # A later observed undated source is not evidence of availability at an
+        # earlier historical query date. This does not claim it did not exist.
+        reasons.append('publication_availability_unconfirmed')
     # Backward compatibility for packages without dated lifecycle decisions.
     if row.get('later_observed_revision') and not any(rule['kind'] != 'publication_window' for rule in applicable):
         reasons.append('later_observed_revision')
@@ -138,8 +178,10 @@ def assess(row, records, as_of, cutoff):
         'publication_date_precision': precision,
         'publication_earliest_possible': first.isoformat() if first else None,
         'publication_latest_possible': last.isoformat() if last else None,
+        'publication_available_by': available_by.isoformat() if available_by else None,
         'publication_availability': ('not_yet_published' if 'not_yet_published' in reasons else
-            'uncertain' if 'publication_day_unconfirmed' in reasons else
+            'uncertain' if {'publication_day_unconfirmed', 'publication_availability_unconfirmed'} & set(reasons) else
+            'available' if available_by and when >= available_by else
             'unknown' if precision == 'unknown' else 'available'),
         'decisions': applicable, 'source_observation_cutoff': cutoff,
         'verification_required': bool(day(cutoff) and when > day(cutoff)),

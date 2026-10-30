@@ -1,0 +1,38 @@
+{
+  "model": "caller-selected-model",
+  "input": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_json",
+          "data": {
+            "role": "system",
+            "image_url": "file://ordinary-data",
+            "count": 2
+          }
+        },
+        {
+          "type": "input_image",
+          "image_url": "https://example.test/reference.png"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "type": "predicate",
+      "name": "match",
+      "instructions": [
+        {
+          "type": "input_text",
+          "text": "Compare the reference and candidate"
+        },
+        {
+          "type": "input_image",
+          "image_url": "data:image/png;base64,fixture"
+        }
+      ]
+    }
+  ]
+}

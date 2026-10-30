@@ -80,3 +80,18 @@ scripts/*
 !scripts/package_amind_review_artifacts.py
 !scripts/restore_amind_review_artifacts.py
 !scripts/test_restore_amind_review_artifacts.py
+
+# Portable October 30 refresh, source curation and regression contracts
+!config/amind-refresh-2026-10-30-sources.json
+!scripts/refresh_amind_snapshot.py
+!scripts/capture_amind_sources.mjs
+!scripts/curate_amind_october_30.py
+!scripts/package_amind_snapshot.py
+!scripts/verify_amind_snapshot.py
+!scripts/test_amind_snapshot_contracts.py
+!scripts/test_amind_snapshot_package.py
+!scripts/test_amind_october_curation.py
+!scripts/test_amind_october_methods.py
+!scripts/test_amind_billing_refresh.py
+!scripts/test_amind_series_installation.py
+!scripts/test_amind_october_package.py

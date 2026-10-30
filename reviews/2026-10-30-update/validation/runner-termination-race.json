@@ -1,0 +1,24 @@
+{
+  "schema_name": "amind-runner-termination-race-diagnostic",
+  "observed_date": "2026-10-30",
+  "scope": "offline synthetic application processes; no model or provider request",
+  "original_failure_preserved": {
+    "suite": "scripts.test_amind_capability_kernel.KernelTests.test_timeout_and_output_ceiling",
+    "subcase": "oversize",
+    "expected_status": "output_limit",
+    "actual_status": "harness_error",
+    "actual_error": "PermissionError",
+    "latency_s": 0.030055832999999976,
+    "diagnostic_iterations": 10,
+    "diagnostic_failures": 1,
+    "warning": "subprocess is still running ResourceWarning was also observed",
+    "traceback": "run_eval.invoke, line 288: terminate(process)\nrun_eval.terminate, line 239: os.killpg(process.pid, signal.SIGKILL)\nPermissionError: [Errno 1] Operation not permitted"
+  },
+  "causal_boundary": "The output ceiling was already detected. An EPERM from terminating the fast adapter's process group replaced that classification and bypassed wait. The initial failure did not preserve the process poll result at EPERM; the repair therefore checks terminal status rather than presuming every denied kill is an exit race.",
+  "repair": "Suppress PermissionError only if process.poll() confirms exit; propagate denied termination of a still-live adapter. Deadlines and output ceilings are unchanged.",
+  "regressions": [
+    "Real invoke/stdout-limit path with a real adapter that exits before a controlled denied killpg retains output_limit and reaps the child",
+    "Denied killpg for a process whose poll is None still propagates PermissionError"
+  ],
+  "historical_execution_reports_modified": false
+}

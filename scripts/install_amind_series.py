@@ -8,6 +8,7 @@ import os
 import shutil
 import sys
 import tempfile
+import subprocess
 from pathlib import Path
 
 
@@ -28,12 +29,18 @@ def inventory(root):
     return result
 
 
-def install(destination, apply=False, replace=False):
+def install(destination, apply=False, replace=False, with_knowledge=False):
     if destination.is_symlink():
         raise ValueError("destination must not be a symlink")
     destination = destination.resolve()
+    packages = ("amind", *PACKAGES) if with_knowledge else PACKAGES
+    if with_knowledge:
+        validation = subprocess.run([sys.executable, '-B', str(SOURCE/'amind/scripts/verify.py')],
+            capture_output=True, text=True)
+        if validation.returncode:
+            raise ValueError('knowledge package validation failed before installation: '+validation.stderr.strip())
     changes = []
-    for name in PACKAGES:
+    for name in packages:
         source, target = SOURCE / name, destination / name
         if target.is_symlink() or (target.exists() and not target.is_dir()):
             raise ValueError(f"refusing non-directory/symlink target: {target}")
@@ -95,9 +102,10 @@ def main():
     parser.add_argument("--dest", type=Path, default=codex_home / "skills")
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--replace", action="store_true")
+    parser.add_argument("--with-knowledge", action="store_true", help="validate and install all three AMind skills with one rollback backup")
     args = parser.parse_args()
     try:
-        print(json.dumps(install(args.dest, args.apply, args.replace), ensure_ascii=False, indent=2))
+        print(json.dumps(install(args.dest, args.apply, args.replace, args.with_knowledge), ensure_ascii=False, indent=2))
         return 0
     except (OSError, ValueError) as exc:
         print(json.dumps({"status": "error", "error": str(exc)}, ensure_ascii=False))

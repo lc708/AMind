@@ -46,6 +46,18 @@ Explain every meaningful change with source contract, user-visible effect and te
 
 ## SDK or runtime upgrade
 
+### Claude API version 2026-10-21
+
+Apply these removals only to an explicitly selected Claude API version, not to OpenAI/provider-neutral requests. The [official migration guide](https://platform.claude.com/docs/en/api/migration-2026-10-21), checked October 30, 2026, moves Messages, token counting and each Message Batch request from `2023-06-01` to `2026-10-21`. Sending `temperature`, `top_p` or `top_k` now errors even at default values. Direct `document` blocks in assistant messages and nonempty `citations` on user text blocks also error; nested assistant tool-result documents and document/search-result citation settings remain distinct. The local [request diagnostic](method-diagnostics.md#audit-explicit-claude-api-removals) reports these selected patterns without rewriting requests.
+
+Upgrade the API header and affected SDK call sites together. Inspect role-specific message types, removed tool-runner client compaction, renamed Admin/Analytics response fields, API-key `scope` and authentication for the actual language and deployment. Older Bedrock models may require the earlier API/SDK route; a date alone does not make every old integration invalid. Keep authentication and SDK-type changes separate from model-quality evaluation, preserve the user's model and test effective payloads plus continuation/stream behavior before release.
+
+### MCP TypeScript SDK versions
+
+Inspect the project's installed major version and imports before generating server code. The [October 28 mcp-builder update](https://github.com/anthropics/skills/commit/ca45fc496a3436251f191354091d557da31c15b5) adds an SDK v2 server guide and version selection; it changes a different skill from the pinned claude-api source map. New v2 projects use their documented packages and examples. Existing `@modelcontextprotocol/sdk` v1 projects can continue maintenance unless migration is requested; do not mix v1/v2 imports or silently repin them. Use the [official SDK](https://github.com/modelcontextprotocol/typescript-sdk) for the selected major's transport, auth, tools, resources and prompts, and exercise a built server over its actual transport. File coverage in the 96-file claude-api map does not claim MCP v2 implementation coverage.
+
+### Upgrade an existing SDK or runtime
+
 Find installed versions from lockfiles/package metadata and exact import paths. Use official release notes, migration guides and source signatures for the installed→target range. Do not assume the current online quickstart matches a pinned old SDK.
 
 Create a call-site ledger including sync/async clients, resource methods, streaming helpers, typed parameter/result unions, error classes, pagination, upload wrappers, custom HTTP transports, retries/timeouts, base URLs and close/disposal semantics. Pay special attention to removed helpers and default retry behavior; nested SDK/application retries multiply calls.

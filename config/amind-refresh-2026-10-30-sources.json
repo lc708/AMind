@@ -1,0 +1,220 @@
+[
+  {
+    "url": "https://alignment.anthropic.com/2026/graft/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "authors": [
+      "Shawn Hu",
+      "Jake Ward",
+      "Aria Wong",
+      "Nathan Hu",
+      "Bryce Woodworth",
+      "Alexander Matt Turner",
+      "Alex Cloud"
+    ],
+    "publication_date": "2026-10-19",
+    "date_source": "https://alignment.anthropic.com/2026/graft/"
+  },
+  {
+    "url": "https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/research/attack-surface-reduction",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://alignment.anthropic.com/2026/red-teaming-auto-mode/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_date": "2026-10-22",
+    "date_source": "https://alignment.anthropic.com/2026/red-teaming-auto-mode/",
+    "authors": [
+      "Alex Remedios",
+      "Simon Storf",
+      "Fabien Roger",
+      "John Hughes"
+    ]
+  },
+  {
+    "url": "https://www.anthropic.com/research/formal-verification",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/research/agents-judgment-calls",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/research/early-progress-drug-development",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://transformer-circuits.pub/2026/october-update/index.html",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://claude.com/resources/articles/claude-duet",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/hcltech-joins-claude-partner-network",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "authors": [
+      "Diane Sarkis"
+    ]
+  },
+  {
+    "url": "https://claude.com/resources/articles/claude-models-on-google-cloud-anthropic-managed",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/claude-duet-safety-privacy-and-security",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/unified-claude-enterprise",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/how-to-manage-costs-and-demonstrate-roi-for-claude-code-on-google-cloud",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/claude-for-financial-advisors",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/smart-reports-surveys-pooled-budgets",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.com/resources/articles/idc-brings-quanta-into-claude-and-adopts-claude-across-the-company",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/news/public-benefit-fund",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/public-benefit-report",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true,
+    "title": "Public Benefit Report"
+  },
+  {
+    "url": "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/news/s1-sec",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://jack-clark.net/2026/10/19/import-ai-477-in-which-i-tell-the-imf-the-singularity-has-begun/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://jack-clark.net/2026/10/26/import-ai-478-math-for-alignment-programbench-and-mirendil-shows-what-rsi-means/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://www.anthropic.com/responsible-scaling-policy/roadmap",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://www.anthropic.com/responsible-scaling-policy/updates",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://www.anthropic.com/legal/aup",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://www.anthropic.com/legal/supported-regions",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://platform.claude.com/docs/en/about-claude/model-deprecations",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://platform.claude.com/docs/en/api/migration-2026-10-21",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://claude.dev/blog/automating-eval-design-and-hillclimbing/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.dev/blog/claude-code-in-the-cloud/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.dev/blog/building-effective-agent-automations/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://support.claude.com/en/articles/15425695-covered-models",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://www.anthropic.com/news/enterprise-frontier-safeguards",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck"
+  },
+  {
+    "url": "https://support.claude.com/en/articles/14604842-cyber-verification-program",
+    "selection_reason": "2026-10-30 analysis-reviewed new work, historical omission or version/status recheck",
+    "publication_unknown": true
+  },
+  {
+    "url": "https://www-cdn.anthropic.com/a9ceec76a54d28d27affffcdab6faf7c142cd587.pdf",
+    "selection_reason": "first Public Benefit Report full PDF; precise publication date unconfirmed",
+    "publication_unknown": true
+  }
+]

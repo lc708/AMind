@@ -25,9 +25,9 @@
 
 ## 60 秒开始
 
-AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering` 0.3.2](skills/amind-engineering/SKILL.md) 负责提示词审查、迁移、多代理合同、持久分阶段工作流及 13 个任务模板；[`eval-improve` 0.4.3](skills/eval-improve/SKILL.md) 负责应用／评分器评测、精确计费范围、评分器校准和严格比较。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装和中文用例见[系列说明](AMIND-SERIES.md)，实际实现与验证见[10 月应用更新报告](reviews/2026-10-18-application-update.zh-CN.md)。下方知识技能保留独立版本与资料边界。
+AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering` 0.4.0](skills/amind-engineering/SKILL.md) 负责提示词审查、迁移、多代理合同、持久分阶段工作流及 13 个任务模板；[`eval-improve` 0.5.0](skills/eval-improve/SKILL.md) 负责应用／评分器评测、精确计费范围、评分器校准和严格比较。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装和中文用例见[系列说明](AMIND-SERIES.md)，实际实现与验证见[10 月 30 日应用更新报告](reviews/2026-10-30-update/report.zh-CN.md)。下方知识技能保留独立版本与资料边界。
 
-AMind **1.3.1** 的公开资料观察截止到 **2026-10-18**，增加带日期的当前回答资格判断，同时保留被更正或取代的历史证据。详见[10 月知识更新报告](release/amind-v1-increment-2026-10-18/reports/update.zh-CN.md)；[9 月 1.2.1 更新](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)与原始 v1 继续作为历史快照保留。当前包的总量、哈希和截止日期以 [manifest](skills/amind/data/manifest.json)、`summary` 和 `stats` 命令为准；这不意味着已经配置周期联网更新。
+AMind **1.4.0** 的公开资料观察截止到 **2026-10-30**，补齐代理监督、架构、科学与治理研究、新产品／开发者博客及历史漏项，按具体命题更新当前回答资格，同时保留被更正或取代的历史证据。详见[10 月 30 日知识更新报告](release/amind-v1-increment-2026-10-30/reports/update.zh-CN.md)；[9 月 1.2.1 更新](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)与原始 v1 继续作为历史快照保留。当前包的总量、哈希和截止日期以 [manifest](skills/amind/data/manifest.json)、`summary` 和 `stats` 命令为准；这不意味着已经配置周期联网更新。
 
 先安装 [Git LFS](https://git-lfs.com/)，再获取完整知识索引：
 
@@ -178,7 +178,7 @@ python3 -B release/amind-v1/amind.py search "model welfare" --limit 5
 python3 -B release/amind-v1/amind.py show nuwa1-claim-f169332e5fa3d349672a254d
 ```
 
-以上命令审计的是原始 v1 历史快照。小型高可信评测优先读取 [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl)。自定义当前检索应选择 [manifest](skills/amind/data/manifest.json) 指向的发布包：目前为 [`atomic-claims.jsonl.gz`](release/amind-v1-increment-2026-10-18/data/atomic-claims.jsonl.gz) 连接 [`analysis-units.jsonl.gz`](release/amind-v1-increment-2026-10-18/data/analysis-units.jsonl.gz)，并应用 manifest 绑定的时效资格与归属过滤，详见[检索规则](skills/amind/references/retrieval.md)；也可以直接使用已实现这些规则的 `query.py`。未经筛选的原始流包含历史与转述内容，不能直接用于回答当前机构立场。
+以上命令审计的是原始 v1 历史快照。小型高可信评测优先读取 [`representative-evidence-review.jsonl`](release/amind-v1/data/representative-evidence-review.jsonl)。自定义当前检索应选择 [manifest](skills/amind/data/manifest.json) 指向的发布包：目前为 [`atomic-claims.jsonl.gz`](release/amind-v1-increment-2026-10-30/data/atomic-claims.jsonl.gz) 连接 [`analysis-units.jsonl.gz`](release/amind-v1-increment-2026-10-30/data/analysis-units.jsonl.gz)，并应用 manifest 绑定的时效资格与归属过滤，详见[检索规则](skills/amind/references/retrieval.md)；也可以直接使用已实现这些规则的 `query.py`。未经筛选的原始流包含历史与转述内容，不能直接用于回答当前机构立场。
 
 ## 跨 Agent 使用
 
@@ -196,7 +196,7 @@ python3 -B scripts/verify_amind_increment.py --historical
 python3 -B scripts/verify_amind_application_skills.py --output .codex-tmp/application-checks.json
 ```
 
-完整 SQLite 索引合并原始 v1 与截至当前 manifest 的各日期增量；54 条 Gold 保留原样，被更正或取代的证据也保留原始身份与段落。每个数据文件都有 SHA-256 和行数清单。`verify_amind_increment.py` 选择当前包的验证器，`--historical` 独立检查 9 月快照。当前离线验证合计 **220 项测试**：160 项应用检查和 60 项知识／来源检查。应用检查使用本地夹具、没有真实模型调用。历史[10 月 18 日新旧对照报告](reviews/2026-10-18-comparison/report.zh-CN.md)记录了所测知识／时效任务和 helper 合同的改善；技能引导的模型工程与评估任务持平。对照共 24 次 CLI 任务执行，覆盖 12 个配对任务，每个任务每版仅运行一次，不能据此声称普遍优于旧版。
+完整 SQLite 索引合并原始 v1 与截至当前 manifest 的各日期增量；54 条 Gold 保留原样，被更正或取代的证据也保留原始身份与段落。每个数据文件都有 SHA-256 和行数清单。`verify_amind_increment.py` 选择当前包的验证器，`--historical` 独立检查 9 月快照。当前应用与知识检查见[10 月 30 日验证收据](reviews/2026-10-30-update/validation/final.json)；10 月 19 日基线为 220 项。应用检查使用本地夹具、没有真实模型调用。历史[10 月 18 日新旧对照报告](reviews/2026-10-18-comparison/report.zh-CN.md)记录了所测知识／时效任务和 helper 合同的改善；技能引导的模型工程与评估任务持平。对照共 24 次 CLI 任务执行，覆盖 12 个配对任务，每个任务每版仅运行一次，不能据此声称普遍优于旧版。
 
 工作场景三轮对照经评分语义修正后，工程仅网关出现一次拒绝合同差异，其余工程／评测任务持平；政策题的引用支持有所改善。42 次主执行、6 次确认、评分器修正与工具配置偏差见[工作场景评估报告](reviews/2026-10-19-workplace/report.zh-CN.md)。
 

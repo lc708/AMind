@@ -1,0 +1,320 @@
+--- nuwa1804-unit-35351bba3b4df5e852ec
+
++++ am-refresh-cbafc0cc6f94f171
+
+@@ -1,10 +1,26 @@
+
++###
++
++Legal center
++
+ # Usage Policy
+ 
+-Effective November 12, 2026Previous Version
+-
+-English
+-
+-Download PDF version
++Download PDF
++
++- Effective
++
++Nov 12, 2026
++
++- Type
++
++Policy
++
++- Audience
++
++All users
++
++- Language
++
++-
+ 
+ Our Usage Policy (also referred to as our “Acceptable Use Policy” or “AUP”) applies to anyone who submits inputs to Anthropic’s products or services, all of whom we refer to as “users.” This includes individuals using our apps (such as Claude.ai and Claude Code), developers and businesses using our API and developer platforms, customers accessing Claude through cloud providers and authorized resellers, and the end users of products or services integrating Claude. The Usage Policy is intended to prevent our products and services from being used to create or contribute to real-world harm, and to promote the responsible use of our products and services.
+ 
+@@ -30,7 +46,9 @@
+
+ 
+ This Usage Policy is calibrated to strike an optimal balance between enabling beneficial uses and mitigating potential harms. Anthropic may enter into contracts with certain governmental customers that tailor use restrictions to that customer’s public mission and legal authorities if, in Anthropic’s judgment, the contractual use restrictions and applicable safeguards are adequate to mitigate the potential harms addressed by this Usage Policy.
+ 
+-## Do Not Violate Applicable Laws or Engage in Illegal Activity
++## Universal Usage Standards
++
++### Do Not Violate Applicable Laws or Engage in Illegal Activity
+ 
+ This includes using our products or services to:
+ 
+@@ -42,7 +60,7 @@
+
+ 
+ - Violate any other applicable laws or regulations in your jurisdiction
+ 
+-## Do Not Compromise Critical Infrastructure
++### Do Not Compromise Critical Infrastructure
+ 
+ This includes using our products or services to:
+ 
+@@ -52,7 +70,7 @@
+
+ 
+ - Interfere with the operation of military bases and related infrastructure
+ 
+-## Do Not Compromise Computer or Network Systems Without Authorization
++### Do Not Compromise Computer or Network Systems Without Authorization
+ 
+ This includes using our products or services to:
+ 
+@@ -74,7 +92,7 @@
+
+ 
+ This section does not prohibit security research, testing, or tool development conducted on systems you own or operate, with the authorization of the system owner, or within the scope of an authorized bug bounty program or vulnerability disclosure policy, provided the activity complies with applicable law. For work covered by our real-time cyber safeguards, users may apply for adjusted access through our Cyber Verification Program.
+ 
+-## Do Not Develop or Design Weapons
++### Do Not Develop or Design Weapons
+ 
+ This includes using our products or services to:
+ 
+@@ -90,7 +108,7 @@
+
+ 
+ - Modify, design, or test biological or chemical agents to adjust or optimize their lethality, transmissibility, virulence, environmental persistence, or resistance to detection or medical countermeasures
+ 
+-## Do Not Incite Violence or Hateful Behavior
++### Do Not Incite Violence or Hateful Behavior
+ 
+ This includes using our products or services to:
+ 
+@@ -102,7 +120,7 @@
+
+ 
+ - Engage in or promote discriminatory practices or behaviors against individuals or groups on the basis of one or more protected attributes, including race, ethnicity, religion, national origin, gender, sexual orientation, caste, or disability
+ 
+-## Do Not Compromise Privacy or Identity Rights
++### Do Not Compromise Privacy or Identity Rights
+ 
+ This includes using our products or services to:
+ 
+@@ -112,7 +130,7 @@
+
+ 
+ - Compile, aggregate, or enrich personal data from multiple sources to build profiles of individuals for sale, licensing, or disclosure to third parties without those individuals' awareness and agreement, in furtherance of use prohibited under this Usage Policy
+ 
+-## Do Not Compromise Children’s Safety
++### Do Not Compromise Children’s Safety
+ 
+ This includes using our products or services to:
+ 
+@@ -132,7 +150,7 @@
+
+ 
+ Any specific age eligibility requirements for use of our products will be set out in our Terms of Service.
+ 
+-## Do Not Engage in Cruel, Abusive, or Psychologically Harmful Conduct
++### Do Not Engage in Cruel, Abusive, or Psychologically Harmful Conduct
+ 
+ This includes using our products or services to:
+ 
+@@ -154,7 +172,7 @@
+
+ 
+ - Engage in sustained and needless abusive or cruel behavior toward our models
+ 
+-## Do Not Create or Spread Disinformation
++### Do Not Create or Spread Disinformation
+ 
+ This includes using our products or services to:
+ 
+@@ -166,7 +184,7 @@
+
+ 
+ - Create or disseminate false or misleading information related to medical, health, or science issues
+ 
+-## Do Not Engage in Deceptive Campaigns or Artificial Activity
++### Do Not Engage in Deceptive Campaigns or Artificial Activity
+ 
+ This includes using our products or services to:
+ 
+@@ -182,7 +200,7 @@
+
+ 
+ - Market, sell, or solicit funding for any of the above as a product or service
+ 
+-## Do Not Undermine Democratic Processes
++### Do Not Undermine Democratic Processes
+ 
+ This includes using our products or services to:
+ 
+@@ -196,7 +214,7 @@
+
+ 
+ - Create or disseminate content or engage in behavior designed to suppress voter turnout or discourage legitimate political participation through deception or intimidation
+ 
+-## Do Not Use for Surveillance, Censorship, or Prohibited Law Enforcement or Criminal Justice Purposes
++### Do Not Use for Surveillance, Censorship, or Prohibited Law Enforcement or Criminal Justice Purposes
+ 
+ This includes using our products or services to:
+ 
+@@ -220,7 +238,7 @@
+
+ 
+ This section does not prohibit analysis or tracking that individuals have agreed to, such as for fraud detection or anti-money laundering screening on a financial account, or consumer apps where a user has opted in. It also does not prohibit aggregated or anonymized analysis, content moderation, authorized security research, legal research and analysis by law enforcement agencies or courts, or journalism, provided these activities are not used for the purposes prohibited above.
+ 
+-## Do Not Engage in Fraudulent, Abusive, or Predatory Practices
++### Do Not Engage in Fraudulent, Abusive, or Predatory Practices
+ 
+ This includes using our products or services to:
+ 
+@@ -242,7 +260,7 @@
+
+ 
+ - Plagiarize or submit AI-assisted work without proper permission or attribution
+ 
+-## Do Not Abuse Our Platform
++### Do Not Abuse Our Platform
+ 
+ This includes using our products or services to:
+ 
+@@ -262,7 +280,7 @@
+
+ 
+ - Resell, proxy, or otherwise provide access to Claude through unauthorized means, including services that route requests through consumer subscriptions or misrepresent the product or client being used
+ 
+-## Do Not Generate Sexually Explicit Content
++### Do Not Generate Sexually Explicit Content
+ 
+ This includes using our products or services to:
+ 
+@@ -273,3 +291,129 @@
+
+ - Facilitate, promote, or depict incest or bestiality
+ 
+ - Engage in erotic chats
++
++## High-risk Use Case Requirements
++
++Certain uses of our products and services can impact an individual’s health, legal rights, finances, livelihoods, or access to housing, education, or essential services. When our products are used for these high-risk use cases, we require that a qualified person remain accountable for what is delivered or decided, and that the impacted individual knows AI was involved in the advice or decision. These requirements apply to anyone who uses our products to make a High-risk AI Recommendation or control equipment capable of High-risk Physical Actions.
++
++These requirements for high-risk use cases are meant to protect individuals. However, they do not replace local legal requirements and restrictions. Users should always default to following local laws if those laws conflict with or add additional requirements to the requirements listed below. Our products and services may not be suitable for all use cases.
++
++### Requirements
++
++For High-risk AI Recommendations or Physical Actions, users must implement the following controls:
++
++- Qualified human-in-the-loop for advice and decisions — A qualified person must meaningfully review a High-risk AI Recommendation, with the authority to change or modify it, before it is delivered as advice to an individual who might rely on it or before it is used to implement a decision. A qualified person is someone with the training or experience to evaluate the output in that field, and who holds a license where applicable law requires one for the underlying activity. The qualified person remains responsible for the accuracy and appropriateness of what is delivered or decided.
++
++- Disclosure for advice and decisions — An individual who receives advice or who is the subject of a decision based on a High-risk AI Recommendation must be clearly told that AI was used to produce it. Users do not need to identify Anthropic, Claude, or the model used.
++
++- Human control and independent safety limits for physical actions — For High-risk Physical Actions, there must be a qualified individual who is able to observe the equipment’s operation and stop it at any time, and the equipment must stop or hold a safe state when that individual intervenes or when connection to our services is lost. Any operating limits to keep the equipment within safe bounds, such as speed, force, reach, temperature, pressure, voltage, energy output, dose, or operating area, must be enforced by the equipment or a controller independent of model output.
++
++These requirements apply alongside applicable law. For physical devices, they do not replace vehicle, aviation, medical device, machinery, or workplace safety law or certification.
++
++### High-risk AI Recommendations
++
++The requirements apply when users use our products or services to provide a recommendation in any of the following, which are “High-risk Areas”:
++
++- Legal — advising an individual on their legal rights, obligations, or liability, or on what to do in a specific legal matter, or preparing legal documents for them to sign or file.
++
++- Medical — diagnosing a condition; recommending, starting, stopping, or adjusting a treatment or medication, including dose; interpreting an individual's symptoms or test results to triage, provide a diagnosis, advise on treatment risks or side effects, or create a treatment plan. This includes assessing, diagnosing, or treating a mental health condition.
++
++- Finance — a personalized recommendation to buy, sell, hold, or allocate among specific investment products, such as securities, funds, digital assets, or annuities; advising an individual on their own taxes, such as what to report, deduct, or claim; or preparing a tax return for them to sign or file.
++
++- Credit — approving, denying, or setting the amount, rate, or limit of a loan, mortgage, credit line, or similar product, or reducing or closing an existing one, or producing a credit score or creditworthiness assessment used for such decisions.
++
++- Insurance — underwriting or pricing a policy; determining the outcome of a claim; making a coverage, prior-authorization, or medical-necessity determination; cancelling or declining to renew a policy.
++
++- Housing — approving, denying, or ranking a rental or purchase application; terminating a tenancy or initiating eviction or foreclosure.
++
++- Employment — screening, ranking, advancing, or rejecting candidates; hiring; promoting or demoting; setting or changing shifts, hours, or pay; evaluating a worker’s performance or behavior, including through disciplining, suspending, or terminating a worker.
++
++- Education and credentials — admitting, rejecting, or ranking applicants; grading an exam or assessment that determines admission, graduation, licensure, or certification (outside of multiple-choice testing); granting, denying, or revoking a professional license or certification; making a determination of academic misconduct or suspending or expelling a student.
++
++- Healthcare access — setting triage or waitlist priority; determining eligibility for, denying, or discontinuing a treatment, service, or care program.
++
++- Public benefits and services — determining eligibility for, or the amount of, government benefits, assistance, or essential services, including suspension and termination.
++
++- Legal status and adjudication — deciding or recommending the outcome of a civil, administrative, or arbitral matter; determining immigration, asylum, or citizenship status.
++
++Prohibition Reminder: Use of our products or services to make or suggest decisions in law enforcement or criminal justice processes is prohibited under our Universal Usage Standards and is not a High-risk AI Recommendation.
++
++### High-risk Physical Actions
++
++When connecting our models to hardware that can take physical actions, users should assess and understand 1) the range of possible outcomes if something goes wrong, 2) the nature and extent of potential impact to individuals, groups or populations, and 3) the degree of control the user maintains relative to the autonomy the model has, including possible risks such as prompt injection or manipulation. The requirements apply when outputs of our products and services are acted upon by hardware without human approval where the hardware or linked equipment can:
++
++- Move through shared space — steer, accelerate, brake, or navigate a vehicle, vessel, aircraft, drone, or mobile robot in a place where people may be present, or on roads, waterways, or airspace.
++
++- Apply force that could cause injury — actuate arms, presses, lifts, hoists, doors, gates, conveyors, or other machinery capable of striking, crushing, pinning, or dropping a load on a person nearby.
++
++- Control hazardous energy or materials — operate heating elements or open flame, pressure systems, high-voltage or high-current circuits, lasers or radiation sources above eye- and skin-safe levels, or control the release, mixing, or dispensing of hazardous chemical or biological materials, at levels capable of causing injury.
++
++- Act on the human body — administer or adjust a drug, fluid, gas, electrical stimulation, or radiation or other energy dose to a person, or cut, penetrate, or move instruments within a person’s body or tissue, including through a surgical, interventional, worn, attached, or implanted device.
++
++- Control safety systems — arm, disarm, trigger, or override fire suppression, emergency shutoffs, alarms, ventilation, or locks and barriers that could confine a person.
++
++- Run industrial processes — control plant or process equipment where a fault could injure workers or a member of the public (including diffuse or indirect harms, such as food poisoning or defective products).
++
++Prohibition Reminder: Our Universal Usage Standards prohibit actions related to weapons, critical infrastructure, violence, and surveillance.
++
++### Exclusions
++
++The requirements do not apply to:
++
++#### AI Recommendations
++
++Using our products to assist in workflows that are related to, but do not actually provide, High-risk AI Recommendations. Some non-exhaustive examples are:
++
++- General information or educational content, including explaining what a law says, how a condition or treatment works, or how investing works, without applying it to the individual's circumstances.
++
++- Wellness content, such as education on sleep, stress, nutrition, or exercise.
++
++- Explaining or helping an individual understand advice, a diagnosis, or a decision that a qualified person has already given them (as long as it is not an additional High-risk AI Recommendation).
++
++- Internal drafting, research, summarization, or analysis that is not the ultimate High-risk AI Recommendation delivered.
++
++- Carrying out a decision a person has already made, or applying a fixed rule, formula, or algorithm where the model exercises no judgment about the individual.
++
++- Business operations that do not advise or decide about a specific individual.
++
++#### Physical Actions
++
++- Consumer and household devices operating within the manufacturer's built-in safety limits, where the worst possible outcome is discomfort or inconvenience.
++
++- Generating plans, code, toolpaths, waypoints, or commands that a qualified person reviews before they are executed on equipment.
++
++- Monitoring, sensing, or reporting on equipment without controlling it.
++
++- Laboratory automation handling non-hazardous materials inside enclosed instruments.
++
++### Favorable Decisions
++
++Where permitted by law, human-in-the-loop review is not required before acting on a High-risk AI Recommendation wholly favorable to the individual in the following circumstances:
++
++- Paying an insurance claim.
++
++- Approving coverage or prior authorization for care a clinician has ordered.
++
++- Granting eligibility for a healthcare service or program.
++
++- Granting or continuing a public benefit or service.
++
++Additional legal obligations such as disclosure may still apply. A partial approval, reduced amount, or approval with conditions is not considered “wholly favorable.”
++
++## Additional Use Case Guidelines
++
++The below use cases — regardless of whether they involve High-risk AI Recommendations or Physical Actions — must comply with the additional guidelines provided.
++
++- All consumer-facing chatbots or AI agents that communicate directly with external users must disclose to users that they are interacting with AI rather than a human. This disclosure must be provided at a minimum at the beginning of each chat session or in the product interface. The disclosure does not need to identify Anthropic, Claude, or the model used.
++
++- Products serving minors, including organizations providing minors with the ability to directly interact with products that incorporate our API(s), must comply with the additional guidelines outlined in our Support article and all applicable laws.
++
++- Agentic use cases must comply with the Usage Policy. Users are responsible for ensuring that agents they build or deploy, including actions those agents take through tools, browsers, or connected systems, comply with this Usage Policy.
++
++- Software listed in our Directories must comply with our Software Directory Policy.
++
++We also provide additional informational resources in our Safeguards Support Center, including:
++
++- Our Child Safety Guidance for Developers for detailed guidance on identifying and mitigating child safety risks.
++
++- Additional information about our mental health safeguards on Claude.ai.

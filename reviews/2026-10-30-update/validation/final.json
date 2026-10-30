@@ -1,0 +1,89 @@
+{
+  "verdict": "PASS",
+  "checked_at": "2026-10-30T08:35:43.647656+00:00",
+  "source_observation_cutoff": "2026-10-30",
+  "versions": {
+    "amind": "1.4.0",
+    "amind-engineering": "0.4.0",
+    "eval-improve": "0.5.0"
+  },
+  "counts": {
+    "analysis_units": 1607,
+    "atomic_claims": 140665,
+    "equivalence_components": 189,
+    "new_claims": 11533,
+    "new_passages": 995,
+    "new_units": 70,
+    "passages": 21516,
+    "reviewed_kernel_claims": 54
+  },
+  "offline_tests": {
+    "total": 337,
+    "application": 210,
+    "knowledge_and_collection": 127,
+    "failures": 0
+  },
+  "historical_files_unchanged": 1874,
+  "baseline_claims_preserved": 129132,
+  "current_status_decisions": 134,
+  "new_human_gold_rows": 0,
+  "selected_AI_context_reviews": 60,
+  "source_scope_notes": 33,
+  "installation": {
+    "receipt": "installation.json",
+    "postinstall_receipt": "installed-verification.json",
+    "verified_files": 102,
+    "CLI_checks": 9,
+    "backup": "/Users/damonalbarn/.codex/skill-backups/amind-series-lbf6cr7c"
+  },
+  "workspace_sync": {
+    "receipt": "workspace-sync.json",
+    "verified_files": 918,
+    "written_files": 917,
+    "backup": "/Users/damonalbarn/.codex/worktree-sync-backups/amind-2026-10-30-hbzrpu0s",
+    "all_3_source_packages_identical": true,
+    "original_workspace_commands": [
+      {
+        "command": [
+          "/Users/damonalbarn/Work/AMind/skills/amind/scripts/verify.py"
+        ],
+        "exit_code": 0,
+        "output": "AMind skill verification PASS: 140,665 indexed claims, 21,516 passages, 54 reviewed gold rows"
+      },
+      {
+        "command": [
+          "/Users/damonalbarn/Work/AMind/skills/amind/scripts/query.py",
+          "summary"
+        ],
+        "exit_code": 0,
+        "output": "AMind skill 1.4.0 — amind-v1-increment-2026-10-30\nSource observation cutoff: 2026-10-30 (bounded collection; see update report for gaps)\nSearchable atomic claims: 140665\nIndexed analysis units: 1607\nBundled passage contexts: 21516\nHuman-reviewed gold rows: 54\nAudited equivalence components: 189\nThemes / voices / tensions: 9 / 5 / 5"
+      }
+    ]
+  },
+  "release_manifest_sha256": "4722f6d47263f14fc9b64239503e343d4177802720598f4e07efa18364de557d",
+  "skill_manifest_sha256": "bcec60868e0d8cadea345089992bce07c47db9192880c1003f11dcbf3304ed62",
+  "worktree_retained": "/Users/damonalbarn/.codex/worktrees/amind-october-30-refresh/AMind",
+  "limits": [
+    "Two failed discovery entry points; six static seed lists were not HTTP-refreshed.",
+    "Bounded public written-source refresh; not complete web or spoken-interview coverage.",
+    "New evidence is machine checked with selected AI context review, not new human Gold.",
+    "No live target/judge API calls or new independent skill-agent quality comparison.",
+    "Decisions preflight is a documented subset; diagnostic inputs require trusted evidence."
+  ],
+  "receipts": [
+    "application-checks.json",
+    "knowledge-checks.json",
+    "snapshot-current.json",
+    "historical-september.json",
+    "historical-october.json",
+    "installation.json",
+    "installed-verification.json",
+    "workspace-sync.json"
+  ],
+  "delivery_checks": {
+    "markdown_files_checked": 23,
+    "broken_local_links": 0,
+    "git_diff_check": "PASS",
+    "workspace_receipt_inventory_and_packages_rechecked": true
+  }
+}

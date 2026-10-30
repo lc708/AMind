@@ -544,6 +544,7 @@ class Refresh:
     else:ranges.append((opened,m.end(),'fenced source artifact/table/code'));opened=None
    if opened is not None:ranges.append((opened,len(text),'continued source artifact'))
    if u['component_origin']=='source_artifact':ranges.append((0,len(text),'system prompt is a source artifact, not author belief'))
+   if hasattr(self,'additional_artifact_ranges'):ranges.extend(self.additional_artifact_ranges(u,text))
    if urllib.parse.urlsplit(u['canonical']).path=='/claude-opus-5-5':
     start=text.find('Claude Opus 5\n\nPlease explain the issue to me.')
     end=text.find('\n## Safety',start)
@@ -587,7 +588,7 @@ class Refresh:
        if guest:conditions.append('Named guest author; source host does not imply Anthropic institutional endorsement.')
        seed={'seed_id':sid('oct-seed-',p['passage_id']+q),'unit_id':u['analysis_unit_id'],'proposition':prop,'quote':q,'claim_type':kind,'epistemic_force':'quoted_position' if reported else force,'domains':atoms.domains_for(text[a:b],u['title']),'conditions':conditions,'invalidation_conditions':[],**v};seeds.append(seed);count+=1
    coverage.append({'passage_id':p['passage_id'],'analysis_unit_id':u['analysis_unit_id'],'claims':count,'processing':'deterministic source-exact extraction; not human review','claimless_reason':None if count else skip or 'No unique eligible author-prose span after source-artifact filters'})
-  claims,bindings=atoms.extract_claim_records(seeds,units,passages,json.loads((ROOT/'config/amind-v1-atomic-claim.schema.json').read_text()),self.date,'source-exact deterministic routine extraction with source-artifact exclusions','amind-refresh-2026-10-18-1')
+  claims,bindings=atoms.extract_claim_records(seeds,units,passages,json.loads((ROOT/'config/amind-v1-atomic-claim.schema.json').read_text()),self.date,'source-exact deterministic routine extraction with source-artifact exclusions',getattr(self,'extractor_version','amind-refresh-2026-10-18-1'))
   auditpolicy=json.loads((ROOT/'config/nuwa-v1-claim-audit-policy.json').read_text());audits=[auditor.claim_attribution(c,auditpolicy) for c in claims]
   themes=json.loads((ROOT/'config/nuwa-v1-synthesis-policy.json').read_text())['themes'];members=[]
   for c,a in zip(claims,audits):

@@ -158,8 +158,14 @@ def main():
     args=p.parse_args()
     manifest=json.loads((ROOT/'skills/amind/data/manifest.json').read_text())
     if not args.historical and manifest.get('release_id') not in {'amind-v1', RELEASE_ID}:
-        from verify_amind_refresh import verify as verify_current
-        result=verify_current()
+        if manifest['release_id']=='amind-v1-increment-2026-10-18':
+            from verify_amind_refresh import verify as verify_current
+            result=verify_current()
+        else:
+            from verify_amind_snapshot import verify as verify_current
+            current=ROOT/'release'/manifest['release_id']
+            release_manifest=json.loads((current/'manifest.json').read_text())
+            result=verify_current(current,ROOT/'release'/release_manifest['base_release_id'])
     else:
         result=verify(local_vault=args.local_vault)
     print(json.dumps(result,ensure_ascii=False,indent=2))

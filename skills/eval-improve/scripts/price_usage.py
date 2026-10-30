@@ -7,7 +7,8 @@ from pathlib import Path
 from kernel_common import finite, read_json, read_jsonl, sha
 
 IDENTITY_FIELDS = ('provider', 'interface', 'model', 'service_tier', 'region')
-ADAPTERS = {'text_tokens_v1', 'input_only_v1', 'units_v1'}
+ADAPTERS = {'text_tokens_v1', 'input_only_v1', 'units_v1', 'cache_text_v1', 'cache_input_v1'}
+OPTIONAL_SCOPE_FIELDS = ('context_band', 'cache_policy')
 
 
 def nonnegative(value, name, integer=False):
@@ -17,17 +18,18 @@ def nonnegative(value, name, integer=False):
 
 
 def billing_identity(value):
-    if not isinstance(value, dict) or set(value) - set(IDENTITY_FIELDS) - {'context_band'}:
-        raise ValueError('billing_identity requires exact provider/interface/model/service_tier/region and optional context_band')
+    if not isinstance(value, dict) or set(value) - set(IDENTITY_FIELDS) - set(OPTIONAL_SCOPE_FIELDS):
+        raise ValueError('billing_identity requires exact provider/interface/model/service_tier/region and optional context_band/cache_policy')
     if any(not isinstance(value.get(k), str) or not value[k] for k in IDENTITY_FIELDS):
         raise ValueError('billing_identity requires exact provider/interface/model/service_tier/region')
-    if 'context_band' in value and (not isinstance(value['context_band'], str) or not value['context_band']):
-        raise ValueError('context_band must be a nonempty exact rate scope')
+    for key in OPTIONAL_SCOPE_FIELDS:
+        if key in value and (not isinstance(value[key], str) or not value[key]):
+            raise ValueError(key + ' must be a nonempty exact rate scope')
     return value
 
 
 def check_flat_scope(record, identity):
-    for key in (*IDENTITY_FIELDS, 'context_band'):
+    for key in (*IDENTITY_FIELDS, *OPTIONAL_SCOPE_FIELDS):
         if key in record and record[key] != identity.get(key):
             raise ValueError(key + ' differs from billing_identity')
 
@@ -41,7 +43,7 @@ def select_rate(event, card):
     if identity is None:
         # Historical three-rate text cards cannot price a newly declared endpoint,
         # tier, region or context band by matching only its model name.
-        if any(k in event for k in (*IDENTITY_FIELDS, 'context_band') if k != 'model') or 'usage_adapter' in event:
+        if any(k in event for k in (*IDENTITY_FIELDS, *OPTIONAL_SCOPE_FIELDS) if k != 'model') or 'usage_adapter' in event:
             return None, None, 'explicit billing scope requires billing_identity and rates[]'
         return card.get('models', {}).get(event.get('model')), 'text_tokens_v1', None
     billing_identity(identity)
@@ -81,6 +83,45 @@ def unit_parts(usage, rate):
     return parts
 
 
+def cached_parts(usage, rate, adapter, identity):
+    """Price disjoint reads/writes; write rates are total rates, never surcharges."""
+    if not identity or not identity.get('cache_policy'):
+        return None, 'cache adapters require an exact cache_policy billing scope'
+    allowed = {'input_tokens', 'cached_input_tokens', 'cache_write_input_tokens_by_ttl', 'units'}
+    if adapter == 'cache_text_v1': allowed |= {'output_tokens', 'reasoning_tokens'}
+    if set(usage) - allowed: return None, 'unadapted cache usage fields'
+    required = {'input_tokens', 'cached_input_tokens', 'cache_write_input_tokens_by_ttl'}
+    if adapter == 'cache_text_v1': required.add('output_tokens')
+    if not required <= set(usage): return None, 'missing explicit cache/input/output counters'
+    incoming = nonnegative(usage['input_tokens'], 'input tokens', True)
+    reads = nonnegative(usage['cached_input_tokens'], 'cached input tokens', True)
+    writes = usage['cache_write_input_tokens_by_ttl']
+    if not isinstance(writes, dict) or set(writes) != {'30m', '12h'}:
+        raise ValueError('cache write counters require disjoint 30m and 12h buckets')
+    for ttl, count in writes.items(): nonnegative(count, ttl + ' write tokens', True)
+    if reads + sum(writes.values()) > incoming:
+        raise ValueError('cache reads/writes exceed input total')
+    for key in ('input_per_million', 'cached_input_per_million'):
+        if key not in rate: return None, 'missing cache/input rate'
+        nonnegative(rate[key], key)
+    write_rates = rate.get('cache_write_input_per_million_by_ttl', {})
+    if not isinstance(write_rates, dict) or set(write_rates) - {'30m', '12h'}:
+        raise ValueError('cache write rates support only 30m and 12h')
+    parts = {'uncached_input': (incoming - reads - sum(writes.values())) * rate['input_per_million'] / 1e6,
+             'cached_input': reads * rate['cached_input_per_million'] / 1e6}
+    for ttl, count in writes.items():
+        if ttl in write_rates: nonnegative(write_rates[ttl], ttl + ' write rate')
+        elif count: return None, 'cache write rate missing for ' + ttl
+        if count: parts['cache_write_input:' + ttl] = count * write_rates[ttl] / 1e6
+    if adapter == 'cache_text_v1':
+        output = nonnegative(usage['output_tokens'], 'output tokens', True)
+        reasoning = nonnegative(usage.get('reasoning_tokens', 0), 'reasoning tokens', True)
+        if reasoning > output: raise ValueError('reasoning subset exceeds output total')
+        if 'output_per_million' not in rate: return None, 'missing output rate'
+        parts['output_including_reasoning'] = output * nonnegative(rate['output_per_million'], 'output rate') / 1e6
+    return parts, None
+
+
 def price(event, card):
     if event.get('billing_identity') is not None:
         billing_identity(event['billing_identity'])
@@ -93,10 +134,16 @@ def price(event, card):
     usage = event.get('usage')
     if rate is None or not isinstance(usage, dict): return unknown(reason or 'missing rate or usage')
     allowed = {'input_tokens', 'output_tokens', 'cached_input_tokens', 'input_tokens_details',
-               'reasoning_tokens', 'output_tokens_details', 'cache_write_input_tokens', 'units'}
+               'reasoning_tokens', 'output_tokens_details', 'cache_write_input_tokens',
+               'cache_write_input_tokens_by_ttl', 'units'}
     if set(usage) - allowed: return unknown('unadapted usage fields; preserve native usage and normalize explicitly')
     parts = {}
-    if adapter == 'units_v1':
+    if adapter in {'cache_text_v1', 'cache_input_v1'}:
+        parts, reason = cached_parts(usage, rate, adapter, event.get('billing_identity'))
+        if parts is None: return unknown(reason)
+    elif 'cache_write_input_tokens_by_ttl' in usage:
+        return unknown('TTL-partitioned writes require a cache adapter')
+    elif adapter == 'units_v1':
         if set(usage) != {'units'}: return unknown('units_v1 accepts only explicit normalized units')
     else:
         if 'input_tokens' not in usage: return unknown('missing input token total')

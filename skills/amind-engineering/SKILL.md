@@ -3,7 +3,7 @@ name: amind-engineering
 description: Build and improve LLM applications, agents, prompts, and skills through concrete engineering contracts, executable diagnostics and measured experiments. Use for prompt audits, measured cost optimization, model or API migration, SDK upgrades, conversation-state migration, agent implementation, and routing evaluation or hillclimbing work to AMind Eval Improve. Use this AMind application skill for engineering work, not for retrieving Anthropic's public positions or ordinary non-AI code changes.
 license: Apache-2.0; see LICENSE.txt and NOTICE.txt
 metadata:
-  version: "0.3.2"
+  version: "0.4.0"
   series: "AMind"
 ---
 
@@ -29,6 +29,7 @@ These are workflow names inside a skill, not new CLI commands or API endpoints. 
 | `agent-build` / build an AI application | [Agent implementation](references/agent-build.md), then the relevant part of [API implementation](references/api-implementation.md) | Runnable application path, tool contracts, verification and operating notes |
 | `agent-onboard` with a URL or template name | [Onboarding](references/onboarding.md), [thirteen templates](references/templates.md) | Committable local configuration, provenance, dry-run plan and offline workflow |
 | Large item populations / phased work | [Staged workflows](references/workflow-recipes.md) | Durable phase journal, recovery, complete coverage and a checked aggregate |
+| Architecture changes, review convergence, independent oversight or handoff audits | [Method diagnostics](references/method-diagnostics.md) | Read-only capture checks, complete paired coverage, regressions, provenance and stopping conditions |
 
 If `eval-improve` is missing, first check this checkout's `skills/eval-improve/SKILL.md` and use it directly when available. Otherwise report the missing module and use the user's existing evaluator; do not silently claim an evaluation was completed. The repository installer installs both application skills together.
 
@@ -61,6 +62,7 @@ Use tools when they resolve the current task, not as a checklist to run indiscri
 | Staged workflow execution | `scripts/workflow_contract.py` | Item/aggregate phases, cumulative budgets, crash reconciliation and uncovered populations |
 | Source/template onboarding | `scripts/onboarding_contract.py` | List actual packaged templates, plan files by default, explicit local write without cloud deployment |
 | Cache and context-probe evidence | `scripts/cache_diagnostics.py` | Comparison identity, actual cache counters and not-measured/inconclusive outcomes |
+| Architecture, review and supervision evidence | `scripts/method_diagnostics.py` | Fold/merge/as-tool/keep choices, paired task regressions, bounded review, judgment independence and state-bound handoffs |
 | Durable tool execution reference | `scripts/tool_loop.py` | Validated/authorized dispatch, budgets, idempotency and unknown-outcome reconciliation |
 | Operational event audit | `scripts/lifecycle_audit.py` | Replays, cancellation, side effects, memory ownership and callback facts |
 | Application evaluation and cost accounting | Companion `$eval-improve` | Runnable grading, compatible paired comparisons, full reports and cost search |

@@ -59,3 +59,7 @@ Preserve customer requirements, calibrated style constraints, exact protocol syn
 For each material finding write: file/line and rendered-call evidence; provenance; observed or hypothesized failure; proposed change; why it should help the chosen target; regression cases; uncertainty and rollout/rollback. Separate confirmed defects from hypotheses. Prefer a few coherent patches over a blanket rewrite.
 
 Test the rendered prompt and surrounding parser/tool/configuration after the patch. Use AMind Eval Improve to compare on independent task groups, preserve baseline, inspect hard failures and guardrails, and record cost/latency as well as quality. A shorter prompt is not an improvement until the desired behavior survives; total tokens may rise if the model now needs more reasoning or repairs.
+
+## Converge on a bounded review
+
+Use [review diagnostics](method-diagnostics.md#bound-review-and-preserve-unresolved-findings) to bind checks and findings to the exact patch. Freeze required checks and a round budget; retain stable finding identities, explicit resolution evidence, changed-path coverage and open findings across rounds. Repeated findings do not count as new findings, and findings that disappear from a later review do not close automatically. Stop when review converges or the budget is exhausted, reporting unresolved work in the latter case. A clean review is not merge approval or a proof of no bugs. Calibrate the process using review time, reverts and incidents instead of maximizing rounds or comment counts.

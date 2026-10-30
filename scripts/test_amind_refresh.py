@@ -174,8 +174,8 @@ class PackagedEvidenceTests(unittest.TestCase):
     def setUpClass(cls):
         cls.data=ROOT/'skills/amind/data'
         cls.manifest=json.loads((cls.data/'manifest.json').read_text())
-        if cls.manifest['release_id']!='amind-v1-increment-2026-10-18':
-            raise RuntimeError('Package the October release before running integration regressions')
+        if cls.manifest['release_id'] not in {'amind-v1-increment-2026-10-18','amind-v1-increment-2026-10-30'}:
+            raise RuntimeError('Package a supported October release before running integration regressions')
         cls.status=lifecycle.load_records(cls.data,cls.manifest)
         cls.db=sqlite3.connect((cls.data/'amind-full-index.sqlite3').as_uri()+'?mode=ro&immutable=1',uri=True)
         cls.db.row_factory=sqlite3.Row
@@ -204,7 +204,8 @@ class PackagedEvidenceTests(unittest.TestCase):
 
     def test_policy_editions_switch_on_effective_date(self):
         rules=[r for r in self.status if r['source_canonical'].endswith(('/legal/aup','/legal/supported-regions')) and r.get('valid_from')=='2026-11-12']
-        self.assertEqual(len(rules),2)
+        self.assertGreaterEqual(len(rules),2)
+        self.assertEqual({r['source_canonical'].rstrip('/').rsplit('/',1)[-1] for r in rules},{'aup','supported-regions'})
         for rule in rules:
             row=self.unit_row(rule['target_analysis_unit_ids'][0])
             self.assertFalse(self.eligible(row,'2026-10-18'))
@@ -230,7 +231,9 @@ class PackagedEvidenceTests(unittest.TestCase):
             self.assertFalse(self.eligible(row,before));self.assertTrue(self.eligible(row,rule['valid_from']))
 
     def test_archived_goals_are_historical_without_asserting_completion(self):
-        archived=list(self.db.execute('SELECT c.claim_id FROM claims c JOIN sources s ON s.id=c.source_id WHERE s.canonical LIKE ?',('%/responsible-scaling-policy/updates',)))
+        # This regression targets the October 18 archive edition. A later
+        # captured archive can legitimately supply newly public completion facts.
+        archived=list(self.db.execute('SELECT c.claim_id FROM claims c JOIN sources s ON s.id=c.source_id WHERE s.analysis_unit_id=?',('nuwa1804-unit-6f5679660f417993f733',)))
         self.assertGreater(len(archived),10)
         for cid, in archived:self.assertFalse(self.eligible(self.row(cid),'2026-10-18'))
 

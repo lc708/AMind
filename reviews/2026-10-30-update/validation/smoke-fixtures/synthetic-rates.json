@@ -1,0 +1,25 @@
+{
+  "version": "synthetic-october",
+  "effective_date": "2026-10-30",
+  "source": "synthetic offline rate card",
+  "rates": [
+    {
+      "billing_identity": {
+        "provider": "openai",
+        "interface": "responses",
+        "model": "fixture-model",
+        "service_tier": "default",
+        "region": "fixture-region",
+        "cache_policy": "openai_30m_12h_v1"
+      },
+      "usage_adapter": "cache_text_v1",
+      "input_per_million": 1,
+      "cached_input_per_million": 0.1,
+      "output_per_million": 2,
+      "cache_write_input_per_million_by_ttl": {
+        "30m": 1.25,
+        "12h": 2.5
+      }
+    }
+  ]
+}

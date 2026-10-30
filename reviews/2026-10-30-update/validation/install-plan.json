@@ -1,0 +1,20 @@
+{
+  "mode": "plan",
+  "skills": [
+    {
+      "name": "amind",
+      "action": "replace",
+      "destination": "/Users/damonalbarn/.codex/skills/amind"
+    },
+    {
+      "name": "amind-engineering",
+      "action": "replace",
+      "destination": "/Users/damonalbarn/.codex/skills/amind-engineering"
+    },
+    {
+      "name": "eval-improve",
+      "action": "replace",
+      "destination": "/Users/damonalbarn/.codex/skills/eval-improve"
+    }
+  ]
+}
