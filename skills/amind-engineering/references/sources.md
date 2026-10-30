@@ -18,6 +18,12 @@ Locally authored `scripts/method_diagnostics.py` adds read-only evidence contrac
 
 The method references are [folding subagents](https://claude.com/resources/articles/building-agents-when-to-fold-subagents-into-your-main-agent-loop) (October 22), [code review](https://claude.dev/blog/solving-code-review-at-anthropic/) (October 15), [cloud sessions](https://claude.dev/blog/claude-code-in-the-cloud/) (October 6), [Auto Mode red teaming](https://alignment.anthropic.com/2026/red-teaming-auto-mode/) (October 22) and [experts' judgment](https://www.anthropic.com/research/agents-judgment-calls) (October 27). These provide distinct experiments and practices; their effect sizes are not transported to AMind. The [Claude API migration](https://platform.claude.com/docs/en/api/migration-2026-10-21) is version-specific. The [MCP builder v2 change](https://github.com/anthropics/skills/commit/ca45fc496a3436251f191354091d557da31c15b5) is an additional reference outside the unchanged 96-file claude-api inventory, not a silent repin or a bundled MCP server.
 
+## October 30 upstream verification
+
+On 2026-10-30, compared the current source pin with the latest upstream commit, `ca45fc496a3436251f191354091d557da31c15b5` (2026-10-28). The `skills/claude-api` directory is identical at both revisions: all 96 files retain their Git blob identities, and the directory tree SHA is `523da4b0c36e7e79fcbf9e81e748e374efa3a6c1`. The [complete diff](https://github.com/anthropics/skills/compare/dbd4588f9e1033efb41dad4bef2f7947c8993d44...ca45fc496a3436251f191354091d557da31c15b5) changes only three files in `mcp-builder`; the existing [MCP version guidance](migration.md#mcp-typescript-sdk-versions) already covers version selection and links that update.
+
+No Engineering workflow or executable change is needed for this upstream delta. Version 0.4.0, the source pin, capability inventory and local enhancements are retained. This records source comparison, not a new live compatibility or model-quality evaluation.
+
 ## Functional migration
 
 | Source entry | AMind implementation | Scope |

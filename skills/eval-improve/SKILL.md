@@ -46,6 +46,8 @@ Proceed with authorized, reversible setup and offline checks. Before launching p
 
 Use the host's file, patch and process tools. There is no dependency on Claude Code tool names, slash commands, background flags, a subagent feature, or `.claude/` directories. Use background process handles when available for long runs and keep progress visible. Never create a separate user-owned task as an implementation detail.
 
+Match the launch timeout to the authorized run budget and the host's documented limits. In a one-shot session, wait for the evaluation to finish before ending the session unless the host explicitly supports jobs continuing afterward; a background handle alone does not establish that support. After interruption, inspect saved results and the run manifest before following the runner's existing reconciliation/resume rules, retaining the original budgets.
+
 Reuse an existing evaluator. When one is missing, use the [provider-neutral runner](references/runner.md) with a small adapter calling the application's actual entry point in its language. It handles scoring, bounded parallelism, deadlines, retries, attempt accounting, compatible identities, resume and final-selection freezing. The [artifact contract](references/artifacts.md) documents comparisons and reports. For fresh, read-only Codex CLI tasks, use the optional [Codex collector](references/codex-runner.md). Other model/API adapters are project-specific; no API key is bundled.
 
 Use current official documentation for provider-specific SDK calls and prices. Do not change the model provider merely because the source workflow was written for Claude.

@@ -43,3 +43,17 @@ The [accounting reference](accounting-calibration.md) links official Decisions, 
 ## October 30 refresh 0.5.0
 
 Locally authored billing normalizers and request checks follow the October 20 Responses cache and October 22 Decisions GA documentation. Responses supports documented 30m/12h counters; Decisions retains its separate 30m contract. The runner accepts the resulting exact cache-policy identity, preserves unknown spend and records uncertain process-group cleanup independently from the primary failure. These additions do not change the original Anthropic workflow pin or lite-reporter bytes. The developer-blog backfill adds source coverage while preserving AMind's validation/final-test separation. Offline regression evidence is recorded in the October 30 update report; no live target/judge API or general superiority claim is implied.
+
+## October 30 upstream verification and documentation corrections
+
+On 2026-10-30, compared the original attribution pin with the latest upstream commit, `ca45fc496a3436251f191354091d557da31c15b5` (2026-10-28). The [complete diff](https://github.com/anthropics/skills/compare/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4...ca45fc496a3436251f191354091d557da31c15b5) changes three of the seven files under `shared/evals`, with no additions or deletions:
+
+| Upstream file | Change and local disposition |
+|---|---|
+| `build-eval.md` | Updates the Claude judge example and requests a short explanation. Existing model choice and [concise rationale guidance](build-eval.md#3-choose-the-smallest-valid-grader) are retained. |
+| `cost-hillclimb.md` | Clarifies that harness cost ledgers can differ from API cache billing. Existing [cost accounting](cost-search.md#measurement-first) already requires explicit billing identities, native usage normalization and account-report reconciliation. |
+| `eval-hillclimb.md` | Clarifies background timeouts and one-shot versus persistent host sessions. [Host execution guidance](../SKILL.md#work-in-the-current-environment) now addresses waiting, documented job survival and recovery within original budgets; Claude-specific tool flags and timeout values are not copied. |
+
+`eval-audit.md` is unchanged (Git blob `bc277162f32f11c98639621d94c4a3b90ce6d33d`). The entire `report/` subtree is unchanged (Git tree `3c6903e8c3f24d6c81c0b84d397e4210948a29e5`), including its schema, lite reporter and runner scaffold. The local lite reporter still matches the latest upstream file and the SHA-256 recorded above. Eval/hillclimb routing in the upstream entry point is unchanged.
+
+The review also found a local documentation inconsistency: [baseline guidance](build-eval.md#5-run-and-inspect-a-baseline) now describes attempted termination and unconfirmed process-group cleanup, matching the existing [runner contract](runner.md). This correction does not change cancellation or retry code. Version 0.5.0, original attribution, executable helpers and local enhancements are retained; the review does not establish new live compatibility or model-quality results.
