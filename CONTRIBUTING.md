@@ -49,7 +49,7 @@ Changes to packaged Skill data must remain deterministically generated from the 
 
 The current knowledge package is **1.4.0**, observed through **2026-10-30**. `verify_amind_increment.py` selects its matching verifier; `--historical` independently checks the September 1.2.1 snapshot. `build_amind_skill.py --check` targets original `amind-v1` and is not a check of an incremented package. Test current eligibility, earlier `--as-of` dates, explicitly included history, corrections and future-effective material without deleting the underlying evidence. `--current` never implies a web fetch or verification beyond the recorded cutoff.
 
-For **Engineering 0.4.0 / Eval Improve 0.5.0**, run:
+For **Engineering 0.4.1 / Eval Improve 0.5.1**, run:
 
 ```bash
 python3 -B scripts/test_amind_app_skills.py
@@ -89,4 +89,4 @@ AMind 欢迎证据修正、真实用例与评测、Agent Skills 客户端兼容�
 
 所有贡献都必须保留四条边界：研究问题不等于公开结论，机构材料不自动等于个人观点，原始作品与后续版本不能混写，直接证据与推断必须分开。安全问题请按 [`SECURITY.md`](SECURITY.md) 私下报告。
 
-当前知识 1.4.0、Engineering 0.4.0、Eval Improve 0.5.0 独立版本化。知识数量以 manifest／`summary`／`stats` 为准；更正和取代通过带来源、日期与目标身份的资格记录处理，保留原始证据和历史发布。当前离线检查数量和分项见上文。10 月 18 日对照中，所测知识／时效与 helper 合同改善，技能引导的模型工程与评估任务持平；24 次 CLI 执行覆盖 12 个配对任务，每个任务每版仅一次。真实 API、生产质量及实际费用需另行测量，9 月未达整体优于标准的结论不因新增测试而改写。工作场景三轮对照经评分语义修正后，工程仅网关出现一次拒绝合同差异，其余工程／评测任务持平；政策题的引用支持有所改善。42 次主执行、6 次确认、评分器修正与工具配置偏差见[工作场景评估报告](reviews/2026-10-19-workplace/report.zh-CN.md)。
+当前知识 1.4.0、Engineering 0.4.1、Eval Improve 0.5.1 独立版本化。知识数量以 manifest／`summary`／`stats` 为准；更正和取代通过带来源、日期与目标身份的资格记录处理，保留原始证据和历史发布。当前离线检查数量和分项见上文。10 月 18 日对照中，所测知识／时效与 helper 合同改善，技能引导的模型工程与评估任务持平；24 次 CLI 执行覆盖 12 个配对任务，每个任务每版仅一次。真实 API、生产质量及实际费用需另行测量，9 月未达整体优于标准的结论不因新增测试而改写。工作场景三轮对照经评分语义修正后，工程仅网关出现一次拒绝合同差异，其余工程／评测任务持平；政策题的引用支持有所改善。42 次主执行、6 次确认、评分器修正与工具配置偏差见[工作场景评估报告](reviews/2026-10-19-workplace/report.zh-CN.md)。

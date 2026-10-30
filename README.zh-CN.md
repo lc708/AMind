@@ -25,7 +25,7 @@
 
 ## 60 秒开始
 
-AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering` 0.4.0](skills/amind-engineering/SKILL.md) 负责提示词审查、迁移、多代理合同、持久分阶段工作流及 13 个任务模板；[`eval-improve` 0.5.0](skills/eval-improve/SKILL.md) 负责应用／评分器评测、精确计费范围、评分器校准和严格比较。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装和中文用例见[系列说明](AMIND-SERIES.md)，实际实现与验证见[10 月 30 日应用更新报告](reviews/2026-10-30-update/report.zh-CN.md)。下方知识技能保留独立版本与资料边界。
+AMind 现已包含 **AI 工程与评测技能系列**：[`amind-engineering` 0.4.1](skills/amind-engineering/SKILL.md) 负责提示词审查、迁移、多代理合同、持久分阶段工作流及 13 个任务模板；[`eval-improve` 0.5.1](skills/eval-improve/SKILL.md) 负责应用／评分器评测、精确计费范围、评分器校准和严格比较。对象是 AI 产品及其行为，不要求产品使用 Codex harness；两者都无需 Claude。安装和中文用例见[系列说明](AMIND-SERIES.md)，实际实现与验证见[10 月 30 日应用更新报告](reviews/2026-10-30-update/report.zh-CN.md)。下方知识技能保留独立版本与资料边界。
 
 AMind **1.4.0** 的公开资料观察截止到 **2026-10-30**，补齐代理监督、架构、科学与治理研究、新产品／开发者博客及历史漏项，按具体命题更新当前回答资格，同时保留被更正或取代的历史证据。详见[10 月 30 日知识更新报告](release/amind-v1-increment-2026-10-30/reports/update.zh-CN.md)；[9 月 1.2.1 更新](release/amind-v1-increment-2026-09-08/reports/update.zh-CN.md)与原始 v1 继续作为历史快照保留。当前包的总量、哈希和截止日期以 [manifest](skills/amind/data/manifest.json)、`summary` 和 `stats` 命令为准；这不意味着已经配置周期联网更新。
 

@@ -22,7 +22,7 @@ The method references are [folding subagents](https://claude.com/resources/artic
 
 On 2026-10-30, compared the current source pin with the latest upstream commit, `ca45fc496a3436251f191354091d557da31c15b5` (2026-10-28). The `skills/claude-api` directory is identical at both revisions: all 96 files retain their Git blob identities, and the directory tree SHA is `523da4b0c36e7e79fcbf9e81e748e374efa3a6c1`. The [complete diff](https://github.com/anthropics/skills/compare/dbd4588f9e1033efb41dad4bef2f7947c8993d44...ca45fc496a3436251f191354091d557da31c15b5) changes only three files in `mcp-builder`; the existing [MCP version guidance](migration.md#mcp-typescript-sdk-versions) already covers version selection and links that update.
 
-No Engineering workflow or executable change is needed for this upstream delta. Version 0.4.0, the source pin, capability inventory and local enhancements are retained. This records source comparison, not a new live compatibility or model-quality evaluation.
+No Engineering workflow or executable change is needed for this upstream delta. Version 0.4.1 labels this documentation-only update; the source pin, capability inventory and local enhancements are retained. This records source comparison, not a new live compatibility or model-quality evaluation.
 
 ## Functional migration
 

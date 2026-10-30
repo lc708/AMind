@@ -3,7 +3,7 @@ name: eval-improve
 description: Build or audit evaluations for LLM applications, agents, and skills, then improve quality, cost, or latency through measured iterations. Use for evaluation datasets, grader calibration, prompt or skill optimization, and hillclimbing against a runnable evaluation. Ordinary unit tests and general code review do not require this skill.
 license: Apache-2.0; see LICENSE.txt and references/upstream.md
 metadata:
-  version: "0.5.0"
+  version: "0.5.1"
   series: "AMind"
 ---
 

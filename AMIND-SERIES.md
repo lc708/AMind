@@ -5,8 +5,8 @@ AMind now has a knowledge skill and two application skills. The application laye
 | Skill | Version | Purpose |
 |---|---|---|
 | [`amind`](skills/amind/SKILL.md) | 1.4.0 | Source-grounded judgment from public evidence observed through 2026-10-30, with dated eligibility and retained history |
-| [`amind-engineering`](skills/amind-engineering/SKILL.md) | 0.4.0 | Prompt/contract audits, migrations, native multi-agent contracts, durable phased work, 13 templates and cache/state diagnostics |
-| [`eval-improve`](skills/eval-improve/SKILL.md) | 0.5.0 | Application/grader runner, exact billing scope, judge calibration/drift, fixed stage coverage, persistent failure limits and strict comparison |
+| [`amind-engineering`](skills/amind-engineering/SKILL.md) | 0.4.1 | Prompt/contract audits, migrations, native multi-agent contracts, durable phased work, 13 templates and cache/state diagnostics |
+| [`eval-improve`](skills/eval-improve/SKILL.md) | 0.5.1 | Application/grader runner, exact billing scope, judge calibration/drift, fixed stage coverage, persistent failure limits and strict comparison |
 
 The evidence release and application skills have independent versions. Engineering instructions are not new evidence about Anthropic's public position. `eval-improve` keeps its existing invocation name and appears as **AMind Eval Improve** in skill UI metadata.
 
@@ -67,7 +67,7 @@ Three repetitions on work-like projects found one gateway-contract difference an
 
 The original raw execution files are preserved in [checksum-bound review archives](reviews/2026-10-19-shipping/README.md). Run `python3 -B scripts/restore_amind_review_artifacts.py --apply` before opening raw-run links in a fresh checkout; restoration copies regular files only and executes no captured code.
 
-当前版本为知识 1.4.0 / Engineering 0.4.0 / Eval Improve 0.5.0，离线检查数量和分项见上文。分阶段执行、多代理归属、费用身份、评分器、覆盖率和报告合同有本地回归；10 月 18 日对照记录了所测知识／时效与 helper 合同的改善，技能引导的模型工程与评估任务持平。24 次 CLI 任务执行覆盖 12 个配对任务，每个任务每版仅运行一次，不足以推出普遍优势。真实 API 兼容与生产质量、成本仍需另行验证；9 月未达到整体优于标准的结论保留。知识覆盖量与截止日期以独立 manifest 为准。工作场景三轮对照经评分语义修正后，工程仅网关出现一次拒绝合同差异，其余工程／评测任务持平；政策题的引用支持有所改善。42 次主执行、6 次确认、评分器修正与工具配置偏差见[工作场景评估报告](reviews/2026-10-19-workplace/report.zh-CN.md)。
+当前版本为知识 1.4.0 / Engineering 0.4.1 / Eval Improve 0.5.1，离线检查数量和分项见上文。分阶段执行、多代理归属、费用身份、评分器、覆盖率和报告合同有本地回归；10 月 18 日对照记录了所测知识／时效与 helper 合同的改善，技能引导的模型工程与评估任务持平。24 次 CLI 任务执行覆盖 12 个配对任务，每个任务每版仅运行一次，不足以推出普遍优势。真实 API 兼容与生产质量、成本仍需另行验证；9 月未达到整体优于标准的结论保留。知识覆盖量与截止日期以独立 manifest 为准。工作场景三轮对照经评分语义修正后，工程仅网关出现一次拒绝合同差异，其余工程／评测任务持平；政策题的引用支持有所改善。42 次主执行、6 次确认、评分器修正与工具配置偏差见[工作场景评估报告](reviews/2026-10-19-workplace/report.zh-CN.md)。
 
 ## October 30 update
 

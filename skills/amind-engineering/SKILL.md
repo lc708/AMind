@@ -3,7 +3,7 @@ name: amind-engineering
 description: Build and improve LLM applications, agents, prompts, and skills through concrete engineering contracts, executable diagnostics and measured experiments. Use for prompt audits, measured cost optimization, model or API migration, SDK upgrades, conversation-state migration, agent implementation, and routing evaluation or hillclimbing work to AMind Eval Improve. Use this AMind application skill for engineering work, not for retrieving Anthropic's public positions or ordinary non-AI code changes.
 license: Apache-2.0; see LICENSE.txt and NOTICE.txt
 metadata:
-  version: "0.4.0"
+  version: "0.4.1"
   series: "AMind"
 ---
 
